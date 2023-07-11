@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an environment type.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getEnvironmentType(args: GetEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentTypeResult> {
 
@@ -31,7 +31,7 @@ export interface GetEnvironmentTypeArgs {
      */
     environmentTypeName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -67,7 +67,7 @@ export interface GetEnvironmentTypeResult {
 }
 /**
  * Gets an environment type.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getEnvironmentTypeOutput(args: GetEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentType(a, opts))
@@ -83,7 +83,7 @@ export interface GetEnvironmentTypeOutputArgs {
      */
     environmentTypeName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

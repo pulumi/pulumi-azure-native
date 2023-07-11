@@ -144,7 +144,7 @@ class GetStorageApplianceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -287,7 +287,7 @@ def get_storage_appliance(resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageApplianceResult:
     """
     Get properties of the provided storage appliance.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -329,7 +329,7 @@ def get_storage_appliance_output(resource_group_name: Optional[pulumi.Input[str]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageApplianceResult]:
     """
     Get properties of the provided storage appliance.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

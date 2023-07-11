@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['VirtualNetworkGatewayNatRuleArgs', 'VirtualNetworkGatewayNatRule']
+__all__ = ['VirtualNetworkGatewayNatRuleInitArgs', 'VirtualNetworkGatewayNatRule']
 
 @pulumi.input_type
-class VirtualNetworkGatewayNatRuleArgs:
+class VirtualNetworkGatewayNatRuleInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_network_gateway_name: pulumi.Input[str],
@@ -198,7 +198,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
                  __props__=None):
         """
         VirtualNetworkGatewayNatRule Resource.
-        API Version: 2021-03-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,19 +217,19 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualNetworkGatewayNatRuleArgs,
+                 args: VirtualNetworkGatewayNatRuleInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualNetworkGatewayNatRule Resource.
-        API Version: 2021-03-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
-        :param VirtualNetworkGatewayNatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualNetworkGatewayNatRuleInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayNatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualNetworkGatewayNatRuleInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -255,7 +255,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualNetworkGatewayNatRuleArgs.__new__(VirtualNetworkGatewayNatRuleArgs)
+            __props__ = VirtualNetworkGatewayNatRuleInitArgs.__new__(VirtualNetworkGatewayNatRuleInitArgs)
 
             __props__.__dict__["external_mappings"] = external_mappings
             __props__.__dict__["id"] = id
@@ -273,7 +273,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
             __props__.__dict__["virtual_network_gateway_name"] = virtual_network_gateway_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGatewayNatRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetworkGatewayNatRule"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetworkGatewayNatRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkGatewayNatRule, __self__).__init__(
             'azure-native:network:VirtualNetworkGatewayNatRule',
@@ -295,7 +295,7 @@ class VirtualNetworkGatewayNatRule(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = VirtualNetworkGatewayNatRuleArgs.__new__(VirtualNetworkGatewayNatRuleArgs)
+        __props__ = VirtualNetworkGatewayNatRuleInitArgs.__new__(VirtualNetworkGatewayNatRuleInitArgs)
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["external_mappings"] = None

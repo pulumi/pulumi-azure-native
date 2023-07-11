@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
 {
 
     /// <summary>
-    /// Reference to an Azure Arc custom location resource.
+    /// Reference to an Azure Stack Edge device resource.
     /// </summary>
     [OutputType]
     public sealed class AzureStackEdgeDeviceResourceIdResponse

@@ -315,7 +315,7 @@ def get_role_assignment(assignment_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoleAssignmentResult:
     """
     Gets the role assignment in the hub.
-    API Version: 2017-04-26.
+    Azure REST API version: 2017-04-26.
 
 
     :param str assignment_name: The name of the role assignment.
@@ -362,7 +362,7 @@ def get_role_assignment_output(assignment_name: Optional[pulumi.Input[str]] = No
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Gets the role assignment in the hub.
-    API Version: 2017-04-26.
+    Azure REST API version: 2017-04-26.
 
 
     :param str assignment_name: The name of the role assignment.

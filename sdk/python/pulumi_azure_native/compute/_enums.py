@@ -5,13 +5,20 @@
 from enum import Enum
 
 __all__ = [
+    'Architecture',
     'CachingTypes',
+    'CloudServiceSlotType',
     'CloudServiceUpgradeMode',
     'ComponentNames',
+    'ConfidentialVMEncryptionType',
+    'ConsistencyModeTypes',
+    'CopyCompletionErrorReason',
+    'DataAccessAuthMode',
     'DedicatedHostLicenseTypes',
     'DeleteOptions',
     'DiffDiskOptions',
     'DiffDiskPlacement',
+    'DiskControllerTypes',
     'DiskCreateOption',
     'DiskCreateOptionTypes',
     'DiskDeleteOptionTypes',
@@ -20,8 +27,11 @@ __all__ = [
     'DiskEncryptionSetType',
     'DiskSecurityTypes',
     'DiskStorageAccountTypes',
+    'EdgeZoneStorageAccountType',
     'EncryptionType',
     'ExtendedLocationTypes',
+    'GalleryApplicationCustomActionParameterType',
+    'GalleryExtendedLocationType',
     'GallerySharingPermissionTypes',
     'HostCaching',
     'HyperVGeneration',
@@ -30,6 +40,7 @@ __all__ = [
     'IPVersions',
     'IntervalInMins',
     'LinuxPatchAssessmentMode',
+    'LinuxVMGuestPatchAutomaticByPlatformRebootSetting',
     'LinuxVMGuestPatchMode',
     'NetworkAccessPolicy',
     'NetworkApiVersion',
@@ -43,7 +54,12 @@ __all__ = [
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
     'PublicIPAllocationMethod',
+    'PublicNetworkAccess',
+    'RepairAction',
+    'ReplicationMode',
     'ResourceIdentityType',
+    'RestorePointEncryptionType',
+    'SecurityEncryptionTypes',
     'SecurityTypes',
     'SettingNames',
     'SnapshotStorageAccountTypes',
@@ -56,17 +72,36 @@ __all__ = [
     'VirtualMachineScaleSetScaleInRules',
     'VirtualMachineSizeTypes',
     'WindowsPatchAssessmentMode',
+    'WindowsVMGuestPatchAutomaticByPlatformRebootSetting',
     'WindowsVMGuestPatchMode',
 ]
 
 
+class Architecture(str, Enum):
+    """
+    CPU architecture supported by an OS disk.
+    """
+    X64 = "x64"
+    ARM64 = "Arm64"
+
+
 class CachingTypes(str, Enum):
     """
-    Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None** for Standard storage. **ReadOnly** for Premium storage.
+    Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
     """
     NONE = "None"
     READ_ONLY = "ReadOnly"
     READ_WRITE = "ReadWrite"
+
+
+class CloudServiceSlotType(str, Enum):
+    """
+    Slot type for the cloud service.
+    Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
+    If not specified, the default value is Production.
+    """
+    PRODUCTION = "Production"
+    STAGING = "Staging"
 
 
 class CloudServiceUpgradeMode(str, Enum):
@@ -87,9 +122,51 @@ class ComponentNames(str, Enum):
     MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
 
 
+class ConfidentialVMEncryptionType(str, Enum):
+    """
+    confidential VM encryption types
+    """
+    ENCRYPTED_VM_GUEST_STATE_ONLY_WITH_PMK = "EncryptedVMGuestStateOnlyWithPmk"
+    ENCRYPTED_WITH_PMK = "EncryptedWithPmk"
+    ENCRYPTED_WITH_CMK = "EncryptedWithCmk"
+
+
+class ConsistencyModeTypes(str, Enum):
+    """
+    ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+    """
+    CRASH_CONSISTENT = "CrashConsistent"
+    FILE_SYSTEM_CONSISTENT = "FileSystemConsistent"
+    APPLICATION_CONSISTENT = "ApplicationConsistent"
+
+
+class CopyCompletionErrorReason(str, Enum):
+    """
+    Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
+    """
+    COPY_SOURCE_NOT_FOUND = "CopySourceNotFound"
+    """
+    Indicates that the source snapshot was deleted while the background copy of the resource created via CopyStart operation was in progress.
+    """
+
+
+class DataAccessAuthMode(str, Enum):
+    """
+    Additional authentication requirements when exporting or uploading to a disk or snapshot.
+    """
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+    """
+    When export/upload URL is used, the system checks if the user has an identity in Azure Active Directory and has necessary permissions to export/upload the data. Please refer to aka.ms/DisksAzureADAuth.
+    """
+    NONE = "None"
+    """
+    No additional authentication would be performed when accessing export/upload URL.
+    """
+
+
 class DedicatedHostLicenseTypes(str, Enum):
     """
-    Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+    Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
     """
     NONE = "None"
     WINDOWS_SERVER_HYBRID = "Windows_Server_Hybrid"
@@ -113,10 +190,18 @@ class DiffDiskOptions(str, Enum):
 
 class DiffDiskPlacement(str, Enum):
     """
-    Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
     """
     CACHE_DISK = "CacheDisk"
     RESOURCE_DISK = "ResourceDisk"
+
+
+class DiskControllerTypes(str, Enum):
+    """
+    Specifies the disk controller type configured for the VM. **Note:** This property will be set to the default disk controller type if not specified provided virtual machine is being created with 'hyperVGeneration' set to V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. Minimum api-version: 2022-08-01.
+    """
+    SCSI = "SCSI"
+    NV_ME = "NVMe"
 
 
 class DiskCreateOption(str, Enum):
@@ -151,11 +236,23 @@ class DiskCreateOption(str, Enum):
     """
     Create a new disk by obtaining a write token and using it to directly upload the contents of the disk.
     """
+    COPY_START = "CopyStart"
+    """
+    Create a new disk by using a deep copy process, where the resource creation is considered complete only after all data has been copied from the source.
+    """
+    IMPORT_SECURE = "ImportSecure"
+    """
+    Similar to Import create option. Create a new Trusted Launch VM or Confidential VM supported disk by importing additional blob for VM guest state specified by securityDataUri in storage account specified by storageAccountId
+    """
+    UPLOAD_PREPARED_SECURE = "UploadPreparedSecure"
+    """
+    Similar to Upload create option. Create a new Trusted Launch VM or Confidential VM supported disk and upload using write token in both disk and VM guest state
+    """
 
 
 class DiskCreateOptionTypes(str, Enum):
     """
-    Specifies how the virtual machine should be created.<br><br> Possible values are:<br><br> **Attach** \\u2013 This value is used when you are using a specialized disk to create the virtual machine.<br><br> **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+    Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
     """
     FROM_IMAGE = "FromImage"
     EMPTY = "Empty"
@@ -164,7 +261,7 @@ class DiskCreateOptionTypes(str, Enum):
 
 class DiskDeleteOptionTypes(str, Enum):
     """
-    Specifies whether OS Disk should be deleted or detached upon VM deletion. <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VM is deleted.<br><br> **Detach** If this value is used, the os disk is retained after VM is deleted. <br><br> The default value is set to **detach**. For an ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for ephemeral OS Disk.
+    Specifies whether OS Disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the OS disk is deleted when VM is deleted. **Detach.** If this value is used, the os disk is retained after VM is deleted. The default value is set to **Detach**. For an ephemeral OS Disk, the default value is set to **Delete**. The user cannot change the delete option for an ephemeral OS Disk.
     """
     DELETE = "Delete"
     DETACH = "Detach"
@@ -172,7 +269,7 @@ class DiskDeleteOptionTypes(str, Enum):
 
 class DiskDetachOptionTypes(str, Enum):
     """
-    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach**. <br><br> detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. <br><br> This feature is still in preview mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+    Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
     """
     FORCE_DETACH = "ForceDetach"
 
@@ -182,6 +279,8 @@ class DiskEncryptionSetIdentityType(str, Enum):
     The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
 
 
@@ -197,6 +296,10 @@ class DiskEncryptionSetType(str, Enum):
     """
     Resource using diskEncryptionSet would be encrypted at rest with two layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
     """
+    CONFIDENTIAL_VM_ENCRYPTED_WITH_CUSTOMER_KEY = "ConfidentialVmEncryptedWithCustomerKey"
+    """
+    Confidential VM supported disk and VM guest state would be encrypted with customer managed key.
+    """
 
 
 class DiskSecurityTypes(str, Enum):
@@ -206,6 +309,18 @@ class DiskSecurityTypes(str, Enum):
     TRUSTED_LAUNCH = "TrustedLaunch"
     """
     Trusted Launch provides security features such as secure boot and virtual Trusted Platform Module (vTPM)
+    """
+    CONFIDENTIAL_V_M_VM_GUEST_STATE_ONLY_ENCRYPTED_WITH_PLATFORM_KEY = "ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey"
+    """
+    Indicates Confidential VM disk with only VM guest state encrypted
+    """
+    CONFIDENTIAL_V_M_DISK_ENCRYPTED_WITH_PLATFORM_KEY = "ConfidentialVM_DiskEncryptedWithPlatformKey"
+    """
+    Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a platform managed key
+    """
+    CONFIDENTIAL_V_M_DISK_ENCRYPTED_WITH_CUSTOMER_KEY = "ConfidentialVM_DiskEncryptedWithCustomerKey"
+    """
+    Indicates Confidential VM disk with both OS disk and VM guest state encrypted with a customer managed key
     """
 
 
@@ -237,6 +352,20 @@ class DiskStorageAccountTypes(str, Enum):
     """
     Standard SSD zone redundant storage. Best for web servers, lightly used enterprise applications and dev/test that need storage resiliency against zone failures.
     """
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
+    """
+    Premium SSD v2 locally redundant storage. Best for production and performance-sensitive workloads that consistently require low latency and high IOPS and throughput.
+    """
+
+
+class EdgeZoneStorageAccountType(str, Enum):
+    """
+    Specifies the storage account type to be used to store the image. This property is not updatable.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    STANDARD_ZRS = "Standard_ZRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    PREMIUM_LRS = "Premium_LRS"
 
 
 class EncryptionType(str, Enum):
@@ -264,12 +393,30 @@ class ExtendedLocationTypes(str, Enum):
     EDGE_ZONE = "EdgeZone"
 
 
+class GalleryApplicationCustomActionParameterType(str, Enum):
+    """
+    Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
+    """
+    STRING = "String"
+    CONFIGURATION_DATA_BLOB = "ConfigurationDataBlob"
+    LOG_OUTPUT_BLOB = "LogOutputBlob"
+
+
+class GalleryExtendedLocationType(str, Enum):
+    """
+    It is type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+    UNKNOWN = "Unknown"
+
+
 class GallerySharingPermissionTypes(str, Enum):
     """
-    This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
+    This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**
     """
     PRIVATE = "Private"
     GROUPS = "Groups"
+    COMMUNITY = "Community"
 
 
 class HostCaching(str, Enum):
@@ -331,6 +478,16 @@ class LinuxPatchAssessmentMode(str, Enum):
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
 
 
+class LinuxVMGuestPatchAutomaticByPlatformRebootSetting(str, Enum):
+    """
+    Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    """
+    UNKNOWN = "Unknown"
+    IF_REQUIRED = "IfRequired"
+    NEVER = "Never"
+    ALWAYS = "Always"
+
+
 class LinuxVMGuestPatchMode(str, Enum):
     """
     Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
@@ -366,7 +523,7 @@ class NetworkApiVersion(str, Enum):
 
 class OperatingSystemStateTypes(str, Enum):
     """
-    The OS State.
+    The OS State. For managed images, use Generalized.
     """
     GENERALIZED = "Generalized"
     """
@@ -380,7 +537,7 @@ class OperatingSystemStateTypes(str, Enum):
 
 class OperatingSystemTypes(str, Enum):
     """
-    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
     """
     WINDOWS = "Windows"
     LINUX = "Linux"
@@ -412,7 +569,7 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
 
 class ProtocolTypes(str, Enum):
     """
-    Specifies the protocol of WinRM listener. <br><br> Possible values are: <br>**http** <br><br> **https**
+    Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
     """
     HTTP = "Http"
     HTTPS = "Https"
@@ -420,7 +577,7 @@ class ProtocolTypes(str, Enum):
 
 class ProximityPlacementGroupType(str, Enum):
     """
-    Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+    Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
     """
     STANDARD = "Standard"
     ULTRA = "Ultra"
@@ -450,9 +607,40 @@ class PublicIPAllocationMethod(str, Enum):
     STATIC = "Static"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    Policy for controlling export on the disk.
+    """
+    ENABLED = "Enabled"
+    """
+    You can generate a SAS URI to access the underlying data of the disk publicly on the internet when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+    """
+    DISABLED = "Disabled"
+    """
+    You cannot access the underlying data of the disk publicly on the internet even when NetworkAccessPolicy is set to AllowAll. You can access the data via the SAS URI only from your trusted Azure VNET when NetworkAccessPolicy is set to AllowPrivate.
+    """
+
+
+class RepairAction(str, Enum):
+    """
+    Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+    """
+    REPLACE = "Replace"
+    RESTART = "Restart"
+    REIMAGE = "Reimage"
+
+
+class ReplicationMode(str, Enum):
+    """
+    Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+    """
+    FULL = "Full"
+    SHALLOW = "Shallow"
+
+
 class ResourceIdentityType(str, Enum):
     """
-    The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+    The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
@@ -460,11 +648,38 @@ class ResourceIdentityType(str, Enum):
     NONE = "None"
 
 
+class RestorePointEncryptionType(str, Enum):
+    """
+    The type of key used to encrypt the data of the disk restore point.
+    """
+    ENCRYPTION_AT_REST_WITH_PLATFORM_KEY = "EncryptionAtRestWithPlatformKey"
+    """
+    Disk Restore Point is encrypted at rest with Platform managed key. 
+    """
+    ENCRYPTION_AT_REST_WITH_CUSTOMER_KEY = "EncryptionAtRestWithCustomerKey"
+    """
+    Disk Restore Point is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
+    """
+    ENCRYPTION_AT_REST_WITH_PLATFORM_AND_CUSTOMER_KEYS = "EncryptionAtRestWithPlatformAndCustomerKeys"
+    """
+    Disk Restore Point is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
+    """
+
+
+class SecurityEncryptionTypes(str, Enum):
+    """
+    Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
+    """
+    VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
+    DISK_WITH_VM_GUEST_STATE = "DiskWithVMGuestState"
+
+
 class SecurityTypes(str, Enum):
     """
-    Specifies the SecurityType of the virtual machine. It is set as TrustedLaunch to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set as TrustedLaunch.
+    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
     """
     TRUSTED_LAUNCH = "TrustedLaunch"
+    CONFIDENTIAL_VM = "ConfidentialVM"
 
 
 class SettingNames(str, Enum):
@@ -513,7 +728,7 @@ class StorageAccountType(str, Enum):
 
 class StorageAccountTypes(str, Enum):
     """
-    Specifies the storage account type for the managed disk. Managed OS disk storage account type can only be set when you create the scale set. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+    Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
     """
     STANDARD_LRS = "Standard_LRS"
     PREMIUM_LRS = "Premium_LRS"
@@ -521,6 +736,7 @@ class StorageAccountTypes(str, Enum):
     ULTRA_SS_D_LRS = "UltraSSD_LRS"
     PREMIUM_ZRS = "Premium_ZRS"
     STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
 class UpgradeMode(str, Enum):
@@ -534,7 +750,7 @@ class UpgradeMode(str, Enum):
 
 class VirtualMachineEvictionPolicyTypes(str, Enum):
     """
-    Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+    Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
     """
     DEALLOCATE = "Deallocate"
     DELETE = "Delete"
@@ -542,7 +758,7 @@ class VirtualMachineEvictionPolicyTypes(str, Enum):
 
 class VirtualMachinePriorityTypes(str, Enum):
     """
-    Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
+    Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
     """
     REGULAR = "Regular"
     LOW = "Low"
@@ -557,7 +773,7 @@ class VirtualMachineScaleSetScaleInRules(str, Enum):
 
 class VirtualMachineSizeTypes(str, Enum):
     """
-    Specifies the size of the virtual machine. <br><br> The enum data type is currently deprecated and will be removed by December 23rd 2023. <br><br> Recommended way to get the list of available sizes is using these APIs: <br><br> [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes) <br><br> [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list) <br><br> [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). <br><br> The available VM sizes depend on region and availability set.
+    Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
     """
     BASIC_A0 = "Basic_A0"
     BASIC_A1 = "Basic_A1"
@@ -733,6 +949,16 @@ class WindowsPatchAssessmentMode(str, Enum):
     """
     IMAGE_DEFAULT = "ImageDefault"
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(str, Enum):
+    """
+    Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    """
+    UNKNOWN = "Unknown"
+    IF_REQUIRED = "IfRequired"
+    NEVER = "Never"
+    ALWAYS = "Always"
 
 
 class WindowsVMGuestPatchMode(str, Enum):

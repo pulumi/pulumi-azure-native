@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cluster details.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -39,13 +39,21 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Object id of cluster AAD identity.
+     */
+    public readonly aadApplicationObjectId!: pulumi.Output<string | undefined>;
+    /**
      * App id of cluster AAD identity.
      */
-    public readonly aadClientId!: pulumi.Output<string>;
+    public readonly aadClientId!: pulumi.Output<string | undefined>;
+    /**
+     * Id of cluster identity service principal.
+     */
+    public readonly aadServicePrincipalObjectId!: pulumi.Output<string | undefined>;
     /**
      * Tenant id of cluster AAD identity.
      */
-    public readonly aadTenantId!: pulumi.Output<string>;
+    public readonly aadTenantId!: pulumi.Output<string | undefined>;
     /**
      * Type of billing applied to the resource.
      */
@@ -55,33 +63,17 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudId!: pulumi.Output<string>;
     /**
-     * The timestamp of resource creation (UTC).
+     * Endpoint configured for management from the Azure portal.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    public readonly cloudManagementEndpoint!: pulumi.Output<string | undefined>;
     /**
-     * The identity that created the resource.
+     * Desired properties of the cluster.
      */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
+    public readonly desiredProperties!: pulumi.Output<outputs.azurestackhci.ClusterDesiredPropertiesResponse | undefined>;
     /**
      * Most recent billing meter timestamp.
      */
     public /*out*/ readonly lastBillingTimestamp!: pulumi.Output<string>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
      * Most recent cluster sync timestamp.
      */
@@ -95,6 +87,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+     */
+    public /*out*/ readonly principalId!: pulumi.Output<string>;
+    /**
      * Provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
@@ -105,15 +101,35 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Properties reported by cluster agent.
      */
-    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.ClusterReportedPropertiesResponse | undefined>;
+    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.ClusterReportedPropertiesResponse>;
+    /**
+     * Object id of RP Service Principal
+     */
+    public /*out*/ readonly resourceProviderObjectId!: pulumi.Output<string>;
+    /**
+     * Region specific DataPath Endpoint of the cluster.
+     */
+    public /*out*/ readonly serviceEndpoint!: pulumi.Output<string>;
+    /**
+     * Software Assurance properties of the cluster.
+     */
+    public readonly softwareAssuranceProperties!: pulumi.Output<outputs.azurestackhci.SoftwareAssurancePropertiesResponse | undefined>;
     /**
      * Status of the cluster agent.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+     */
+    public /*out*/ readonly tenantId!: pulumi.Output<string>;
     /**
      * Number of days remaining in the trial period.
      */
@@ -121,7 +137,11 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
+    /**
+     * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+     */
+    public readonly userAssignedIdentities!: pulumi.Output<{[key: string]: outputs.azurestackhci.UserAssignedIdentityResponse} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -134,63 +154,70 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aadClientId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aadClientId'");
-            }
-            if ((!args || args.aadTenantId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'aadTenantId'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.type === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'type'");
+            }
+            resourceInputs["aadApplicationObjectId"] = args ? args.aadApplicationObjectId : undefined;
             resourceInputs["aadClientId"] = args ? args.aadClientId : undefined;
+            resourceInputs["aadServicePrincipalObjectId"] = args ? args.aadServicePrincipalObjectId : undefined;
             resourceInputs["aadTenantId"] = args ? args.aadTenantId : undefined;
+            resourceInputs["cloudManagementEndpoint"] = args ? args.cloudManagementEndpoint : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["desiredProperties"] = args ? args.desiredProperties : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["softwareAssuranceProperties"] = args ? args.softwareAssuranceProperties : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["userAssignedIdentities"] = args ? args.userAssignedIdentities : undefined;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
             resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
             resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimestamp"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
+            resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
+            resourceInputs["serviceEndpoint"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["trialDaysRemaining"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["aadApplicationObjectId"] = undefined /*out*/;
             resourceInputs["aadClientId"] = undefined /*out*/;
+            resourceInputs["aadServicePrincipalObjectId"] = undefined /*out*/;
             resourceInputs["aadTenantId"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
+            resourceInputs["cloudManagementEndpoint"] = undefined /*out*/;
+            resourceInputs["desiredProperties"] = undefined /*out*/;
             resourceInputs["lastBillingTimestamp"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["lastSyncTimestamp"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimestamp"] = undefined /*out*/;
             resourceInputs["reportedProperties"] = undefined /*out*/;
+            resourceInputs["resourceProviderObjectId"] = undefined /*out*/;
+            resourceInputs["serviceEndpoint"] = undefined /*out*/;
+            resourceInputs["softwareAssuranceProperties"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["trialDaysRemaining"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["userAssignedIdentities"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20200301preview:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-native:azurestackhci/v20210101preview:Cluster" }, { type: "azure-native:azurestackhci/v20210901:Cluster" }, { type: "azure-native:azurestackhci/v20210901preview:Cluster" }, { type: "azure-native:azurestackhci/v20220101:Cluster" }, { type: "azure-native:azurestackhci/v20220301:Cluster" }, { type: "azure-native:azurestackhci/v20220501:Cluster" }, { type: "azure-native:azurestackhci/v20220901:Cluster" }, { type: "azure-native:azurestackhci/v20221001:Cluster" }, { type: "azure-native:azurestackhci/v20221201:Cluster" }, { type: "azure-native:azurestackhci/v20230201:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20200301preview:Cluster" }, { type: "azure-native:azurestackhci/v20201001:Cluster" }, { type: "azure-native:azurestackhci/v20210101preview:Cluster" }, { type: "azure-native:azurestackhci/v20210901:Cluster" }, { type: "azure-native:azurestackhci/v20210901preview:Cluster" }, { type: "azure-native:azurestackhci/v20220101:Cluster" }, { type: "azure-native:azurestackhci/v20220301:Cluster" }, { type: "azure-native:azurestackhci/v20220501:Cluster" }, { type: "azure-native:azurestackhci/v20220901:Cluster" }, { type: "azure-native:azurestackhci/v20221001:Cluster" }, { type: "azure-native:azurestackhci/v20221201:Cluster" }, { type: "azure-native:azurestackhci/v20221215preview:Cluster" }, { type: "azure-native:azurestackhci/v20230201:Cluster" }, { type: "azure-native:azurestackhci/v20230301:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -201,41 +228,33 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * Object id of cluster AAD identity.
+     */
+    aadApplicationObjectId?: pulumi.Input<string>;
+    /**
      * App id of cluster AAD identity.
      */
-    aadClientId: pulumi.Input<string>;
+    aadClientId?: pulumi.Input<string>;
+    /**
+     * Id of cluster identity service principal.
+     */
+    aadServicePrincipalObjectId?: pulumi.Input<string>;
     /**
      * Tenant id of cluster AAD identity.
      */
-    aadTenantId: pulumi.Input<string>;
+    aadTenantId?: pulumi.Input<string>;
+    /**
+     * Endpoint configured for management from the Azure portal.
+     */
+    cloudManagementEndpoint?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * The timestamp of resource creation (UTC).
+     * Desired properties of the cluster.
      */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
+    desiredProperties?: pulumi.Input<inputs.azurestackhci.ClusterDesiredPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -245,7 +264,19 @@ export interface ClusterArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Software Assurance properties of the cluster.
+     */
+    softwareAssuranceProperties?: pulumi.Input<inputs.azurestackhci.SoftwareAssurancePropertiesArgs>;
+    /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+     */
+    type: pulumi.Input<string | enums.azurestackhci.ManagedServiceIdentityType>;
+    /**
+     * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+     */
+    userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
 }

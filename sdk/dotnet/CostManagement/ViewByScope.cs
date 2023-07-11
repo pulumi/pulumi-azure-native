@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
-    /// API Version: 2019-11-01.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ViewByScope")]
     public partial class ViewByScope : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Selected currency.
+        /// Currency of the current view.
         /// </summary>
         [Output("currency")]
         public Output<string> Currency { get; private set; } = null!;
@@ -47,10 +47,10 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.ReportConfigDatasetResponse?> DataSet { get; private set; } = null!;
 
         /// <summary>
-        /// Selected date range for viewing cost in.
+        /// Date range of the current view.
         /// </summary>
         [Output("dateRange")]
-        public Output<string> DateRange { get; private set; } = null!;
+        public Output<string?> DateRange { get; private set; } = null!;
 
         /// <summary>
         /// User input name of the view. Required.
@@ -65,10 +65,10 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string?> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// Include monetary commitment
+        /// If true, report includes monetary commitment.
         /// </summary>
         [Output("includeMonetaryCommitment")]
-        public Output<bool> IncludeMonetaryCommitment { get; private set; } = null!;
+        public Output<bool?> IncludeMonetaryCommitment { get; private set; } = null!;
 
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// Date when the user last modified this view.
         /// </summary>
         [Output("modifiedOn")]
-        public Output<string> ModifiedOn { get; private set; } = null!;
+        public Output<string?> ModifiedOn { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -157,6 +157,8 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:ViewByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001preview:ViewByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ViewByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -199,6 +201,12 @@ namespace Pulumi.AzureNative.CostManagement
         public Input<Inputs.ReportConfigDatasetArgs>? DataSet { get; set; }
 
         /// <summary>
+        /// Date range of the current view.
+        /// </summary>
+        [Input("dateRange")]
+        public Input<string>? DateRange { get; set; }
+
+        /// <summary>
         /// User input name of the view. Required.
         /// </summary>
         [Input("displayName")]
@@ -209,6 +217,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// If true, report includes monetary commitment.
+        /// </summary>
+        [Input("includeMonetaryCommitment")]
+        public Input<bool>? IncludeMonetaryCommitment { get; set; }
 
         [Input("kpis")]
         private InputList<Inputs.KpiPropertiesArgs>? _kpis;
@@ -227,6 +241,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("metric")]
         public InputUnion<string, Pulumi.AzureNative.CostManagement.MetricType>? Metric { get; set; }
+
+        /// <summary>
+        /// Date when the user last modified this view.
+        /// </summary>
+        [Input("modifiedOn")]
+        public Input<string>? ModifiedOn { get; set; }
 
         [Input("pivots")]
         private InputList<Inputs.PivotPropertiesArgs>? _pivots;

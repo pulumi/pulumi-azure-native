@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevHub
 {
     /// <summary>
     /// Resource representation of a workflow
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
@@ -29,6 +29,12 @@ namespace Pulumi.AzureNative.DevHub
         public Output<string?> AksResourceId { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the app.
+        /// </summary>
+        [Output("appName")]
+        public Output<string?> AppName { get; private set; } = null!;
+
+        /// <summary>
         /// Determines the authorization status of requests.
         /// </summary>
         [Output("authStatus")]
@@ -39,6 +45,12 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Output("branchName")]
         public Output<string?> BranchName { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the language image used for building the code in the generated dockerfile.
+        /// </summary>
+        [Output("builderVersion")]
+        public Output<string?> BuilderVersion { get; private set; } = null!;
 
         [Output("deploymentProperties")]
         public Output<Outputs.DeploymentPropertiesResponse?> DeploymentProperties { get; private set; } = null!;
@@ -55,6 +67,42 @@ namespace Pulumi.AzureNative.DevHub
         [Output("dockerfile")]
         public Output<string?> Dockerfile { get; private set; } = null!;
 
+        /// <summary>
+        /// The mode of generation to be used for generating Dockerfiles.
+        /// </summary>
+        [Output("dockerfileGenerationMode")]
+        public Output<string?> DockerfileGenerationMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The directory to output the generated Dockerfile to.
+        /// </summary>
+        [Output("dockerfileOutputDirectory")]
+        public Output<string?> DockerfileOutputDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// The programming language used.
+        /// </summary>
+        [Output("generationLanguage")]
+        public Output<string?> GenerationLanguage { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the image to be generated.
+        /// </summary>
+        [Output("imageName")]
+        public Output<string?> ImageName { get; private set; } = null!;
+
+        /// <summary>
+        /// The tag to apply to the generated image.
+        /// </summary>
+        [Output("imageTag")]
+        public Output<string?> ImageTag { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the language image used for execution in the generated dockerfile.
+        /// </summary>
+        [Output("languageVersion")]
+        public Output<string?> LanguageVersion { get; private set; } = null!;
+
         [Output("lastWorkflowRun")]
         public Output<Outputs.WorkflowRunResponse?> LastWorkflowRun { get; private set; } = null!;
 
@@ -63,6 +111,24 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The mode of generation to be used for generating Manifest.
+        /// </summary>
+        [Output("manifestGenerationMode")]
+        public Output<string?> ManifestGenerationMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The directory to output the generated manifests to.
+        /// </summary>
+        [Output("manifestOutputDirectory")]
+        public Output<string?> ManifestOutputDirectory { get; private set; } = null!;
+
+        /// <summary>
+        /// Determines the type of manifests to be generated.
+        /// </summary>
+        [Output("manifestType")]
+        public Output<string?> ManifestType { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -81,6 +147,12 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Output("oidcCredentials")]
         public Output<Outputs.GitHubWorkflowProfileResponseOidcCredentials?> OidcCredentials { get; private set; } = null!;
+
+        /// <summary>
+        /// The port the application is exposed on.
+        /// </summary>
+        [Output("port")]
+        public Output<string?> Port { get; private set; } = null!;
 
         /// <summary>
         /// The status of the Pull Request submitted against the users repository.
@@ -193,10 +265,22 @@ namespace Pulumi.AzureNative.DevHub
         public Input<string>? AksResourceId { get; set; }
 
         /// <summary>
+        /// The name of the app.
+        /// </summary>
+        [Input("appName")]
+        public Input<string>? AppName { get; set; }
+
+        /// <summary>
         /// Repository Branch Name
         /// </summary>
         [Input("branchName")]
         public Input<string>? BranchName { get; set; }
+
+        /// <summary>
+        /// The version of the language image used for building the code in the generated dockerfile.
+        /// </summary>
+        [Input("builderVersion")]
+        public Input<string>? BuilderVersion { get; set; }
 
         [Input("deploymentProperties")]
         public Input<Inputs.DeploymentPropertiesArgs>? DeploymentProperties { get; set; }
@@ -214,10 +298,67 @@ namespace Pulumi.AzureNative.DevHub
         public Input<string>? Dockerfile { get; set; }
 
         /// <summary>
+        /// The mode of generation to be used for generating Dockerfiles.
+        /// </summary>
+        [Input("dockerfileGenerationMode")]
+        public InputUnion<string, Pulumi.AzureNative.DevHub.DockerfileGenerationMode>? DockerfileGenerationMode { get; set; }
+
+        /// <summary>
+        /// The directory to output the generated Dockerfile to.
+        /// </summary>
+        [Input("dockerfileOutputDirectory")]
+        public Input<string>? DockerfileOutputDirectory { get; set; }
+
+        /// <summary>
+        /// The programming language used.
+        /// </summary>
+        [Input("generationLanguage")]
+        public InputUnion<string, Pulumi.AzureNative.DevHub.GenerationLanguage>? GenerationLanguage { get; set; }
+
+        /// <summary>
+        /// The name of the image to be generated.
+        /// </summary>
+        [Input("imageName")]
+        public Input<string>? ImageName { get; set; }
+
+        /// <summary>
+        /// The tag to apply to the generated image.
+        /// </summary>
+        [Input("imageTag")]
+        public Input<string>? ImageTag { get; set; }
+
+        /// <summary>
+        /// The version of the language image used for execution in the generated dockerfile.
+        /// </summary>
+        [Input("languageVersion")]
+        public Input<string>? LanguageVersion { get; set; }
+
+        [Input("lastWorkflowRun")]
+        public Input<Inputs.WorkflowRunArgs>? LastWorkflowRun { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The mode of generation to be used for generating Manifest.
+        /// </summary>
+        [Input("manifestGenerationMode")]
+        public InputUnion<string, Pulumi.AzureNative.DevHub.ManifestGenerationMode>? ManifestGenerationMode { get; set; }
+
+        /// <summary>
+        /// The directory to output the generated manifests to.
+        /// </summary>
+        [Input("manifestOutputDirectory")]
+        public Input<string>? ManifestOutputDirectory { get; set; }
+
+        /// <summary>
+        /// Determines the type of manifests to be generated.
+        /// </summary>
+        [Input("manifestType")]
+        public InputUnion<string, Pulumi.AzureNative.DevHub.GenerationManifestType>? ManifestType { get; set; }
 
         /// <summary>
         /// Kubernetes namespace the application is deployed to.
@@ -230,6 +371,12 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         [Input("oidcCredentials")]
         public Input<Inputs.GitHubWorkflowProfileOidcCredentialsArgs>? OidcCredentials { get; set; }
+
+        /// <summary>
+        /// The port the application is exposed on.
+        /// </summary>
+        [Input("port")]
+        public Input<string>? Port { get; set; }
 
         /// <summary>
         /// Repository Name

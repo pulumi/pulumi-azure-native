@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a hybrid machine.
- * API Version: 2020-08-02.
+ * Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02
  */
 export class Machine extends pulumi.CustomResource {
     /**
@@ -43,6 +43,14 @@ export class Machine extends pulumi.CustomResource {
      */
     public /*out*/ readonly adFqdn!: pulumi.Output<string>;
     /**
+     * Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
+     */
+    public /*out*/ readonly agentConfiguration!: pulumi.Output<outputs.hybridcompute.AgentConfigurationResponse>;
+    /**
+     * The info of the machine w.r.t Agent Upgrade
+     */
+    public readonly agentUpgrade!: pulumi.Output<outputs.hybridcompute.AgentUpgradeResponse | undefined>;
+    /**
      * The hybrid machine agent full version.
      */
     public /*out*/ readonly agentVersion!: pulumi.Output<string>;
@@ -50,6 +58,14 @@ export class Machine extends pulumi.CustomResource {
      * Public Key that the client provides to be used during initial resource onboarding
      */
     public readonly clientPublicKey!: pulumi.Output<string | undefined>;
+    /**
+     * The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
+     */
+    public /*out*/ readonly cloudMetadata!: pulumi.Output<outputs.hybridcompute.CloudMetadataResponse | undefined>;
+    /**
+     * Detected properties from the machine.
+     */
+    public /*out*/ readonly detectedProperties!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the hybrid machine display name.
      */
@@ -67,10 +83,13 @@ export class Machine extends pulumi.CustomResource {
      */
     public /*out*/ readonly errorDetails!: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse[]>;
     /**
-     * Machine Extensions information
+     * Machine Extensions information (deprecated field)
      */
-    public /*out*/ readonly extensions!: pulumi.Output<outputs.hybridcompute.MachineExtensionInstanceViewResponse[]>;
-    public readonly identity!: pulumi.Output<outputs.hybridcompute.MachineResponseIdentity | undefined>;
+    public readonly extensions!: pulumi.Output<outputs.hybridcompute.MachineExtensionInstanceViewResponse[] | undefined>;
+    /**
+     * Identity for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.hybridcompute.IdentityResponse | undefined>;
     /**
      * The time of the last status change.
      */
@@ -88,9 +107,13 @@ export class Machine extends pulumi.CustomResource {
      */
     public /*out*/ readonly machineFqdn!: pulumi.Output<string>;
     /**
+     * Specifies whether any MS SQL instance is discovered on the machine.
+     */
+    public readonly mssqlDiscovered!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The Operating System running on the hybrid machine.
      */
@@ -98,23 +121,47 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    public /*out*/ readonly osProfile!: pulumi.Output<outputs.hybridcompute.MachinePropertiesResponseOsProfile | undefined>;
+    public readonly osProfile!: pulumi.Output<outputs.hybridcompute.OSProfileResponse | undefined>;
     /**
      * Specifies the Operating System product SKU.
      */
     public /*out*/ readonly osSku!: pulumi.Output<string>;
     /**
+     * The type of Operating System (windows/linux).
+     */
+    public readonly osType!: pulumi.Output<string | undefined>;
+    /**
      * The version of Operating System running on the hybrid machine.
      */
     public /*out*/ readonly osVersion!: pulumi.Output<string>;
+    /**
+     * The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+     */
+    public readonly parentClusterResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The resource id of the private link scope this machine is assigned to, if any.
+     */
+    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * The list of extensions affiliated to the machine
+     */
+    public /*out*/ readonly resources!: pulumi.Output<outputs.hybridcompute.MachineExtensionResponse[]>;
+    /**
+     * Statuses of dependent services that are reported back to ARM.
+     */
+    public readonly serviceStatuses!: pulumi.Output<outputs.hybridcompute.ServiceStatusesResponse | undefined>;
+    /**
      * The status of the hybrid machine agent.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -146,35 +193,51 @@ export class Machine extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["agentUpgrade"] = args ? args.agentUpgrade : undefined;
             resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
+            resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["locationData"] = args ? args.locationData : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["machineName"] = args ? args.machineName : undefined;
+            resourceInputs["mssqlDiscovered"] = args ? args.mssqlDiscovered : undefined;
+            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
+            resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["parentClusterResourceId"] = args ? args.parentClusterResourceId : undefined;
+            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["serviceStatuses"] = args ? args.serviceStatuses : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vmId"] = args ? args.vmId : undefined;
             resourceInputs["adFqdn"] = undefined /*out*/;
+            resourceInputs["agentConfiguration"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
+            resourceInputs["cloudMetadata"] = undefined /*out*/;
+            resourceInputs["detectedProperties"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["dnsFqdn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
             resourceInputs["errorDetails"] = undefined /*out*/;
-            resourceInputs["extensions"] = undefined /*out*/;
             resourceInputs["lastStatusChange"] = undefined /*out*/;
             resourceInputs["machineFqdn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osName"] = undefined /*out*/;
-            resourceInputs["osProfile"] = undefined /*out*/;
             resourceInputs["osSku"] = undefined /*out*/;
             resourceInputs["osVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmUuid"] = undefined /*out*/;
         } else {
             resourceInputs["adFqdn"] = undefined /*out*/;
+            resourceInputs["agentConfiguration"] = undefined /*out*/;
+            resourceInputs["agentUpgrade"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
             resourceInputs["clientPublicKey"] = undefined /*out*/;
+            resourceInputs["cloudMetadata"] = undefined /*out*/;
+            resourceInputs["detectedProperties"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["dnsFqdn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -185,20 +248,27 @@ export class Machine extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["locationData"] = undefined /*out*/;
             resourceInputs["machineFqdn"] = undefined /*out*/;
+            resourceInputs["mssqlDiscovered"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["osName"] = undefined /*out*/;
             resourceInputs["osProfile"] = undefined /*out*/;
             resourceInputs["osSku"] = undefined /*out*/;
+            resourceInputs["osType"] = undefined /*out*/;
             resourceInputs["osVersion"] = undefined /*out*/;
+            resourceInputs["parentClusterResourceId"] = undefined /*out*/;
+            resourceInputs["privateLinkScopeResourceId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["serviceStatuses"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["vmId"] = undefined /*out*/;
             resourceInputs["vmUuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190318preview:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }, { type: "azure-native:hybridcompute/v20211210preview:Machine" }, { type: "azure-native:hybridcompute/v20220310:Machine" }, { type: "azure-native:hybridcompute/v20220510preview:Machine" }, { type: "azure-native:hybridcompute/v20220811preview:Machine" }, { type: "azure-native:hybridcompute/v20221110:Machine" }, { type: "azure-native:hybridcompute/v20221227:Machine" }, { type: "azure-native:hybridcompute/v20221227preview:Machine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute/v20190318preview:Machine" }, { type: "azure-native:hybridcompute/v20190802preview:Machine" }, { type: "azure-native:hybridcompute/v20191212:Machine" }, { type: "azure-native:hybridcompute/v20200730preview:Machine" }, { type: "azure-native:hybridcompute/v20200802:Machine" }, { type: "azure-native:hybridcompute/v20200815preview:Machine" }, { type: "azure-native:hybridcompute/v20210128preview:Machine" }, { type: "azure-native:hybridcompute/v20210325preview:Machine" }, { type: "azure-native:hybridcompute/v20210422preview:Machine" }, { type: "azure-native:hybridcompute/v20210517preview:Machine" }, { type: "azure-native:hybridcompute/v20210520:Machine" }, { type: "azure-native:hybridcompute/v20210610preview:Machine" }, { type: "azure-native:hybridcompute/v20211210preview:Machine" }, { type: "azure-native:hybridcompute/v20220310:Machine" }, { type: "azure-native:hybridcompute/v20220510preview:Machine" }, { type: "azure-native:hybridcompute/v20220811preview:Machine" }, { type: "azure-native:hybridcompute/v20221110:Machine" }, { type: "azure-native:hybridcompute/v20221227:Machine" }, { type: "azure-native:hybridcompute/v20221227preview:Machine" }, { type: "azure-native:hybridcompute/v20230315preview:Machine" }, { type: "azure-native:hybridcompute/v20230425preview:Machine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Machine.__pulumiType, name, resourceInputs, opts);
     }
@@ -209,10 +279,21 @@ export class Machine extends pulumi.CustomResource {
  */
 export interface MachineArgs {
     /**
+     * The info of the machine w.r.t Agent Upgrade
+     */
+    agentUpgrade?: pulumi.Input<inputs.hybridcompute.AgentUpgradeArgs>;
+    /**
      * Public Key that the client provides to be used during initial resource onboarding
      */
     clientPublicKey?: pulumi.Input<string>;
-    identity?: pulumi.Input<inputs.hybridcompute.MachineIdentityArgs>;
+    /**
+     * Machine Extensions information (deprecated field)
+     */
+    extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.MachineExtensionInstanceViewArgs>[]>;
+    /**
+     * Identity for the resource.
+     */
+    identity?: pulumi.Input<inputs.hybridcompute.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
@@ -224,11 +305,35 @@ export interface MachineArgs {
     /**
      * The name of the hybrid machine.
      */
-    name?: pulumi.Input<string>;
+    machineName?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * Specifies whether any MS SQL instance is discovered on the machine.
+     */
+    mssqlDiscovered?: pulumi.Input<string>;
+    /**
+     * Specifies the operating system settings for the hybrid machine.
+     */
+    osProfile?: pulumi.Input<inputs.hybridcompute.OSProfileArgs>;
+    /**
+     * The type of Operating System (windows/linux).
+     */
+    osType?: pulumi.Input<string>;
+    /**
+     * The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
+     */
+    parentClusterResourceId?: pulumi.Input<string>;
+    /**
+     * The resource id of the private link scope this machine is assigned to, if any.
+     */
+    privateLinkScopeResourceId?: pulumi.Input<string>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Statuses of dependent services that are reported back to ARM.
+     */
+    serviceStatuses?: pulumi.Input<inputs.hybridcompute.ServiceStatusesArgs>;
     /**
      * Resource tags.
      */

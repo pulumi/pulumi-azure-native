@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['ReplicationArgs', 'Replication']
 
@@ -18,24 +19,36 @@ class ReplicationArgs:
                  registry_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  replication_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None):
         """
         The set of arguments for constructing a Replication resource.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[bool] region_endpoint_enabled: Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
         :param pulumi.Input[str] replication_name: The name of the replication.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[Union[str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry replication
         """
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if region_endpoint_enabled is None:
+            region_endpoint_enabled = True
+        if region_endpoint_enabled is not None:
+            pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if replication_name is not None:
             pulumi.set(__self__, "replication_name", replication_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if zone_redundancy is None:
+            zone_redundancy = 'Disabled'
+        if zone_redundancy is not None:
+            pulumi.set(__self__, "zone_redundancy", zone_redundancy)
 
     @property
     @pulumi.getter(name="registryName")
@@ -53,7 +66,7 @@ class ReplicationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -72,6 +85,18 @@ class ReplicationArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @region_endpoint_enabled.setter
+    def region_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "region_endpoint_enabled", value)
 
     @property
     @pulumi.getter(name="replicationName")
@@ -97,6 +122,18 @@ class ReplicationArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="zoneRedundancy")
+    def zone_redundancy(self) -> Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]]:
+        """
+        Whether or not zone redundancy is enabled for this container registry replication
+        """
+        return pulumi.get(self, "zone_redundancy")
+
+    @zone_redundancy.setter
+    def zone_redundancy(self, value: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]]):
+        pulumi.set(self, "zone_redundancy", value)
+
 
 class Replication(pulumi.CustomResource):
     @overload
@@ -104,22 +141,26 @@ class Replication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  replication_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None,
                  __props__=None):
         """
         An object that represents a replication for a container registry.
-        API Version: 2019-05-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
+        :param pulumi.Input[bool] region_endpoint_enabled: Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] replication_name: The name of the replication.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
+        :param pulumi.Input[Union[str, 'ZoneRedundancy']] zone_redundancy: Whether or not zone redundancy is enabled for this container registry replication
         """
         ...
     @overload
@@ -129,7 +170,7 @@ class Replication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a replication for a container registry.
-        API Version: 2019-05-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
 
         :param str resource_name: The name of the resource.
         :param ReplicationArgs args: The arguments to use to populate this resource's properties.
@@ -147,10 +188,12 @@ class Replication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 region_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  replication_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 zone_redundancy: Optional[pulumi.Input[Union[str, 'ZoneRedundancy']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -161,6 +204,9 @@ class Replication(pulumi.CustomResource):
             __props__ = ReplicationArgs.__new__(ReplicationArgs)
 
             __props__.__dict__["location"] = location
+            if region_endpoint_enabled is None:
+                region_endpoint_enabled = True
+            __props__.__dict__["region_endpoint_enabled"] = region_endpoint_enabled
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")
             __props__.__dict__["registry_name"] = registry_name
@@ -169,9 +215,13 @@ class Replication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            if zone_redundancy is None:
+                zone_redundancy = 'Disabled'
+            __props__.__dict__["zone_redundancy"] = zone_redundancy
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerregistry/v20170601preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20171001:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20190501:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20191201preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20201101preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210601preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210801preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20210901:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20211201preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20220201preview:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20221201:Replication"), pulumi.Alias(type_="azure-native:containerregistry/v20230101preview:Replication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -200,9 +250,12 @@ class Replication(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["region_endpoint_enabled"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["zone_redundancy"] = None
         return Replication(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -230,12 +283,28 @@ class Replication(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="regionEndpointEnabled")
+    def region_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        """
+        return pulumi.get(self, "region_endpoint_enabled")
+
+    @property
     @pulumi.getter
     def status(self) -> pulumi.Output['outputs.StatusResponse']:
         """
         The status of the replication at the time the operation was called.
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -252,4 +321,12 @@ class Replication(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="zoneRedundancy")
+    def zone_redundancy(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not zone redundancy is enabled for this container registry replication
+        """
+        return pulumi.get(self, "zone_redundancy")
 

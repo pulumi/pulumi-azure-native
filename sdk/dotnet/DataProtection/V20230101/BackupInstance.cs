@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
     /// <summary>
     /// BackupInstance Resource
     /// </summary>
-    [Obsolete(@"azure-native:dataprotection/v20230101:BackupInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:BackupInstance to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20230101:BackupInstance")]
     public partial class BackupInstance : global::Pulumi.CustomResource
     {
@@ -88,6 +87,8 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221001preview:BackupInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:BackupInstance"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221201:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:BackupInstance"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:BackupInstance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

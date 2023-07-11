@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network gateway connection by resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayConnection(args: GetVirtualNetworkGatewayConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayConnectionResult> {
 
@@ -64,9 +64,17 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly egressBytesTransferred: number;
     /**
+     * List of egress NatRules.
+     */
+    readonly egressNatRules?: outputs.network.SubResourceResponse[];
+    /**
      * EnableBgp flag.
      */
     readonly enableBgp?: boolean;
+    /**
+     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+     */
+    readonly enablePrivateLinkFastPath?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -76,6 +84,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      */
     readonly expressRouteGatewayBypass?: boolean;
     /**
+     * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+     */
+    readonly gatewayCustomBgpIpAddresses?: outputs.network.GatewayCustomBgpIpAddressIpConfigurationResponse[];
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -83,6 +95,10 @@ export interface GetVirtualNetworkGatewayConnectionResult {
      * The ingress bytes transferred in this connection.
      */
     readonly ingressBytesTransferred: number;
+    /**
+     * List of ingress NatRules.
+     */
+    readonly ingressNatRules?: outputs.network.SubResourceResponse[];
     /**
      * The IPSec Policies to be considered by this connection.
      */
@@ -154,7 +170,7 @@ export interface GetVirtualNetworkGatewayConnectionResult {
 }
 /**
  * Gets the specified virtual network gateway connection by resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayConnectionOutput(args: GetVirtualNetworkGatewayConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGatewayConnection(a, opts))

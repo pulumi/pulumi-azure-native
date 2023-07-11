@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of the specified access control record name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getAccessControlRecord(args: GetAccessControlRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessControlRecordResult> {
 
@@ -64,7 +64,7 @@ export interface GetAccessControlRecordResult {
 }
 /**
  * Returns the properties of the specified access control record name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getAccessControlRecordOutput(args: GetAccessControlRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessControlRecordResult> {
     return pulumi.output(args).apply((a: any) => getAccessControlRecord(a, opts))

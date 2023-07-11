@@ -67,7 +67,7 @@ def list_catalog_device_groups(catalog_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCatalogDeviceGroupsResult:
     """
     List the device groups for the catalog.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -105,7 +105,7 @@ def list_catalog_device_groups_output(catalog_name: Optional[pulumi.Input[str]] 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCatalogDeviceGroupsResult]:
     """
     List the device groups for the catalog.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

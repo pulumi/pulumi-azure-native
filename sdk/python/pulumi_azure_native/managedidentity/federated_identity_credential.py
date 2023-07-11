@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['FederatedIdentityCredentialArgs', 'FederatedIdentityCredential']
 
@@ -24,7 +25,7 @@ class FederatedIdentityCredentialArgs:
         The set of arguments for constructing a FederatedIdentityCredential resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The list of audiences that can appear in the issued token.
         :param pulumi.Input[str] issuer: The URL of the issuer to be trusted.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the identity belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name: The name of the identity resource.
         :param pulumi.Input[str] subject: The identifier of the external identity.
         :param pulumi.Input[str] federated_identity_credential_resource_name: The name of the federated identity credential resource.
@@ -65,7 +66,7 @@ class FederatedIdentityCredentialArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the Resource Group to which the identity belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -124,14 +125,14 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a federated identity credential.
-        API Version: 2022-01-31-preview.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The list of audiences that can appear in the issued token.
         :param pulumi.Input[str] federated_identity_credential_resource_name: The name of the federated identity credential resource.
         :param pulumi.Input[str] issuer: The URL of the issuer to be trusted.
-        :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the identity belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the identity resource.
         :param pulumi.Input[str] subject: The identifier of the external identity.
         """
@@ -143,7 +144,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a federated identity credential.
-        API Version: 2022-01-31-preview.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview
 
         :param str resource_name: The name of the resource.
         :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.
@@ -192,6 +193,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                 raise TypeError("Missing required property 'subject'")
             __props__.__dict__["subject"] = subject
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:FederatedIdentityCredential"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:FederatedIdentityCredential")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -221,6 +223,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         __props__.__dict__["issuer"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["subject"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FederatedIdentityCredential(resource_name, opts=opts, __props__=__props__)
 
@@ -255,6 +258,14 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         The identifier of the external identity.
         """
         return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

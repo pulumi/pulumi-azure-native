@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetClusterManagerResult> InvokeAsync(GetClusterManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of the provided cluster manager.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetClusterManagerResult> Invoke(GetClusterManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterManagerResult>("azure-native:networkcloud:getClusterManager", args ?? new GetClusterManagerInvokeArgs(), options.WithDefaults());
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string FabricControllerId;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>

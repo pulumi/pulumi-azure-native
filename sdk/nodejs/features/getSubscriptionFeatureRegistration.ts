@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a feature registration
- * API Version: 2021-07-01.
+ * Azure REST API version: 2021-07-01.
  */
 export function getSubscriptionFeatureRegistration(args: GetSubscriptionFeatureRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionFeatureRegistrationResult> {
 
@@ -51,7 +51,7 @@ export interface GetSubscriptionFeatureRegistrationResult {
 }
 /**
  * Returns a feature registration
- * API Version: 2021-07-01.
+ * Azure REST API version: 2021-07-01.
  */
 export function getSubscriptionFeatureRegistrationOutput(args: GetSubscriptionFeatureRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionFeatureRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionFeatureRegistration(a, opts))

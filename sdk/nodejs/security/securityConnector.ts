@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The security connector resource.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
  */
 export class SecurityConnector extends pulumi.CustomResource {
     /**
@@ -39,17 +39,25 @@ export class SecurityConnector extends pulumi.CustomResource {
     }
 
     /**
+     * The security connector environment data.
+     */
+    public readonly environmentData!: pulumi.Output<outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse | undefined>;
+    /**
      * The multi cloud resource's cloud name.
      */
-    public readonly cloudName!: pulumi.Output<string | undefined>;
+    public readonly environmentName!: pulumi.Output<string | undefined>;
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * The multi cloud resource identifier (account id in case of AWS connector).
+     * The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
      */
     public readonly hierarchyIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
+     */
+    public /*out*/ readonly hierarchyIdentifierTrialEndDate!: pulumi.Output<string>;
     /**
      * Kind of the resource
      */
@@ -65,11 +73,7 @@ export class SecurityConnector extends pulumi.CustomResource {
     /**
      * A collection of offerings for the security connector.
      */
-    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[] | undefined>;
-    /**
-     * The multi cloud account's organizational data
-     */
-    public readonly organizationalData!: pulumi.Output<outputs.security.SecurityConnectorPropertiesResponseOrganizationalData | undefined>;
+    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForDevOpsAzureDevOpsOfferingResponse | outputs.security.DefenderForDevOpsGitLabOfferingResponse | outputs.security.DefenderForDevOpsGithubOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -97,34 +101,36 @@ export class SecurityConnector extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cloudName"] = args ? args.cloudName : undefined;
+            resourceInputs["environmentData"] = args ? args.environmentData : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["hierarchyIdentifier"] = args ? args.hierarchyIdentifier : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["offerings"] = args ? args.offerings : undefined;
-            resourceInputs["organizationalData"] = args ? args.organizationalData : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["hierarchyIdentifierTrialEndDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["cloudName"] = undefined /*out*/;
+            resourceInputs["environmentData"] = undefined /*out*/;
+            resourceInputs["environmentName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hierarchyIdentifier"] = undefined /*out*/;
+            resourceInputs["hierarchyIdentifierTrialEndDate"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["offerings"] = undefined /*out*/;
-            resourceInputs["organizationalData"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210701preview:SecurityConnector" }, { type: "azure-native:security/v20211201preview:SecurityConnector" }, { type: "azure-native:security/v20220501preview:SecurityConnector" }, { type: "azure-native:security/v20220801preview:SecurityConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:security/v20210701preview:SecurityConnector" }, { type: "azure-native:security/v20211201preview:SecurityConnector" }, { type: "azure-native:security/v20220501preview:SecurityConnector" }, { type: "azure-native:security/v20220801preview:SecurityConnector" }, { type: "azure-native:security/v20230301preview:SecurityConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -135,11 +141,15 @@ export class SecurityConnector extends pulumi.CustomResource {
  */
 export interface SecurityConnectorArgs {
     /**
+     * The security connector environment data.
+     */
+    environmentData?: pulumi.Input<inputs.security.AwsEnvironmentDataArgs | inputs.security.AzureDevOpsScopeEnvironmentDataArgs | inputs.security.GcpProjectEnvironmentDataArgs | inputs.security.GithubScopeEnvironmentDataArgs | inputs.security.GitlabScopeEnvironmentDataArgs>;
+    /**
      * The multi cloud resource's cloud name.
      */
-    cloudName?: pulumi.Input<string | enums.security.CloudName>;
+    environmentName?: pulumi.Input<string | enums.security.CloudName>;
     /**
-     * The multi cloud resource identifier (account id in case of AWS connector).
+     * The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
      */
     hierarchyIdentifier?: pulumi.Input<string>;
     /**
@@ -153,11 +163,7 @@ export interface SecurityConnectorArgs {
     /**
      * A collection of offerings for the security connector.
      */
-    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.InformationProtectionAwsOfferingArgs>[]>;
-    /**
-     * The multi cloud account's organizational data
-     */
-    organizationalData?: pulumi.Input<inputs.security.SecurityConnectorPropertiesOrganizationalDataArgs>;
+    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.CspmMonitorAzureDevOpsOfferingArgs | inputs.security.CspmMonitorGcpOfferingArgs | inputs.security.CspmMonitorGitLabOfferingArgs | inputs.security.CspmMonitorGithubOfferingArgs | inputs.security.DefenderCspmAwsOfferingArgs | inputs.security.DefenderCspmGcpOfferingArgs | inputs.security.DefenderFoDatabasesAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForContainersGcpOfferingArgs | inputs.security.DefenderForDatabasesGcpOfferingArgs | inputs.security.DefenderForDevOpsAzureDevOpsOfferingArgs | inputs.security.DefenderForDevOpsGitLabOfferingArgs | inputs.security.DefenderForDevOpsGithubOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.DefenderForServersGcpOfferingArgs | inputs.security.InformationProtectionAwsOfferingArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

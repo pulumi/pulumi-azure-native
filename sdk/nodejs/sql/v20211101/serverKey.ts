@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A server key.
- *
- * @deprecated azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.
  */
 export class ServerKey extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ServerKey extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerKey {
-        pulumi.log.warn("ServerKey is deprecated: azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.")
         return new ServerKey(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class ServerKey extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility. */
     constructor(name: string, args: ServerKeyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerKey is deprecated: azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -119,7 +114,7 @@ export class ServerKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerKey" }, { type: "azure-native:sql/v20150501preview:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }, { type: "azure-native:sql/v20211101preview:ServerKey" }, { type: "azure-native:sql/v20220201preview:ServerKey" }, { type: "azure-native:sql/v20220501preview:ServerKey" }, { type: "azure-native:sql/v20220801preview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerKey" }, { type: "azure-native:sql/v20150501preview:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }, { type: "azure-native:sql/v20211101preview:ServerKey" }, { type: "azure-native:sql/v20220201preview:ServerKey" }, { type: "azure-native:sql/v20220501preview:ServerKey" }, { type: "azure-native:sql/v20220801preview:ServerKey" }, { type: "azure-native:sql/v20221101preview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);
     }

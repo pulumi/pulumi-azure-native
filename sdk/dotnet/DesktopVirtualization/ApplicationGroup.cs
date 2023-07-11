@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 {
     /// <summary>
     /// Represents a ApplicationGroup definition.
-    /// API Version: 2021-02-01-preview.
+    /// Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource
@@ -74,12 +74,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Output("migrationRequest")]
-        public Output<Outputs.MigrationRequestPropertiesResponse?> MigrationRequest { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -96,6 +90,12 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [Output("sku")]
         public Output<Outputs.ResourceModelWithAllowedPropertySetResponseSku?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -230,12 +230,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         [Input("managedBy")]
         public Input<string>? ManagedBy { get; set; }
-
-        /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        [Input("migrationRequest")]
-        public Input<Inputs.MigrationRequestPropertiesArgs>? MigrationRequest { get; set; }
 
         [Input("plan")]
         public Input<Inputs.ResourceModelWithAllowedPropertySetPlanArgs>? Plan { get; set; }

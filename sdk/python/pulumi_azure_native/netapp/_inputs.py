@@ -14,17 +14,21 @@ __all__ = [
     'AccountEncryptionArgs',
     'ActiveDirectoryArgs',
     'DailyScheduleArgs',
+    'EncryptionIdentityArgs',
     'ExportPolicyRuleArgs',
     'HourlyScheduleArgs',
+    'KeyVaultPropertiesArgs',
+    'LdapSearchScopeOptArgs',
+    'ManagedServiceIdentityArgs',
     'MonthlyScheduleArgs',
     'PlacementKeyValuePairsArgs',
     'ReplicationObjectArgs',
     'VolumeBackupPropertiesArgs',
-    'VolumeBackupsArgs',
     'VolumeGroupMetaDataArgs',
     'VolumeGroupVolumePropertiesArgs',
     'VolumePropertiesDataProtectionArgs',
     'VolumePropertiesExportPolicyArgs',
+    'VolumeRelocationPropertiesArgs',
     'VolumeSnapshotPropertiesArgs',
     'WeeklyScheduleArgs',
 ]
@@ -32,25 +36,59 @@ __all__ = [
 @pulumi.input_type
 class AccountEncryptionArgs:
     def __init__(__self__, *,
-                 key_source: Optional[pulumi.Input[str]] = None):
+                 identity: Optional[pulumi.Input['EncryptionIdentityArgs']] = None,
+                 key_source: Optional[pulumi.Input[Union[str, 'KeySource']]] = None,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None):
         """
         Encryption settings
-        :param pulumi.Input[str] key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        :param pulumi.Input['EncryptionIdentityArgs'] identity: Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        :param pulumi.Input[Union[str, 'KeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
         """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_source is None:
+            key_source = 'Microsoft.NetApp'
         if key_source is not None:
             pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['EncryptionIdentityArgs']]:
+        """
+        Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['EncryptionIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> Optional[pulumi.Input[str]]:
+    def key_source(self) -> Optional[pulumi.Input[Union[str, 'KeySource']]]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: Optional[pulumi.Input[str]]):
+    def key_source(self, value: Optional[pulumi.Input[Union[str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
 
 
 @pulumi.input_type
@@ -58,16 +96,20 @@ class ActiveDirectoryArgs:
     def __init__(__self__, *,
                  active_directory_id: Optional[pulumi.Input[str]] = None,
                  ad_name: Optional[pulumi.Input[str]] = None,
+                 administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  aes_encryption: Optional[pulumi.Input[bool]] = None,
                  allow_local_nfs_users_with_ldap: Optional[pulumi.Input[bool]] = None,
                  backup_operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 encrypt_dc_connections: Optional[pulumi.Input[bool]] = None,
                  kdc_ip: Optional[pulumi.Input[str]] = None,
                  ldap_over_tls: Optional[pulumi.Input[bool]] = None,
+                 ldap_search_scope: Optional[pulumi.Input['LdapSearchScopeOptArgs']] = None,
                  ldap_signing: Optional[pulumi.Input[bool]] = None,
                  organizational_unit: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 preferred_servers_for_ldap_client: Optional[pulumi.Input[str]] = None,
                  security_operators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_root_ca_certificate: Optional[pulumi.Input[str]] = None,
                  site: Optional[pulumi.Input[str]] = None,
@@ -77,16 +119,20 @@ class ActiveDirectoryArgs:
         Active Directory
         :param pulumi.Input[str] active_directory_id: Id of the Active Directory
         :param pulumi.Input[str] ad_name: Name of the active directory machine. This optional parameter is used only while creating kerberos volume
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
         :param pulumi.Input[bool] aes_encryption: If enabled, AES encryption will be enabled for SMB communication.
         :param pulumi.Input[bool] allow_local_nfs_users_with_ldap:  If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] backup_operators: Users to be added to the Built-in Backup Operator active directory group. A list of unique usernames without domain specifier
         :param pulumi.Input[str] dns: Comma separated list of DNS server IP addresses (IPv4 only) for the Active Directory domain
         :param pulumi.Input[str] domain: Name of the Active Directory domain
+        :param pulumi.Input[bool] encrypt_dc_connections: If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
         :param pulumi.Input[str] kdc_ip: kdc server IP addresses for the active directory machine. This optional parameter is used only while creating kerberos volume.
         :param pulumi.Input[bool] ldap_over_tls: Specifies whether or not the LDAP traffic needs to be secured via TLS.
+        :param pulumi.Input['LdapSearchScopeOptArgs'] ldap_search_scope: LDAP Search scope options
         :param pulumi.Input[bool] ldap_signing: Specifies whether or not the LDAP traffic needs to be signed.
         :param pulumi.Input[str] organizational_unit: The Organizational Unit (OU) within the Windows Active Directory
         :param pulumi.Input[str] password: Plain text password of Active Directory domain administrator, value is masked in the response
+        :param pulumi.Input[str] preferred_servers_for_ldap_client: Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_operators: Domain Users in the Active directory to be given SeSecurityPrivilege privilege (Needed for SMB Continuously available shares for SQL). A list of unique usernames without domain specifier
         :param pulumi.Input[str] server_root_ca_certificate: When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service's self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
         :param pulumi.Input[str] site: The Active Directory site the service will limit Domain Controller discovery to
@@ -97,6 +143,8 @@ class ActiveDirectoryArgs:
             pulumi.set(__self__, "active_directory_id", active_directory_id)
         if ad_name is not None:
             pulumi.set(__self__, "ad_name", ad_name)
+        if administrators is not None:
+            pulumi.set(__self__, "administrators", administrators)
         if aes_encryption is not None:
             pulumi.set(__self__, "aes_encryption", aes_encryption)
         if allow_local_nfs_users_with_ldap is not None:
@@ -107,10 +155,14 @@ class ActiveDirectoryArgs:
             pulumi.set(__self__, "dns", dns)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if encrypt_dc_connections is not None:
+            pulumi.set(__self__, "encrypt_dc_connections", encrypt_dc_connections)
         if kdc_ip is not None:
             pulumi.set(__self__, "kdc_ip", kdc_ip)
         if ldap_over_tls is not None:
             pulumi.set(__self__, "ldap_over_tls", ldap_over_tls)
+        if ldap_search_scope is not None:
+            pulumi.set(__self__, "ldap_search_scope", ldap_search_scope)
         if ldap_signing is not None:
             pulumi.set(__self__, "ldap_signing", ldap_signing)
         if organizational_unit is None:
@@ -119,6 +171,8 @@ class ActiveDirectoryArgs:
             pulumi.set(__self__, "organizational_unit", organizational_unit)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if preferred_servers_for_ldap_client is not None:
+            pulumi.set(__self__, "preferred_servers_for_ldap_client", preferred_servers_for_ldap_client)
         if security_operators is not None:
             pulumi.set(__self__, "security_operators", security_operators)
         if server_root_ca_certificate is not None:
@@ -153,6 +207,18 @@ class ActiveDirectoryArgs:
     @ad_name.setter
     def ad_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ad_name", value)
+
+    @property
+    @pulumi.getter
+    def administrators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Users to be added to the Built-in Administrators active directory group. A list of unique usernames without domain specifier
+        """
+        return pulumi.get(self, "administrators")
+
+    @administrators.setter
+    def administrators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "administrators", value)
 
     @property
     @pulumi.getter(name="aesEncryption")
@@ -215,6 +281,18 @@ class ActiveDirectoryArgs:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="encryptDCConnections")
+    def encrypt_dc_connections(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled, Traffic between the SMB server to Domain Controller (DC) will be encrypted.
+        """
+        return pulumi.get(self, "encrypt_dc_connections")
+
+    @encrypt_dc_connections.setter
+    def encrypt_dc_connections(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypt_dc_connections", value)
+
+    @property
     @pulumi.getter(name="kdcIP")
     def kdc_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -237,6 +315,18 @@ class ActiveDirectoryArgs:
     @ldap_over_tls.setter
     def ldap_over_tls(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "ldap_over_tls", value)
+
+    @property
+    @pulumi.getter(name="ldapSearchScope")
+    def ldap_search_scope(self) -> Optional[pulumi.Input['LdapSearchScopeOptArgs']]:
+        """
+        LDAP Search scope options
+        """
+        return pulumi.get(self, "ldap_search_scope")
+
+    @ldap_search_scope.setter
+    def ldap_search_scope(self, value: Optional[pulumi.Input['LdapSearchScopeOptArgs']]):
+        pulumi.set(self, "ldap_search_scope", value)
 
     @property
     @pulumi.getter(name="ldapSigning")
@@ -273,6 +363,18 @@ class ActiveDirectoryArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="preferredServersForLdapClient")
+    def preferred_servers_for_ldap_client(self) -> Optional[pulumi.Input[str]]:
+        """
+        Comma separated list of IPv4 addresses of preferred servers for LDAP client. At most two comma separated IPv4 addresses can be passed.
+        """
+        return pulumi.get(self, "preferred_servers_for_ldap_client")
+
+    @preferred_servers_for_ldap_client.setter
+    def preferred_servers_for_ldap_client(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_servers_for_ldap_client", value)
 
     @property
     @pulumi.getter(name="securityOperators")
@@ -405,6 +507,30 @@ class DailyScheduleArgs:
     @used_bytes.setter
     def used_bytes(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "used_bytes", value)
+
+
+@pulumi.input_type
+class EncryptionIdentityArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Identity used to authenticate with key vault.
+        :param pulumi.Input[str] user_assigned_identity: The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARM resource identifier of the user assigned identity used to authenticate with key vault. Applicable if identity.type has 'UserAssigned'. It should match key of identity.userAssignedIdentities.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 
 @pulumi.input_type
@@ -728,6 +854,154 @@ class HourlyScheduleArgs:
 
 
 @pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 key_vault_resource_id: pulumi.Input[str],
+                 key_vault_uri: pulumi.Input[str]):
+        """
+        Properties of key vault.
+        :param pulumi.Input[str] key_name: The name of KeyVault key.
+        :param pulumi.Input[str] key_vault_resource_id: The resource ID of KeyVault.
+        :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_resource_id", key_vault_resource_id)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultResourceId")
+    def key_vault_resource_id(self) -> pulumi.Input[str]:
+        """
+        The resource ID of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_resource_id")
+
+    @key_vault_resource_id.setter
+    def key_vault_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_resource_id", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Input[str]:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_uri", value)
+
+
+@pulumi.input_type
+class LdapSearchScopeOptArgs:
+    def __init__(__self__, *,
+                 group_dn: Optional[pulumi.Input[str]] = None,
+                 group_membership_filter: Optional[pulumi.Input[str]] = None,
+                 user_dn: Optional[pulumi.Input[str]] = None):
+        """
+        LDAP search scope 
+        :param pulumi.Input[str] group_dn: This specifies the group DN, which overrides the base DN for group lookups.
+        :param pulumi.Input[str] group_membership_filter: This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        :param pulumi.Input[str] user_dn: This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        if group_dn is not None:
+            pulumi.set(__self__, "group_dn", group_dn)
+        if group_membership_filter is not None:
+            pulumi.set(__self__, "group_membership_filter", group_membership_filter)
+        if user_dn is not None:
+            pulumi.set(__self__, "user_dn", user_dn)
+
+    @property
+    @pulumi.getter(name="groupDN")
+    def group_dn(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the group DN, which overrides the base DN for group lookups.
+        """
+        return pulumi.get(self, "group_dn")
+
+    @group_dn.setter
+    def group_dn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_dn", value)
+
+    @property
+    @pulumi.getter(name="groupMembershipFilter")
+    def group_membership_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the custom LDAP search filter to be used when looking up group membership from LDAP server.
+        """
+        return pulumi.get(self, "group_membership_filter")
+
+    @group_membership_filter.setter
+    def group_membership_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_membership_filter", value)
+
+    @property
+    @pulumi.getter(name="userDN")
+    def user_dn(self) -> Optional[pulumi.Input[str]]:
+        """
+        This specifies the user DN, which overrides the base DN for user lookups.
+        """
+        return pulumi.get(self, "user_dn")
+
+    @user_dn.setter
+    def user_dn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_dn", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
 class MonthlyScheduleArgs:
     def __init__(__self__, *,
                  days_of_month: Optional[pulumi.Input[str]] = None,
@@ -945,14 +1219,12 @@ class VolumeBackupPropertiesArgs:
     def __init__(__self__, *,
                  backup_enabled: Optional[pulumi.Input[bool]] = None,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
-                 policy_enforced: Optional[pulumi.Input[bool]] = None,
-                 vault_id: Optional[pulumi.Input[str]] = None):
+                 policy_enforced: Optional[pulumi.Input[bool]] = None):
         """
         Volume Backup Properties
         :param pulumi.Input[bool] backup_enabled: Backup Enabled
         :param pulumi.Input[str] backup_policy_id: Backup Policy Resource ID
         :param pulumi.Input[bool] policy_enforced: Policy Enforced
-        :param pulumi.Input[str] vault_id: Vault Resource ID
         """
         if backup_enabled is not None:
             pulumi.set(__self__, "backup_enabled", backup_enabled)
@@ -960,8 +1232,6 @@ class VolumeBackupPropertiesArgs:
             pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if policy_enforced is not None:
             pulumi.set(__self__, "policy_enforced", policy_enforced)
-        if vault_id is not None:
-            pulumi.set(__self__, "vault_id", vault_id)
 
     @property
     @pulumi.getter(name="backupEnabled")
@@ -998,74 +1268,6 @@ class VolumeBackupPropertiesArgs:
     @policy_enforced.setter
     def policy_enforced(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "policy_enforced", value)
-
-    @property
-    @pulumi.getter(name="vaultId")
-    def vault_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Vault Resource ID
-        """
-        return pulumi.get(self, "vault_id")
-
-    @vault_id.setter
-    def vault_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vault_id", value)
-
-
-@pulumi.input_type
-class VolumeBackupsArgs:
-    def __init__(__self__, *,
-                 backups_count: Optional[pulumi.Input[int]] = None,
-                 policy_enabled: Optional[pulumi.Input[bool]] = None,
-                 volume_name: Optional[pulumi.Input[str]] = None):
-        """
-        Volume details using the backup policy
-        :param pulumi.Input[int] backups_count: Total count of backups for volume
-        :param pulumi.Input[bool] policy_enabled: Policy enabled
-        :param pulumi.Input[str] volume_name: Volume name
-        """
-        if backups_count is not None:
-            pulumi.set(__self__, "backups_count", backups_count)
-        if policy_enabled is not None:
-            pulumi.set(__self__, "policy_enabled", policy_enabled)
-        if volume_name is not None:
-            pulumi.set(__self__, "volume_name", volume_name)
-
-    @property
-    @pulumi.getter(name="backupsCount")
-    def backups_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        Total count of backups for volume
-        """
-        return pulumi.get(self, "backups_count")
-
-    @backups_count.setter
-    def backups_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "backups_count", value)
-
-    @property
-    @pulumi.getter(name="policyEnabled")
-    def policy_enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Policy enabled
-        """
-        return pulumi.get(self, "policy_enabled")
-
-    @policy_enabled.setter
-    def policy_enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "policy_enabled", value)
-
-    @property
-    @pulumi.getter(name="volumeName")
-    def volume_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Volume name
-        """
-        return pulumi.get(self, "volume_name")
-
-    @volume_name.setter
-    def volume_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "volume_name", value)
 
 
 @pulumi.input_type
@@ -1170,12 +1372,15 @@ class VolumeGroupVolumePropertiesArgs:
                  data_protection: Optional[pulumi.Input['VolumePropertiesDataProtectionArgs']] = None,
                  default_group_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
                  default_user_quota_in_ki_bs: Optional[pulumi.Input[float]] = None,
+                 delete_base_snapshot: Optional[pulumi.Input[bool]] = None,
                  enable_subvolumes: Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]] = None,
-                 encryption_key_source: Optional[pulumi.Input[str]] = None,
+                 encryption_key_source: Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]] = None,
                  export_policy: Optional[pulumi.Input['VolumePropertiesExportPolicyArgs']] = None,
                  is_default_quota_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_large_volume: Optional[pulumi.Input[bool]] = None,
                  is_restoring: Optional[pulumi.Input[bool]] = None,
                  kerberos_enabled: Optional[pulumi.Input[bool]] = None,
+                 key_vault_private_endpoint_resource_id: Optional[pulumi.Input[str]] = None,
                  ldap_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_features: Optional[pulumi.Input[Union[str, 'NetworkFeatures']]] = None,
@@ -1184,8 +1389,10 @@ class VolumeGroupVolumePropertiesArgs:
                  proximity_placement_group: Optional[pulumi.Input[str]] = None,
                  security_style: Optional[pulumi.Input[Union[str, 'SecurityStyle']]] = None,
                  service_level: Optional[pulumi.Input[Union[str, 'ServiceLevel']]] = None,
+                 smb_access_based_enumeration: Optional[pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']]] = None,
                  smb_continuously_available: Optional[pulumi.Input[bool]] = None,
                  smb_encryption: Optional[pulumi.Input[bool]] = None,
+                 smb_non_browsable: Optional[pulumi.Input[Union[str, 'SmbNonBrowsable']]] = None,
                  snapshot_directory_visible: Optional[pulumi.Input[bool]] = None,
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1197,7 +1404,7 @@ class VolumeGroupVolumePropertiesArgs:
         Volume resource
         :param pulumi.Input[str] creation_token: A unique file path for the volume. Used when creating mount targets
         :param pulumi.Input[str] subnet_id: The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        :param pulumi.Input[float] usage_threshold: Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         :param pulumi.Input[Union[str, 'AvsDataStore']] avs_data_store: Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         :param pulumi.Input[str] backup_id: UUID v4 or resource identifier used to identify the Backup.
         :param pulumi.Input[str] capacity_pool_resource_id: Pool Resource Id used in case of creating a volume through volume group
@@ -1206,12 +1413,15 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input['VolumePropertiesDataProtectionArgs'] data_protection: DataProtection type volumes include an object containing details of the replication
         :param pulumi.Input[float] default_group_quota_in_ki_bs: Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         :param pulumi.Input[float] default_user_quota_in_ki_bs: Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
+        :param pulumi.Input[bool] delete_base_snapshot: If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
         :param pulumi.Input[Union[str, 'EnableSubvolumes']] enable_subvolumes: Flag indicating whether subvolume operations are enabled on the volume
-        :param pulumi.Input[str] encryption_key_source: Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        :param pulumi.Input[Union[str, 'EncryptionKeySource']] encryption_key_source: Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         :param pulumi.Input['VolumePropertiesExportPolicyArgs'] export_policy: Set of export policy rules
         :param pulumi.Input[bool] is_default_quota_enabled: Specifies if default quota is enabled for the volume.
+        :param pulumi.Input[bool] is_large_volume: Specifies whether volume is a Large Volume or Regular Volume.
         :param pulumi.Input[bool] is_restoring: Restoring
         :param pulumi.Input[bool] kerberos_enabled: Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
+        :param pulumi.Input[str] key_vault_private_endpoint_resource_id: The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
         :param pulumi.Input[bool] ldap_enabled: Specifies whether LDAP is enabled or not for a given NFS volume.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union[str, 'NetworkFeatures']] network_features: Basic network, or Standard features available to the volume.
@@ -1220,9 +1430,11 @@ class VolumeGroupVolumePropertiesArgs:
         :param pulumi.Input[str] proximity_placement_group: Proximity placement group associated with the volume
         :param pulumi.Input[Union[str, 'SecurityStyle']] security_style: The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
+        :param pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']] smb_access_based_enumeration: Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
         :param pulumi.Input[bool] smb_continuously_available: Enables continuously available share property for smb volume. Only applicable for SMB volume
         :param pulumi.Input[bool] smb_encryption: Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
-        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        :param pulumi.Input[Union[str, 'SmbNonBrowsable']] smb_non_browsable: Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        :param pulumi.Input[bool] snapshot_directory_visible: If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         :param pulumi.Input[str] snapshot_id: UUID v4 or resource identifier used to identify the Snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] unix_permissions: UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
@@ -1258,10 +1470,14 @@ class VolumeGroupVolumePropertiesArgs:
             default_user_quota_in_ki_bs = 0
         if default_user_quota_in_ki_bs is not None:
             pulumi.set(__self__, "default_user_quota_in_ki_bs", default_user_quota_in_ki_bs)
+        if delete_base_snapshot is not None:
+            pulumi.set(__self__, "delete_base_snapshot", delete_base_snapshot)
         if enable_subvolumes is None:
             enable_subvolumes = 'Disabled'
         if enable_subvolumes is not None:
             pulumi.set(__self__, "enable_subvolumes", enable_subvolumes)
+        if encryption_key_source is None:
+            encryption_key_source = 'Microsoft.NetApp'
         if encryption_key_source is not None:
             pulumi.set(__self__, "encryption_key_source", encryption_key_source)
         if export_policy is not None:
@@ -1270,12 +1486,18 @@ class VolumeGroupVolumePropertiesArgs:
             is_default_quota_enabled = False
         if is_default_quota_enabled is not None:
             pulumi.set(__self__, "is_default_quota_enabled", is_default_quota_enabled)
+        if is_large_volume is None:
+            is_large_volume = False
+        if is_large_volume is not None:
+            pulumi.set(__self__, "is_large_volume", is_large_volume)
         if is_restoring is not None:
             pulumi.set(__self__, "is_restoring", is_restoring)
         if kerberos_enabled is None:
             kerberos_enabled = False
         if kerberos_enabled is not None:
             pulumi.set(__self__, "kerberos_enabled", kerberos_enabled)
+        if key_vault_private_endpoint_resource_id is not None:
+            pulumi.set(__self__, "key_vault_private_endpoint_resource_id", key_vault_private_endpoint_resource_id)
         if ldap_enabled is None:
             ldap_enabled = False
         if ldap_enabled is not None:
@@ -1298,6 +1520,8 @@ class VolumeGroupVolumePropertiesArgs:
             pulumi.set(__self__, "security_style", security_style)
         if service_level is not None:
             pulumi.set(__self__, "service_level", service_level)
+        if smb_access_based_enumeration is not None:
+            pulumi.set(__self__, "smb_access_based_enumeration", smb_access_based_enumeration)
         if smb_continuously_available is None:
             smb_continuously_available = False
         if smb_continuously_available is not None:
@@ -1306,6 +1530,8 @@ class VolumeGroupVolumePropertiesArgs:
             smb_encryption = False
         if smb_encryption is not None:
             pulumi.set(__self__, "smb_encryption", smb_encryption)
+        if smb_non_browsable is not None:
+            pulumi.set(__self__, "smb_non_browsable", smb_non_browsable)
         if snapshot_directory_visible is None:
             snapshot_directory_visible = True
         if snapshot_directory_visible is not None:
@@ -1353,7 +1579,7 @@ class VolumeGroupVolumePropertiesArgs:
     @pulumi.getter(name="usageThreshold")
     def usage_threshold(self) -> pulumi.Input[float]:
         """
-        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         """
         return pulumi.get(self, "usage_threshold")
 
@@ -1458,6 +1684,18 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "default_user_quota_in_ki_bs", value)
 
     @property
+    @pulumi.getter(name="deleteBaseSnapshot")
+    def delete_base_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+        """
+        return pulumi.get(self, "delete_base_snapshot")
+
+    @delete_base_snapshot.setter
+    def delete_base_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_base_snapshot", value)
+
+    @property
     @pulumi.getter(name="enableSubvolumes")
     def enable_subvolumes(self) -> Optional[pulumi.Input[Union[str, 'EnableSubvolumes']]]:
         """
@@ -1471,14 +1709,14 @@ class VolumeGroupVolumePropertiesArgs:
 
     @property
     @pulumi.getter(name="encryptionKeySource")
-    def encryption_key_source(self) -> Optional[pulumi.Input[str]]:
+    def encryption_key_source(self) -> Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]]:
         """
-        Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         """
         return pulumi.get(self, "encryption_key_source")
 
     @encryption_key_source.setter
-    def encryption_key_source(self, value: Optional[pulumi.Input[str]]):
+    def encryption_key_source(self, value: Optional[pulumi.Input[Union[str, 'EncryptionKeySource']]]):
         pulumi.set(self, "encryption_key_source", value)
 
     @property
@@ -1506,6 +1744,18 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "is_default_quota_enabled", value)
 
     @property
+    @pulumi.getter(name="isLargeVolume")
+    def is_large_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether volume is a Large Volume or Regular Volume.
+        """
+        return pulumi.get(self, "is_large_volume")
+
+    @is_large_volume.setter
+    def is_large_volume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_large_volume", value)
+
+    @property
     @pulumi.getter(name="isRestoring")
     def is_restoring(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1528,6 +1778,18 @@ class VolumeGroupVolumePropertiesArgs:
     @kerberos_enabled.setter
     def kerberos_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "kerberos_enabled", value)
+
+    @property
+    @pulumi.getter(name="keyVaultPrivateEndpointResourceId")
+    def key_vault_private_endpoint_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        """
+        return pulumi.get(self, "key_vault_private_endpoint_resource_id")
+
+    @key_vault_private_endpoint_resource_id.setter
+    def key_vault_private_endpoint_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_private_endpoint_resource_id", value)
 
     @property
     @pulumi.getter(name="ldapEnabled")
@@ -1626,6 +1888,18 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "service_level", value)
 
     @property
+    @pulumi.getter(name="smbAccessBasedEnumeration")
+    def smb_access_based_enumeration(self) -> Optional[pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']]]:
+        """
+        Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_access_based_enumeration")
+
+    @smb_access_based_enumeration.setter
+    def smb_access_based_enumeration(self, value: Optional[pulumi.Input[Union[str, 'SmbAccessBasedEnumeration']]]):
+        pulumi.set(self, "smb_access_based_enumeration", value)
+
+    @property
     @pulumi.getter(name="smbContinuouslyAvailable")
     def smb_continuously_available(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -1650,10 +1924,22 @@ class VolumeGroupVolumePropertiesArgs:
         pulumi.set(self, "smb_encryption", value)
 
     @property
+    @pulumi.getter(name="smbNonBrowsable")
+    def smb_non_browsable(self) -> Optional[pulumi.Input[Union[str, 'SmbNonBrowsable']]]:
+        """
+        Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        """
+        return pulumi.get(self, "smb_non_browsable")
+
+    @smb_non_browsable.setter
+    def smb_non_browsable(self, value: Optional[pulumi.Input[Union[str, 'SmbNonBrowsable']]]):
+        pulumi.set(self, "smb_non_browsable", value)
+
+    @property
     @pulumi.getter(name="snapshotDirectoryVisible")
     def snapshot_directory_visible(self) -> Optional[pulumi.Input[bool]]:
         """
-        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         """
         return pulumi.get(self, "snapshot_directory_visible")
 
@@ -1736,12 +2022,14 @@ class VolumePropertiesDataProtectionArgs:
     def __init__(__self__, *,
                  backup: Optional[pulumi.Input['VolumeBackupPropertiesArgs']] = None,
                  replication: Optional[pulumi.Input['ReplicationObjectArgs']] = None,
-                 snapshot: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']] = None):
+                 snapshot: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']] = None,
+                 volume_relocation: Optional[pulumi.Input['VolumeRelocationPropertiesArgs']] = None):
         """
         DataProtection type volumes include an object containing details of the replication
         :param pulumi.Input['VolumeBackupPropertiesArgs'] backup: Backup Properties
         :param pulumi.Input['ReplicationObjectArgs'] replication: Replication properties
         :param pulumi.Input['VolumeSnapshotPropertiesArgs'] snapshot: Snapshot properties.
+        :param pulumi.Input['VolumeRelocationPropertiesArgs'] volume_relocation: VolumeRelocation properties
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
@@ -1749,6 +2037,8 @@ class VolumePropertiesDataProtectionArgs:
             pulumi.set(__self__, "replication", replication)
         if snapshot is not None:
             pulumi.set(__self__, "snapshot", snapshot)
+        if volume_relocation is not None:
+            pulumi.set(__self__, "volume_relocation", volume_relocation)
 
     @property
     @pulumi.getter
@@ -1786,6 +2076,18 @@ class VolumePropertiesDataProtectionArgs:
     def snapshot(self, value: Optional[pulumi.Input['VolumeSnapshotPropertiesArgs']]):
         pulumi.set(self, "snapshot", value)
 
+    @property
+    @pulumi.getter(name="volumeRelocation")
+    def volume_relocation(self) -> Optional[pulumi.Input['VolumeRelocationPropertiesArgs']]:
+        """
+        VolumeRelocation properties
+        """
+        return pulumi.get(self, "volume_relocation")
+
+    @volume_relocation.setter
+    def volume_relocation(self, value: Optional[pulumi.Input['VolumeRelocationPropertiesArgs']]):
+        pulumi.set(self, "volume_relocation", value)
+
 
 @pulumi.input_type
 class VolumePropertiesExportPolicyArgs:
@@ -1809,6 +2111,30 @@ class VolumePropertiesExportPolicyArgs:
     @rules.setter
     def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExportPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
+
+
+@pulumi.input_type
+class VolumeRelocationPropertiesArgs:
+    def __init__(__self__, *,
+                 relocation_requested: Optional[pulumi.Input[bool]] = None):
+        """
+        Volume relocation properties
+        :param pulumi.Input[bool] relocation_requested: Has relocation been requested for this volume
+        """
+        if relocation_requested is not None:
+            pulumi.set(__self__, "relocation_requested", relocation_requested)
+
+    @property
+    @pulumi.getter(name="relocationRequested")
+    def relocation_requested(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Has relocation been requested for this volume
+        """
+        return pulumi.get(self, "relocation_requested")
+
+    @relocation_requested.setter
+    def relocation_requested(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "relocation_requested", value)
 
 
 @pulumi.input_type

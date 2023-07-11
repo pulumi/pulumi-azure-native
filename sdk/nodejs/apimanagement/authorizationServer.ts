@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * External OAuth authorization server settings.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**
@@ -83,7 +83,7 @@ export class AuthorizationServer extends pulumi.CustomResource {
      */
     public readonly grantTypes!: pulumi.Output<string[]>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -107,9 +107,17 @@ export class AuthorizationServer extends pulumi.CustomResource {
      */
     public readonly tokenEndpoint!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+     */
+    public readonly useInApiDocumentation!: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+     */
+    public readonly useInTestConsole!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AuthorizationServer resource with the given unique name, arguments, and options.
@@ -162,6 +170,8 @@ export class AuthorizationServer extends pulumi.CustomResource {
             resourceInputs["supportState"] = args ? args.supportState : undefined;
             resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
             resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
+            resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
+            resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -183,9 +193,11 @@ export class AuthorizationServer extends pulumi.CustomResource {
             resourceInputs["tokenBodyParameters"] = undefined /*out*/;
             resourceInputs["tokenEndpoint"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["useInApiDocumentation"] = undefined /*out*/;
+            resourceInputs["useInTestConsole"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-native:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-native:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20200601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20201201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210101preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210401preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210801:AuthorizationServer" }, { type: "azure-native:apimanagement/v20211201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20220401preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20220801:AuthorizationServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:AuthorizationServer" }, { type: "azure-native:apimanagement/v20161010:AuthorizationServer" }, { type: "azure-native:apimanagement/v20170301:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20180601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20190101:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20191201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20200601preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20201201:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210101preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210401preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20210801:AuthorizationServer" }, { type: "azure-native:apimanagement/v20211201preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20220401preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20220801:AuthorizationServer" }, { type: "azure-native:apimanagement/v20220901preview:AuthorizationServer" }, { type: "azure-native:apimanagement/v20230301preview:AuthorizationServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AuthorizationServer.__pulumiType, name, resourceInputs, opts);
     }
@@ -244,7 +256,7 @@ export interface AuthorizationServerArgs {
      */
     grantTypes: pulumi.Input<pulumi.Input<string | enums.apimanagement.GrantType>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -271,4 +283,12 @@ export interface AuthorizationServerArgs {
      * OAuth token endpoint. Contains absolute URI to entity being referenced.
      */
     tokenEndpoint?: pulumi.Input<string>;
+    /**
+     * If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+     */
+    useInApiDocumentation?: pulumi.Input<boolean>;
+    /**
+     * If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+     */
+    useInTestConsole?: pulumi.Input<boolean>;
 }

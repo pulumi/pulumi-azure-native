@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an outbound firewall rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetOutboundFirewallRuleResult> {
 
@@ -53,7 +53,7 @@ export interface GetOutboundFirewallRuleResult {
 }
 /**
  * Gets an outbound firewall rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutboundFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getOutboundFirewallRule(a, opts))

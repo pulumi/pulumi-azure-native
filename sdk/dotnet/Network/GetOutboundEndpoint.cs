@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets properties of an outbound endpoint for a DNS resolver.
-        /// API Version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-07-01.
         /// </summary>
         public static Task<GetOutboundEndpointResult> InvokeAsync(GetOutboundEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOutboundEndpointResult>("azure-native:network:getOutboundEndpoint", args ?? new GetOutboundEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of an outbound endpoint for a DNS resolver.
-        /// API Version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-07-01.
         /// </summary>
         public static Output<GetOutboundEndpointResult> Invoke(GetOutboundEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutboundEndpointResult>("azure-native:network:getOutboundEndpoint", args ?? new GetOutboundEndpointInvokeArgs(), options.WithDefaults());
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The reference to the subnet used for the outbound endpoint.
         /// </summary>
-        public readonly Outputs.SubResourceResponse? Subnet;
+        public readonly Outputs.SubResourceResponse Subnet;
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Network
 
             string resourceGuid,
 
-            Outputs.SubResourceResponse? subnet,
+            Outputs.SubResourceResponse subnet,
 
             Outputs.SystemDataResponse systemData,
 

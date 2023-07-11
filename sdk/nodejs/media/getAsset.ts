@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of an Asset in the Media Services account
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAsset(args: GetAssetArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetResult> {
 
@@ -61,6 +61,10 @@ export interface GetAssetResult {
      */
     readonly description?: string;
     /**
+     * The Asset container encryption scope in the storage account.
+     */
+    readonly encryptionScope?: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -91,7 +95,7 @@ export interface GetAssetResult {
 }
 /**
  * Get the details of an Asset in the Media Services account
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAssetOutput(args: GetAssetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetResult> {
     return pulumi.output(args).apply((a: any) => getAsset(a, opts))

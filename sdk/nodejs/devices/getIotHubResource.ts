@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the non-security related metadata of an IoT hub.
- * API Version: 2020-08-31.
+ * Azure REST API version: 2022-11-15-preview.
  */
 export function getIotHubResource(args: GetIotHubResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceResult> {
 
@@ -44,6 +44,10 @@ export interface GetIotHubResourceResult {
      */
     readonly id: string;
     /**
+     * The managed identities for the IotHub.
+     */
+    readonly identity?: outputs.devices.ArmIdentityResponse;
+    /**
      * The resource location.
      */
     readonly location: string;
@@ -60,6 +64,10 @@ export interface GetIotHubResourceResult {
      */
     readonly sku: outputs.devices.IotHubSkuInfoResponse;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.devices.SystemDataResponse;
+    /**
      * The resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -70,7 +78,7 @@ export interface GetIotHubResourceResult {
 }
 /**
  * Get the non-security related metadata of an IoT hub.
- * API Version: 2020-08-31.
+ * Azure REST API version: 2022-11-15-preview.
  */
 export function getIotHubResourceOutput(args: GetIotHubResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubResourceResult> {
     return pulumi.output(args).apply((a: any) => getIotHubResource(a, opts))

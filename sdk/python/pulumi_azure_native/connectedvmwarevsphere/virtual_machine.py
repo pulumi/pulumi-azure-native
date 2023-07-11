@@ -20,6 +20,7 @@ class VirtualMachineArgs:
                  resource_group_name: pulumi.Input[str],
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+                 guest_agent_profile: Optional[pulumi.Input['GuestAgentProfileArgs']] = None,
                  hardware_profile: Optional[pulumi.Input['HardwareProfileArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class VirtualMachineArgs:
                  os_profile: Optional[pulumi.Input['OsProfileArgs']] = None,
                  placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None,
                  resource_pool_id: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input['SecurityProfileArgs']] = None,
                  smbios_uuid: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -41,6 +43,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[Union[str, 'FirmwareType']] firmware_type: Firmware type
+        :param pulumi.Input['GuestAgentProfileArgs'] guest_agent_profile: Guest agent status properties.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Hardware properties.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual machine.
@@ -52,6 +55,7 @@ class VirtualMachineArgs:
         :param pulumi.Input['PlacementProfileArgs'] placement_profile: Placement properties.
         :param pulumi.Input[str] resource_pool_id: Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
                deploy.
+        :param pulumi.Input['SecurityProfileArgs'] security_profile: Gets the security profile.
         :param pulumi.Input[str] smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
@@ -64,6 +68,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "extended_location", extended_location)
         if firmware_type is not None:
             pulumi.set(__self__, "firmware_type", firmware_type)
+        if guest_agent_profile is not None:
+            pulumi.set(__self__, "guest_agent_profile", guest_agent_profile)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if identity is not None:
@@ -84,6 +90,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "placement_profile", placement_profile)
         if resource_pool_id is not None:
             pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+        if security_profile is not None:
+            pulumi.set(__self__, "security_profile", security_profile)
         if smbios_uuid is not None:
             pulumi.set(__self__, "smbios_uuid", smbios_uuid)
         if storage_profile is not None:
@@ -132,6 +140,18 @@ class VirtualMachineArgs:
     @firmware_type.setter
     def firmware_type(self, value: Optional[pulumi.Input[Union[str, 'FirmwareType']]]):
         pulumi.set(self, "firmware_type", value)
+
+    @property
+    @pulumi.getter(name="guestAgentProfile")
+    def guest_agent_profile(self) -> Optional[pulumi.Input['GuestAgentProfileArgs']]:
+        """
+        Guest agent status properties.
+        """
+        return pulumi.get(self, "guest_agent_profile")
+
+    @guest_agent_profile.setter
+    def guest_agent_profile(self, value: Optional[pulumi.Input['GuestAgentProfileArgs']]):
+        pulumi.set(self, "guest_agent_profile", value)
 
     @property
     @pulumi.getter(name="hardwareProfile")
@@ -255,6 +275,18 @@ class VirtualMachineArgs:
         pulumi.set(self, "resource_pool_id", value)
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional[pulumi.Input['SecurityProfileArgs']]:
+        """
+        Gets the security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @security_profile.setter
+    def security_profile(self, value: Optional[pulumi.Input['SecurityProfileArgs']]):
+        pulumi.set(self, "security_profile", value)
+
+    @property
     @pulumi.getter(name="smbiosUuid")
     def smbios_uuid(self) -> Optional[pulumi.Input[str]]:
         """
@@ -334,6 +366,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+                 guest_agent_profile: Optional[pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
@@ -345,6 +378,7 @@ class VirtualMachine(pulumi.CustomResource):
                  placement_profile: Optional[pulumi.Input[pulumi.InputType['PlacementProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_pool_id: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
                  smbios_uuid: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -354,12 +388,13 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         Define the virtualMachine.
-        API Version: 2020-10-01-preview.
+        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
         :param pulumi.Input[Union[str, 'FirmwareType']] firmware_type: Firmware type
+        :param pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']] guest_agent_profile: Guest agent status properties.
         :param pulumi.Input[pulumi.InputType['HardwareProfileArgs']] hardware_profile: Hardware properties.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual machine.
@@ -372,6 +407,7 @@ class VirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[str] resource_pool_id: Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
                deploy.
+        :param pulumi.Input[pulumi.InputType['SecurityProfileArgs']] security_profile: Gets the security profile.
         :param pulumi.Input[str] smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
         :param pulumi.Input[pulumi.InputType['StorageProfileArgs']] storage_profile: Storage properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Gets or sets the Resource tags.
@@ -387,7 +423,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the virtualMachine.
-        API Version: 2020-10-01-preview.
+        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -406,6 +442,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+                 guest_agent_profile: Optional[pulumi.Input[pulumi.InputType['GuestAgentProfileArgs']]] = None,
                  hardware_profile: Optional[pulumi.Input[pulumi.InputType['HardwareProfileArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  inventory_item_id: Optional[pulumi.Input[str]] = None,
@@ -417,6 +454,7 @@ class VirtualMachine(pulumi.CustomResource):
                  placement_profile: Optional[pulumi.Input[pulumi.InputType['PlacementProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_pool_id: Optional[pulumi.Input[str]] = None,
+                 security_profile: Optional[pulumi.Input[pulumi.InputType['SecurityProfileArgs']]] = None,
                  smbios_uuid: Optional[pulumi.Input[str]] = None,
                  storage_profile: Optional[pulumi.Input[pulumi.InputType['StorageProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -434,6 +472,7 @@ class VirtualMachine(pulumi.CustomResource):
 
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["firmware_type"] = firmware_type
+            __props__.__dict__["guest_agent_profile"] = guest_agent_profile
             __props__.__dict__["hardware_profile"] = hardware_profile
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inventory_item_id"] = inventory_item_id
@@ -447,6 +486,7 @@ class VirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_pool_id"] = resource_pool_id
+            __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["smbios_uuid"] = smbios_uuid
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
@@ -455,7 +495,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             __props__.__dict__["custom_resource_name"] = None
             __props__.__dict__["folder_path"] = None
-            __props__.__dict__["guest_agent_profile"] = None
             __props__.__dict__["instance_uuid"] = None
             __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
@@ -510,6 +549,7 @@ class VirtualMachine(pulumi.CustomResource):
         __props__.__dict__["power_state"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["resource_pool_id"] = None
+        __props__.__dict__["security_profile"] = None
         __props__.__dict__["smbios_uuid"] = None
         __props__.__dict__["statuses"] = None
         __props__.__dict__["storage_profile"] = None
@@ -682,6 +722,14 @@ class VirtualMachine(pulumi.CustomResource):
         deploy.
         """
         return pulumi.get(self, "resource_pool_id")
+
+    @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> pulumi.Output[Optional['outputs.SecurityProfileResponse']]:
+        """
+        Gets the security profile.
+        """
+        return pulumi.get(self, "security_profile")
 
     @property
     @pulumi.getter(name="smbiosUuid")

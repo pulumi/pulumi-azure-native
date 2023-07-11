@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a devcenter.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getDevCenter(args: GetDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetDevCenterResult> {
 
@@ -26,7 +26,7 @@ export interface GetDevCenterArgs {
      */
     devCenterName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -35,6 +35,10 @@ export interface GetDevCenterArgs {
  * Represents a devcenter resource.
  */
 export interface GetDevCenterResult {
+    /**
+     * The URI of the Dev Center.
+     */
+    readonly devCenterUri: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -70,7 +74,7 @@ export interface GetDevCenterResult {
 }
 /**
  * Gets a devcenter.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getDevCenterOutput(args: GetDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevCenterResult> {
     return pulumi.output(args).apply((a: any) => getDevCenter(a, opts))
@@ -82,7 +86,7 @@ export interface GetDevCenterOutputArgs {
      */
     devCenterName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

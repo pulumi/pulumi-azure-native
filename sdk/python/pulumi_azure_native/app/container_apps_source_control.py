@@ -133,7 +133,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  __props__=None):
         """
         Container App SourceControl.
-        API Version: 2022-03-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -154,7 +154,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App SourceControl.
-        API Version: 2022-03-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
 
         :param str resource_name: The name of the resource.
         :param ContainerAppsSourceControlArgs args: The arguments to use to populate this resource's properties.
@@ -200,7 +200,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
             __props__.__dict__["operation_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20221001:ContainerAppsSourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20221001:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20221101preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20230401preview:ContainerAppsSourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerAppsSourceControl, __self__).__init__(
             'azure-native:app:ContainerAppsSourceControl',

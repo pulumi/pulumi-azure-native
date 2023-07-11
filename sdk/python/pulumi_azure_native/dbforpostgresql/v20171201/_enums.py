@@ -5,26 +5,17 @@
 from enum import Enum
 
 __all__ = [
-    'AdministratorType',
     'CreateMode',
     'GeoRedundantBackup',
     'IdentityType',
     'InfrastructureEncryption',
     'MinimalTlsVersionEnum',
     'PublicNetworkAccessEnum',
-    'ServerSecurityAlertPolicyState',
     'ServerVersion',
     'SkuTier',
     'SslEnforcementEnum',
     'StorageAutogrow',
 ]
-
-
-class AdministratorType(str, Enum):
-    """
-    The type of administrator.
-    """
-    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class CreateMode(str, Enum):
@@ -79,14 +70,6 @@ class MinimalTlsVersionEnum(str, Enum):
 class PublicNetworkAccessEnum(str, Enum):
     """
     Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ServerSecurityAlertPolicyState(str, Enum):
-    """
-    Specifies the state of the policy, whether it is enabled or disabled.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

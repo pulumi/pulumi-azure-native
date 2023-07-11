@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the federated identity credential.
- * API Version: 2022-01-31-preview.
+ * Azure REST API version: 2023-01-31.
  */
 export function getFederatedIdentityCredential(args: GetFederatedIdentityCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetFederatedIdentityCredentialResult> {
 
@@ -24,7 +27,7 @@ export interface GetFederatedIdentityCredentialArgs {
      */
     federatedIdentityCredentialResourceName: string;
     /**
-     * The name of the Resource Group to which the identity belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -42,7 +45,7 @@ export interface GetFederatedIdentityCredentialResult {
      */
     readonly audiences: string[];
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -58,13 +61,17 @@ export interface GetFederatedIdentityCredentialResult {
      */
     readonly subject: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.managedidentity.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the federated identity credential.
- * API Version: 2022-01-31-preview.
+ * Azure REST API version: 2023-01-31.
  */
 export function getFederatedIdentityCredentialOutput(args: GetFederatedIdentityCredentialOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFederatedIdentityCredentialResult> {
     return pulumi.output(args).apply((a: any) => getFederatedIdentityCredential(a, opts))
@@ -76,7 +83,7 @@ export interface GetFederatedIdentityCredentialOutputArgs {
      */
     federatedIdentityCredentialResourceName: pulumi.Input<string>;
     /**
-     * The name of the Resource Group to which the identity belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

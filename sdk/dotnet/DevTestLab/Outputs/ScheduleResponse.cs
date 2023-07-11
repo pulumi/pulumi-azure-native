@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.DevTestLab.Outputs
         /// </summary>
         public readonly string? TaskType;
         /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
+        /// The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection&lt;string&gt; TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         /// </summary>
         public readonly string? TimeZoneId;
         /// <summary>

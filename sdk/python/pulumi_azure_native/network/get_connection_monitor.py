@@ -267,7 +267,7 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionMonitorResult:
     """
     Gets a connection monitor by name.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str connection_monitor_name: The name of the connection monitor.
@@ -310,7 +310,7 @@ def get_connection_monitor_output(connection_monitor_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionMonitorResult]:
     """
     Gets a connection monitor by name.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str connection_monitor_name: The name of the connection monitor.

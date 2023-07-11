@@ -3,9 +3,10 @@
 package gen
 
 import (
+	"testing"
+
 	"github.com/blang/semver"
 	"github.com/stretchr/testify/assert"
-	"testing"
 )
 
 func testVersion(input, expected string) func(t *testing.T) {
@@ -25,4 +26,5 @@ func TestGoModVersion(t *testing.T) {
 	t.Run("Build", testVersion("1.1.0-alpha.1662577914+9fa804e8", "v1.1.0-alpha.9fa804e8"))
 	t.Run("Local Dirty", testVersion("1.1.0-alpha.0+9fa804e8.dirty", "v1.1.0-alpha.9fa804e8.dirty"))
 	t.Run("No tags", testVersion("0.0.1-alpha.0+68804cfa", "v0.0.1-alpha.68804cfa"))
+	t.Run("Beta", testVersion("2.0.0-beta.3", "v2.0.0-beta.3"))
 }

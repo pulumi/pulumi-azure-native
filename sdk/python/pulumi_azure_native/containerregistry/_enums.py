@@ -12,14 +12,19 @@ __all__ = [
     'BaseImageTriggerType',
     'ConnectedRegistryMode',
     'ConnectionStatus',
+    'CredentialName',
     'DefaultAction',
+    'EncryptionStatus',
+    'ExportPolicyStatus',
     'LogLevel',
+    'NetworkRuleBypassOptions',
     'OS',
     'PipelineOptions',
     'PipelineRunSourceType',
     'PipelineRunTargetType',
     'PipelineSourceType',
     'PolicyStatus',
+    'PublicNetworkAccess',
     'ResourceIdentityType',
     'SecretObjectType',
     'SkuName',
@@ -38,12 +43,13 @@ __all__ = [
     'Variant',
     'WebhookAction',
     'WebhookStatus',
+    'ZoneRedundancy',
 ]
 
 
 class Action(str, Enum):
     """
-    The action of virtual network rule.
+    The action of IP ACL rule.
     """
     ALLOW = "Allow"
 
@@ -87,6 +93,8 @@ class ConnectedRegistryMode(str, Enum):
     """
     The mode of the connected registry resource that indicates the permissions of the registry.
     """
+    READ_WRITE = "ReadWrite"
+    READ_ONLY = "ReadOnly"
     REGISTRY = "Registry"
     MIRROR = "Mirror"
 
@@ -101,12 +109,35 @@ class ConnectionStatus(str, Enum):
     DISCONNECTED = "Disconnected"
 
 
+class CredentialName(str, Enum):
+    """
+    The name of the credential.
+    """
+    CREDENTIAL1 = "Credential1"
+
+
 class DefaultAction(str, Enum):
     """
     The default action of allow or deny when no other rules match.
     """
     ALLOW = "Allow"
     DENY = "Deny"
+
+
+class EncryptionStatus(str, Enum):
+    """
+    Indicates whether or not the encryption is enabled for container registry.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
+
+
+class ExportPolicyStatus(str, Enum):
+    """
+    The value that indicates whether the policy is enabled or not.
+    """
+    ENABLED = "enabled"
+    DISABLED = "disabled"
 
 
 class LogLevel(str, Enum):
@@ -117,6 +148,14 @@ class LogLevel(str, Enum):
     INFORMATION = "Information"
     WARNING = "Warning"
     ERROR = "Error"
+    NONE = "None"
+
+
+class NetworkRuleBypassOptions(str, Enum):
+    """
+    Whether to allow trusted Azure services to access a network restricted registry.
+    """
+    AZURE_SERVICES = "AzureServices"
     NONE = "None"
 
 
@@ -162,6 +201,14 @@ class PolicyStatus(str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public network access is allowed for the container registry.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class ResourceIdentityType(str, Enum):
@@ -308,3 +355,11 @@ class WebhookStatus(str, Enum):
     """
     ENABLED = "enabled"
     DISABLED = "disabled"
+
+
+class ZoneRedundancy(str, Enum):
+    """
+    Whether or not zone redundancy is enabled for this container registry replication
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Packet core data plane resource.
- * API Version: 2022-04-01-preview.
+ * Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class PacketCoreDataPlane extends pulumi.CustomResource {
     /**
@@ -38,30 +38,6 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
         return obj['__pulumiType'] === PacketCoreDataPlane.__pulumiType;
     }
 
-    /**
-     * The timestamp of resource creation (UTC).
-     */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that created the resource.
-     */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -111,12 +87,6 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             if ((!args || args.userPlaneAccessInterface === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPlaneAccessInterface'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
             resourceInputs["packetCoreDataPlaneName"] = args ? args.packetCoreDataPlaneName : undefined;
@@ -128,12 +98,6 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -143,7 +107,7 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
             resourceInputs["userPlaneAccessInterface"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20221101:PacketCoreDataPlane" }, { type: "azure-native:mobilenetwork/v20230601:PacketCoreDataPlane" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PacketCoreDataPlane.__pulumiType, name, resourceInputs, opts);
     }
@@ -153,30 +117,6 @@ export class PacketCoreDataPlane extends pulumi.CustomResource {
  * The set of arguments for constructing a PacketCoreDataPlane resource.
  */
 export interface PacketCoreDataPlaneArgs {
-    /**
-     * The timestamp of resource creation (UTC).
-     */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
      * The geo-location where the resource lives
      */

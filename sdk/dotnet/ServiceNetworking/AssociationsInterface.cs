@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Association Subresource of Traffic Controller
-    /// API Version: 2022-10-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:AssociationsInterface")]
     public partial class AssociationsInterface : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning State
+        /// Provisioning State of Traffic Controller Association Resource
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:AssociationsInterface"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:AssociationsInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +124,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Association Type
         /// </summary>
         [Input("associationType", required: true)]
-        public Input<Pulumi.AzureNative.ServiceNetworking.AssociationType> AssociationType { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceNetworking.AssociationType> AssociationType { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

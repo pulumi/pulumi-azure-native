@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Gets a management lock at the subscription level.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Task<GetManagementLockAtSubscriptionLevelResult> InvokeAsync(GetManagementLockAtSubscriptionLevelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a management lock at the subscription level.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Output<GetManagementLockAtSubscriptionLevelResult> Invoke(GetManagementLockAtSubscriptionLevelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockAtSubscriptionLevelResult>("azure-native:authorization:getManagementLockAtSubscriptionLevel", args ?? new GetManagementLockAtSubscriptionLevelInvokeArgs(), options.WithDefaults());
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagementLockOwnerResponse> Owners;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.
         /// </summary>
         public readonly string Type;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<Outputs.ManagementLockOwnerResponse> owners,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
@@ -103,6 +109,7 @@ namespace Pulumi.AzureNative.Authorization
             Name = name;
             Notes = notes;
             Owners = owners;
+            SystemData = systemData;
             Type = type;
         }
     }

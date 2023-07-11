@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the move collection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getMoveCollection(args: GetMoveCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMoveCollectionResult> {
 
@@ -60,6 +60,10 @@ export interface GetMoveCollectionResult {
      */
     readonly properties: outputs.migrate.MoveCollectionPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.migrate.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -70,7 +74,7 @@ export interface GetMoveCollectionResult {
 }
 /**
  * Gets the move collection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getMoveCollectionOutput(args: GetMoveCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMoveCollectionResult> {
     return pulumi.output(args).apply((a: any) => getMoveCollection(a, opts))

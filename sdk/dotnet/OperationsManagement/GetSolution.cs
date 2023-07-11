@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationsManagement
     {
         /// <summary>
         /// Retrieves the user solution.
-        /// API Version: 2015-11-01-preview.
+        /// Azure REST API version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetSolutionResult> InvokeAsync(GetSolutionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSolutionResult>("azure-native:operationsmanagement:getSolution", args ?? new GetSolutionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the user solution.
-        /// API Version: 2015-11-01-preview.
+        /// Azure REST API version: 2015-11-01-preview.
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("azure-native:operationsmanagement:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());

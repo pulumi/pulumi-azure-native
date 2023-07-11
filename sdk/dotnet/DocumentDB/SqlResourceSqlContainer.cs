@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB container.
-    /// API Version: 2021-03-15.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : global::Pulumi.CustomResource
@@ -99,7 +99,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:SqlResourceSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:SqlResourceSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:SqlResourceSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:SqlResourceSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:SqlResourceSqlContainer"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:SqlResourceSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:SqlResourceSqlContainer"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:SqlResourceSqlContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

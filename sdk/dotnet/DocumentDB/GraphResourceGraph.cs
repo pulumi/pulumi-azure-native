@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Graph resource.
-    /// API Version: 2021-07-01-preview.
+    /// Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:GraphResourceGraph")]
     public partial class GraphResourceGraph : global::Pulumi.CustomResource
@@ -83,6 +83,9 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:GraphResourceGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:GraphResourceGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:GraphResourceGraph"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:GraphResourceGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

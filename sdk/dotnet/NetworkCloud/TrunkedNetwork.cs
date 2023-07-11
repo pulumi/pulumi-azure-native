@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// API Version: 2022-12-12-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:TrunkedNetwork")]
     public partial class TrunkedNetwork : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        /// </summary>
+        [Output("associatedResourceIds")]
+        public Output<ImmutableArray<string>> AssociatedResourceIds { get; private set; } = null!;
+
         /// <summary>
         /// The resource ID of the Network Cloud cluster this trunked network is associated with.
         /// </summary>
@@ -40,13 +46,13 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
         /// </summary>
         [Output("hybridAksClustersAssociatedIds")]
         public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
 
         /// <summary>
-        /// The network plugin type for Hybrid AKS.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         /// </summary>
         [Output("hybridAksPluginType")]
         public Output<string?> HybridAksPluginType { get; private set; } = null!;
@@ -100,7 +106,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
         /// </summary>
         [Output("virtualMachinesAssociatedIds")]
         public Output<ImmutableArray<string>> VirtualMachinesAssociatedIds { get; private set; } = null!;
@@ -137,6 +143,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:TrunkedNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:TrunkedNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,7 +174,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Input<Inputs.ExtendedLocationArgs> ExtendedLocation { get; set; } = null!;
 
         /// <summary>
-        /// The network plugin type for Hybrid AKS.
+        /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         /// </summary>
         [Input("hybridAksPluginType")]
         public InputUnion<string, Pulumi.AzureNative.NetworkCloud.HybridAksPluginType>? HybridAksPluginType { get; set; }

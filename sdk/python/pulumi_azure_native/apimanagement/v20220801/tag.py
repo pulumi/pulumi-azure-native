@@ -80,12 +80,7 @@ class TagArgs:
         pulumi.set(self, "tag_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Tag(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -134,7 +129,6 @@ class Tag(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  tag_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Tag is deprecated: azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -155,7 +149,7 @@ class Tag(pulumi.CustomResource):
             __props__.__dict__["tag_id"] = tag_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Tag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Tag"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Tag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Tag, __self__).__init__(
             'azure-native:apimanagement/v20220801:Tag',

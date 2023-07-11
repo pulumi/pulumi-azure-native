@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly int? MonitoringPercentageCompletion;
         /// <summary>
+        /// The primary disk encryption set Id.
+        /// </summary>
+        public readonly string? PrimaryDiskEncryptionSetId;
+        /// <summary>
         /// The primary staging storage account.
         /// </summary>
         public readonly string? PrimaryStagingAzureStorageAccountId;
@@ -88,6 +92,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The recovery disk encryption set Id.
         /// </summary>
         public readonly string? RecoveryDiskEncryptionSetId;
+        /// <summary>
+        /// Recovery original target disk Arm Id.
+        /// </summary>
+        public readonly string? RecoveryOrignalTargetDiskId;
         /// <summary>
         /// The replica disk type. Its an optional value and will be same as source disk type if not user provided.
         /// </summary>
@@ -155,9 +163,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? monitoringPercentageCompletion,
 
+            string? primaryDiskEncryptionSetId,
+
             string? primaryStagingAzureStorageAccountId,
 
             string? recoveryDiskEncryptionSetId,
+
+            string? recoveryOrignalTargetDiskId,
 
             string? recoveryReplicaDiskAccountType,
 
@@ -191,8 +203,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             KeyIdentifier = keyIdentifier;
             MonitoringJobType = monitoringJobType;
             MonitoringPercentageCompletion = monitoringPercentageCompletion;
+            PrimaryDiskEncryptionSetId = primaryDiskEncryptionSetId;
             PrimaryStagingAzureStorageAccountId = primaryStagingAzureStorageAccountId;
             RecoveryDiskEncryptionSetId = recoveryDiskEncryptionSetId;
+            RecoveryOrignalTargetDiskId = recoveryOrignalTargetDiskId;
             RecoveryReplicaDiskAccountType = recoveryReplicaDiskAccountType;
             RecoveryReplicaDiskId = recoveryReplicaDiskId;
             RecoveryResourceGroupId = recoveryResourceGroupId;

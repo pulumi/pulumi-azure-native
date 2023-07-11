@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -106,6 +106,14 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221102preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230101:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230102preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230201:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230202preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230301:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230302preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230401:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230402preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230501:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230502preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +156,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

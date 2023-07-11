@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Content type contract details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class ContentItem extends pulumi.CustomResource {
     /**
@@ -36,15 +36,15 @@ export class ContentItem extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Properties of the content item.
      */
-    public /*out*/ readonly properties!: pulumi.Output<any>;
+    public readonly properties!: pulumi.Output<any>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -70,10 +70,10 @@ export class ContentItem extends pulumi.CustomResource {
             }
             resourceInputs["contentItemId"] = args ? args.contentItemId : undefined;
             resourceInputs["contentTypeId"] = args ? args.contentTypeId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
@@ -81,7 +81,7 @@ export class ContentItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:ContentItem" }, { type: "azure-native:apimanagement/v20200601preview:ContentItem" }, { type: "azure-native:apimanagement/v20201201:ContentItem" }, { type: "azure-native:apimanagement/v20210101preview:ContentItem" }, { type: "azure-native:apimanagement/v20210401preview:ContentItem" }, { type: "azure-native:apimanagement/v20210801:ContentItem" }, { type: "azure-native:apimanagement/v20211201preview:ContentItem" }, { type: "azure-native:apimanagement/v20220401preview:ContentItem" }, { type: "azure-native:apimanagement/v20220801:ContentItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:ContentItem" }, { type: "azure-native:apimanagement/v20200601preview:ContentItem" }, { type: "azure-native:apimanagement/v20201201:ContentItem" }, { type: "azure-native:apimanagement/v20210101preview:ContentItem" }, { type: "azure-native:apimanagement/v20210401preview:ContentItem" }, { type: "azure-native:apimanagement/v20210801:ContentItem" }, { type: "azure-native:apimanagement/v20211201preview:ContentItem" }, { type: "azure-native:apimanagement/v20220401preview:ContentItem" }, { type: "azure-native:apimanagement/v20220801:ContentItem" }, { type: "azure-native:apimanagement/v20220901preview:ContentItem" }, { type: "azure-native:apimanagement/v20230301preview:ContentItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentItem.__pulumiType, name, resourceInputs, opts);
     }
@@ -100,7 +100,11 @@ export interface ContentItemArgs {
      */
     contentTypeId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * Properties of the content item.
+     */
+    properties?: any;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

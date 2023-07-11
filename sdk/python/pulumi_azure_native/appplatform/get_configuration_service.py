@@ -99,7 +99,7 @@ def get_configuration_service(configuration_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationServiceResult:
     """
     Get the Application Configuration Service and its properties.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str configuration_service_name: The name of Application Configuration Service.
@@ -128,7 +128,7 @@ def get_configuration_service_output(configuration_service_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationServiceResult]:
     """
     Get the Application Configuration Service and its properties.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str configuration_service_name: The name of Application Configuration Service.

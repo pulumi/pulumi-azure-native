@@ -80,10 +80,20 @@ export const getKey: typeof import("./getKey").getKey = null as any;
 export const getKeyOutput: typeof import("./getKey").getKeyOutput = null as any;
 utilities.lazyLoad(exports, ["getKey","getKeyOutput"], () => require("./getKey"));
 
+export { GetKustoPoolArgs, GetKustoPoolResult, GetKustoPoolOutputArgs } from "./getKustoPool";
+export const getKustoPool: typeof import("./getKustoPool").getKustoPool = null as any;
+export const getKustoPoolOutput: typeof import("./getKustoPool").getKustoPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPool","getKustoPoolOutput"], () => require("./getKustoPool"));
+
 export { GetKustoPoolAttachedDatabaseConfigurationArgs, GetKustoPoolAttachedDatabaseConfigurationResult, GetKustoPoolAttachedDatabaseConfigurationOutputArgs } from "./getKustoPoolAttachedDatabaseConfiguration";
 export const getKustoPoolAttachedDatabaseConfiguration: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfiguration = null as any;
 export const getKustoPoolAttachedDatabaseConfigurationOutput: typeof import("./getKustoPoolAttachedDatabaseConfiguration").getKustoPoolAttachedDatabaseConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getKustoPoolAttachedDatabaseConfiguration","getKustoPoolAttachedDatabaseConfigurationOutput"], () => require("./getKustoPoolAttachedDatabaseConfiguration"));
+
+export { GetKustoPoolDatabasePrincipalAssignmentArgs, GetKustoPoolDatabasePrincipalAssignmentResult, GetKustoPoolDatabasePrincipalAssignmentOutputArgs } from "./getKustoPoolDatabasePrincipalAssignment";
+export const getKustoPoolDatabasePrincipalAssignment: typeof import("./getKustoPoolDatabasePrincipalAssignment").getKustoPoolDatabasePrincipalAssignment = null as any;
+export const getKustoPoolDatabasePrincipalAssignmentOutput: typeof import("./getKustoPoolDatabasePrincipalAssignment").getKustoPoolDatabasePrincipalAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoPoolDatabasePrincipalAssignment","getKustoPoolDatabasePrincipalAssignmentOutput"], () => require("./getKustoPoolDatabasePrincipalAssignment"));
 
 export { GetKustoPoolPrincipalAssignmentArgs, GetKustoPoolPrincipalAssignmentResult, GetKustoPoolPrincipalAssignmentOutputArgs } from "./getKustoPoolPrincipalAssignment";
 export const getKustoPoolPrincipalAssignment: typeof import("./getKustoPoolPrincipalAssignment").getKustoPoolPrincipalAssignment = null as any;
@@ -99,6 +109,11 @@ export { GetPrivateLinkHubArgs, GetPrivateLinkHubResult, GetPrivateLinkHubOutput
 export const getPrivateLinkHub: typeof import("./getPrivateLinkHub").getPrivateLinkHub = null as any;
 export const getPrivateLinkHubOutput: typeof import("./getPrivateLinkHub").getPrivateLinkHubOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkHub","getPrivateLinkHubOutput"], () => require("./getPrivateLinkHub"));
+
+export { GetReadOnlyFollowingDatabaseArgs, GetReadOnlyFollowingDatabaseResult, GetReadOnlyFollowingDatabaseOutputArgs } from "./getReadOnlyFollowingDatabase";
+export const getReadOnlyFollowingDatabase: typeof import("./getReadOnlyFollowingDatabase").getReadOnlyFollowingDatabase = null as any;
+export const getReadOnlyFollowingDatabaseOutput: typeof import("./getReadOnlyFollowingDatabase").getReadOnlyFollowingDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getReadOnlyFollowingDatabase","getReadOnlyFollowingDatabaseOutput"], () => require("./getReadOnlyFollowingDatabase"));
 
 export { GetReadWriteDatabaseArgs, GetReadWriteDatabaseResult, GetReadWriteDatabaseOutputArgs } from "./getReadWriteDatabase";
 export const getReadWriteDatabase: typeof import("./getReadWriteDatabase").getReadWriteDatabase = null as any;
@@ -160,11 +175,6 @@ export const getWorkspaceSqlAadAdmin: typeof import("./getWorkspaceSqlAadAdmin")
 export const getWorkspaceSqlAadAdminOutput: typeof import("./getWorkspaceSqlAadAdmin").getWorkspaceSqlAadAdminOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceSqlAadAdmin","getWorkspaceSqlAadAdminOutput"], () => require("./getWorkspaceSqlAadAdmin"));
 
-export { GetkustoPoolArgs, GetkustoPoolResult, GetkustoPoolOutputArgs } from "./getkustoPool";
-export const getkustoPool: typeof import("./getkustoPool").getkustoPool = null as any;
-export const getkustoPoolOutput: typeof import("./getkustoPool").getkustoPoolOutput = null as any;
-utilities.lazyLoad(exports, ["getkustoPool","getkustoPoolOutput"], () => require("./getkustoPool"));
-
 export { IntegrationRuntimeArgs } from "./integrationRuntime";
 export type IntegrationRuntime = import("./integrationRuntime").IntegrationRuntime;
 export const IntegrationRuntime: typeof import("./integrationRuntime").IntegrationRuntime = null as any;
@@ -195,6 +205,11 @@ export type KustoPoolAttachedDatabaseConfiguration = import("./kustoPoolAttached
 export const KustoPoolAttachedDatabaseConfiguration: typeof import("./kustoPoolAttachedDatabaseConfiguration").KustoPoolAttachedDatabaseConfiguration = null as any;
 utilities.lazyLoad(exports, ["KustoPoolAttachedDatabaseConfiguration"], () => require("./kustoPoolAttachedDatabaseConfiguration"));
 
+export { KustoPoolDatabasePrincipalAssignmentArgs } from "./kustoPoolDatabasePrincipalAssignment";
+export type KustoPoolDatabasePrincipalAssignment = import("./kustoPoolDatabasePrincipalAssignment").KustoPoolDatabasePrincipalAssignment;
+export const KustoPoolDatabasePrincipalAssignment: typeof import("./kustoPoolDatabasePrincipalAssignment").KustoPoolDatabasePrincipalAssignment = null as any;
+utilities.lazyLoad(exports, ["KustoPoolDatabasePrincipalAssignment"], () => require("./kustoPoolDatabasePrincipalAssignment"));
+
 export { KustoPoolPrincipalAssignmentArgs } from "./kustoPoolPrincipalAssignment";
 export type KustoPoolPrincipalAssignment = import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment;
 export const KustoPoolPrincipalAssignment: typeof import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment = null as any;
@@ -224,6 +239,11 @@ export { PrivateLinkHubArgs } from "./privateLinkHub";
 export type PrivateLinkHub = import("./privateLinkHub").PrivateLinkHub;
 export const PrivateLinkHub: typeof import("./privateLinkHub").PrivateLinkHub = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkHub"], () => require("./privateLinkHub"));
+
+export { ReadOnlyFollowingDatabaseArgs } from "./readOnlyFollowingDatabase";
+export type ReadOnlyFollowingDatabase = import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase;
+export const ReadOnlyFollowingDatabase: typeof import("./readOnlyFollowingDatabase").ReadOnlyFollowingDatabase = null as any;
+utilities.lazyLoad(exports, ["ReadOnlyFollowingDatabase"], () => require("./readOnlyFollowingDatabase"));
 
 export { ReadWriteDatabaseArgs } from "./readWriteDatabase";
 export type ReadWriteDatabase = import("./readWriteDatabase").ReadWriteDatabase;
@@ -290,20 +310,12 @@ utilities.lazyLoad(exports, ["WorkspaceSqlAadAdmin"], () => require("./workspace
 export * from "../types/enums/synapse";
 
 // Export sub-modules:
-import * as v20190601preview from "./v20190601preview";
-import * as v20200401preview from "./v20200401preview";
-import * as v20201201 from "./v20201201";
-import * as v20210301 from "./v20210301";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210501 from "./v20210501";
 import * as v20210601 from "./v20210601";
 import * as v20210601preview from "./v20210601preview";
 
 export {
-    v20190601preview,
-    v20200401preview,
-    v20201201,
-    v20210301,
     v20210401preview,
     v20210501,
     v20210601,
@@ -330,14 +342,20 @@ const _module = {
                 return new IpFirewallRule(name, <any>undefined, { urn })
             case "azure-native:synapse:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPool":
+                return new KustoPool(name, <any>undefined, { urn })
             case "azure-native:synapse:KustoPoolAttachedDatabaseConfiguration":
                 return new KustoPoolAttachedDatabaseConfiguration(name, <any>undefined, { urn })
+            case "azure-native:synapse:KustoPoolDatabasePrincipalAssignment":
+                return new KustoPoolDatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse:KustoPoolPrincipalAssignment":
                 return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:synapse:PrivateLinkHub":
                 return new PrivateLinkHub(name, <any>undefined, { urn })
+            case "azure-native:synapse:ReadOnlyFollowingDatabase":
+                return new ReadOnlyFollowingDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse:ReadWriteDatabase":
                 return new ReadWriteDatabase(name, <any>undefined, { urn })
             case "azure-native:synapse:SqlPool":
@@ -362,8 +380,6 @@ const _module = {
                 return new WorkspaceManagedSqlServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:synapse:WorkspaceSqlAadAdmin":
                 return new WorkspaceSqlAadAdmin(name, <any>undefined, { urn })
-            case "azure-native:synapse:kustoPool":
-                return new KustoPool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

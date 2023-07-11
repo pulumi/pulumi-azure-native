@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// The VirtualMachineTemplates resource definition.
-    /// API Version: 2020-06-05-preview.
+    /// Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualMachineTemplate")]
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource
@@ -186,6 +186,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachineTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VirtualMachineTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

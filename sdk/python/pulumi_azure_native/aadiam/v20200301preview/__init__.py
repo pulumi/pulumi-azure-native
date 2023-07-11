@@ -5,5 +5,5 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
-from .getprivate_link_for_azure_ad import *
+from .get_private_link_for_azure_ad import *
 from .private_link_for_azure_ad import *

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Device")]
     public partial class Device : global::Pulumi.CustomResource
@@ -32,7 +32,13 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// The status of the Data Box Edge/Gateway device.
         /// </summary>
         [Output("dataBoxEdgeDeviceStatus")]
-        public Output<string?> DataBoxEdgeDeviceStatus { get; private set; } = null!;
+        public Output<string> DataBoxEdgeDeviceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of data-residency related properties for this resource
+        /// </summary>
+        [Output("dataResidency")]
+        public Output<Outputs.DataResidencyResponse?> DataResidency { get; private set; } = null!;
 
         /// <summary>
         /// The Description of the Data Box Edge/Gateway device.
@@ -95,7 +101,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// The etag for the devices.
+        /// The kind of the device.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -230,10 +236,10 @@ namespace Pulumi.AzureNative.DataBoxEdge
     public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The status of the Data Box Edge/Gateway device.
+        /// The details of data-residency related properties for this resource
         /// </summary>
-        [Input("dataBoxEdgeDeviceStatus")]
-        public InputUnion<string, Pulumi.AzureNative.DataBoxEdge.DataBoxEdgeDeviceStatus>? DataBoxEdgeDeviceStatus { get; set; }
+        [Input("dataResidency")]
+        public Input<Inputs.DataResidencyArgs>? DataResidency { get; set; }
 
         /// <summary>
         /// The device name.

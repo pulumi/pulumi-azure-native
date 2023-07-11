@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Diagnostic details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility.
  */
 export class Diagnostic extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Diagnostic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Diagnostic {
-        pulumi.log.warn("Diagnostic is deprecated: azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility.")
         return new Diagnostic(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class Diagnostic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility. */
     constructor(name: string, args: DiagnosticArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Diagnostic is deprecated: azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -141,7 +136,7 @@ export class Diagnostic extends pulumi.CustomResource {
             resourceInputs["verbosity"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Diagnostic" }, { type: "azure-native:apimanagement/v20170301:Diagnostic" }, { type: "azure-native:apimanagement/v20180101:Diagnostic" }, { type: "azure-native:apimanagement/v20180601preview:Diagnostic" }, { type: "azure-native:apimanagement/v20190101:Diagnostic" }, { type: "azure-native:apimanagement/v20191201:Diagnostic" }, { type: "azure-native:apimanagement/v20191201preview:Diagnostic" }, { type: "azure-native:apimanagement/v20200601preview:Diagnostic" }, { type: "azure-native:apimanagement/v20201201:Diagnostic" }, { type: "azure-native:apimanagement/v20210101preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210401preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210801:Diagnostic" }, { type: "azure-native:apimanagement/v20211201preview:Diagnostic" }, { type: "azure-native:apimanagement/v20220401preview:Diagnostic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Diagnostic" }, { type: "azure-native:apimanagement/v20170301:Diagnostic" }, { type: "azure-native:apimanagement/v20180101:Diagnostic" }, { type: "azure-native:apimanagement/v20180601preview:Diagnostic" }, { type: "azure-native:apimanagement/v20190101:Diagnostic" }, { type: "azure-native:apimanagement/v20191201:Diagnostic" }, { type: "azure-native:apimanagement/v20191201preview:Diagnostic" }, { type: "azure-native:apimanagement/v20200601preview:Diagnostic" }, { type: "azure-native:apimanagement/v20201201:Diagnostic" }, { type: "azure-native:apimanagement/v20210101preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210401preview:Diagnostic" }, { type: "azure-native:apimanagement/v20210801:Diagnostic" }, { type: "azure-native:apimanagement/v20211201preview:Diagnostic" }, { type: "azure-native:apimanagement/v20220401preview:Diagnostic" }, { type: "azure-native:apimanagement/v20220901preview:Diagnostic" }, { type: "azure-native:apimanagement/v20230301preview:Diagnostic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Diagnostic.__pulumiType, name, resourceInputs, opts);
     }

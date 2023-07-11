@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the service.
- * API Version: 2021-03-08.
+ * Azure REST API version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsForSCCPowershell(args: GetPrivateEndpointConnectionsForSCCPowershellArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsForSCCPowershellResult> {
 
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionsForSCCPowershellResult {
 }
 /**
  * Gets the specified private endpoint connection associated with the service.
- * API Version: 2021-03-08.
+ * Azure REST API version: 2021-03-08.
  */
 export function getPrivateEndpointConnectionsForSCCPowershellOutput(args: GetPrivateEndpointConnectionsForSCCPowershellOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForSCCPowershellResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForSCCPowershell(a, opts))

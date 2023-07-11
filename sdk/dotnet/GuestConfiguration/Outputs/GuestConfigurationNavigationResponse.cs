@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
     public sealed class GuestConfigurationNavigationResponse
     {
         /// <summary>
+        /// Specifies the origin of the configuration.
+        /// </summary>
+        public readonly string AssignmentSource;
+        /// <summary>
         /// Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         /// </summary>
         public readonly string? AssignmentType;
@@ -31,7 +35,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
         /// <summary>
         /// The configuration setting for the guest configuration.
         /// </summary>
-        public readonly Outputs.ConfigurationSettingResponse? ConfigurationSetting;
+        public readonly Outputs.ConfigurationSettingResponse ConfigurationSetting;
         /// <summary>
         /// Combined hash of the guest configuration package and configuration parameters.
         /// </summary>
@@ -59,13 +63,15 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
 
         [OutputConstructor]
         private GuestConfigurationNavigationResponse(
+            string assignmentSource,
+
             string? assignmentType,
 
             ImmutableArray<Outputs.ConfigurationParameterResponse> configurationParameter,
 
             ImmutableArray<Outputs.ConfigurationParameterResponse> configurationProtectedParameter,
 
-            Outputs.ConfigurationSettingResponse? configurationSetting,
+            Outputs.ConfigurationSettingResponse configurationSetting,
 
             string? contentHash,
 
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.Outputs
 
             string? version)
         {
+            AssignmentSource = assignmentSource;
             AssignmentType = assignmentType;
             ConfigurationParameter = configurationParameter;
             ConfigurationProtectedParameter = configurationProtectedParameter;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTCentral
 {
     /// <summary>
     /// The IoT Central application.
-    /// API Version: 2021-06-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:iotcentral:App")]
     public partial class App : global::Pulumi.CustomResource

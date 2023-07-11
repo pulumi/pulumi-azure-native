@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.App.Inputs
     public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        /// </summary>
+        [Input("identity")]
+        public Input<string>? Identity { get; set; }
+
+        /// <summary>
+        /// Azure Key Vault URL pointing to the secret referenced by the container app.
+        /// </summary>
+        [Input("keyVaultUrl")]
+        public Input<string>? KeyVaultUrl { get; set; }
+
+        /// <summary>
         /// Secret Name.
         /// </summary>
         [Input("name")]

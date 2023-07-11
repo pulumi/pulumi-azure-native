@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Protection profile details.
-    /// API Version: 2018-07-10.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationPolicy")]
     public partial class ReplicationPolicy : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20221001:ReplicationPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230101:ReplicationPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230201:ReplicationPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230401:ReplicationPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +112,7 @@ namespace Pulumi.AzureNative.RecoveryServices
     public sealed class ReplicationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Replication policy name
+        /// Replication policy name.
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }

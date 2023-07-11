@@ -144,12 +144,7 @@ class ApiVersionSetArgs:
         pulumi.set(self, "version_set_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiVersionSet to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ApiVersionSet(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiVersionSet to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -210,7 +205,6 @@ class ApiVersionSet(pulumi.CustomResource):
                  version_set_id: Optional[pulumi.Input[str]] = None,
                  versioning_scheme: Optional[pulumi.Input[Union[str, 'VersioningScheme']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiVersionSet is deprecated: azure-native:apimanagement/v20220801:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiVersionSet to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -237,7 +231,7 @@ class ApiVersionSet(pulumi.CustomResource):
             __props__.__dict__["versioning_scheme"] = versioning_scheme
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiVersionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiVersionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiVersionSet, __self__).__init__(
             'azure-native:apimanagement/v20220801:ApiVersionSet',

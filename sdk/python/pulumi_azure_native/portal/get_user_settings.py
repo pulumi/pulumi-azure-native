@@ -49,7 +49,7 @@ def get_user_settings(user_settings_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSettingsResult:
     """
     Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
-    API Version: 2018-10-01.
+    Azure REST API version: 2018-10-01.
 
 
     :param str user_settings_name: The name of the user settings
@@ -68,7 +68,7 @@ def get_user_settings_output(user_settings_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSettingsResult]:
     """
     Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
-    API Version: 2018-10-01.
+    Azure REST API version: 2018-10-01.
 
 
     :param str user_settings_name: The name of the user settings

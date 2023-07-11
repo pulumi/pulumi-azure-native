@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a machine pool
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -31,7 +31,7 @@ export interface GetPoolArgs {
      */
     projectName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -44,6 +44,14 @@ export interface GetPoolResult {
      * Name of a Dev Box definition in parent Project of this Pool
      */
     readonly devBoxDefinitionName: string;
+    /**
+     * Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
+     */
+    readonly healthStatus: string;
+    /**
+     * Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
+     */
+    readonly healthStatusDetails: outputs.devcenter.HealthStatusDetailResponse[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -73,6 +81,10 @@ export interface GetPoolResult {
      */
     readonly provisioningState: string;
     /**
+     * Stop on disconnect configuration settings for Dev Boxes created in this pool.
+     */
+    readonly stopOnDisconnect?: outputs.devcenter.StopOnDisconnectConfigurationResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.devcenter.SystemDataResponse;
@@ -87,7 +99,7 @@ export interface GetPoolResult {
 }
 /**
  * Gets a machine pool
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))
@@ -103,7 +115,7 @@ export interface GetPoolOutputArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

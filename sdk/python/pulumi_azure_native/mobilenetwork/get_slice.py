@@ -20,33 +20,15 @@ __all__ = [
 @pulumi.output_type
 class GetSliceResult:
     """
-    Network slice resource.
+    Network slice resource. Must be created in the same location as its parent mobile network.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, description=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, snssai=None, system_data=None, tags=None, type=None):
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
+    def __init__(__self__, description=None, id=None, location=None, name=None, provisioning_state=None, snssai=None, system_data=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -70,30 +52,6 @@ class GetSliceResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
@@ -105,33 +63,9 @@ class GetSliceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter
@@ -196,14 +130,8 @@ class AwaitableGetSliceResult(GetSliceResult):
         if False:
             yield self
         return GetSliceResult(
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
             description=self.description,
             id=self.id,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -219,7 +147,7 @@ def get_slice(mobile_network_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSliceResult:
     """
     Gets information about the specified network slice.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -234,14 +162,8 @@ def get_slice(mobile_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSlice', __args__, opts=opts, typ=GetSliceResult).value
 
     return AwaitableGetSliceResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
         description=__ret__.description,
         id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
@@ -258,7 +180,7 @@ def get_slice_output(mobile_network_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSliceResult]:
     """
     Gets information about the specified network slice.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

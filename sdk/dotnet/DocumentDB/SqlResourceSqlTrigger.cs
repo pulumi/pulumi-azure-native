@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB trigger.
-    /// API Version: 2021-03-15.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlTrigger")]
     public partial class SqlResourceSqlTrigger : global::Pulumi.CustomResource
@@ -91,7 +91,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:SqlResourceSqlTrigger"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:SqlResourceSqlTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:SqlResourceSqlTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:SqlResourceSqlTrigger"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:SqlResourceSqlTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:SqlResourceSqlTrigger"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:SqlResourceSqlTrigger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

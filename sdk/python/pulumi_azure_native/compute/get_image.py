@@ -159,7 +159,7 @@ def get_image(expand: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Gets an image.
-    API Version: 2020-12-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -193,7 +193,7 @@ def get_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Gets an image.
-    API Version: 2020-12-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

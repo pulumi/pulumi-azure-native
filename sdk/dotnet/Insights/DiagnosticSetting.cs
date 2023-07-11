@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The diagnostic setting resource.
-    /// API Version: 2017-05-01-preview.
+    /// Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2017-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DiagnosticSetting")]
     public partial class DiagnosticSetting : global::Pulumi.CustomResource
@@ -41,13 +41,19 @@ namespace Pulumi.AzureNative.Insights
         public Output<ImmutableArray<Outputs.LogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Output("marketplacePartnerId")]
+        public Output<string?> MarketplacePartnerId { get; private set; } = null!;
+
+        /// <summary>
         /// The list of metric settings.
         /// </summary>
         [Output("metrics")]
         public Output<ImmutableArray<Outputs.MetricSettingsResponse>> Metrics { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +71,13 @@ namespace Pulumi.AzureNative.Insights
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The system metadata related to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -155,6 +167,12 @@ namespace Pulumi.AzureNative.Insights
             get => _logs ?? (_logs = new InputList<Inputs.LogSettingsArgs>());
             set => _logs = value;
         }
+
+        /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Input("marketplacePartnerId")]
+        public Input<string>? MarketplacePartnerId { get; set; }
 
         [Input("metrics")]
         private InputList<Inputs.MetricSettingsArgs>? _metrics;

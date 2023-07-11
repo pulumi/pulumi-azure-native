@@ -11,16 +11,28 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// A streaming job object, containing all information associated with the named streaming job.
-    /// API Version: 2016-03-01.
+    /// Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:StreamingJob")]
     public partial class StreamingJob : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The cluster which streaming jobs will run on.
+        /// </summary>
+        [Output("cluster")]
+        public Output<Outputs.ClusterInfoResponse?> Cluster { get; private set; } = null!;
+
+        /// <summary>
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
         [Output("compatibilityLevel")]
         public Output<string?> CompatibilityLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        /// </summary>
+        [Output("contentStoragePolicy")]
+        public Output<string?> ContentStoragePolicy { get; private set; } = null!;
 
         /// <summary>
         /// Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
@@ -65,6 +77,12 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<ImmutableArray<Outputs.FunctionResponse>> Functions { get; private set; } = null!;
 
         /// <summary>
+        /// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
         /// </summary>
         [Output("inputs")]
@@ -81,6 +99,18 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         [Output("jobState")]
         public Output<string> JobState { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties that are associated with an Azure Storage account with MSI
+        /// </summary>
+        [Output("jobStorageAccount")]
+        public Output<Outputs.JobStorageAccountResponse?> JobStorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+        /// </summary>
+        [Output("jobType")]
+        public Output<string?> JobType { get; private set; } = null!;
 
         /// <summary>
         /// Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
@@ -207,10 +237,22 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class StreamingJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The cluster which streaming jobs will run on.
+        /// </summary>
+        [Input("cluster")]
+        public Input<Inputs.ClusterInfoArgs>? Cluster { get; set; }
+
+        /// <summary>
         /// Controls certain runtime behaviors of the streaming job.
         /// </summary>
         [Input("compatibilityLevel")]
         public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.CompatibilityLevel>? CompatibilityLevel { get; set; }
+
+        /// <summary>
+        /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+        /// </summary>
+        [Input("contentStoragePolicy")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.ContentStoragePolicy>? ContentStoragePolicy { get; set; }
 
         /// <summary>
         /// The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
@@ -248,6 +290,12 @@ namespace Pulumi.AzureNative.StreamAnalytics
             set => _functions = value;
         }
 
+        /// <summary>
+        /// Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
         [Input("inputs")]
         private InputList<Inputs.InputArgs>? _inputs;
 
@@ -265,6 +313,18 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         [Input("jobName")]
         public Input<string>? JobName { get; set; }
+
+        /// <summary>
+        /// The properties that are associated with an Azure Storage account with MSI
+        /// </summary>
+        [Input("jobStorageAccount")]
+        public Input<Inputs.JobStorageAccountArgs>? JobStorageAccount { get; set; }
+
+        /// <summary>
+        /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+        /// </summary>
+        [Input("jobType")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.JobType>? JobType { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -303,7 +363,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

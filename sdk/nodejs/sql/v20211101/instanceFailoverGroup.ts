@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An instance failover group.
- *
- * @deprecated azure-native:sql/v20211101:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstanceFailoverGroup to guarantee forwards compatibility.
  */
 export class InstanceFailoverGroup extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): InstanceFailoverGroup {
-        pulumi.log.warn("InstanceFailoverGroup is deprecated: azure-native:sql/v20211101:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstanceFailoverGroup to guarantee forwards compatibility.")
         return new InstanceFailoverGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstanceFailoverGroup to guarantee forwards compatibility. */
     constructor(name: string, args: InstanceFailoverGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("InstanceFailoverGroup is deprecated: azure-native:sql/v20211101:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstanceFailoverGroup to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -123,7 +118,7 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:InstanceFailoverGroup" }, { type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20211101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220801preview:InstanceFailoverGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:InstanceFailoverGroup" }, { type: "azure-native:sql/v20171001preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200202preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20200801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20201101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20210801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20211101preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220201preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220501preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20220801preview:InstanceFailoverGroup" }, { type: "azure-native:sql/v20221101preview:InstanceFailoverGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InstanceFailoverGroup.__pulumiType, name, resourceInputs, opts);
     }

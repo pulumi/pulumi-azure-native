@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the detailed information for a given agent pool.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getAgentPool(args: GetAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentPoolResult> {
 
@@ -88,7 +88,7 @@ export interface GetAgentPoolResult {
 }
 /**
  * Gets the detailed information for a given agent pool.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getAgentPoolOutput(args: GetAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getAgentPool(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the backend specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getBackend(args: GetBackendArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendResult> {
 
@@ -27,7 +27,7 @@ export interface GetBackendArgs {
      */
     backendId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -49,11 +49,11 @@ export interface GetBackendResult {
      */
     readonly description?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -65,11 +65,11 @@ export interface GetBackendResult {
      */
     readonly protocol: string;
     /**
-     * Backend Proxy Contract Properties
+     * Backend gateway Contract Properties
      */
     readonly proxy?: outputs.apimanagement.BackendProxyContractResponse;
     /**
-     * Management Uri of the Resource in External System. This url can be the Arm Resource Id of Logic Apps, Function Apps or Api Apps.
+     * Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
     readonly resourceId?: string;
     /**
@@ -81,7 +81,7 @@ export interface GetBackendResult {
      */
     readonly tls?: outputs.apimanagement.BackendTlsPropertiesResponse;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -91,7 +91,7 @@ export interface GetBackendResult {
 }
 /**
  * Gets the details of the backend specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getBackendOutput(args: GetBackendOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendResult> {
     return pulumi.output(args).apply((a: any) => getBackend(a, opts))
@@ -103,7 +103,7 @@ export interface GetBackendOutputArgs {
      */
     backendId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

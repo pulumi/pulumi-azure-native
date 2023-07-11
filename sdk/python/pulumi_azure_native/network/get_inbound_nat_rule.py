@@ -22,7 +22,10 @@ class GetInboundNatRuleResult:
     """
     Inbound NAT rule of the load balancer.
     """
-    def __init__(__self__, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, etag=None, frontend_ip_configuration=None, frontend_port=None, id=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None, type=None):
+    def __init__(__self__, backend_address_pool=None, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, etag=None, frontend_ip_configuration=None, frontend_port=None, frontend_port_range_end=None, frontend_port_range_start=None, id=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None, type=None):
+        if backend_address_pool and not isinstance(backend_address_pool, dict):
+            raise TypeError("Expected argument 'backend_address_pool' to be a dict")
+        pulumi.set(__self__, "backend_address_pool", backend_address_pool)
         if backend_ip_configuration and not isinstance(backend_ip_configuration, dict):
             raise TypeError("Expected argument 'backend_ip_configuration' to be a dict")
         pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
@@ -44,6 +47,12 @@ class GetInboundNatRuleResult:
         if frontend_port and not isinstance(frontend_port, int):
             raise TypeError("Expected argument 'frontend_port' to be a int")
         pulumi.set(__self__, "frontend_port", frontend_port)
+        if frontend_port_range_end and not isinstance(frontend_port_range_end, int):
+            raise TypeError("Expected argument 'frontend_port_range_end' to be a int")
+        pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
+        if frontend_port_range_start and not isinstance(frontend_port_range_start, int):
+            raise TypeError("Expected argument 'frontend_port_range_start' to be a int")
+        pulumi.set(__self__, "frontend_port_range_start", frontend_port_range_start)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,6 +71,14 @@ class GetInboundNatRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to backendAddressPool resource.
+        """
+        return pulumi.get(self, "backend_address_pool")
 
     @property
     @pulumi.getter(name="backendIPConfiguration")
@@ -120,6 +137,22 @@ class GetInboundNatRuleResult:
         return pulumi.get(self, "frontend_port")
 
     @property
+    @pulumi.getter(name="frontendPortRangeEnd")
+    def frontend_port_range_end(self) -> Optional[int]:
+        """
+        The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        """
+        return pulumi.get(self, "frontend_port_range_end")
+
+    @property
+    @pulumi.getter(name="frontendPortRangeStart")
+    def frontend_port_range_start(self) -> Optional[int]:
+        """
+        The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        """
+        return pulumi.get(self, "frontend_port_range_start")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
@@ -174,6 +207,7 @@ class AwaitableGetInboundNatRuleResult(GetInboundNatRuleResult):
         if False:
             yield self
         return GetInboundNatRuleResult(
+            backend_address_pool=self.backend_address_pool,
             backend_ip_configuration=self.backend_ip_configuration,
             backend_port=self.backend_port,
             enable_floating_ip=self.enable_floating_ip,
@@ -181,6 +215,8 @@ class AwaitableGetInboundNatRuleResult(GetInboundNatRuleResult):
             etag=self.etag,
             frontend_ip_configuration=self.frontend_ip_configuration,
             frontend_port=self.frontend_port,
+            frontend_port_range_end=self.frontend_port_range_end,
+            frontend_port_range_start=self.frontend_port_range_start,
             id=self.id,
             idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             name=self.name,
@@ -195,12 +231,12 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundNatRuleResult:
     """
-    Gets the specified load balancer inbound nat rule.
-    API Version: 2020-11-01.
+    Gets the specified load balancer inbound NAT rule.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
-    :param str inbound_nat_rule_name: The name of the inbound nat rule.
+    :param str inbound_nat_rule_name: The name of the inbound NAT rule.
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """
@@ -213,6 +249,7 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getInboundNatRule', __args__, opts=opts, typ=GetInboundNatRuleResult).value
 
     return AwaitableGetInboundNatRuleResult(
+        backend_address_pool=__ret__.backend_address_pool,
         backend_ip_configuration=__ret__.backend_ip_configuration,
         backend_port=__ret__.backend_port,
         enable_floating_ip=__ret__.enable_floating_ip,
@@ -220,6 +257,8 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
         etag=__ret__.etag,
         frontend_ip_configuration=__ret__.frontend_ip_configuration,
         frontend_port=__ret__.frontend_port,
+        frontend_port_range_end=__ret__.frontend_port_range_end,
+        frontend_port_range_start=__ret__.frontend_port_range_start,
         id=__ret__.id,
         idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
         name=__ret__.name,
@@ -235,12 +274,12 @@ def get_inbound_nat_rule_output(expand: Optional[pulumi.Input[Optional[str]]] = 
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundNatRuleResult]:
     """
-    Gets the specified load balancer inbound nat rule.
-    API Version: 2020-11-01.
+    Gets the specified load balancer inbound NAT rule.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
-    :param str inbound_nat_rule_name: The name of the inbound nat rule.
+    :param str inbound_nat_rule_name: The name of the inbound NAT rule.
     :param str load_balancer_name: The name of the load balancer.
     :param str resource_group_name: The name of the resource group.
     """

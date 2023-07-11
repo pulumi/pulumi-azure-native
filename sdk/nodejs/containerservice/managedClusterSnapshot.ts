@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed cluster snapshot resource.
- * API Version: 2022-02-02-preview.
+ * Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-02-02-preview
  */
 export class ManagedClusterSnapshot extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class ManagedClusterSnapshot extends pulumi.CustomResource {
      */
     public readonly creationData!: pulumi.Output<outputs.containerservice.CreationDataResponse | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -63,7 +63,7 @@ export class ManagedClusterSnapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.containerservice.SystemDataResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -106,7 +106,7 @@ export class ManagedClusterSnapshot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220502preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220602preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220702preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220802preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220803preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220902preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20221002preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20221102preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20230102preview:ManagedClusterSnapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20220202preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220302preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220502preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220602preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220702preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220802preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220803preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20220902preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20221002preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20221102preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20230102preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20230202preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20230302preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20230402preview:ManagedClusterSnapshot" }, { type: "azure-native:containerservice/v20230502preview:ManagedClusterSnapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedClusterSnapshot.__pulumiType, name, resourceInputs, opts);
     }
@@ -121,7 +121,7 @@ export interface ManagedClusterSnapshotArgs {
      */
     creationData?: pulumi.Input<inputs.containerservice.CreationDataArgs>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -137,7 +137,7 @@ export interface ManagedClusterSnapshotArgs {
      */
     snapshotType?: pulumi.Input<string | enums.containerservice.SnapshotType>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -7,9 +7,11 @@ from enum import Enum
 __all__ = [
     'ContainerGroupIpAddressType',
     'ContainerGroupNetworkProtocol',
+    'ContainerGroupPriority',
     'ContainerGroupRestartPolicy',
     'ContainerGroupSku',
     'ContainerNetworkProtocol',
+    'DnsNameLabelReusePolicy',
     'GpuSku',
     'LogAnalyticsLogType',
     'OperatingSystemTypes',
@@ -34,6 +36,14 @@ class ContainerGroupNetworkProtocol(str, Enum):
     UDP = "UDP"
 
 
+class ContainerGroupPriority(str, Enum):
+    """
+    The priority of the container group.
+    """
+    REGULAR = "Regular"
+    SPOT = "Spot"
+
+
 class ContainerGroupRestartPolicy(str, Enum):
     """
     Restart policy for all containers within the container group. 
@@ -52,6 +62,7 @@ class ContainerGroupSku(str, Enum):
     """
     STANDARD = "Standard"
     DEDICATED = "Dedicated"
+    CONFIDENTIAL = "Confidential"
 
 
 class ContainerNetworkProtocol(str, Enum):
@@ -60,6 +71,17 @@ class ContainerNetworkProtocol(str, Enum):
     """
     TCP = "TCP"
     UDP = "UDP"
+
+
+class DnsNameLabelReusePolicy(str, Enum):
+    """
+    The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+    """
+    UNSECURE = "Unsecure"
+    TENANT_REUSE = "TenantReuse"
+    SUBSCRIPTION_REUSE = "SubscriptionReuse"
+    RESOURCE_GROUP_REUSE = "ResourceGroupReuse"
+    NOREUSE = "Noreuse"
 
 
 class GpuSku(str, Enum):

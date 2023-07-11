@@ -210,7 +210,7 @@ class JobDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         The Job Definition resource.
-        API Version: 2022-07-01-preview.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -234,7 +234,7 @@ class JobDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Job Definition resource.
-        API Version: 2022-07-01-preview.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.

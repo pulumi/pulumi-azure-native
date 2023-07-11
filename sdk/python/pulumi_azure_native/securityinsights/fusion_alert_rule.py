@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['FusionAlertRuleArgs', 'FusionAlertRule']
 
@@ -26,7 +27,7 @@ class FusionAlertRuleArgs:
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'Fusion'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] rule_id: Alert rule ID
         """
@@ -79,7 +80,7 @@ class FusionAlertRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -126,7 +127,7 @@ class FusionAlertRule(pulumi.CustomResource):
                  __props__=None):
         """
         Represents Fusion alert rule.
-        API Version: 2020-01-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -134,7 +135,7 @@ class FusionAlertRule(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Determines whether this alert rule is enabled or disabled.
         :param pulumi.Input[str] kind: The kind of the alert rule
                Expected value is 'Fusion'.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -146,7 +147,7 @@ class FusionAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Fusion alert rule.
-        API Version: 2020-01-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param FusionAlertRuleArgs args: The arguments to use to populate this resource's properties.
@@ -200,9 +201,11 @@ class FusionAlertRule(pulumi.CustomResource):
             __props__.__dict__["last_modified_utc"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["severity"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tactics"] = None
+            __props__.__dict__["techniques"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:FusionAlertRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:FusionAlertRule"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:FusionAlertRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FusionAlertRule, __self__).__init__(
             'azure-native:securityinsights:FusionAlertRule',
@@ -235,7 +238,9 @@ class FusionAlertRule(pulumi.CustomResource):
         __props__.__dict__["last_modified_utc"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["severity"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tactics"] = None
+        __props__.__dict__["techniques"] = None
         __props__.__dict__["type"] = None
         return FusionAlertRule(resource_name, opts=opts, __props__=__props__)
 
@@ -300,7 +305,7 @@ class FusionAlertRule(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -313,6 +318,14 @@ class FusionAlertRule(pulumi.CustomResource):
         return pulumi.get(self, "severity")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tactics(self) -> pulumi.Output[Sequence[str]]:
         """
@@ -322,9 +335,17 @@ class FusionAlertRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def techniques(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The techniques of the alert rule
+        """
+        return pulumi.get(self, "techniques")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

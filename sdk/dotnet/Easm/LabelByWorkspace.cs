@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Easm
 {
     /// <summary>
     /// Label details
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:easm:LabelByWorkspace")]
     public partial class LabelByWorkspace : global::Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Easm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:easm/v20220401preview:LabelByWorkspace"},
+                    new global::Pulumi.Alias { Type = "azure-native:easm/v20230401preview:LabelByWorkspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

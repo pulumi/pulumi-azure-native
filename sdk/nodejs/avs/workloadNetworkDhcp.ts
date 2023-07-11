@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX DHCP
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
  */
 export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     /**
@@ -39,29 +39,13 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     }
 
     /**
-     * Type of DHCP: SERVER or RELAY.
-     */
-    public readonly dhcpType!: pulumi.Output<string>;
-    /**
-     * Display name of the DHCP entity.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning state
+     * DHCP properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * NSX revision number.
-     */
-    public readonly revision!: pulumi.Output<number | undefined>;
-    /**
-     * NSX Segments consuming DHCP.
-     */
-    public /*out*/ readonly segments!: pulumi.Output<string[]>;
+    public readonly properties!: pulumi.Output<outputs.avs.WorkloadNetworkDhcpRelayResponse | outputs.avs.WorkloadNetworkDhcpServerResponse>;
     /**
      * Resource type.
      */
@@ -78,9 +62,6 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dhcpType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'dhcpType'");
-            }
             if ((!args || args.privateCloudName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -88,22 +69,14 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["dhcpId"] = args ? args.dhcpId : undefined;
-            resourceInputs["dhcpType"] = args ? args.dhcpType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["segments"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["dhcpType"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["revision"] = undefined /*out*/;
-            resourceInputs["segments"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -122,23 +95,15 @@ export interface WorkloadNetworkDhcpArgs {
      */
     dhcpId?: pulumi.Input<string>;
     /**
-     * Type of DHCP: SERVER or RELAY.
-     */
-    dhcpType: pulumi.Input<string | enums.avs.DhcpTypeEnum>;
-    /**
-     * Display name of the DHCP entity.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
      * Name of the private cloud
      */
     privateCloudName: pulumi.Input<string>;
     /**
+     * DHCP properties.
+     */
+    properties?: pulumi.Input<inputs.avs.WorkloadNetworkDhcpRelayArgs | inputs.avs.WorkloadNetworkDhcpServerArgs>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * NSX revision number.
-     */
-    revision?: pulumi.Input<number>;
 }

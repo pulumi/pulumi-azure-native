@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workspace instance.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
 
@@ -44,9 +44,13 @@ export interface GetWorkspaceResult {
      */
     readonly customerId: string;
     /**
-     * The ETag of the workspace.
+     * The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
      */
-    readonly eTag?: string;
+    readonly defaultDataCollectionRuleResourceId?: string;
+    /**
+     * The etag of the workspace.
+     */
+    readonly etag?: string;
     /**
      * Workspace features.
      */
@@ -59,6 +63,10 @@ export interface GetWorkspaceResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.operationalinsights.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -78,7 +86,7 @@ export interface GetWorkspaceResult {
     /**
      * The provisioning state of the workspace.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
@@ -96,6 +104,10 @@ export interface GetWorkspaceResult {
      */
     readonly sku?: outputs.operationalinsights.WorkspaceSkuResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.operationalinsights.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -110,7 +122,7 @@ export interface GetWorkspaceResult {
 }
 /**
  * Gets a workspace instance.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getWorkspace(a, opts))

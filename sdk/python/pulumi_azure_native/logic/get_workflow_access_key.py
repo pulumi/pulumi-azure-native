@@ -95,7 +95,7 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkflowAccessKeyResult:
     """
     Gets a workflow access key.
-    API Version: 2015-02-01-preview.
+    Azure REST API version: 2015-02-01-preview.
 
 
     :param str access_key_name: The workflow access key name.
@@ -124,7 +124,7 @@ def get_workflow_access_key_output(access_key_name: Optional[pulumi.Input[str]] 
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkflowAccessKeyResult]:
     """
     Gets a workflow access key.
-    API Version: 2015-02-01-preview.
+    Azure REST API version: 2015-02-01-preview.
 
 
     :param str access_key_name: The workflow access key name.

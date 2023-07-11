@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Scope Connections resource
-    /// API Version: 2022-02-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ScopeConnection")]
     public partial class ScopeConnection : global::Pulumi.CustomResource
@@ -90,6 +90,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ScopeConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ScopeConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ScopeConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ScopeConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

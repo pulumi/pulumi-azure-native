@@ -116,7 +116,7 @@ class GetSAPVirtualInstanceResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.UserAssignedServiceIdentityResponse']:
         """
-        Managed service identity (user assigned identities)
+        A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         """
         return pulumi.get(self, "identity")
 
@@ -230,7 +230,7 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPVirtualInstanceResult:
     """
     Gets a Virtual Instance for SAP solutions resource
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -267,7 +267,7 @@ def get_sap_virtual_instance_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPVirtualInstanceResult]:
     """
     Gets a Virtual Instance for SAP solutions resource
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

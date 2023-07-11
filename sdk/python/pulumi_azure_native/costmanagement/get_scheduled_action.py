@@ -22,7 +22,7 @@ class GetScheduledActionResult:
     """
     Scheduled action definition.
     """
-    def __init__(__self__, display_name=None, e_tag=None, file_destination=None, id=None, kind=None, name=None, notification=None, schedule=None, scope=None, status=None, system_data=None, type=None, view_id=None):
+    def __init__(__self__, display_name=None, e_tag=None, file_destination=None, id=None, kind=None, name=None, notification=None, notification_email=None, schedule=None, scope=None, status=None, system_data=None, type=None, view_id=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -44,6 +44,9 @@ class GetScheduledActionResult:
         if notification and not isinstance(notification, dict):
             raise TypeError("Expected argument 'notification' to be a dict")
         pulumi.set(__self__, "notification", notification)
+        if notification_email and not isinstance(notification_email, str):
+            raise TypeError("Expected argument 'notification_email' to be a str")
+        pulumi.set(__self__, "notification_email", notification_email)
         if schedule and not isinstance(schedule, dict):
             raise TypeError("Expected argument 'schedule' to be a dict")
         pulumi.set(__self__, "schedule", schedule)
@@ -75,7 +78,7 @@ class GetScheduledActionResult:
     @pulumi.getter(name="eTag")
     def e_tag(self) -> str:
         """
-        Resource Etag.
+        Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
         """
         return pulumi.get(self, "e_tag")
 
@@ -83,7 +86,7 @@ class GetScheduledActionResult:
     @pulumi.getter(name="fileDestination")
     def file_destination(self) -> Optional['outputs.FileDestinationResponse']:
         """
-        Destination format of the view data.
+        Destination format of the view data. This is optional.
         """
         return pulumi.get(self, "file_destination")
 
@@ -91,7 +94,7 @@ class GetScheduledActionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -107,7 +110,7 @@ class GetScheduledActionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -118,6 +121,14 @@ class GetScheduledActionResult:
         Notification properties based on scheduled action kind.
         """
         return pulumi.get(self, "notification")
+
+    @property
+    @pulumi.getter(name="notificationEmail")
+    def notification_email(self) -> Optional[str]:
+        """
+        Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        """
+        return pulumi.get(self, "notification_email")
 
     @property
     @pulumi.getter
@@ -131,7 +142,7 @@ class GetScheduledActionResult:
     @pulumi.getter
     def scope(self) -> Optional[str]:
         """
-        Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
         return pulumi.get(self, "scope")
 
@@ -147,7 +158,7 @@ class GetScheduledActionResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        Kind of the scheduled action.
         """
         return pulumi.get(self, "system_data")
 
@@ -155,7 +166,7 @@ class GetScheduledActionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -181,6 +192,7 @@ class AwaitableGetScheduledActionResult(GetScheduledActionResult):
             kind=self.kind,
             name=self.name,
             notification=self.notification,
+            notification_email=self.notification_email,
             schedule=self.schedule,
             scope=self.scope,
             status=self.status,
@@ -193,7 +205,7 @@ def get_scheduled_action(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduledActionResult:
     """
     Get the private scheduled action by name.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str name: Scheduled action name.
@@ -211,6 +223,7 @@ def get_scheduled_action(name: Optional[str] = None,
         kind=__ret__.kind,
         name=__ret__.name,
         notification=__ret__.notification,
+        notification_email=__ret__.notification_email,
         schedule=__ret__.schedule,
         scope=__ret__.scope,
         status=__ret__.status,
@@ -224,7 +237,7 @@ def get_scheduled_action_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     Get the private scheduled action by name.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str name: Scheduled action name.

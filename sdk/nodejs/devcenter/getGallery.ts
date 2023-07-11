@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a gallery
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
 
@@ -31,7 +31,7 @@ export interface GetGalleryArgs {
      */
     galleryName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -67,7 +67,7 @@ export interface GetGalleryResult {
 }
 /**
  * Gets a gallery
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
     return pulumi.output(args).apply((a: any) => getGallery(a, opts))
@@ -83,7 +83,7 @@ export interface GetGalleryOutputArgs {
      */
     galleryName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

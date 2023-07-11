@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// The Customer Notification Event resource.
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomerEvent")]
     public partial class CustomerEvent : global::Pulumi.CustomResource

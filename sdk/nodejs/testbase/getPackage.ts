@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Test Base Package.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
 
@@ -119,7 +119,7 @@ export interface GetPackageResult {
 }
 /**
  * Gets a Test Base Package.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getPackageOutput(args: GetPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackageResult> {
     return pulumi.output(args).apply((a: any) => getPackage(a, opts))

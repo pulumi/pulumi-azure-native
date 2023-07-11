@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get a given SyncGroup.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getSyncGroup(args: GetSyncGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncGroupResult> {
 
@@ -50,6 +53,10 @@ export interface GetSyncGroupResult {
      */
     readonly syncGroupStatus: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -60,7 +67,7 @@ export interface GetSyncGroupResult {
 }
 /**
  * Get a given SyncGroup.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getSyncGroupOutput(args: GetSyncGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncGroupResult> {
     return pulumi.output(args).apply((a: any) => getSyncGroup(a, opts))

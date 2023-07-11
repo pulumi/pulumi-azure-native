@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the connection type.
-    /// API Version: 2019-06-01.
+    /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2019-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:ConnectionType")]
     public partial class ConnectionType : global::Pulumi.CustomResource

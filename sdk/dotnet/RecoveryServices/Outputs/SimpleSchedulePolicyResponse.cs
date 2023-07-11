@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class SimpleSchedulePolicyResponse
     {
         /// <summary>
+        /// Hourly Schedule of this Policy
+        /// </summary>
+        public readonly Outputs.HourlyScheduleResponse? HourlySchedule;
+        /// <summary>
         /// This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
         /// Expected value is 'SimpleSchedulePolicy'.
         /// </summary>
@@ -40,6 +44,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private SimpleSchedulePolicyResponse(
+            Outputs.HourlyScheduleResponse? hourlySchedule,
+
             string schedulePolicyType,
 
             ImmutableArray<string> scheduleRunDays,
@@ -50,6 +56,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             int? scheduleWeeklyFrequency)
         {
+            HourlySchedule = hourlySchedule;
             SchedulePolicyType = schedulePolicyType;
             ScheduleRunDays = scheduleRunDays;
             ScheduleRunFrequency = scheduleRunFrequency;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified user.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
@@ -57,7 +57,7 @@ export interface GetUserResult {
      */
     readonly shareAccessRights: outputs.databoxedge.ShareAccessRightResponse[];
     /**
-     * User in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of User
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -71,7 +71,7 @@ export interface GetUserResult {
 }
 /**
  * Gets the properties of the specified user.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))

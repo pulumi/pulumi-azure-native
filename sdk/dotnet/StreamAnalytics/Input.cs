@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-    /// API Version: 2016-03-01.
+    /// Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Input")]
     public partial class Input : global::Pulumi.CustomResource
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public InputUnion<Inputs.ReferenceInputPropertiesArgs, Inputs.StreamInputPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

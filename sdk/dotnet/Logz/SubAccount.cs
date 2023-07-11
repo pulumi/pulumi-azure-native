@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Logz
 {
     /// <summary>
-    /// API Version: 2020-10-01.
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:SubAccount")]
     public partial class SubAccount : global::Pulumi.CustomResource

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get role definition by name (GUID).
- * API Version: 2018-01-01-preview.
+ * Get role definition by ID (GUID).
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
 
@@ -26,7 +26,7 @@ export interface GetRoleDefinitionArgs {
      */
     roleDefinitionId: string;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     scope: string;
 }
@@ -39,6 +39,14 @@ export interface GetRoleDefinitionResult {
      * Role definition assignable scopes.
      */
     readonly assignableScopes?: string[];
+    /**
+     * Id of the user who created the assignment
+     */
+    readonly createdBy: string;
+    /**
+     * Time it was created
+     */
+    readonly createdOn: string;
     /**
      * The role definition description.
      */
@@ -67,10 +75,18 @@ export interface GetRoleDefinitionResult {
      * The role definition type.
      */
     readonly type: string;
+    /**
+     * Id of the user who updated the assignment
+     */
+    readonly updatedBy: string;
+    /**
+     * Time it was updated
+     */
+    readonly updatedOn: string;
 }
 /**
- * Get role definition by name (GUID).
- * API Version: 2018-01-01-preview.
+ * Get role definition by ID (GUID).
+ * Azure REST API version: 2022-05-01-preview.
  */
 export function getRoleDefinitionOutput(args: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))
@@ -82,7 +98,7 @@ export interface GetRoleDefinitionOutputArgs {
      */
     roleDefinitionId: pulumi.Input<string>;
     /**
-     * The scope of the role definition.
+     * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
     scope: pulumi.Input<string>;
 }

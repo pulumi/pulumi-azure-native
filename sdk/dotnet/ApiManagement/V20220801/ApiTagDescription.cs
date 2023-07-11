@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:ApiTagDescription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiTagDescription to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiTagDescription")]
     public partial class ApiTagDescription : global::Pulumi.CustomResource
     {
@@ -97,6 +96,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiTagDescription"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiTagDescription"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiTagDescription"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiTagDescription"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ApiTagDescription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

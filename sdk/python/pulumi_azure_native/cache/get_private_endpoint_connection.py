@@ -105,21 +105,21 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             type=self.type)
 
 
-def get_private_endpoint_connection(cluster_name: Optional[str] = None,
+def get_private_endpoint_connection(cache_name: Optional[str] = None,
                                     private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-    API Version: 2021-03-01.
+    Gets the specified private endpoint connection associated with the redis cache.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str cluster_name: The name of the RedisEnterprise cluster.
+    :param str cache_name: The name of the Redis cache.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group.
     """
     __args__ = dict()
-    __args__['clusterName'] = cluster_name
+    __args__['cacheName'] = cache_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -135,17 +135,17 @@ def get_private_endpoint_connection(cluster_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_private_endpoint_connection)
-def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
+def get_private_endpoint_connection_output(cache_name: Optional[pulumi.Input[str]] = None,
                                            private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Gets the specified private endpoint connection associated with the RedisEnterprise cluster.
-    API Version: 2021-03-01.
+    Gets the specified private endpoint connection associated with the redis cache.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str cluster_name: The name of the RedisEnterprise cluster.
+    :param str cache_name: The name of the Redis cache.
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
-    :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group.
     """
     ...

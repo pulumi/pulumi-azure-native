@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of the webhook type.
-    /// API Version: 2015-10-31.
+    /// Azure REST API version: 2015-10-31. Prior API version in Azure Native 1.x: 2015-10-31
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource

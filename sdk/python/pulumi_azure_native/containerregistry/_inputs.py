@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AgentPropertiesArgs',
     'ArgumentArgs',
+    'AuthCredentialArgs',
     'AuthInfoArgs',
     'BaseImageTriggerArgs',
     'CredentialsArgs',
@@ -21,12 +22,15 @@ __all__ = [
     'DockerBuildStepArgs',
     'EncodedTaskRunRequestArgs',
     'EncodedTaskStepArgs',
+    'EncryptionPropertyArgs',
     'ExportPipelineTargetPropertiesArgs',
+    'ExportPolicyArgs',
     'FileTaskRunRequestArgs',
     'FileTaskStepArgs',
     'IPRuleArgs',
     'IdentityPropertiesArgs',
     'ImportPipelineSourcePropertiesArgs',
+    'KeyVaultPropertiesArgs',
     'LoggingPropertiesArgs',
     'NetworkRuleSetArgs',
     'OverrideTaskStepPropertiesArgs',
@@ -48,7 +52,6 @@ __all__ = [
     'SourcePropertiesArgs',
     'SourceRegistryCredentialsArgs',
     'SourceTriggerArgs',
-    'StorageAccountPropertiesArgs',
     'SyncPropertiesArgs',
     'TaskRunRequestArgs',
     'TimerTriggerArgs',
@@ -58,7 +61,6 @@ __all__ = [
     'TriggerPropertiesArgs',
     'TrustPolicyArgs',
     'UserIdentityPropertiesArgs',
-    'VirtualNetworkRuleArgs',
 ]
 
 @pulumi.input_type
@@ -139,6 +141,62 @@ class ArgumentArgs:
     @is_secret.setter
     def is_secret(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_secret", value)
+
+
+@pulumi.input_type
+class AuthCredentialArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[Union[str, 'CredentialName']]] = None,
+                 password_secret_identifier: Optional[pulumi.Input[str]] = None,
+                 username_secret_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        Authentication credential stored for an upstream.
+        :param pulumi.Input[Union[str, 'CredentialName']] name: The name of the credential.
+        :param pulumi.Input[str] password_secret_identifier: KeyVault Secret URI for accessing the password.
+        :param pulumi.Input[str] username_secret_identifier: KeyVault Secret URI for accessing the username.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password_secret_identifier is not None:
+            pulumi.set(__self__, "password_secret_identifier", password_secret_identifier)
+        if username_secret_identifier is not None:
+            pulumi.set(__self__, "username_secret_identifier", username_secret_identifier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[Union[str, 'CredentialName']]]:
+        """
+        The name of the credential.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[Union[str, 'CredentialName']]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="passwordSecretIdentifier")
+    def password_secret_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        KeyVault Secret URI for accessing the password.
+        """
+        return pulumi.get(self, "password_secret_identifier")
+
+    @password_secret_identifier.setter
+    def password_secret_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_secret_identifier", value)
+
+    @property
+    @pulumi.getter(name="usernameSecretIdentifier")
+    def username_secret_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        KeyVault Secret URI for accessing the username.
+        """
+        return pulumi.get(self, "username_secret_identifier")
+
+    @username_secret_identifier.setter
+    def username_secret_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_secret_identifier", value)
 
 
 @pulumi.input_type
@@ -1148,6 +1206,45 @@ class EncodedTaskStepArgs:
 
 
 @pulumi.input_type
+class EncryptionPropertyArgs:
+    def __init__(__self__, *,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EncryptionStatus']]] = None):
+        """
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
+        :param pulumi.Input[Union[str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for container registry.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'EncryptionStatus']]]:
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'EncryptionStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
 class ExportPipelineTargetPropertiesArgs:
     def __init__(__self__, *,
                  key_vault_uri: pulumi.Input[str],
@@ -1204,6 +1301,32 @@ class ExportPipelineTargetPropertiesArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class ExportPolicyArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[str, 'ExportPolicyStatus']]] = None):
+        """
+        The export policy for a container registry.
+        :param pulumi.Input[Union[str, 'ExportPolicyStatus']] status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'ExportPolicyStatus']]]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'ExportPolicyStatus']]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -1696,6 +1819,45 @@ class ImportPipelineSourcePropertiesArgs:
 
 
 @pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[str]] = None,
+                 key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] identity: The client id of the identity which will be used to access key vault.
+        :param pulumi.Input[str] key_identifier: Key vault uri to access the encryption key.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_identifier", value)
+
+
+@pulumi.input_type
 class LoggingPropertiesArgs:
     def __init__(__self__, *,
                  audit_log_status: Optional[pulumi.Input[Union[str, 'AuditLogStatus']]] = None,
@@ -1743,21 +1905,17 @@ class LoggingPropertiesArgs:
 class NetworkRuleSetArgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[Union[str, 'DefaultAction']],
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None):
         """
         The network rule set for a container registry.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: The default action of allow or deny when no other rules match.
         :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
         """
         if default_action is None:
             default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
-        if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -1782,18 +1940,6 @@ class NetworkRuleSetArgs:
     @ip_rules.setter
     def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
-
-    @property
-    @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
-        """
-        The virtual network rules.
-        """
-        return pulumi.get(self, "virtual_network_rules")
-
-    @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
-        pulumi.set(self, "virtual_network_rules", value)
 
 
 @pulumi.input_type
@@ -2221,21 +2367,37 @@ class PlatformPropertiesArgs:
 @pulumi.input_type
 class PoliciesArgs:
     def __init__(__self__, *,
+                 export_policy: Optional[pulumi.Input['ExportPolicyArgs']] = None,
                  quarantine_policy: Optional[pulumi.Input['QuarantinePolicyArgs']] = None,
                  retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
                  trust_policy: Optional[pulumi.Input['TrustPolicyArgs']] = None):
         """
         The policies for a container registry.
+        :param pulumi.Input['ExportPolicyArgs'] export_policy: The export policy for a container registry.
         :param pulumi.Input['QuarantinePolicyArgs'] quarantine_policy: The quarantine policy for a container registry.
         :param pulumi.Input['RetentionPolicyArgs'] retention_policy: The retention policy for a container registry.
         :param pulumi.Input['TrustPolicyArgs'] trust_policy: The content trust policy for a container registry.
         """
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if trust_policy is not None:
             pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional[pulumi.Input['ExportPolicyArgs']]:
+        """
+        The export policy for a container registry.
+        """
+        return pulumi.get(self, "export_policy")
+
+    @export_policy.setter
+    def export_policy(self, value: Optional[pulumi.Input['ExportPolicyArgs']]):
+        pulumi.set(self, "export_policy", value)
 
     @property
     @pulumi.getter(name="quarantinePolicy")
@@ -2718,29 +2880,6 @@ class SourceTriggerArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'TriggerStatus']]]):
         pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class StorageAccountPropertiesArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        The properties of a storage account for a container registry. Only applicable to Classic SKU.
-        :param pulumi.Input[str] id: The resource ID of the storage account.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        The resource ID of the storage account.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -3268,46 +3407,5 @@ class UserIdentityPropertiesArgs:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
-
-
-@pulumi.input_type
-class VirtualNetworkRuleArgs:
-    def __init__(__self__, *,
-                 virtual_network_resource_id: pulumi.Input[str],
-                 action: Optional[pulumi.Input[Union[str, 'Action']]] = None):
-        """
-        Virtual network rule.
-        :param pulumi.Input[str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        :param pulumi.Input[Union[str, 'Action']] action: The action of virtual network rule.
-        """
-        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
-        if action is None:
-            action = 'Allow'
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter(name="virtualNetworkResourceId")
-    def virtual_network_resource_id(self) -> pulumi.Input[str]:
-        """
-        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        """
-        return pulumi.get(self, "virtual_network_resource_id")
-
-    @virtual_network_resource_id.setter
-    def virtual_network_resource_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "virtual_network_resource_id", value)
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Union[str, 'Action']]]:
-        """
-        The action of virtual network rule.
-        """
-        return pulumi.get(self, "action")
-
-    @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
-        pulumi.set(self, "action", value)
 
 

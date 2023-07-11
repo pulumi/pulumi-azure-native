@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Retrieve the variable identified by variable name.
-        /// API Version: 2019-06-01.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Task<GetVariableResult> InvokeAsync(GetVariableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableResult>("azure-native:automation:getVariable", args ?? new GetVariableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve the variable identified by variable name.
-        /// API Version: 2019-06-01.
+        /// Azure REST API version: 2022-08-08.
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("azure-native:automation:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());

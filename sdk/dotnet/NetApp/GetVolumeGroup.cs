@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get details of the specified volume group
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetVolumeGroupResult> InvokeAsync(GetVolumeGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details of the specified volume group
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetVolumeGroupResult> Invoke(GetVolumeGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeGroupResult>("azure-native:netapp:getVolumeGroup", args ?? new GetVolumeGroupInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.NetApp
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -104,10 +104,6 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource tags
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
@@ -128,8 +124,6 @@ namespace Pulumi.AzureNative.NetApp
 
             string provisioningState,
 
-            ImmutableDictionary<string, string>? tags,
-
             string type,
 
             ImmutableArray<Outputs.VolumeGroupVolumePropertiesResponse> volumes)
@@ -139,7 +133,6 @@ namespace Pulumi.AzureNative.NetApp
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
-            Tags = tags;
             Type = type;
             Volumes = volumes;
         }

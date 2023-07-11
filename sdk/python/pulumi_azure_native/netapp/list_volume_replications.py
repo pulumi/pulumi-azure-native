@@ -52,12 +52,12 @@ def list_volume_replications(account_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVolumeReplicationsResult:
     """
     List all replications for a specified volume
-    API Version: 2022-01-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
     __args__ = dict()
@@ -80,12 +80,12 @@ def list_volume_replications_output(account_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVolumeReplicationsResult]:
     """
     List all replications for a specified volume
-    API Version: 2022-01-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str pool_name: The name of the capacity pool
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str volume_name: The name of the volume
     """
     ...

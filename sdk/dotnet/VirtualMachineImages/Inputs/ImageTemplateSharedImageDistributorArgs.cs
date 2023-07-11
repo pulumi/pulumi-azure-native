@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
 {
 
     /// <summary>
-    /// Distribute via Shared Image Gallery.
+    /// Distribute via Azure Compute Gallery.
     /// </summary>
     public sealed class ImageTemplateSharedImageDistributorArgs : global::Pulumi.ResourceArgs
     {
@@ -34,16 +34,16 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public Input<bool>? ExcludeFromLatest { get; set; }
 
         /// <summary>
-        /// Resource Id of the Shared Image Gallery image
+        /// Resource Id of the Azure Compute Gallery image
         /// </summary>
         [Input("galleryImageId", required: true)]
         public Input<string> GalleryImageId { get; set; } = null!;
 
-        [Input("replicationRegions", required: true)]
+        [Input("replicationRegions")]
         private InputList<string>? _replicationRegions;
 
         /// <summary>
-        /// A list of regions that the image will be replicated to
+        /// [Deprecated] A list of regions that the image will be replicated to. This list can be specified only if targetRegions is not specified. This field is deprecated - use targetRegions instead.
         /// </summary>
         public InputList<string> ReplicationRegions
         {
@@ -58,10 +58,22 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         public Input<string> RunOutputName { get; set; } = null!;
 
         /// <summary>
-        /// Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+        /// [Deprecated] Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS). This field can be specified only if replicationRegions is specified. This field is deprecated - use targetRegions instead.
         /// </summary>
         [Input("storageAccountType")]
         public InputUnion<string, Pulumi.AzureNative.VirtualMachineImages.SharedImageStorageAccountType>? StorageAccountType { get; set; }
+
+        [Input("targetRegions")]
+        private InputList<Inputs.TargetRegionArgs>? _targetRegions;
+
+        /// <summary>
+        /// The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
+        /// </summary>
+        public InputList<Inputs.TargetRegionArgs> TargetRegions
+        {
+            get => _targetRegions ?? (_targetRegions = new InputList<Inputs.TargetRegionArgs>());
+            set => _targetRegions = value;
+        }
 
         /// <summary>
         /// Type of distribution.
@@ -69,6 +81,12 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Describes how to generate new x.y.z version number for distribution.
+        /// </summary>
+        [Input("versioning")]
+        public InputUnion<Inputs.DistributeVersionerLatestArgs, Inputs.DistributeVersionerSourceArgs>? Versioning { get; set; }
 
         public ImageTemplateSharedImageDistributorArgs()
         {

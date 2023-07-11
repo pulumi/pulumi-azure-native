@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Attestation.Inputs
         [Input("policySigningCertificates")]
         public Input<Inputs.JSONWebKeySetArgs>? PolicySigningCertificates { get; set; }
 
+        /// <summary>
+        /// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Attestation.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+        /// </summary>
+        [Input("tpmAttestationAuthentication")]
+        public InputUnion<string, Pulumi.AzureNative.Attestation.TpmAttestationAuthenticationType>? TpmAttestationAuthentication { get; set; }
+
         public AttestationServiceCreationSpecificParamsArgs()
         {
         }

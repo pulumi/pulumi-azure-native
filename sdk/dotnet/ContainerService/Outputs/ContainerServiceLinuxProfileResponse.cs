@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// SSH configuration for Linux-based VMs running on Azure.
+        /// The SSH configuration for Linux-based VMs running on Azure.
         /// </summary>
         public readonly Outputs.ContainerServiceSshConfigurationResponse Ssh;
 

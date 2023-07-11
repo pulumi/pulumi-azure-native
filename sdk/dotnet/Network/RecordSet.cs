@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
-    /// API Version: 2018-05-01.
+    /// Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RecordSet")]
     public partial class RecordSet : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("cnameRecord")]
         public Output<Outputs.CnameRecordResponse?> CnameRecord { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of DS records in the record set.
+        /// </summary>
+        [Output("dsRecords")]
+        public Output<ImmutableArray<Outputs.DsRecordResponse>> DsRecords { get; private set; } = null!;
 
         /// <summary>
         /// The etag of the record set.
@@ -69,6 +75,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of NAPTR records in the record set.
+        /// </summary>
+        [Output("naptrRecords")]
+        public Output<ImmutableArray<Outputs.NaptrRecordResponse>> NaptrRecords { get; private set; } = null!;
 
         /// <summary>
         /// The list of NS records in the record set.
@@ -105,6 +117,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("targetResource")]
         public Output<Outputs.SubResourceResponse?> TargetResource { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of TLSA records in the record set.
+        /// </summary>
+        [Output("tlsaRecords")]
+        public Output<ImmutableArray<Outputs.TlsaRecordResponse>> TlsaRecords { get; private set; } = null!;
 
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
@@ -155,6 +173,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171001:RecordSet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:RecordSet"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:RecordSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:RecordSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -220,6 +239,18 @@ namespace Pulumi.AzureNative.Network
         [Input("cnameRecord")]
         public Input<Inputs.CnameRecordArgs>? CnameRecord { get; set; }
 
+        [Input("dsRecords")]
+        private InputList<Inputs.DsRecordArgs>? _dsRecords;
+
+        /// <summary>
+        /// The list of DS records in the record set.
+        /// </summary>
+        public InputList<Inputs.DsRecordArgs> DsRecords
+        {
+            get => _dsRecords ?? (_dsRecords = new InputList<Inputs.DsRecordArgs>());
+            set => _dsRecords = value;
+        }
+
         [Input("metadata")]
         private InputMap<string>? _metadata;
 
@@ -242,6 +273,18 @@ namespace Pulumi.AzureNative.Network
         {
             get => _mxRecords ?? (_mxRecords = new InputList<Inputs.MxRecordArgs>());
             set => _mxRecords = value;
+        }
+
+        [Input("naptrRecords")]
+        private InputList<Inputs.NaptrRecordArgs>? _naptrRecords;
+
+        /// <summary>
+        /// The list of NAPTR records in the record set.
+        /// </summary>
+        public InputList<Inputs.NaptrRecordArgs> NaptrRecords
+        {
+            get => _naptrRecords ?? (_naptrRecords = new InputList<Inputs.NaptrRecordArgs>());
+            set => _naptrRecords = value;
         }
 
         [Input("nsRecords")]
@@ -269,7 +312,7 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
-        /// The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
+        /// The type of DNS record in this record set.
         /// </summary>
         [Input("recordType", required: true)]
         public Input<string> RecordType { get; set; } = null!;
@@ -281,7 +324,7 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? RelativeRecordSetName { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -309,6 +352,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("targetResource")]
         public Input<Inputs.SubResourceArgs>? TargetResource { get; set; }
+
+        [Input("tlsaRecords")]
+        private InputList<Inputs.TlsaRecordArgs>? _tlsaRecords;
+
+        /// <summary>
+        /// The list of TLSA records in the record set.
+        /// </summary>
+        public InputList<Inputs.TlsaRecordArgs> TlsaRecords
+        {
+            get => _tlsaRecords ?? (_tlsaRecords = new InputList<Inputs.TlsaRecordArgs>());
+            set => _tlsaRecords = value;
+        }
 
         /// <summary>
         /// The TTL (time-to-live) of the records in the record set.

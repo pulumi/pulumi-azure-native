@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : global::Pulumi.CustomResource

@@ -158,12 +158,7 @@ class ApiIssueArgs:
         pulumi.set(self, "state", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:ApiIssue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssue to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ApiIssue(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:ApiIssue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssue to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,7 +222,6 @@ class ApiIssue(pulumi.CustomResource):
                  title: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiIssue is deprecated: azure-native:apimanagement/v20220801:ApiIssue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssue to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -259,7 +253,7 @@ class ApiIssue(pulumi.CustomResource):
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssue")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiIssue"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiIssue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssue, __self__).__init__(
             'azure-native:apimanagement/v20220801:ApiIssue',

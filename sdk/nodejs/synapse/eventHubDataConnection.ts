@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**
@@ -67,6 +67,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
+    /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
@@ -134,6 +138,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["kind"] = "EventHub";
             resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
@@ -150,6 +155,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["eventSystemProperties"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedIdentityResourceId"] = undefined /*out*/;
             resourceInputs["mappingRuleName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -210,6 +216,10 @@ export interface EventHubDataConnectionArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    managedIdentityResourceId?: pulumi.Input<string>;
+    /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
     mappingRuleName?: pulumi.Input<string>;
@@ -222,7 +232,7 @@ export interface EventHubDataConnectionArgs {
      */
     tableName?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

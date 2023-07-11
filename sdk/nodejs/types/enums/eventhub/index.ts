@@ -2,25 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20140901 from "./v20140901";
-import * as v20150801 from "./v20150801";
-import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
-import * as v20210101preview from "./v20210101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20211101 from "./v20211101";
-import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 
 export {
-    v20140901,
-    v20150801,
-    v20170401,
     v20180101preview,
-    v20210101preview,
-    v20210601preview,
-    v20211101,
-    v20220101preview,
     v20221001preview,
 };
 
@@ -40,6 +26,16 @@ export const ApplicationGroupPolicyType = {
  * Application Group Policy types
  */
 export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[keyof typeof ApplicationGroupPolicyType];
+
+export const CleanupPolicyRetentionDescription = {
+    Delete: "Delete",
+    Compact: "Compact",
+} as const;
+
+/**
+ * Enumerates the possible values for cleanup policy
+ */
+export type CleanupPolicyRetentionDescription = (typeof CleanupPolicyRetentionDescription)[keyof typeof CleanupPolicyRetentionDescription];
 
 export const ClusterSkuName = {
     Dedicated: "Dedicated",
@@ -111,6 +107,27 @@ export const IPAction = {
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
 
+export const KeySource = {
+    Microsoft_KeyVault: "Microsoft.KeyVault",
+} as const;
+
+/**
+ * Enumerates the possible value of keySource for Encryption
+ */
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const MetricId = {
     IncomingBytes: "IncomingBytes",
     OutgoingBytes: "OutgoingBytes",
@@ -144,6 +161,28 @@ export const PrivateLinkConnectionStatus = {
  */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const PublicNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+ */
+export type PublicNetworkAccessFlag = (typeof PublicNetworkAccessFlag)[keyof typeof PublicNetworkAccessFlag];
+
 export const SchemaCompatibility = {
     None: "None",
     Backward: "Backward",
@@ -162,6 +201,7 @@ export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 export const SkuName = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**
@@ -172,9 +212,21 @@ export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 export const SkuTier = {
     Basic: "Basic",
     Standard: "Standard",
+    Premium: "Premium",
 } as const;
 
 /**
  * The billing tier of this particular SKU.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const TlsVersion = {
+    TlsVersion_1_0: "1.0",
+    TlsVersion_1_1: "1.1",
+    TlsVersion_1_2: "1.2",
+} as const;
+
+/**
+ * The minimum TLS version for the cluster to support, e.g. '1.2'
+ */
+export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];

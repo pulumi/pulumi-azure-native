@@ -22,7 +22,7 @@ class ProvisionedClusterArgs:
                  identity: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ProvisionedClustersAllPropertiesArgs']] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
+                 resource_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedCluster resource.
@@ -30,7 +30,7 @@ class ProvisionedClusterArgs:
         :param pulumi.Input['ProvisionedClusterIdentityArgs'] identity: Identity for the Provisioned cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['ProvisionedClustersAllPropertiesArgs'] properties: All properties of the provisioned cluster
-        :param pulumi.Input[str] provisioned_clusters_name: Parameter for the name of the provisioned cluster
+        :param pulumi.Input[str] resource_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -42,8 +42,8 @@ class ProvisionedClusterArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if provisioned_clusters_name is not None:
-            pulumi.set(__self__, "provisioned_clusters_name", provisioned_clusters_name)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -105,16 +105,16 @@ class ProvisionedClusterArgs:
         pulumi.set(self, "properties", value)
 
     @property
-    @pulumi.getter(name="provisionedClustersName")
-    def provisioned_clusters_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
         Parameter for the name of the provisioned cluster
         """
-        return pulumi.get(self, "provisioned_clusters_name")
+        return pulumi.get(self, "resource_name")
 
-    @provisioned_clusters_name.setter
-    def provisioned_clusters_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioned_clusters_name", value)
+    @resource_name.setter
+    def resource_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_name", value)
 
     @property
     @pulumi.getter
@@ -138,21 +138,21 @@ class ProvisionedCluster(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProvisionedClustersAllPropertiesArgs']]] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The provisionedClusters resource definition.
-        API Version: 2022-05-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']] identity: Identity for the Provisioned cluster.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['ProvisionedClustersAllPropertiesArgs']] properties: All properties of the provisioned cluster
-        :param pulumi.Input[str] provisioned_clusters_name: Parameter for the name of the provisioned cluster
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] resource_name_: Parameter for the name of the provisioned cluster
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -163,7 +163,7 @@ class ProvisionedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provisionedClusters resource definition.
-        API Version: 2022-05-01-preview.
+        Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param ProvisionedClusterArgs args: The arguments to use to populate this resource's properties.
@@ -184,8 +184,8 @@ class ProvisionedCluster(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ProvisionedClustersAllPropertiesArgs']]] = None,
-                 provisioned_clusters_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -200,15 +200,15 @@ class ProvisionedCluster(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
-            __props__.__dict__["provisioned_clusters_name"] = provisioned_clusters_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProvisionedCluster, __self__).__init__(
             'azure-native:hybridcontainerservice:ProvisionedCluster',

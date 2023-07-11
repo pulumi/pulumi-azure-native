@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetworkFunction
 {
     /// <summary>
     /// Azure Traffic Collector resource.
-    /// API Version: 2022-05-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:AzureTrafficCollector")]
     public partial class AzureTrafficCollector : global::Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Collector Policies for Azure Traffic Collector.
         /// </summary>
         [Output("collectorPolicies")]
-        public Output<ImmutableArray<Outputs.CollectorPolicyResponse>> CollectorPolicies { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceReferenceResponse>> CollectorPolicies { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// Resource location.
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -127,18 +127,6 @@ namespace Pulumi.AzureNative.NetworkFunction
         /// </summary>
         [Input("azureTrafficCollectorName")]
         public Input<string>? AzureTrafficCollectorName { get; set; }
-
-        [Input("collectorPolicies")]
-        private InputList<Inputs.CollectorPolicyArgs>? _collectorPolicies;
-
-        /// <summary>
-        /// Collector Policies for Azure Traffic Collector.
-        /// </summary>
-        public InputList<Inputs.CollectorPolicyArgs> CollectorPolicies
-        {
-            get => _collectorPolicies ?? (_collectorPolicies = new InputList<Inputs.CollectorPolicyArgs>());
-            set => _collectorPolicies = value;
-        }
 
         /// <summary>
         /// Resource location.

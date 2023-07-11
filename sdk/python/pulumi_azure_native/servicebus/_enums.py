@@ -11,10 +11,15 @@ __all__ = [
     'EntityStatus',
     'FilterType',
     'IPAction',
+    'KeySource',
+    'ManagedServiceIdentityType',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
+    'PublicNetworkAccess',
+    'PublicNetworkAccessFlag',
     'SkuName',
     'SkuTier',
+    'TlsVersion',
 ]
 
 
@@ -75,6 +80,23 @@ class IPAction(str, Enum):
     REJECT = "Reject"
 
 
+class KeySource(str, Enum):
+    """
+    Enumerates the possible value of keySource for Encryption
+    """
+    MICROSOFT_KEY_VAULT = "Microsoft.KeyVault"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
+
+
 class NetworkRuleIPAction(str, Enum):
     """
     The IP Filter Action
@@ -90,6 +112,23 @@ class PrivateLinkConnectionStatus(str, Enum):
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
+
+
+class PublicNetworkAccessFlag(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SkuName(str, Enum):
@@ -108,3 +147,12 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class TlsVersion(str, Enum):
+    """
+    The minimum TLS version for the cluster to support, e.g. '1.2'
+    """
+    TLS_VERSION_1_0 = "1.0"
+    TLS_VERSION_1_1 = "1.1"
+    TLS_VERSION_1_2 = "1.2"

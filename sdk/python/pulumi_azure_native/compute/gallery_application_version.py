@@ -23,6 +23,7 @@ class GalleryApplicationVersionArgs:
                  resource_group_name: pulumi.Input[str],
                  gallery_application_version_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 safety_profile: Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a GalleryApplicationVersion resource.
@@ -32,6 +33,7 @@ class GalleryApplicationVersionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] gallery_application_version_name: The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['GalleryApplicationVersionSafetyProfileArgs'] safety_profile: The safety profile of the Gallery Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "gallery_application_name", gallery_application_name)
@@ -42,6 +44,8 @@ class GalleryApplicationVersionArgs:
             pulumi.set(__self__, "gallery_application_version_name", gallery_application_version_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if safety_profile is not None:
+            pulumi.set(__self__, "safety_profile", safety_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -118,6 +122,18 @@ class GalleryApplicationVersionArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="safetyProfile")
+    def safety_profile(self) -> Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']]:
+        """
+        The safety profile of the Gallery Application Version.
+        """
+        return pulumi.get(self, "safety_profile")
+
+    @safety_profile.setter
+    def safety_profile(self, value: Optional[pulumi.Input['GalleryApplicationVersionSafetyProfileArgs']]):
+        pulumi.set(self, "safety_profile", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -141,11 +157,12 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 safety_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSafetyProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
-        API Version: 2020-09-30.
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,6 +172,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']] publishing_profile: The publishing profile of a gallery image version.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['GalleryApplicationVersionSafetyProfileArgs']] safety_profile: The safety profile of the Gallery Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -165,7 +183,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
-        API Version: 2020-09-30.
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.
@@ -188,6 +206,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  publishing_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionPublishingProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 safety_profile: Optional[pulumi.Input[pulumi.InputType['GalleryApplicationVersionSafetyProfileArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -212,6 +231,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["safety_profile"] = safety_profile
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -246,6 +266,7 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["publishing_profile"] = None
         __props__.__dict__["replication_status"] = None
+        __props__.__dict__["safety_profile"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryApplicationVersion(resource_name, opts=opts, __props__=__props__)
@@ -289,6 +310,14 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         This is the replication status of the gallery image version.
         """
         return pulumi.get(self, "replication_status")
+
+    @property
+    @pulumi.getter(name="safetyProfile")
+    def safety_profile(self) -> pulumi.Output[Optional['outputs.GalleryApplicationVersionSafetyProfileResponse']]:
+        """
+        The safety profile of the Gallery Application Version.
+        """
+        return pulumi.get(self, "safety_profile")
 
     @property
     @pulumi.getter

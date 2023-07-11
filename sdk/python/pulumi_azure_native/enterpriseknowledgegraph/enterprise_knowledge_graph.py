@@ -131,7 +131,7 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
                  __props__=None):
         """
         EnterpriseKnowledgeGraph resource definition
-        API Version: 2018-12-03.
+        Azure REST API version: 2018-12-03. Prior API version in Azure Native 1.x: 2018-12-03
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EnterpriseKnowledgeGraph resource definition
-        API Version: 2018-12-03.
+        Azure REST API version: 2018-12-03. Prior API version in Azure Native 1.x: 2018-12-03
 
         :param str resource_name: The name of the resource.
         :param EnterpriseKnowledgeGraphArgs args: The arguments to use to populate this resource's properties.

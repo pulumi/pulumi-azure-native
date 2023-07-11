@@ -170,7 +170,7 @@ def get_workspace(account_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Gets the properties of the specified machine learning workspace.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2017-05-01-preview.
 
 
     :param str account_name: The name of the machine learning team account.
@@ -205,7 +205,7 @@ def get_workspace_output(account_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the properties of the specified machine learning workspace.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2017-05-01-preview.
 
 
     :param str account_name: The name of the machine learning team account.

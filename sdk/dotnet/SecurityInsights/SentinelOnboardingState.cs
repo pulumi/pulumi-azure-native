@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Sentinel onboarding state
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:SentinelOnboardingState")]
     public partial class SentinelOnboardingState : global::Pulumi.CustomResource
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -89,7 +89,10 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:SentinelOnboardingState"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:SentinelOnboardingState"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:SentinelOnboardingState"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:SentinelOnboardingState"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:SentinelOnboardingState"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:SentinelOnboardingState"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:SentinelOnboardingState"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,12 +121,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("customerManagedKey")]
         public Input<bool>? CustomerManagedKey { get; set; }
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

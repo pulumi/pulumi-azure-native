@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The X509 Certificate.
-    /// API Version: 2020-08-31.
+    /// Azure REST API version: 2022-11-15-preview. Prior API version in Azure Native 1.x: 2020-08-31
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.Devices
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

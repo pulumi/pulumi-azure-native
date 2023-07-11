@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
-    /// API Version: 2018-08-01.
+    /// Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        /// </summary>
+        [Output("alwaysServe")]
+        public Output<string?> AlwaysServe { get; private set; } = null!;
+
         /// <summary>
         /// List of custom headers.
         /// </summary>
@@ -138,6 +144,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180401:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180801:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20220401:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220401preview:Endpoint"},
                 },
             };
@@ -162,6 +169,12 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class EndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        /// </summary>
+        [Input("alwaysServe")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AlwaysServe>? AlwaysServe { get; set; }
+
         [Input("customHeaders")]
         private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
 
@@ -259,7 +272,7 @@ namespace Pulumi.AzureNative.Network
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Portal
 {
     /// <summary>
     /// Tenant configuration.
-    /// API Version: 2020-09-01-preview.
+    /// Azure REST API version: 2020-09-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:TenantConfiguration")]
     public partial class TenantConfiguration : global::Pulumi.CustomResource

@@ -21,6 +21,14 @@ namespace Pulumi.AzureNative.Media.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The storage account identity.
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
+        /// The current status of the storage account mapping.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
         /// The type of the storage account.
         /// </summary>
         public readonly string Type;
@@ -29,9 +37,15 @@ namespace Pulumi.AzureNative.Media.Outputs
         private StorageAccountResponse(
             string? id,
 
+            Outputs.ResourceIdentityResponse? identity,
+
+            string status,
+
             string type)
         {
             Id = id;
+            Identity = identity;
+            Status = status;
             Type = type;
         }
     }

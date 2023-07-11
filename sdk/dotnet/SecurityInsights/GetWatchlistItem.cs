@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.SecurityInsights
     public static class GetWatchlistItem
     {
         /// <summary>
-        /// Gets a watchlist, without its watchlist items.
-        /// API Version: 2021-03-01-preview.
+        /// Get a watchlist item.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetWatchlistItemResult> InvokeAsync(GetWatchlistItemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWatchlistItemResult>("azure-native:securityinsights:getWatchlistItem", args ?? new GetWatchlistItemArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a watchlist, without its watchlist items.
-        /// API Version: 2021-03-01-preview.
+        /// Get a watchlist item.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetWatchlistItemResult> Invoke(GetWatchlistItemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWatchlistItemResult>("azure-native:securityinsights:getWatchlistItem", args ?? new GetWatchlistItemInvokeArgs(), options.WithDefaults());
@@ -30,25 +30,19 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetWatchlistItemArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Watchlist Alias
+        /// The watchlist alias
         /// </summary>
         [Input("watchlistAlias", required: true)]
         public string WatchlistAlias { get; set; } = null!;
 
         /// <summary>
-        /// Watchlist Item Id (GUID)
+        /// The watchlist item id (GUID)
         /// </summary>
         [Input("watchlistItemId", required: true)]
         public string WatchlistItemId { get; set; } = null!;
@@ -68,25 +62,19 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetWatchlistItemInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Watchlist Alias
+        /// The watchlist alias
         /// </summary>
         [Input("watchlistAlias", required: true)]
         public Input<string> WatchlistAlias { get; set; } = null!;
 
         /// <summary>
-        /// Watchlist Item Id (GUID)
+        /// The watchlist item id (GUID)
         /// </summary>
         [Input("watchlistItemId", required: true)]
         public Input<string> WatchlistItemId { get; set; } = null!;
@@ -124,7 +112,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -136,7 +124,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly object ItemsKeyValue;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -148,7 +136,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? TenantId;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>

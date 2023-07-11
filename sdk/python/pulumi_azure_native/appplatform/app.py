@@ -130,7 +130,7 @@ class App(pulumi.CustomResource):
                  __props__=None):
         """
         App resource payload
-        API Version: 2020-07-01.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +149,7 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App resource payload
-        API Version: 2020-07-01.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.
@@ -192,8 +192,9 @@ class App(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:App"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220401:App"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20221201:App"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:App")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:App"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220401:App"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20221201:App"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:App"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:App")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(App, __self__).__init__(
             'azure-native:appplatform:App',
@@ -221,6 +222,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return App(resource_name, opts=opts, __props__=__props__)
 
@@ -255,6 +257,14 @@ class App(pulumi.CustomResource):
         Properties of the App resource
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

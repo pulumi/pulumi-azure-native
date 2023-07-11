@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 {
     /// <summary>
     /// Guest Usages Resource
-    /// API Version: 2020-05-01-preview.
+    /// Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:GuestUsage")]
     public partial class GuestUsage : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
@@ -110,7 +116,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The initial domain name of the AAD tenant.
+        /// The initial domain name of the Azure AD B2C tenant.
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }

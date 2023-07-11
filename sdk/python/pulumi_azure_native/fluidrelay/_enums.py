@@ -5,8 +5,19 @@
 from enum import Enum
 
 __all__ = [
+    'CmkIdentityType',
     'ProvisioningState',
+    'ResourceIdentityType',
+    'StorageSKU',
 ]
+
+
+class CmkIdentityType(str, Enum):
+    """
+    Values can be SystemAssigned or UserAssigned
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class ProvisioningState(str, Enum):
@@ -16,3 +27,21 @@ class ProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
     FAILED = "Failed"
     CANCELED = "Canceled"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
+
+
+class StorageSKU(str, Enum):
+    """
+    Sku of the storage associated with the resource
+    """
+    STANDARD = "standard"
+    BASIC = "basic"

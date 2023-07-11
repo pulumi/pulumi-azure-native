@@ -22,7 +22,7 @@ class GetCollectorPolicyResult:
     """
     Collector policy resource.
     """
-    def __init__(__self__, emission_policies=None, etag=None, id=None, ingestion_policy=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, emission_policies=None, etag=None, id=None, ingestion_policy=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if emission_policies and not isinstance(emission_policies, list):
             raise TypeError("Expected argument 'emission_policies' to be a list")
         pulumi.set(__self__, "emission_policies", emission_policies)
@@ -35,6 +35,9 @@ class GetCollectorPolicyResult:
         if ingestion_policy and not isinstance(ingestion_policy, dict):
             raise TypeError("Expected argument 'ingestion_policy' to be a dict")
         pulumi.set(__self__, "ingestion_policy", ingestion_policy)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -44,6 +47,9 @@ class GetCollectorPolicyResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -68,7 +74,7 @@ class GetCollectorPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Resource ID.
         """
         return pulumi.get(self, "id")
 
@@ -82,9 +88,17 @@ class GetCollectorPolicyResult:
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        Resource name.
         """
         return pulumi.get(self, "name")
 
@@ -98,7 +112,7 @@ class GetCollectorPolicyResult:
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.CollectorPolicyResponseSystemData':
+    def system_data(self) -> 'outputs.TrackedResourceResponseSystemData':
         """
         Metadata pertaining to creation and last modification of the resource.
         """
@@ -106,9 +120,17 @@ class GetCollectorPolicyResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        Resource type.
         """
         return pulumi.get(self, "type")
 
@@ -123,9 +145,11 @@ class AwaitableGetCollectorPolicyResult(GetCollectorPolicyResult):
             etag=self.etag,
             id=self.id,
             ingestion_policy=self.ingestion_policy,
+            location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -135,7 +159,7 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCollectorPolicyResult:
     """
     Gets the collector policy in a specified Traffic Collector
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name
@@ -154,9 +178,11 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         ingestion_policy=__ret__.ingestion_policy,
+        location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         system_data=__ret__.system_data,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 
@@ -167,7 +193,7 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollectorPolicyResult]:
     """
     Gets the collector policy in a specified Traffic Collector
-    API Version: 2022-05-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str azure_traffic_collector_name: Azure Traffic Collector name

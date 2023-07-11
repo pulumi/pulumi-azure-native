@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Streaming Policy in the Media Services account
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getStreamingPolicy(args: GetStreamingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamingPolicyResult> {
 
@@ -83,7 +83,7 @@ export interface GetStreamingPolicyResult {
 }
 /**
  * Get the details of a Streaming Policy in the Media Services account
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getStreamingPolicyOutput(args: GetStreamingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getStreamingPolicy(a, opts))

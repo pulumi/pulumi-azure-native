@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class DeploymentPropertiesResponse
     {
         /// <summary>
+        /// The call rate limit Cognitive Services account.
+        /// </summary>
+        public readonly Outputs.CallRateLimitResponse CallRateLimit;
+        /// <summary>
+        /// The capabilities.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Capabilities;
+        /// <summary>
         /// Properties of Cognitive Services account deployment model.
         /// </summary>
         public readonly Outputs.DeploymentModelResponse? Model;
@@ -25,21 +33,45 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The name of RAI policy.
+        /// </summary>
+        public readonly string? RaiPolicyName;
+        public readonly ImmutableArray<Outputs.ThrottlingRuleResponse> RateLimits;
+        /// <summary>
         /// Properties of Cognitive Services account deployment model.
         /// </summary>
         public readonly Outputs.DeploymentScaleSettingsResponse? ScaleSettings;
+        /// <summary>
+        /// Deployment model version upgrade option.
+        /// </summary>
+        public readonly string? VersionUpgradeOption;
 
         [OutputConstructor]
         private DeploymentPropertiesResponse(
+            Outputs.CallRateLimitResponse callRateLimit,
+
+            ImmutableDictionary<string, string> capabilities,
+
             Outputs.DeploymentModelResponse? model,
 
             string provisioningState,
 
-            Outputs.DeploymentScaleSettingsResponse? scaleSettings)
+            string? raiPolicyName,
+
+            ImmutableArray<Outputs.ThrottlingRuleResponse> rateLimits,
+
+            Outputs.DeploymentScaleSettingsResponse? scaleSettings,
+
+            string? versionUpgradeOption)
         {
+            CallRateLimit = callRateLimit;
+            Capabilities = capabilities;
             Model = model;
             ProvisioningState = provisioningState;
+            RaiPolicyName = raiPolicyName;
+            RateLimits = rateLimits;
             ScaleSettings = scaleSettings;
+            VersionUpgradeOption = versionUpgradeOption;
         }
     }
 }

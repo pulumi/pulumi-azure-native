@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
     public sealed class NotificationPropertiesResponse
     {
         /// <summary>
+        /// Locale of the email.
+        /// </summary>
+        public readonly string? Language;
+        /// <summary>
         /// Optional message to be added in the email. Length is limited to 250 characters.
         /// </summary>
         public readonly string? Message;
+        /// <summary>
+        /// Regional format used for formatting date/time and currency values in the email.
+        /// </summary>
+        public readonly string? RegionalFormat;
         /// <summary>
         /// Subject of the email. Length is limited to 70 characters.
         /// </summary>
@@ -31,13 +39,19 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
 
         [OutputConstructor]
         private NotificationPropertiesResponse(
+            string? language,
+
             string? message,
+
+            string? regionalFormat,
 
             string subject,
 
             ImmutableArray<string> to)
         {
+            Language = language;
             Message = message;
+            RegionalFormat = regionalFormat;
             Subject = subject;
             To = to;
         }

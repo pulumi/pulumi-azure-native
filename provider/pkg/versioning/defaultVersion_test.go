@@ -2,8 +2,9 @@ package versioning
 
 import (
 	"testing"
+	"time"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -109,31 +110,36 @@ func TestDefaultVersion(t *testing.T) {
 		assert.Equal(t, expected, actual)
 	})
 
-	t.Run("exclude preview versions", func(t *testing.T) {
-		v2021 := "2021-02-02-preview"
-		v2020 := "2020-01-01"
+	t.Run("include latest preview if over a year old", func(t *testing.T) {
+		v202001 := "2021-01-01"
+		v202102preview := "2021-02-02-preview"
 
 		spec := map[openapi.ProviderName]VersionResources{
 			"Provider": {
-				v2020: []openapi.ResourceName{
-					"Resource A",
-				},
-				v2021: []openapi.ResourceName{
-					"Resource A",
+				v202001: []openapi.ResourceName{
 					"Resource B",
 				},
+				v202102preview: []openapi.ResourceName{
+					"Resource A",
+				},
 			},
 		}
-		curations := Curations{
+
+		curations := Curations{}
+
+		existingConfig := Spec{
 			"Provider": {
-				Preview: PreviewExclude,
+				Tracking: &v202001,
 			},
 		}
-		existing := Spec{}
-		actual := BuildSpec(spec, curations, existing)
+
+		actual := BuildSpec(spec, curations, existingConfig)
 		expected := Spec{
 			"Provider": {
-				Tracking: &v2020,
+				Tracking: &v202001,
+				Additions: &map[openapi.ResourceName]openapi.ApiVersion{
+					"Resource A": v202102preview,
+				},
 			},
 		}
 		assert.Equal(t, expected, actual)
@@ -330,12 +336,15 @@ func TestFilterCandidateVersions(t *testing.T) {
 		expected := []string{}
 		assert.Equal(t, expected, actual)
 	})
-	t.Run("skips last preview", func(t *testing.T) {
+	t.Run("skips recent preview after recent stable", func(t *testing.T) {
+		twoMonthsAgo := time.Now().Add(-time.Hour * 24 * 30).Format("2006-01-02")
+		oneMonthAgo := time.Now().Add(-time.Hour * 24 * 30).Format("2006-01-02")
+		recentPreview := oneMonthAgo + "-preview"
 		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
-			"2020-01-01":         {},
-			"2020-01-02-preview": {},
+			twoMonthsAgo:  {},
+			recentPreview: {},
 		}, "")
-		expected := []string{"2020-01-01"}
+		expected := []string{twoMonthsAgo}
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("skips preview which is now stable", func(t *testing.T) {
@@ -355,15 +364,6 @@ func TestFilterCandidateVersions(t *testing.T) {
 			"2022-02-02":         {},
 		}, "")
 		expected := []string{"2020-01-01", "2022-02-02"}
-		assert.Equal(t, expected, actual)
-	})
-	t.Run("includes previews a long time after a stable", func(t *testing.T) {
-		actual := filterCandidateVersions(map[openapi.ApiVersion][]openapi.ResourceName{
-			"2020-01-01":         {},
-			"2020-12-01-preview": {}, // ignored because it's within 1 year of last stable
-			"2022-01-01-preview": {},
-		}, "")
-		expected := []string{"2020-01-01", "2022-01-01-preview"}
 		assert.Equal(t, expected, actual)
 	})
 	t.Run("single preview", func(t *testing.T) {

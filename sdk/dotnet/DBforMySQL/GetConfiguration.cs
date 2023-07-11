@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets information about a configuration of server.
-        /// API Version: 2017-12-01.
+        /// Azure REST API version: 2022-01-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a configuration of server.
-        /// API Version: 2017-12-01.
+        /// Azure REST API version: 2022-01-01.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbformysql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string AllowedValues;
         /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        public readonly string? CurrentValue;
+        /// <summary>
         /// Data type of the configuration.
         /// </summary>
         public readonly string DataType;
@@ -100,9 +104,25 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The link used to get the document from community or Azure site.
+        /// </summary>
+        public readonly string DocumentationLink;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// If is the configuration pending restart or not.
+        /// </summary>
+        public readonly string IsConfigPendingRestart;
+        /// <summary>
+        /// If is the configuration dynamic.
+        /// </summary>
+        public readonly string IsDynamicConfig;
+        /// <summary>
+        /// If is the configuration read only.
+        /// </summary>
+        public readonly string IsReadOnly;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -111,6 +131,10 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Source of the configuration.
         /// </summary>
         public readonly string? Source;
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -124,29 +148,47 @@ namespace Pulumi.AzureNative.DBforMySQL
         private GetConfigurationResult(
             string allowedValues,
 
+            string? currentValue,
+
             string dataType,
 
             string defaultValue,
 
             string description,
 
+            string documentationLink,
+
             string id,
+
+            string isConfigPendingRestart,
+
+            string isDynamicConfig,
+
+            string isReadOnly,
 
             string name,
 
             string? source,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
             string? value)
         {
             AllowedValues = allowedValues;
+            CurrentValue = currentValue;
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;
+            DocumentationLink = documentationLink;
             Id = id;
+            IsConfigPendingRestart = isConfigPendingRestart;
+            IsDynamicConfig = isDynamicConfig;
+            IsReadOnly = isReadOnly;
             Name = name;
             Source = source;
+            SystemData = systemData;
             Type = type;
             Value = value;
         }

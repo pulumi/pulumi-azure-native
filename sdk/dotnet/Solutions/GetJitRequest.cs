@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Solutions
     {
         /// <summary>
         /// Gets the JIT request.
-        /// API Version: 2019-07-01.
+        /// Azure REST API version: 2021-07-01.
         /// </summary>
         public static Task<GetJitRequestResult> InvokeAsync(GetJitRequestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the JIT request.
-        /// API Version: 2019-07-01.
+        /// Azure REST API version: 2021-07-01.
         /// </summary>
         public static Output<GetJitRequestResult> Invoke(GetJitRequestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJitRequestResult>("azure-native:solutions:getJitRequest", args ?? new GetJitRequestInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         public readonly string PublisherTenantId;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.Solutions
 
             string publisherTenantId,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -162,6 +168,7 @@ namespace Pulumi.AzureNative.Solutions
             Name = name;
             ProvisioningState = provisioningState;
             PublisherTenantId = publisherTenantId;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdatedBy = updatedBy;

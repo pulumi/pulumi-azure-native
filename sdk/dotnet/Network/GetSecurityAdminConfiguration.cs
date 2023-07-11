@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetSecurityAdminConfigurationResult> InvokeAsync(GetSecurityAdminConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security admin configuration.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetSecurityAdminConfigurationResult> Invoke(GetSecurityAdminConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityAdminConfigurationResult>("azure-native:network:getSecurityAdminConfiguration", args ?? new GetSecurityAdminConfigurationInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityAdminConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityAdminConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -84,17 +84,13 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityAdminConfigurationResult
     {
         /// <summary>
-        /// Flag if need to delete existing network security groups.
+        /// Enum list of network intent policy based services.
         /// </summary>
-        public readonly string? DeleteExistingNSGs;
+        public readonly ImmutableArray<string> ApplyOnNetworkIntentPolicyBasedServices;
         /// <summary>
         /// A description of the security configuration.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// A display name of the security configuration.
-        /// </summary>
-        public readonly string? DisplayName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -112,9 +108,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Security Type.
+        /// Unique identifier for this resource.
         /// </summary>
-        public readonly string? SecurityType;
+        public readonly string ResourceGuid;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -126,11 +122,9 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetSecurityAdminConfigurationResult(
-            string? deleteExistingNSGs,
+            ImmutableArray<string> applyOnNetworkIntentPolicyBasedServices,
 
             string? description,
-
-            string? displayName,
 
             string etag,
 
@@ -140,20 +134,19 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
-            string? securityType,
+            string resourceGuid,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
-            DeleteExistingNSGs = deleteExistingNSGs;
+            ApplyOnNetworkIntentPolicyBasedServices = applyOnNetworkIntentPolicyBasedServices;
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
-            SecurityType = securityType;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

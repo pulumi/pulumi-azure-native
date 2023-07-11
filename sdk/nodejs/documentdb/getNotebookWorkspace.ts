@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the notebook workspace for a Cosmos DB account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
 
@@ -60,7 +60,7 @@ export interface GetNotebookWorkspaceResult {
 }
 /**
  * Gets the notebook workspace for a Cosmos DB account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getNotebookWorkspaceOutput(args: GetNotebookWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotebookWorkspaceResult> {
     return pulumi.output(args).apply((a: any) => getNotebookWorkspace(a, opts))

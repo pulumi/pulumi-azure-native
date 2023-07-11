@@ -18,6 +18,7 @@ class CommunicationServiceArgs:
                  data_location: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  communication_service_name: Optional[pulumi.Input[str]] = None,
+                 linked_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -25,13 +26,16 @@ class CommunicationServiceArgs:
         :param pulumi.Input[str] data_location: The location where the communication service stores its data at rest.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] communication_service_name: The name of the CommunicationService resource.
-        :param pulumi.Input[str] location: The Azure location where the CommunicationService is running.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_domains: List of email Domain resource Ids.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "data_location", data_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if communication_service_name is not None:
             pulumi.set(__self__, "communication_service_name", communication_service_name)
+        if linked_domains is not None:
+            pulumi.set(__self__, "linked_domains", linked_domains)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -74,10 +78,22 @@ class CommunicationServiceArgs:
         pulumi.set(self, "communication_service_name", value)
 
     @property
+    @pulumi.getter(name="linkedDomains")
+    def linked_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of email Domain resource Ids.
+        """
+        return pulumi.get(self, "linked_domains")
+
+    @linked_domains.setter
+    def linked_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "linked_domains", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure location where the CommunicationService is running.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -89,7 +105,7 @@ class CommunicationServiceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -105,21 +121,23 @@ class CommunicationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  communication_service_name: Optional[pulumi.Input[str]] = None,
                  data_location: Optional[pulumi.Input[str]] = None,
+                 linked_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A class representing a CommunicationService resource.
-        API Version: 2020-08-20.
+        Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2020-08-20
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communication_service_name: The name of the CommunicationService resource.
         :param pulumi.Input[str] data_location: The location where the communication service stores its data at rest.
-        :param pulumi.Input[str] location: The Azure location where the CommunicationService is running.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_domains: List of email Domain resource Ids.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -129,7 +147,7 @@ class CommunicationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a CommunicationService resource.
-        API Version: 2020-08-20.
+        Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2020-08-20
 
         :param str resource_name: The name of the resource.
         :param CommunicationServiceArgs args: The arguments to use to populate this resource's properties.
@@ -148,6 +166,7 @@ class CommunicationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  communication_service_name: Optional[pulumi.Input[str]] = None,
                  data_location: Optional[pulumi.Input[str]] = None,
+                 linked_domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -164,6 +183,7 @@ class CommunicationService(pulumi.CustomResource):
             if data_location is None and not opts.urn:
                 raise TypeError("Missing required property 'data_location'")
             __props__.__dict__["data_location"] = data_location
+            __props__.__dict__["linked_domains"] = linked_domains
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -177,7 +197,7 @@ class CommunicationService(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20211001preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230331:CommunicationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20211001preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230331:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:CommunicationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommunicationService, __self__).__init__(
             'azure-native:communication:CommunicationService',
@@ -204,6 +224,7 @@ class CommunicationService(pulumi.CustomResource):
         __props__.__dict__["data_location"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["immutable_resource_id"] = None
+        __props__.__dict__["linked_domains"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notification_hub_id"] = None
@@ -239,10 +260,18 @@ class CommunicationService(pulumi.CustomResource):
         return pulumi.get(self, "immutable_resource_id")
 
     @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="linkedDomains")
+    def linked_domains(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The Azure location where the CommunicationService is running.
+        List of email Domain resource Ids.
+        """
+        return pulumi.get(self, "linked_domains")
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -274,7 +303,7 @@ class CommunicationService(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -282,7 +311,7 @@ class CommunicationService(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags of the service which is a list of key value pairs that describe the resource.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 

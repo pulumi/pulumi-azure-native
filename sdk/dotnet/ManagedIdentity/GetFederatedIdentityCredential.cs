@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
     {
         /// <summary>
         /// Gets the federated identity credential.
-        /// API Version: 2022-01-31-preview.
+        /// Azure REST API version: 2023-01-31.
         /// </summary>
         public static Task<GetFederatedIdentityCredentialResult> InvokeAsync(GetFederatedIdentityCredentialArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the federated identity credential.
-        /// API Version: 2022-01-31-preview.
+        /// Azure REST API version: 2023-01-31.
         /// </summary>
         public static Output<GetFederatedIdentityCredentialResult> Invoke(GetFederatedIdentityCredentialInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFederatedIdentityCredentialResult>("azure-native:managedidentity:getFederatedIdentityCredential", args ?? new GetFederatedIdentityCredentialInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         public string FederatedIdentityCredentialResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group to which the identity belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         public Input<string> FederatedIdentityCredentialResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group to which the identity belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -103,6 +103,10 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// The identifier of the external identity.
         /// </summary>
         public readonly string Subject;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
 
             string subject,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Audiences = audiences;
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
             Issuer = issuer;
             Name = name;
             Subject = subject;
+            SystemData = systemData;
             Type = type;
         }
     }

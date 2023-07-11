@@ -271,7 +271,7 @@ class BareMetalMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,7 +298,7 @@ class BareMetalMachine(pulumi.CustomResource):
                  args: BareMetalMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param BareMetalMachineArgs args: The arguments to use to populate this resource's properties.
@@ -378,6 +378,7 @@ class BareMetalMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'serial_number'")
             __props__.__dict__["serial_number"] = serial_number
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["associated_resource_ids"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["cordon_status"] = None
             __props__.__dict__["detailed_status"] = None
@@ -398,7 +399,7 @@ class BareMetalMachine(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:BareMetalMachine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:BareMetalMachine"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:BareMetalMachine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BareMetalMachine, __self__).__init__(
             'azure-native:networkcloud:BareMetalMachine',
@@ -422,6 +423,7 @@ class BareMetalMachine(pulumi.CustomResource):
 
         __props__ = BareMetalMachineArgs.__new__(BareMetalMachineArgs)
 
+        __props__.__dict__["associated_resource_ids"] = None
         __props__.__dict__["bmc_connection_string"] = None
         __props__.__dict__["bmc_credentials"] = None
         __props__.__dict__["bmc_mac_address"] = None
@@ -456,6 +458,14 @@ class BareMetalMachine(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machines_associated_ids"] = None
         return BareMetalMachine(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
 
     @property
     @pulumi.getter(name="bmcConnectionString")
@@ -549,7 +559,7 @@ class BareMetalMachine(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+        Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -717,7 +727,7 @@ class BareMetalMachine(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+        Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 

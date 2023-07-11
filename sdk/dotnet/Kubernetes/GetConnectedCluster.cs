@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kubernetes
     {
         /// <summary>
         /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetConnectedClusterResult> InvokeAsync(GetConnectedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedClusterResult>("azure-native:kubernetes:getConnectedCluster", args ?? new GetConnectedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the properties of the specified connected cluster, including name, identity, properties, and additional cluster details.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetConnectedClusterResult> Invoke(GetConnectedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedClusterResult>("azure-native:kubernetes:getConnectedCluster", args ?? new GetConnectedClusterInvokeArgs(), options.WithDefaults());
@@ -124,6 +124,14 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         public readonly string Offering;
         /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        public readonly string? PrivateLinkScopeResourceId;
+        /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        public readonly string? PrivateLinkState;
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         public readonly string? ProvisioningState;
@@ -176,6 +184,10 @@ namespace Pulumi.AzureNative.Kubernetes
 
             string offering,
 
+            string? privateLinkScopeResourceId,
+
+            string? privateLinkState,
+
             string? provisioningState,
 
             Outputs.SystemDataResponse systemData,
@@ -201,6 +213,8 @@ namespace Pulumi.AzureNative.Kubernetes
             ManagedIdentityCertificateExpirationTime = managedIdentityCertificateExpirationTime;
             Name = name;
             Offering = offering;
+            PrivateLinkScopeResourceId = privateLinkScopeResourceId;
+            PrivateLinkState = privateLinkState;
             ProvisioningState = provisioningState;
             SystemData = systemData;
             Tags = tags;

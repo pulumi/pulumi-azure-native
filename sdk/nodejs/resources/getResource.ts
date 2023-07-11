@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a resource.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getResource(args: GetResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceResult> {
 
@@ -50,6 +50,10 @@ export interface GetResourceArgs {
  * Resource information.
  */
 export interface GetResourceResult {
+    /**
+     * Resource extended location.
+     */
+    readonly extendedLocation?: outputs.resources.ExtendedLocationResponse;
     /**
      * Resource ID
      */
@@ -97,7 +101,7 @@ export interface GetResourceResult {
 }
 /**
  * Gets a resource.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
     return pulumi.output(args).apply((a: any) => getResource(a, opts))

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function listSecretValue(args: ListSecretValueArgs, opts?: pulumi.InvokeOptions): Promise<ListSecretValueResult> {
 
@@ -44,7 +44,7 @@ export interface ListSecretValueResult {
 }
 /**
  * Lists the decrypted value of the specified named value of the secret resource. This is a privileged operation.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function listSecretValueOutput(args: ListSecretValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecretValueResult> {
     return pulumi.output(args).apply((a: any) => listSecretValue(a, opts))

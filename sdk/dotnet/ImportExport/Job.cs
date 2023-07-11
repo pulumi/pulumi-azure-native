@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ImportExport
 {
     /// <summary>
     /// Contains the job information.
-    /// API Version: 2020-08-01.
+    /// Azure REST API version: 2021-01-01. Prior API version in Azure Native 1.x: 2020-08-01
     /// </summary>
     [AzureNativeResourceType("azure-native:importexport:Job")]
     public partial class Job : global::Pulumi.CustomResource

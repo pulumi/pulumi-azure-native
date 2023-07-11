@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network manager security user configuration rule collection.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserRuleCollectionResult> {
 
@@ -24,7 +24,7 @@ export function getUserRuleCollection(args: GetUserRuleCollectionArgs, opts?: pu
 
 export interface GetUserRuleCollectionArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -42,21 +42,17 @@ export interface GetUserRuleCollectionArgs {
 }
 
 /**
- * Defines the rule collection.
+ * Defines the user rule collection.
  */
 export interface GetUserRuleCollectionResult {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponse[];
+    readonly appliesToGroups: outputs.network.NetworkManagerSecurityGroupItemResponse[];
     /**
-     * A description of the rule collection.
+     * A description of the user rule collection.
      */
     readonly description?: string;
-    /**
-     * A display name of the rule collection.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -84,7 +80,7 @@ export interface GetUserRuleCollectionResult {
 }
 /**
  * Gets a network manager security user configuration rule collection.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getUserRuleCollection(a, opts))
@@ -92,7 +88,7 @@ export function getUserRuleCollectionOutput(args: GetUserRuleCollectionOutputArg
 
 export interface GetUserRuleCollectionOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

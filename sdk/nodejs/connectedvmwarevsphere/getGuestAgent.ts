@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements GuestAgent GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getGuestAgent(args: GetGuestAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestAgentResult> {
 
@@ -91,7 +91,7 @@ export interface GetGuestAgentResult {
 }
 /**
  * Implements GuestAgent GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getGuestAgentOutput(args: GetGuestAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestAgentResult> {
     return pulumi.output(args).apply((a: any) => getGuestAgent(a, opts))

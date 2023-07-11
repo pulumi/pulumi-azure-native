@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Chaos
     {
         /// <summary>
         /// Get a Capability resource that extends a Target resource.
-        /// API Version: 2021-09-15-preview.
+        /// Azure REST API version: 2023-04-15-preview.
         /// </summary>
         public static Task<GetCapabilityResult> InvokeAsync(GetCapabilityArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Capability resource that extends a Target resource.
-        /// API Version: 2021-09-15-preview.
+        /// Azure REST API version: 2023-04-15-preview.
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("azure-native:chaos:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());

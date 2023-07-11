@@ -22,7 +22,10 @@ class GetDataCollectionRuleResult:
     """
     Definition of ARM tracked top level resource.
     """
-    def __init__(__self__, data_flows=None, data_sources=None, description=None, destinations=None, etag=None, id=None, immutable_id=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, data_collection_endpoint_id=None, data_flows=None, data_sources=None, description=None, destinations=None, etag=None, id=None, identity=None, immutable_id=None, kind=None, location=None, metadata=None, name=None, provisioning_state=None, stream_declarations=None, system_data=None, tags=None, type=None):
+        if data_collection_endpoint_id and not isinstance(data_collection_endpoint_id, str):
+            raise TypeError("Expected argument 'data_collection_endpoint_id' to be a str")
+        pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_flows and not isinstance(data_flows, list):
             raise TypeError("Expected argument 'data_flows' to be a list")
         pulumi.set(__self__, "data_flows", data_flows)
@@ -41,6 +44,9 @@ class GetDataCollectionRuleResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if immutable_id and not isinstance(immutable_id, str):
             raise TypeError("Expected argument 'immutable_id' to be a str")
         pulumi.set(__self__, "immutable_id", immutable_id)
@@ -50,18 +56,35 @@ class GetDataCollectionRuleResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if stream_declarations and not isinstance(stream_declarations, dict):
+            raise TypeError("Expected argument 'stream_declarations' to be a dict")
+        pulumi.set(__self__, "stream_declarations", stream_declarations)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="dataCollectionEndpointId")
+    def data_collection_endpoint_id(self) -> Optional[str]:
+        """
+        The resource ID of the data collection endpoint that this rule can be used with.
+        """
+        return pulumi.get(self, "data_collection_endpoint_id")
 
     @property
     @pulumi.getter(name="dataFlows")
@@ -113,6 +136,14 @@ class GetDataCollectionRuleResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.DataCollectionRuleResourceResponseIdentity']:
+        """
+        Managed service identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
     @pulumi.getter(name="immutableId")
     def immutable_id(self) -> str:
         """
@@ -138,6 +169,14 @@ class GetDataCollectionRuleResult:
 
     @property
     @pulumi.getter
+    def metadata(self) -> 'outputs.DataCollectionRuleResponseMetadata':
+        """
+        Metadata about the resource
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource.
@@ -151,6 +190,22 @@ class GetDataCollectionRuleResult:
         The resource provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="streamDeclarations")
+    def stream_declarations(self) -> Optional[Mapping[str, 'outputs.StreamDeclarationResponse']]:
+        """
+        Declaration of custom streams used in this rule.
+        """
+        return pulumi.get(self, "stream_declarations")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.DataCollectionRuleResourceResponseSystemData':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -175,17 +230,22 @@ class AwaitableGetDataCollectionRuleResult(GetDataCollectionRuleResult):
         if False:
             yield self
         return GetDataCollectionRuleResult(
+            data_collection_endpoint_id=self.data_collection_endpoint_id,
             data_flows=self.data_flows,
             data_sources=self.data_sources,
             description=self.description,
             destinations=self.destinations,
             etag=self.etag,
             id=self.id,
+            identity=self.identity,
             immutable_id=self.immutable_id,
             kind=self.kind,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            stream_declarations=self.stream_declarations,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -195,7 +255,7 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataCollectionRuleResult:
     """
     Definition of ARM tracked top level resource.
-    API Version: 2019-11-01-preview.
+    Azure REST API version: 2022-06-01.
 
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
@@ -208,17 +268,22 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult).value
 
     return AwaitableGetDataCollectionRuleResult(
+        data_collection_endpoint_id=__ret__.data_collection_endpoint_id,
         data_flows=__ret__.data_flows,
         data_sources=__ret__.data_sources,
         description=__ret__.description,
         destinations=__ret__.destinations,
         etag=__ret__.etag,
         id=__ret__.id,
+        identity=__ret__.identity,
         immutable_id=__ret__.immutable_id,
         kind=__ret__.kind,
         location=__ret__.location,
+        metadata=__ret__.metadata,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        stream_declarations=__ret__.stream_declarations,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -229,7 +294,7 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataCollectionRuleResult]:
     """
     Definition of ARM tracked top level resource.
-    API Version: 2019-11-01-preview.
+    Azure REST API version: 2022-06-01.
 
 
     :param str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.

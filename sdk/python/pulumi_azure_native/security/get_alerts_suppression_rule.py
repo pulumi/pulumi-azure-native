@@ -157,7 +157,7 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertsSuppressionRuleResult:
     """
     Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
-    API Version: 2019-01-01-preview.
+    Azure REST API version: 2019-01-01-preview.
 
 
     :param str alerts_suppression_rule_name: The unique name of the suppression alert rule
@@ -185,7 +185,7 @@ def get_alerts_suppression_rule_output(alerts_suppression_rule_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertsSuppressionRuleResult]:
     """
     Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
-    API Version: 2019-01-01-preview.
+    Azure REST API version: 2019-01-01-preview.
 
 
     :param str alerts_suppression_rule_name: The unique name of the suppression alert rule

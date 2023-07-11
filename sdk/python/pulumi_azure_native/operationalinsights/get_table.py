@@ -22,7 +22,7 @@ class GetTableResult:
     """
     Workspace data table definition.
     """
-    def __init__(__self__, archive_retention_in_days=None, id=None, last_plan_modified_date=None, name=None, plan=None, provisioning_state=None, restored_logs=None, result_statistics=None, retention_in_days=None, schema=None, search_results=None, system_data=None, total_retention_in_days=None, type=None):
+    def __init__(__self__, archive_retention_in_days=None, id=None, last_plan_modified_date=None, name=None, plan=None, provisioning_state=None, restored_logs=None, result_statistics=None, retention_in_days=None, retention_in_days_as_default=None, schema=None, search_results=None, system_data=None, total_retention_in_days=None, total_retention_in_days_as_default=None, type=None):
         if archive_retention_in_days and not isinstance(archive_retention_in_days, int):
             raise TypeError("Expected argument 'archive_retention_in_days' to be a int")
         pulumi.set(__self__, "archive_retention_in_days", archive_retention_in_days)
@@ -50,6 +50,9 @@ class GetTableResult:
         if retention_in_days and not isinstance(retention_in_days, int):
             raise TypeError("Expected argument 'retention_in_days' to be a int")
         pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if retention_in_days_as_default and not isinstance(retention_in_days_as_default, bool):
+            raise TypeError("Expected argument 'retention_in_days_as_default' to be a bool")
+        pulumi.set(__self__, "retention_in_days_as_default", retention_in_days_as_default)
         if schema and not isinstance(schema, dict):
             raise TypeError("Expected argument 'schema' to be a dict")
         pulumi.set(__self__, "schema", schema)
@@ -62,6 +65,9 @@ class GetTableResult:
         if total_retention_in_days and not isinstance(total_retention_in_days, int):
             raise TypeError("Expected argument 'total_retention_in_days' to be a int")
         pulumi.set(__self__, "total_retention_in_days", total_retention_in_days)
+        if total_retention_in_days_as_default and not isinstance(total_retention_in_days_as_default, bool):
+            raise TypeError("Expected argument 'total_retention_in_days_as_default' to be a bool")
+        pulumi.set(__self__, "total_retention_in_days_as_default", total_retention_in_days_as_default)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -124,7 +130,7 @@ class GetTableResult:
 
     @property
     @pulumi.getter(name="resultStatistics")
-    def result_statistics(self) -> Optional['outputs.ResultStatisticsResponse']:
+    def result_statistics(self) -> 'outputs.ResultStatisticsResponse':
         """
         Search job execution statistics.
         """
@@ -137,6 +143,14 @@ class GetTableResult:
         The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         """
         return pulumi.get(self, "retention_in_days")
+
+    @property
+    @pulumi.getter(name="retentionInDaysAsDefault")
+    def retention_in_days_as_default(self) -> bool:
+        """
+        True - Value originates from workspace retention in days, False - Customer specific.
+        """
+        return pulumi.get(self, "retention_in_days_as_default")
 
     @property
     @pulumi.getter
@@ -171,6 +185,14 @@ class GetTableResult:
         return pulumi.get(self, "total_retention_in_days")
 
     @property
+    @pulumi.getter(name="totalRetentionInDaysAsDefault")
+    def total_retention_in_days_as_default(self) -> bool:
+        """
+        True - Value originates from retention in days, False - Customer specific.
+        """
+        return pulumi.get(self, "total_retention_in_days_as_default")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -194,10 +216,12 @@ class AwaitableGetTableResult(GetTableResult):
             restored_logs=self.restored_logs,
             result_statistics=self.result_statistics,
             retention_in_days=self.retention_in_days,
+            retention_in_days_as_default=self.retention_in_days_as_default,
             schema=self.schema,
             search_results=self.search_results,
             system_data=self.system_data,
             total_retention_in_days=self.total_retention_in_days,
+            total_retention_in_days_as_default=self.total_retention_in_days_as_default,
             type=self.type)
 
 
@@ -207,7 +231,7 @@ def get_table(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Gets a Log Analytics workspace table.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2022-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -231,10 +255,12 @@ def get_table(resource_group_name: Optional[str] = None,
         restored_logs=__ret__.restored_logs,
         result_statistics=__ret__.result_statistics,
         retention_in_days=__ret__.retention_in_days,
+        retention_in_days_as_default=__ret__.retention_in_days_as_default,
         schema=__ret__.schema,
         search_results=__ret__.search_results,
         system_data=__ret__.system_data,
         total_retention_in_days=__ret__.total_retention_in_days,
+        total_retention_in_days_as_default=__ret__.total_retention_in_days_as_default,
         type=__ret__.type)
 
 
@@ -245,7 +271,7 @@ def get_table_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets a Log Analytics workspace table.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2022-10-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

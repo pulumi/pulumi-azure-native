@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a bookmark relation.
-        /// API Version: 2019-01-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetBookmarkRelationResult> InvokeAsync(GetBookmarkRelationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkRelationResult>("azure-native:securityinsights:getBookmarkRelation", args ?? new GetBookmarkRelationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a bookmark relation.
-        /// API Version: 2019-01-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetBookmarkRelationResult> Invoke(GetBookmarkRelationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkRelationResult>("azure-native:securityinsights:getBookmarkRelation", args ?? new GetBookmarkRelationInvokeArgs(), options.WithDefaults());
@@ -36,19 +36,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string BookmarkId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// Relation Name
         /// </summary>
         [Input("relationName", required: true)]
         public string RelationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -74,19 +68,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> BookmarkId { get; set; } = null!;
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// Relation Name
         /// </summary>
         [Input("relationName", required: true)]
         public Input<string> RelationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,11 +100,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -136,7 +124,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string RelatedResourceType;
         /// <summary>
-        /// Azure resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -156,6 +148,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string relatedResourceType,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Etag = etag;
@@ -165,6 +159,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             RelatedResourceKind = relatedResourceKind;
             RelatedResourceName = relatedResourceName;
             RelatedResourceType = relatedResourceType;
+            SystemData = systemData;
             Type = type;
         }
     }

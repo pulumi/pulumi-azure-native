@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a bookmark.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getBookmark(args: GetBookmarkArgs, opts?: pulumi.InvokeOptions): Promise<GetBookmarkResult> {
 
@@ -27,7 +27,7 @@ export interface GetBookmarkArgs {
      */
     bookmarkId: string;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -61,7 +61,7 @@ export interface GetBookmarkResult {
      */
     readonly eventTime?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -73,7 +73,7 @@ export interface GetBookmarkResult {
      */
     readonly labels?: string[];
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -97,7 +97,11 @@ export interface GetBookmarkResult {
      */
     readonly queryStartTime?: string;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -111,7 +115,7 @@ export interface GetBookmarkResult {
 }
 /**
  * Gets a bookmark.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getBookmarkOutput(args: GetBookmarkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBookmarkResult> {
     return pulumi.output(args).apply((a: any) => getBookmark(a, opts))
@@ -123,7 +127,7 @@ export interface GetBookmarkOutputArgs {
      */
     bookmarkId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

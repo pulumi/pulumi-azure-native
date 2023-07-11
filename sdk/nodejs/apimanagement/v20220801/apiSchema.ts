@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * API Schema Contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.
  */
 export class ApiSchema extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ApiSchema extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiSchema {
-        pulumi.log.warn("ApiSchema is deprecated: azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.")
         return new ApiSchema(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +66,7 @@ export class ApiSchema extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility. */
     constructor(name: string, args: ApiSchemaArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiSchema is deprecated: azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -106,7 +101,7 @@ export class ApiSchema extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiSchema" }, { type: "azure-native:apimanagement/v20170301:ApiSchema" }, { type: "azure-native:apimanagement/v20180101:ApiSchema" }, { type: "azure-native:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20190101:ApiSchema" }, { type: "azure-native:apimanagement/v20191201:ApiSchema" }, { type: "azure-native:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20200601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20201201:ApiSchema" }, { type: "azure-native:apimanagement/v20210101preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210801:ApiSchema" }, { type: "azure-native:apimanagement/v20211201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220401preview:ApiSchema" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiSchema" }, { type: "azure-native:apimanagement/v20170301:ApiSchema" }, { type: "azure-native:apimanagement/v20180101:ApiSchema" }, { type: "azure-native:apimanagement/v20180601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20190101:ApiSchema" }, { type: "azure-native:apimanagement/v20191201:ApiSchema" }, { type: "azure-native:apimanagement/v20191201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20200601preview:ApiSchema" }, { type: "azure-native:apimanagement/v20201201:ApiSchema" }, { type: "azure-native:apimanagement/v20210101preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20210801:ApiSchema" }, { type: "azure-native:apimanagement/v20211201preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220401preview:ApiSchema" }, { type: "azure-native:apimanagement/v20220901preview:ApiSchema" }, { type: "azure-native:apimanagement/v20230301preview:ApiSchema" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiSchema.__pulumiType, name, resourceInputs, opts);
     }

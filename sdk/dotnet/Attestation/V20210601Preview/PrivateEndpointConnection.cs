@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:attestation:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:attestation/v20201001:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:attestation/v20210601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

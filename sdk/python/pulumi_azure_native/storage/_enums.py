@@ -6,17 +6,24 @@ from enum import Enum
 
 __all__ = [
     'AccessTier',
+    'AccountImmutabilityPolicyState',
+    'AccountType',
     'Action',
+    'AllowedCopyScope',
+    'AllowedMethods',
     'BlobAccessTier',
     'BlobType',
     'Bypass',
     'DefaultAction',
+    'DefaultSharePermission',
     'DirectoryServiceOptions',
+    'DnsEndpointType',
     'EnabledProtocols',
     'EncryptionScopeSource',
     'EncryptionScopeState',
     'ExpirationAction',
     'ExtendedLocationTypes',
+    'Format',
     'HttpProtocol',
     'IdentityType',
     'InventoryRuleType',
@@ -26,12 +33,15 @@ __all__ = [
     'LargeFileSharesState',
     'MinimumTlsVersion',
     'Name',
+    'ObjectType',
     'Permissions',
     'PrivateEndpointServiceConnectionStatus',
     'PublicAccess',
+    'PublicNetworkAccess',
     'RootSquashType',
     'RoutingChoice',
     'RuleType',
+    'Schedule',
     'Services',
     'ShareAccessTier',
     'SignedResource',
@@ -43,10 +53,28 @@ __all__ = [
 
 class AccessTier(str, Enum):
     """
-    Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+    Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
     """
     HOT = "Hot"
     COOL = "Cool"
+    PREMIUM = "Premium"
+
+
+class AccountImmutabilityPolicyState(str, Enum):
+    """
+    The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+    """
+    UNLOCKED = "Unlocked"
+    LOCKED = "Locked"
+    DISABLED = "Disabled"
+
+
+class AccountType(str, Enum):
+    """
+    Specifies the Active Directory account type for Azure Storage.
+    """
+    USER = "User"
+    COMPUTER = "Computer"
 
 
 class Action(str, Enum):
@@ -54,6 +82,25 @@ class Action(str, Enum):
     The action of virtual network rule.
     """
     ALLOW = "Allow"
+
+
+class AllowedCopyScope(str, Enum):
+    """
+    Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+    """
+    PRIVATE_LINK = "PrivateLink"
+    AAD = "AAD"
+
+
+class AllowedMethods(str, Enum):
+    DELETE = "DELETE"
+    GET = "GET"
+    HEAD = "HEAD"
+    MERGE = "MERGE"
+    POST = "POST"
+    OPTIONS = "OPTIONS"
+    PUT = "PUT"
+    PATCH = "PATCH"
 
 
 class BlobAccessTier(str, Enum):
@@ -106,13 +153,32 @@ class DefaultAction(str, Enum):
     DENY = "Deny"
 
 
+class DefaultSharePermission(str, Enum):
+    """
+    Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+    """
+    NONE = "None"
+    STORAGE_FILE_DATA_SMB_SHARE_READER = "StorageFileDataSmbShareReader"
+    STORAGE_FILE_DATA_SMB_SHARE_CONTRIBUTOR = "StorageFileDataSmbShareContributor"
+    STORAGE_FILE_DATA_SMB_SHARE_ELEVATED_CONTRIBUTOR = "StorageFileDataSmbShareElevatedContributor"
+
+
 class DirectoryServiceOptions(str, Enum):
     """
-    Indicates the directory service used.
+    Indicates the directory service used. Note that this enum may be extended in the future.
     """
     NONE = "None"
     AADDS = "AADDS"
     AD = "AD"
+    AADKERB = "AADKERB"
+
+
+class DnsEndpointType(str, Enum):
+    """
+    Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+    """
+    STANDARD = "Standard"
+    AZURE_DNS_ZONE = "AzureDnsZone"
 
 
 class EnabledProtocols(str, Enum):
@@ -151,6 +217,14 @@ class ExtendedLocationTypes(str, Enum):
     The type of the extended location.
     """
     EDGE_ZONE = "EdgeZone"
+
+
+class Format(str, Enum):
+    """
+    This is a required field, it specifies the format for the inventory files.
+    """
+    CSV = "Csv"
+    PARQUET = "Parquet"
 
 
 class HttpProtocol(str, Enum):
@@ -229,6 +303,14 @@ class Name(str, Enum):
     ACCESS_TIME_TRACKING = "AccessTimeTracking"
 
 
+class ObjectType(str, Enum):
+    """
+    This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+    """
+    BLOB = "Blob"
+    CONTAINER = "Container"
+
+
 class Permissions(str, Enum):
     """
     The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
@@ -261,6 +343,14 @@ class PublicAccess(str, Enum):
     NONE = "None"
 
 
+class PublicNetworkAccess(str, Enum):
+    """
+    Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
 class RootSquashType(str, Enum):
     """
     The property is for NFS share only. The default is NoRootSquash.
@@ -283,6 +373,14 @@ class RuleType(str, Enum):
     The valid value is Lifecycle
     """
     LIFECYCLE = "Lifecycle"
+
+
+class Schedule(str, Enum):
+    """
+    This is a required field. This field is used to schedule an inventory formation.
+    """
+    DAILY = "Daily"
+    WEEKLY = "Weekly"
 
 
 class Services(str, Enum):
@@ -342,8 +440,8 @@ class State(str, Enum):
     """
     Gets the state of virtual network rule.
     """
-    PROVISIONING = "provisioning"
-    DEPROVISIONING = "deprovisioning"
-    SUCCEEDED = "succeeded"
-    FAILED = "failed"
-    NETWORK_SOURCE_DELETED = "networkSourceDeleted"
+    PROVISIONING = "Provisioning"
+    DEPROVISIONING = "Deprovisioning"
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    NETWORK_SOURCE_DELETED = "NetworkSourceDeleted"

@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Definition of generic ARM proxy resource.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2022-06-01.
  */
 export function getDataCollectionRuleAssociation(args: GetDataCollectionRuleAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleAssociationResult> {
 
@@ -33,6 +36,10 @@ export interface GetDataCollectionRuleAssociationArgs {
  */
 export interface GetDataCollectionRuleAssociationResult {
     /**
+     * The resource ID of the data collection endpoint that is to be associated.
+     */
+    readonly dataCollectionEndpointId?: string;
+    /**
      * The resource ID of the data collection rule that is to be associated.
      */
     readonly dataCollectionRuleId?: string;
@@ -49,6 +56,10 @@ export interface GetDataCollectionRuleAssociationResult {
      */
     readonly id: string;
     /**
+     * Metadata about the resource
+     */
+    readonly metadata: outputs.insights.DataCollectionRuleAssociationResponseMetadata;
+    /**
      * The name of the resource.
      */
     readonly name: string;
@@ -57,13 +68,17 @@ export interface GetDataCollectionRuleAssociationResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.insights.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Definition of generic ARM proxy resource.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2022-06-01.
  */
 export function getDataCollectionRuleAssociationOutput(args: GetDataCollectionRuleAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleAssociationResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRuleAssociation(a, opts))

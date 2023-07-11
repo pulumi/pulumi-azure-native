@@ -148,12 +148,7 @@ class ContainerAppsAuthConfigArgs:
         pulumi.set(self, "platform", value)
 
 
-warnings.warn("""azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ContainerAppsAuthConfig(pulumi.CustomResource):
-    warnings.warn("""azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -214,7 +209,6 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                  platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ContainerAppsAuthConfig is deprecated: azure-native:app/v20221001:ContainerAppsAuthConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsAuthConfig to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -238,7 +232,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerAppsAuthConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20221101preview:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20230401preview:ContainerAppsAuthConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerAppsAuthConfig, __self__).__init__(
             'azure-native:app/v20221001:ContainerAppsAuthConfig',

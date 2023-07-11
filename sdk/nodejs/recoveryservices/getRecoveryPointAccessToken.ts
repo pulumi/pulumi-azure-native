@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2018-12-20.
+ * Azure REST API version: 2023-01-15.
  */
 export function getRecoveryPointAccessToken(args: GetRecoveryPointAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetRecoveryPointAccessTokenResult> {
 
@@ -101,7 +101,7 @@ export interface GetRecoveryPointAccessTokenResult {
     readonly type: string;
 }
 /**
- * API Version: 2018-12-20.
+ * Azure REST API version: 2023-01-15.
  */
 export function getRecoveryPointAccessTokenOutput(args: GetRecoveryPointAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRecoveryPointAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getRecoveryPointAccessToken(a, opts))

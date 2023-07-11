@@ -22,6 +22,7 @@ class GalleryArgs:
                  gallery_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  sharing_profile: Optional[pulumi.Input['SharingProfileArgs']] = None,
+                 soft_delete_policy: Optional[pulumi.Input['SoftDeletePolicyArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Gallery resource.
@@ -30,6 +31,7 @@ class GalleryArgs:
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input['SharingProfileArgs'] sharing_profile: Profile for gallery sharing to subscription or tenant
+        :param pulumi.Input['SoftDeletePolicyArgs'] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -41,6 +43,8 @@ class GalleryArgs:
             pulumi.set(__self__, "location", location)
         if sharing_profile is not None:
             pulumi.set(__self__, "sharing_profile", sharing_profile)
+        if soft_delete_policy is not None:
+            pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -105,6 +109,18 @@ class GalleryArgs:
         pulumi.set(self, "sharing_profile", value)
 
     @property
+    @pulumi.getter(name="softDeletePolicy")
+    def soft_delete_policy(self) -> Optional[pulumi.Input['SoftDeletePolicyArgs']]:
+        """
+        Contains information about the soft deletion policy of the gallery.
+        """
+        return pulumi.get(self, "soft_delete_policy")
+
+    @soft_delete_policy.setter
+    def soft_delete_policy(self, value: Optional[pulumi.Input['SoftDeletePolicyArgs']]):
+        pulumi.set(self, "soft_delete_policy", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -127,11 +143,12 @@ class Gallery(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sharing_profile: Optional[pulumi.Input[pulumi.InputType['SharingProfileArgs']]] = None,
+                 soft_delete_policy: Optional[pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
-        API Version: 2020-09-30.
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -140,6 +157,7 @@ class Gallery(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SharingProfileArgs']] sharing_profile: Profile for gallery sharing to subscription or tenant
+        :param pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
@@ -150,7 +168,7 @@ class Gallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
-        API Version: 2020-09-30.
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.
@@ -172,6 +190,7 @@ class Gallery(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sharing_profile: Optional[pulumi.Input[pulumi.InputType['SharingProfileArgs']]] = None,
+                 soft_delete_policy: Optional[pulumi.Input[pulumi.InputType['SoftDeletePolicyArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -189,10 +208,12 @@ class Gallery(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sharing_profile"] = sharing_profile
+            __props__.__dict__["soft_delete_policy"] = soft_delete_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["identifier"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["sharing_status"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20180601:Gallery"), pulumi.Alias(type_="azure-native:compute/v20190301:Gallery"), pulumi.Alias(type_="azure-native:compute/v20190701:Gallery"), pulumi.Alias(type_="azure-native:compute/v20191201:Gallery"), pulumi.Alias(type_="azure-native:compute/v20200930:Gallery"), pulumi.Alias(type_="azure-native:compute/v20210701:Gallery"), pulumi.Alias(type_="azure-native:compute/v20211001:Gallery"), pulumi.Alias(type_="azure-native:compute/v20220103:Gallery"), pulumi.Alias(type_="azure-native:compute/v20220303:Gallery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -224,6 +245,8 @@ class Gallery(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sharing_profile"] = None
+        __props__.__dict__["sharing_status"] = None
+        __props__.__dict__["soft_delete_policy"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Gallery(resource_name, opts=opts, __props__=__props__)
@@ -275,6 +298,22 @@ class Gallery(pulumi.CustomResource):
         Profile for gallery sharing to subscription or tenant
         """
         return pulumi.get(self, "sharing_profile")
+
+    @property
+    @pulumi.getter(name="sharingStatus")
+    def sharing_status(self) -> pulumi.Output['outputs.SharingStatusResponse']:
+        """
+        Sharing status of current gallery.
+        """
+        return pulumi.get(self, "sharing_status")
+
+    @property
+    @pulumi.getter(name="softDeletePolicy")
+    def soft_delete_policy(self) -> pulumi.Output[Optional['outputs.SoftDeletePolicyResponse']]:
+        """
+        Contains information about the soft deletion policy of the gallery.
+        """
+        return pulumi.get(self, "soft_delete_policy")
 
     @property
     @pulumi.getter

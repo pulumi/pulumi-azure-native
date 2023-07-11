@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a valid sender username for a domains resource.
  */
-/** @deprecated azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility. */
 export function getSenderUsername(args: GetSenderUsernameArgs, opts?: pulumi.InvokeOptions): Promise<GetSenderUsernameResult> {
-    pulumi.log.warn("getSenderUsername is deprecated: azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:communication/v20230331:getSenderUsername", {
@@ -82,7 +80,6 @@ export interface GetSenderUsernameResult {
 /**
  * Get a valid sender username for a domains resource.
  */
-/** @deprecated azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility. */
 export function getSenderUsernameOutput(args: GetSenderUsernameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSenderUsernameResult> {
     return pulumi.output(args).apply((a: any) => getSenderUsername(a, opts))
 }

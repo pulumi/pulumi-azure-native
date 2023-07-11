@@ -231,7 +231,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of a orchestrator.
-        API Version: 2021-03-15.
+        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -256,7 +256,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a orchestrator.
-        API Version: 2021-03-15.
+        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
 
         :param str resource_name: The name of the resource.
         :param OrchestratorInstanceServiceDetailsArgs args: The arguments to use to populate this resource's properties.
@@ -316,7 +316,7 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230518preview:OrchestratorInstanceServiceDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OrchestratorInstanceServiceDetails, __self__).__init__(
             'azure-native:delegatednetwork:OrchestratorInstanceServiceDetails',

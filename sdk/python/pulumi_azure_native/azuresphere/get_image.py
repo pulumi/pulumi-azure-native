@@ -195,7 +195,7 @@ def get_image(catalog_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageResult:
     """
     Get a Image
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog
@@ -232,7 +232,7 @@ def get_image_output(catalog_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
     """
     Get a Image
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str catalog_name: Name of catalog

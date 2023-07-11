@@ -111,7 +111,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Define the SAP Application Server Instance resource.
-        API Version: 2021-12-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the SAP Application Server Instance resource.
-        API Version: 2021-12-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param SAPApplicationServerInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -179,14 +179,14 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
             __props__.__dict__["ip_address"] = None
             __props__.__dict__["kernel_patch"] = None
             __props__.__dict__["kernel_version"] = None
+            __props__.__dict__["load_balancer_details"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
-            __props__.__dict__["storage_details"] = None
             __props__.__dict__["subnet"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["virtual_machine_id"] = None
+            __props__.__dict__["vm_details"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:SAPApplicationServerInstance"), pulumi.Alias(type_="azure-native:workloads/v20230401:SAPApplicationServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SAPApplicationServerInstance, __self__).__init__(
@@ -221,16 +221,16 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         __props__.__dict__["ip_address"] = None
         __props__.__dict__["kernel_patch"] = None
         __props__.__dict__["kernel_version"] = None
+        __props__.__dict__["load_balancer_details"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status"] = None
-        __props__.__dict__["storage_details"] = None
         __props__.__dict__["subnet"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["virtual_machine_id"] = None
+        __props__.__dict__["vm_details"] = None
         return SAPApplicationServerInstance(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -314,6 +314,14 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         return pulumi.get(self, "kernel_version")
 
     @property
+    @pulumi.getter(name="loadBalancerDetails")
+    def load_balancer_details(self) -> pulumi.Output['outputs.LoadBalancerDetailsResponse']:
+        """
+        The Load Balancer details such as LoadBalancer ID attached to Application Server Virtual Machines
+        """
+        return pulumi.get(self, "load_balancer_details")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -344,14 +352,6 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         Defines the SAP Instance status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageDetails")
-    def storage_details(self) -> pulumi.Output[Sequence['outputs.StorageInformationResponse']]:
-        """
-        Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
-        """
-        return pulumi.get(self, "storage_details")
 
     @property
     @pulumi.getter
@@ -386,10 +386,10 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="vmDetails")
+    def vm_details(self) -> pulumi.Output[Sequence['outputs.ApplicationServerVmDetailsResponse']]:
         """
-        The virtual machine.
+        The list of virtual machines.
         """
-        return pulumi.get(self, "virtual_machine_id")
+        return pulumi.get(self, "vm_details")
 

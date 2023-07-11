@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets guest diagnostics association settings.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetGuestDiagnosticsSettingsAssociationResult> InvokeAsync(GetGuestDiagnosticsSettingsAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestDiagnosticsSettingsAssociationResult>("azure-native:insights:getGuestDiagnosticsSettingsAssociation", args ?? new GetGuestDiagnosticsSettingsAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets guest diagnostics association settings.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetGuestDiagnosticsSettingsAssociationResult> Invoke(GetGuestDiagnosticsSettingsAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestDiagnosticsSettingsAssociationResult>("azure-native:insights:getGuestDiagnosticsSettingsAssociation", args ?? new GetGuestDiagnosticsSettingsAssociationInvokeArgs(), options.WithDefaults());

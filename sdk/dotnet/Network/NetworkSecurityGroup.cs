@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// NetworkSecurityGroup resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("flowLogs")]
         public Output<ImmutableArray<Outputs.FlowLogResponse>> FlowLogs { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        /// </summary>
+        [Output("flushConnection")]
+        public Output<bool?> FlushConnection { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -157,6 +163,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkSecurityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkSecurityGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkSecurityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkSecurityGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:NetworkSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -180,6 +188,12 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class NetworkSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        /// </summary>
+        [Input("flushConnection")]
+        public Input<bool>? FlushConnection { get; set; }
+
         /// <summary>
         /// Resource ID.
         /// </summary>

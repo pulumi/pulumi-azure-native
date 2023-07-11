@@ -115,12 +115,7 @@ class AdministratorArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-warnings.warn("""azure-native:dbforpostgresql/v20221201:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Administrator to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Administrator(pulumi.CustomResource):
-    warnings.warn("""azure-native:dbforpostgresql/v20221201:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Administrator to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +170,6 @@ class Administrator(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Administrator is deprecated: azure-native:dbforpostgresql/v20221201:Administrator is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Administrator to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -197,7 +191,7 @@ class Administrator(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Administrator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Administrator"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Administrator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Administrator, __self__).__init__(
             'azure-native:dbforpostgresql/v20221201:Administrator',

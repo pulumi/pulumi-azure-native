@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.SignalRService
     public static class GetSignalR
     {
         /// <summary>
-        /// Get the SignalR service and its properties.
-        /// API Version: 2020-05-01.
+        /// Get the resource and its properties.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetSignalRResult> InvokeAsync(GetSignalRArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSignalRResult>("azure-native:signalrservice:getSignalR", args ?? new GetSignalRArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the SignalR service and its properties.
-        /// API Version: 2020-05-01.
+        /// Get the resource and its properties.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetSignalRResult> Invoke(GetSignalRInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalRResult>("azure-native:signalrservice:getSignalR", args ?? new GetSignalRInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SignalRService
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -76,25 +76,36 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly Outputs.SignalRCorsSettingsResponse? Cors;
         /// <summary>
-        /// The publicly accessible IP of the SignalR service.
+        /// DisableLocalAuth
+        /// Enable or disable aad auth
+        /// When set as true, connection with AuthType=aad won't work.
+        /// </summary>
+        public readonly bool? DisableAadAuth;
+        /// <summary>
+        /// DisableLocalAuth
+        /// Enable or disable local auth with AccessKey
+        /// When set as true, connection with AccessKey=xxx won't work.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// The publicly accessible IP of the resource.
         /// </summary>
         public readonly string ExternalIP;
         /// <summary>
-        /// List of SignalR featureFlags. e.g. ServiceMode.
+        /// List of the featureFlags.
         /// 
         /// FeatureFlags that are not included in the parameters for the update operation will not be modified.
         /// And the response will only include featureFlags that are explicitly set. 
-        /// When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        /// When a featureFlag is not explicitly set, its globally default value will be used
         /// But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         /// </summary>
         public readonly ImmutableArray<Outputs.SignalRFeatureResponse> Features;
         /// <summary>
-        /// FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        /// FQDN of the service instance.
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Prefix for the hostName of the SignalR service. Retained for future use.
-        /// The hostname will be of format: &amp;lt;hostNamePrefix&amp;gt;.service.signalr.net.
+        /// Deprecated.
         /// </summary>
         public readonly string HostNamePrefix;
         /// <summary>
@@ -102,11 +113,19 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        /// A class represent managed identities used for request and response
+        /// </summary>
+        public readonly Outputs.ManagedIdentityResponse? Identity;
+        /// <summary>
+        /// The kind of the service, it can be SignalR or RawWebSockets
         /// </summary>
         public readonly string? Kind;
         /// <summary>
-        /// The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        /// Live trace configuration of a Microsoft.SignalRService resource.
+        /// </summary>
+        public readonly Outputs.LiveTraceConfigurationResponse? LiveTraceConfiguration;
+        /// <summary>
+        /// The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         /// </summary>
         public readonly string? Location;
         /// <summary>
@@ -114,11 +133,11 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network ACLs
+        /// Network ACLs for the resource
         /// </summary>
         public readonly Outputs.SignalRNetworkACLsResponse? NetworkACLs;
         /// <summary>
-        /// Private endpoint connections to the SignalR resource.
+        /// Private endpoint connections to the resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
@@ -126,37 +145,67 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        /// Enable or disable public network access. Default to "Enabled".
+        /// When it's Enabled, network ACLs still apply.
+        /// When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// The publicly accessible port of the resource which is designed for browser/client side usage.
         /// </summary>
         public readonly int PublicPort;
         /// <summary>
-        /// The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        /// Resource log configuration of a Microsoft.SignalRService resource.
+        /// </summary>
+        public readonly Outputs.ResourceLogConfigurationResponse? ResourceLogConfiguration;
+        /// <summary>
+        /// The publicly accessible port of the resource which is designed for customer server side usage.
         /// </summary>
         public readonly int ServerPort;
         /// <summary>
-        /// The billing information of the resource.(e.g. Free, Standard)
+        /// Serverless settings.
+        /// </summary>
+        public readonly Outputs.ServerlessSettingsResponse? Serverless;
+        /// <summary>
+        /// The list of shared private link resources.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> SharedPrivateLinkResources;
+        /// <summary>
+        /// The billing information of the resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponse? Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// TLS settings for the resource
+        /// </summary>
+        public readonly Outputs.SignalRTlsSettingsResponse? Tls;
+        /// <summary>
         /// The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Upstream settings when the Azure SignalR is in server-less mode.
+        /// The settings for the Upstream when the service is in server-less mode.
         /// </summary>
         public readonly Outputs.ServerlessUpstreamSettingsResponse? Upstream;
         /// <summary>
-        /// Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        /// Version of the resource. Probably you need the same or higher version of client SDKs.
         /// </summary>
         public readonly string Version;
 
         [OutputConstructor]
         private GetSignalRResult(
             Outputs.SignalRCorsSettingsResponse? cors,
+
+            bool? disableAadAuth,
+
+            bool? disableLocalAuth,
 
             string externalIP,
 
@@ -168,7 +217,11 @@ namespace Pulumi.AzureNative.SignalRService
 
             string id,
 
+            Outputs.ManagedIdentityResponse? identity,
+
             string? kind,
+
+            Outputs.LiveTraceConfigurationResponse? liveTraceConfiguration,
 
             string? location,
 
@@ -180,13 +233,25 @@ namespace Pulumi.AzureNative.SignalRService
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
             int publicPort,
+
+            Outputs.ResourceLogConfigurationResponse? resourceLogConfiguration,
 
             int serverPort,
 
+            Outputs.ServerlessSettingsResponse? serverless,
+
+            ImmutableArray<Outputs.SharedPrivateLinkResourceResponse> sharedPrivateLinkResources,
+
             Outputs.ResourceSkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
+
+            Outputs.SignalRTlsSettingsResponse? tls,
 
             string type,
 
@@ -195,21 +260,31 @@ namespace Pulumi.AzureNative.SignalRService
             string version)
         {
             Cors = cors;
+            DisableAadAuth = disableAadAuth;
+            DisableLocalAuth = disableLocalAuth;
             ExternalIP = externalIP;
             Features = features;
             HostName = hostName;
             HostNamePrefix = hostNamePrefix;
             Id = id;
+            Identity = identity;
             Kind = kind;
+            LiveTraceConfiguration = liveTraceConfiguration;
             Location = location;
             Name = name;
             NetworkACLs = networkACLs;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             PublicPort = publicPort;
+            ResourceLogConfiguration = resourceLogConfiguration;
             ServerPort = serverPort;
+            Serverless = serverless;
+            SharedPrivateLinkResources = sharedPrivateLinkResources;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
+            Tls = tls;
             Type = type;
             Upstream = upstream;
             Version = version;

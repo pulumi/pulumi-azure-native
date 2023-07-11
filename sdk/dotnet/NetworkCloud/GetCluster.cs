@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided cluster.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided cluster.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:networkcloud:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         /// </summary>
-        public readonly string AnalyticsWorkspaceId;
+        public readonly string? AnalyticsWorkspaceId;
         /// <summary>
         /// The list of cluster runtime version upgrades available for this cluster.
         /// </summary>
@@ -141,11 +141,11 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        /// Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse HybridAksExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -197,7 +197,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetClusterResult(
             Outputs.RackDefinitionResponse aggregatorOrSingleRackDefinition,
 
-            string analyticsWorkspaceId,
+            string? analyticsWorkspaceId,
 
             ImmutableArray<Outputs.ClusterAvailableUpgradeVersionResponse> availableUpgradeVersions,
 

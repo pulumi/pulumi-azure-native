@@ -5,47 +5,63 @@
 from enum import Enum
 
 __all__ = [
+    'AccessMode',
     'AggregationTypeEnum',
-    'AlertSeverity',
     'ApplicationType',
     'ComparisonOperationType',
     'ConditionOperator',
-    'ConditionalOperator',
     'CriterionType',
+    'DimensionOperator',
     'DynamicThresholdOperator',
     'DynamicThresholdSensitivity',
-    'Enabled',
     'FavoriteType',
     'FlowType',
+    'IdentityType',
     'IngestionMode',
     'ItemScope',
     'ItemType',
     'Kind',
+    'KnownColumnDefinitionType',
     'KnownDataCollectionEndpointResourceKind',
     'KnownDataCollectionRuleResourceKind',
     'KnownDataFlowStreams',
     'KnownExtensionDataSourceStreams',
+    'KnownLogFileTextSettingsRecordStartTimestampFormat',
+    'KnownLogFilesDataSourceFormat',
     'KnownPerfCounterDataSourceStreams',
+    'KnownPrometheusForwarderDataSourceStreams',
     'KnownPublicNetworkAccessOptions',
     'KnownSyslogDataSourceFacilityNames',
     'KnownSyslogDataSourceLogLevels',
     'KnownSyslogDataSourceStreams',
     'KnownWindowsEventLogDataSourceStreams',
+    'ManagedServiceIdentityType',
     'MetricStatisticType',
-    'MetricTriggerType',
     'Odatatype',
     'OperationType',
     'Operator',
-    'QueryType',
+    'PredictiveAutoscalePolicyScaleMode',
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccessType',
     'RecurrenceFrequency',
     'RequestSource',
     'ScaleDirection',
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
+    'TimeAggregation',
     'TimeAggregationOperator',
     'TimeAggregationType',
     'WebTestKind',
+    'WorkbookSharedTypeKind',
 ]
+
+
+class AccessMode(str, Enum):
+    """
+    Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+    """
+    OPEN = "Open"
+    PRIVATE_ONLY = "PrivateOnly"
 
 
 class AggregationTypeEnum(str, Enum):
@@ -57,17 +73,6 @@ class AggregationTypeEnum(str, Enum):
     MINIMUM = "Minimum"
     MAXIMUM = "Maximum"
     TOTAL = "Total"
-
-
-class AlertSeverity(str, Enum):
-    """
-    Severity of the alert
-    """
-    ZERO = "0"
-    ONE = "1"
-    TWO = "2"
-    THREE = "3"
-    FOUR = "4"
 
 
 class ApplicationType(str, Enum):
@@ -92,23 +97,13 @@ class ComparisonOperationType(str, Enum):
 
 class ConditionOperator(str, Enum):
     """
-    the operator used to compare the data and the threshold.
+    The criteria operator. Relevant and required only for rules of the kind LogAlert.
     """
+    EQUALS = "Equals"
     GREATER_THAN = "GreaterThan"
     GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
     LESS_THAN = "LessThan"
     LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-
-
-class ConditionalOperator(str, Enum):
-    """
-    Evaluation operation for rule - 'GreaterThan' or 'LessThan.
-    """
-    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
-    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN = "LessThan"
-    EQUAL = "Equal"
 
 
 class CriterionType(str, Enum):
@@ -117,6 +112,14 @@ class CriterionType(str, Enum):
     """
     STATIC_THRESHOLD_CRITERION = "StaticThresholdCriterion"
     DYNAMIC_THRESHOLD_CRITERION = "DynamicThresholdCriterion"
+
+
+class DimensionOperator(str, Enum):
+    """
+    Operator for dimension values
+    """
+    INCLUDE = "Include"
+    EXCLUDE = "Exclude"
 
 
 class DynamicThresholdOperator(str, Enum):
@@ -137,14 +140,6 @@ class DynamicThresholdSensitivity(str, Enum):
     HIGH = "High"
 
 
-class Enabled(str, Enum):
-    """
-    The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-    """
-    TRUE = "true"
-    FALSE = "false"
-
-
 class FavoriteType(str, Enum):
     """
     Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
@@ -158,6 +153,15 @@ class FlowType(str, Enum):
     Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
     """
     BLUEFIELD = "Bluefield"
+
+
+class IdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    NONE = "None"
 
 
 class IngestionMode(str, Enum):
@@ -189,10 +193,23 @@ class ItemType(str, Enum):
 
 class Kind(str, Enum):
     """
-    The kind of workbook. Choices are user and shared.
+    Indicates the type of scheduled query rule. The default is LogAlert.
     """
-    USER = "user"
-    SHARED = "shared"
+    LOG_ALERT = "LogAlert"
+    LOG_TO_METRIC = "LogToMetric"
+
+
+class KnownColumnDefinitionType(str, Enum):
+    """
+    The type of the column data.
+    """
+    STRING = "string"
+    INT = "int"
+    LONG = "long"
+    REAL = "real"
+    BOOLEAN = "boolean"
+    DATETIME = "datetime"
+    DYNAMIC = "dynamic"
 
 
 class KnownDataCollectionEndpointResourceKind(str, Enum):
@@ -227,9 +244,35 @@ class KnownExtensionDataSourceStreams(str, Enum):
     MICROSOFT_WINDOWS_EVENT = "Microsoft-WindowsEvent"
 
 
+class KnownLogFileTextSettingsRecordStartTimestampFormat(str, Enum):
+    """
+    One of the supported timestamp formats
+    """
+    IS_O_8601 = "ISO 8601"
+    YYY_Y_M_M_D_D_H_H_M_M_SS = "YYYY-MM-DD HH:MM:SS"
+    M_D_YYY_Y_H_H_M_M_S_S_A_M_PM = "M/D/YYYY HH:MM:SS AM/PM"
+    MON_D_D_YYY_Y_H_H_M_M_SS = "Mon DD, YYYY HH:MM:SS"
+    YY_M_MDD_H_H_MM_SS = "yyMMdd HH:mm:ss"
+    DD_M_MYY_H_H_MM_SS = "ddMMyy HH:mm:ss"
+    MM_M_D_HH_MM_SS = "MMM d hh:mm:ss"
+    DD_MM_M_YYYY_H_H_MM_SS_ZZZ = "dd/MMM/yyyy:HH:mm:ss zzz"
+    YYYY_M_M_DD_TH_H_MM_SS_K = "yyyy-MM-ddTHH:mm:ssK"
+
+
+class KnownLogFilesDataSourceFormat(str, Enum):
+    """
+    The data format of the log files
+    """
+    TEXT = "text"
+
+
 class KnownPerfCounterDataSourceStreams(str, Enum):
     MICROSOFT_PERF = "Microsoft-Perf"
     MICROSOFT_INSIGHTS_METRICS = "Microsoft-InsightsMetrics"
+
+
+class KnownPrometheusForwarderDataSourceStreams(str, Enum):
+    MICROSOFT_PROMETHEUS_METRICS = "Microsoft-PrometheusMetrics"
 
 
 class KnownPublicNetworkAccessOptions(str, Enum):
@@ -238,6 +281,7 @@ class KnownPublicNetworkAccessOptions(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class KnownSyslogDataSourceFacilityNames(str, Enum):
@@ -285,6 +329,16 @@ class KnownWindowsEventLogDataSourceStreams(str, Enum):
     MICROSOFT_EVENT = "Microsoft-Event"
 
 
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 class MetricStatisticType(str, Enum):
     """
     the metric statistic type. How the metrics from multiple instances are combined.
@@ -294,14 +348,6 @@ class MetricStatisticType(str, Enum):
     MAX = "Max"
     SUM = "Sum"
     COUNT = "Count"
-
-
-class MetricTriggerType(str, Enum):
-    """
-    Metric Trigger Type - 'Consecutive' or 'Total'
-    """
-    CONSECUTIVE = "Consecutive"
-    TOTAL = "Total"
 
 
 class Odatatype(str, Enum):
@@ -322,16 +368,45 @@ class OperationType(str, Enum):
 
 class Operator(str, Enum):
     """
-    Operator for dimension values
+    the criteria operator.
     """
-    INCLUDE = "Include"
+    EQUALS = "Equals"
+    GREATER_THAN = "GreaterThan"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    LESS_THAN = "LessThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
 
 
-class QueryType(str, Enum):
+class PredictiveAutoscalePolicyScaleMode(str, Enum):
     """
-    Set value to 'ResultCount' .
+    the predictive autoscale mode
     """
-    RESULT_COUNT = "ResultCount"
+    DISABLED = "Disabled"
+    FORECAST_ONLY = "ForecastOnly"
+    ENABLED = "Enabled"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class PublicNetworkAccessType(str, Enum):
+    """
+    The network access type for accessing Application Insights query.
+    """
+    ENABLED = "Enabled"
+    """
+    Enables connectivity to Application Insights through public DNS.
+    """
+    DISABLED = "Disabled"
+    """
+    Disables public connectivity to Application Insights through public DNS.
+    """
 
 
 class RecurrenceFrequency(str, Enum):
@@ -382,6 +457,17 @@ class ScaleType(str, Enum):
     SERVICE_ALLOWED_NEXT_VALUE = "ServiceAllowedNextValue"
 
 
+class TimeAggregation(str, Enum):
+    """
+    Aggregation type. Relevant and required only for rules of the kind LogAlert.
+    """
+    COUNT = "Count"
+    AVERAGE = "Average"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+    TOTAL = "Total"
+
+
 class TimeAggregationOperator(str, Enum):
     """
     the time aggregation operator. How the data that are collected should be combined over time. The default value is the PrimaryAggregationType of the Metric.
@@ -407,7 +493,15 @@ class TimeAggregationType(str, Enum):
 
 class WebTestKind(str, Enum):
     """
-    The kind of web test this is, valid choices are ping and multistep.
+    The kind of web test this is, valid choices are ping, multistep and standard.
     """
     PING = "ping"
     MULTISTEP = "multistep"
+    STANDARD = "standard"
+
+
+class WorkbookSharedTypeKind(str, Enum):
+    """
+    The kind of workbook. Only valid value is shared.
+    """
+    SHARED = "shared"

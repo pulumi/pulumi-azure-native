@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAssetEncryptionKey(args: GetAssetEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetAssetEncryptionKeyResult> {
 
@@ -51,7 +51,7 @@ export interface GetAssetEncryptionKeyResult {
 }
 /**
  * Gets the Asset storage encryption keys used to decrypt content created by version 2 of the Media Services API
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAssetEncryptionKeyOutput(args: GetAssetEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetEncryptionKeyResult> {
     return pulumi.output(args).apply((a: any) => getAssetEncryptionKey(a, opts))

@@ -23,6 +23,18 @@ export const ConfidentialVMEncryptionType = {
  */
 export type ConfidentialVMEncryptionType = (typeof ConfidentialVMEncryptionType)[keyof typeof ConfidentialVMEncryptionType];
 
+export const EdgeZoneStorageAccountType = {
+    Standard_LRS: "Standard_LRS",
+    Standard_ZRS: "Standard_ZRS",
+    StandardSSD_LRS: "StandardSSD_LRS",
+    Premium_LRS: "Premium_LRS",
+} as const;
+
+/**
+ * Specifies the storage account type to be used to store the image. This property is not updatable.
+ */
+export type EdgeZoneStorageAccountType = (typeof EdgeZoneStorageAccountType)[keyof typeof EdgeZoneStorageAccountType];
+
 export const GalleryApplicationCustomActionParameterType = {
     String: "String",
     ConfigurationDataBlob: "ConfigurationDataBlob",

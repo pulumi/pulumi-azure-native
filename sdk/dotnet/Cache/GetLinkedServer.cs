@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetLinkedServerResult> InvokeAsync(GetLinkedServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the detailed information about a linked server of a redis cache (requires Premium SKU).
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetLinkedServerResult> Invoke(GetLinkedServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedServerResult>("azure-native:cache:getLinkedServer", args ?? new GetLinkedServerInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,11 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetLinkedServerResult
     {
         /// <summary>
-        /// Resource ID.
+        /// The unchanging DNS name which will always point to current geo-primary cache among the linked redis caches for seamless Geo Failover experience.
+        /// </summary>
+        public readonly string GeoReplicatedPrimaryHostName;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -96,9 +100,13 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string LinkedRedisCacheLocation;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The changing DNS name that resolves to the current geo-primary cache among the linked redis caches before or after the Geo Failover.
+        /// </summary>
+        public readonly string PrimaryHostName;
         /// <summary>
         /// Terminal state of the link between primary and secondary redis cache.
         /// </summary>
@@ -108,12 +116,14 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string ServerRole;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetLinkedServerResult(
+            string geoReplicatedPrimaryHostName,
+
             string id,
 
             string linkedRedisCacheId,
@@ -122,16 +132,20 @@ namespace Pulumi.AzureNative.Cache
 
             string name,
 
+            string primaryHostName,
+
             string provisioningState,
 
             string serverRole,
 
             string type)
         {
+            GeoReplicatedPrimaryHostName = geoReplicatedPrimaryHostName;
             Id = id;
             LinkedRedisCacheId = linkedRedisCacheId;
             LinkedRedisCacheLocation = linkedRedisCacheLocation;
             Name = name;
+            PrimaryHostName = primaryHostName;
             ProvisioningState = provisioningState;
             ServerRole = serverRole;
             Type = type;

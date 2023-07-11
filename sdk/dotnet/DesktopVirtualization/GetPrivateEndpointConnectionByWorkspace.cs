@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a private endpoint connection.
-        /// API Version: 2021-04-01-preview.
+        /// Azure REST API version: 2022-10-14-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionByWorkspaceResult> InvokeAsync(GetPrivateEndpointConnectionByWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a private endpoint connection.
-        /// API Version: 2021-04-01-preview.
+        /// Azure REST API version: 2022-10-14-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionByWorkspaceResult> Invoke(GetPrivateEndpointConnectionByWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionByWorkspaceResult>("azure-native:desktopvirtualization:getPrivateEndpointConnectionByWorkspace", args ?? new GetPrivateEndpointConnectionByWorkspaceInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a description for the specified namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -36,13 +36,29 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
-     * The time the namespace was created.
+     * Alternate name for namespace
+     */
+    readonly alternateName?: string;
+    /**
+     * The time the namespace was created
      */
     readonly createdAt: string;
+    /**
+     * This property disables SAS authentication for the Service Bus namespace.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: outputs.servicebus.EncryptionResponse;
     /**
      * Resource Id
      */
     readonly id: string;
+    /**
+     * Properties of BYOK Identity description
+     */
+    readonly identity?: outputs.servicebus.IdentityResponse;
     /**
      * The Geo-location where the resource lives
      */
@@ -52,21 +68,41 @@ export interface GetNamespaceResult {
      */
     readonly metricId: string;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    readonly minimumTlsVersion?: string;
+    /**
      * Resource name
      */
     readonly name: string;
+    /**
+     * List of private endpoint connections.
+     */
+    readonly privateEndpointConnections?: outputs.servicebus.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the namespace.
      */
     readonly provisioningState: string;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
      * Endpoint you can use to perform Service Bus operations.
      */
     readonly serviceBusEndpoint: string;
     /**
-     * Properties of Sku
+     * Properties of SKU
      */
     readonly sku?: outputs.servicebus.SBSkuResponse;
+    /**
+     * Status of the namespace.
+     */
+    readonly status: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
     /**
      * Resource tags
      */
@@ -79,10 +115,14 @@ export interface GetNamespaceResult {
      * The time the namespace was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: boolean;
 }
 /**
  * Gets a description for the specified namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

@@ -10,7 +10,6 @@ __all__ = [
     'GeoRedundantBackupEnum',
     'HighAvailabilityMode',
     'IdentityType',
-    'PrincipalType',
     'ReplicationRole',
     'ServerVersion',
     'SkuTier',
@@ -61,16 +60,6 @@ class IdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-
-
-class PrincipalType(str, Enum):
-    """
-    The principal type used to represent the type of Active Directory Administrator.
-    """
-    UNKNOWN = "Unknown"
-    USER = "User"
-    GROUP = "Group"
-    SERVICE_PRINCIPAL = "ServicePrincipal"
 
 
 class ReplicationRole(str, Enum):

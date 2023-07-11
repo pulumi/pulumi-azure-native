@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data network resource.
- * API Version: 2022-04-01-preview.
+ * Data network resource. Must be created in the same location as its parent mobile network.
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class DataNetwork extends pulumi.CustomResource {
     /**
@@ -39,33 +39,9 @@ export class DataNetwork extends pulumi.CustomResource {
     }
 
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that created the resource.
-     */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
      * An optional description for this data network.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -108,14 +84,8 @@ export class DataNetwork extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["dataNetworkName"] = args ? args.dataNetworkName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -125,13 +95,7 @@ export class DataNetwork extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -140,7 +104,7 @@ export class DataNetwork extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:DataNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20220401preview:DataNetwork" }, { type: "azure-native:mobilenetwork/v20221101:DataNetwork" }, { type: "azure-native:mobilenetwork/v20230601:DataNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataNetwork.__pulumiType, name, resourceInputs, opts);
     }
@@ -151,18 +115,6 @@ export class DataNetwork extends pulumi.CustomResource {
  */
 export interface DataNetworkArgs {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
-    /**
      * The name of the data network.
      */
     dataNetworkName?: pulumi.Input<string>;
@@ -170,18 +122,6 @@ export interface DataNetworkArgs {
      * An optional description for this data network.
      */
     description?: pulumi.Input<string>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
      * The geo-location where the resource lives
      */

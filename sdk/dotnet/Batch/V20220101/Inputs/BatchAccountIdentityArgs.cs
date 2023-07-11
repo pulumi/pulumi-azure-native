@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.Batch.V20220101.Inputs
         public Input<Pulumi.AzureNative.Batch.V20220101.ResourceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
-        private InputMap<object>? _userAssignedIdentities;
+        private InputList<string>? _userAssignedIdentities;
 
         /// <summary>
         /// The list of user identities associated with the Batch account.
         /// </summary>
-        public InputMap<object> UserAssignedIdentities
+        public InputList<string> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
             set => _userAssignedIdentities = value;
         }
 

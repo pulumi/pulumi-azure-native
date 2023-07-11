@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// FirewallPolicy Resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicy")]
     public partial class FirewallPolicy : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Explicit Proxy Settings definition.
+        /// </summary>
+        [Output("explicitProxy")]
+        public Output<Outputs.ExplicitProxyResponse?> ExplicitProxy { get; private set; } = null!;
 
         /// <summary>
         /// List of references to Azure Firewalls that this Firewall Policy is associated with.
@@ -99,6 +105,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("snat")]
         public Output<Outputs.FirewallPolicySNATResponse?> Snat { get; private set; } = null!;
+
+        /// <summary>
+        /// SQL Settings definition.
+        /// </summary>
+        [Output("sql")]
+        public Output<Outputs.FirewallPolicySQLResponse?> Sql { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -176,6 +188,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:FirewallPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:FirewallPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:FirewallPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:FirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -210,6 +224,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("dnsSettings")]
         public Input<Inputs.DnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
+        /// Explicit Proxy Settings definition.
+        /// </summary>
+        [Input("explicitProxy")]
+        public Input<Inputs.ExplicitProxyArgs>? ExplicitProxy { get; set; }
 
         /// <summary>
         /// The name of the Firewall Policy.
@@ -264,6 +284,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("snat")]
         public Input<Inputs.FirewallPolicySNATArgs>? Snat { get; set; }
+
+        /// <summary>
+        /// SQL Settings definition.
+        /// </summary>
+        [Input("sql")]
+        public Input<Inputs.FirewallPolicySQLArgs>? Sql { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

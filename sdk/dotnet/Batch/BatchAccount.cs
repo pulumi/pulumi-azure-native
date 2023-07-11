@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:BatchAccount")]
     public partial class BatchAccount : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.Batch
 
         [Output("activeJobAndJobScheduleQuota")]
         public Output<int> ActiveJobAndJobScheduleQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+        /// </summary>
+        [Output("allowedAuthenticationModes")]
+        public Output<ImmutableArray<string>> AllowedAuthenticationModes { get; private set; } = null!;
 
         /// <summary>
         /// Contains information about the auto-storage account associated with a Batch account.
@@ -44,7 +50,7 @@ namespace Pulumi.AzureNative.Batch
         public Output<ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponse>> DedicatedCoreQuotaPerVMFamily { get; private set; } = null!;
 
         /// <summary>
-        /// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+        /// If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
         /// </summary>
         [Output("dedicatedCoreQuotaPerVMFamilyEnforced")]
         public Output<bool> DedicatedCoreQuotaPerVMFamilyEnforced { get; private set; } = null!;
@@ -86,6 +92,18 @@ namespace Pulumi.AzureNative.Batch
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The network profile only takes effect when publicNetworkAccess is enabled.
+        /// </summary>
+        [Output("networkProfile")]
+        public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint used by compute node to connect to the Batch node management service.
+        /// </summary>
+        [Output("nodeManagementEndpoint")]
+        public Output<string> NodeManagementEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The allocation mode for creating pools in the Batch account.
         /// </summary>
         [Output("poolAllocationMode")]
@@ -110,7 +128,7 @@ namespace Pulumi.AzureNative.Batch
         /// If not specified, the default value is 'enabled'.
         /// </summary>
         [Output("publicNetworkAccess")]
-        public Output<string> PublicNetworkAccess { get; private set; } = null!;
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -164,6 +182,7 @@ namespace Pulumi.AzureNative.Batch
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:BatchAccount"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20221001:BatchAccount"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20230501:BatchAccount"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -192,6 +211,18 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        [Input("allowedAuthenticationModes")]
+        private InputList<Pulumi.AzureNative.Batch.AuthenticationMode>? _allowedAuthenticationModes;
+
+        /// <summary>
+        /// List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+        /// </summary>
+        public InputList<Pulumi.AzureNative.Batch.AuthenticationMode> AllowedAuthenticationModes
+        {
+            get => _allowedAuthenticationModes ?? (_allowedAuthenticationModes = new InputList<Pulumi.AzureNative.Batch.AuthenticationMode>());
+            set => _allowedAuthenticationModes = value;
+        }
 
         /// <summary>
         /// The properties related to the auto-storage account.
@@ -222,6 +253,12 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The network profile only takes effect when publicNetworkAccess is enabled.
+        /// </summary>
+        [Input("networkProfile")]
+        public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
         /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.

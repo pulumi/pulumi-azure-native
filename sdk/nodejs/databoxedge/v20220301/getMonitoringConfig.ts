@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * The metric setting details for the role
  */
-/** @deprecated azure-native:databoxedge/v20220301:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility. */
 export function getMonitoringConfig(args: GetMonitoringConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitoringConfigResult> {
-    pulumi.log.warn("getMonitoringConfig is deprecated: azure-native:databoxedge/v20220301:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:databoxedge/v20220301:getMonitoringConfig", {
@@ -65,7 +63,6 @@ export interface GetMonitoringConfigResult {
 /**
  * The metric setting details for the role
  */
-/** @deprecated azure-native:databoxedge/v20220301:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility. */
 export function getMonitoringConfigOutput(args: GetMonitoringConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringConfigResult> {
     return pulumi.output(args).apply((a: any) => getMonitoringConfig(a, opts))
 }

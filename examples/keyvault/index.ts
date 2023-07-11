@@ -30,11 +30,7 @@ const container = new containerinstance.ContainerGroup("containergroup", {
     }],
     identity: {
         type: containerinstance.ResourceIdentityType.UserAssigned,
-        userAssignedIdentities: userIdentity.id.apply(id => {
-            const dict: { [key: string] : object } = {};
-            dict[id] = {};
-            return dict;
-        }),
+        userAssignedIdentities: [userIdentity.id],
     },
 });
 

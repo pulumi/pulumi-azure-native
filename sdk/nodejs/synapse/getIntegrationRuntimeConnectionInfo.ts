@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get connection info for an integration runtime
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getIntegrationRuntimeConnectionInfo(args: GetIntegrationRuntimeConnectionInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeConnectionInfoResult> {
 
@@ -64,7 +64,7 @@ export interface GetIntegrationRuntimeConnectionInfoResult {
 }
 /**
  * Get connection info for an integration runtime
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getIntegrationRuntimeConnectionInfoOutput(args: GetIntegrationRuntimeConnectionInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeConnectionInfoResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntimeConnectionInfo(a, opts))

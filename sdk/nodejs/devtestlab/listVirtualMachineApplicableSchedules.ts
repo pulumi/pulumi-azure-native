@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the applicable start/stop schedules, if any.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function listVirtualMachineApplicableSchedules(args: ListVirtualMachineApplicableSchedulesArgs, opts?: pulumi.InvokeOptions): Promise<ListVirtualMachineApplicableSchedulesResult> {
 
@@ -71,7 +71,7 @@ export interface ListVirtualMachineApplicableSchedulesResult {
 }
 /**
  * Lists the applicable start/stop schedules, if any.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function listVirtualMachineApplicableSchedulesOutput(args: ListVirtualMachineApplicableSchedulesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVirtualMachineApplicableSchedulesResult> {
     return pulumi.output(args).apply((a: any) => listVirtualMachineApplicableSchedules(a, opts))

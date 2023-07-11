@@ -17,8 +17,6 @@ __all__ = [
     'get_diagnostic_setting_output',
 ]
 
-warnings.warn("""azure-native:aadiam/v20170401:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:aadiam/v20170401preview:DiagnosticSetting to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDiagnosticSettingResult:
     """
@@ -151,7 +149,6 @@ def get_diagnostic_setting(name: Optional[str] = None,
 
     :param str name: The name of the diagnostic setting.
     """
-    pulumi.log.warn("""get_diagnostic_setting is deprecated: azure-native:aadiam/v20170401:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:aadiam/v20170401preview:DiagnosticSetting to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['name'] = name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -178,5 +175,4 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the diagnostic setting.
     """
-    pulumi.log.warn("""get_diagnostic_setting is deprecated: azure-native:aadiam/v20170401:DiagnosticSetting is being removed in the next major version of this provider. Upgrade to at least azure-native:aadiam/v20170401preview:DiagnosticSetting to guarantee forwards compatibility.""")
     ...

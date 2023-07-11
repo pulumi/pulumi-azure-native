@@ -11,6 +11,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'DatabaseIdentityArgs',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
     'ElasticPoolPerDatabaseSettingsArgs',
     'FailoverGroupReadOnlyEndpointArgs',
@@ -31,14 +32,56 @@ __all__ = [
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
     'ResourceIdentityArgs',
+    'ScheduleItemArgs',
     'ServerExternalAdministratorArgs',
     'ServerInfoArgs',
+    'ServicePrincipalArgs',
     'SkuArgs',
     'SyncGroupSchemaTableColumnArgs',
     'SyncGroupSchemaTableArgs',
     'SyncGroupSchemaArgs',
     'VulnerabilityAssessmentRecurringScansPropertiesArgs',
 ]
+
+@pulumi.input_type
+class DatabaseIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param pulumi.Input[Union[str, 'DatabaseIdentityType']] type: The identity type
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]]:
+        """
+        The identity type
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
@@ -1052,11 +1095,11 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 class ResourceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The resource ids of the user assigned identities to use
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1077,15 +1120,83 @@ class ResourceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ScheduleItemArgs:
+    def __init__(__self__, *,
+                 start_day: pulumi.Input[Union[str, 'DayOfWeek']],
+                 start_time: pulumi.Input[str],
+                 stop_day: pulumi.Input[Union[str, 'DayOfWeek']],
+                 stop_time: pulumi.Input[str]):
+        """
+        Schedule info describing when the server should be started or stopped.
+        :param pulumi.Input[Union[str, 'DayOfWeek']] start_day: Start day.
+        :param pulumi.Input[str] start_time: Start time.
+        :param pulumi.Input[Union[str, 'DayOfWeek']] stop_day: Stop day.
+        :param pulumi.Input[str] stop_time: Stop time.
+        """
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "stop_day", stop_day)
+        pulumi.set(__self__, "stop_time", stop_time)
+
+    @property
+    @pulumi.getter(name="startDay")
+    def start_day(self) -> pulumi.Input[Union[str, 'DayOfWeek']]:
+        """
+        Start day.
+        """
+        return pulumi.get(self, "start_day")
+
+    @start_day.setter
+    def start_day(self, value: pulumi.Input[Union[str, 'DayOfWeek']]):
+        pulumi.set(self, "start_day", value)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> pulumi.Input[str]:
+        """
+        Start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter(name="stopDay")
+    def stop_day(self) -> pulumi.Input[Union[str, 'DayOfWeek']]:
+        """
+        Stop day.
+        """
+        return pulumi.get(self, "stop_day")
+
+    @stop_day.setter
+    def stop_day(self, value: pulumi.Input[Union[str, 'DayOfWeek']]):
+        pulumi.set(self, "stop_day", value)
+
+    @property
+    @pulumi.getter(name="stopTime")
+    def stop_time(self) -> pulumi.Input[str]:
+        """
+        Stop time.
+        """
+        return pulumi.get(self, "stop_time")
+
+    @stop_time.setter
+    def stop_time(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stop_time", value)
 
 
 @pulumi.input_type
@@ -1213,6 +1324,30 @@ class ServerInfoArgs:
     @server_id.setter
     def server_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "server_id", value)
+
+
+@pulumi.input_type
+class ServicePrincipalArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]] = None):
+        """
+        The managed instance's service principal configuration for a resource.
+        :param pulumi.Input[Union[str, 'ServicePrincipalType']] type: Service principal type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]]:
+        """
+        Service principal type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ServicePrincipalType']]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

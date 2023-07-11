@@ -58,18 +58,6 @@ export const IdentityType = {
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
-export const PrincipalType = {
-    Unknown: "Unknown",
-    User: "User",
-    Group: "Group",
-    ServicePrincipal: "ServicePrincipal",
-} as const;
-
-/**
- * The principal type used to represent the type of Active Directory Administrator.
- */
-export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
-
 export const ReplicationRole = {
     None: "None",
     Primary: "Primary",

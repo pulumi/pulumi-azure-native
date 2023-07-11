@@ -111,7 +111,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
                  __props__=None):
         """
         Define the Database resource.
-        API Version: 2021-12-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class SAPDatabaseInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the Database resource.
-        API Version: 2021-12-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param SAPDatabaseInstanceArgs args: The arguments to use to populate this resource's properties.

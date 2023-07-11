@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified virtual network gateway connection by resource group.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayConnectionResult> InvokeAsync(GetVirtualNetworkGatewayConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayConnectionResult>("azure-native:network:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified virtual network gateway connection by resource group.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayConnectionResult> Invoke(GetVirtualNetworkGatewayConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayConnectionResult>("azure-native:network:getVirtualNetworkGatewayConnection", args ?? new GetVirtualNetworkGatewayConnectionInvokeArgs(), options.WithDefaults());
@@ -100,9 +100,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly double EgressBytesTransferred;
         /// <summary>
+        /// List of egress NatRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> EgressNatRules;
+        /// <summary>
         /// EnableBgp flag.
         /// </summary>
         public readonly bool? EnableBgp;
+        /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        public readonly bool? EnablePrivateLinkFastPath;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -112,6 +120,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly bool? ExpressRouteGatewayBypass;
         /// <summary>
+        /// GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GatewayCustomBgpIpAddressIpConfigurationResponse> GatewayCustomBgpIpAddresses;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -119,6 +131,10 @@ namespace Pulumi.AzureNative.Network
         /// The ingress bytes transferred in this connection.
         /// </summary>
         public readonly double IngressBytesTransferred;
+        /// <summary>
+        /// List of ingress NatRules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> IngressNatRules;
         /// <summary>
         /// The IPSec Policies to be considered by this connection.
         /// </summary>
@@ -204,15 +220,23 @@ namespace Pulumi.AzureNative.Network
 
             double egressBytesTransferred,
 
+            ImmutableArray<Outputs.SubResourceResponse> egressNatRules,
+
             bool? enableBgp,
+
+            bool? enablePrivateLinkFastPath,
 
             string etag,
 
             bool? expressRouteGatewayBypass,
 
+            ImmutableArray<Outputs.GatewayCustomBgpIpAddressIpConfigurationResponse> gatewayCustomBgpIpAddresses,
+
             string? id,
 
             double ingressBytesTransferred,
+
+            ImmutableArray<Outputs.SubResourceResponse> ingressNatRules,
 
             ImmutableArray<Outputs.IpsecPolicyResponse> ipsecPolicies,
 
@@ -255,11 +279,15 @@ namespace Pulumi.AzureNative.Network
             ConnectionType = connectionType;
             DpdTimeoutSeconds = dpdTimeoutSeconds;
             EgressBytesTransferred = egressBytesTransferred;
+            EgressNatRules = egressNatRules;
             EnableBgp = enableBgp;
+            EnablePrivateLinkFastPath = enablePrivateLinkFastPath;
             Etag = etag;
             ExpressRouteGatewayBypass = expressRouteGatewayBypass;
+            GatewayCustomBgpIpAddresses = gatewayCustomBgpIpAddresses;
             Id = id;
             IngressBytesTransferred = ingressBytesTransferred;
+            IngressNatRules = ingressNatRules;
             IpsecPolicies = ipsecPolicies;
             LocalNetworkGateway2 = localNetworkGateway2;
             Location = location;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkVirtualAppliance(args: GetNetworkVirtualApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceResult> {
 
@@ -41,6 +41,10 @@ export interface GetNetworkVirtualApplianceArgs {
  */
 export interface GetNetworkVirtualApplianceResult {
     /**
+     * Details required for Additional Network Interface.
+     */
+    readonly additionalNics?: outputs.network.VirtualApplianceAdditionalNicPropertiesResponse[];
+    /**
      * Address Prefix.
      */
     readonly addressPrefix: string;
@@ -56,6 +60,14 @@ export interface GetNetworkVirtualApplianceResult {
      * CloudInitConfigurationBlob storage URLs.
      */
     readonly cloudInitConfigurationBlobs?: string[];
+    /**
+     * The delegation for the Virtual Appliance
+     */
+    readonly delegation?: outputs.network.DelegationPropertiesResponse;
+    /**
+     * The deployment type. PartnerManaged for the SaaS NVA
+     */
+    readonly deploymentType: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -85,9 +97,17 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly nvaSku?: outputs.network.VirtualApplianceSkuPropertiesResponse;
     /**
+     * The delegation for the Virtual Appliance
+     */
+    readonly partnerManagedResource?: outputs.network.PartnerManagedResourcePropertiesResponse;
+    /**
      * The provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Public key for SSH login.
+     */
+    readonly sshPublicKey?: string;
     /**
      * Resource tags.
      */
@@ -97,9 +117,13 @@ export interface GetNetworkVirtualApplianceResult {
      */
     readonly type: string;
     /**
-     * VirtualAppliance ASN.
+     * VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
      */
     readonly virtualApplianceAsn?: number;
+    /**
+     * List of references to VirtualApplianceConnections.
+     */
+    readonly virtualApplianceConnections: outputs.network.SubResourceResponse[];
     /**
      * List of Virtual Appliance Network Interfaces.
      */
@@ -115,7 +139,7 @@ export interface GetNetworkVirtualApplianceResult {
 }
 /**
  * Gets the specified Network Virtual Appliance.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkVirtualApplianceOutput(args: GetNetworkVirtualApplianceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkVirtualApplianceResult> {
     return pulumi.output(args).apply((a: any) => getNetworkVirtualAppliance(a, opts))

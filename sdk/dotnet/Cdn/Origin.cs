@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Origin")]
     public partial class Origin : global::Pulumi.CustomResource
@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Origin"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Origin"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Origin"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Origin"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

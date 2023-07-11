@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SIM group resource.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class SimGroup extends pulumi.CustomResource {
     /**
@@ -39,18 +39,6 @@ export class SimGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that created the resource.
-     */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
      * A key to encrypt the SIM data that belongs to this SIM group.
      */
     public readonly encryptionKey!: pulumi.Output<outputs.mobilenetwork.KeyVaultKeyResponse | undefined>;
@@ -59,23 +47,11 @@ export class SimGroup extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.mobilenetwork.ManagedServiceIdentityResponse | undefined>;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
-    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Mobile network that this SIM belongs to
+     * Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
      */
     public readonly mobileNetwork!: pulumi.Output<outputs.mobilenetwork.MobileNetworkResourceIdResponse | undefined>;
     /**
@@ -113,14 +89,8 @@ export class SimGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetwork"] = args ? args.mobileNetwork : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -131,14 +101,8 @@ export class SimGroup extends pulumi.CustomResource {
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
             resourceInputs["encryptionKey"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mobileNetwork"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -148,7 +112,7 @@ export class SimGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:SimGroup" }, { type: "azure-native:mobilenetwork/v20221101:SimGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:SimGroup" }, { type: "azure-native:mobilenetwork/v20221101:SimGroup" }, { type: "azure-native:mobilenetwork/v20230601:SimGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -159,18 +123,6 @@ export class SimGroup extends pulumi.CustomResource {
  */
 export interface SimGroupArgs {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
-    /**
      * A key to encrypt the SIM data that belongs to this SIM group.
      */
     encryptionKey?: pulumi.Input<inputs.mobilenetwork.KeyVaultKeyArgs>;
@@ -179,23 +131,11 @@ export interface SimGroupArgs {
      */
     identity?: pulumi.Input<inputs.mobilenetwork.ManagedServiceIdentityArgs>;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
-    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * Mobile network that this SIM belongs to
+     * Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
      */
     mobileNetwork?: pulumi.Input<inputs.mobilenetwork.MobileNetworkResourceIdArgs>;
     /**

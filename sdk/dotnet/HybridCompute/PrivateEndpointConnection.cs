@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridCompute
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2021-03-25-preview.
+    /// Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2021-03-25-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.HybridCompute
         public Output<Outputs.PrivateEndpointConnectionPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.HybridCompute
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221110:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230315preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230425preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

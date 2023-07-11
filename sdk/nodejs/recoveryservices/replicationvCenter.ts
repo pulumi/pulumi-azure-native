@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * vCenter definition.
- * API Version: 2018-07-10.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
  */
 export class ReplicationvCenter extends pulumi.CustomResource {
     /**
@@ -79,7 +79,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["vCenterName"] = args ? args.vCenterName : undefined;
+            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -90,7 +90,7 @@ export class ReplicationvCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180710:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210210:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210301:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210401:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210601:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210701:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210801:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211001:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211201:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220201:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220301:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220401:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220501:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220801:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220910:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20221001:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20230101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20230201:ReplicationvCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/v20160810:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180110:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20180710:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210210:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210301:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210401:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210601:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210701:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20210801:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211001:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20211201:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220201:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220301:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220401:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220501:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220801:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20220910:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20221001:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20230101:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20230201:ReplicationvCenter" }, { type: "azure-native:recoveryservices/v20230401:ReplicationvCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationvCenter.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,7 +117,7 @@ export interface ReplicationvCenterArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * vCenter name.
+     * vcenter name.
      */
-    vCenterName?: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string>;
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : global::Pulumi.CustomResource
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.Compute
         /// Resource location
         /// </summary>
         [Output("location")]
-        public Output<string> Location { get; private set; } = null!;
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -57,6 +57,18 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("protectedSettings")]
         public Output<object?> ProtectedSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        [Output("protectedSettingsFromKeyVault")]
+        public Output<Outputs.KeyVaultSecretReferenceResponse?> ProtectedSettingsFromKeyVault { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        [Output("provisionAfterExtensions")]
+        public Output<ImmutableArray<string>> ProvisionAfterExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state, which only appears in the response.
@@ -75,6 +87,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("settings")]
         public Output<object?> Settings { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        [Output("suppressFailures")]
+        public Output<bool?> SuppressFailures { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -200,6 +218,24 @@ namespace Pulumi.AzureNative.Compute
         public Input<object>? ProtectedSettings { get; set; }
 
         /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        [Input("protectedSettingsFromKeyVault")]
+        public Input<Inputs.KeyVaultSecretReferenceArgs>? ProtectedSettingsFromKeyVault { get; set; }
+
+        [Input("provisionAfterExtensions")]
+        private InputList<string>? _provisionAfterExtensions;
+
+        /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public InputList<string> ProvisionAfterExtensions
+        {
+            get => _provisionAfterExtensions ?? (_provisionAfterExtensions = new InputList<string>());
+            set => _provisionAfterExtensions = value;
+        }
+
+        /// <summary>
         /// The name of the extension handler publisher.
         /// </summary>
         [Input("publisher")]
@@ -216,6 +252,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("settings")]
         public Input<object>? Settings { get; set; }
+
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        [Input("suppressFailures")]
+        public Input<bool>? SuppressFailures { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

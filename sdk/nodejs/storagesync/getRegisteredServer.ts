@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Get a given registered server.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
 
@@ -118,6 +121,10 @@ export interface GetRegisteredServerResult {
      */
     readonly serverManagementErrorCode?: number;
     /**
+     * Server name
+     */
+    readonly serverName: string;
+    /**
      * Registered Server OS Version
      */
     readonly serverOSVersion?: string;
@@ -134,13 +141,17 @@ export interface GetRegisteredServerResult {
      */
     readonly storageSyncServiceUid?: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.storagesync.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get a given registered server.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getRegisteredServerOutput(args: GetRegisteredServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegisteredServerResult> {
     return pulumi.output(args).apply((a: any) => getRegisteredServer(a, opts))

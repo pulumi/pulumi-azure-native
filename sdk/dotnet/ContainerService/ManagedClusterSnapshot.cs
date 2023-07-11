@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// A managed cluster snapshot resource.
-    /// API Version: 2022-02-02-preview.
+    /// Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-02-02-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedClusterSnapshot")]
     public partial class ManagedClusterSnapshot : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.CreationDataResponse?> CreationData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -101,6 +101,10 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221002preview:ManagedClusterSnapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20221102preview:ManagedClusterSnapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230102preview:ManagedClusterSnapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230202preview:ManagedClusterSnapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230302preview:ManagedClusterSnapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230402preview:ManagedClusterSnapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230502preview:ManagedClusterSnapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +135,7 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.CreationDataArgs>? CreationData { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -158,7 +162,7 @@ namespace Pulumi.AzureNative.ContainerService
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

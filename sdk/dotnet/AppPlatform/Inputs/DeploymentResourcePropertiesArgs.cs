@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class DeploymentResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether the Deployment is active
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
         /// Deployment settings of the Deployment
         /// </summary>
         [Input("deploymentSettings")]
@@ -25,7 +31,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         /// Uploaded source information of the deployment.
         /// </summary>
         [Input("source")]
-        public Input<Inputs.UserSourceInfoArgs>? Source { get; set; }
+        public object? Source { get; set; }
 
         public DeploymentResourcePropertiesArgs()
         {

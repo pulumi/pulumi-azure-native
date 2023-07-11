@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets properties of a specified share.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
 
@@ -25,7 +28,7 @@ export interface GetFileShareArgs {
      */
     accountName: string;
     /**
-     * Optional, used to expand the properties within share's properties.
+     * Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
      */
     expand?: string;
     /**
@@ -79,6 +82,18 @@ export interface GetFileShareResult {
      */
     readonly lastModifiedTime: string;
     /**
+     * Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+     */
+    readonly leaseDuration: string;
+    /**
+     * Lease state of the share.
+     */
+    readonly leaseState: string;
+    /**
+     * The lease status of the share.
+     */
+    readonly leaseStatus: string;
+    /**
      * A name-value pair to associate with the share as metadata.
      */
     readonly metadata?: {[key: string]: string};
@@ -103,6 +118,10 @@ export interface GetFileShareResult {
      */
     readonly shareUsageBytes: number;
     /**
+     * List of stored access policies specified on the share.
+     */
+    readonly signedIdentifiers?: outputs.storage.SignedIdentifierResponse[];
+    /**
      * Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
      */
     readonly snapshotTime: string;
@@ -117,7 +136,7 @@ export interface GetFileShareResult {
 }
 /**
  * Gets properties of a specified share.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getFileShareOutput(args: GetFileShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileShareResult> {
     return pulumi.output(args).apply((a: any) => getFileShare(a, opts))
@@ -129,7 +148,7 @@ export interface GetFileShareOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * Optional, used to expand the properties within share's properties.
+     * Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
      */
     expand?: pulumi.Input<string>;
     /**

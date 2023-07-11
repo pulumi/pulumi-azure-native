@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of a namespace resource.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -54,7 +54,18 @@ export class Namespace extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * List of private endpoint connections.
+     */
+    public readonly privateEndpointConnections!: pulumi.Output<outputs.relay.PrivateEndpointConnectionResponse[] | undefined>;
+    /**
+     * Provisioning state of the Namespace.
+     */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
@@ -63,6 +74,14 @@ export class Namespace extends pulumi.CustomResource {
      * SKU of the namespace.
      */
     public readonly sku!: pulumi.Output<outputs.relay.SkuResponse | undefined>;
+    /**
+     * Status of the Namespace.
+     */
+    public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.relay.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -92,6 +111,8 @@ export class Namespace extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -100,6 +121,8 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
@@ -107,9 +130,13 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -133,6 +160,14 @@ export interface NamespaceArgs {
      * The namespace name
      */
     namespaceName?: pulumi.Input<string>;
+    /**
+     * List of private endpoint connections.
+     */
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.relay.PrivateEndpointConnectionArgs>[]>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.relay.PublicNetworkAccess>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

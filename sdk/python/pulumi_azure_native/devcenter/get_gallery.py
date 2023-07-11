@@ -111,12 +111,12 @@ def get_gallery(dev_center_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Gets a gallery
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
     :param str gallery_name: The name of the gallery.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['devCenterName'] = dev_center_name
@@ -141,11 +141,11 @@ def get_gallery_output(dev_center_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Gets a gallery
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
     :param str gallery_name: The name of the gallery.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a catalog.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The synchronization state of the catalog.
+        /// </summary>
+        [Output("syncState")]
+        public Output<string> SyncState { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -87,6 +93,8 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Catalog"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Catalog"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Catalog"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Catalog"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Catalog"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +143,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<Inputs.GitCatalogArgs>? GitHub { get; set; }
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

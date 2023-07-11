@@ -22,10 +22,13 @@ class GetMachineExtensionResult:
     """
     Describes a Machine Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, tags=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, tags=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade and not isinstance(enable_automatic_upgrade, bool):
+            raise TypeError("Expected argument 'enable_automatic_upgrade' to be a bool")
+        pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
@@ -53,6 +56,9 @@ class GetMachineExtensionResult:
         if settings and not isinstance(settings, dict):
             raise TypeError("Expected argument 'settings' to be a dict")
         pulumi.set(__self__, "settings", settings)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -72,6 +78,14 @@ class GetMachineExtensionResult:
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @property
     @pulumi.getter(name="forceUpdateTag")
     def force_update_tag(self) -> Optional[str]:
         """
@@ -89,7 +103,7 @@ class GetMachineExtensionResult:
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> Optional['outputs.MachineExtensionPropertiesResponseInstanceView']:
+    def instance_view(self) -> Optional['outputs.MachineExtensionInstanceViewResponse']:
         """
         The machine extension instance view.
         """
@@ -144,6 +158,14 @@ class GetMachineExtensionResult:
         return pulumi.get(self, "settings")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -175,6 +197,7 @@ class AwaitableGetMachineExtensionResult(GetMachineExtensionResult):
             yield self
         return GetMachineExtensionResult(
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
+            enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             id=self.id,
             instance_view=self.instance_view,
@@ -184,33 +207,35 @@ class AwaitableGetMachineExtensionResult(GetMachineExtensionResult):
             provisioning_state=self.provisioning_state,
             publisher=self.publisher,
             settings=self.settings,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             type_handler_version=self.type_handler_version)
 
 
 def get_machine_extension(extension_name: Optional[str] = None,
-                          name: Optional[str] = None,
+                          machine_name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineExtensionResult:
     """
     The operation to get the extension.
-    API Version: 2020-08-02.
+    Azure REST API version: 2022-12-27.
 
 
     :param str extension_name: The name of the machine extension.
-    :param str name: The name of the machine containing the extension.
-    :param str resource_group_name: The name of the resource group.
+    :param str machine_name: The name of the machine containing the extension.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['extensionName'] = extension_name
-    __args__['name'] = name
+    __args__['machineName'] = machine_name
     __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcompute:getMachineExtension', __args__, opts=opts, typ=GetMachineExtensionResult).value
 
     return AwaitableGetMachineExtensionResult(
         auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
+        enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
         force_update_tag=__ret__.force_update_tag,
         id=__ret__.id,
         instance_view=__ret__.instance_view,
@@ -220,6 +245,7 @@ def get_machine_extension(extension_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         publisher=__ret__.publisher,
         settings=__ret__.settings,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
@@ -227,16 +253,16 @@ def get_machine_extension(extension_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_machine_extension)
 def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = None,
-                                 name: Optional[pulumi.Input[str]] = None,
+                                 machine_name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
     The operation to get the extension.
-    API Version: 2020-08-02.
+    Azure REST API version: 2022-12-27.
 
 
     :param str extension_name: The name of the machine extension.
-    :param str name: The name of the machine containing the extension.
-    :param str resource_group_name: The name of the resource group.
+    :param str machine_name: The name of the machine containing the extension.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

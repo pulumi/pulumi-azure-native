@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists impacted resources in the tenant by an event (Security Advisory).
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdArgs, opts?: pulumi.InvokeOptions): Promise<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
 
@@ -46,7 +46,7 @@ export interface ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult 
 }
 /**
  * Lists impacted resources in the tenant by an event (Security Advisory).
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2022-10-01.
  */
 export function listSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutput(args: ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult> {
     return pulumi.output(args).apply((a: any) => listSecurityAdvisoryImpactedResourceByTenantIdAndEventId(a, opts))

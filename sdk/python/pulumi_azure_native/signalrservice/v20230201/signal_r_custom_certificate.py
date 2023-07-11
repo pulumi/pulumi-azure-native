@@ -112,12 +112,7 @@ class SignalRCustomCertificateArgs:
         pulumi.set(self, "key_vault_secret_version", value)
 
 
-warnings.warn("""azure-native:signalrservice/v20230201:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomCertificate to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class SignalRCustomCertificate(pulumi.CustomResource):
-    warnings.warn("""azure-native:signalrservice/v20230201:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomCertificate to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,7 +167,6 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SignalRCustomCertificate is deprecated: azure-native:signalrservice/v20230201:SignalRCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomCertificate to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -199,7 +193,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRCustomCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRCustomCertificate, __self__).__init__(
             'azure-native:signalrservice/v20230201:SignalRCustomCertificate',

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
 {
     /// <summary>
     /// Dedicated cloud node model
-    /// API Version: 2019-04-01.
+    /// Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:DedicatedCloudNode")]
     public partial class DedicatedCloudNode : global::Pulumi.CustomResource

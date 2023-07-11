@@ -100,7 +100,7 @@ def get_metrics_source_tag_rule(metrics_source_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetricsSourceTagRuleResult:
     """
     Capture metrics of Azure resources based on ARM tags.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str metrics_source_name: Metrics Account resource name
@@ -131,7 +131,7 @@ def get_metrics_source_tag_rule_output(metrics_source_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricsSourceTagRuleResult]:
     """
     Capture metrics of Azure resources based on ARM tags.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str metrics_source_name: Metrics Account resource name

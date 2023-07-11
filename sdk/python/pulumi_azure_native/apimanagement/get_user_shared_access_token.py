@@ -53,12 +53,12 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserSharedAccessTokenResult:
     """
     Gets the Shared Access Authorization Token for the User.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
     :param 'KeyType' key_type: The Key to be used to generate token for user.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str user_id: User identifier. Must be unique in the current API Management service instance.
     """
@@ -84,12 +84,12 @@ def get_user_shared_access_token_output(expiry: Optional[pulumi.Input[str]] = No
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserSharedAccessTokenResult]:
     """
     Gets the Shared Access Authorization Token for the User.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str expiry: The Expiry time of the Token. Maximum token expiry time is set to 30 days. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
     :param 'KeyType' key_type: The Key to be used to generate token for user.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str user_id: User identifier. Must be unique in the current API Management service instance.
     """

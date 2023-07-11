@@ -242,7 +242,7 @@ def get_assignment(assignment_id: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssignmentResult:
     """
     Get a specific standard assignment for the requested scope by resourceId
-    API Version: 2021-08-01-preview.
+    Azure REST API version: 2021-08-01-preview.
 
 
     :param str assignment_id: The security assignment key - unique key for the standard assignment
@@ -280,7 +280,7 @@ def get_assignment_output(assignment_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssignmentResult]:
     """
     Get a specific standard assignment for the requested scope by resourceId
-    API Version: 2021-08-01-preview.
+    Azure REST API version: 2021-08-01-preview.
 
 
     :param str assignment_id: The security assignment key - unique key for the standard assignment

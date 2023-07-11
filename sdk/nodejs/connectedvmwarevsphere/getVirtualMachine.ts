@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements virtual machine GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -121,6 +121,10 @@ export interface GetVirtualMachineResult {
      */
     readonly resourcePoolId?: string;
     /**
+     * Gets the security profile.
+     */
+    readonly securityProfile?: outputs.connectedvmwarevsphere.SecurityProfileResponse;
+    /**
      * Gets or sets the SMBIOS UUID of the vm.
      */
     readonly smbiosUuid?: string;
@@ -163,7 +167,7 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Implements virtual machine GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

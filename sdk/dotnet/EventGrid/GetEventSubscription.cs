@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of an event subscription.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Task<GetEventSubscriptionResult> InvokeAsync(GetEventSubscriptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of an event subscription.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("azure-native:eventgrid:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
@@ -72,11 +72,23 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class GetEventSubscriptionResult
     {
         /// <summary>
-        /// The DeadLetter destination of the event subscription.
+        /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
         public readonly Outputs.StorageBlobDeadLetterDestinationResponse? DeadLetterDestination;
         /// <summary>
+        /// The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        public readonly Outputs.DeadLetterWithResourceIdentityResponse? DeadLetterWithResourceIdentity;
+        /// <summary>
         /// Information about the destination where events have to be delivered for the event subscription.
+        /// Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+        /// </summary>
+        public readonly Outputs.DeliveryWithResourceIdentityResponse? DeliveryWithResourceIdentity;
+        /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
         /// </summary>
         public readonly object? Destination;
         /// <summary>
@@ -128,6 +140,10 @@ namespace Pulumi.AzureNative.EventGrid
         private GetEventSubscriptionResult(
             Outputs.StorageBlobDeadLetterDestinationResponse? deadLetterDestination,
 
+            Outputs.DeadLetterWithResourceIdentityResponse? deadLetterWithResourceIdentity,
+
+            Outputs.DeliveryWithResourceIdentityResponse? deliveryWithResourceIdentity,
+
             object? destination,
 
             string? eventDeliverySchema,
@@ -153,6 +169,8 @@ namespace Pulumi.AzureNative.EventGrid
             string type)
         {
             DeadLetterDestination = deadLetterDestination;
+            DeadLetterWithResourceIdentity = deadLetterWithResourceIdentity;
+            DeliveryWithResourceIdentity = deliveryWithResourceIdentity;
             Destination = destination;
             EventDeliverySchema = eventDeliverySchema;
             ExpirationTimeUtc = expirationTimeUtc;

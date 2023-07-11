@@ -43,32 +43,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicebus.v20140901 as __v20140901
-    v20140901 = __v20140901
-    import pulumi_azure_native.servicebus.v20150801 as __v20150801
-    v20150801 = __v20150801
-    import pulumi_azure_native.servicebus.v20170401 as __v20170401
-    v20170401 = __v20170401
     import pulumi_azure_native.servicebus.v20180101preview as __v20180101preview
     v20180101preview = __v20180101preview
-    import pulumi_azure_native.servicebus.v20210101preview as __v20210101preview
-    v20210101preview = __v20210101preview
-    import pulumi_azure_native.servicebus.v20210601preview as __v20210601preview
-    v20210601preview = __v20210601preview
-    import pulumi_azure_native.servicebus.v20211101 as __v20211101
-    v20211101 = __v20211101
     import pulumi_azure_native.servicebus.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
     import pulumi_azure_native.servicebus.v20221001preview as __v20221001preview
     v20221001preview = __v20221001preview
 else:
-    v20140901 = _utilities.lazy_import('pulumi_azure_native.servicebus.v20140901')
-    v20150801 = _utilities.lazy_import('pulumi_azure_native.servicebus.v20150801')
-    v20170401 = _utilities.lazy_import('pulumi_azure_native.servicebus.v20170401')
     v20180101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20180101preview')
-    v20210101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20210101preview')
-    v20210601preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20210601preview')
-    v20211101 = _utilities.lazy_import('pulumi_azure_native.servicebus.v20211101')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20220101preview')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20221001preview')
 

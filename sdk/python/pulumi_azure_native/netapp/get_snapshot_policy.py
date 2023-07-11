@@ -22,13 +22,16 @@ class GetSnapshotPolicyResult:
     """
     Snapshot policy information
     """
-    def __init__(__self__, daily_schedule=None, enabled=None, hourly_schedule=None, id=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, tags=None, type=None, weekly_schedule=None):
+    def __init__(__self__, daily_schedule=None, enabled=None, etag=None, hourly_schedule=None, id=None, location=None, monthly_schedule=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, weekly_schedule=None):
         if daily_schedule and not isinstance(daily_schedule, dict):
             raise TypeError("Expected argument 'daily_schedule' to be a dict")
         pulumi.set(__self__, "daily_schedule", daily_schedule)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if hourly_schedule and not isinstance(hourly_schedule, dict):
             raise TypeError("Expected argument 'hourly_schedule' to be a dict")
         pulumi.set(__self__, "hourly_schedule", hourly_schedule)
@@ -47,6 +50,9 @@ class GetSnapshotPolicyResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -74,6 +80,14 @@ class GetSnapshotPolicyResult:
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
     @pulumi.getter(name="hourlySchedule")
     def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
         """
@@ -85,7 +99,7 @@ class GetSnapshotPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -93,7 +107,7 @@ class GetSnapshotPolicyResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -109,7 +123,7 @@ class GetSnapshotPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -122,10 +136,18 @@ class GetSnapshotPolicyResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -133,7 +155,7 @@ class GetSnapshotPolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -154,12 +176,14 @@ class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
         return GetSnapshotPolicyResult(
             daily_schedule=self.daily_schedule,
             enabled=self.enabled,
+            etag=self.etag,
             hourly_schedule=self.hourly_schedule,
             id=self.id,
             location=self.location,
             monthly_schedule=self.monthly_schedule,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             weekly_schedule=self.weekly_schedule)
@@ -171,11 +195,11 @@ def get_snapshot_policy(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotPolicyResult:
     """
     Get a snapshot Policy
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str snapshot_policy_name: The name of the snapshot policy
     """
     __args__ = dict()
@@ -188,12 +212,14 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     return AwaitableGetSnapshotPolicyResult(
         daily_schedule=__ret__.daily_schedule,
         enabled=__ret__.enabled,
+        etag=__ret__.etag,
         hourly_schedule=__ret__.hourly_schedule,
         id=__ret__.id,
         location=__ret__.location,
         monthly_schedule=__ret__.monthly_schedule,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         weekly_schedule=__ret__.weekly_schedule)
@@ -206,11 +232,11 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotPolicyResult]:
     """
     Get a snapshot Policy
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str snapshot_policy_name: The name of the snapshot policy
     """
     ...

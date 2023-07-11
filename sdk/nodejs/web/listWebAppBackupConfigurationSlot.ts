@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the backup configuration of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the backup configuration of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppBackupConfigurationSlot(args: ListWebAppBackupConfigurationSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppBackupConfigurationSlotResult> {
 
@@ -78,8 +78,8 @@ export interface ListWebAppBackupConfigurationSlotResult {
     readonly type: string;
 }
 /**
- * Gets the backup configuration of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the backup configuration of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppBackupConfigurationSlotOutput(args: ListWebAppBackupConfigurationSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppBackupConfigurationSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppBackupConfigurationSlot(a, opts))

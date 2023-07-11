@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets a database's transparent data encryption configuration.
- * API Version: 2014-04-01.
+ * Gets a logical database's transparent data encryption.
+ * Azure REST API version: 2021-11-01.
  */
 export function getTransparentDataEncryption(args: GetTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetTransparentDataEncryptionResult> {
 
@@ -15,13 +15,13 @@ export function getTransparentDataEncryption(args: GetTransparentDataEncryptionA
         "databaseName": args.databaseName,
         "resourceGroupName": args.resourceGroupName,
         "serverName": args.serverName,
-        "transparentDataEncryptionName": args.transparentDataEncryptionName,
+        "tdeName": args.tdeName,
     }, opts);
 }
 
 export interface GetTransparentDataEncryptionArgs {
     /**
-     * The name of the database for which the transparent data encryption applies.
+     * The name of the logical database for which the transparent data encryption is defined.
      */
     databaseName: string;
     /**
@@ -35,11 +35,11 @@ export interface GetTransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    transparentDataEncryptionName: string;
+    tdeName: string;
 }
 
 /**
- * Represents a database transparent data encryption configuration.
+ * A logical database transparent data encryption state.
  */
 export interface GetTransparentDataEncryptionResult {
     /**
@@ -47,25 +47,21 @@ export interface GetTransparentDataEncryptionResult {
      */
     readonly id: string;
     /**
-     * Resource location.
-     */
-    readonly location: string;
-    /**
      * Resource name.
      */
     readonly name: string;
     /**
-     * The status of the database transparent data encryption.
+     * Specifies the state of the transparent data encryption.
      */
-    readonly status?: string;
+    readonly state: string;
     /**
      * Resource type.
      */
     readonly type: string;
 }
 /**
- * Gets a database's transparent data encryption configuration.
- * API Version: 2014-04-01.
+ * Gets a logical database's transparent data encryption.
+ * Azure REST API version: 2021-11-01.
  */
 export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransparentDataEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getTransparentDataEncryption(a, opts))
@@ -73,7 +69,7 @@ export function getTransparentDataEncryptionOutput(args: GetTransparentDataEncry
 
 export interface GetTransparentDataEncryptionOutputArgs {
     /**
-     * The name of the database for which the transparent data encryption applies.
+     * The name of the logical database for which the transparent data encryption is defined.
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -87,5 +83,5 @@ export interface GetTransparentDataEncryptionOutputArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    transparentDataEncryptionName: pulumi.Input<string>;
+    tdeName: pulumi.Input<string>;
 }

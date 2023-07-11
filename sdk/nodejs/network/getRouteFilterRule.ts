@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified rule from a route filter.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
 
@@ -72,7 +72,7 @@ export interface GetRouteFilterRuleResult {
 }
 /**
  * Gets the specified rule from a route filter.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getRouteFilterRuleOutput(args: GetRouteFilterRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteFilterRuleResult> {
     return pulumi.output(args).apply((a: any) => getRouteFilterRule(a, opts))

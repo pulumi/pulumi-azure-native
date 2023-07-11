@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of NetworkRuleSet resource.
- * API Version: 2017-04-01.
+ * Description of topic resource.
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
@@ -47,11 +47,27 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
      */
     public readonly ipRules!: pulumi.Output<outputs.eventhub.NWRuleSetIpRulesResponse[] | undefined>;
     /**
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    public readonly trustedServiceAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -79,14 +95,22 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
             resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
             resourceInputs["ipRules"] = args ? args.ipRules : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["trustedServiceAccessEnabled"] = args ? args.trustedServiceAccessEnabled : undefined;
             resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["defaultAction"] = undefined /*out*/;
             resourceInputs["ipRules"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["trustedServiceAccessEnabled"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualNetworkRules"] = undefined /*out*/;
         }
@@ -114,9 +138,17 @@ export interface NamespaceNetworkRuleSetArgs {
      */
     namespaceName: pulumi.Input<string>;
     /**
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.eventhub.PublicNetworkAccessFlag>;
+    /**
      * Name of the resource group within the azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    trustedServiceAccessEnabled?: pulumi.Input<boolean>;
     /**
      * List VirtualNetwork Rules
      */

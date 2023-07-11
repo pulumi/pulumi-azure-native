@@ -23,16 +23,18 @@ class ConnectedRegistryArgs:
                  resource_group_name: pulumi.Input[str],
                  client_token_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
-                 logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None):
+                 logging: Optional[pulumi.Input['LoggingPropertiesArgs']] = None,
+                 notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConnectedRegistry resource.
         :param pulumi.Input[Union[str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
         :param pulumi.Input['ParentPropertiesArgs'] parent: The parent of the connected registry.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
         :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
         :param pulumi.Input['LoggingPropertiesArgs'] logging: The logging properties of the connected registry.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
         """
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "parent", parent)
@@ -44,6 +46,8 @@ class ConnectedRegistryArgs:
             pulumi.set(__self__, "connected_registry_name", connected_registry_name)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
+        if notifications_list is not None:
+            pulumi.set(__self__, "notifications_list", notifications_list)
 
     @property
     @pulumi.getter
@@ -85,7 +89,7 @@ class ConnectedRegistryArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -129,6 +133,18 @@ class ConnectedRegistryArgs:
     def logging(self, value: Optional[pulumi.Input['LoggingPropertiesArgs']]):
         pulumi.set(self, "logging", value)
 
+    @property
+    @pulumi.getter(name="notificationsList")
+    def notifications_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of notifications subscription information for the connected registry.
+        """
+        return pulumi.get(self, "notifications_list")
+
+    @notifications_list.setter
+    def notifications_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "notifications_list", value)
+
 
 class ConnectedRegistry(pulumi.CustomResource):
     @overload
@@ -139,13 +155,14 @@ class ConnectedRegistry(pulumi.CustomResource):
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
+                 notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parent: Optional[pulumi.Input[pulumi.InputType['ParentPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An object that represents a connected registry for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -153,9 +170,10 @@ class ConnectedRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] connected_registry_name: The name of the connected registry.
         :param pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']] logging: The logging properties of the connected registry.
         :param pulumi.Input[Union[str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] notifications_list: The list of notifications subscription information for the connected registry.
         :param pulumi.Input[pulumi.InputType['ParentPropertiesArgs']] parent: The parent of the connected registry.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -165,7 +183,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a connected registry for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ConnectedRegistryArgs args: The arguments to use to populate this resource's properties.
@@ -186,6 +204,7 @@ class ConnectedRegistry(pulumi.CustomResource):
                  connected_registry_name: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['LoggingPropertiesArgs']]] = None,
                  mode: Optional[pulumi.Input[Union[str, 'ConnectedRegistryMode']]] = None,
+                 notifications_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parent: Optional[pulumi.Input[pulumi.InputType['ParentPropertiesArgs']]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -204,6 +223,7 @@ class ConnectedRegistry(pulumi.CustomResource):
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
             __props__.__dict__["mode"] = mode
+            __props__.__dict__["notifications_list"] = notifications_list
             if parent is None and not opts.urn:
                 raise TypeError("Missing required property 'parent'")
             __props__.__dict__["parent"] = parent
@@ -255,6 +275,7 @@ class ConnectedRegistry(pulumi.CustomResource):
         __props__.__dict__["login_server"] = None
         __props__.__dict__["mode"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["notifications_list"] = None
         __props__.__dict__["parent"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["status_details"] = None
@@ -326,6 +347,14 @@ class ConnectedRegistry(pulumi.CustomResource):
         The name of the resource.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="notificationsList")
+    def notifications_list(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The list of notifications subscription information for the connected registry.
+        """
+        return pulumi.get(self, "notifications_list")
 
     @property
     @pulumi.getter

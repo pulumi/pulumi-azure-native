@@ -1,1 +1,676 @@
-{}
+{
+  "ADHybridHealthService": [],
+  "AVS": [],
+  "Aad": [
+    "2017-01-01",
+    "2017-06-01",
+    "2020-01-01"
+  ],
+  "AadIam": [],
+  "Addons": [
+    "2017-05-15"
+  ],
+  "Advisor": [
+    "2016-07-12-preview",
+    "2017-03-31",
+    "2017-04-19"
+  ],
+  "AgFoodPlatform": [],
+  "AlertsManagement": [
+    "2018-11-02-privatepreview",
+    "2019-03-01"
+  ],
+  "AnalysisServices": [
+    "2016-05-16",
+    "2017-07-14"
+  ],
+  "ApiManagement": [
+    "2016-07-07"
+  ],
+  "App": [],
+  "AppComplianceAutomation": [],
+  "AppConfiguration": [
+    "2019-02-01-preview",
+    "2019-10-01",
+    "2019-11-01-preview"
+  ],
+  "AppPlatform": [],
+  "Attestation": [
+    "2018-09-01-preview"
+  ],
+  "Authorization": [
+    "2015-01-01",
+    "2015-07-01",
+    "2015-10-01-preview",
+    "2016-04-01",
+    "2016-09-01",
+    "2016-12-01"
+  ],
+  "Automanage": [],
+  "Automation": [],
+  "AutonomousDevelopmentPlatform": [
+    "2020-07-01-preview"
+  ],
+  "AzureActiveDirectory": [],
+  "AzureArcData": [],
+  "AzureData": [
+    "2017-03-01-preview"
+  ],
+  "AzureSphere": [],
+  "AzureStack": [
+    "2016-01-01"
+  ],
+  "AzureStackHCI": [
+    "2020-03-01-preview"
+  ],
+  "BareMetalInfrastructure": [],
+  "Batch": [
+    "2015-12-01",
+    "2017-01-01",
+    "2017-05-01",
+    "2017-09-01",
+    "2018-12-01",
+    "2019-04-01",
+    "2019-08-01",
+    "2020-03-01",
+    "2020-05-01",
+    "2020-09-01"
+  ],
+  "Billing": [],
+  "BillingBenefits": [],
+  "Blockchain": [],
+  "Blueprint": [
+    "2017-11-11-preview"
+  ],
+  "BotService": [
+    "2017-12-01"
+  ],
+  "Cache": [
+    "2015-08-01",
+    "2016-04-01",
+    "2017-02-01",
+    "2017-10-01",
+    "2018-03-01",
+    "2019-07-01"
+  ],
+  "Capacity": [],
+  "Cdn": [
+    "2015-06-01",
+    "2016-04-02",
+    "2016-10-02",
+    "2017-04-02",
+    "2017-10-12",
+    "2019-04-15",
+    "2019-06-15",
+    "2019-06-15-preview",
+    "2019-12-31",
+    "2020-03-31",
+    "2020-04-15"
+  ],
+  "CertificateRegistration": [
+    "2015-08-01",
+    "2018-02-01",
+    "2019-08-01",
+    "2020-06-01",
+    "2020-09-01"
+  ],
+  "ChangeAnalysis": [],
+  "Chaos": [],
+  "CognitiveServices": [
+    "2016-02-01-preview"
+  ],
+  "Commerce": [],
+  "Communication": [],
+  "Compute": [
+    "2015-06-15",
+    "2016-03-30",
+    "2016-04-30-preview",
+    "2017-03-30",
+    "2017-12-01",
+    "2018-04-01",
+    "2018-06-01",
+    "2018-09-30",
+    "2018-10-01",
+    "2019-03-01",
+    "2019-07-01",
+    "2019-11-01",
+    "2019-12-01",
+    "2020-05-01",
+    "2020-06-01",
+    "2020-06-30"
+  ],
+  "ConfidentialLedger": [],
+  "Confluent": [],
+  "ConnectedVMwarevSphere": [],
+  "Consumption": [
+    "2017-12-30-preview",
+    "2018-01-31",
+    "2018-03-31",
+    "2018-06-30",
+    "2018-08-31",
+    "2018-10-01",
+    "2019-01-01",
+    "2019-04-01-preview",
+    "2019-05-01",
+    "2019-05-01-preview",
+    "2019-06-01"
+  ],
+  "ContainerInstance": [
+    "2017-08-01-preview",
+    "2017-10-01-preview",
+    "2017-12-01-preview",
+    "2018-02-01-preview",
+    "2018-04-01",
+    "2018-06-01",
+    "2018-09-01",
+    "2018-10-01",
+    "2019-12-01",
+    "2020-11-01"
+  ],
+  "ContainerRegistry": [],
+  "ContainerService": [
+    "2015-11-01-preview",
+    "2016-03-30",
+    "2016-09-30",
+    "2017-01-31",
+    "2017-08-31",
+    "2018-03-31",
+    "2018-08-01-preview",
+    "2018-09-30-preview",
+    "2019-02-01",
+    "2019-04-01"
+  ],
+  "ContainerStorage": [],
+  "CostManagement": [
+    "2018-05-31"
+  ],
+  "CustomProviders": [],
+  "CustomerInsights": [
+    "2017-01-01"
+  ],
+  "CustomerLockbox": [],
+  "DBforMariaDB": [],
+  "DBforMySQL": [],
+  "DBforPostgreSQL": [],
+  "Dashboard": [],
+  "DataBox": [
+    "2018-01-01",
+    "2019-09-01",
+    "2020-04-01"
+  ],
+  "DataBoxEdge": [
+    "2019-03-01",
+    "2019-07-01",
+    "2019-08-01",
+    "2020-05-01-preview",
+    "2020-09-01",
+    "2020-09-01-preview"
+  ],
+  "DataCatalog": [],
+  "DataFactory": [
+    "2017-09-01-preview"
+  ],
+  "DataLakeAnalytics": [
+    "2015-10-01-preview"
+  ],
+  "DataLakeStore": [],
+  "DataMigration": [
+    "2017-11-15-preview",
+    "2018-03-15-preview",
+    "2018-03-31-preview"
+  ],
+  "DataProtection": [],
+  "DataShare": [
+    "2018-11-01-preview",
+    "2019-11-01"
+  ],
+  "Databricks": [],
+  "Datadog": [
+    "2020-02-01-preview"
+  ],
+  "DelegatedNetwork": [
+    "2020-08-08-preview"
+  ],
+  "DeploymentManager": [
+    "2018-09-01-preview"
+  ],
+  "DesktopVirtualization": [
+    "2019-01-23-preview",
+    "2019-09-24-preview",
+    "2019-12-10-preview",
+    "2020-09-21-preview",
+    "2020-10-19-preview",
+    "2020-11-02-preview",
+    "2020-11-10-preview"
+  ],
+  "DevCenter": [],
+  "DevHub": [],
+  "DevOps": [],
+  "DevSpaces": [],
+  "DevTestLab": [
+    "2015-05-21-preview",
+    "2016-05-15"
+  ],
+  "DeviceUpdate": [],
+  "Devices": [
+    "2016-02-03",
+    "2017-01-19",
+    "2017-07-01",
+    "2017-08-21-preview",
+    "2017-11-15",
+    "2018-01-22",
+    "2018-04-01",
+    "2018-12-01-preview",
+    "2019-03-22",
+    "2019-03-22-preview",
+    "2019-07-01-preview",
+    "2019-11-04",
+    "2020-01-01"
+  ],
+  "DigitalTwins": [
+    "2020-03-01-preview",
+    "2020-10-31"
+  ],
+  "DocumentDB": [
+    "2015-04-01",
+    "2015-04-08",
+    "2015-11-06",
+    "2016-03-19",
+    "2016-03-31",
+    "2019-08-01",
+    "2019-08-01-preview",
+    "2019-12-12",
+    "2020-03-01",
+    "2020-04-01",
+    "2020-06-01-preview",
+    "2020-09-01"
+  ],
+  "DomainRegistration": [
+    "2015-04-01",
+    "2018-02-01",
+    "2019-08-01",
+    "2020-06-01",
+    "2020-09-01"
+  ],
+  "Dynamics365Fraudprotection": [],
+  "DynamicsTelemetry": [],
+  "Easm": [],
+  "EdgeOrder": [
+    "2020-12-01-preview"
+  ],
+  "EdgeOrderPartner": [],
+  "Education": [],
+  "Elastic": [],
+  "ElasticSan": [],
+  "EngagementFabric": [],
+  "EnterpriseKnowledgeGraph": [],
+  "EventGrid": [
+    "2017-06-15-preview",
+    "2017-09-15-preview",
+    "2018-01-01",
+    "2018-05-01-preview",
+    "2018-09-15-preview",
+    "2019-01-01",
+    "2019-02-01-preview",
+    "2019-06-01",
+    "2020-01-01-preview"
+  ],
+  "EventHub": [
+    "2014-09-01",
+    "2015-08-01"
+  ],
+  "ExtendedLocation": [],
+  "Features": [],
+  "FluidRelay": [],
+  "GraphServices": [],
+  "GuestConfiguration": [
+    "2018-06-30-preview",
+    "2018-11-20"
+  ],
+  "HDInsight": [
+    "2015-03-01-preview"
+  ],
+  "HanaOnAzure": [],
+  "HardwareSecurityModules": [],
+  "HealthBot": [
+    "2020-10-20",
+    "2020-10-20-preview"
+  ],
+  "HealthcareApis": [
+    "2018-08-20-preview",
+    "2019-09-16",
+    "2020-03-15",
+    "2020-03-30"
+  ],
+  "Help": [],
+  "HybridCloud": [],
+  "HybridCompute": [
+    "2019-03-18-preview",
+    "2019-08-02-preview",
+    "2019-12-12",
+    "2020-07-30-preview"
+  ],
+  "HybridConnectivity": [],
+  "HybridContainerService": [],
+  "HybridData": [
+    "2016-06-01"
+  ],
+  "HybridNetwork": [],
+  "ImportExport": [
+    "2016-11-01"
+  ],
+  "Insights": [
+    "2014-04-01"
+  ],
+  "Intune": [],
+  "IoTCentral": [
+    "2018-09-01"
+  ],
+  "IoTSecurity": [],
+  "KeyVault": [
+    "2015-06-01",
+    "2016-10-01",
+    "2018-02-14",
+    "2018-02-14-preview"
+  ],
+  "Kubernetes": [
+    "2020-01-01-preview"
+  ],
+  "KubernetesConfiguration": [
+    "2019-11-01-preview"
+  ],
+  "Kusto": [
+    "2017-09-07-privatepreview"
+  ],
+  "LabServices": [],
+  "LoadTestService": [],
+  "Logic": [],
+  "Logz": [],
+  "M365SecurityAndCompliance": [],
+  "MachineLearning": [],
+  "MachineLearningCompute": [
+    "2017-06-01-preview"
+  ],
+  "MachineLearningExperimentation": [],
+  "MachineLearningServices": [
+    "2018-03-01-preview",
+    "2018-11-19",
+    "2019-05-01",
+    "2019-06-01",
+    "2019-11-01",
+    "2020-01-01",
+    "2020-02-18-preview"
+  ],
+  "Maintenance": [
+    "2018-06-01-preview"
+  ],
+  "ManagedIdentity": [
+    "2015-08-31-preview"
+  ],
+  "ManagedNetwork": [],
+  "ManagedNetworkFabric": [],
+  "ManagedServices": [
+    "2018-06-01-preview",
+    "2019-04-01-preview",
+    "2019-06-01"
+  ],
+  "Management": [
+    "2017-11-01-preview",
+    "2018-01-01-preview",
+    "2018-03-01-preview",
+    "2019-11-01",
+    "2020-02-01"
+  ],
+  "ManagementPartner": [],
+  "Maps": [
+    "2017-01-01-preview"
+  ],
+  "Marketplace": [],
+  "MarketplaceNotifications": [],
+  "MarketplaceOrdering": [],
+  "Media": [],
+  "Migrate": [
+    "2017-11-11-preview"
+  ],
+  "MixedReality": [
+    "2019-02-28-preview",
+    "2019-12-02-preview",
+    "2020-04-06-preview",
+    "2020-05-01"
+  ],
+  "MobileNetwork": [],
+  "Monitor": [],
+  "NetApp": [
+    "2017-08-15",
+    "2019-05-01",
+    "2019-06-01",
+    "2019-07-01",
+    "2019-08-01",
+    "2019-10-01",
+    "2019-11-01",
+    "2020-02-01",
+    "2020-03-01",
+    "2020-05-01",
+    "2020-06-01",
+    "2020-07-01",
+    "2020-08-01",
+    "2020-09-01",
+    "2020-11-01"
+  ],
+  "Network": [
+    "2015-05-01-preview",
+    "2015-05-04-preview",
+    "2015-06-15",
+    "2015-11-01",
+    "2016-03-30",
+    "2016-04-01",
+    "2016-06-01",
+    "2016-09-01",
+    "2016-12-01",
+    "2017-03-01",
+    "2017-05-01",
+    "2017-06-01",
+    "2017-08-01",
+    "2017-09-01",
+    "2017-09-01-preview",
+    "2017-10-01",
+    "2017-11-01",
+    "2018-01-01",
+    "2018-02-01",
+    "2018-03-01",
+    "2018-03-01-preview",
+    "2018-04-01"
+  ],
+  "NetworkCloud": [],
+  "NetworkFunction": [],
+  "NotificationHubs": [
+    "2014-09-01",
+    "2016-03-01"
+  ],
+  "OffAzure": [],
+  "OpenEnergyPlatform": [],
+  "OperationalInsights": [
+    "2015-03-20"
+  ],
+  "OperationsManagement": [],
+  "Orbital": [],
+  "Peering": [
+    "2019-08-01-preview",
+    "2019-09-01-preview",
+    "2020-01-01-preview",
+    "2020-04-01",
+    "2020-10-01"
+  ],
+  "PolicyInsights": [
+    "2018-07-01-preview"
+  ],
+  "Portal": [
+    "2015-08-01-preview"
+  ],
+  "PortalServices": [],
+  "PowerBI": [],
+  "PowerBIDedicated": [
+    "2017-10-01"
+  ],
+  "PowerPlatform": [],
+  "ProfessionalService": [],
+  "ProviderHub": [],
+  "Purview": [],
+  "Quantum": [],
+  "Quota": [],
+  "RecommendationsService": [],
+  "RecoveryServices": [
+    "2016-06-01",
+    "2016-08-10",
+    "2016-12-01",
+    "2017-07-01",
+    "2018-01-10"
+  ],
+  "RedHatOpenShift": [],
+  "Relay": [
+    "2016-07-01"
+  ],
+  "ResourceConnector": [],
+  "ResourceGraph": [],
+  "ResourceHealth": [],
+  "Resources": [
+    "2015-11-01",
+    "2016-02-01",
+    "2016-07-01",
+    "2016-09-01",
+    "2017-05-10",
+    "2018-02-01",
+    "2018-05-01",
+    "2019-03-01"
+  ],
+  "SaaS": [],
+  "ScVmm": [],
+  "Scheduler": [
+    "2014-08-01-preview",
+    "2016-01-01"
+  ],
+  "Search": [
+    "2015-02-28",
+    "2015-08-19",
+    "2019-10-01-preview",
+    "2020-03-13"
+  ],
+  "Security": [
+    "2015-06-01-preview"
+  ],
+  "SecurityAndCompliance": [],
+  "SecurityDevOps": [],
+  "SecurityInsights": [],
+  "SerialConsole": [],
+  "ServiceBus": [
+    "2014-09-01",
+    "2015-08-01"
+  ],
+  "ServiceFabric": [
+    "2016-09-01",
+    "2017-07-01-preview",
+    "2018-02-01",
+    "2019-03-01",
+    "2019-03-01-preview",
+    "2019-06-01-preview",
+    "2019-11-01-preview",
+    "2021-09-01-privatepreview"
+  ],
+  "ServiceFabricMesh": [
+    "2018-07-01-preview"
+  ],
+  "ServiceLinker": [],
+  "ServiceNetworking": [],
+  "SignalRService": [
+    "2018-03-01-preview",
+    "2018-10-01"
+  ],
+  "SoftwarePlan": [],
+  "Solutions": [
+    "2016-09-01-preview",
+    "2017-09-01",
+    "2017-12-01",
+    "2018-02-01",
+    "2018-03-01",
+    "2018-06-01",
+    "2018-09-01-preview"
+  ],
+  "Sql": [],
+  "SqlVirtualMachine": [],
+  "StorSimple": [
+    "2016-10-01"
+  ],
+  "Storage": [
+    "2015-05-01-preview",
+    "2015-06-15",
+    "2016-01-01",
+    "2016-05-01",
+    "2016-12-01",
+    "2017-06-01",
+    "2017-10-01",
+    "2018-02-01",
+    "2018-03-01-preview",
+    "2018-07-01",
+    "2018-11-01",
+    "2019-04-01",
+    "2019-06-01",
+    "2020-08-01-preview"
+  ],
+  "StorageCache": [
+    "2019-08-01-preview",
+    "2019-11-01",
+    "2020-03-01",
+    "2020-10-01"
+  ],
+  "StorageMover": [],
+  "StoragePool": [],
+  "StorageSync": [
+    "2017-06-05-preview",
+    "2018-04-02",
+    "2018-07-01",
+    "2018-10-01",
+    "2019-02-01",
+    "2019-03-01",
+    "2019-06-01",
+    "2019-10-01"
+  ],
+  "StreamAnalytics": [],
+  "Subscription": [
+    "2019-10-01-preview"
+  ],
+  "Support": [],
+  "Synapse": [
+    "2019-06-01-preview",
+    "2020-04-01-preview",
+    "2020-12-01"
+  ],
+  "Syntex": [],
+  "TestBase": [
+    "2020-12-16-preview"
+  ],
+  "TimeSeriesInsights": [
+    "2017-02-28-preview",
+    "2017-11-15",
+    "2018-08-15-preview"
+  ],
+  "VMwareCloudSimple": [],
+  "VideoAnalyzer": [],
+  "VideoIndexer": [],
+  "VirtualMachineImages": [
+    "2018-02-01-preview",
+    "2019-02-01-preview",
+    "2019-05-01-preview"
+  ],
+  "VisualStudio": [],
+  "VoiceServices": [],
+  "Web": [
+    "2015-08-01"
+  ],
+  "WebPubSub": [],
+  "WindowsESU": [],
+  "WindowsIoT": [
+    "2018-02-16-preview"
+  ],
+  "WorkloadMonitor": [],
+  "Workloads": []
+}

@@ -159,7 +159,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
     Implements InventoryItem GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -193,7 +193,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Implements InventoryItem GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str inventory_item_name: Name of the inventoryItem.

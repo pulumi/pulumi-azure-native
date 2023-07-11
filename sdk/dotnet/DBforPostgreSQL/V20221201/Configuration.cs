@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     /// <summary>
     /// Represents a Configuration.
     /// </summary>
-    [Obsolete(@"azure-native:dbforpostgresql/v20221201:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Configuration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
     {
@@ -125,6 +124,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Configuration"},
@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Configuration"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

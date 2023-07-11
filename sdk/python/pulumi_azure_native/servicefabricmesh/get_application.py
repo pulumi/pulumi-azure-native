@@ -218,7 +218,7 @@ def get_application(application_resource_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationResult:
     """
     Gets the information about the application resource with the given name. The information include the description and other properties of the application.
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str application_resource_name: The identity of the application.
@@ -254,7 +254,7 @@ def get_application_output(application_resource_name: Optional[pulumi.Input[str]
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Gets the information about the application resource with the given name. The information include the description and other properties of the application.
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str application_resource_name: The identity of the application.

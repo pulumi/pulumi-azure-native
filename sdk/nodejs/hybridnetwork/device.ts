@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device resource.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -63,6 +63,10 @@ export class Device extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -97,6 +101,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["networkFunctions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["deviceType"] = undefined /*out*/;
@@ -105,6 +110,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["networkFunctions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

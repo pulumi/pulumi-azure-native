@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class LoadBalancerBackendAddressResponse
     {
         /// <summary>
+        /// A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+        /// </summary>
+        public readonly string? AdminState;
+        /// <summary>
+        /// Collection of inbound NAT rule port mappings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NatRulePortMappingResponse> InboundNatRulesPortMapping;
+        /// <summary>
         /// IP Address belonging to the referenced virtual network.
         /// </summary>
         public readonly string? IpAddress;
@@ -43,6 +51,10 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private LoadBalancerBackendAddressResponse(
+            string? adminState,
+
+            ImmutableArray<Outputs.NatRulePortMappingResponse> inboundNatRulesPortMapping,
+
             string? ipAddress,
 
             Outputs.SubResourceResponse? loadBalancerFrontendIPConfiguration,
@@ -55,6 +67,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.SubResourceResponse? virtualNetwork)
         {
+            AdminState = adminState;
+            InboundNatRulesPortMapping = inboundNatRulesPortMapping;
             IpAddress = ipAddress;
             LoadBalancerFrontendIPConfiguration = loadBalancerFrontendIPConfiguration;
             Name = name;

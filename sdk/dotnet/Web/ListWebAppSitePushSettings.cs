@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppSitePushSettings
     {
         /// <summary>
-        /// Gets the Push settings associated with web app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the Push settings associated with web app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppSitePushSettingsResult> InvokeAsync(ListWebAppSitePushSettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppSitePushSettingsResult>("azure-native:web:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the Push settings associated with web app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the Push settings associated with web app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppSitePushSettingsResult> Invoke(ListWebAppSitePushSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppSitePushSettingsResult>("azure-native:web:listWebAppSitePushSettings", args ?? new ListWebAppSitePushSettingsInvokeArgs(), options.WithDefaults());
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        /// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         /// </summary>
         public readonly string? TagWhitelistJson;
         /// <summary>

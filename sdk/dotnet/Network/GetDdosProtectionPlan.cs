@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified DDoS protection plan.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetDdosProtectionPlanResult> InvokeAsync(GetDdosProtectionPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified DDoS protection plan.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetDdosProtectionPlanResult> Invoke(GetDdosProtectionPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDdosProtectionPlanResult>("azure-native:network:getDdosProtectionPlan", args ?? new GetDdosProtectionPlanInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The list of public IPs associated with the DDoS protection plan resource. This list is read-only.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIPAddresses;
+        /// <summary>
         /// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
         /// </summary>
         public readonly string ResourceGuid;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            ImmutableArray<Outputs.SubResourceResponse> publicIPAddresses,
+
             string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
@@ -133,6 +139,7 @@ namespace Pulumi.AzureNative.Network
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            PublicIPAddresses = publicIPAddresses;
             ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;

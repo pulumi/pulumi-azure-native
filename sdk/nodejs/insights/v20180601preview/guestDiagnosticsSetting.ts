@@ -24,7 +24,7 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:insights/v20180601preview:guestDiagnosticsSetting';
+    public static readonly __pulumiType = 'azure-native:insights/v20180601preview:GuestDiagnosticsSetting';
 
     /**
      * Returns true if the given object is an instance of GuestDiagnosticsSetting.  This is designed to work even
@@ -96,7 +96,7 @@ export class GuestDiagnosticsSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:guestDiagnosticsSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20180601preview:guestDiagnosticsSetting" }, { type: "azure-native:insights:GuestDiagnosticsSetting" }, { type: "azure-native:insights:guestDiagnosticsSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestDiagnosticsSetting.__pulumiType, name, resourceInputs, opts);
     }

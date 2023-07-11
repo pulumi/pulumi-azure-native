@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Blockchain
     {
         /// <summary>
         /// List the API keys for the transaction node.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2018-06-01-preview.
         /// </summary>
         public static Task<ListTransactionNodeApiKeysResult> InvokeAsync(ListTransactionNodeApiKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTransactionNodeApiKeysResult>("azure-native:blockchain:listTransactionNodeApiKeys", args ?? new ListTransactionNodeApiKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the API keys for the transaction node.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2018-06-01-preview.
         /// </summary>
         public static Output<ListTransactionNodeApiKeysResult> Invoke(ListTransactionNodeApiKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTransactionNodeApiKeysResult>("azure-native:blockchain:listTransactionNodeApiKeys", args ?? new ListTransactionNodeApiKeysInvokeArgs(), options.WithDefaults());

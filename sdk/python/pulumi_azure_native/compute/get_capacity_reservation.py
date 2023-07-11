@@ -22,7 +22,7 @@ class GetCapacityReservationResult:
     """
     Specifies information about the capacity reservation.
     """
-    def __init__(__self__, id=None, instance_view=None, location=None, name=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, type=None, virtual_machines_associated=None, zones=None):
+    def __init__(__self__, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, provisioning_state=None, provisioning_time=None, reservation_id=None, sku=None, tags=None, time_created=None, type=None, virtual_machines_associated=None, zones=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,6 +35,9 @@ class GetCapacityReservationResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, int):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a int")
+        pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -50,6 +53,9 @@ class GetCapacityReservationResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        pulumi.set(__self__, "time_created", time_created)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -93,6 +99,14 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="platformFaultDomainCount")
+    def platform_fault_domain_count(self) -> int:
+        """
+        Specifies the value of fault domain count that Capacity Reservation supports for requested VM size. **Note:** The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation. Minimum api-version: 2022-08-01.
+        """
+        return pulumi.get(self, "platform_fault_domain_count")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -133,6 +147,14 @@ class GetCapacityReservationResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> str:
+        """
+        Specifies the time at which the Capacity Reservation resource was created. Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -167,11 +189,13 @@ class AwaitableGetCapacityReservationResult(GetCapacityReservationResult):
             instance_view=self.instance_view,
             location=self.location,
             name=self.name,
+            platform_fault_domain_count=self.platform_fault_domain_count,
             provisioning_state=self.provisioning_state,
             provisioning_time=self.provisioning_time,
             reservation_id=self.reservation_id,
             sku=self.sku,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
             virtual_machines_associated=self.virtual_machines_associated,
             zones=self.zones)
@@ -184,7 +208,7 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCapacityReservationResult:
     """
     The operation that retrieves information about the capacity reservation.
-    API Version: 2021-04-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.
@@ -205,11 +229,13 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
         instance_view=__ret__.instance_view,
         location=__ret__.location,
         name=__ret__.name,
+        platform_fault_domain_count=__ret__.platform_fault_domain_count,
         provisioning_state=__ret__.provisioning_state,
         provisioning_time=__ret__.provisioning_time,
         reservation_id=__ret__.reservation_id,
         sku=__ret__.sku,
         tags=__ret__.tags,
+        time_created=__ret__.time_created,
         type=__ret__.type,
         virtual_machines_associated=__ret__.virtual_machines_associated,
         zones=__ret__.zones)
@@ -223,7 +249,7 @@ def get_capacity_reservation_output(capacity_reservation_group_name: Optional[pu
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     The operation that retrieves information about the capacity reservation.
-    API Version: 2021-04-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str capacity_reservation_group_name: The name of the capacity reservation group.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the private scheduled action by name.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-03-01.
  */
 export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
 
@@ -35,15 +35,15 @@ export interface GetScheduledActionResult {
      */
     readonly displayName: string;
     /**
-     * Resource Etag.
+     * Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
      */
     readonly eTag: string;
     /**
-     * Destination format of the view data.
+     * Destination format of the view data. This is optional.
      */
     readonly fileDestination?: outputs.costmanagement.FileDestinationResponse;
     /**
-     * Resource Id.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -51,7 +51,7 @@ export interface GetScheduledActionResult {
      */
     readonly kind?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -59,11 +59,15 @@ export interface GetScheduledActionResult {
      */
     readonly notification: outputs.costmanagement.NotificationPropertiesResponse;
     /**
+     * Email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    readonly notificationEmail?: string;
+    /**
      * Schedule of the scheduled action.
      */
     readonly schedule: outputs.costmanagement.SchedulePropertiesResponse;
     /**
-     * Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+     * For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
     readonly scope?: string;
     /**
@@ -71,11 +75,11 @@ export interface GetScheduledActionResult {
      */
     readonly status: string;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Kind of the scheduled action.
      */
     readonly systemData: outputs.costmanagement.SystemDataResponse;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -85,7 +89,7 @@ export interface GetScheduledActionResult {
 }
 /**
  * Get the private scheduled action by name.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-03-01.
  */
 export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledActionResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAction(a, opts))

@@ -134,7 +134,7 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerAzureADAdministratorResult:
     """
     Gets a Azure Active Directory administrator.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str administrator_name: The name of server active directory administrator.
@@ -166,7 +166,7 @@ def get_server_azure_ad_administrator_output(administrator_name: Optional[pulumi
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerAzureADAdministratorResult]:
     """
     Gets a Azure Active Directory administrator.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str administrator_name: The name of server active directory administrator.

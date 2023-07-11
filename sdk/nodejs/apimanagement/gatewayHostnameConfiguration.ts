@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gateway hostname configuration details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**
@@ -48,7 +48,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      */
     public readonly http2Enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -64,7 +64,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      */
     public readonly tls11Enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -111,7 +111,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220801:GatewayHostnameConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220801:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayHostnameConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -146,7 +146,7 @@ export interface GatewayHostnameConfigurationArgs {
      */
     negotiateClientCertificate?: pulumi.Input<boolean>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

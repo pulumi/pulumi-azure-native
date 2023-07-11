@@ -16,10 +16,10 @@ import (
 
 	"github.com/segmentio/encoding/json"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/provider"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 

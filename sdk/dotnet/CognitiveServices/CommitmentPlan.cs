@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// Cognitive Services account commitment plan.
-    /// API Version: 2021-10-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:CommitmentPlan")]
     public partial class CommitmentPlan : global::Pulumi.CustomResource
@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The Kind of the resource.
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -35,10 +47,22 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Output<Outputs.CommitmentPlanPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -74,6 +98,8 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20211001:CommitmentPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:CommitmentPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221001:CommitmentPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:CommitmentPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:CommitmentPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,6 +136,18 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Input<string>? CommitmentPlanName { get; set; }
 
         /// <summary>
+        /// The Kind of the resource.
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
         /// Properties of Cognitive Services account commitment plan.
         /// </summary>
         [Input("properties")]
@@ -120,6 +158,24 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public CommitmentPlanArgs()
         {

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetStaticSiteUserProvidedFunctionAppForStaticSiteBuild
     {
         /// <summary>
-        /// Gets the details of the user provided function app registered with a static site build
-        /// API Version: 2020-12-01.
+        /// Description for Gets the details of the user provided function app registered with a static site build
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> InvokeAsync(GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the details of the user provided function app registered with a static site build
-        /// API Version: 2020-12-01.
+        /// Description for Gets the details of the user provided function app registered with a static site build
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult> Invoke(GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult>("azure-native:web:getStaticSiteUserProvidedFunctionAppForStaticSiteBuild", args ?? new GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildInvokeArgs(), options.WithDefaults());

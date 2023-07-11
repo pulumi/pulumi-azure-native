@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The HDInsight cluster.
- *
- * @deprecated azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Cluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cluster {
-        pulumi.log.warn("Cluster is deprecated: azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.")
         return new Cluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +81,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility. */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Cluster is deprecated: azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -116,7 +111,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight:Cluster" }, { type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight:Cluster" }, { type: "azure-native:hdinsight/v20150301preview:Cluster" }, { type: "azure-native:hdinsight/v20180601preview:Cluster" }, { type: "azure-native:hdinsight/v20230415preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

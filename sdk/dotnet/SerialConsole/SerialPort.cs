@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SerialConsole
 {
     /// <summary>
     /// Represents the serial port of the parent resource.
-    /// API Version: 2018-05-01.
+    /// Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:serialconsole:SerialPort")]
     public partial class SerialPort : global::Pulumi.CustomResource

@@ -181,7 +181,7 @@ class PeeringService(pulumi.CustomResource):
                  __props__=None):
         """
         Peering Service
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +203,7 @@ class PeeringService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peering Service
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param PeeringServiceArgs args: The arguments to use to populate this resource's properties.
@@ -249,6 +249,7 @@ class PeeringService(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["log_analytics_workspace_properties"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
@@ -277,6 +278,7 @@ class PeeringService(pulumi.CustomResource):
         __props__ = PeeringServiceArgs.__new__(PeeringServiceArgs)
 
         __props__.__dict__["location"] = None
+        __props__.__dict__["log_analytics_workspace_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["peering_service_location"] = None
         __props__.__dict__["peering_service_provider"] = None
@@ -295,6 +297,14 @@ class PeeringService(pulumi.CustomResource):
         The location of the resource.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceProperties")
+    def log_analytics_workspace_properties(self) -> pulumi.Output[Optional['outputs.LogAnalyticsWorkspacePropertiesResponse']]:
+        """
+        The Log Analytics Workspace Properties
+        """
+        return pulumi.get(self, "log_analytics_workspace_properties")
 
     @property
     @pulumi.getter

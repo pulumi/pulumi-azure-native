@@ -9,12 +9,13 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
-__all__ = ['ExpressRouteConnectionArgs', 'ExpressRouteConnection']
+__all__ = ['ExpressRouteConnectionInitArgs', 'ExpressRouteConnection']
 
 @pulumi.input_type
-class ExpressRouteConnectionArgs:
+class ExpressRouteConnectionInitArgs:
     def __init__(__self__, *,
                  express_route_circuit_peering: pulumi.Input['ExpressRouteCircuitPeeringIdArgs'],
                  express_route_gateway_name: pulumi.Input[str],
@@ -23,6 +24,7 @@ class ExpressRouteConnectionArgs:
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 enable_private_link_fast_path: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  routing_configuration: Optional[pulumi.Input['RoutingConfigurationArgs']] = None,
@@ -36,6 +38,7 @@ class ExpressRouteConnectionArgs:
         :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.
         :param pulumi.Input[str] connection_name: The name of the connection subresource.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
+        :param pulumi.Input[bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param pulumi.Input[bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['RoutingConfigurationArgs'] routing_configuration: The Routing Configuration indicating the associated and propagated route tables on this connection.
@@ -51,6 +54,8 @@ class ExpressRouteConnectionArgs:
             pulumi.set(__self__, "connection_name", connection_name)
         if enable_internet_security is not None:
             pulumi.set(__self__, "enable_internet_security", enable_internet_security)
+        if enable_private_link_fast_path is not None:
+            pulumi.set(__self__, "enable_private_link_fast_path", enable_private_link_fast_path)
         if express_route_gateway_bypass is not None:
             pulumi.set(__self__, "express_route_gateway_bypass", express_route_gateway_bypass)
         if id is not None:
@@ -145,6 +150,18 @@ class ExpressRouteConnectionArgs:
         pulumi.set(self, "enable_internet_security", value)
 
     @property
+    @pulumi.getter(name="enablePrivateLinkFastPath")
+    def enable_private_link_fast_path(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        """
+        return pulumi.get(self, "enable_private_link_fast_path")
+
+    @enable_private_link_fast_path.setter
+    def enable_private_link_fast_path(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_private_link_fast_path", value)
+
+    @property
     @pulumi.getter(name="expressRouteGatewayBypass")
     def express_route_gateway_bypass(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -201,6 +218,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 enable_private_link_fast_path: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -212,13 +230,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRouteConnection resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.
         :param pulumi.Input[str] connection_name: The name of the connection subresource.
         :param pulumi.Input[bool] enable_internet_security: Enable internet security.
+        :param pulumi.Input[bool] enable_private_link_fast_path: Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
         :param pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']] express_route_circuit_peering: The ExpressRoute circuit peering.
         :param pulumi.Input[bool] express_route_gateway_bypass: Enable FastPath to vWan Firewall hub.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
@@ -232,19 +251,19 @@ class ExpressRouteConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteConnectionArgs,
+                 args: ExpressRouteConnectionInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRouteConnection resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteConnectionInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteConnectionInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -256,6 +275,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  connection_name: Optional[pulumi.Input[str]] = None,
                  enable_internet_security: Optional[pulumi.Input[bool]] = None,
+                 enable_private_link_fast_path: Optional[pulumi.Input[bool]] = None,
                  express_route_circuit_peering: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringIdArgs']]] = None,
                  express_route_gateway_bypass: Optional[pulumi.Input[bool]] = None,
                  express_route_gateway_name: Optional[pulumi.Input[str]] = None,
@@ -271,11 +291,12 @@ class ExpressRouteConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
+            __props__ = ExpressRouteConnectionInitArgs.__new__(ExpressRouteConnectionInitArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["enable_internet_security"] = enable_internet_security
+            __props__.__dict__["enable_private_link_fast_path"] = enable_private_link_fast_path
             if express_route_circuit_peering is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_peering'")
             __props__.__dict__["express_route_circuit_peering"] = express_route_circuit_peering
@@ -293,7 +314,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
             __props__.__dict__["routing_configuration"] = routing_configuration
             __props__.__dict__["routing_weight"] = routing_weight
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRouteConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20221101:ExpressRouteConnection"), pulumi.Alias(type_="azure-native:network/v20230201:ExpressRouteConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRouteConnection, __self__).__init__(
             'azure-native:network:ExpressRouteConnection',
@@ -315,10 +336,11 @@ class ExpressRouteConnection(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = ExpressRouteConnectionArgs.__new__(ExpressRouteConnectionArgs)
+        __props__ = ExpressRouteConnectionInitArgs.__new__(ExpressRouteConnectionInitArgs)
 
         __props__.__dict__["authorization_key"] = None
         __props__.__dict__["enable_internet_security"] = None
+        __props__.__dict__["enable_private_link_fast_path"] = None
         __props__.__dict__["express_route_circuit_peering"] = None
         __props__.__dict__["express_route_gateway_bypass"] = None
         __props__.__dict__["name"] = None
@@ -342,6 +364,14 @@ class ExpressRouteConnection(pulumi.CustomResource):
         Enable internet security.
         """
         return pulumi.get(self, "enable_internet_security")
+
+    @property
+    @pulumi.getter(name="enablePrivateLinkFastPath")
+    def enable_private_link_fast_path(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        """
+        return pulumi.get(self, "enable_private_link_fast_path")
 
     @property
     @pulumi.getter(name="expressRouteCircuitPeering")

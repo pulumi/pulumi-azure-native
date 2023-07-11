@@ -145,7 +145,7 @@ class JitRequest(pulumi.CustomResource):
                  __props__=None):
         """
         Information about JIT request definition.
-        API Version: 2019-07-01.
+        Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,7 +165,7 @@ class JitRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about JIT request definition.
-        API Version: 2019-07-01.
+        Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01
 
         :param str resource_name: The name of the resource.
         :param JitRequestArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +218,7 @@ class JitRequest(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["publisher_tenant_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20180301:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20180601:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20190701:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:JitRequest"), pulumi.Alias(type_="azure-native:solutions/v20210701:JitRequest")])
@@ -253,6 +254,7 @@ class JitRequest(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["publisher_tenant_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_by"] = None
@@ -329,6 +331,14 @@ class JitRequest(pulumi.CustomResource):
         The publisher tenant id.
         """
         return pulumi.get(self, "publisher_tenant_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

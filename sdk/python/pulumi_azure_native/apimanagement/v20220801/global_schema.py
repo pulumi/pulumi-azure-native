@@ -113,12 +113,7 @@ class GlobalSchemaArgs:
         pulumi.set(self, "value", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GlobalSchema to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class GlobalSchema(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GlobalSchema to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -173,7 +168,6 @@ class GlobalSchema(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""GlobalSchema is deprecated: azure-native:apimanagement/v20220801:GlobalSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GlobalSchema to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -196,7 +190,7 @@ class GlobalSchema(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GlobalSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GlobalSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GlobalSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GlobalSchema, __self__).__init__(
             'azure-native:apimanagement/v20220801:GlobalSchema',

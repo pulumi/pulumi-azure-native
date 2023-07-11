@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets an extended database's blob auditing policy.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetExtendedDatabaseBlobAuditingPolicyResult> InvokeAsync(GetExtendedDatabaseBlobAuditingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExtendedDatabaseBlobAuditingPolicyResult>("azure-native:sql:getExtendedDatabaseBlobAuditingPolicy", args ?? new GetExtendedDatabaseBlobAuditingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an extended database's blob auditing policy.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetExtendedDatabaseBlobAuditingPolicyResult> Invoke(GetExtendedDatabaseBlobAuditingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtendedDatabaseBlobAuditingPolicyResult>("azure-native:sql:getExtendedDatabaseBlobAuditingPolicy", args ?? new GetExtendedDatabaseBlobAuditingPolicyInvokeArgs(), options.WithDefaults());
@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.Sql
         /// USER_CHANGE_PASSWORD_GROUP
         /// BATCH_STARTED_GROUP
         /// BATCH_COMPLETED_GROUP
+        /// DBCC_GROUP
+        /// DATABASE_OWNERSHIP_CHANGE_GROUP
+        /// DATABASE_CHANGE_GROUP
+        /// LEDGER_OPERATION_GROUP
         /// 
         /// These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         /// 
@@ -174,6 +178,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly bool? IsAzureMonitorTargetEnabled;
         /// <summary>
+        /// Specifies whether Managed Identity is used to access blob storage
+        /// </summary>
+        public readonly bool? IsManagedIdentityInUse;
+        /// <summary>
         /// Specifies whether storageAccountAccessKey value is the storage's secondary key.
         /// </summary>
         public readonly bool? IsStorageSecondaryKeyInUse;
@@ -219,6 +227,8 @@ namespace Pulumi.AzureNative.Sql
 
             bool? isAzureMonitorTargetEnabled,
 
+            bool? isManagedIdentityInUse,
+
             bool? isStorageSecondaryKeyInUse,
 
             string name,
@@ -240,6 +250,7 @@ namespace Pulumi.AzureNative.Sql
             AuditActionsAndGroups = auditActionsAndGroups;
             Id = id;
             IsAzureMonitorTargetEnabled = isAzureMonitorTargetEnabled;
+            IsManagedIdentityInUse = isManagedIdentityInUse;
             IsStorageSecondaryKeyInUse = isStorageSecondaryKeyInUse;
             Name = name;
             PredicateExpression = predicateExpression;

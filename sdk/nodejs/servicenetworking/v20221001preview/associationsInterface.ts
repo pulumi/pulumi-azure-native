@@ -112,7 +112,7 @@ export class AssociationsInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking:AssociationsInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking:AssociationsInterface" }, { type: "azure-native:servicenetworking/v20230501preview:AssociationsInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssociationsInterface.__pulumiType, name, resourceInputs, opts);
     }

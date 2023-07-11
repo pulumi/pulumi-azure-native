@@ -8,8 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Workspace connection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**
@@ -39,33 +38,18 @@ export class WorkspaceConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Authorization type of the workspace connection.
+     * The name of the resource
      */
-    public readonly authType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesResponse | outputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesResponse>;
     /**
-     * Category of the workspace connection.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public readonly category!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
-     * Friendly name of the workspace connection.
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * Target of the workspace connection.
-     */
-    public readonly target!: pulumi.Output<string | undefined>;
-    /**
-     * Resource type of workspace connection.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Value details of the workspace connection.
-     */
-    public readonly value!: pulumi.Output<string | undefined>;
-    /**
-     * format for the workspace connection value
-     */
-    public readonly valueFormat!: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkspaceConnection resource with the given unique name, arguments, and options.
@@ -78,33 +62,30 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
             resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["valueFormat"] = args ? args.valueFormat : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["authType"] = undefined /*out*/;
-            resourceInputs["category"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["target"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["value"] = undefined /*out*/;
-            resourceInputs["valueFormat"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210701:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220501:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220601preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401preview:WorkspaceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200601:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200801:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20200901preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210101:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210301preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20210701:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220101preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220501:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20220601preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221001preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20221201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230201preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230401preview:WorkspaceConnection" }, { type: "azure-native:machinelearningservices/v20230601preview:WorkspaceConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,37 +96,14 @@ export class WorkspaceConnection extends pulumi.CustomResource {
  */
 export interface WorkspaceConnectionArgs {
     /**
-     * Authorization type of the workspace connection.
-     */
-    authType?: pulumi.Input<string>;
-    /**
-     * Category of the workspace connection.
-     */
-    category?: pulumi.Input<string>;
-    /**
      * Friendly name of the workspace connection
      */
     connectionName?: pulumi.Input<string>;
+    properties: pulumi.Input<inputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs>;
     /**
-     * Friendly name of the workspace connection
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Target of the workspace connection.
-     */
-    target?: pulumi.Input<string>;
-    /**
-     * Value details of the workspace connection.
-     */
-    value?: pulumi.Input<string>;
-    /**
-     * format for the workspace connection value
-     */
-    valueFormat?: pulumi.Input<string | enums.machinelearningservices.ValueFormat>;
     /**
      * Name of Azure Machine Learning workspace.
      */

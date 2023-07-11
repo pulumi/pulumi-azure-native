@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// NetApp account resource
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Account")]
     public partial class Account : global::Pulumi.CustomResource
@@ -23,19 +23,37 @@ namespace Pulumi.AzureNative.NetApp
         public Output<ImmutableArray<Outputs.ActiveDirectoryResponse>> ActiveDirectories { get; private set; } = null!;
 
         /// <summary>
+        /// Shows the status of disableShowmount for all volumes under the subscription, null equals false
+        /// </summary>
+        [Output("disableShowmount")]
+        public Output<bool> DisableShowmount { get; private set; } = null!;
+
+        /// <summary>
         /// Encryption settings
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.AccountEncryptionResponse?> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity used for the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -47,19 +65,19 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -115,6 +133,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -163,13 +182,19 @@ namespace Pulumi.AzureNative.NetApp
         public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The identity used for the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -178,7 +203,7 @@ namespace Pulumi.AzureNative.NetApp
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

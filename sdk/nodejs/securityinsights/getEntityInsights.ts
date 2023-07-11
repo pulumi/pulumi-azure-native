@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Execute Insights for an entity.
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityInsightsResult> {
 
@@ -19,7 +19,6 @@ export function getEntityInsights(args: GetEntityInsightsArgs, opts?: pulumi.Inv
         "endTime": args.endTime,
         "entityId": args.entityId,
         "insightQueryIds": args.insightQueryIds,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "startTime": args.startTime,
         "workspaceName": args.workspaceName,
@@ -44,11 +43,7 @@ export interface GetEntityInsightsArgs {
      */
     insightQueryIds?: string[];
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
-    /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -76,7 +71,7 @@ export interface GetEntityInsightsResult {
 }
 /**
  * Execute Insights for an entity.
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEntityInsightsOutput(args: GetEntityInsightsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityInsightsResult> {
     return pulumi.output(args).apply((a: any) => getEntityInsights(a, opts))
@@ -100,11 +95,7 @@ export interface GetEntityInsightsOutputArgs {
      */
     insightQueryIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

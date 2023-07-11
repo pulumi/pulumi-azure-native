@@ -19,24 +19,30 @@ class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 sku: Optional[pulumi.Input[Union[str, 'SKU']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input['EncryptionArgs'] encryption: CMK encryption at rest properties
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections associated with the account.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the account.
+        :param pulumi.Input[Union[str, 'SKU']] sku: Device Update Sku
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -47,6 +53,10 @@ class AccountArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if sku is None:
+            sku = 'Standard'
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,6 +83,18 @@ class AccountArgs:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        CMK encryption at rest properties
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
 
     @property
     @pulumi.getter
@@ -124,6 +146,18 @@ class AccountArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input[Union[str, 'SKU']]]:
+        """
+        Device Update Sku
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input[Union[str, 'SKU']]]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -141,25 +175,29 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union[str, 'SKU']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Device Update account details.
-        API Version: 2020-03-01-preview.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: CMK encryption at rest properties
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The type of identity used for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: List of private endpoint connections associated with the account.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the account.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[Union[str, 'SKU']] sku: Device Update Sku
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -170,7 +208,7 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device Update account details.
-        API Version: 2020-03-01-preview.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.
@@ -188,11 +226,13 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[Union[str, 'SKU']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -204,6 +244,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
@@ -213,13 +254,17 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is None:
+                sku = 'Standard'
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["host_name"] = None
+            __props__.__dict__["locations"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20230701:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:deviceupdate:Account',
@@ -243,17 +288,28 @@ class Account(pulumi.CustomResource):
 
         __props__ = AccountArgs.__new__(AccountArgs)
 
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["host_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["locations"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Account(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        CMK encryption at rest properties
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="hostName")
@@ -278,6 +334,14 @@ class Account(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> pulumi.Output[Sequence['outputs.LocationResponse']]:
+        """
+        Device Update account primary and failover location details
+        """
+        return pulumi.get(self, "locations")
 
     @property
     @pulumi.getter
@@ -310,6 +374,14 @@ class Account(pulumi.CustomResource):
         Whether or not public network access is allowed for the account.
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional[str]]:
+        """
+        Device Update Sku
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The private endpoint connection of an IotHub
- * API Version: 2020-08-31.
+ * Azure REST API version: 2022-11-15-preview. Prior API version in Azure Native 1.x: 2020-08-31
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -83,7 +83,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20200301:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200401:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200615:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200710preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200801:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200831:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200831preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210201preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210303preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210331:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210701:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210701preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210702:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210702preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20220430preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devices/v20200301:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200401:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200615:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200710preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200801:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200831:PrivateEndpointConnection" }, { type: "azure-native:devices/v20200831preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210201preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210303preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210331:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210701:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210701preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210702:PrivateEndpointConnection" }, { type: "azure-native:devices/v20210702preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20220430preview:PrivateEndpointConnection" }, { type: "azure-native:devices/v20221115preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

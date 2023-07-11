@@ -147,11 +147,11 @@ def get_token(registry_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTokenResult:
     """
     Gets the properties of the specified token.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str token_name: The name of the token.
     """
     __args__ = dict()
@@ -180,11 +180,11 @@ def get_token_output(registry_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTokenResult]:
     """
     Gets the properties of the specified token.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str token_name: The name of the token.
     """
     ...

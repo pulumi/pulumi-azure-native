@@ -35,11 +35,11 @@ class GetClusterResult:
         if coordinator_server_edition and not isinstance(coordinator_server_edition, str):
             raise TypeError("Expected argument 'coordinator_server_edition' to be a str")
         pulumi.set(__self__, "coordinator_server_edition", coordinator_server_edition)
-        if coordinator_storage_quota_in_mb and not isinstance(coordinator_storage_quota_in_mb, float):
-            raise TypeError("Expected argument 'coordinator_storage_quota_in_mb' to be a float")
+        if coordinator_storage_quota_in_mb and not isinstance(coordinator_storage_quota_in_mb, int):
+            raise TypeError("Expected argument 'coordinator_storage_quota_in_mb' to be a int")
         pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
-        if coordinator_v_cores and not isinstance(coordinator_v_cores, float):
-            raise TypeError("Expected argument 'coordinator_v_cores' to be a float")
+        if coordinator_v_cores and not isinstance(coordinator_v_cores, int):
+            raise TypeError("Expected argument 'coordinator_v_cores' to be a int")
         pulumi.set(__self__, "coordinator_v_cores", coordinator_v_cores)
         if earliest_restore_time and not isinstance(earliest_restore_time, str):
             raise TypeError("Expected argument 'earliest_restore_time' to be a str")
@@ -62,8 +62,8 @@ class GetClusterResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if node_count and not isinstance(node_count, float):
-            raise TypeError("Expected argument 'node_count' to be a float")
+        if node_count and not isinstance(node_count, int):
+            raise TypeError("Expected argument 'node_count' to be a int")
         pulumi.set(__self__, "node_count", node_count)
         if node_enable_public_ip_access and not isinstance(node_enable_public_ip_access, bool):
             raise TypeError("Expected argument 'node_enable_public_ip_access' to be a bool")
@@ -71,11 +71,11 @@ class GetClusterResult:
         if node_server_edition and not isinstance(node_server_edition, str):
             raise TypeError("Expected argument 'node_server_edition' to be a str")
         pulumi.set(__self__, "node_server_edition", node_server_edition)
-        if node_storage_quota_in_mb and not isinstance(node_storage_quota_in_mb, float):
-            raise TypeError("Expected argument 'node_storage_quota_in_mb' to be a float")
+        if node_storage_quota_in_mb and not isinstance(node_storage_quota_in_mb, int):
+            raise TypeError("Expected argument 'node_storage_quota_in_mb' to be a int")
         pulumi.set(__self__, "node_storage_quota_in_mb", node_storage_quota_in_mb)
-        if node_v_cores and not isinstance(node_v_cores, float):
-            raise TypeError("Expected argument 'node_v_cores' to be a float")
+        if node_v_cores and not isinstance(node_v_cores, int):
+            raise TypeError("Expected argument 'node_v_cores' to be a int")
         pulumi.set(__self__, "node_v_cores", node_v_cores)
         if point_in_time_utc and not isinstance(point_in_time_utc, str):
             raise TypeError("Expected argument 'point_in_time_utc' to be a str")
@@ -151,7 +151,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="coordinatorStorageQuotaInMb")
-    def coordinator_storage_quota_in_mb(self) -> Optional[float]:
+    def coordinator_storage_quota_in_mb(self) -> Optional[int]:
         """
         The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
@@ -159,7 +159,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="coordinatorVCores")
-    def coordinator_v_cores(self) -> Optional[float]:
+    def coordinator_v_cores(self) -> Optional[int]:
         """
         The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
@@ -185,7 +185,7 @@ class GetClusterResult:
     @pulumi.getter(name="enableShardsOnCoordinator")
     def enable_shards_on_coordinator(self) -> Optional[bool]:
         """
-        If shards on coordinator is enabled or not for the cluster.
+        If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
         """
         return pulumi.get(self, "enable_shards_on_coordinator")
 
@@ -223,7 +223,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeCount")
-    def node_count(self) -> Optional[float]:
+    def node_count(self) -> Optional[int]:
         """
         Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
         """
@@ -247,7 +247,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeStorageQuotaInMb")
-    def node_storage_quota_in_mb(self) -> Optional[float]:
+    def node_storage_quota_in_mb(self) -> Optional[int]:
         """
         The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """
@@ -255,7 +255,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="nodeVCores")
-    def node_v_cores(self) -> Optional[float]:
+    def node_v_cores(self) -> Optional[int]:
         """
         The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
         """

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL virtual machine.
- *
- * @deprecated azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.
  */
 export class SqlVirtualMachine extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlVirtualMachine {
-        pulumi.log.warn("SqlVirtualMachine is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.")
         return new SqlVirtualMachine(name, undefined as any, { ...opts, id: id });
     }
 
@@ -132,9 +129,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility. */
     constructor(name: string, args: SqlVirtualMachineArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlVirtualMachine is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -188,7 +183,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["wsfcStaticIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSsoTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetApiManagementServiceSsoTokenResult> {
 
@@ -19,7 +19,7 @@ export function getApiManagementServiceSsoToken(args: GetApiManagementServiceSso
 
 export interface GetApiManagementServiceSsoTokenArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -39,7 +39,7 @@ export interface GetApiManagementServiceSsoTokenResult {
 }
 /**
  * Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServiceSsoTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiManagementServiceSsoTokenResult> {
     return pulumi.output(args).apply((a: any) => getApiManagementServiceSsoToken(a, opts))
@@ -47,7 +47,7 @@ export function getApiManagementServiceSsoTokenOutput(args: GetApiManagementServ
 
 export interface GetApiManagementServiceSsoTokenOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

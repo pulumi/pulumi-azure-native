@@ -58,7 +58,7 @@ class GetChannelResult:
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 
@@ -159,7 +159,7 @@ def get_channel(channel_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetChannelResult:
     """
     Returns a BotService Channel registration specified by the parameters.
-    API Version: 2021-03-01.
+    Azure REST API version: 2022-09-15.
 
 
     :param str channel_name: The name of the Bot resource.
@@ -193,7 +193,7 @@ def get_channel_output(channel_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
     """
     Returns a BotService Channel registration specified by the parameters.
-    API Version: 2021-03-01.
+    Azure REST API version: 2022-09-15.
 
 
     :param str channel_name: The name of the Bot resource.

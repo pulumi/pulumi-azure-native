@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The lock information.
-    /// API Version: 2017-04-01.
+    /// Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:ManagementLockAtResourceLevel")]
     public partial class ManagementLockAtResourceLevel : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("owners")]
         public Output<ImmutableArray<Outputs.ManagementLockOwnerResponse>> Owners { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.

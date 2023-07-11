@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Email Template details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**
@@ -47,11 +47,11 @@ export class EmailTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Whether the template is the default template provided by Api Management or has been edited.
+     * Whether the template is the default template provided by API Management or has been edited.
      */
     public /*out*/ readonly isDefault!: pulumi.Output<boolean>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class EmailTemplate extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -110,7 +110,7 @@ export class EmailTemplate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:EmailTemplate" }, { type: "azure-native:apimanagement/v20180101:EmailTemplate" }, { type: "azure-native:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20190101:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20200601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20201201:EmailTemplate" }, { type: "azure-native:apimanagement/v20210101preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210801:EmailTemplate" }, { type: "azure-native:apimanagement/v20211201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220801:EmailTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:EmailTemplate" }, { type: "azure-native:apimanagement/v20180101:EmailTemplate" }, { type: "azure-native:apimanagement/v20180601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20190101:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201:EmailTemplate" }, { type: "azure-native:apimanagement/v20191201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20200601preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20201201:EmailTemplate" }, { type: "azure-native:apimanagement/v20210101preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20210801:EmailTemplate" }, { type: "azure-native:apimanagement/v20211201preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220401preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20220801:EmailTemplate" }, { type: "azure-native:apimanagement/v20220901preview:EmailTemplate" }, { type: "azure-native:apimanagement/v20230301preview:EmailTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmailTemplate.__pulumiType, name, resourceInputs, opts);
     }
@@ -133,7 +133,7 @@ export interface EmailTemplateArgs {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.EmailTemplateParametersContractPropertiesArgs>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Product details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.
  */
 export class Product extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Product extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Product {
-        pulumi.log.warn("Product is deprecated: azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.")
         return new Product(name, undefined as any, { ...opts, id: id });
     }
 
@@ -84,9 +81,7 @@ export class Product extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility. */
     constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Product is deprecated: azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -123,7 +118,7 @@ export class Product extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Product" }, { type: "azure-native:apimanagement/v20160707:Product" }, { type: "azure-native:apimanagement/v20161010:Product" }, { type: "azure-native:apimanagement/v20170301:Product" }, { type: "azure-native:apimanagement/v20180101:Product" }, { type: "azure-native:apimanagement/v20180601preview:Product" }, { type: "azure-native:apimanagement/v20190101:Product" }, { type: "azure-native:apimanagement/v20191201:Product" }, { type: "azure-native:apimanagement/v20191201preview:Product" }, { type: "azure-native:apimanagement/v20200601preview:Product" }, { type: "azure-native:apimanagement/v20201201:Product" }, { type: "azure-native:apimanagement/v20210101preview:Product" }, { type: "azure-native:apimanagement/v20210401preview:Product" }, { type: "azure-native:apimanagement/v20210801:Product" }, { type: "azure-native:apimanagement/v20211201preview:Product" }, { type: "azure-native:apimanagement/v20220401preview:Product" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Product" }, { type: "azure-native:apimanagement/v20160707:Product" }, { type: "azure-native:apimanagement/v20161010:Product" }, { type: "azure-native:apimanagement/v20170301:Product" }, { type: "azure-native:apimanagement/v20180101:Product" }, { type: "azure-native:apimanagement/v20180601preview:Product" }, { type: "azure-native:apimanagement/v20190101:Product" }, { type: "azure-native:apimanagement/v20191201:Product" }, { type: "azure-native:apimanagement/v20191201preview:Product" }, { type: "azure-native:apimanagement/v20200601preview:Product" }, { type: "azure-native:apimanagement/v20201201:Product" }, { type: "azure-native:apimanagement/v20210101preview:Product" }, { type: "azure-native:apimanagement/v20210401preview:Product" }, { type: "azure-native:apimanagement/v20210801:Product" }, { type: "azure-native:apimanagement/v20211201preview:Product" }, { type: "azure-native:apimanagement/v20220401preview:Product" }, { type: "azure-native:apimanagement/v20220901preview:Product" }, { type: "azure-native:apimanagement/v20230301preview:Product" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Product.__pulumiType, name, resourceInputs, opts);
     }

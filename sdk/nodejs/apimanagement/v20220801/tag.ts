@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Tag Contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.
  */
 export class Tag extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Tag extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Tag {
-        pulumi.log.warn("Tag is deprecated: azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.")
         return new Tag(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +54,7 @@ export class Tag extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility. */
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Tag is deprecated: azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -84,7 +79,7 @@ export class Tag extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Tag" }, { type: "azure-native:apimanagement/v20170301:Tag" }, { type: "azure-native:apimanagement/v20180101:Tag" }, { type: "azure-native:apimanagement/v20180601preview:Tag" }, { type: "azure-native:apimanagement/v20190101:Tag" }, { type: "azure-native:apimanagement/v20191201:Tag" }, { type: "azure-native:apimanagement/v20191201preview:Tag" }, { type: "azure-native:apimanagement/v20200601preview:Tag" }, { type: "azure-native:apimanagement/v20201201:Tag" }, { type: "azure-native:apimanagement/v20210101preview:Tag" }, { type: "azure-native:apimanagement/v20210401preview:Tag" }, { type: "azure-native:apimanagement/v20210801:Tag" }, { type: "azure-native:apimanagement/v20211201preview:Tag" }, { type: "azure-native:apimanagement/v20220401preview:Tag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Tag" }, { type: "azure-native:apimanagement/v20170301:Tag" }, { type: "azure-native:apimanagement/v20180101:Tag" }, { type: "azure-native:apimanagement/v20180601preview:Tag" }, { type: "azure-native:apimanagement/v20190101:Tag" }, { type: "azure-native:apimanagement/v20191201:Tag" }, { type: "azure-native:apimanagement/v20191201preview:Tag" }, { type: "azure-native:apimanagement/v20200601preview:Tag" }, { type: "azure-native:apimanagement/v20201201:Tag" }, { type: "azure-native:apimanagement/v20210101preview:Tag" }, { type: "azure-native:apimanagement/v20210401preview:Tag" }, { type: "azure-native:apimanagement/v20210801:Tag" }, { type: "azure-native:apimanagement/v20211201preview:Tag" }, { type: "azure-native:apimanagement/v20220401preview:Tag" }, { type: "azure-native:apimanagement/v20220901preview:Tag" }, { type: "azure-native:apimanagement/v20230301preview:Tag" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Tag.__pulumiType, name, resourceInputs, opts);
     }

@@ -2,27 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210312preview from "./v20210312preview";
 import * as v20210615preview from "./v20210615preview";
-import * as v20210830preview from "./v20210830preview";
-import * as v20210910preview from "./v20210910preview";
-import * as v20220215 from "./v20220215";
-import * as v20220421 from "./v20220421";
-import * as v20220511 from "./v20220511";
-import * as v20220526 from "./v20220526";
 import * as v20220601 from "./v20220601";
 
 export {
-    v20210312preview,
     v20210615preview,
-    v20210830preview,
-    v20210910preview,
-    v20220215,
-    v20220421,
-    v20220511,
-    v20220526,
     v20220601,
 };
+
+export const CmkIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * Values can be SystemAssigned or UserAssigned
+ */
+export type CmkIdentityType = (typeof CmkIdentityType)[keyof typeof CmkIdentityType];
 
 export const ProvisioningState = {
     Succeeded: "Succeeded",
@@ -34,3 +30,25 @@ export const ProvisioningState = {
  * Provision states for FluidRelay RP
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const StorageSKU = {
+    Standard: "standard",
+    Basic: "basic",
+} as const;
+
+/**
+ * Sku of the storage associated with the resource
+ */
+export type StorageSKU = (typeof StorageSKU)[keyof typeof StorageSKU];

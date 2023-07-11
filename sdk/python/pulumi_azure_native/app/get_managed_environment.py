@@ -22,10 +22,13 @@ class GetManagedEnvironmentResult:
     """
     An environment for hosting container apps
     """
-    def __init__(__self__, app_logs_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, id=None, location=None, name=None, provisioning_state=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, zone_redundant=None):
+    def __init__(__self__, app_logs_configuration=None, custom_domain_configuration=None, dapr_ai_connection_string=None, dapr_ai_instrumentation_key=None, default_domain=None, deployment_errors=None, event_stream_endpoint=None, id=None, kind=None, location=None, name=None, provisioning_state=None, sku=None, static_ip=None, system_data=None, tags=None, type=None, vnet_configuration=None, workload_profiles=None, zone_redundant=None):
         if app_logs_configuration and not isinstance(app_logs_configuration, dict):
             raise TypeError("Expected argument 'app_logs_configuration' to be a dict")
         pulumi.set(__self__, "app_logs_configuration", app_logs_configuration)
+        if custom_domain_configuration and not isinstance(custom_domain_configuration, dict):
+            raise TypeError("Expected argument 'custom_domain_configuration' to be a dict")
+        pulumi.set(__self__, "custom_domain_configuration", custom_domain_configuration)
         if dapr_ai_connection_string and not isinstance(dapr_ai_connection_string, str):
             raise TypeError("Expected argument 'dapr_ai_connection_string' to be a str")
         pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
@@ -38,9 +41,15 @@ class GetManagedEnvironmentResult:
         if deployment_errors and not isinstance(deployment_errors, str):
             raise TypeError("Expected argument 'deployment_errors' to be a str")
         pulumi.set(__self__, "deployment_errors", deployment_errors)
+        if event_stream_endpoint and not isinstance(event_stream_endpoint, str):
+            raise TypeError("Expected argument 'event_stream_endpoint' to be a str")
+        pulumi.set(__self__, "event_stream_endpoint", event_stream_endpoint)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -50,6 +59,9 @@ class GetManagedEnvironmentResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if static_ip and not isinstance(static_ip, str):
             raise TypeError("Expected argument 'static_ip' to be a str")
         pulumi.set(__self__, "static_ip", static_ip)
@@ -65,6 +77,9 @@ class GetManagedEnvironmentResult:
         if vnet_configuration and not isinstance(vnet_configuration, dict):
             raise TypeError("Expected argument 'vnet_configuration' to be a dict")
         pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+        if workload_profiles and not isinstance(workload_profiles, list):
+            raise TypeError("Expected argument 'workload_profiles' to be a list")
+        pulumi.set(__self__, "workload_profiles", workload_profiles)
         if zone_redundant and not isinstance(zone_redundant, bool):
             raise TypeError("Expected argument 'zone_redundant' to be a bool")
         pulumi.set(__self__, "zone_redundant", zone_redundant)
@@ -78,6 +93,14 @@ class GetManagedEnvironmentResult:
         supported
         """
         return pulumi.get(self, "app_logs_configuration")
+
+    @property
+    @pulumi.getter(name="customDomainConfiguration")
+    def custom_domain_configuration(self) -> Optional['outputs.CustomDomainConfigurationResponse']:
+        """
+        Custom domain configuration for the environment
+        """
+        return pulumi.get(self, "custom_domain_configuration")
 
     @property
     @pulumi.getter(name="daprAIConnectionString")
@@ -112,12 +135,28 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "deployment_errors")
 
     @property
+    @pulumi.getter(name="eventStreamEndpoint")
+    def event_stream_endpoint(self) -> str:
+        """
+        The endpoint of the eventstream of the Environment.
+        """
+        return pulumi.get(self, "event_stream_endpoint")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of the Environment.
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -142,6 +181,14 @@ class GetManagedEnvironmentResult:
         Provisioning state of the Environment.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.EnvironmentSkuPropertiesResponse']:
+        """
+        SKU properties of the Environment.
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="staticIp")
@@ -184,6 +231,14 @@ class GetManagedEnvironmentResult:
         return pulumi.get(self, "vnet_configuration")
 
     @property
+    @pulumi.getter(name="workloadProfiles")
+    def workload_profiles(self) -> Optional[Sequence['outputs.WorkloadProfileResponse']]:
+        """
+        Workload profiles configured for the Managed Environment.
+        """
+        return pulumi.get(self, "workload_profiles")
+
+    @property
     @pulumi.getter(name="zoneRedundant")
     def zone_redundant(self) -> Optional[bool]:
         """
@@ -199,19 +254,24 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             yield self
         return GetManagedEnvironmentResult(
             app_logs_configuration=self.app_logs_configuration,
+            custom_domain_configuration=self.custom_domain_configuration,
             dapr_ai_connection_string=self.dapr_ai_connection_string,
             dapr_ai_instrumentation_key=self.dapr_ai_instrumentation_key,
             default_domain=self.default_domain,
             deployment_errors=self.deployment_errors,
+            event_stream_endpoint=self.event_stream_endpoint,
             id=self.id,
+            kind=self.kind,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            sku=self.sku,
             static_ip=self.static_ip,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             vnet_configuration=self.vnet_configuration,
+            workload_profiles=self.workload_profiles,
             zone_redundant=self.zone_redundant)
 
 
@@ -220,7 +280,7 @@ def get_managed_environment(environment_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentResult:
     """
     Get the properties of a Managed Environment used to host container apps.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str environment_name: Name of the Environment.
@@ -234,19 +294,24 @@ def get_managed_environment(environment_name: Optional[str] = None,
 
     return AwaitableGetManagedEnvironmentResult(
         app_logs_configuration=__ret__.app_logs_configuration,
+        custom_domain_configuration=__ret__.custom_domain_configuration,
         dapr_ai_connection_string=__ret__.dapr_ai_connection_string,
         dapr_ai_instrumentation_key=__ret__.dapr_ai_instrumentation_key,
         default_domain=__ret__.default_domain,
         deployment_errors=__ret__.deployment_errors,
+        event_stream_endpoint=__ret__.event_stream_endpoint,
         id=__ret__.id,
+        kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        sku=__ret__.sku,
         static_ip=__ret__.static_ip,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         vnet_configuration=__ret__.vnet_configuration,
+        workload_profiles=__ret__.workload_profiles,
         zone_redundant=__ret__.zone_redundant)
 
 
@@ -256,7 +321,7 @@ def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
     Get the properties of a Managed Environment used to host container apps.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str environment_name: Name of the Environment.

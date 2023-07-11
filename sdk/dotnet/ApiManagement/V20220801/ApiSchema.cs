@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// API Schema Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiSchema")]
     public partial class ApiSchema : global::Pulumi.CustomResource
     {
@@ -91,6 +90,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiSchema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiSchema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiSchema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiSchema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ApiSchema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

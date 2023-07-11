@@ -25,6 +25,7 @@ class ScheduledActionArgs:
                  file_destination: Optional[pulumi.Input['FileDestinationArgs']] = None,
                  kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 notification_email: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ScheduledAction resource.
@@ -33,10 +34,11 @@ class ScheduledActionArgs:
         :param pulumi.Input['SchedulePropertiesArgs'] schedule: Schedule of the scheduled action.
         :param pulumi.Input[Union[str, 'ScheduledActionStatus']] status: Status of the scheduled action.
         :param pulumi.Input[str] view_id: Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
-        :param pulumi.Input['FileDestinationArgs'] file_destination: Destination format of the view data.
+        :param pulumi.Input['FileDestinationArgs'] file_destination: Destination format of the view data. This is optional.
         :param pulumi.Input[Union[str, 'ScheduledActionKind']] kind: Kind of the scheduled action.
         :param pulumi.Input[str] name: Scheduled action name.
-        :param pulumi.Input[str] scope: Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        :param pulumi.Input[str] notification_email: Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        :param pulumi.Input[str] scope: For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "notification", notification)
@@ -49,6 +51,8 @@ class ScheduledActionArgs:
             pulumi.set(__self__, "kind", kind)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notification_email is not None:
+            pulumi.set(__self__, "notification_email", notification_email)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
 
@@ -116,7 +120,7 @@ class ScheduledActionArgs:
     @pulumi.getter(name="fileDestination")
     def file_destination(self) -> Optional[pulumi.Input['FileDestinationArgs']]:
         """
-        Destination format of the view data.
+        Destination format of the view data. This is optional.
         """
         return pulumi.get(self, "file_destination")
 
@@ -149,10 +153,22 @@ class ScheduledActionArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="notificationEmail")
+    def notification_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        """
+        return pulumi.get(self, "notification_email")
+
+    @notification_email.setter
+    def notification_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "notification_email", value)
+
+    @property
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input[str]]:
         """
-        Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
         return pulumi.get(self, "scope")
 
@@ -171,6 +187,7 @@ class ScheduledAction(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification: Optional[pulumi.Input[pulumi.InputType['NotificationPropertiesArgs']]] = None,
+                 notification_email: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
@@ -178,17 +195,18 @@ class ScheduledAction(pulumi.CustomResource):
                  __props__=None):
         """
         Scheduled action definition.
-        API Version: 2022-04-01-preview.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Scheduled action name.
-        :param pulumi.Input[pulumi.InputType['FileDestinationArgs']] file_destination: Destination format of the view data.
+        :param pulumi.Input[pulumi.InputType['FileDestinationArgs']] file_destination: Destination format of the view data. This is optional.
         :param pulumi.Input[Union[str, 'ScheduledActionKind']] kind: Kind of the scheduled action.
         :param pulumi.Input[str] name: Scheduled action name.
         :param pulumi.Input[pulumi.InputType['NotificationPropertiesArgs']] notification: Notification properties based on scheduled action kind.
+        :param pulumi.Input[str] notification_email: Email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']] schedule: Schedule of the scheduled action.
-        :param pulumi.Input[str] scope: Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        :param pulumi.Input[str] scope: For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input[Union[str, 'ScheduledActionStatus']] status: Status of the scheduled action.
         :param pulumi.Input[str] view_id: Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
         """
@@ -200,7 +218,7 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Scheduled action definition.
-        API Version: 2022-04-01-preview.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.
@@ -222,6 +240,7 @@ class ScheduledAction(pulumi.CustomResource):
                  kind: Optional[pulumi.Input[Union[str, 'ScheduledActionKind']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notification: Optional[pulumi.Input[pulumi.InputType['NotificationPropertiesArgs']]] = None,
+                 notification_email: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['SchedulePropertiesArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'ScheduledActionStatus']]] = None,
@@ -244,6 +263,7 @@ class ScheduledAction(pulumi.CustomResource):
             if notification is None and not opts.urn:
                 raise TypeError("Missing required property 'notification'")
             __props__.__dict__["notification"] = notification
+            __props__.__dict__["notification_email"] = notification_email
             if schedule is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule'")
             __props__.__dict__["schedule"] = schedule
@@ -257,7 +277,7 @@ class ScheduledAction(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20220401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20220601preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ScheduledAction")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20220401preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20220601preview:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:ScheduledAction"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:ScheduledAction")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ScheduledAction, __self__).__init__(
             'azure-native:costmanagement:ScheduledAction',
@@ -287,6 +307,7 @@ class ScheduledAction(pulumi.CustomResource):
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notification"] = None
+        __props__.__dict__["notification_email"] = None
         __props__.__dict__["schedule"] = None
         __props__.__dict__["scope"] = None
         __props__.__dict__["status"] = None
@@ -307,7 +328,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="eTag")
     def e_tag(self) -> pulumi.Output[str]:
         """
-        Resource Etag.
+        Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
         """
         return pulumi.get(self, "e_tag")
 
@@ -315,7 +336,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="fileDestination")
     def file_destination(self) -> pulumi.Output[Optional['outputs.FileDestinationResponse']]:
         """
-        Destination format of the view data.
+        Destination format of the view data. This is optional.
         """
         return pulumi.get(self, "file_destination")
 
@@ -331,7 +352,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -342,6 +363,14 @@ class ScheduledAction(pulumi.CustomResource):
         Notification properties based on scheduled action kind.
         """
         return pulumi.get(self, "notification")
+
+    @property
+    @pulumi.getter(name="notificationEmail")
+    def notification_email(self) -> pulumi.Output[Optional[str]]:
+        """
+        Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        """
+        return pulumi.get(self, "notification_email")
 
     @property
     @pulumi.getter
@@ -355,7 +384,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional[str]]:
         """
-        Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         """
         return pulumi.get(self, "scope")
 
@@ -371,7 +400,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        Kind of the scheduled action.
         """
         return pulumi.get(self, "system_data")
 
@@ -379,7 +408,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

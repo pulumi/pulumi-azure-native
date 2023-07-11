@@ -33,9 +33,9 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly object? Query;
         /// <summary>
-        /// The read behavior for the operation. Default is Query.
+        /// The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         /// </summary>
-        public readonly string? ReadBehavior;
+        public readonly object? ReadBehavior;
         /// <summary>
         /// Source retry count. Type: integer (or Expression with resultType integer).
         /// </summary>
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             object? query,
 
-            string? readBehavior,
+            object? readBehavior,
 
             object? sourceRetryCount,
 

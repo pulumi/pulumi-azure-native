@@ -11,22 +11,22 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Settings with single toggle.
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:EntityAnalytics")]
     public partial class EntityAnalytics : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The relevant entity providers that are synced
+        /// </summary>
+        [Output("entityProviders")]
+        public Output<ImmutableArray<string>> EntityProviders { get; private set; } = null!;
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Determines whether the setting is enable or disabled.
-        /// </summary>
-        [Output("isEnabled")]
-        public Output<bool> IsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the setting
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -100,7 +100,10 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:EntityAnalytics"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:EntityAnalytics"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:EntityAnalytics"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:EntityAnalytics"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:EntityAnalytics"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -124,18 +127,24 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class EntityAnalyticsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("entityProviders")]
+        private InputList<Union<string, Pulumi.AzureNative.SecurityInsights.EntityProviders>>? _entityProviders;
+
+        /// <summary>
+        /// The relevant entity providers that are synced
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.SecurityInsights.EntityProviders>> EntityProviders
+        {
+            get => _entityProviders ?? (_entityProviders = new InputList<Union<string, Pulumi.AzureNative.SecurityInsights.EntityProviders>>());
+            set => _entityProviders = value;
+        }
+
         /// <summary>
         /// The kind of the setting
         /// Expected value is 'EntityAnalytics'.
         /// </summary>
         [Input("kind", required: true)]
         public Input<string> Kind { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

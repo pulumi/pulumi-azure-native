@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// List of user session identifier group by clauses.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GroupByUserSessionResponse> GroupByUserSession;
+        /// <summary>
         /// List of match conditions.
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchConditionResponse> MatchConditions;
@@ -37,9 +41,21 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
+        /// Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        /// </summary>
+        public readonly string? RateLimitDuration;
+        /// <summary>
+        /// Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
+        /// </summary>
+        public readonly int? RateLimitThreshold;
+        /// <summary>
         /// The rule type.
         /// </summary>
         public readonly string RuleType;
+        /// <summary>
+        /// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        /// </summary>
+        public readonly string? State;
 
         [OutputConstructor]
         private WebApplicationFirewallCustomRuleResponse(
@@ -47,20 +63,32 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string etag,
 
+            ImmutableArray<Outputs.GroupByUserSessionResponse> groupByUserSession,
+
             ImmutableArray<Outputs.MatchConditionResponse> matchConditions,
 
             string? name,
 
             int priority,
 
-            string ruleType)
+            string? rateLimitDuration,
+
+            int? rateLimitThreshold,
+
+            string ruleType,
+
+            string? state)
         {
             Action = action;
             Etag = etag;
+            GroupByUserSession = groupByUserSession;
             MatchConditions = matchConditions;
             Name = name;
             Priority = priority;
+            RateLimitDuration = rateLimitDuration;
+            RateLimitThreshold = rateLimitThreshold;
             RuleType = ruleType;
+            State = state;
         }
     }
 }

@@ -20,9 +20,12 @@ __all__ = [
 @pulumi.output_type
 class GetDedicatedHostGroupResult:
     """
-    Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     """
-    def __init__(__self__, hosts=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, hosts=None, id=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
+        if additional_capabilities and not isinstance(additional_capabilities, dict):
+            raise TypeError("Expected argument 'additional_capabilities' to be a dict")
+        pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if hosts and not isinstance(hosts, list):
             raise TypeError("Expected argument 'hosts' to be a list")
         pulumi.set(__self__, "hosts", hosts)
@@ -53,6 +56,14 @@ class GetDedicatedHostGroupResult:
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional['outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities']:
+        """
+        Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        """
+        return pulumi.get(self, "additional_capabilities")
 
     @property
     @pulumi.getter
@@ -106,7 +117,7 @@ class GetDedicatedHostGroupResult:
     @pulumi.getter(name="supportAutomaticPlacement")
     def support_automatic_placement(self) -> Optional[bool]:
         """
-        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "support_automatic_placement")
 
@@ -141,6 +152,7 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
         if False:
             yield self
         return GetDedicatedHostGroupResult(
+            additional_capabilities=self.additional_capabilities,
             hosts=self.hosts,
             id=self.id,
             instance_view=self.instance_view,
@@ -159,10 +171,10 @@ def get_dedicated_host_group(expand: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedHostGroupResult:
     """
     Retrieves information about a dedicated host group.
-    API Version: 2020-12-01.
+    Azure REST API version: 2023-03-01.
 
 
-    :param str expand: The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """
@@ -174,6 +186,7 @@ def get_dedicated_host_group(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult).value
 
     return AwaitableGetDedicatedHostGroupResult(
+        additional_capabilities=__ret__.additional_capabilities,
         hosts=__ret__.hosts,
         id=__ret__.id,
         instance_view=__ret__.instance_view,
@@ -193,10 +206,10 @@ def get_dedicated_host_group_output(expand: Optional[pulumi.Input[Optional[str]]
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedHostGroupResult]:
     """
     Retrieves information about a dedicated host group.
-    API Version: 2020-12-01.
+    Azure REST API version: 2023-03-01.
 
 
-    :param str expand: The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+    :param str expand: The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
     :param str host_group_name: The name of the dedicated host group.
     :param str resource_group_name: The name of the resource group.
     """

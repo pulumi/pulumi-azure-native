@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network security user rule.
-    /// API Version: 2021-02-01-preview.
+    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:UserRule")]
     public partial class UserRule : global::Pulumi.CustomResource
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("direction")]
         public Output<string> Direction { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -161,7 +155,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class UserRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -201,12 +195,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("direction", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Network.SecurityConfigurationRuleDirection> Direction { get; set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// Whether the rule is custom or default.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
-        /// API Version: 2020-09-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetPolicyAssignmentResult> InvokeAsync(GetPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyAssignmentResult>("azure-native:authorization:getPolicyAssignment", args ?? new GetPolicyAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves a single policy assignment, given its name and the scope it was created at.
-        /// API Version: 2020-09-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetPolicyAssignmentResult> Invoke(GetPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssignmentResult>("azure-native:authorization:getPolicyAssignment", args ?? new GetPolicyAssignmentInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<string> NotScopes;
         /// <summary>
+        /// The policy property value override.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OverrideResponse> Overrides;
+        /// <summary>
         /// The parameter values for the assigned policy rule. The keys are the parameter names.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? Parameters;
@@ -120,9 +124,17 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? PolicyDefinitionId;
         /// <summary>
+        /// The resource selector list to filter policies by resource properties.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceSelectorResponse> ResourceSelectors;
+        /// <summary>
         /// The scope for the policy assignment.
         /// </summary>
         public readonly string Scope;
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the policy assignment.
         /// </summary>
@@ -150,11 +162,17 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<string> notScopes,
 
+            ImmutableArray<Outputs.OverrideResponse> overrides,
+
             ImmutableDictionary<string, Outputs.ParameterValuesValueResponse>? parameters,
 
             string? policyDefinitionId,
 
+            ImmutableArray<Outputs.ResourceSelectorResponse> resourceSelectors,
+
             string scope,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -168,9 +186,12 @@ namespace Pulumi.AzureNative.Authorization
             Name = name;
             NonComplianceMessages = nonComplianceMessages;
             NotScopes = notScopes;
+            Overrides = overrides;
             Parameters = parameters;
             PolicyDefinitionId = policyDefinitionId;
+            ResourceSelectors = resourceSelectors;
             Scope = scope;
+            SystemData = systemData;
             Type = type;
         }
     }

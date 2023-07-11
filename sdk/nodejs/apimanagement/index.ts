@@ -15,11 +15,6 @@ export type ApiDiagnostic = import("./apiDiagnostic").ApiDiagnostic;
 export const ApiDiagnostic: typeof import("./apiDiagnostic").ApiDiagnostic = null as any;
 utilities.lazyLoad(exports, ["ApiDiagnostic"], () => require("./apiDiagnostic"));
 
-export { ApiDiagnosticLoggerArgs } from "./apiDiagnosticLogger";
-export type ApiDiagnosticLogger = import("./apiDiagnosticLogger").ApiDiagnosticLogger;
-export const ApiDiagnosticLogger: typeof import("./apiDiagnosticLogger").ApiDiagnosticLogger = null as any;
-utilities.lazyLoad(exports, ["ApiDiagnosticLogger"], () => require("./apiDiagnosticLogger"));
-
 export { ApiIssueArgs } from "./apiIssue";
 export type ApiIssue = import("./apiIssue").ApiIssue;
 export const ApiIssue: typeof import("./apiIssue").ApiIssue = null as any;
@@ -75,6 +70,26 @@ export type ApiVersionSet = import("./apiVersionSet").ApiVersionSet;
 export const ApiVersionSet: typeof import("./apiVersionSet").ApiVersionSet = null as any;
 utilities.lazyLoad(exports, ["ApiVersionSet"], () => require("./apiVersionSet"));
 
+export { ApiWikiArgs } from "./apiWiki";
+export type ApiWiki = import("./apiWiki").ApiWiki;
+export const ApiWiki: typeof import("./apiWiki").ApiWiki = null as any;
+utilities.lazyLoad(exports, ["ApiWiki"], () => require("./apiWiki"));
+
+export { AuthorizationArgs } from "./authorization";
+export type Authorization = import("./authorization").Authorization;
+export const Authorization: typeof import("./authorization").Authorization = null as any;
+utilities.lazyLoad(exports, ["Authorization"], () => require("./authorization"));
+
+export { AuthorizationAccessPolicyArgs } from "./authorizationAccessPolicy";
+export type AuthorizationAccessPolicy = import("./authorizationAccessPolicy").AuthorizationAccessPolicy;
+export const AuthorizationAccessPolicy: typeof import("./authorizationAccessPolicy").AuthorizationAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AuthorizationAccessPolicy"], () => require("./authorizationAccessPolicy"));
+
+export { AuthorizationProviderArgs } from "./authorizationProvider";
+export type AuthorizationProvider = import("./authorizationProvider").AuthorizationProvider;
+export const AuthorizationProvider: typeof import("./authorizationProvider").AuthorizationProvider = null as any;
+utilities.lazyLoad(exports, ["AuthorizationProvider"], () => require("./authorizationProvider"));
+
 export { AuthorizationServerArgs } from "./authorizationServer";
 export type AuthorizationServer = import("./authorizationServer").AuthorizationServer;
 export const AuthorizationServer: typeof import("./authorizationServer").AuthorizationServer = null as any;
@@ -110,10 +125,10 @@ export type Diagnostic = import("./diagnostic").Diagnostic;
 export const Diagnostic: typeof import("./diagnostic").Diagnostic = null as any;
 utilities.lazyLoad(exports, ["Diagnostic"], () => require("./diagnostic"));
 
-export { DiagnosticLoggerArgs } from "./diagnosticLogger";
-export type DiagnosticLogger = import("./diagnosticLogger").DiagnosticLogger;
-export const DiagnosticLogger: typeof import("./diagnosticLogger").DiagnosticLogger = null as any;
-utilities.lazyLoad(exports, ["DiagnosticLogger"], () => require("./diagnosticLogger"));
+export { DocumentationArgs } from "./documentation";
+export type Documentation = import("./documentation").Documentation;
+export const Documentation: typeof import("./documentation").Documentation = null as any;
+utilities.lazyLoad(exports, ["Documentation"], () => require("./documentation"));
 
 export { EmailTemplateArgs } from "./emailTemplate";
 export type EmailTemplate = import("./emailTemplate").EmailTemplate;
@@ -214,6 +229,31 @@ export const getApiVersionSet: typeof import("./getApiVersionSet").getApiVersion
 export const getApiVersionSetOutput: typeof import("./getApiVersionSet").getApiVersionSetOutput = null as any;
 utilities.lazyLoad(exports, ["getApiVersionSet","getApiVersionSetOutput"], () => require("./getApiVersionSet"));
 
+export { GetApiWikiArgs, GetApiWikiResult, GetApiWikiOutputArgs } from "./getApiWiki";
+export const getApiWiki: typeof import("./getApiWiki").getApiWiki = null as any;
+export const getApiWikiOutput: typeof import("./getApiWiki").getApiWikiOutput = null as any;
+utilities.lazyLoad(exports, ["getApiWiki","getApiWikiOutput"], () => require("./getApiWiki"));
+
+export { GetAuthorizationArgs, GetAuthorizationResult, GetAuthorizationOutputArgs } from "./getAuthorization";
+export const getAuthorization: typeof import("./getAuthorization").getAuthorization = null as any;
+export const getAuthorizationOutput: typeof import("./getAuthorization").getAuthorizationOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorization","getAuthorizationOutput"], () => require("./getAuthorization"));
+
+export { GetAuthorizationAccessPolicyArgs, GetAuthorizationAccessPolicyResult, GetAuthorizationAccessPolicyOutputArgs } from "./getAuthorizationAccessPolicy";
+export const getAuthorizationAccessPolicy: typeof import("./getAuthorizationAccessPolicy").getAuthorizationAccessPolicy = null as any;
+export const getAuthorizationAccessPolicyOutput: typeof import("./getAuthorizationAccessPolicy").getAuthorizationAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationAccessPolicy","getAuthorizationAccessPolicyOutput"], () => require("./getAuthorizationAccessPolicy"));
+
+export { GetAuthorizationLoginLinkPostArgs, GetAuthorizationLoginLinkPostResult, GetAuthorizationLoginLinkPostOutputArgs } from "./getAuthorizationLoginLinkPost";
+export const getAuthorizationLoginLinkPost: typeof import("./getAuthorizationLoginLinkPost").getAuthorizationLoginLinkPost = null as any;
+export const getAuthorizationLoginLinkPostOutput: typeof import("./getAuthorizationLoginLinkPost").getAuthorizationLoginLinkPostOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationLoginLinkPost","getAuthorizationLoginLinkPostOutput"], () => require("./getAuthorizationLoginLinkPost"));
+
+export { GetAuthorizationProviderArgs, GetAuthorizationProviderResult, GetAuthorizationProviderOutputArgs } from "./getAuthorizationProvider";
+export const getAuthorizationProvider: typeof import("./getAuthorizationProvider").getAuthorizationProvider = null as any;
+export const getAuthorizationProviderOutput: typeof import("./getAuthorizationProvider").getAuthorizationProviderOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthorizationProvider","getAuthorizationProviderOutput"], () => require("./getAuthorizationProvider"));
+
 export { GetAuthorizationServerArgs, GetAuthorizationServerResult, GetAuthorizationServerOutputArgs } from "./getAuthorizationServer";
 export const getAuthorizationServer: typeof import("./getAuthorizationServer").getAuthorizationServer = null as any;
 export const getAuthorizationServerOutput: typeof import("./getAuthorizationServer").getAuthorizationServerOutput = null as any;
@@ -249,6 +289,11 @@ export const getDiagnostic: typeof import("./getDiagnostic").getDiagnostic = nul
 export const getDiagnosticOutput: typeof import("./getDiagnostic").getDiagnosticOutput = null as any;
 utilities.lazyLoad(exports, ["getDiagnostic","getDiagnosticOutput"], () => require("./getDiagnostic"));
 
+export { GetDocumentationArgs, GetDocumentationResult, GetDocumentationOutputArgs } from "./getDocumentation";
+export const getDocumentation: typeof import("./getDocumentation").getDocumentation = null as any;
+export const getDocumentationOutput: typeof import("./getDocumentation").getDocumentationOutput = null as any;
+utilities.lazyLoad(exports, ["getDocumentation","getDocumentationOutput"], () => require("./getDocumentation"));
+
 export { GetEmailTemplateArgs, GetEmailTemplateResult, GetEmailTemplateOutputArgs } from "./getEmailTemplate";
 export const getEmailTemplate: typeof import("./getEmailTemplate").getEmailTemplate = null as any;
 export const getEmailTemplateOutput: typeof import("./getEmailTemplate").getEmailTemplateOutput = null as any;
@@ -268,6 +313,21 @@ export { GetGatewayHostnameConfigurationArgs, GetGatewayHostnameConfigurationRes
 export const getGatewayHostnameConfiguration: typeof import("./getGatewayHostnameConfiguration").getGatewayHostnameConfiguration = null as any;
 export const getGatewayHostnameConfigurationOutput: typeof import("./getGatewayHostnameConfiguration").getGatewayHostnameConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getGatewayHostnameConfiguration","getGatewayHostnameConfigurationOutput"], () => require("./getGatewayHostnameConfiguration"));
+
+export { GetGlobalSchemaArgs, GetGlobalSchemaResult, GetGlobalSchemaOutputArgs } from "./getGlobalSchema";
+export const getGlobalSchema: typeof import("./getGlobalSchema").getGlobalSchema = null as any;
+export const getGlobalSchemaOutput: typeof import("./getGlobalSchema").getGlobalSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getGlobalSchema","getGlobalSchemaOutput"], () => require("./getGlobalSchema"));
+
+export { GetGraphQLApiResolverArgs, GetGraphQLApiResolverResult, GetGraphQLApiResolverOutputArgs } from "./getGraphQLApiResolver";
+export const getGraphQLApiResolver: typeof import("./getGraphQLApiResolver").getGraphQLApiResolver = null as any;
+export const getGraphQLApiResolverOutput: typeof import("./getGraphQLApiResolver").getGraphQLApiResolverOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQLApiResolver","getGraphQLApiResolverOutput"], () => require("./getGraphQLApiResolver"));
+
+export { GetGraphQLApiResolverPolicyArgs, GetGraphQLApiResolverPolicyResult, GetGraphQLApiResolverPolicyOutputArgs } from "./getGraphQLApiResolverPolicy";
+export const getGraphQLApiResolverPolicy: typeof import("./getGraphQLApiResolverPolicy").getGraphQLApiResolverPolicy = null as any;
+export const getGraphQLApiResolverPolicyOutput: typeof import("./getGraphQLApiResolverPolicy").getGraphQLApiResolverPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getGraphQLApiResolverPolicy","getGraphQLApiResolverPolicyOutput"], () => require("./getGraphQLApiResolverPolicy"));
 
 export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
 export const getGroup: typeof import("./getGroup").getGroup = null as any;
@@ -314,15 +374,25 @@ export const getProduct: typeof import("./getProduct").getProduct = null as any;
 export const getProductOutput: typeof import("./getProduct").getProductOutput = null as any;
 utilities.lazyLoad(exports, ["getProduct","getProductOutput"], () => require("./getProduct"));
 
+export { GetProductApiLinkArgs, GetProductApiLinkResult, GetProductApiLinkOutputArgs } from "./getProductApiLink";
+export const getProductApiLink: typeof import("./getProductApiLink").getProductApiLink = null as any;
+export const getProductApiLinkOutput: typeof import("./getProductApiLink").getProductApiLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getProductApiLink","getProductApiLinkOutput"], () => require("./getProductApiLink"));
+
+export { GetProductGroupLinkArgs, GetProductGroupLinkResult, GetProductGroupLinkOutputArgs } from "./getProductGroupLink";
+export const getProductGroupLink: typeof import("./getProductGroupLink").getProductGroupLink = null as any;
+export const getProductGroupLinkOutput: typeof import("./getProductGroupLink").getProductGroupLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getProductGroupLink","getProductGroupLinkOutput"], () => require("./getProductGroupLink"));
+
 export { GetProductPolicyArgs, GetProductPolicyResult, GetProductPolicyOutputArgs } from "./getProductPolicy";
 export const getProductPolicy: typeof import("./getProductPolicy").getProductPolicy = null as any;
 export const getProductPolicyOutput: typeof import("./getProductPolicy").getProductPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getProductPolicy","getProductPolicyOutput"], () => require("./getProductPolicy"));
 
-export { GetPropertyArgs, GetPropertyResult, GetPropertyOutputArgs } from "./getProperty";
-export const getProperty: typeof import("./getProperty").getProperty = null as any;
-export const getPropertyOutput: typeof import("./getProperty").getPropertyOutput = null as any;
-utilities.lazyLoad(exports, ["getProperty","getPropertyOutput"], () => require("./getProperty"));
+export { GetProductWikiArgs, GetProductWikiResult, GetProductWikiOutputArgs } from "./getProductWiki";
+export const getProductWiki: typeof import("./getProductWiki").getProductWiki = null as any;
+export const getProductWikiOutput: typeof import("./getProductWiki").getProductWikiOutput = null as any;
+utilities.lazyLoad(exports, ["getProductWiki","getProductWikiOutput"], () => require("./getProductWiki"));
 
 export { GetSchemaArgs, GetSchemaResult, GetSchemaOutputArgs } from "./getSchema";
 export const getSchema: typeof import("./getSchema").getSchema = null as any;
@@ -339,6 +409,11 @@ export const getTag: typeof import("./getTag").getTag = null as any;
 export const getTagOutput: typeof import("./getTag").getTagOutput = null as any;
 utilities.lazyLoad(exports, ["getTag","getTagOutput"], () => require("./getTag"));
 
+export { GetTagApiLinkArgs, GetTagApiLinkResult, GetTagApiLinkOutputArgs } from "./getTagApiLink";
+export const getTagApiLink: typeof import("./getTagApiLink").getTagApiLink = null as any;
+export const getTagApiLinkOutput: typeof import("./getTagApiLink").getTagApiLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getTagApiLink","getTagApiLinkOutput"], () => require("./getTagApiLink"));
+
 export { GetTagByApiArgs, GetTagByApiResult, GetTagByApiOutputArgs } from "./getTagByApi";
 export const getTagByApi: typeof import("./getTagByApi").getTagByApi = null as any;
 export const getTagByApiOutput: typeof import("./getTagByApi").getTagByApiOutput = null as any;
@@ -354,6 +429,16 @@ export const getTagByProduct: typeof import("./getTagByProduct").getTagByProduct
 export const getTagByProductOutput: typeof import("./getTagByProduct").getTagByProductOutput = null as any;
 utilities.lazyLoad(exports, ["getTagByProduct","getTagByProductOutput"], () => require("./getTagByProduct"));
 
+export { GetTagOperationLinkArgs, GetTagOperationLinkResult, GetTagOperationLinkOutputArgs } from "./getTagOperationLink";
+export const getTagOperationLink: typeof import("./getTagOperationLink").getTagOperationLink = null as any;
+export const getTagOperationLinkOutput: typeof import("./getTagOperationLink").getTagOperationLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getTagOperationLink","getTagOperationLinkOutput"], () => require("./getTagOperationLink"));
+
+export { GetTagProductLinkArgs, GetTagProductLinkResult, GetTagProductLinkOutputArgs } from "./getTagProductLink";
+export const getTagProductLink: typeof import("./getTagProductLink").getTagProductLink = null as any;
+export const getTagProductLinkOutput: typeof import("./getTagProductLink").getTagProductLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getTagProductLink","getTagProductLinkOutput"], () => require("./getTagProductLink"));
+
 export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
@@ -363,6 +448,131 @@ export { GetUserSharedAccessTokenArgs, GetUserSharedAccessTokenResult, GetUserSh
 export const getUserSharedAccessToken: typeof import("./getUserSharedAccessToken").getUserSharedAccessToken = null as any;
 export const getUserSharedAccessTokenOutput: typeof import("./getUserSharedAccessToken").getUserSharedAccessTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getUserSharedAccessToken","getUserSharedAccessTokenOutput"], () => require("./getUserSharedAccessToken"));
+
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
+export { GetWorkspaceApiArgs, GetWorkspaceApiResult, GetWorkspaceApiOutputArgs } from "./getWorkspaceApi";
+export const getWorkspaceApi: typeof import("./getWorkspaceApi").getWorkspaceApi = null as any;
+export const getWorkspaceApiOutput: typeof import("./getWorkspaceApi").getWorkspaceApiOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApi","getWorkspaceApiOutput"], () => require("./getWorkspaceApi"));
+
+export { GetWorkspaceApiOperationArgs, GetWorkspaceApiOperationResult, GetWorkspaceApiOperationOutputArgs } from "./getWorkspaceApiOperation";
+export const getWorkspaceApiOperation: typeof import("./getWorkspaceApiOperation").getWorkspaceApiOperation = null as any;
+export const getWorkspaceApiOperationOutput: typeof import("./getWorkspaceApiOperation").getWorkspaceApiOperationOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiOperation","getWorkspaceApiOperationOutput"], () => require("./getWorkspaceApiOperation"));
+
+export { GetWorkspaceApiOperationPolicyArgs, GetWorkspaceApiOperationPolicyResult, GetWorkspaceApiOperationPolicyOutputArgs } from "./getWorkspaceApiOperationPolicy";
+export const getWorkspaceApiOperationPolicy: typeof import("./getWorkspaceApiOperationPolicy").getWorkspaceApiOperationPolicy = null as any;
+export const getWorkspaceApiOperationPolicyOutput: typeof import("./getWorkspaceApiOperationPolicy").getWorkspaceApiOperationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiOperationPolicy","getWorkspaceApiOperationPolicyOutput"], () => require("./getWorkspaceApiOperationPolicy"));
+
+export { GetWorkspaceApiPolicyArgs, GetWorkspaceApiPolicyResult, GetWorkspaceApiPolicyOutputArgs } from "./getWorkspaceApiPolicy";
+export const getWorkspaceApiPolicy: typeof import("./getWorkspaceApiPolicy").getWorkspaceApiPolicy = null as any;
+export const getWorkspaceApiPolicyOutput: typeof import("./getWorkspaceApiPolicy").getWorkspaceApiPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiPolicy","getWorkspaceApiPolicyOutput"], () => require("./getWorkspaceApiPolicy"));
+
+export { GetWorkspaceApiReleaseArgs, GetWorkspaceApiReleaseResult, GetWorkspaceApiReleaseOutputArgs } from "./getWorkspaceApiRelease";
+export const getWorkspaceApiRelease: typeof import("./getWorkspaceApiRelease").getWorkspaceApiRelease = null as any;
+export const getWorkspaceApiReleaseOutput: typeof import("./getWorkspaceApiRelease").getWorkspaceApiReleaseOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiRelease","getWorkspaceApiReleaseOutput"], () => require("./getWorkspaceApiRelease"));
+
+export { GetWorkspaceApiSchemaArgs, GetWorkspaceApiSchemaResult, GetWorkspaceApiSchemaOutputArgs } from "./getWorkspaceApiSchema";
+export const getWorkspaceApiSchema: typeof import("./getWorkspaceApiSchema").getWorkspaceApiSchema = null as any;
+export const getWorkspaceApiSchemaOutput: typeof import("./getWorkspaceApiSchema").getWorkspaceApiSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiSchema","getWorkspaceApiSchemaOutput"], () => require("./getWorkspaceApiSchema"));
+
+export { GetWorkspaceApiVersionSetArgs, GetWorkspaceApiVersionSetResult, GetWorkspaceApiVersionSetOutputArgs } from "./getWorkspaceApiVersionSet";
+export const getWorkspaceApiVersionSet: typeof import("./getWorkspaceApiVersionSet").getWorkspaceApiVersionSet = null as any;
+export const getWorkspaceApiVersionSetOutput: typeof import("./getWorkspaceApiVersionSet").getWorkspaceApiVersionSetOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceApiVersionSet","getWorkspaceApiVersionSetOutput"], () => require("./getWorkspaceApiVersionSet"));
+
+export { GetWorkspaceGlobalSchemaArgs, GetWorkspaceGlobalSchemaResult, GetWorkspaceGlobalSchemaOutputArgs } from "./getWorkspaceGlobalSchema";
+export const getWorkspaceGlobalSchema: typeof import("./getWorkspaceGlobalSchema").getWorkspaceGlobalSchema = null as any;
+export const getWorkspaceGlobalSchemaOutput: typeof import("./getWorkspaceGlobalSchema").getWorkspaceGlobalSchemaOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceGlobalSchema","getWorkspaceGlobalSchemaOutput"], () => require("./getWorkspaceGlobalSchema"));
+
+export { GetWorkspaceGroupArgs, GetWorkspaceGroupResult, GetWorkspaceGroupOutputArgs } from "./getWorkspaceGroup";
+export const getWorkspaceGroup: typeof import("./getWorkspaceGroup").getWorkspaceGroup = null as any;
+export const getWorkspaceGroupOutput: typeof import("./getWorkspaceGroup").getWorkspaceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceGroup","getWorkspaceGroupOutput"], () => require("./getWorkspaceGroup"));
+
+export { GetWorkspaceNamedValueArgs, GetWorkspaceNamedValueResult, GetWorkspaceNamedValueOutputArgs } from "./getWorkspaceNamedValue";
+export const getWorkspaceNamedValue: typeof import("./getWorkspaceNamedValue").getWorkspaceNamedValue = null as any;
+export const getWorkspaceNamedValueOutput: typeof import("./getWorkspaceNamedValue").getWorkspaceNamedValueOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceNamedValue","getWorkspaceNamedValueOutput"], () => require("./getWorkspaceNamedValue"));
+
+export { GetWorkspacePolicyArgs, GetWorkspacePolicyResult, GetWorkspacePolicyOutputArgs } from "./getWorkspacePolicy";
+export const getWorkspacePolicy: typeof import("./getWorkspacePolicy").getWorkspacePolicy = null as any;
+export const getWorkspacePolicyOutput: typeof import("./getWorkspacePolicy").getWorkspacePolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspacePolicy","getWorkspacePolicyOutput"], () => require("./getWorkspacePolicy"));
+
+export { GetWorkspacePolicyFragmentArgs, GetWorkspacePolicyFragmentResult, GetWorkspacePolicyFragmentOutputArgs } from "./getWorkspacePolicyFragment";
+export const getWorkspacePolicyFragment: typeof import("./getWorkspacePolicyFragment").getWorkspacePolicyFragment = null as any;
+export const getWorkspacePolicyFragmentOutput: typeof import("./getWorkspacePolicyFragment").getWorkspacePolicyFragmentOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspacePolicyFragment","getWorkspacePolicyFragmentOutput"], () => require("./getWorkspacePolicyFragment"));
+
+export { GetWorkspaceProductArgs, GetWorkspaceProductResult, GetWorkspaceProductOutputArgs } from "./getWorkspaceProduct";
+export const getWorkspaceProduct: typeof import("./getWorkspaceProduct").getWorkspaceProduct = null as any;
+export const getWorkspaceProductOutput: typeof import("./getWorkspaceProduct").getWorkspaceProductOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceProduct","getWorkspaceProductOutput"], () => require("./getWorkspaceProduct"));
+
+export { GetWorkspaceProductApiLinkArgs, GetWorkspaceProductApiLinkResult, GetWorkspaceProductApiLinkOutputArgs } from "./getWorkspaceProductApiLink";
+export const getWorkspaceProductApiLink: typeof import("./getWorkspaceProductApiLink").getWorkspaceProductApiLink = null as any;
+export const getWorkspaceProductApiLinkOutput: typeof import("./getWorkspaceProductApiLink").getWorkspaceProductApiLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceProductApiLink","getWorkspaceProductApiLinkOutput"], () => require("./getWorkspaceProductApiLink"));
+
+export { GetWorkspaceProductGroupLinkArgs, GetWorkspaceProductGroupLinkResult, GetWorkspaceProductGroupLinkOutputArgs } from "./getWorkspaceProductGroupLink";
+export const getWorkspaceProductGroupLink: typeof import("./getWorkspaceProductGroupLink").getWorkspaceProductGroupLink = null as any;
+export const getWorkspaceProductGroupLinkOutput: typeof import("./getWorkspaceProductGroupLink").getWorkspaceProductGroupLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceProductGroupLink","getWorkspaceProductGroupLinkOutput"], () => require("./getWorkspaceProductGroupLink"));
+
+export { GetWorkspaceProductPolicyArgs, GetWorkspaceProductPolicyResult, GetWorkspaceProductPolicyOutputArgs } from "./getWorkspaceProductPolicy";
+export const getWorkspaceProductPolicy: typeof import("./getWorkspaceProductPolicy").getWorkspaceProductPolicy = null as any;
+export const getWorkspaceProductPolicyOutput: typeof import("./getWorkspaceProductPolicy").getWorkspaceProductPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceProductPolicy","getWorkspaceProductPolicyOutput"], () => require("./getWorkspaceProductPolicy"));
+
+export { GetWorkspaceSubscriptionArgs, GetWorkspaceSubscriptionResult, GetWorkspaceSubscriptionOutputArgs } from "./getWorkspaceSubscription";
+export const getWorkspaceSubscription: typeof import("./getWorkspaceSubscription").getWorkspaceSubscription = null as any;
+export const getWorkspaceSubscriptionOutput: typeof import("./getWorkspaceSubscription").getWorkspaceSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceSubscription","getWorkspaceSubscriptionOutput"], () => require("./getWorkspaceSubscription"));
+
+export { GetWorkspaceTagArgs, GetWorkspaceTagResult, GetWorkspaceTagOutputArgs } from "./getWorkspaceTag";
+export const getWorkspaceTag: typeof import("./getWorkspaceTag").getWorkspaceTag = null as any;
+export const getWorkspaceTagOutput: typeof import("./getWorkspaceTag").getWorkspaceTagOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceTag","getWorkspaceTagOutput"], () => require("./getWorkspaceTag"));
+
+export { GetWorkspaceTagApiLinkArgs, GetWorkspaceTagApiLinkResult, GetWorkspaceTagApiLinkOutputArgs } from "./getWorkspaceTagApiLink";
+export const getWorkspaceTagApiLink: typeof import("./getWorkspaceTagApiLink").getWorkspaceTagApiLink = null as any;
+export const getWorkspaceTagApiLinkOutput: typeof import("./getWorkspaceTagApiLink").getWorkspaceTagApiLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceTagApiLink","getWorkspaceTagApiLinkOutput"], () => require("./getWorkspaceTagApiLink"));
+
+export { GetWorkspaceTagOperationLinkArgs, GetWorkspaceTagOperationLinkResult, GetWorkspaceTagOperationLinkOutputArgs } from "./getWorkspaceTagOperationLink";
+export const getWorkspaceTagOperationLink: typeof import("./getWorkspaceTagOperationLink").getWorkspaceTagOperationLink = null as any;
+export const getWorkspaceTagOperationLinkOutput: typeof import("./getWorkspaceTagOperationLink").getWorkspaceTagOperationLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceTagOperationLink","getWorkspaceTagOperationLinkOutput"], () => require("./getWorkspaceTagOperationLink"));
+
+export { GetWorkspaceTagProductLinkArgs, GetWorkspaceTagProductLinkResult, GetWorkspaceTagProductLinkOutputArgs } from "./getWorkspaceTagProductLink";
+export const getWorkspaceTagProductLink: typeof import("./getWorkspaceTagProductLink").getWorkspaceTagProductLink = null as any;
+export const getWorkspaceTagProductLinkOutput: typeof import("./getWorkspaceTagProductLink").getWorkspaceTagProductLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceTagProductLink","getWorkspaceTagProductLinkOutput"], () => require("./getWorkspaceTagProductLink"));
+
+export { GlobalSchemaArgs } from "./globalSchema";
+export type GlobalSchema = import("./globalSchema").GlobalSchema;
+export const GlobalSchema: typeof import("./globalSchema").GlobalSchema = null as any;
+utilities.lazyLoad(exports, ["GlobalSchema"], () => require("./globalSchema"));
+
+export { GraphQLApiResolverArgs } from "./graphQLApiResolver";
+export type GraphQLApiResolver = import("./graphQLApiResolver").GraphQLApiResolver;
+export const GraphQLApiResolver: typeof import("./graphQLApiResolver").GraphQLApiResolver = null as any;
+utilities.lazyLoad(exports, ["GraphQLApiResolver"], () => require("./graphQLApiResolver"));
+
+export { GraphQLApiResolverPolicyArgs } from "./graphQLApiResolverPolicy";
+export type GraphQLApiResolverPolicy = import("./graphQLApiResolverPolicy").GraphQLApiResolverPolicy;
+export const GraphQLApiResolverPolicy: typeof import("./graphQLApiResolverPolicy").GraphQLApiResolverPolicy = null as any;
+utilities.lazyLoad(exports, ["GraphQLApiResolverPolicy"], () => require("./graphQLApiResolverPolicy"));
 
 export { GroupArgs } from "./group";
 export type Group = import("./group").Group;
@@ -388,6 +598,11 @@ export { ListDelegationSettingSecretsArgs, ListDelegationSettingSecretsResult, L
 export const listDelegationSettingSecrets: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecrets = null as any;
 export const listDelegationSettingSecretsOutput: typeof import("./listDelegationSettingSecrets").listDelegationSettingSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listDelegationSettingSecrets","listDelegationSettingSecretsOutput"], () => require("./listDelegationSettingSecrets"));
+
+export { ListGatewayDebugCredentialsArgs, ListGatewayDebugCredentialsResult, ListGatewayDebugCredentialsOutputArgs } from "./listGatewayDebugCredentials";
+export const listGatewayDebugCredentials: typeof import("./listGatewayDebugCredentials").listGatewayDebugCredentials = null as any;
+export const listGatewayDebugCredentialsOutput: typeof import("./listGatewayDebugCredentials").listGatewayDebugCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["listGatewayDebugCredentials","listGatewayDebugCredentialsOutput"], () => require("./listGatewayDebugCredentials"));
 
 export { ListGatewayKeysArgs, ListGatewayKeysResult, ListGatewayKeysOutputArgs } from "./listGatewayKeys";
 export const listGatewayKeys: typeof import("./listGatewayKeys").listGatewayKeys = null as any;
@@ -419,15 +634,25 @@ export const listSubscriptionSecrets: typeof import("./listSubscriptionSecrets")
 export const listSubscriptionSecretsOutput: typeof import("./listSubscriptionSecrets").listSubscriptionSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listSubscriptionSecrets","listSubscriptionSecretsOutput"], () => require("./listSubscriptionSecrets"));
 
-export { ListTenantAccessGitSecretsArgs, ListTenantAccessGitSecretsResult, ListTenantAccessGitSecretsOutputArgs } from "./listTenantAccessGitSecrets";
-export const listTenantAccessGitSecrets: typeof import("./listTenantAccessGitSecrets").listTenantAccessGitSecrets = null as any;
-export const listTenantAccessGitSecretsOutput: typeof import("./listTenantAccessGitSecrets").listTenantAccessGitSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listTenantAccessGitSecrets","listTenantAccessGitSecretsOutput"], () => require("./listTenantAccessGitSecrets"));
-
 export { ListTenantAccessSecretsArgs, ListTenantAccessSecretsResult, ListTenantAccessSecretsOutputArgs } from "./listTenantAccessSecrets";
 export const listTenantAccessSecrets: typeof import("./listTenantAccessSecrets").listTenantAccessSecrets = null as any;
 export const listTenantAccessSecretsOutput: typeof import("./listTenantAccessSecrets").listTenantAccessSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listTenantAccessSecrets","listTenantAccessSecretsOutput"], () => require("./listTenantAccessSecrets"));
+
+export { ListWorkspaceNamedValueArgs, ListWorkspaceNamedValueResult, ListWorkspaceNamedValueOutputArgs } from "./listWorkspaceNamedValue";
+export const listWorkspaceNamedValue: typeof import("./listWorkspaceNamedValue").listWorkspaceNamedValue = null as any;
+export const listWorkspaceNamedValueOutput: typeof import("./listWorkspaceNamedValue").listWorkspaceNamedValueOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceNamedValue","listWorkspaceNamedValueOutput"], () => require("./listWorkspaceNamedValue"));
+
+export { ListWorkspacePolicyFragmentReferencesArgs, ListWorkspacePolicyFragmentReferencesResult, ListWorkspacePolicyFragmentReferencesOutputArgs } from "./listWorkspacePolicyFragmentReferences";
+export const listWorkspacePolicyFragmentReferences: typeof import("./listWorkspacePolicyFragmentReferences").listWorkspacePolicyFragmentReferences = null as any;
+export const listWorkspacePolicyFragmentReferencesOutput: typeof import("./listWorkspacePolicyFragmentReferences").listWorkspacePolicyFragmentReferencesOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspacePolicyFragmentReferences","listWorkspacePolicyFragmentReferencesOutput"], () => require("./listWorkspacePolicyFragmentReferences"));
+
+export { ListWorkspaceSubscriptionSecretsArgs, ListWorkspaceSubscriptionSecretsResult, ListWorkspaceSubscriptionSecretsOutputArgs } from "./listWorkspaceSubscriptionSecrets";
+export const listWorkspaceSubscriptionSecrets: typeof import("./listWorkspaceSubscriptionSecrets").listWorkspaceSubscriptionSecrets = null as any;
+export const listWorkspaceSubscriptionSecretsOutput: typeof import("./listWorkspaceSubscriptionSecrets").listWorkspaceSubscriptionSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceSubscriptionSecrets","listWorkspaceSubscriptionSecretsOutput"], () => require("./listWorkspaceSubscriptionSecrets"));
 
 export { LoggerArgs } from "./logger";
 export type Logger = import("./logger").Logger;
@@ -479,20 +704,30 @@ export type ProductApi = import("./productApi").ProductApi;
 export const ProductApi: typeof import("./productApi").ProductApi = null as any;
 utilities.lazyLoad(exports, ["ProductApi"], () => require("./productApi"));
 
+export { ProductApiLinkArgs } from "./productApiLink";
+export type ProductApiLink = import("./productApiLink").ProductApiLink;
+export const ProductApiLink: typeof import("./productApiLink").ProductApiLink = null as any;
+utilities.lazyLoad(exports, ["ProductApiLink"], () => require("./productApiLink"));
+
 export { ProductGroupArgs } from "./productGroup";
 export type ProductGroup = import("./productGroup").ProductGroup;
 export const ProductGroup: typeof import("./productGroup").ProductGroup = null as any;
 utilities.lazyLoad(exports, ["ProductGroup"], () => require("./productGroup"));
+
+export { ProductGroupLinkArgs } from "./productGroupLink";
+export type ProductGroupLink = import("./productGroupLink").ProductGroupLink;
+export const ProductGroupLink: typeof import("./productGroupLink").ProductGroupLink = null as any;
+utilities.lazyLoad(exports, ["ProductGroupLink"], () => require("./productGroupLink"));
 
 export { ProductPolicyArgs } from "./productPolicy";
 export type ProductPolicy = import("./productPolicy").ProductPolicy;
 export const ProductPolicy: typeof import("./productPolicy").ProductPolicy = null as any;
 utilities.lazyLoad(exports, ["ProductPolicy"], () => require("./productPolicy"));
 
-export { PropertyArgs } from "./property";
-export type Property = import("./property").Property;
-export const Property: typeof import("./property").Property = null as any;
-utilities.lazyLoad(exports, ["Property"], () => require("./property"));
+export { ProductWikiArgs } from "./productWiki";
+export type ProductWiki = import("./productWiki").ProductWiki;
+export const ProductWiki: typeof import("./productWiki").ProductWiki = null as any;
+utilities.lazyLoad(exports, ["ProductWiki"], () => require("./productWiki"));
 
 export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
@@ -509,6 +744,11 @@ export type Tag = import("./tag").Tag;
 export const Tag: typeof import("./tag").Tag = null as any;
 utilities.lazyLoad(exports, ["Tag"], () => require("./tag"));
 
+export { TagApiLinkArgs } from "./tagApiLink";
+export type TagApiLink = import("./tagApiLink").TagApiLink;
+export const TagApiLink: typeof import("./tagApiLink").TagApiLink = null as any;
+utilities.lazyLoad(exports, ["TagApiLink"], () => require("./tagApiLink"));
+
 export { TagByApiArgs } from "./tagByApi";
 export type TagByApi = import("./tagByApi").TagByApi;
 export const TagByApi: typeof import("./tagByApi").TagByApi = null as any;
@@ -524,23 +764,156 @@ export type TagByProduct = import("./tagByProduct").TagByProduct;
 export const TagByProduct: typeof import("./tagByProduct").TagByProduct = null as any;
 utilities.lazyLoad(exports, ["TagByProduct"], () => require("./tagByProduct"));
 
+export { TagOperationLinkArgs } from "./tagOperationLink";
+export type TagOperationLink = import("./tagOperationLink").TagOperationLink;
+export const TagOperationLink: typeof import("./tagOperationLink").TagOperationLink = null as any;
+utilities.lazyLoad(exports, ["TagOperationLink"], () => require("./tagOperationLink"));
+
+export { TagProductLinkArgs } from "./tagProductLink";
+export type TagProductLink = import("./tagProductLink").TagProductLink;
+export const TagProductLink: typeof import("./tagProductLink").TagProductLink = null as any;
+utilities.lazyLoad(exports, ["TagProductLink"], () => require("./tagProductLink"));
+
 export { UserArgs } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
 utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { WorkspaceArgs } from "./workspace";
+export type Workspace = import("./workspace").Workspace;
+export const Workspace: typeof import("./workspace").Workspace = null as any;
+utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
+
+export { WorkspaceApiArgs } from "./workspaceApi";
+export type WorkspaceApi = import("./workspaceApi").WorkspaceApi;
+export const WorkspaceApi: typeof import("./workspaceApi").WorkspaceApi = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApi"], () => require("./workspaceApi"));
+
+export { WorkspaceApiOperationArgs } from "./workspaceApiOperation";
+export type WorkspaceApiOperation = import("./workspaceApiOperation").WorkspaceApiOperation;
+export const WorkspaceApiOperation: typeof import("./workspaceApiOperation").WorkspaceApiOperation = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiOperation"], () => require("./workspaceApiOperation"));
+
+export { WorkspaceApiOperationPolicyArgs } from "./workspaceApiOperationPolicy";
+export type WorkspaceApiOperationPolicy = import("./workspaceApiOperationPolicy").WorkspaceApiOperationPolicy;
+export const WorkspaceApiOperationPolicy: typeof import("./workspaceApiOperationPolicy").WorkspaceApiOperationPolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiOperationPolicy"], () => require("./workspaceApiOperationPolicy"));
+
+export { WorkspaceApiPolicyArgs } from "./workspaceApiPolicy";
+export type WorkspaceApiPolicy = import("./workspaceApiPolicy").WorkspaceApiPolicy;
+export const WorkspaceApiPolicy: typeof import("./workspaceApiPolicy").WorkspaceApiPolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiPolicy"], () => require("./workspaceApiPolicy"));
+
+export { WorkspaceApiReleaseArgs } from "./workspaceApiRelease";
+export type WorkspaceApiRelease = import("./workspaceApiRelease").WorkspaceApiRelease;
+export const WorkspaceApiRelease: typeof import("./workspaceApiRelease").WorkspaceApiRelease = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiRelease"], () => require("./workspaceApiRelease"));
+
+export { WorkspaceApiSchemaArgs } from "./workspaceApiSchema";
+export type WorkspaceApiSchema = import("./workspaceApiSchema").WorkspaceApiSchema;
+export const WorkspaceApiSchema: typeof import("./workspaceApiSchema").WorkspaceApiSchema = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiSchema"], () => require("./workspaceApiSchema"));
+
+export { WorkspaceApiVersionSetArgs } from "./workspaceApiVersionSet";
+export type WorkspaceApiVersionSet = import("./workspaceApiVersionSet").WorkspaceApiVersionSet;
+export const WorkspaceApiVersionSet: typeof import("./workspaceApiVersionSet").WorkspaceApiVersionSet = null as any;
+utilities.lazyLoad(exports, ["WorkspaceApiVersionSet"], () => require("./workspaceApiVersionSet"));
+
+export { WorkspaceGlobalSchemaArgs } from "./workspaceGlobalSchema";
+export type WorkspaceGlobalSchema = import("./workspaceGlobalSchema").WorkspaceGlobalSchema;
+export const WorkspaceGlobalSchema: typeof import("./workspaceGlobalSchema").WorkspaceGlobalSchema = null as any;
+utilities.lazyLoad(exports, ["WorkspaceGlobalSchema"], () => require("./workspaceGlobalSchema"));
+
+export { WorkspaceGroupArgs } from "./workspaceGroup";
+export type WorkspaceGroup = import("./workspaceGroup").WorkspaceGroup;
+export const WorkspaceGroup: typeof import("./workspaceGroup").WorkspaceGroup = null as any;
+utilities.lazyLoad(exports, ["WorkspaceGroup"], () => require("./workspaceGroup"));
+
+export { WorkspaceGroupUserArgs } from "./workspaceGroupUser";
+export type WorkspaceGroupUser = import("./workspaceGroupUser").WorkspaceGroupUser;
+export const WorkspaceGroupUser: typeof import("./workspaceGroupUser").WorkspaceGroupUser = null as any;
+utilities.lazyLoad(exports, ["WorkspaceGroupUser"], () => require("./workspaceGroupUser"));
+
+export { WorkspaceNamedValueArgs } from "./workspaceNamedValue";
+export type WorkspaceNamedValue = import("./workspaceNamedValue").WorkspaceNamedValue;
+export const WorkspaceNamedValue: typeof import("./workspaceNamedValue").WorkspaceNamedValue = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNamedValue"], () => require("./workspaceNamedValue"));
+
+export { WorkspaceNotificationRecipientEmailArgs } from "./workspaceNotificationRecipientEmail";
+export type WorkspaceNotificationRecipientEmail = import("./workspaceNotificationRecipientEmail").WorkspaceNotificationRecipientEmail;
+export const WorkspaceNotificationRecipientEmail: typeof import("./workspaceNotificationRecipientEmail").WorkspaceNotificationRecipientEmail = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNotificationRecipientEmail"], () => require("./workspaceNotificationRecipientEmail"));
+
+export { WorkspaceNotificationRecipientUserArgs } from "./workspaceNotificationRecipientUser";
+export type WorkspaceNotificationRecipientUser = import("./workspaceNotificationRecipientUser").WorkspaceNotificationRecipientUser;
+export const WorkspaceNotificationRecipientUser: typeof import("./workspaceNotificationRecipientUser").WorkspaceNotificationRecipientUser = null as any;
+utilities.lazyLoad(exports, ["WorkspaceNotificationRecipientUser"], () => require("./workspaceNotificationRecipientUser"));
+
+export { WorkspacePolicyArgs } from "./workspacePolicy";
+export type WorkspacePolicy = import("./workspacePolicy").WorkspacePolicy;
+export const WorkspacePolicy: typeof import("./workspacePolicy").WorkspacePolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspacePolicy"], () => require("./workspacePolicy"));
+
+export { WorkspacePolicyFragmentArgs } from "./workspacePolicyFragment";
+export type WorkspacePolicyFragment = import("./workspacePolicyFragment").WorkspacePolicyFragment;
+export const WorkspacePolicyFragment: typeof import("./workspacePolicyFragment").WorkspacePolicyFragment = null as any;
+utilities.lazyLoad(exports, ["WorkspacePolicyFragment"], () => require("./workspacePolicyFragment"));
+
+export { WorkspaceProductArgs } from "./workspaceProduct";
+export type WorkspaceProduct = import("./workspaceProduct").WorkspaceProduct;
+export const WorkspaceProduct: typeof import("./workspaceProduct").WorkspaceProduct = null as any;
+utilities.lazyLoad(exports, ["WorkspaceProduct"], () => require("./workspaceProduct"));
+
+export { WorkspaceProductApiLinkArgs } from "./workspaceProductApiLink";
+export type WorkspaceProductApiLink = import("./workspaceProductApiLink").WorkspaceProductApiLink;
+export const WorkspaceProductApiLink: typeof import("./workspaceProductApiLink").WorkspaceProductApiLink = null as any;
+utilities.lazyLoad(exports, ["WorkspaceProductApiLink"], () => require("./workspaceProductApiLink"));
+
+export { WorkspaceProductGroupLinkArgs } from "./workspaceProductGroupLink";
+export type WorkspaceProductGroupLink = import("./workspaceProductGroupLink").WorkspaceProductGroupLink;
+export const WorkspaceProductGroupLink: typeof import("./workspaceProductGroupLink").WorkspaceProductGroupLink = null as any;
+utilities.lazyLoad(exports, ["WorkspaceProductGroupLink"], () => require("./workspaceProductGroupLink"));
+
+export { WorkspaceProductPolicyArgs } from "./workspaceProductPolicy";
+export type WorkspaceProductPolicy = import("./workspaceProductPolicy").WorkspaceProductPolicy;
+export const WorkspaceProductPolicy: typeof import("./workspaceProductPolicy").WorkspaceProductPolicy = null as any;
+utilities.lazyLoad(exports, ["WorkspaceProductPolicy"], () => require("./workspaceProductPolicy"));
+
+export { WorkspaceSubscriptionArgs } from "./workspaceSubscription";
+export type WorkspaceSubscription = import("./workspaceSubscription").WorkspaceSubscription;
+export const WorkspaceSubscription: typeof import("./workspaceSubscription").WorkspaceSubscription = null as any;
+utilities.lazyLoad(exports, ["WorkspaceSubscription"], () => require("./workspaceSubscription"));
+
+export { WorkspaceTagArgs } from "./workspaceTag";
+export type WorkspaceTag = import("./workspaceTag").WorkspaceTag;
+export const WorkspaceTag: typeof import("./workspaceTag").WorkspaceTag = null as any;
+utilities.lazyLoad(exports, ["WorkspaceTag"], () => require("./workspaceTag"));
+
+export { WorkspaceTagApiLinkArgs } from "./workspaceTagApiLink";
+export type WorkspaceTagApiLink = import("./workspaceTagApiLink").WorkspaceTagApiLink;
+export const WorkspaceTagApiLink: typeof import("./workspaceTagApiLink").WorkspaceTagApiLink = null as any;
+utilities.lazyLoad(exports, ["WorkspaceTagApiLink"], () => require("./workspaceTagApiLink"));
+
+export { WorkspaceTagOperationLinkArgs } from "./workspaceTagOperationLink";
+export type WorkspaceTagOperationLink = import("./workspaceTagOperationLink").WorkspaceTagOperationLink;
+export const WorkspaceTagOperationLink: typeof import("./workspaceTagOperationLink").WorkspaceTagOperationLink = null as any;
+utilities.lazyLoad(exports, ["WorkspaceTagOperationLink"], () => require("./workspaceTagOperationLink"));
+
+export { WorkspaceTagProductLinkArgs } from "./workspaceTagProductLink";
+export type WorkspaceTagProductLink = import("./workspaceTagProductLink").WorkspaceTagProductLink;
+export const WorkspaceTagProductLink: typeof import("./workspaceTagProductLink").WorkspaceTagProductLink = null as any;
+utilities.lazyLoad(exports, ["WorkspaceTagProductLink"], () => require("./workspaceTagProductLink"));
 
 
 // Export enums:
 export * from "../types/enums/apimanagement";
 
 // Export sub-modules:
-import * as v20160707 from "./v20160707";
 import * as v20161010 from "./v20161010";
 import * as v20170301 from "./v20170301";
 import * as v20180101 from "./v20180101";
 import * as v20180601preview from "./v20180601preview";
 import * as v20190101 from "./v20190101";
-import * as v20191201 from "./v20191201";
 import * as v20191201preview from "./v20191201preview";
 import * as v20200601preview from "./v20200601preview";
 import * as v20201201 from "./v20201201";
@@ -550,15 +923,15 @@ import * as v20210801 from "./v20210801";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220801 from "./v20220801";
+import * as v20220901preview from "./v20220901preview";
+import * as v20230301preview from "./v20230301preview";
 
 export {
-    v20160707,
     v20161010,
     v20170301,
     v20180101,
     v20180601preview,
     v20190101,
-    v20191201,
     v20191201preview,
     v20200601preview,
     v20201201,
@@ -568,6 +941,8 @@ export {
     v20211201preview,
     v20220401preview,
     v20220801,
+    v20220901preview,
+    v20230301preview,
 };
 
 const _module = {
@@ -578,8 +953,6 @@ const _module = {
                 return new Api(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiDiagnostic":
                 return new ApiDiagnostic(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:ApiDiagnosticLogger":
-                return new ApiDiagnosticLogger(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssue":
                 return new ApiIssue(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiIssueAttachment":
@@ -602,6 +975,14 @@ const _module = {
                 return new ApiTagDescription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ApiVersionSet":
                 return new ApiVersionSet(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ApiWiki":
+                return new ApiWiki(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:Authorization":
+                return new Authorization(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:AuthorizationAccessPolicy":
+                return new AuthorizationAccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:AuthorizationProvider":
+                return new AuthorizationProvider(name, <any>undefined, { urn })
             case "azure-native:apimanagement:AuthorizationServer":
                 return new AuthorizationServer(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Backend":
@@ -616,8 +997,8 @@ const _module = {
                 return new ContentType(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Diagnostic":
                 return new Diagnostic(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:DiagnosticLogger":
-                return new DiagnosticLogger(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:Documentation":
+                return new Documentation(name, <any>undefined, { urn })
             case "azure-native:apimanagement:EmailTemplate":
                 return new EmailTemplate(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Gateway":
@@ -628,6 +1009,12 @@ const _module = {
                 return new GatewayCertificateAuthority(name, <any>undefined, { urn })
             case "azure-native:apimanagement:GatewayHostnameConfiguration":
                 return new GatewayHostnameConfiguration(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GlobalSchema":
+                return new GlobalSchema(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GraphQLApiResolver":
+                return new GraphQLApiResolver(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:GraphQLApiResolverPolicy":
+                return new GraphQLApiResolverPolicy(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azure-native:apimanagement:GroupUser":
@@ -654,26 +1041,86 @@ const _module = {
                 return new Product(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ProductApi":
                 return new ProductApi(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ProductApiLink":
+                return new ProductApiLink(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ProductGroup":
                 return new ProductGroup(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ProductGroupLink":
+                return new ProductGroupLink(name, <any>undefined, { urn })
             case "azure-native:apimanagement:ProductPolicy":
                 return new ProductPolicy(name, <any>undefined, { urn })
-            case "azure-native:apimanagement:Property":
-                return new Property(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:ProductWiki":
+                return new ProductWiki(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Subscription":
                 return new Subscription(name, <any>undefined, { urn })
             case "azure-native:apimanagement:Tag":
                 return new Tag(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:TagApiLink":
+                return new TagApiLink(name, <any>undefined, { urn })
             case "azure-native:apimanagement:TagByApi":
                 return new TagByApi(name, <any>undefined, { urn })
             case "azure-native:apimanagement:TagByOperation":
                 return new TagByOperation(name, <any>undefined, { urn })
             case "azure-native:apimanagement:TagByProduct":
                 return new TagByProduct(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:TagOperationLink":
+                return new TagOperationLink(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:TagProductLink":
+                return new TagProductLink(name, <any>undefined, { urn })
             case "azure-native:apimanagement:User":
                 return new User(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:Workspace":
+                return new Workspace(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApi":
+                return new WorkspaceApi(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiOperation":
+                return new WorkspaceApiOperation(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiOperationPolicy":
+                return new WorkspaceApiOperationPolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiPolicy":
+                return new WorkspaceApiPolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiRelease":
+                return new WorkspaceApiRelease(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiSchema":
+                return new WorkspaceApiSchema(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceApiVersionSet":
+                return new WorkspaceApiVersionSet(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceGlobalSchema":
+                return new WorkspaceGlobalSchema(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceGroup":
+                return new WorkspaceGroup(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceGroupUser":
+                return new WorkspaceGroupUser(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceNamedValue":
+                return new WorkspaceNamedValue(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceNotificationRecipientEmail":
+                return new WorkspaceNotificationRecipientEmail(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceNotificationRecipientUser":
+                return new WorkspaceNotificationRecipientUser(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspacePolicy":
+                return new WorkspacePolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspacePolicyFragment":
+                return new WorkspacePolicyFragment(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceProduct":
+                return new WorkspaceProduct(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceProductApiLink":
+                return new WorkspaceProductApiLink(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceProductGroupLink":
+                return new WorkspaceProductGroupLink(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceProductPolicy":
+                return new WorkspaceProductPolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceSubscription":
+                return new WorkspaceSubscription(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceTag":
+                return new WorkspaceTag(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceTagApiLink":
+                return new WorkspaceTagApiLink(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceTagOperationLink":
+                return new WorkspaceTagOperationLink(name, <any>undefined, { urn })
+            case "azure-native:apimanagement:WorkspaceTagProductLink":
+                return new WorkspaceTagProductLink(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

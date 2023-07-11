@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataFactory
 {
     /// <summary>
     /// Managed private endpoint resource type.
-    /// API Version: 2018-06-01.
+    /// Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource

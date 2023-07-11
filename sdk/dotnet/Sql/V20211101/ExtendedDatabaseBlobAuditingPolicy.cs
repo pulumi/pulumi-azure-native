@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// An extended database blob auditing policy.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:ExtendedDatabaseBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ExtendedDatabaseBlobAuditingPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:ExtendedDatabaseBlobAuditingPolicy")]
     public partial class ExtendedDatabaseBlobAuditingPolicy : global::Pulumi.CustomResource
     {
@@ -196,6 +195,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ExtendedDatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ExtendedDatabaseBlobAuditingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ExtendedDatabaseBlobAuditingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ExtendedDatabaseBlobAuditingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

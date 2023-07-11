@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
  */
 export class ProviderRegistration extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class ProviderRegistration extends pulumi.CustomResource {
     public /*out*/ readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.providerhub.ProviderRegistrationResponseProperties>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -61,10 +65,12 @@ export class ProviderRegistration extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

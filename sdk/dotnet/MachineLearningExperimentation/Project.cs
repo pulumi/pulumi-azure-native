@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
 {
     /// <summary>
     /// An object that represents a machine learning project.
-    /// API Version: 2017-05-01-preview.
+    /// Azure REST API version: 2017-05-01-preview. Prior API version in Azure Native 1.x: 2017-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningexperimentation:Project")]
     public partial class Project : global::Pulumi.CustomResource

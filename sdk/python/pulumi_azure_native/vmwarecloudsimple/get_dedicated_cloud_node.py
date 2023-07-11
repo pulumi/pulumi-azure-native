@@ -266,7 +266,7 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDedicatedCloudNodeResult:
     """
     Returns dedicated cloud node
-    API Version: 2019-04-01.
+    Azure REST API version: 2019-04-01.
 
 
     :param str dedicated_cloud_node_name: dedicated cloud node name
@@ -306,7 +306,7 @@ def get_dedicated_cloud_node_output(dedicated_cloud_node_name: Optional[pulumi.I
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDedicatedCloudNodeResult]:
     """
     Returns dedicated cloud node
-    API Version: 2019-04-01.
+    Azure REST API version: 2019-04-01.
 
 
     :param str dedicated_cloud_node_name: dedicated cloud node name

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the ProactiveDetection configuration for this configuration id.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2018-05-01-preview.
  */
 export function getProactiveDetectionConfiguration(args: GetProactiveDetectionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetProactiveDetectionConfigurationResult> {
 
@@ -37,7 +37,7 @@ export interface GetProactiveDetectionConfigurationArgs {
 }
 
 /**
- * Properties that define a ProactiveDetection configuration.
+ * A ProactiveDetection configuration definition.
  */
 export interface GetProactiveDetectionConfigurationResult {
     /**
@@ -49,25 +49,37 @@ export interface GetProactiveDetectionConfigurationResult {
      */
     readonly enabled?: boolean;
     /**
+     * Azure resource Id
+     */
+    readonly id: string;
+    /**
      * The last time this rule was updated
      */
-    readonly lastUpdatedTime?: string;
+    readonly lastUpdatedTime: string;
+    /**
+     * Resource location
+     */
+    readonly location?: string;
     /**
      * The rule name
      */
-    readonly name?: string;
+    readonly name: string;
     /**
      * Static definitions of the ProactiveDetection configuration rule (same values for all components).
      */
-    readonly ruleDefinitions?: outputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions;
+    readonly ruleDefinitions?: outputs.insights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions;
     /**
      * A flag that indicated whether notifications on this rule should be sent to subscription owners
      */
     readonly sendEmailsToSubscriptionOwners?: boolean;
+    /**
+     * Azure resource type
+     */
+    readonly type: string;
 }
 /**
  * Get the ProactiveDetection configuration for this configuration id.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2018-05-01-preview.
  */
 export function getProactiveDetectionConfigurationOutput(args: GetProactiveDetectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProactiveDetectionConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getProactiveDetectionConfiguration(a, opts))

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// <summary>
         /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
         /// </summary>
-        public readonly string KeySource;
+        public readonly string? KeySource;
         /// <summary>
         /// Properties provided by key vault.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private EncryptionResponse(
             Outputs.EncryptionIdentityResponse? encryptionIdentity,
 
-            string keySource,
+            string? keySource,
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 

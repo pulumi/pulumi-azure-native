@@ -520,7 +520,7 @@ def get_virtual_machine(expand: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Get virtual machine.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
@@ -587,7 +587,7 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get virtual machine.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'

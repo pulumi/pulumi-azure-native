@@ -21,18 +21,39 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The location of the private Endpoint connection
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the private Endpoint Connection
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
         /// Private Endpoint Connection Response Properties.
         /// </summary>
         public readonly Outputs.VaultPrivateEndpointConnectionResponse Properties;
+        /// <summary>
+        /// The type, which will be of the format, Microsoft.RecoveryServices/vaults/privateEndpointConnections
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private PrivateEndpointConnectionVaultPropertiesResponse(
             string id,
 
-            Outputs.VaultPrivateEndpointConnectionResponse properties)
+            string location,
+
+            string name,
+
+            Outputs.VaultPrivateEndpointConnectionResponse properties,
+
+            string type)
         {
             Id = id;
+            Location = location;
+            Name = name;
             Properties = properties;
+            Type = type;
         }
     }
 }

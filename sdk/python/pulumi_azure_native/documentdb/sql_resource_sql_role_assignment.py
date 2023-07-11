@@ -127,7 +127,7 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure Cosmos DB Role Assignment
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Role Assignment
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlRoleAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -190,7 +190,7 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210415:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210615:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20211015:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220515:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220815:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20221115:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:documentdb/v20200601preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210401preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210415:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210515:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210615:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20210701preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20211015:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20211015preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20211115preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220215preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220515:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220515preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220815:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20220815preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20221115:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20221115preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20230301preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20230315preview:SqlResourceSqlRoleAssignment"), pulumi.Alias(type_="azure-native:documentdb/v20230415:SqlResourceSqlRoleAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlResourceSqlRoleAssignment, __self__).__init__(
             'azure-native:documentdb:SqlResourceSqlRoleAssignment',

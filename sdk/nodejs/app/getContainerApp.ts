@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppResult> {
 
@@ -44,6 +44,18 @@ export interface GetContainerAppResult {
      */
     readonly customDomainVerificationId: string;
     /**
+     * Resource ID of environment.
+     */
+    readonly environmentId?: string;
+    /**
+     * The endpoint of the eventstream of the container app.
+     */
+    readonly eventStreamEndpoint: string;
+    /**
+     * The complex type of the extended location.
+     */
+    readonly extendedLocation?: outputs.app.ExtendedLocationResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -51,6 +63,10 @@ export interface GetContainerAppResult {
      * managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
      */
     readonly identity?: outputs.app.ManagedServiceIdentityResponse;
+    /**
+     * Name of the latest ready revision of the Container App.
+     */
+    readonly latestReadyRevisionName: string;
     /**
      * Fully Qualified Domain Name of the latest revision of the Container App.
      */
@@ -64,7 +80,7 @@ export interface GetContainerAppResult {
      */
     readonly location: string;
     /**
-     * Resource ID of the Container App's environment.
+     * Deprecated. Resource ID of the Container App's environment.
      */
     readonly managedEnvironmentId?: string;
     /**
@@ -95,10 +111,14 @@ export interface GetContainerAppResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Workload profile type to pin for container app execution.
+     */
+    readonly workloadProfileType?: string;
 }
 /**
  * Container App.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppOutput(args: GetContainerAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppResult> {
     return pulumi.output(args).apply((a: any) => getContainerApp(a, opts))

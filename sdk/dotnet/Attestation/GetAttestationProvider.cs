@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Attestation
     {
         /// <summary>
         /// Get the status of Attestation Provider.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Task<GetAttestationProviderResult> InvokeAsync(GetAttestationProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the status of Attestation Provider.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Output<GetAttestationProviderResult> Invoke(GetAttestationProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationProviderResult>("azure-native:attestation:getAttestationProvider", args ?? new GetAttestationProviderInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Attestation
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
+        /// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Status of attestation service.
         /// </summary>
         public readonly string? Status;
@@ -103,6 +107,10 @@ namespace Pulumi.AzureNative.Attestation
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+        /// </summary>
+        public readonly string? TpmAttestationAuthentication;
         /// <summary>
         /// Trust model for the attestation provider.
         /// </summary>
@@ -124,11 +132,15 @@ namespace Pulumi.AzureNative.Attestation
 
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
+            string? publicNetworkAccess,
+
             string? status,
 
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
+
+            string? tpmAttestationAuthentication,
 
             string? trustModel,
 
@@ -139,9 +151,11 @@ namespace Pulumi.AzureNative.Attestation
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
             Status = status;
             SystemData = systemData;
             Tags = tags;
+            TpmAttestationAuthentication = tpmAttestationAuthentication;
             TrustModel = trustModel;
             Type = type;
         }

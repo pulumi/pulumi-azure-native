@@ -17,9 +17,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class DataContainerResponse
     {
         /// <summary>
+        /// [Required] Specifies the type of data.
+        /// </summary>
+        public readonly string DataType;
+        /// <summary>
         /// The asset description text.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        public readonly bool? IsArchived;
+        /// <summary>
+        /// The latest version inside this container.
+        /// </summary>
+        public readonly string LatestVersion;
+        /// <summary>
+        /// The next auto incremental version
+        /// </summary>
+        public readonly string NextVersion;
         /// <summary>
         /// The asset property dictionary.
         /// </summary>
@@ -31,13 +47,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private DataContainerResponse(
+            string dataType,
+
             string? description,
+
+            bool? isArchived,
+
+            string latestVersion,
+
+            string nextVersion,
 
             ImmutableDictionary<string, string>? properties,
 
             ImmutableDictionary<string, string>? tags)
         {
+            DataType = dataType;
             Description = description;
+            IsArchived = isArchived;
+            LatestVersion = latestVersion;
+            NextVersion = nextVersion;
             Properties = properties;
             Tags = tags;
         }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the issue Attachment for an API specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiIssueAttachment(args: GetApiIssueAttachmentArgs, opts?: pulumi.InvokeOptions): Promise<GetApiIssueAttachmentResult> {
 
@@ -34,7 +34,7 @@ export interface GetApiIssueAttachmentArgs {
      */
     issueId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -56,11 +56,11 @@ export interface GetApiIssueAttachmentResult {
      */
     readonly contentFormat: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -68,13 +68,13 @@ export interface GetApiIssueAttachmentResult {
      */
     readonly title: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the details of the issue Attachment for an API specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiIssueAttachmentOutput(args: GetApiIssueAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiIssueAttachmentResult> {
     return pulumi.output(args).apply((a: any) => getApiIssueAttachment(a, opts))
@@ -94,7 +94,7 @@ export interface GetApiIssueAttachmentOutputArgs {
      */
     issueId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get Data Plane access.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getFactoryDataPlaneAccess(args: GetFactoryDataPlaneAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryDataPlaneAccessResult> {
 
@@ -75,7 +75,7 @@ export interface GetFactoryDataPlaneAccessResult {
 }
 /**
  * Get Data Plane access.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getFactoryDataPlaneAccessOutput(args: GetFactoryDataPlaneAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryDataPlaneAccessResult> {
     return pulumi.output(args).apply((a: any) => getFactoryDataPlaneAccess(a, opts))

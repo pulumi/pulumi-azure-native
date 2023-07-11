@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual network link to the specified Private DNS zone.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2020-06-01.
  */
 export function getVirtualNetworkLink(args: GetVirtualNetworkLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkLinkResult> {
 
@@ -83,7 +83,7 @@ export interface GetVirtualNetworkLinkResult {
 }
 /**
  * Gets a virtual network link to the specified Private DNS zone.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2020-06-01.
  */
 export function getVirtualNetworkLinkOutput(args: GetVirtualNetworkLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkLinkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkLink(a, opts))

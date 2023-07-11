@@ -1397,11 +1397,11 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ResourceIdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The workspace managed identity
         :param pulumi.Input['ResourceIdentityType'] type: The type of managed identity for the workspace
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The user assigned managed identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned managed identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1422,14 +1422,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The user assigned managed identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

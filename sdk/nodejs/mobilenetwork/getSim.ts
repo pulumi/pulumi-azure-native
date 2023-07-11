@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSim(args: GetSimArgs, opts?: pulumi.InvokeOptions): Promise<GetSimResult> {
 
@@ -41,23 +41,11 @@ export interface GetSimArgs {
  */
 export interface GetSimResult {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
      * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
      */
     readonly deviceType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -69,18 +57,6 @@ export interface GetSimResult {
      */
     readonly internationalMobileSubscriberIdentity: string;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
@@ -89,13 +65,17 @@ export interface GetSimResult {
      */
     readonly provisioningState: string;
     /**
-     * The SIM policy used by this SIM.
+     * The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
      */
     readonly simPolicy?: outputs.mobilenetwork.SimPolicyResourceIdResponse;
     /**
      * The state of the SIM resource.
      */
     readonly simState: string;
+    /**
+     * A dictionary of sites to the provisioning state of this SIM on that site.
+     */
+    readonly siteProvisioningState: {[key: string]: string};
     /**
      * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
      */
@@ -108,10 +88,18 @@ export interface GetSimResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The public key fingerprint of the SIM vendor who provided this SIM, if any.
+     */
+    readonly vendorKeyFingerprint: string;
+    /**
+     * The name of the SIM vendor who provided this SIM, if any.
+     */
+    readonly vendorName: string;
 }
 /**
  * Gets information about the specified SIM.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimOutput(args: GetSimOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimResult> {
     return pulumi.output(args).apply((a: any) => getSim(a, opts))

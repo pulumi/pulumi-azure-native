@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Peerings in a VirtualNetwork resource
-    /// API Version: 2018-04-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2018-04-01
     /// </summary>
-    [AzureNativeResourceType("azure-native:databricks:vNetPeering")]
+    [AzureNativeResourceType("azure-native:databricks:VNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -97,12 +97,12 @@ namespace Pulumi.AzureNative.Databricks
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VNetPeering(string name, VNetPeeringArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:databricks:vNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:databricks:VNetPeering", name, args ?? new VNetPeeringArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private VNetPeering(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:databricks:vNetPeering", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:databricks:VNetPeering", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -113,9 +113,14 @@ namespace Pulumi.AzureNative.Databricks
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:databricks:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:VNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20180401:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:VNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20210401preview:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:VNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:vNetPeering"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:VNetPeering"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20230201:vNetPeering"},
                 },
             };

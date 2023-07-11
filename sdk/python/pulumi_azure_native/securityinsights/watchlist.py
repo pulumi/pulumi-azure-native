@@ -19,7 +19,6 @@ class WatchlistArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  items_search_key: pulumi.Input[str],
-                 operational_insights_resource_provider: pulumi.Input[str],
                  provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  source: pulumi.Input[Union[str, 'Source']],
@@ -39,38 +38,36 @@ class WatchlistArgs:
                  upload_status: Optional[pulumi.Input[str]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_id: Optional[pulumi.Input[str]] = None,
-                 watchlist_items_count: Optional[pulumi.Input[int]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Watchlist resource.
         :param pulumi.Input[str] display_name: The display name of the watchlist
         :param pulumi.Input[str] items_search_key: The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] provider: The provider of the watchlist
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Source']] source: The source of the watchlist
         :param pulumi.Input[str] workspace_name: The name of the workspace.
-        :param pulumi.Input[str] content_type: The content type of the raw content. Example : text/csv or text/tsv 
+        :param pulumi.Input[str] content_type: The content type of the raw content. For now, only text/csv is valid
         :param pulumi.Input[str] created: The time the watchlist was created
         :param pulumi.Input['WatchlistUserInfoArgs'] created_by: Describes a user that created the watchlist
         :param pulumi.Input[str] default_duration: The default duration of a watchlist (in ISO 8601 duration format)
         :param pulumi.Input[str] description: A description of the watchlist
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist is deleted or not
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
-        :param pulumi.Input[int] number_of_lines_to_skip: The number of lines in a csv/tsv content to skip before the header
-        :param pulumi.Input[str] raw_content: The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        :param pulumi.Input[int] number_of_lines_to_skip: The number of lines in a csv content to skip before the header
+        :param pulumi.Input[str] raw_content: The raw content that represents to watchlist items to create. Example : This line will be skipped
+               header1,header2
+               value1,value2
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to
         :param pulumi.Input[str] updated: The last time the watchlist was updated
         :param pulumi.Input['WatchlistUserInfoArgs'] updated_by: Describes a user that updated the watchlist
-        :param pulumi.Input[str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        :param pulumi.Input[str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         :param pulumi.Input[str] watchlist_alias: The alias of the watchlist
         :param pulumi.Input[str] watchlist_id: The id (a Guid) of the watchlist
-        :param pulumi.Input[int] watchlist_items_count: The number of Watchlist Items in the Watchlist
         :param pulumi.Input[str] watchlist_type: The type of the watchlist
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "items_search_key", items_search_key)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
@@ -105,8 +102,6 @@ class WatchlistArgs:
             pulumi.set(__self__, "watchlist_alias", watchlist_alias)
         if watchlist_id is not None:
             pulumi.set(__self__, "watchlist_id", watchlist_id)
-        if watchlist_items_count is not None:
-            pulumi.set(__self__, "watchlist_items_count", watchlist_items_count)
         if watchlist_type is not None:
             pulumi.set(__self__, "watchlist_type", watchlist_type)
 
@@ -133,18 +128,6 @@ class WatchlistArgs:
     @items_search_key.setter
     def items_search_key(self, value: pulumi.Input[str]):
         pulumi.set(self, "items_search_key", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter
@@ -198,7 +181,7 @@ class WatchlistArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The content type of the raw content. Example : text/csv or text/tsv 
+        The content type of the raw content. For now, only text/csv is valid
         """
         return pulumi.get(self, "content_type")
 
@@ -282,7 +265,7 @@ class WatchlistArgs:
     @pulumi.getter(name="numberOfLinesToSkip")
     def number_of_lines_to_skip(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of lines in a csv/tsv content to skip before the header
+        The number of lines in a csv content to skip before the header
         """
         return pulumi.get(self, "number_of_lines_to_skip")
 
@@ -294,7 +277,9 @@ class WatchlistArgs:
     @pulumi.getter(name="rawContent")
     def raw_content(self) -> Optional[pulumi.Input[str]]:
         """
-        The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        The raw content that represents to watchlist items to create. Example : This line will be skipped
+        header1,header2
+        value1,value2
         """
         return pulumi.get(self, "raw_content")
 
@@ -342,7 +327,7 @@ class WatchlistArgs:
     @pulumi.getter(name="uploadStatus")
     def upload_status(self) -> Optional[pulumi.Input[str]]:
         """
-        The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         """
         return pulumi.get(self, "upload_status")
 
@@ -375,18 +360,6 @@ class WatchlistArgs:
         pulumi.set(self, "watchlist_id", value)
 
     @property
-    @pulumi.getter(name="watchlistItemsCount")
-    def watchlist_items_count(self) -> Optional[pulumi.Input[int]]:
-        """
-        The number of Watchlist Items in the Watchlist
-        """
-        return pulumi.get(self, "watchlist_items_count")
-
-    @watchlist_items_count.setter
-    def watchlist_items_count(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "watchlist_items_count", value)
-
-    @property
     @pulumi.getter(name="watchlistType")
     def watchlist_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -414,7 +387,6 @@ class Watchlist(pulumi.CustomResource):
                  items_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  number_of_lines_to_skip: Optional[pulumi.Input[int]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  raw_content: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -425,17 +397,16 @@ class Watchlist(pulumi.CustomResource):
                  upload_status: Optional[pulumi.Input[str]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_id: Optional[pulumi.Input[str]] = None,
-                 watchlist_items_count: Optional[pulumi.Input[int]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Represents a Watchlist in Azure Security Insights.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] content_type: The content type of the raw content. Example : text/csv or text/tsv 
+        :param pulumi.Input[str] content_type: The content type of the raw content. For now, only text/csv is valid
         :param pulumi.Input[str] created: The time the watchlist was created
         :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] created_by: Describes a user that created the watchlist
         :param pulumi.Input[str] default_duration: The default duration of a watchlist (in ISO 8601 duration format)
@@ -444,19 +415,19 @@ class Watchlist(pulumi.CustomResource):
         :param pulumi.Input[bool] is_deleted: A flag that indicates if the watchlist is deleted or not
         :param pulumi.Input[str] items_search_key: The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] labels: List of labels relevant to this watchlist
-        :param pulumi.Input[int] number_of_lines_to_skip: The number of lines in a csv/tsv content to skip before the header
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
+        :param pulumi.Input[int] number_of_lines_to_skip: The number of lines in a csv content to skip before the header
         :param pulumi.Input[str] provider: The provider of the watchlist
-        :param pulumi.Input[str] raw_content: The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        :param pulumi.Input[str] raw_content: The raw content that represents to watchlist items to create. Example : This line will be skipped
+               header1,header2
+               value1,value2
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'Source']] source: The source of the watchlist
         :param pulumi.Input[str] tenant_id: The tenantId where the watchlist belongs to
         :param pulumi.Input[str] updated: The last time the watchlist was updated
         :param pulumi.Input[pulumi.InputType['WatchlistUserInfoArgs']] updated_by: Describes a user that updated the watchlist
-        :param pulumi.Input[str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        :param pulumi.Input[str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         :param pulumi.Input[str] watchlist_alias: The alias of the watchlist
         :param pulumi.Input[str] watchlist_id: The id (a Guid) of the watchlist
-        :param pulumi.Input[int] watchlist_items_count: The number of Watchlist Items in the Watchlist
         :param pulumi.Input[str] watchlist_type: The type of the watchlist
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -468,7 +439,7 @@ class Watchlist(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Watchlist in Azure Security Insights.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.
@@ -495,7 +466,6 @@ class Watchlist(pulumi.CustomResource):
                  items_search_key: Optional[pulumi.Input[str]] = None,
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  number_of_lines_to_skip: Optional[pulumi.Input[int]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None,
                  raw_content: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -506,7 +476,6 @@ class Watchlist(pulumi.CustomResource):
                  upload_status: Optional[pulumi.Input[str]] = None,
                  watchlist_alias: Optional[pulumi.Input[str]] = None,
                  watchlist_id: Optional[pulumi.Input[str]] = None,
-                 watchlist_items_count: Optional[pulumi.Input[int]] = None,
                  watchlist_type: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -532,9 +501,6 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["items_search_key"] = items_search_key
             __props__.__dict__["labels"] = labels
             __props__.__dict__["number_of_lines_to_skip"] = number_of_lines_to_skip
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if provider is None and not opts.urn:
                 raise TypeError("Missing required property 'provider'")
             __props__.__dict__["provider"] = provider
@@ -551,7 +517,6 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["upload_status"] = upload_status
             __props__.__dict__["watchlist_alias"] = watchlist_alias
             __props__.__dict__["watchlist_id"] = watchlist_id
-            __props__.__dict__["watchlist_items_count"] = watchlist_items_count
             __props__.__dict__["watchlist_type"] = watchlist_type
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -560,7 +525,7 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Watchlist")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Watchlist"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Watchlist")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Watchlist, __self__).__init__(
             'azure-native:securityinsights:Watchlist',
@@ -607,7 +572,6 @@ class Watchlist(pulumi.CustomResource):
         __props__.__dict__["upload_status"] = None
         __props__.__dict__["watchlist_alias"] = None
         __props__.__dict__["watchlist_id"] = None
-        __props__.__dict__["watchlist_items_count"] = None
         __props__.__dict__["watchlist_type"] = None
         return Watchlist(resource_name, opts=opts, __props__=__props__)
 
@@ -615,7 +579,7 @@ class Watchlist(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The content type of the raw content. Example : text/csv or text/tsv 
+        The content type of the raw content. For now, only text/csv is valid
         """
         return pulumi.get(self, "content_type")
 
@@ -695,7 +659,7 @@ class Watchlist(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -703,7 +667,7 @@ class Watchlist(pulumi.CustomResource):
     @pulumi.getter(name="numberOfLinesToSkip")
     def number_of_lines_to_skip(self) -> pulumi.Output[Optional[int]]:
         """
-        The number of lines in a csv/tsv content to skip before the header
+        The number of lines in a csv content to skip before the header
         """
         return pulumi.get(self, "number_of_lines_to_skip")
 
@@ -719,7 +683,9 @@ class Watchlist(pulumi.CustomResource):
     @pulumi.getter(name="rawContent")
     def raw_content(self) -> pulumi.Output[Optional[str]]:
         """
-        The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+        The raw content that represents to watchlist items to create. Example : This line will be skipped
+        header1,header2
+        value1,value2
         """
         return pulumi.get(self, "raw_content")
 
@@ -751,7 +717,7 @@ class Watchlist(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -775,7 +741,7 @@ class Watchlist(pulumi.CustomResource):
     @pulumi.getter(name="uploadStatus")
     def upload_status(self) -> pulumi.Output[Optional[str]]:
         """
-        The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+        The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
         """
         return pulumi.get(self, "upload_status")
 
@@ -794,14 +760,6 @@ class Watchlist(pulumi.CustomResource):
         The id (a Guid) of the watchlist
         """
         return pulumi.get(self, "watchlist_id")
-
-    @property
-    @pulumi.getter(name="watchlistItemsCount")
-    def watchlist_items_count(self) -> pulumi.Output[Optional[int]]:
-        """
-        The number of Watchlist Items in the Watchlist
-        """
-        return pulumi.get(self, "watchlist_items_count")
 
     @property
     @pulumi.getter(name="watchlistType")

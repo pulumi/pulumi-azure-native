@@ -17,6 +17,7 @@ class GlobalReachConnectionArgs:
                  private_cloud_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 express_route_id: Optional[pulumi.Input[str]] = None,
                  global_reach_connection_name: Optional[pulumi.Input[str]] = None,
                  peer_express_route_circuit: Optional[pulumi.Input[str]] = None):
         """
@@ -24,6 +25,7 @@ class GlobalReachConnectionArgs:
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] authorization_key: Authorization key from the peer express route used for the global reach connection
+        :param pulumi.Input[str] express_route_id: The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
         :param pulumi.Input[str] global_reach_connection_name: Name of the global reach connection in the private cloud
         :param pulumi.Input[str] peer_express_route_circuit: Identifier of the ExpressRoute Circuit to peer with in the global reach connection
         """
@@ -31,6 +33,8 @@ class GlobalReachConnectionArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
+        if express_route_id is not None:
+            pulumi.set(__self__, "express_route_id", express_route_id)
         if global_reach_connection_name is not None:
             pulumi.set(__self__, "global_reach_connection_name", global_reach_connection_name)
         if peer_express_route_circuit is not None:
@@ -73,6 +77,18 @@ class GlobalReachConnectionArgs:
         pulumi.set(self, "authorization_key", value)
 
     @property
+    @pulumi.getter(name="expressRouteId")
+    def express_route_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        """
+        return pulumi.get(self, "express_route_id")
+
+    @express_route_id.setter
+    def express_route_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "express_route_id", value)
+
+    @property
     @pulumi.getter(name="globalReachConnectionName")
     def global_reach_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,6 +119,7 @@ class GlobalReachConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 express_route_id: Optional[pulumi.Input[str]] = None,
                  global_reach_connection_name: Optional[pulumi.Input[str]] = None,
                  peer_express_route_circuit: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -110,11 +127,12 @@ class GlobalReachConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A global reach connection resource
-        API Version: 2020-07-17-preview.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: Authorization key from the peer express route used for the global reach connection
+        :param pulumi.Input[str] express_route_id: The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
         :param pulumi.Input[str] global_reach_connection_name: Name of the global reach connection in the private cloud
         :param pulumi.Input[str] peer_express_route_circuit: Identifier of the ExpressRoute Circuit to peer with in the global reach connection
         :param pulumi.Input[str] private_cloud_name: The name of the private cloud.
@@ -128,7 +146,7 @@ class GlobalReachConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A global reach connection resource
-        API Version: 2020-07-17-preview.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
 
         :param str resource_name: The name of the resource.
         :param GlobalReachConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -146,6 +164,7 @@ class GlobalReachConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorization_key: Optional[pulumi.Input[str]] = None,
+                 express_route_id: Optional[pulumi.Input[str]] = None,
                  global_reach_connection_name: Optional[pulumi.Input[str]] = None,
                  peer_express_route_circuit: Optional[pulumi.Input[str]] = None,
                  private_cloud_name: Optional[pulumi.Input[str]] = None,
@@ -160,6 +179,7 @@ class GlobalReachConnection(pulumi.CustomResource):
             __props__ = GlobalReachConnectionArgs.__new__(GlobalReachConnectionArgs)
 
             __props__.__dict__["authorization_key"] = authorization_key
+            __props__.__dict__["express_route_id"] = express_route_id
             __props__.__dict__["global_reach_connection_name"] = global_reach_connection_name
             __props__.__dict__["peer_express_route_circuit"] = peer_express_route_circuit
             if private_cloud_name is None and not opts.urn:
@@ -200,6 +220,7 @@ class GlobalReachConnection(pulumi.CustomResource):
         __props__.__dict__["address_prefix"] = None
         __props__.__dict__["authorization_key"] = None
         __props__.__dict__["circuit_connection_status"] = None
+        __props__.__dict__["express_route_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["peer_express_route_circuit"] = None
         __props__.__dict__["provisioning_state"] = None
@@ -229,6 +250,14 @@ class GlobalReachConnection(pulumi.CustomResource):
         The connection status of the global reach connection
         """
         return pulumi.get(self, "circuit_connection_status")
+
+    @property
+    @pulumi.getter(name="expressRouteId")
+    def express_route_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the Private Cloud's ExpressRoute Circuit that is participating in the global reach connection
+        """
+        return pulumi.get(self, "express_route_id")
 
     @property
     @pulumi.getter

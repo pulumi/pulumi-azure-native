@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// Gets the environment with the specified name in the specified subscription and resource group.
-        /// API Version: 2020-05-15.
+        /// Azure REST API version: 2020-05-15.
         /// </summary>
         public static Task<GetGen1EnvironmentResult> InvokeAsync(GetGen1EnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGen1EnvironmentResult>("azure-native:timeseriesinsights:getGen1Environment", args ?? new GetGen1EnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the environment with the specified name in the specified subscription and resource group.
-        /// API Version: 2020-05-15.
+        /// Azure REST API version: 2020-05-15.
         /// </summary>
         public static Output<GetGen1EnvironmentResult> Invoke(GetGen1EnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGen1EnvironmentResult>("azure-native:timeseriesinsights:getGen1Environment", args ?? new GetGen1EnvironmentInvokeArgs(), options.WithDefaults());

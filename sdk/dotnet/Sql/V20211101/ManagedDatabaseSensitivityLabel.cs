@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// A sensitivity label.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:ManagedDatabaseSensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:ManagedDatabaseSensitivityLabel")]
     public partial class ManagedDatabaseSensitivityLabel : global::Pulumi.CustomResource
     {
@@ -122,6 +121,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ManagedDatabaseSensitivityLabel"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ManagedDatabaseSensitivityLabel"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ManagedDatabaseSensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

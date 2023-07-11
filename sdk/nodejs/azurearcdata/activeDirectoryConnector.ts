@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Active directory connector resource
- * API Version: 2022-03-01-preview.
+ * Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2022-03-01-preview
  */
 export class ActiveDirectoryConnector extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20220615preview:ActiveDirectoryConnector" }, { type: "azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActiveDirectoryConnector.__pulumiType, name, resourceInputs, opts);
     }

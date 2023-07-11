@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainValidationState!: pulumi.Output<string>;
     /**
+     * Key-Value pair representing migration properties for domains.
+     */
+    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * The host name of the domain. Must be a domain name.
      */
     public readonly hostName!: pulumi.Output<string>;
@@ -55,6 +59,14 @@ export class AFDCustomDomain extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Resource reference to the Azure resource where custom domain ownership was prevalidated
+     */
+    public readonly preValidatedCustomDomainResourceId!: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
+    /**
+     * The name of the profile which holds the domain.
+     */
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * Provisioning status
      */
@@ -98,7 +110,9 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             }
             resourceInputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
             resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
+            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
+            resourceInputs["preValidatedCustomDomainResourceId"] = args ? args.preValidatedCustomDomainResourceId : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tlsSettings"] = args ? args.tlsSettings : undefined;
@@ -113,8 +127,11 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["azureDnsZone"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["domainValidationState"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["preValidatedCustomDomainResourceId"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tlsSettings"] = undefined /*out*/;
@@ -122,7 +139,7 @@ export class AFDCustomDomain extends pulumi.CustomResource {
             resourceInputs["validationProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-native:cdn/v20210601:AFDCustomDomain" }, { type: "azure-native:cdn/v20220501preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20221101preview:AFDCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDCustomDomain" }, { type: "azure-native:cdn/v20210601:AFDCustomDomain" }, { type: "azure-native:cdn/v20220501preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20221101preview:AFDCustomDomain" }, { type: "azure-native:cdn/v20230501:AFDCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDCustomDomain.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,11 +158,19 @@ export interface AFDCustomDomainArgs {
      */
     customDomainName?: pulumi.Input<string>;
     /**
+     * Key-Value pair representing migration properties for domains.
+     */
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The host name of the domain. Must be a domain name.
      */
     hostName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Resource reference to the Azure resource where custom domain ownership was prevalidated
+     */
+    preValidatedCustomDomainResourceId?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
+    /**
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

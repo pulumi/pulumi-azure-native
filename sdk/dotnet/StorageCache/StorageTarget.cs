@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
     /// Type of the Storage Target.
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:StorageTarget")]
     public partial class StorageTarget : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The percentage of cache space allocated for this storage target
+        /// </summary>
+        [Output("allocationPercentage")]
+        public Output<int> AllocationPercentage { get; private set; } = null!;
+
         /// <summary>
         /// Properties when targetType is blobNfs.
         /// </summary>
@@ -29,7 +35,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<Outputs.ClfsTargetResponse?> Clfs { get; private set; } = null!;
 
         /// <summary>
-        /// List of Cache namespace junctions to target for namespace associations.
+        /// List of cache namespace junctions to target for namespace associations.
         /// </summary>
         [Output("junctions")]
         public Output<ImmutableArray<Outputs.NamespaceJunctionResponse>> Junctions { get; private set; } = null!;
@@ -56,7 +62,13 @@ namespace Pulumi.AzureNative.StorageCache
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage target operational state.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The system meta data relating to this resource.
@@ -118,6 +130,7 @@ namespace Pulumi.AzureNative.StorageCache
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220501:StorageTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230101:StorageTarget"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:StorageTarget"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:StorageTarget"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -148,7 +161,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Input<Inputs.BlobNfsTargetArgs>? BlobNfs { get; set; }
 
         /// <summary>
-        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName", required: true)]
         public Input<string> CacheName { get; set; } = null!;
@@ -163,7 +176,7 @@ namespace Pulumi.AzureNative.StorageCache
         private InputList<Inputs.NamespaceJunctionArgs>? _junctions;
 
         /// <summary>
-        /// List of Cache namespace junctions to target for namespace associations.
+        /// List of cache namespace junctions to target for namespace associations.
         /// </summary>
         public InputList<Inputs.NamespaceJunctionArgs> Junctions
         {
@@ -178,16 +191,16 @@ namespace Pulumi.AzureNative.StorageCache
         public Input<Inputs.Nfs3TargetArgs>? Nfs3 { get; set; }
 
         /// <summary>
-        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.StorageCache.ProvisioningStateType>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Target resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage target operational state.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.StorageCache.OperationalStateType>? State { get; set; }
 
         /// <summary>
         /// Name of Storage Target.

@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/provider"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 )
 
 var providerName = "azure-native"

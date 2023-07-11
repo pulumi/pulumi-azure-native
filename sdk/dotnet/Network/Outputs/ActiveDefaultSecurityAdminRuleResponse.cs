@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// A friendly name for the rule.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// Default rule flag.
         /// </summary>
@@ -81,6 +81,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Deployment region.
         /// </summary>
         public readonly string? Region;
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Groups for rule collection
         /// </summary>
@@ -124,7 +128,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string direction,
 
-            string displayName,
+            string? displayName,
 
             string? flag,
 
@@ -139,6 +143,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             string provisioningState,
 
             string? region,
+
+            string resourceGuid,
 
             ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> ruleCollectionAppliesToGroups,
 
@@ -168,6 +174,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Protocol = protocol;
             ProvisioningState = provisioningState;
             Region = region;
+            ResourceGuid = resourceGuid;
             RuleCollectionAppliesToGroups = ruleCollectionAppliesToGroups;
             RuleCollectionDescription = ruleCollectionDescription;
             RuleCollectionDisplayName = ruleCollectionDisplayName;

@@ -16,13 +16,25 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class MasterProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure resource ID of the master subnet (immutable).
+        /// The resource ID of an associated DiskEncryptionSet, if applicable.
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
+
+        /// <summary>
+        /// Whether master virtual machines are encrypted at host.
+        /// </summary>
+        [Input("encryptionAtHost")]
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.EncryptionAtHost>? EncryptionAtHost { get; set; }
+
+        /// <summary>
+        /// The Azure resource ID of the master subnet.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// The size of the master VMs (immutable).
+        /// The size of the master VMs.
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

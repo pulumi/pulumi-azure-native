@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Cognitive Services account commitment plan.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
  */
 export class CommitmentPlan extends pulumi.CustomResource {
     /**
@@ -43,6 +43,14 @@ export class CommitmentPlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * The Kind of the resource.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The geo-location where the resource lives
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -51,9 +59,17 @@ export class CommitmentPlan extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.cognitiveservices.CommitmentPlanPropertiesResponse>;
     /**
+     * The resource model definition representing SKU
+     */
+    public readonly sku!: pulumi.Output<outputs.cognitiveservices.SkuResponse | undefined>;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cognitiveservices.SystemDataResponse>;
+    /**
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -78,21 +94,29 @@ export class CommitmentPlan extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["commitmentPlanName"] = args ? args.commitmentPlanName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20220301:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221001:CommitmentPlan" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20211001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20220301:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221001:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20221201:CommitmentPlan" }, { type: "azure-native:cognitiveservices/v20230501:CommitmentPlan" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommitmentPlan.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,6 +135,14 @@ export interface CommitmentPlanArgs {
      */
     commitmentPlanName?: pulumi.Input<string>;
     /**
+     * The Kind of the resource.
+     */
+    kind?: pulumi.Input<string>;
+    /**
+     * The geo-location where the resource lives
+     */
+    location?: pulumi.Input<string>;
+    /**
      * Properties of Cognitive Services account commitment plan.
      */
     properties?: pulumi.Input<inputs.cognitiveservices.CommitmentPlanPropertiesArgs>;
@@ -118,4 +150,12 @@ export interface CommitmentPlanArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource model definition representing SKU
+     */
+    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     /// <summary>
     /// Class representing a Kusto kusto pool.
     /// </summary>
-    [AzureNativeResourceType("azure-native:synapse/v20210401preview:kustoPool")]
+    [AzureNativeResourceType("azure-native:synapse/v20210401preview:KustoPool")]
     public partial class KustoPool : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -108,12 +108,12 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KustoPool(string name, KustoPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:synapse/v20210401preview:kustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse/v20210401preview:KustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KustoPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:synapse/v20210401preview:kustoPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse/v20210401preview:KustoPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -124,7 +124,10 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse:KustoPool"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse:kustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPool"},
                     new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:kustoPool"},
                 },
             };

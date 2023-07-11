@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Subscription details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility.
  */
 export class Subscription extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Subscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Subscription {
-        pulumi.log.warn("Subscription is deprecated: azure-native:apimanagement/v20220801:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility.")
         return new Subscription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +105,7 @@ export class Subscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility. */
     constructor(name: string, args: SubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Subscription is deprecated: azure-native:apimanagement/v20220801:Subscription is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Subscription to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -164,7 +159,7 @@ export class Subscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Subscription" }, { type: "azure-native:apimanagement/v20160707:Subscription" }, { type: "azure-native:apimanagement/v20161010:Subscription" }, { type: "azure-native:apimanagement/v20170301:Subscription" }, { type: "azure-native:apimanagement/v20180101:Subscription" }, { type: "azure-native:apimanagement/v20180601preview:Subscription" }, { type: "azure-native:apimanagement/v20190101:Subscription" }, { type: "azure-native:apimanagement/v20191201:Subscription" }, { type: "azure-native:apimanagement/v20191201preview:Subscription" }, { type: "azure-native:apimanagement/v20200601preview:Subscription" }, { type: "azure-native:apimanagement/v20201201:Subscription" }, { type: "azure-native:apimanagement/v20210101preview:Subscription" }, { type: "azure-native:apimanagement/v20210401preview:Subscription" }, { type: "azure-native:apimanagement/v20210801:Subscription" }, { type: "azure-native:apimanagement/v20211201preview:Subscription" }, { type: "azure-native:apimanagement/v20220401preview:Subscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Subscription" }, { type: "azure-native:apimanagement/v20160707:Subscription" }, { type: "azure-native:apimanagement/v20161010:Subscription" }, { type: "azure-native:apimanagement/v20170301:Subscription" }, { type: "azure-native:apimanagement/v20180101:Subscription" }, { type: "azure-native:apimanagement/v20180601preview:Subscription" }, { type: "azure-native:apimanagement/v20190101:Subscription" }, { type: "azure-native:apimanagement/v20191201:Subscription" }, { type: "azure-native:apimanagement/v20191201preview:Subscription" }, { type: "azure-native:apimanagement/v20200601preview:Subscription" }, { type: "azure-native:apimanagement/v20201201:Subscription" }, { type: "azure-native:apimanagement/v20210101preview:Subscription" }, { type: "azure-native:apimanagement/v20210401preview:Subscription" }, { type: "azure-native:apimanagement/v20210801:Subscription" }, { type: "azure-native:apimanagement/v20211201preview:Subscription" }, { type: "azure-native:apimanagement/v20220401preview:Subscription" }, { type: "azure-native:apimanagement/v20220901preview:Subscription" }, { type: "azure-native:apimanagement/v20230301preview:Subscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subscription.__pulumiType, name, resourceInputs, opts);
     }

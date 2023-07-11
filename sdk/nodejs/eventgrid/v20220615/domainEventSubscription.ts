@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Subscription
- *
- * @deprecated azure-native:eventgrid/v20220615:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.
  */
 export class DomainEventSubscription extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DomainEventSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainEventSubscription {
-        pulumi.log.warn("DomainEventSubscription is deprecated: azure-native:eventgrid/v20220615:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.")
         return new DomainEventSubscription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +105,7 @@ export class DomainEventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:eventgrid/v20220615:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility. */
     constructor(name: string, args: DomainEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DomainEventSubscription is deprecated: azure-native:eventgrid/v20220615:DomainEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainEventSubscription to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -154,7 +149,7 @@ export class DomainEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:DomainEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:DomainEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:DomainEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

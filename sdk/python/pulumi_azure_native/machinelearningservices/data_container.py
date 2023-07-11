@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataContainerInitArgs', 'DataContainer']
@@ -16,34 +17,34 @@ __all__ = ['DataContainerInitArgs', 'DataContainer']
 @pulumi.input_type
 class DataContainerInitArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['DataContainerArgs'],
+                 data_container_properties: pulumi.Input['DataContainerArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataContainer resource.
-        :param pulumi.Input['DataContainerArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['DataContainerArgs'] data_container_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] name: Container name.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "data_container_properties", data_container_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['DataContainerArgs']:
+    @pulumi.getter(name="dataContainerProperties")
+    def data_container_properties(self) -> pulumi.Input['DataContainerArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "data_container_properties")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['DataContainerArgs']):
-        pulumi.set(self, "properties", value)
+    @data_container_properties.setter
+    def data_container_properties(self, value: pulumi.Input['DataContainerArgs']):
+        pulumi.set(self, "data_container_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -87,19 +88,19 @@ class DataContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_container_properties: Optional[pulumi.Input[pulumi.InputType['DataContainerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DataContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DataContainerArgs']] data_container_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] name: Container name.
-        :param pulumi.Input[pulumi.InputType['DataContainerArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -111,7 +112,7 @@ class DataContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param DataContainerInitArgs args: The arguments to use to populate this resource's properties.
@@ -128,8 +129,8 @@ class DataContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 data_container_properties: Optional[pulumi.Input[pulumi.InputType['DataContainerArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['DataContainerArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -141,10 +142,10 @@ class DataContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataContainerInitArgs.__new__(DataContainerInitArgs)
 
+            if data_container_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'data_container_properties'")
+            __props__.__dict__["data_container_properties"] = data_container_properties
             __props__.__dict__["name"] = name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -153,7 +154,7 @@ class DataContainer(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:DataContainer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:DataContainer"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:DataContainer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataContainer, __self__).__init__(
             'azure-native:machinelearningservices:DataContainer',
@@ -177,11 +178,19 @@ class DataContainer(pulumi.CustomResource):
 
         __props__ = DataContainerInitArgs.__new__(DataContainerInitArgs)
 
+        __props__.__dict__["data_container_properties"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DataContainer(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="dataContainerProperties")
+    def data_container_properties(self) -> pulumi.Output['outputs.DataContainerResponse']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "data_container_properties")
 
     @property
     @pulumi.getter
@@ -192,18 +201,10 @@ class DataContainer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.DataContainerResponse']:
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

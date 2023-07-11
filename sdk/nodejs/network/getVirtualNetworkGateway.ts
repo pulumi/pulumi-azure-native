@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified virtual network gateway by resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGateway(args: GetVirtualNetworkGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkGatewayResult> {
 
@@ -40,6 +40,18 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly activeActive?: boolean;
     /**
+     * Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+     */
+    readonly adminState?: string;
+    /**
+     * Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+     */
+    readonly allowRemoteVnetTraffic?: boolean;
+    /**
+     * Configures this gateway to accept traffic from remote Virtual WAN networks.
+     */
+    readonly allowVirtualWanTraffic?: boolean;
+    /**
      * Virtual network gateway's BGP speaker settings.
      */
     readonly bgpSettings?: outputs.network.BgpSettingsResponse;
@@ -48,9 +60,17 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly customRoutes?: outputs.network.AddressSpaceResponse;
     /**
+     * disableIPSecReplayProtection flag.
+     */
+    readonly disableIPSecReplayProtection?: boolean;
+    /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
     readonly enableBgp?: boolean;
+    /**
+     * EnableBgpRouteTranslationForNat flag.
+     */
+    readonly enableBgpRouteTranslationForNat?: boolean;
     /**
      * Whether dns forwarding is enabled or not.
      */
@@ -96,6 +116,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly name: string;
     /**
+     * NatRules for virtual network gateway.
+     */
+    readonly natRules?: outputs.network.VirtualNetworkGatewayNatRuleResponse[];
+    /**
      * The provisioning state of the virtual network gateway resource.
      */
     readonly provisioningState: string;
@@ -120,6 +144,10 @@ export interface GetVirtualNetworkGatewayResult {
      */
     readonly vNetExtendedLocationResourceId?: string;
     /**
+     * The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+     */
+    readonly virtualNetworkGatewayPolicyGroups?: outputs.network.VirtualNetworkGatewayPolicyGroupResponse[];
+    /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
     readonly vpnClientConfiguration?: outputs.network.VpnClientConfigurationResponse;
@@ -134,7 +162,7 @@ export interface GetVirtualNetworkGatewayResult {
 }
 /**
  * Gets the specified virtual network gateway by resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualNetworkGatewayOutput(args: GetVirtualNetworkGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkGateway(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schema for MSIX Package properties.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class MSIXPackage extends pulumi.CustomResource {
     /**
@@ -83,6 +83,10 @@ export class MSIXPackage extends pulumi.CustomResource {
      */
     public readonly packageRelativePath!: pulumi.Output<string | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -123,6 +127,7 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["displayName"] = undefined /*out*/;
@@ -136,6 +141,7 @@ export class MSIXPackage extends pulumi.CustomResource {
             resourceInputs["packageFamilyName"] = undefined /*out*/;
             resourceInputs["packageName"] = undefined /*out*/;
             resourceInputs["packageRelativePath"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Resource information, as returned by the resource provider.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:Vault")]
     public partial class Vault : global::Pulumi.CustomResource
@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20221001:Vault"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230101:Vault"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230201:Vault"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230401:Vault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +162,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public Input<Inputs.VaultPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group where the recovery services vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

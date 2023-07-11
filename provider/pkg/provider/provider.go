@@ -12,7 +12,6 @@ import (
 	"math"
 	"net/http"
 	"os"
-	"reflect"
 	"regexp"
 	"strings"
 	"time"
@@ -29,10 +28,10 @@ import (
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/defaults"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -633,7 +632,7 @@ func (k *azureNativeProvider) validateProperty(ctx string, prop *resources.Azure
 
 		failures = append(failures, k.validateType(ctx, &typ, value)...)
 	case []interface{}:
-		if prop.Type != "array" {
+		if prop.Type != "array" && !prop.IsStringSet {
 			return append(failures, &rpc.CheckFailure{
 				Reason: fmt.Sprintf("'%s' should be of type '%s' but got an array", ctx, prop.Type),
 			})
@@ -790,31 +789,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	detailedDiff := calculateDetailedDiff(&res, &k.resourceMap.Types, diff)
 
 	// Based on the detailed diff above, calculate the list of changes and replacements.
-	var changes, replaces []string
-	for k, v := range detailedDiff {
-		parts := strings.Split(k, ".")
-		changes = append(changes, parts[0])
-		v.InputDiff = true
-
-		switch v.Kind {
-		case rpc.PropertyDiff_ADD_REPLACE:
-			// Special case: previously, the property input had no value but is now set to X.
-			// If the output contains this property and it's X, that's not a replacement.
-			// Workaround for https://github.com/pulumi/pulumi-azure-nextgen/issues/238
-			// TODO: remove this block before GA.
-			key := resource.PropertyKey(k)
-			_, hasOldInput := oldInputs[key]
-			newInputValue, hasNewInput := newResInputs[key]
-			outputValue, hasOutput := oldState[key]
-			if !hasOldInput && hasNewInput && hasOutput && reflect.DeepEqual(newInputValue, outputValue) {
-				v.Kind = rpc.PropertyDiff_ADD
-			} else {
-				replaces = append(replaces, k)
-			}
-		case rpc.PropertyDiff_DELETE_REPLACE, rpc.PropertyDiff_UPDATE_REPLACE:
-			replaces = append(replaces, k)
-		}
-	}
+	changes, replaces := calculateChangesAndReplacements(detailedDiff, oldInputs, newResInputs, oldState, res)
 
 	// TODO: implement create-before-delete for children of randomly auto-named resources.
 	deleteBeforeReplace := len(replaces) > 0
@@ -822,7 +797,7 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 		deleteBeforeReplace = !v.BoolValue()
 	}
 	changeType := rpc.DiffResponse_DIFF_NONE
-	if len(detailedDiff) > 0 {
+	if len(changes) > 0 {
 		changeType = rpc.DiffResponse_DIFF_SOME
 	}
 

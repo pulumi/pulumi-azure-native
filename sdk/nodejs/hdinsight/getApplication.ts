@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets properties of the specified application.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2021-06-01.
  */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
 
@@ -45,7 +45,7 @@ export interface GetApplicationResult {
      */
     readonly etag?: string;
     /**
-     * Fully qualified resource Id for the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -57,17 +57,21 @@ export interface GetApplicationResult {
      */
     readonly properties: outputs.hdinsight.ApplicationPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.hdinsight.SystemDataResponse;
+    /**
      * The tags for the application.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets properties of the specified application.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2021-06-01.
  */
 export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
     return pulumi.output(args).apply((a: any) => getApplication(a, opts))

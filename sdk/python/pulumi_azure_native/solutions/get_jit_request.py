@@ -22,7 +22,7 @@ class GetJitRequestResult:
     """
     Information about JIT request definition.
     """
-    def __init__(__self__, application_resource_id=None, created_by=None, id=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, tags=None, type=None, updated_by=None):
+    def __init__(__self__, application_resource_id=None, created_by=None, id=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, system_data=None, tags=None, type=None, updated_by=None):
         if application_resource_id and not isinstance(application_resource_id, str):
             raise TypeError("Expected argument 'application_resource_id' to be a str")
         pulumi.set(__self__, "application_resource_id", application_resource_id)
@@ -53,6 +53,9 @@ class GetJitRequestResult:
         if publisher_tenant_id and not isinstance(publisher_tenant_id, str):
             raise TypeError("Expected argument 'publisher_tenant_id' to be a str")
         pulumi.set(__self__, "publisher_tenant_id", publisher_tenant_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -144,6 +147,14 @@ class GetJitRequestResult:
         return pulumi.get(self, "publisher_tenant_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -184,6 +195,7 @@ class AwaitableGetJitRequestResult(GetJitRequestResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             publisher_tenant_id=self.publisher_tenant_id,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             updated_by=self.updated_by)
@@ -194,7 +206,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitRequestResult:
     """
     Gets the JIT request.
-    API Version: 2019-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str jit_request_name: The name of the JIT request.
@@ -217,6 +229,7 @@ def get_jit_request(jit_request_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         publisher_tenant_id=__ret__.publisher_tenant_id,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         updated_by=__ret__.updated_by)
@@ -228,7 +241,7 @@ def get_jit_request_output(jit_request_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitRequestResult]:
     """
     Gets the JIT request.
-    API Version: 2019-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str jit_request_name: The name of the JIT request.

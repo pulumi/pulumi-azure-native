@@ -74,11 +74,11 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAuthorizationServerSecretsResult:
     """
     Gets the client secret details of the authorization server.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -101,11 +101,11 @@ def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[str]
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
     """
     Gets the client secret details of the authorization server.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str authsid: Identifier of the authorization server.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

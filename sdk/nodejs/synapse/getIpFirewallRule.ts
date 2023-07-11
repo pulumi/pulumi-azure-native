@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a firewall rule
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getIpFirewallRule(args: GetIpFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIpFirewallRuleResult> {
 
@@ -28,7 +28,7 @@ export interface GetIpFirewallRuleArgs {
      */
     ruleName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -64,7 +64,7 @@ export interface GetIpFirewallRuleResult {
 }
 /**
  * Get a firewall rule
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getIpFirewallRuleOutput(args: GetIpFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getIpFirewallRule(a, opts))
@@ -80,7 +80,7 @@ export interface GetIpFirewallRuleOutputArgs {
      */
     ruleName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

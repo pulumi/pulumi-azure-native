@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Aad
     {
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetDomainServiceResult> InvokeAsync(GetDomainServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Get Domain Service operation retrieves a json representation of the Domain Service.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetDomainServiceResult> Invoke(GetDomainServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainServiceResult>("azure-native:aad:getDomainService", args ?? new GetDomainServiceInvokeArgs(), options.WithDefaults());
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.Aad
     [OutputType]
     public sealed class GetDomainServiceResult
     {
+        /// <summary>
+        /// Configuration diagnostics data containing latest execution from client.
+        /// </summary>
+        public readonly Outputs.ConfigDiagnosticsResponse? ConfigDiagnostics;
         /// <summary>
         /// Deployment Id
         /// </summary>
@@ -136,9 +140,17 @@ namespace Pulumi.AzureNative.Aad
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// The unique sync application id of the Azure AD Domain Services deployment.
+        /// </summary>
+        public readonly string SyncApplicationId;
+        /// <summary>
         /// SyncOwner ReplicaSet Id
         /// </summary>
         public readonly string SyncOwner;
+        /// <summary>
+        /// All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+        /// </summary>
+        public readonly string? SyncScope;
         /// <summary>
         /// The system meta data relating to this resource.
         /// </summary>
@@ -162,6 +174,8 @@ namespace Pulumi.AzureNative.Aad
 
         [OutputConstructor]
         private GetDomainServiceResult(
+            Outputs.ConfigDiagnosticsResponse? configDiagnostics,
+
             string deploymentId,
 
             string? domainConfigurationType,
@@ -194,7 +208,11 @@ namespace Pulumi.AzureNative.Aad
 
             string? sku,
 
+            string syncApplicationId,
+
             string syncOwner,
+
+            string? syncScope,
 
             Outputs.SystemDataResponse systemData,
 
@@ -206,6 +224,7 @@ namespace Pulumi.AzureNative.Aad
 
             int version)
         {
+            ConfigDiagnostics = configDiagnostics;
             DeploymentId = deploymentId;
             DomainConfigurationType = domainConfigurationType;
             DomainName = domainName;
@@ -222,7 +241,9 @@ namespace Pulumi.AzureNative.Aad
             ReplicaSets = replicaSets;
             ResourceForestSettings = resourceForestSettings;
             Sku = sku;
+            SyncApplicationId = syncApplicationId;
             SyncOwner = syncOwner;
+            SyncScope = syncScope;
             SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;

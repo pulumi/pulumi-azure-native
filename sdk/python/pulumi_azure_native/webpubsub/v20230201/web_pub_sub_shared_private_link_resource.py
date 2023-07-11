@@ -112,12 +112,7 @@ class WebPubSubSharedPrivateLinkResourceArgs:
         pulumi.set(self, "shared_private_link_resource_name", value)
 
 
-warnings.warn("""azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
-    warnings.warn("""azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,7 +167,6 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  shared_private_link_resource_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""WebPubSubSharedPrivateLinkResource is deprecated: azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -200,7 +194,7 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubSharedPrivateLinkResource, __self__).__init__(
             'azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource',

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Tag Contract details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class TagByProduct extends pulumi.CustomResource {
     /**
@@ -40,11 +40,11 @@ export class TagByProduct extends pulumi.CustomResource {
      */
     public /*out*/ readonly displayName!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -81,7 +81,7 @@ export class TagByProduct extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:TagByProduct" }, { type: "azure-native:apimanagement/v20180101:TagByProduct" }, { type: "azure-native:apimanagement/v20180601preview:TagByProduct" }, { type: "azure-native:apimanagement/v20190101:TagByProduct" }, { type: "azure-native:apimanagement/v20191201:TagByProduct" }, { type: "azure-native:apimanagement/v20191201preview:TagByProduct" }, { type: "azure-native:apimanagement/v20200601preview:TagByProduct" }, { type: "azure-native:apimanagement/v20201201:TagByProduct" }, { type: "azure-native:apimanagement/v20210101preview:TagByProduct" }, { type: "azure-native:apimanagement/v20210401preview:TagByProduct" }, { type: "azure-native:apimanagement/v20210801:TagByProduct" }, { type: "azure-native:apimanagement/v20211201preview:TagByProduct" }, { type: "azure-native:apimanagement/v20220401preview:TagByProduct" }, { type: "azure-native:apimanagement/v20220801:TagByProduct" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:TagByProduct" }, { type: "azure-native:apimanagement/v20180101:TagByProduct" }, { type: "azure-native:apimanagement/v20180601preview:TagByProduct" }, { type: "azure-native:apimanagement/v20190101:TagByProduct" }, { type: "azure-native:apimanagement/v20191201:TagByProduct" }, { type: "azure-native:apimanagement/v20191201preview:TagByProduct" }, { type: "azure-native:apimanagement/v20200601preview:TagByProduct" }, { type: "azure-native:apimanagement/v20201201:TagByProduct" }, { type: "azure-native:apimanagement/v20210101preview:TagByProduct" }, { type: "azure-native:apimanagement/v20210401preview:TagByProduct" }, { type: "azure-native:apimanagement/v20210801:TagByProduct" }, { type: "azure-native:apimanagement/v20211201preview:TagByProduct" }, { type: "azure-native:apimanagement/v20220401preview:TagByProduct" }, { type: "azure-native:apimanagement/v20220801:TagByProduct" }, { type: "azure-native:apimanagement/v20220901preview:TagByProduct" }, { type: "azure-native:apimanagement/v20230301preview:TagByProduct" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagByProduct.__pulumiType, name, resourceInputs, opts);
     }
@@ -96,7 +96,7 @@ export interface TagByProductArgs {
      */
     productId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

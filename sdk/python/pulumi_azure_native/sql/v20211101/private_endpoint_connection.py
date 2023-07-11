@@ -96,12 +96,7 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class PrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:PrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,7 +147,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateEndpointConnection is deprecated: azure-native:sql/v20211101:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:PrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -174,7 +168,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20180601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200202preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20201101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20211101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220801preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20180601preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200202preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20201101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20211101preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220501preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220801preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20221101preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:sql/v20211101:PrivateEndpointConnection',

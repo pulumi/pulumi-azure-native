@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
     public sealed class NamespaceJunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Namespace path on a Cache for a Storage Target.
+        /// Namespace path on a cache for a Storage Target.
         /// </summary>
         [Input("namespacePath")]
         public Input<string>? NamespacePath { get; set; }

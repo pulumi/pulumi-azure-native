@@ -119,12 +119,7 @@ class ContainerAppsSourceControlArgs:
         pulumi.set(self, "source_control_name", value)
 
 
-warnings.warn("""azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ContainerAppsSourceControl(pulumi.CustomResource):
-    warnings.warn("""azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -181,7 +176,6 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ContainerAppsSourceControl is deprecated: azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -204,7 +198,7 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
             __props__.__dict__["operation_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerAppsSourceControl")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20221101preview:ContainerAppsSourceControl"), pulumi.Alias(type_="azure-native:app/v20230401preview:ContainerAppsSourceControl")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerAppsSourceControl, __self__).__init__(
             'azure-native:app/v20221001:ContainerAppsSourceControl',

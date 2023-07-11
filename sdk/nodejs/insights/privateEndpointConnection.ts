@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection
- * API Version: 2019-10-17-preview.
+ * The Private Endpoint Connection resource.
+ * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,23 +39,23 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint which the connection belongs to.
+     * The resource of private end point.
      */
-    public readonly privateEndpoint!: pulumi.Output<outputs.insights.PrivateEndpointPropertyResponse | undefined>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.insights.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.insights.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.insights.PrivateLinkServiceConnectionStateResponse>;
     /**
-     * State of the private endpoint connection.
+     * The provisioning state of the private endpoint connection resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -70,18 +70,21 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.scopeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scopeName'");
             }
-            resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -103,17 +106,13 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * Private endpoint which the connection belongs to.
-     */
-    privateEndpoint?: pulumi.Input<inputs.insights.PrivateEndpointPropertyArgs>;
-    /**
      * The name of the private endpoint connection.
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.insights.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

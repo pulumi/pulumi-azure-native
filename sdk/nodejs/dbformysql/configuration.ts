@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Represents a Configuration.
- * API Version: 2017-12-01.
+ * Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -40,6 +43,10 @@ export class Configuration extends pulumi.CustomResource {
      */
     public /*out*/ readonly allowedValues!: pulumi.Output<string>;
     /**
+     * Current value of the configuration.
+     */
+    public readonly currentValue!: pulumi.Output<string | undefined>;
+    /**
      * Data type of the configuration.
      */
     public /*out*/ readonly dataType!: pulumi.Output<string>;
@@ -52,6 +59,22 @@ export class Configuration extends pulumi.CustomResource {
      */
     public /*out*/ readonly description!: pulumi.Output<string>;
     /**
+     * The link used to get the document from community or Azure site.
+     */
+    public /*out*/ readonly documentationLink!: pulumi.Output<string>;
+    /**
+     * If is the configuration pending restart or not.
+     */
+    public /*out*/ readonly isConfigPendingRestart!: pulumi.Output<string>;
+    /**
+     * If is the configuration dynamic.
+     */
+    public /*out*/ readonly isDynamicConfig!: pulumi.Output<string>;
+    /**
+     * If is the configuration read only.
+     */
+    public /*out*/ readonly isReadOnly!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -59,6 +82,10 @@ export class Configuration extends pulumi.CustomResource {
      * Source of the configuration.
      */
     public readonly source!: pulumi.Output<string | undefined>;
+    /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -86,6 +113,7 @@ export class Configuration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
+            resourceInputs["currentValue"] = args ? args.currentValue : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
@@ -94,20 +122,31 @@ export class Configuration extends pulumi.CustomResource {
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationLink"] = undefined /*out*/;
+            resourceInputs["isConfigPendingRestart"] = undefined /*out*/;
+            resourceInputs["isDynamicConfig"] = undefined /*out*/;
+            resourceInputs["isReadOnly"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allowedValues"] = undefined /*out*/;
+            resourceInputs["currentValue"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;
             resourceInputs["defaultValue"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationLink"] = undefined /*out*/;
+            resourceInputs["isConfigPendingRestart"] = undefined /*out*/;
+            resourceInputs["isDynamicConfig"] = undefined /*out*/;
+            resourceInputs["isReadOnly"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["source"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20171201:Configuration" }, { type: "azure-native:dbformysql/v20171201preview:Configuration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20200701preview:Configuration" }, { type: "azure-native:dbformysql/v20200701privatepreview:Configuration" }, { type: "azure-native:dbformysql/v20210501:Configuration" }, { type: "azure-native:dbformysql/v20210501preview:Configuration" }, { type: "azure-native:dbformysql/v20211201preview:Configuration" }, { type: "azure-native:dbformysql/v20220101:Configuration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
@@ -122,6 +161,10 @@ export interface ConfigurationArgs {
      */
     configurationName?: pulumi.Input<string>;
     /**
+     * Current value of the configuration.
+     */
+    currentValue?: pulumi.Input<string>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -132,7 +175,7 @@ export interface ConfigurationArgs {
     /**
      * Source of the configuration.
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | enums.dbformysql.ConfigurationSource>;
     /**
      * Value of the configuration.
      */

@@ -159,7 +159,7 @@ def get_nsp_association(association_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNspAssociationResult:
     """
     Gets the specified NSP association by name.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str association_name: The name of the NSP association.
@@ -193,7 +193,7 @@ def get_nsp_association_output(association_name: Optional[pulumi.Input[str]] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNspAssociationResult]:
     """
     Gets the specified NSP association by name.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str association_name: The name of the NSP association.

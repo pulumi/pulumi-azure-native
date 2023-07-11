@@ -23,6 +23,7 @@ class ApplicationGatewayArgs:
                  autoscale_configuration: Optional[pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
                  backend_http_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingsArgs']]]] = None,
+                 backend_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendSettingsArgs']]]] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorArgs']]]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
@@ -31,15 +32,19 @@ class ApplicationGatewayArgs:
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIPConfigurationArgs']]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]]] = None,
+                 global_configuration: Optional[pulumi.Input['ApplicationGatewayGlobalConfigurationArgs']] = None,
                  http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayListenerArgs']]]] = None,
+                 load_distribution_policies: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayLoadDistributionPolicyArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]]] = None,
                  redirect_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]]] = None,
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]]] = None,
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRoutingRuleArgs']]]] = None,
                  sku: Optional[pulumi.Input['ApplicationGatewaySkuArgs']] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]]] = None,
                  ssl_policy: Optional[pulumi.Input['ApplicationGatewaySslPolicyArgs']] = None,
@@ -58,6 +63,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: Autoscale Configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingsArgs']]] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendSettingsArgs']]] backend_settings_collection: Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayCustomErrorArgs']]] custom_error_configurations: Custom error configurations of the application gateway resource.
         :param pulumi.Input[bool] enable_fips: Whether FIPS is enabled on the application gateway resource.
         :param pulumi.Input[bool] enable_http2: Whether HTTP2 is enabled on the application gateway resource.
@@ -66,15 +72,19 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIPConfigurationArgs']]] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayIPConfigurationArgs']]] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input['ApplicationGatewayGlobalConfigurationArgs'] global_configuration: Global Configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the application gateway, if configured.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayListenerArgs']]] listeners: Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayLoadDistributionPolicyArgs']]] load_distribution_policies: Load distribution policies of the application gateway resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayPrivateLinkConfigurationArgs']]] private_link_configurations: PrivateLink configurations on application gateway.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayProbeArgs']]] probes: Probes of the application gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRedirectConfigurationArgs']]] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRequestRoutingRuleArgs']]] request_routing_rules: Request routing rules of the application gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRoutingRuleArgs']]] routing_rules: Routing rules of the application gateway resource.
         :param pulumi.Input['ApplicationGatewaySkuArgs'] sku: SKU of the application gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewaySslCertificateArgs']]] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input['ApplicationGatewaySslPolicyArgs'] ssl_policy: SSL policy of the application gateway resource.
@@ -97,6 +107,8 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "backend_address_pools", backend_address_pools)
         if backend_http_settings_collection is not None:
             pulumi.set(__self__, "backend_http_settings_collection", backend_http_settings_collection)
+        if backend_settings_collection is not None:
+            pulumi.set(__self__, "backend_settings_collection", backend_settings_collection)
         if custom_error_configurations is not None:
             pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
         if enable_fips is not None:
@@ -113,12 +125,18 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "frontend_ports", frontend_ports)
         if gateway_ip_configurations is not None:
             pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        if global_configuration is not None:
+            pulumi.set(__self__, "global_configuration", global_configuration)
         if http_listeners is not None:
             pulumi.set(__self__, "http_listeners", http_listeners)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
+        if load_distribution_policies is not None:
+            pulumi.set(__self__, "load_distribution_policies", load_distribution_policies)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if private_link_configurations is not None:
@@ -131,6 +149,8 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "request_routing_rules", request_routing_rules)
         if rewrite_rule_sets is not None:
             pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
+        if routing_rules is not None:
+            pulumi.set(__self__, "routing_rules", routing_rules)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if ssl_certificates is not None:
@@ -223,6 +243,18 @@ class ApplicationGatewayArgs:
     @backend_http_settings_collection.setter
     def backend_http_settings_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingsArgs']]]]):
         pulumi.set(self, "backend_http_settings_collection", value)
+
+    @property
+    @pulumi.getter(name="backendSettingsCollection")
+    def backend_settings_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendSettingsArgs']]]]:
+        """
+        Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_settings_collection")
+
+    @backend_settings_collection.setter
+    def backend_settings_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendSettingsArgs']]]]):
+        pulumi.set(self, "backend_settings_collection", value)
 
     @property
     @pulumi.getter(name="customErrorConfigurations")
@@ -321,6 +353,18 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "gateway_ip_configurations", value)
 
     @property
+    @pulumi.getter(name="globalConfiguration")
+    def global_configuration(self) -> Optional[pulumi.Input['ApplicationGatewayGlobalConfigurationArgs']]:
+        """
+        Global Configuration.
+        """
+        return pulumi.get(self, "global_configuration")
+
+    @global_configuration.setter
+    def global_configuration(self, value: Optional[pulumi.Input['ApplicationGatewayGlobalConfigurationArgs']]):
+        pulumi.set(self, "global_configuration", value)
+
+    @property
     @pulumi.getter(name="httpListeners")
     def http_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]]:
         """
@@ -355,6 +399,30 @@ class ApplicationGatewayArgs:
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayListenerArgs']]]]:
+        """
+        Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "listeners")
+
+    @listeners.setter
+    def listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayListenerArgs']]]]):
+        pulumi.set(self, "listeners", value)
+
+    @property
+    @pulumi.getter(name="loadDistributionPolicies")
+    def load_distribution_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayLoadDistributionPolicyArgs']]]]:
+        """
+        Load distribution policies of the application gateway resource.
+        """
+        return pulumi.get(self, "load_distribution_policies")
+
+    @load_distribution_policies.setter
+    def load_distribution_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayLoadDistributionPolicyArgs']]]]):
+        pulumi.set(self, "load_distribution_policies", value)
 
     @property
     @pulumi.getter
@@ -427,6 +495,18 @@ class ApplicationGatewayArgs:
     @rewrite_rule_sets.setter
     def rewrite_rule_sets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetArgs']]]]):
         pulumi.set(self, "rewrite_rule_sets", value)
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRoutingRuleArgs']]]]:
+        """
+        Routing rules of the application gateway resource.
+        """
+        return pulumi.get(self, "routing_rules")
+
+    @routing_rules.setter
+    def routing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayRoutingRuleArgs']]]]):
+        pulumi.set(self, "routing_rules", value)
 
     @property
     @pulumi.getter
@@ -559,6 +639,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  autoscale_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']]] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]]] = None,
                  backend_http_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingsArgs']]]]] = None,
+                 backend_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendSettingsArgs']]]]] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorArgs']]]]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
@@ -567,9 +648,12 @@ class ApplicationGateway(pulumi.CustomResource):
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIPConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]]] = None,
+                 global_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalConfigurationArgs']]] = None,
                  http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayListenerArgs']]]]] = None,
+                 load_distribution_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayLoadDistributionPolicyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
@@ -577,6 +661,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRoutingRuleArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
                  ssl_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]] = None,
@@ -590,7 +675,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  __props__=None):
         """
         Application gateway resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -599,6 +684,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']] autoscale_configuration: Autoscale Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingsArgs']]]] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendSettingsArgs']]]] backend_settings_collection: Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorArgs']]]] custom_error_configurations: Custom error configurations of the application gateway resource.
         :param pulumi.Input[bool] enable_fips: Whether FIPS is enabled on the application gateway resource.
         :param pulumi.Input[bool] enable_http2: Whether HTTP2 is enabled on the application gateway resource.
@@ -607,9 +693,12 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIPConfigurationArgs']]]] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalConfigurationArgs']] global_configuration: Global Configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the application gateway, if configured.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayListenerArgs']]]] listeners: Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayLoadDistributionPolicyArgs']]]] load_distribution_policies: Load distribution policies of the application gateway resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]] private_link_configurations: PrivateLink configurations on application gateway.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]] probes: Probes of the application gateway resource.
@@ -617,6 +706,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]] request_routing_rules: Request routing rules of the application gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRoutingRuleArgs']]]] routing_rules: Routing rules of the application gateway resource.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']] sku: SKU of the application gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']] ssl_policy: SSL policy of the application gateway resource.
@@ -636,7 +726,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Application gateway resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param ApplicationGatewayArgs args: The arguments to use to populate this resource's properties.
@@ -658,6 +748,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  autoscale_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayAutoscaleConfigurationArgs']]] = None,
                  backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendAddressPoolArgs']]]]] = None,
                  backend_http_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendHttpSettingsArgs']]]]] = None,
+                 backend_settings_collection: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayBackendSettingsArgs']]]]] = None,
                  custom_error_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayCustomErrorArgs']]]]] = None,
                  enable_fips: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
@@ -666,9 +757,12 @@ class ApplicationGateway(pulumi.CustomResource):
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIPConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayIPConfigurationArgs']]]]] = None,
+                 global_configuration: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalConfigurationArgs']]] = None,
                  http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
+                 listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayListenerArgs']]]]] = None,
+                 load_distribution_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayLoadDistributionPolicyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  private_link_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayPrivateLinkConfigurationArgs']]]]] = None,
                  probes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayProbeArgs']]]]] = None,
@@ -676,6 +770,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  request_routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRequestRoutingRuleArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rewrite_rule_sets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRewriteRuleSetArgs']]]]] = None,
+                 routing_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayRoutingRuleArgs']]]]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySkuArgs']]] = None,
                  ssl_certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewaySslCertificateArgs']]]]] = None,
                  ssl_policy: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewaySslPolicyArgs']]] = None,
@@ -700,6 +795,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["autoscale_configuration"] = autoscale_configuration
             __props__.__dict__["backend_address_pools"] = backend_address_pools
             __props__.__dict__["backend_http_settings_collection"] = backend_http_settings_collection
+            __props__.__dict__["backend_settings_collection"] = backend_settings_collection
             __props__.__dict__["custom_error_configurations"] = custom_error_configurations
             __props__.__dict__["enable_fips"] = enable_fips
             __props__.__dict__["enable_http2"] = enable_http2
@@ -708,9 +804,12 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
             __props__.__dict__["frontend_ports"] = frontend_ports
             __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
+            __props__.__dict__["global_configuration"] = global_configuration
             __props__.__dict__["http_listeners"] = http_listeners
             __props__.__dict__["id"] = id
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["listeners"] = listeners
+            __props__.__dict__["load_distribution_policies"] = load_distribution_policies
             __props__.__dict__["location"] = location
             __props__.__dict__["private_link_configurations"] = private_link_configurations
             __props__.__dict__["probes"] = probes
@@ -720,6 +819,7 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rewrite_rule_sets"] = rewrite_rule_sets
+            __props__.__dict__["routing_rules"] = routing_rules
             __props__.__dict__["sku"] = sku
             __props__.__dict__["ssl_certificates"] = ssl_certificates
             __props__.__dict__["ssl_policy"] = ssl_policy
@@ -730,6 +830,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["url_path_maps"] = url_path_maps
             __props__.__dict__["web_application_firewall_configuration"] = web_application_firewall_configuration
             __props__.__dict__["zones"] = zones
+            __props__.__dict__["default_predefined_ssl_policy"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["operational_state"] = None
@@ -737,7 +838,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220901:ApplicationGateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20150615:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160330:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20160901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20161201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20170901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20171101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20180801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181001:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20181201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20190901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20191201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200401:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200601:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20200801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20201101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210201:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210301:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20210801:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220501:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220701:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20220901:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20221101:ApplicationGateway"), pulumi.Alias(type_="azure-native:network/v20230201:ApplicationGateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApplicationGateway, __self__).__init__(
             'azure-native:network:ApplicationGateway',
@@ -765,7 +866,9 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["autoscale_configuration"] = None
         __props__.__dict__["backend_address_pools"] = None
         __props__.__dict__["backend_http_settings_collection"] = None
+        __props__.__dict__["backend_settings_collection"] = None
         __props__.__dict__["custom_error_configurations"] = None
+        __props__.__dict__["default_predefined_ssl_policy"] = None
         __props__.__dict__["enable_fips"] = None
         __props__.__dict__["enable_http2"] = None
         __props__.__dict__["etag"] = None
@@ -774,8 +877,11 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["frontend_ip_configurations"] = None
         __props__.__dict__["frontend_ports"] = None
         __props__.__dict__["gateway_ip_configurations"] = None
+        __props__.__dict__["global_configuration"] = None
         __props__.__dict__["http_listeners"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["listeners"] = None
+        __props__.__dict__["load_distribution_policies"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["operational_state"] = None
@@ -787,6 +893,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["request_routing_rules"] = None
         __props__.__dict__["resource_guid"] = None
         __props__.__dict__["rewrite_rule_sets"] = None
+        __props__.__dict__["routing_rules"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["ssl_certificates"] = None
         __props__.__dict__["ssl_policy"] = None
@@ -833,12 +940,28 @@ class ApplicationGateway(pulumi.CustomResource):
         return pulumi.get(self, "backend_http_settings_collection")
 
     @property
+    @pulumi.getter(name="backendSettingsCollection")
+    def backend_settings_collection(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayBackendSettingsResponse']]]:
+        """
+        Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_settings_collection")
+
+    @property
     @pulumi.getter(name="customErrorConfigurations")
     def custom_error_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']]]:
         """
         Custom error configurations of the application gateway resource.
         """
         return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="defaultPredefinedSslPolicy")
+    def default_predefined_ssl_policy(self) -> pulumi.Output[str]:
+        """
+        The default predefined SSL Policy applied on the application gateway resource.
+        """
+        return pulumi.get(self, "default_predefined_ssl_policy")
 
     @property
     @pulumi.getter(name="enableFips")
@@ -905,6 +1028,14 @@ class ApplicationGateway(pulumi.CustomResource):
         return pulumi.get(self, "gateway_ip_configurations")
 
     @property
+    @pulumi.getter(name="globalConfiguration")
+    def global_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayGlobalConfigurationResponse']]:
+        """
+        Global Configuration.
+        """
+        return pulumi.get(self, "global_configuration")
+
+    @property
     @pulumi.getter(name="httpListeners")
     def http_listeners(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']]]:
         """
@@ -919,6 +1050,22 @@ class ApplicationGateway(pulumi.CustomResource):
         The identity of the application gateway, if configured.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayListenerResponse']]]:
+        """
+        Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "listeners")
+
+    @property
+    @pulumi.getter(name="loadDistributionPolicies")
+    def load_distribution_policies(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayLoadDistributionPolicyResponse']]]:
+        """
+        Load distribution policies of the application gateway resource.
+        """
+        return pulumi.get(self, "load_distribution_policies")
 
     @property
     @pulumi.getter
@@ -1007,6 +1154,14 @@ class ApplicationGateway(pulumi.CustomResource):
         Rewrite rules for the application gateway resource.
         """
         return pulumi.get(self, "rewrite_rule_sets")
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationGatewayRoutingRuleResponse']]]:
+        """
+        Routing rules of the application gateway resource.
+        """
+        return pulumi.get(self, "routing_rules")
 
     @property
     @pulumi.getter

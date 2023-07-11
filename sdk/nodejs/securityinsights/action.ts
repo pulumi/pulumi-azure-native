@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Action for alert rule.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
  */
 export class Action extends pulumi.CustomResource {
     /**
@@ -44,11 +47,15 @@ export class Action extends pulumi.CustomResource {
      */
     public readonly logicAppResourceId!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -90,17 +97,19 @@ export class Action extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["logicAppResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workflowId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-native:securityinsights/v20210301preview:Action" }, { type: "azure-native:securityinsights/v20210901preview:Action" }, { type: "azure-native:securityinsights/v20211001:Action" }, { type: "azure-native:securityinsights/v20211001preview:Action" }, { type: "azure-native:securityinsights/v20220101preview:Action" }, { type: "azure-native:securityinsights/v20220401preview:Action" }, { type: "azure-native:securityinsights/v20220501preview:Action" }, { type: "azure-native:securityinsights/v20220601preview:Action" }, { type: "azure-native:securityinsights/v20220701preview:Action" }, { type: "azure-native:securityinsights/v20220801:Action" }, { type: "azure-native:securityinsights/v20220801preview:Action" }, { type: "azure-native:securityinsights/v20220901preview:Action" }, { type: "azure-native:securityinsights/v20221001preview:Action" }, { type: "azure-native:securityinsights/v20221101:Action" }, { type: "azure-native:securityinsights/v20221101preview:Action" }, { type: "azure-native:securityinsights/v20221201preview:Action" }, { type: "azure-native:securityinsights/v20230201:Action" }, { type: "azure-native:securityinsights/v20230201preview:Action" }, { type: "azure-native:securityinsights/v20230401preview:Action" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Action" }, { type: "azure-native:securityinsights/v20200101:Action" }, { type: "azure-native:securityinsights/v20210301preview:Action" }, { type: "azure-native:securityinsights/v20210901preview:Action" }, { type: "azure-native:securityinsights/v20211001:Action" }, { type: "azure-native:securityinsights/v20211001preview:Action" }, { type: "azure-native:securityinsights/v20220101preview:Action" }, { type: "azure-native:securityinsights/v20220401preview:Action" }, { type: "azure-native:securityinsights/v20220501preview:Action" }, { type: "azure-native:securityinsights/v20220601preview:Action" }, { type: "azure-native:securityinsights/v20220701preview:Action" }, { type: "azure-native:securityinsights/v20220801:Action" }, { type: "azure-native:securityinsights/v20220801preview:Action" }, { type: "azure-native:securityinsights/v20220901preview:Action" }, { type: "azure-native:securityinsights/v20221001preview:Action" }, { type: "azure-native:securityinsights/v20221101:Action" }, { type: "azure-native:securityinsights/v20221101preview:Action" }, { type: "azure-native:securityinsights/v20221201preview:Action" }, { type: "azure-native:securityinsights/v20230201:Action" }, { type: "azure-native:securityinsights/v20230201preview:Action" }, { type: "azure-native:securityinsights/v20230301preview:Action" }, { type: "azure-native:securityinsights/v20230401preview:Action" }, { type: "azure-native:securityinsights/v20230501preview:Action" }, { type: "azure-native:securityinsights/v20230601preview:Action" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Action.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,7 +128,7 @@ export interface ActionArgs {
      */
     logicAppResourceId: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

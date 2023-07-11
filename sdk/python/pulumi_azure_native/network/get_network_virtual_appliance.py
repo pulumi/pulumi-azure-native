@@ -22,7 +22,10 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, provisioning_state=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+    def __init__(__self__, additional_nics=None, address_prefix=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, delegation=None, deployment_type=None, etag=None, id=None, identity=None, inbound_security_rules=None, location=None, name=None, nva_sku=None, partner_managed_resource=None, provisioning_state=None, ssh_public_key=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_connections=None, virtual_appliance_nics=None, virtual_appliance_sites=None, virtual_hub=None):
+        if additional_nics and not isinstance(additional_nics, list):
+            raise TypeError("Expected argument 'additional_nics' to be a list")
+        pulumi.set(__self__, "additional_nics", additional_nics)
         if address_prefix and not isinstance(address_prefix, str):
             raise TypeError("Expected argument 'address_prefix' to be a str")
         pulumi.set(__self__, "address_prefix", address_prefix)
@@ -35,6 +38,12 @@ class GetNetworkVirtualApplianceResult:
         if cloud_init_configuration_blobs and not isinstance(cloud_init_configuration_blobs, list):
             raise TypeError("Expected argument 'cloud_init_configuration_blobs' to be a list")
         pulumi.set(__self__, "cloud_init_configuration_blobs", cloud_init_configuration_blobs)
+        if delegation and not isinstance(delegation, dict):
+            raise TypeError("Expected argument 'delegation' to be a dict")
+        pulumi.set(__self__, "delegation", delegation)
+        if deployment_type and not isinstance(deployment_type, str):
+            raise TypeError("Expected argument 'deployment_type' to be a str")
+        pulumi.set(__self__, "deployment_type", deployment_type)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -56,9 +65,15 @@ class GetNetworkVirtualApplianceResult:
         if nva_sku and not isinstance(nva_sku, dict):
             raise TypeError("Expected argument 'nva_sku' to be a dict")
         pulumi.set(__self__, "nva_sku", nva_sku)
+        if partner_managed_resource and not isinstance(partner_managed_resource, dict):
+            raise TypeError("Expected argument 'partner_managed_resource' to be a dict")
+        pulumi.set(__self__, "partner_managed_resource", partner_managed_resource)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if ssh_public_key and not isinstance(ssh_public_key, str):
+            raise TypeError("Expected argument 'ssh_public_key' to be a str")
+        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -68,6 +83,9 @@ class GetNetworkVirtualApplianceResult:
         if virtual_appliance_asn and not isinstance(virtual_appliance_asn, float):
             raise TypeError("Expected argument 'virtual_appliance_asn' to be a float")
         pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
+        if virtual_appliance_connections and not isinstance(virtual_appliance_connections, list):
+            raise TypeError("Expected argument 'virtual_appliance_connections' to be a list")
+        pulumi.set(__self__, "virtual_appliance_connections", virtual_appliance_connections)
         if virtual_appliance_nics and not isinstance(virtual_appliance_nics, list):
             raise TypeError("Expected argument 'virtual_appliance_nics' to be a list")
         pulumi.set(__self__, "virtual_appliance_nics", virtual_appliance_nics)
@@ -77,6 +95,14 @@ class GetNetworkVirtualApplianceResult:
         if virtual_hub and not isinstance(virtual_hub, dict):
             raise TypeError("Expected argument 'virtual_hub' to be a dict")
         pulumi.set(__self__, "virtual_hub", virtual_hub)
+
+    @property
+    @pulumi.getter(name="additionalNics")
+    def additional_nics(self) -> Optional[Sequence['outputs.VirtualApplianceAdditionalNicPropertiesResponse']]:
+        """
+        Details required for Additional Network Interface.
+        """
+        return pulumi.get(self, "additional_nics")
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -109,6 +135,22 @@ class GetNetworkVirtualApplianceResult:
         CloudInitConfigurationBlob storage URLs.
         """
         return pulumi.get(self, "cloud_init_configuration_blobs")
+
+    @property
+    @pulumi.getter
+    def delegation(self) -> Optional['outputs.DelegationPropertiesResponse']:
+        """
+        The delegation for the Virtual Appliance
+        """
+        return pulumi.get(self, "delegation")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> str:
+        """
+        The deployment type. PartnerManaged for the SaaS NVA
+        """
+        return pulumi.get(self, "deployment_type")
 
     @property
     @pulumi.getter
@@ -167,12 +209,28 @@ class GetNetworkVirtualApplianceResult:
         return pulumi.get(self, "nva_sku")
 
     @property
+    @pulumi.getter(name="partnerManagedResource")
+    def partner_managed_resource(self) -> Optional['outputs.PartnerManagedResourcePropertiesResponse']:
+        """
+        The delegation for the Virtual Appliance
+        """
+        return pulumi.get(self, "partner_managed_resource")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> Optional[str]:
+        """
+        Public key for SSH login.
+        """
+        return pulumi.get(self, "ssh_public_key")
 
     @property
     @pulumi.getter
@@ -194,9 +252,17 @@ class GetNetworkVirtualApplianceResult:
     @pulumi.getter(name="virtualApplianceAsn")
     def virtual_appliance_asn(self) -> Optional[float]:
         """
-        VirtualAppliance ASN.
+        VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         """
         return pulumi.get(self, "virtual_appliance_asn")
+
+    @property
+    @pulumi.getter(name="virtualApplianceConnections")
+    def virtual_appliance_connections(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        List of references to VirtualApplianceConnections.
+        """
+        return pulumi.get(self, "virtual_appliance_connections")
 
     @property
     @pulumi.getter(name="virtualApplianceNics")
@@ -229,10 +295,13 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
         if False:
             yield self
         return GetNetworkVirtualApplianceResult(
+            additional_nics=self.additional_nics,
             address_prefix=self.address_prefix,
             boot_strap_configuration_blobs=self.boot_strap_configuration_blobs,
             cloud_init_configuration=self.cloud_init_configuration,
             cloud_init_configuration_blobs=self.cloud_init_configuration_blobs,
+            delegation=self.delegation,
+            deployment_type=self.deployment_type,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -240,10 +309,13 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
             location=self.location,
             name=self.name,
             nva_sku=self.nva_sku,
+            partner_managed_resource=self.partner_managed_resource,
             provisioning_state=self.provisioning_state,
+            ssh_public_key=self.ssh_public_key,
             tags=self.tags,
             type=self.type,
             virtual_appliance_asn=self.virtual_appliance_asn,
+            virtual_appliance_connections=self.virtual_appliance_connections,
             virtual_appliance_nics=self.virtual_appliance_nics,
             virtual_appliance_sites=self.virtual_appliance_sites,
             virtual_hub=self.virtual_hub)
@@ -255,7 +327,7 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkVirtualApplianceResult:
     """
     Gets the specified Network Virtual Appliance.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -270,10 +342,13 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkVirtualAppliance', __args__, opts=opts, typ=GetNetworkVirtualApplianceResult).value
 
     return AwaitableGetNetworkVirtualApplianceResult(
+        additional_nics=__ret__.additional_nics,
         address_prefix=__ret__.address_prefix,
         boot_strap_configuration_blobs=__ret__.boot_strap_configuration_blobs,
         cloud_init_configuration=__ret__.cloud_init_configuration,
         cloud_init_configuration_blobs=__ret__.cloud_init_configuration_blobs,
+        delegation=__ret__.delegation,
+        deployment_type=__ret__.deployment_type,
         etag=__ret__.etag,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -281,10 +356,13 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         nva_sku=__ret__.nva_sku,
+        partner_managed_resource=__ret__.partner_managed_resource,
         provisioning_state=__ret__.provisioning_state,
+        ssh_public_key=__ret__.ssh_public_key,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_appliance_asn=__ret__.virtual_appliance_asn,
+        virtual_appliance_connections=__ret__.virtual_appliance_connections,
         virtual_appliance_nics=__ret__.virtual_appliance_nics,
         virtual_appliance_sites=__ret__.virtual_appliance_sites,
         virtual_hub=__ret__.virtual_hub)
@@ -297,7 +375,7 @@ def get_network_virtual_appliance_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """
     Gets the specified Network Virtual Appliance.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly int? ParameterServerCount;
         /// <summary>
-        /// Number of workers. Overwrites the node count in compute binding.
+        /// Number of workers. If not specified, will default to the instance count.
         /// </summary>
         public readonly int? WorkerCount;
 

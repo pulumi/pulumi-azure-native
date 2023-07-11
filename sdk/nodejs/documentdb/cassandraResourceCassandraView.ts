@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra view.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
  */
 export class CassandraResourceCassandraView extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class CassandraResourceCassandraView extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220815preview:CassandraResourceCassandraView" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211015preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20211115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220215preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20220815preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20221115preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230301preview:CassandraResourceCassandraView" }, { type: "azure-native:documentdb/v20230315preview:CassandraResourceCassandraView" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraResourceCassandraView.__pulumiType, name, resourceInputs, opts);
     }

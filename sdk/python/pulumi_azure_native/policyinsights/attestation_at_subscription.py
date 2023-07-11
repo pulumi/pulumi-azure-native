@@ -18,25 +18,31 @@ __all__ = ['AttestationAtSubscriptionArgs', 'AttestationAtSubscription']
 class AttestationAtSubscriptionArgs:
     def __init__(__self__, *,
                  policy_assignment_id: pulumi.Input[str],
+                 assessment_date: Optional[pulumi.Input[str]] = None,
                  attestation_name: Optional[pulumi.Input[str]] = None,
                  comments: Optional[pulumi.Input[str]] = None,
                  compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
                  evidence: Optional[pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AttestationAtSubscription resource.
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that the attestation is setting the state for.
+        :param pulumi.Input[str] assessment_date: The time the evidence was assessed
         :param pulumi.Input[str] attestation_name: The name of the attestation.
         :param pulumi.Input[str] comments: Comments describing why this attestation was created.
         :param pulumi.Input[Union[str, 'ComplianceState']] compliance_state: The compliance state that should be set on the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]] evidence: The evidence supporting the compliance state set in this attestation.
         :param pulumi.Input[str] expires_on: The time the compliance state should expire.
+        :param Any metadata: Additional metadata for this attestation
         :param pulumi.Input[str] owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
         """
         pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
+        if assessment_date is not None:
+            pulumi.set(__self__, "assessment_date", assessment_date)
         if attestation_name is not None:
             pulumi.set(__self__, "attestation_name", attestation_name)
         if comments is not None:
@@ -47,6 +53,8 @@ class AttestationAtSubscriptionArgs:
             pulumi.set(__self__, "evidence", evidence)
         if expires_on is not None:
             pulumi.set(__self__, "expires_on", expires_on)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if policy_definition_reference_id is not None:
@@ -63,6 +71,18 @@ class AttestationAtSubscriptionArgs:
     @policy_assignment_id.setter
     def policy_assignment_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy_assignment_id", value)
+
+    @property
+    @pulumi.getter(name="assessmentDate")
+    def assessment_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time the evidence was assessed
+        """
+        return pulumi.get(self, "assessment_date")
+
+    @assessment_date.setter
+    def assessment_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "assessment_date", value)
 
     @property
     @pulumi.getter(name="attestationName")
@@ -126,6 +146,18 @@ class AttestationAtSubscriptionArgs:
 
     @property
     @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        Additional metadata for this attestation
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[Any]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
     def owner(self) -> Optional[pulumi.Input[str]]:
         """
         The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
@@ -154,26 +186,30 @@ class AttestationAtSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_date: Optional[pulumi.Input[str]] = None,
                  attestation_name: Optional[pulumi.Input[str]] = None,
                  comments: Optional[pulumi.Input[str]] = None,
                  compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
                  evidence: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An attestation resource.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assessment_date: The time the evidence was assessed
         :param pulumi.Input[str] attestation_name: The name of the attestation.
         :param pulumi.Input[str] comments: Comments describing why this attestation was created.
         :param pulumi.Input[Union[str, 'ComplianceState']] compliance_state: The compliance state that should be set on the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]] evidence: The evidence supporting the compliance state set in this attestation.
         :param pulumi.Input[str] expires_on: The time the compliance state should expire.
+        :param Any metadata: Additional metadata for this attestation
         :param pulumi.Input[str] owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
         :param pulumi.Input[str] policy_assignment_id: The resource ID of the policy assignment that the attestation is setting the state for.
         :param pulumi.Input[str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
@@ -186,7 +222,7 @@ class AttestationAtSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An attestation resource.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param AttestationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -203,11 +239,13 @@ class AttestationAtSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assessment_date: Optional[pulumi.Input[str]] = None,
                  attestation_name: Optional[pulumi.Input[str]] = None,
                  comments: Optional[pulumi.Input[str]] = None,
                  compliance_state: Optional[pulumi.Input[Union[str, 'ComplianceState']]] = None,
                  evidence: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AttestationEvidenceArgs']]]]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
+                 metadata: Optional[Any] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
@@ -220,11 +258,13 @@ class AttestationAtSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AttestationAtSubscriptionArgs.__new__(AttestationAtSubscriptionArgs)
 
+            __props__.__dict__["assessment_date"] = assessment_date
             __props__.__dict__["attestation_name"] = attestation_name
             __props__.__dict__["comments"] = comments
             __props__.__dict__["compliance_state"] = compliance_state
             __props__.__dict__["evidence"] = evidence
             __props__.__dict__["expires_on"] = expires_on
+            __props__.__dict__["metadata"] = metadata
             __props__.__dict__["owner"] = owner
             if policy_assignment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_assignment_id'")
@@ -259,11 +299,13 @@ class AttestationAtSubscription(pulumi.CustomResource):
 
         __props__ = AttestationAtSubscriptionArgs.__new__(AttestationAtSubscriptionArgs)
 
+        __props__.__dict__["assessment_date"] = None
         __props__.__dict__["comments"] = None
         __props__.__dict__["compliance_state"] = None
         __props__.__dict__["evidence"] = None
         __props__.__dict__["expires_on"] = None
         __props__.__dict__["last_compliance_state_change_at"] = None
+        __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner"] = None
         __props__.__dict__["policy_assignment_id"] = None
@@ -272,6 +314,14 @@ class AttestationAtSubscription(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AttestationAtSubscription(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assessmentDate")
+    def assessment_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        The time the evidence was assessed
+        """
+        return pulumi.get(self, "assessment_date")
 
     @property
     @pulumi.getter
@@ -312,6 +362,14 @@ class AttestationAtSubscription(pulumi.CustomResource):
         The time the compliance state was last changed in this attestation.
         """
         return pulumi.get(self, "last_compliance_state_change_at")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Additional metadata for this attestation
+        """
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter

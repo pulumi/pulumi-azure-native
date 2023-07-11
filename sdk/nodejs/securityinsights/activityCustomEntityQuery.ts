@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents Activity entity query.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class ActivityCustomEntityQuery extends pulumi.CustomResource {
     /**
@@ -76,7 +76,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -100,7 +100,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
      */
     public readonly title!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -118,9 +118,6 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,6 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
             resourceInputs["entityQueryId"] = args ? args.entityQueryId : undefined;
             resourceInputs["inputEntityType"] = args ? args.inputEntityType : undefined;
             resourceInputs["kind"] = "Activity";
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["queryDefinitions"] = args ? args.queryDefinitions : undefined;
             resourceInputs["requiredInputFieldsSets"] = args ? args.requiredInputFieldsSets : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -166,7 +162,7 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220701preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220801preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220901preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20221001preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20221101preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20221201preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220701preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220801preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20220901preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20221001preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20221101preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20221201preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230301preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230501preview:ActivityCustomEntityQuery" }, { type: "azure-native:securityinsights/v20230601preview:ActivityCustomEntityQuery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActivityCustomEntityQuery.__pulumiType, name, resourceInputs, opts);
     }
@@ -205,10 +201,6 @@ export interface ActivityCustomEntityQueryArgs {
      * Expected value is 'Activity'.
      */
     kind: pulumi.Input<"Activity">;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The Activity query definitions
      */

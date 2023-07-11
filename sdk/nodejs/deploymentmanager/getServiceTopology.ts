@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The resource representation of a service topology.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getServiceTopology(args: GetServiceTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceTopologyResult> {
 
@@ -59,7 +59,7 @@ export interface GetServiceTopologyResult {
 }
 /**
  * The resource representation of a service topology.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getServiceTopologyOutput(args: GetServiceTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTopologyResult> {
     return pulumi.output(args).apply((a: any) => getServiceTopology(a, opts))

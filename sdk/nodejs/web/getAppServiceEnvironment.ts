@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get the properties of an App Service Environment.
- * API Version: 2020-12-01.
+ * Description for Get the properties of an App Service Environment.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAppServiceEnvironment(args: GetAppServiceEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceEnvironmentResult> {
 
@@ -40,9 +40,13 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly clusterSettings?: outputs.web.NameValuePairResponse[];
     /**
+     * Full view of the custom domain suffix configuration for ASEv3.
+     */
+    readonly customDnsSuffixConfiguration?: outputs.web.CustomDnsSuffixConfigurationResponse;
+    /**
      * Dedicated Host Count
      */
-    readonly dedicatedHostCount: number;
+    readonly dedicatedHostCount?: number;
     /**
      * DNS suffix of the App Service Environment.
      */
@@ -92,6 +96,10 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly name: string;
     /**
+     * Full view of networking configuration for an ASE.
+     */
+    readonly networkingConfiguration?: outputs.web.AseV3NetworkingConfigurationResponse;
+    /**
      * Provisioning state of the App Service Environment.
      */
     readonly provisioningState: string;
@@ -113,17 +121,29 @@ export interface GetAppServiceEnvironmentResult {
      */
     readonly type: string;
     /**
-     * User added list of IP Ranges allowed on ASE db
+     * Whether an upgrade is available for this App Service Environment.
+     */
+    readonly upgradeAvailability: string;
+    /**
+     * Upgrade Preference
+     */
+    readonly upgradePreference?: string;
+    /**
+     * User added ip ranges to whitelist on ASE db
      */
     readonly userWhitelistedIpRanges?: string[];
     /**
      * Description of the Virtual Network.
      */
     readonly virtualNetwork: outputs.web.VirtualNetworkProfileResponse;
+    /**
+     * Whether or not this App Service Environment is zone-redundant.
+     */
+    readonly zoneRedundant?: boolean;
 }
 /**
- * Get the properties of an App Service Environment.
- * API Version: 2020-12-01.
+ * Description for Get the properties of an App Service Environment.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAppServiceEnvironmentOutput(args: GetAppServiceEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServiceEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getAppServiceEnvironment(a, opts))

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- *
- * @deprecated azure-native:app/v20221001:ConnectedEnvironmentsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate to guarantee forwards compatibility.
  */
 export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ConnectedEnvironmentsCertificate {
-        pulumi.log.warn("ConnectedEnvironmentsCertificate is deprecated: azure-native:app/v20221001:ConnectedEnvironmentsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate to guarantee forwards compatibility.")
         return new ConnectedEnvironmentsCertificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:app/v20221001:ConnectedEnvironmentsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate to guarantee forwards compatibility. */
     constructor(name: string, args: ConnectedEnvironmentsCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ConnectedEnvironmentsCertificate is deprecated: azure-native:app/v20221001:ConnectedEnvironmentsCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -102,7 +97,7 @@ export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20220601preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate" }, { type: "azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectedEnvironmentsCertificate.__pulumiType, name, resourceInputs, opts);
     }

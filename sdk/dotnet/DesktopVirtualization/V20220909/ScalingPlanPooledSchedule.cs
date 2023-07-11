@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
     /// <summary>
     /// Represents a ScalingPlanPooledSchedule definition.
     /// </summary>
-    [Obsolete(@"azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule")]
     public partial class ScalingPlanPooledSchedule : global::Pulumi.CustomResource
     {

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Container App SourceControl.
     /// </summary>
-    [Obsolete(@"azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:ContainerAppsSourceControl")]
     public partial class ContainerAppsSourceControl : global::Pulumi.CustomResource
     {
@@ -89,6 +88,8 @@ namespace Pulumi.AzureNative.App.V20221001
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:ContainerAppsSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerAppsSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

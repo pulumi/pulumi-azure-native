@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get device group
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
 
@@ -54,7 +54,7 @@ export interface GetDeviceGroupResult {
 }
 /**
  * Get device group
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
     return pulumi.output(args).apply((a: any) => getDeviceGroup(a, opts))

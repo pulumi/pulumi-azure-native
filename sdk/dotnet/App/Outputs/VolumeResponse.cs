@@ -17,11 +17,19 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class VolumeResponse
     {
         /// <summary>
+        /// Mount options used while mounting the AzureFile. Must be a comma-separated string.
+        /// </summary>
+        public readonly string? MountOptions;
+        /// <summary>
         /// Volume name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Name of storage resource. No need to provide for EmptyDir.
+        /// List of secrets to be added in volume. If no secrets are provided, all secrets in collection will be added to volume.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SecretVolumeItemResponse> Secrets;
+        /// <summary>
+        /// Name of storage resource. No need to provide for EmptyDir and Secret.
         /// </summary>
         public readonly string? StorageName;
         /// <summary>
@@ -31,13 +39,19 @@ namespace Pulumi.AzureNative.App.Outputs
 
         [OutputConstructor]
         private VolumeResponse(
+            string? mountOptions,
+
             string? name,
+
+            ImmutableArray<Outputs.SecretVolumeItemResponse> secrets,
 
             string? storageName,
 
             string? storageType)
         {
+            MountOptions = mountOptions;
             Name = name;
+            Secrets = secrets;
             StorageName = storageName;
             StorageType = storageType;
         }

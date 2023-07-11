@@ -100,10 +100,20 @@ export const getStaticSite: typeof import("./getStaticSite").getStaticSite = nul
 export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
 
+export { GetStaticSiteBuildDatabaseConnectionArgs, GetStaticSiteBuildDatabaseConnectionResult, GetStaticSiteBuildDatabaseConnectionOutputArgs } from "./getStaticSiteBuildDatabaseConnection";
+export const getStaticSiteBuildDatabaseConnection: typeof import("./getStaticSiteBuildDatabaseConnection").getStaticSiteBuildDatabaseConnection = null as any;
+export const getStaticSiteBuildDatabaseConnectionOutput: typeof import("./getStaticSiteBuildDatabaseConnection").getStaticSiteBuildDatabaseConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteBuildDatabaseConnection","getStaticSiteBuildDatabaseConnectionOutput"], () => require("./getStaticSiteBuildDatabaseConnection"));
+
 export { GetStaticSiteCustomDomainArgs, GetStaticSiteCustomDomainResult, GetStaticSiteCustomDomainOutputArgs } from "./getStaticSiteCustomDomain";
 export const getStaticSiteCustomDomain: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomain = null as any;
 export const getStaticSiteCustomDomainOutput: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSiteCustomDomain","getStaticSiteCustomDomainOutput"], () => require("./getStaticSiteCustomDomain"));
+
+export { GetStaticSiteDatabaseConnectionArgs, GetStaticSiteDatabaseConnectionResult, GetStaticSiteDatabaseConnectionOutputArgs } from "./getStaticSiteDatabaseConnection";
+export const getStaticSiteDatabaseConnection: typeof import("./getStaticSiteDatabaseConnection").getStaticSiteDatabaseConnection = null as any;
+export const getStaticSiteDatabaseConnectionOutput: typeof import("./getStaticSiteDatabaseConnection").getStaticSiteDatabaseConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteDatabaseConnection","getStaticSiteDatabaseConnectionOutput"], () => require("./getStaticSiteDatabaseConnection"));
 
 export { GetStaticSiteLinkedBackendArgs, GetStaticSiteLinkedBackendResult, GetStaticSiteLinkedBackendOutputArgs } from "./getStaticSiteLinkedBackend";
 export const getStaticSiteLinkedBackend: typeof import("./getStaticSiteLinkedBackend").getStaticSiteLinkedBackend = null as any;
@@ -159,6 +169,11 @@ export { GetWebAppDomainOwnershipIdentifierSlotArgs, GetWebAppDomainOwnershipIde
 export const getWebAppDomainOwnershipIdentifierSlot: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlot = null as any;
 export const getWebAppDomainOwnershipIdentifierSlotOutput: typeof import("./getWebAppDomainOwnershipIdentifierSlot").getWebAppDomainOwnershipIdentifierSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppDomainOwnershipIdentifierSlot","getWebAppDomainOwnershipIdentifierSlotOutput"], () => require("./getWebAppDomainOwnershipIdentifierSlot"));
+
+export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
+export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
+export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppFtpAllowed","getWebAppFtpAllowedOutput"], () => require("./getWebAppFtpAllowed"));
 
 export { GetWebAppFunctionArgs, GetWebAppFunctionResult, GetWebAppFunctionOutputArgs } from "./getWebAppFunction";
 export const getWebAppFunction: typeof import("./getWebAppFunction").getWebAppFunction = null as any;
@@ -230,6 +245,11 @@ export const getWebAppRelayServiceConnectionSlot: typeof import("./getWebAppRela
 export const getWebAppRelayServiceConnectionSlotOutput: typeof import("./getWebAppRelayServiceConnectionSlot").getWebAppRelayServiceConnectionSlotOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppRelayServiceConnectionSlot","getWebAppRelayServiceConnectionSlotOutput"], () => require("./getWebAppRelayServiceConnectionSlot"));
 
+export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowedOutputArgs } from "./getWebAppScmAllowed";
+export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
+export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
+
 export { GetWebAppSiteExtensionArgs, GetWebAppSiteExtensionResult, GetWebAppSiteExtensionOutputArgs } from "./getWebAppSiteExtension";
 export const getWebAppSiteExtension: typeof import("./getWebAppSiteExtension").getWebAppSiteExtension = null as any;
 export const getWebAppSiteExtensionOutput: typeof import("./getWebAppSiteExtension").getWebAppSiteExtensionOutput = null as any;
@@ -299,11 +319,6 @@ export { ListConnectionKeysArgs, ListConnectionKeysResult, ListConnectionKeysOut
 export const listConnectionKeys: typeof import("./listConnectionKeys").listConnectionKeys = null as any;
 export const listConnectionKeysOutput: typeof import("./listConnectionKeys").listConnectionKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listConnectionKeys","listConnectionKeysOutput"], () => require("./listConnectionKeys"));
-
-export { ListContainerAppSecretsArgs, ListContainerAppSecretsResult, ListContainerAppSecretsOutputArgs } from "./listContainerAppSecrets";
-export const listContainerAppSecrets: typeof import("./listContainerAppSecrets").listContainerAppSecrets = null as any;
-export const listContainerAppSecretsOutput: typeof import("./listContainerAppSecrets").listContainerAppSecretsOutput = null as any;
-utilities.lazyLoad(exports, ["listContainerAppSecrets","listContainerAppSecretsOutput"], () => require("./listContainerAppSecrets"));
 
 export { ListCustomApiWsdlInterfacesArgs, ListCustomApiWsdlInterfacesResult, ListCustomApiWsdlInterfacesOutputArgs } from "./listCustomApiWsdlInterfaces";
 export const listCustomApiWsdlInterfaces: typeof import("./listCustomApiWsdlInterfaces").listCustomApiWsdlInterfaces = null as any;
@@ -500,6 +515,16 @@ export const listWebAppSyncFunctionTriggersSlot: typeof import("./listWebAppSync
 export const listWebAppSyncFunctionTriggersSlotOutput: typeof import("./listWebAppSyncFunctionTriggersSlot").listWebAppSyncFunctionTriggersSlotOutput = null as any;
 utilities.lazyLoad(exports, ["listWebAppSyncFunctionTriggersSlot","listWebAppSyncFunctionTriggersSlotOutput"], () => require("./listWebAppSyncFunctionTriggersSlot"));
 
+export { ListWebAppWorkflowsConnectionsArgs, ListWebAppWorkflowsConnectionsResult, ListWebAppWorkflowsConnectionsOutputArgs } from "./listWebAppWorkflowsConnections";
+export const listWebAppWorkflowsConnections: typeof import("./listWebAppWorkflowsConnections").listWebAppWorkflowsConnections = null as any;
+export const listWebAppWorkflowsConnectionsOutput: typeof import("./listWebAppWorkflowsConnections").listWebAppWorkflowsConnectionsOutput = null as any;
+utilities.lazyLoad(exports, ["listWebAppWorkflowsConnections","listWebAppWorkflowsConnectionsOutput"], () => require("./listWebAppWorkflowsConnections"));
+
+export { ListWebAppWorkflowsConnectionsSlotArgs, ListWebAppWorkflowsConnectionsSlotResult, ListWebAppWorkflowsConnectionsSlotOutputArgs } from "./listWebAppWorkflowsConnectionsSlot";
+export const listWebAppWorkflowsConnectionsSlot: typeof import("./listWebAppWorkflowsConnectionsSlot").listWebAppWorkflowsConnectionsSlot = null as any;
+export const listWebAppWorkflowsConnectionsSlotOutput: typeof import("./listWebAppWorkflowsConnectionsSlot").listWebAppWorkflowsConnectionsSlotOutput = null as any;
+utilities.lazyLoad(exports, ["listWebAppWorkflowsConnectionsSlot","listWebAppWorkflowsConnectionsSlotOutput"], () => require("./listWebAppWorkflowsConnectionsSlot"));
+
 export { ListWorkflowRunActionExpressionTracesArgs, ListWorkflowRunActionExpressionTracesResult, ListWorkflowRunActionExpressionTracesOutputArgs } from "./listWorkflowRunActionExpressionTraces";
 export const listWorkflowRunActionExpressionTraces: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTraces = null as any;
 export const listWorkflowRunActionExpressionTracesOutput: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTracesOutput = null as any;
@@ -520,10 +545,20 @@ export type StaticSite = import("./staticSite").StaticSite;
 export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
 utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
 
+export { StaticSiteBuildDatabaseConnectionArgs } from "./staticSiteBuildDatabaseConnection";
+export type StaticSiteBuildDatabaseConnection = import("./staticSiteBuildDatabaseConnection").StaticSiteBuildDatabaseConnection;
+export const StaticSiteBuildDatabaseConnection: typeof import("./staticSiteBuildDatabaseConnection").StaticSiteBuildDatabaseConnection = null as any;
+utilities.lazyLoad(exports, ["StaticSiteBuildDatabaseConnection"], () => require("./staticSiteBuildDatabaseConnection"));
+
 export { StaticSiteCustomDomainArgs } from "./staticSiteCustomDomain";
 export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
 export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
 utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
+
+export { StaticSiteDatabaseConnectionArgs } from "./staticSiteDatabaseConnection";
+export type StaticSiteDatabaseConnection = import("./staticSiteDatabaseConnection").StaticSiteDatabaseConnection;
+export const StaticSiteDatabaseConnection: typeof import("./staticSiteDatabaseConnection").StaticSiteDatabaseConnection = null as any;
+utilities.lazyLoad(exports, ["StaticSiteDatabaseConnection"], () => require("./staticSiteDatabaseConnection"));
 
 export { StaticSiteLinkedBackendArgs } from "./staticSiteLinkedBackend";
 export type StaticSiteLinkedBackend = import("./staticSiteLinkedBackend").StaticSiteLinkedBackend;
@@ -640,6 +675,11 @@ export type WebAppDomainOwnershipIdentifierSlot = import("./webAppDomainOwnershi
 export const WebAppDomainOwnershipIdentifierSlot: typeof import("./webAppDomainOwnershipIdentifierSlot").WebAppDomainOwnershipIdentifierSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppDomainOwnershipIdentifierSlot"], () => require("./webAppDomainOwnershipIdentifierSlot"));
 
+export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
+export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
+export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
+utilities.lazyLoad(exports, ["WebAppFtpAllowed"], () => require("./webAppFtpAllowed"));
+
 export { WebAppFunctionArgs } from "./webAppFunction";
 export type WebAppFunction = import("./webAppFunction").WebAppFunction;
 export const WebAppFunction: typeof import("./webAppFunction").WebAppFunction = null as any;
@@ -720,6 +760,11 @@ export type WebAppRelayServiceConnectionSlot = import("./webAppRelayServiceConne
 export const WebAppRelayServiceConnectionSlot: typeof import("./webAppRelayServiceConnectionSlot").WebAppRelayServiceConnectionSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppRelayServiceConnectionSlot"], () => require("./webAppRelayServiceConnectionSlot"));
 
+export { WebAppScmAllowedArgs } from "./webAppScmAllowed";
+export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
+export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
+utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
+
 export { WebAppSiteExtensionArgs } from "./webAppSiteExtension";
 export type WebAppSiteExtension = import("./webAppSiteExtension").WebAppSiteExtension;
 export const WebAppSiteExtension: typeof import("./webAppSiteExtension").WebAppSiteExtension = null as any;
@@ -785,7 +830,6 @@ utilities.lazyLoad(exports, ["WebAppVnetConnectionSlot"], () => require("./webAp
 export * from "../types/enums/web";
 
 // Export sub-modules:
-import * as v20150801 from "./v20150801";
 import * as v20150801preview from "./v20150801preview";
 import * as v20160301 from "./v20160301";
 import * as v20160601 from "./v20160601";
@@ -806,7 +850,6 @@ import * as v20220301 from "./v20220301";
 import * as v20220901 from "./v20220901";
 
 export {
-    v20150801,
     v20150801preview,
     v20160301,
     v20160601,
@@ -853,8 +896,12 @@ const _module = {
                 return new KubeEnvironment(name, <any>undefined, { urn })
             case "azure-native:web:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteBuildDatabaseConnection":
+                return new StaticSiteBuildDatabaseConnection(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteCustomDomain":
                 return new StaticSiteCustomDomain(name, <any>undefined, { urn })
+            case "azure-native:web:StaticSiteDatabaseConnection":
+                return new StaticSiteDatabaseConnection(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteLinkedBackend":
                 return new StaticSiteLinkedBackend(name, <any>undefined, { urn })
             case "azure-native:web:StaticSiteLinkedBackendForBuild":
@@ -901,6 +948,8 @@ const _module = {
                 return new WebAppDomainOwnershipIdentifier(name, <any>undefined, { urn })
             case "azure-native:web:WebAppDomainOwnershipIdentifierSlot":
                 return new WebAppDomainOwnershipIdentifierSlot(name, <any>undefined, { urn })
+            case "azure-native:web:WebAppFtpAllowed":
+                return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web:WebAppFunction":
                 return new WebAppFunction(name, <any>undefined, { urn })
             case "azure-native:web:WebAppHostNameBinding":
@@ -933,6 +982,8 @@ const _module = {
                 return new WebAppRelayServiceConnection(name, <any>undefined, { urn })
             case "azure-native:web:WebAppRelayServiceConnectionSlot":
                 return new WebAppRelayServiceConnectionSlot(name, <any>undefined, { urn })
+            case "azure-native:web:WebAppScmAllowed":
+                return new WebAppScmAllowed(name, <any>undefined, { urn })
             case "azure-native:web:WebAppSiteExtension":
                 return new WebAppSiteExtension(name, <any>undefined, { urn })
             case "azure-native:web:WebAppSiteExtensionSlot":

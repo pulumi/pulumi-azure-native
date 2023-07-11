@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a management lock at the resource group level.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockAtResourceGroupLevel(args: GetManagementLockAtResourceGroupLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtResourceGroupLevelResult> {
 
@@ -56,13 +56,17 @@ export interface GetManagementLockAtResourceGroupLevelResult {
      */
     readonly owners?: outputs.authorization.ManagementLockOwnerResponse[];
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
+    /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
     readonly type: string;
 }
 /**
  * Gets a management lock at the resource group level.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2020-05-01.
  */
 export function getManagementLockAtResourceGroupLevelOutput(args: GetManagementLockAtResourceGroupLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementLockAtResourceGroupLevelResult> {
     return pulumi.output(args).apply((a: any) => getManagementLockAtResourceGroupLevel(a, opts))

@@ -229,7 +229,7 @@ class Share(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,7 +254,7 @@ class Share(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a share on the  Data Box Edge/Gateway device.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.
@@ -440,7 +440,7 @@ class Share(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Share on ASE device
+        Metadata pertaining to creation and last modification of Share
         """
         return pulumi.get(self, "system_data")
 

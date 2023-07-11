@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the registration definition details.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationDefinitionResult> {
 
@@ -22,43 +22,47 @@ export function getRegistrationDefinition(args: GetRegistrationDefinitionArgs, o
 
 export interface GetRegistrationDefinitionArgs {
     /**
-     * Guid of the registration definition.
+     * The GUID of the registration definition.
      */
     registrationDefinitionId: string;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: string;
 }
 
 /**
- * Registration definition.
+ * The registration definition.
  */
 export interface GetRegistrationDefinitionResult {
     /**
-     * Fully qualified path of the registration definition.
+     * The fully qualified path of the registration definition.
      */
     readonly id: string;
     /**
-     * Name of the registration definition.
+     * The name of the registration definition.
      */
     readonly name: string;
     /**
-     * Plan details for the managed services.
+     * The details for the Managed Services offer’s plan in Azure Marketplace.
      */
     readonly plan?: outputs.managedservices.PlanResponse;
     /**
-     * Properties of a registration definition.
+     * The properties of a registration definition.
      */
     readonly properties: outputs.managedservices.RegistrationDefinitionPropertiesResponse;
     /**
-     * Type of the resource.
+     * The metadata for the registration assignment resource.
+     */
+    readonly systemData: outputs.managedservices.SystemDataResponse;
+    /**
+     * The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
      */
     readonly type: string;
 }
 /**
  * Gets the registration definition details.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRegistrationDefinition(a, opts))
@@ -66,11 +70,11 @@ export function getRegistrationDefinitionOutput(args: GetRegistrationDefinitionO
 
 export interface GetRegistrationDefinitionOutputArgs {
     /**
-     * Guid of the registration definition.
+     * The GUID of the registration definition.
      */
     registrationDefinitionId: pulumi.Input<string>;
     /**
-     * Scope of the resource.
+     * The scope of the resource.
      */
     scope: pulumi.Input<string>;
 }

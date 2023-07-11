@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified route filter.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetRouteFilterResult> InvokeAsync(GetRouteFilterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteFilterResult>("azure-native:network:getRouteFilter", args ?? new GetRouteFilterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified route filter.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetRouteFilterResult> Invoke(GetRouteFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteFilterResult>("azure-native:network:getRouteFilter", args ?? new GetRouteFilterInvokeArgs(), options.WithDefaults());

@@ -17,8 +17,6 @@ __all__ = [
     'get_job_step_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101:JobStep is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobStep to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetJobStepResult:
     """
@@ -159,7 +157,6 @@ def get_job_step(job_agent_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str step_name: The name of the job step.
     """
-    pulumi.log.warn("""get_job_step is deprecated: azure-native:sql/v20211101:JobStep is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobStep to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobAgentName'] = job_agent_name
     __args__['jobName'] = job_name
@@ -198,5 +195,4 @@ def get_job_step_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     :param str server_name: The name of the server.
     :param str step_name: The name of the job step.
     """
-    pulumi.log.warn("""get_job_step is deprecated: azure-native:sql/v20211101:JobStep is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobStep to guarantee forwards compatibility.""")
     ...

@@ -130,7 +130,7 @@ class PowerBIResource(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2020-06-01.
+        Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class PowerBIResource(pulumi.CustomResource):
                  args: PowerBIResourceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2020-06-01.
+        Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01
 
         :param str resource_name: The name of the resource.
         :param PowerBIResourceArgs args: The arguments to use to populate this resource's properties.

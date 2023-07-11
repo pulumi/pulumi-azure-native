@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configures how to correlate scan data and logs with resources associated with the subscription.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview. Prior API version in Azure Native 1.x: 2021-01-15-preview
  */
 export class IngestionSetting extends pulumi.CustomResource {
     /**

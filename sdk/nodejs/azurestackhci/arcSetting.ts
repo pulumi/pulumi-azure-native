@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ArcSetting details.
- * API Version: 2021-01-01-preview.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview
  */
 export class ArcSetting extends pulumi.CustomResource {
     /**
@@ -43,33 +43,33 @@ export class ArcSetting extends pulumi.CustomResource {
      */
     public /*out*/ readonly aggregateState!: pulumi.Output<string>;
     /**
+     * App id of arc AAD identity.
+     */
+    public readonly arcApplicationClientId!: pulumi.Output<string | undefined>;
+    /**
+     * Object id of arc AAD identity.
+     */
+    public readonly arcApplicationObjectId!: pulumi.Output<string | undefined>;
+    /**
+     * Tenant id of arc AAD identity.
+     */
+    public readonly arcApplicationTenantId!: pulumi.Output<string | undefined>;
+    /**
      * The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
      */
-    public /*out*/ readonly arcInstanceResourceGroup!: pulumi.Output<string>;
+    public readonly arcInstanceResourceGroup!: pulumi.Output<string | undefined>;
     /**
-     * The timestamp of resource creation (UTC).
+     * Object id of arc AAD service principal.
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    public readonly arcServicePrincipalObjectId!: pulumi.Output<string | undefined>;
     /**
-     * The identity that created the resource.
+     * contains connectivity related configuration for ARC resources
      */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
+    public readonly connectivityProperties!: pulumi.Output<outputs.azurestackhci.ArcConnectivityPropertiesResponse[] | undefined>;
     /**
-     * The type of identity that created the resource.
+     * Properties for each of the default extensions category
      */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly defaultExtensions!: pulumi.Output<outputs.azurestackhci.DefaultExtensionDetailsResponse[]>;
     /**
      * The name of the resource
      */
@@ -82,6 +82,10 @@ export class ArcSetting extends pulumi.CustomResource {
      * Provisioning state of the ArcSetting proxy resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -104,37 +108,39 @@ export class ArcSetting extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["arcApplicationClientId"] = args ? args.arcApplicationClientId : undefined;
+            resourceInputs["arcApplicationObjectId"] = args ? args.arcApplicationObjectId : undefined;
+            resourceInputs["arcApplicationTenantId"] = args ? args.arcApplicationTenantId : undefined;
+            resourceInputs["arcInstanceResourceGroup"] = args ? args.arcInstanceResourceGroup : undefined;
+            resourceInputs["arcServicePrincipalObjectId"] = args ? args.arcServicePrincipalObjectId : undefined;
             resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
+            resourceInputs["connectivityProperties"] = args ? args.connectivityProperties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["aggregateState"] = undefined /*out*/;
-            resourceInputs["arcInstanceResourceGroup"] = undefined /*out*/;
+            resourceInputs["defaultExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["aggregateState"] = undefined /*out*/;
+            resourceInputs["arcApplicationClientId"] = undefined /*out*/;
+            resourceInputs["arcApplicationObjectId"] = undefined /*out*/;
+            resourceInputs["arcApplicationTenantId"] = undefined /*out*/;
             resourceInputs["arcInstanceResourceGroup"] = undefined /*out*/;
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
+            resourceInputs["arcServicePrincipalObjectId"] = undefined /*out*/;
+            resourceInputs["connectivityProperties"] = undefined /*out*/;
+            resourceInputs["defaultExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["perNodeDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20220101:ArcSetting" }, { type: "azure-native:azurestackhci/v20220301:ArcSetting" }, { type: "azure-native:azurestackhci/v20220501:ArcSetting" }, { type: "azure-native:azurestackhci/v20220901:ArcSetting" }, { type: "azure-native:azurestackhci/v20221001:ArcSetting" }, { type: "azure-native:azurestackhci/v20221201:ArcSetting" }, { type: "azure-native:azurestackhci/v20230201:ArcSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210101preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901:ArcSetting" }, { type: "azure-native:azurestackhci/v20210901preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20220101:ArcSetting" }, { type: "azure-native:azurestackhci/v20220301:ArcSetting" }, { type: "azure-native:azurestackhci/v20220501:ArcSetting" }, { type: "azure-native:azurestackhci/v20220901:ArcSetting" }, { type: "azure-native:azurestackhci/v20221001:ArcSetting" }, { type: "azure-native:azurestackhci/v20221201:ArcSetting" }, { type: "azure-native:azurestackhci/v20221215preview:ArcSetting" }, { type: "azure-native:azurestackhci/v20230201:ArcSetting" }, { type: "azure-native:azurestackhci/v20230301:ArcSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ArcSetting.__pulumiType, name, resourceInputs, opts);
     }
@@ -145,6 +151,26 @@ export class ArcSetting extends pulumi.CustomResource {
  */
 export interface ArcSettingArgs {
     /**
+     * App id of arc AAD identity.
+     */
+    arcApplicationClientId?: pulumi.Input<string>;
+    /**
+     * Object id of arc AAD identity.
+     */
+    arcApplicationObjectId?: pulumi.Input<string>;
+    /**
+     * Tenant id of arc AAD identity.
+     */
+    arcApplicationTenantId?: pulumi.Input<string>;
+    /**
+     * The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+     */
+    arcInstanceResourceGroup?: pulumi.Input<string>;
+    /**
+     * Object id of arc AAD service principal.
+     */
+    arcServicePrincipalObjectId?: pulumi.Input<string>;
+    /**
      * The name of the proxy resource holding details of HCI ArcSetting information.
      */
     arcSettingName?: pulumi.Input<string>;
@@ -153,29 +179,9 @@ export interface ArcSettingArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The timestamp of resource creation (UTC).
+     * contains connectivity related configuration for ARC resources
      */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.azurestackhci.CreatedByType>;
+    connectivityProperties?: pulumi.Input<pulumi.Input<inputs.azurestackhci.ArcConnectivityPropertiesArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

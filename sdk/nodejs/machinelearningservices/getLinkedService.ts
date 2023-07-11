@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the detail of a linked service.
- * API Version: 2020-09-01-preview.
+ * Azure REST API version: 2020-09-01-preview.
  */
 export function getLinkedService(args: GetLinkedServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetLinkedServiceResult> {
 
@@ -67,7 +67,7 @@ export interface GetLinkedServiceResult {
 }
 /**
  * Get the detail of a linked service.
- * API Version: 2020-09-01-preview.
+ * Azure REST API version: 2020-09-01-preview.
  */
 export function getLinkedServiceOutput(args: GetLinkedServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkedServiceResult> {
     return pulumi.output(args).apply((a: any) => getLinkedService(a, opts))

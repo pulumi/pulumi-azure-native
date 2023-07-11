@@ -22,22 +22,34 @@ class GetCommitmentPlanResult:
     """
     Cognitive Services account commitment plan.
     """
-    def __init__(__self__, etag=None, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -60,6 +72,22 @@ class GetCommitmentPlanResult:
 
     @property
     @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        The Kind of the resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> str:
         """
         The name of the resource
@@ -75,12 +103,28 @@ class GetCommitmentPlanResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuResponse']:
+        """
+        The resource model definition representing SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
@@ -99,9 +143,13 @@ class AwaitableGetCommitmentPlanResult(GetCommitmentPlanResult):
         return GetCommitmentPlanResult(
             etag=self.etag,
             id=self.id,
+            kind=self.kind,
+            location=self.location,
             name=self.name,
             properties=self.properties,
+            sku=self.sku,
             system_data=self.system_data,
+            tags=self.tags,
             type=self.type)
 
 
@@ -111,7 +159,7 @@ def get_commitment_plan(account_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCommitmentPlanResult:
     """
     Gets the specified commitmentPlans associated with the Cognitive Services account.
-    API Version: 2021-10-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -128,9 +176,13 @@ def get_commitment_plan(account_name: Optional[str] = None,
     return AwaitableGetCommitmentPlanResult(
         etag=__ret__.etag,
         id=__ret__.id,
+        kind=__ret__.kind,
+        location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 
@@ -141,7 +193,7 @@ def get_commitment_plan_output(account_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCommitmentPlanResult]:
     """
     Gets the specified commitmentPlans associated with the Cognitive Services account.
-    API Version: 2021-10-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.

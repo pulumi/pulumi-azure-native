@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get exposure control feature for specific location.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getExposureControlFeatureValue(args: GetExposureControlFeatureValueArgs, opts?: pulumi.InvokeOptions): Promise<GetExposureControlFeatureValueResult> {
 
@@ -48,7 +48,7 @@ export interface GetExposureControlFeatureValueResult {
 }
 /**
  * Get exposure control feature for specific location.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getExposureControlFeatureValueOutput(args: GetExposureControlFeatureValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExposureControlFeatureValueResult> {
     return pulumi.output(args).apply((a: any) => getExposureControlFeatureValue(a, opts))

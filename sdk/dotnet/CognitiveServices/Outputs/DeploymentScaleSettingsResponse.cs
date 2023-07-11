@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class DeploymentScaleSettingsResponse
     {
         /// <summary>
+        /// Deployment active capacity. This value might be different from `capacity` if customer recently updated `capacity`.
+        /// </summary>
+        public readonly int ActiveCapacity;
+        /// <summary>
         /// Deployment capacity.
         /// </summary>
         public readonly int? Capacity;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
         [OutputConstructor]
         private DeploymentScaleSettingsResponse(
+            int activeCapacity,
+
             int? capacity,
 
             string? scaleType)
         {
+            ActiveCapacity = activeCapacity;
             Capacity = capacity;
             ScaleType = scaleType;
         }

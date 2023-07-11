@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of the EngagementFabric account keys
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function listAccountKeys(args: ListAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListAccountKeysResult> {
 
@@ -42,7 +42,7 @@ export interface ListAccountKeysResult {
 }
 /**
  * The list of the EngagementFabric account keys
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function listAccountKeysOutput(args: ListAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listAccountKeys(a, opts))

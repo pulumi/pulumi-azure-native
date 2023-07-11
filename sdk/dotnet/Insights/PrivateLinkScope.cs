@@ -11,19 +11,25 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// An Azure Monitor PrivateLinkScope definition.
-    /// API Version: 2019-10-17-preview.
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource location
+        /// Access mode settings
+        /// </summary>
+        [Output("accessModeSettings")]
+        public Output<Outputs.AccessModeSettingsResponse> AccessModeSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,13 +47,19 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// System data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -103,7 +115,13 @@ namespace Pulumi.AzureNative.Insights
     public sealed class PrivateLinkScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Resource location
+        /// Access mode settings
+        /// </summary>
+        [Input("accessModeSettings", required: true)]
+        public Input<Inputs.AccessModeSettingsArgs> AccessModeSettings { get; set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -124,7 +142,7 @@ namespace Pulumi.AzureNative.Insights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

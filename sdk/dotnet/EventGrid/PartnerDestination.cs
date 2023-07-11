@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Event Grid Partner Destination.
-    /// API Version: 2021-10-15-preview.
+    /// Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerDestination")]
     public partial class PartnerDestination : global::Pulumi.CustomResource
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// Provisioning state of the partner destination.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to Partner Destination resource.
@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.EventGrid
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerDestination"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PartnerDestination"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -186,12 +187,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("partnerRegistrationImmutableId")]
         public Input<string>? PartnerRegistrationImmutableId { get; set; }
-
-        /// <summary>
-        /// Provisioning state of the partner destination.
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.EventGrid.PartnerDestinationProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

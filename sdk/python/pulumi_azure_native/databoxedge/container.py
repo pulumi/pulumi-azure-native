@@ -110,7 +110,7 @@ class Container(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +128,7 @@ class Container(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.
@@ -255,7 +255,7 @@ class Container(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Container in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of Container
         """
         return pulumi.get(self, "system_data")
 

@@ -114,12 +114,7 @@ class AccessPolicyArgs:
         pulumi.set(self, "roles", value)
 
 
-warnings.warn("""azure-native:timeseriesinsights/v20200515:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class AccessPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:timeseriesinsights/v20200515:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -174,7 +169,6 @@ class AccessPolicy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessPolicyRole']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""AccessPolicy is deprecated: azure-native:timeseriesinsights/v20200515:AccessPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:timeseriesinsights/v20210630preview:AccessPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
-    /// The action of virtual network rule.
+    /// The action of IP ACL rule.
     /// </summary>
     [EnumType]
     public readonly struct Action : IEquatable<Action>
@@ -177,6 +177,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ConnectedRegistryMode ReadWrite { get; } = new ConnectedRegistryMode("ReadWrite");
+        public static ConnectedRegistryMode ReadOnly { get; } = new ConnectedRegistryMode("ReadOnly");
         public static ConnectedRegistryMode Registry { get; } = new ConnectedRegistryMode("Registry");
         public static ConnectedRegistryMode Mirror { get; } = new ConnectedRegistryMode("Mirror");
 
@@ -229,6 +231,36 @@ namespace Pulumi.AzureNative.ContainerRegistry
     }
 
     /// <summary>
+    /// The name of the credential.
+    /// </summary>
+    [EnumType]
+    public readonly struct CredentialName : IEquatable<CredentialName>
+    {
+        private readonly string _value;
+
+        private CredentialName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CredentialName Credential1 { get; } = new CredentialName("Credential1");
+
+        public static bool operator ==(CredentialName left, CredentialName right) => left.Equals(right);
+        public static bool operator !=(CredentialName left, CredentialName right) => !left.Equals(right);
+
+        public static explicit operator string(CredentialName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CredentialName other && Equals(other);
+        public bool Equals(CredentialName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The default action of allow or deny when no other rules match.
     /// </summary>
     [EnumType]
@@ -252,6 +284,68 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
         public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether or not the encryption is enabled for container registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncryptionStatus : IEquatable<EncryptionStatus>
+    {
+        private readonly string _value;
+
+        private EncryptionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncryptionStatus Enabled { get; } = new EncryptionStatus("enabled");
+        public static EncryptionStatus Disabled { get; } = new EncryptionStatus("disabled");
+
+        public static bool operator ==(EncryptionStatus left, EncryptionStatus right) => left.Equals(right);
+        public static bool operator !=(EncryptionStatus left, EncryptionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EncryptionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncryptionStatus other && Equals(other);
+        public bool Equals(EncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The value that indicates whether the policy is enabled or not.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExportPolicyStatus : IEquatable<ExportPolicyStatus>
+    {
+        private readonly string _value;
+
+        private ExportPolicyStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExportPolicyStatus Enabled { get; } = new ExportPolicyStatus("enabled");
+        public static ExportPolicyStatus Disabled { get; } = new ExportPolicyStatus("disabled");
+
+        public static bool operator ==(ExportPolicyStatus left, ExportPolicyStatus right) => left.Equals(right);
+        public static bool operator !=(ExportPolicyStatus left, ExportPolicyStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ExportPolicyStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExportPolicyStatus other && Equals(other);
+        public bool Equals(ExportPolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -286,6 +380,37 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LogLevel other && Equals(other);
         public bool Equals(LogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to allow trusted Azure services to access a network restricted registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkRuleBypassOptions : IEquatable<NetworkRuleBypassOptions>
+    {
+        private readonly string _value;
+
+        private NetworkRuleBypassOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkRuleBypassOptions AzureServices { get; } = new NetworkRuleBypassOptions("AzureServices");
+        public static NetworkRuleBypassOptions None { get; } = new NetworkRuleBypassOptions("None");
+
+        public static bool operator ==(NetworkRuleBypassOptions left, NetworkRuleBypassOptions right) => left.Equals(right);
+        public static bool operator !=(NetworkRuleBypassOptions left, NetworkRuleBypassOptions right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkRuleBypassOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkRuleBypassOptions other && Equals(other);
+        public bool Equals(NetworkRuleBypassOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -468,6 +593,37 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyStatus other && Equals(other);
         public bool Equals(PolicyStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public network access is allowed for the container registry.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1028,6 +1184,37 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is WebhookStatus other && Equals(other);
         public bool Equals(WebhookStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not zone redundancy is enabled for this container registry replication
+    /// </summary>
+    [EnumType]
+    public readonly struct ZoneRedundancy : IEquatable<ZoneRedundancy>
+    {
+        private readonly string _value;
+
+        private ZoneRedundancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ZoneRedundancy Enabled { get; } = new ZoneRedundancy("Enabled");
+        public static ZoneRedundancy Disabled { get; } = new ZoneRedundancy("Disabled");
+
+        public static bool operator ==(ZoneRedundancy left, ZoneRedundancy right) => left.Equals(right);
+        public static bool operator !=(ZoneRedundancy left, ZoneRedundancy right) => !left.Equals(right);
+
+        public static explicit operator string(ZoneRedundancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ZoneRedundancy other && Equals(other);
+        public bool Equals(ZoneRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

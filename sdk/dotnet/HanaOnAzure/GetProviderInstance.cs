@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HanaOnAzure
     {
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SapMonitor name, and resource name.
-        /// API Version: 2020-02-07-preview.
+        /// Azure REST API version: 2020-02-07-preview.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:hanaonazure:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SapMonitor name, and resource name.
-        /// API Version: 2020-02-07-preview.
+        /// Azure REST API version: 2020-02-07-preview.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:hanaonazure:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());

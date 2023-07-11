@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
     public sealed class LocalDiagnosticsAccessConfigurationResponse
     {
         /// <summary>
+        /// How to authenticate users who access local diagnostics APIs.
+        /// </summary>
+        public readonly string AuthenticationType;
+        /// <summary>
         /// The HTTPS server TLS certificate used to secure local access to diagnostics.
         /// </summary>
-        public readonly Outputs.KeyVaultCertificateResponse? HttpsServerCertificate;
+        public readonly Outputs.HttpsServerCertificateResponse? HttpsServerCertificate;
 
         [OutputConstructor]
-        private LocalDiagnosticsAccessConfigurationResponse(Outputs.KeyVaultCertificateResponse? httpsServerCertificate)
+        private LocalDiagnosticsAccessConfigurationResponse(
+            string authenticationType,
+
+            Outputs.HttpsServerCertificateResponse? httpsServerCertificate)
         {
+            AuthenticationType = authenticationType;
             HttpsServerCertificate = httpsServerCertificate;
         }
     }

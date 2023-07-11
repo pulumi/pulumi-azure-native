@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DiskAccessAPrivateEndpointConnection")]
     public partial class DiskAccessAPrivateEndpointConnection : global::Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -102,13 +103,13 @@ namespace Pulumi.AzureNative.Compute
     public sealed class DiskAccessAPrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskAccessName", required: true)]
         public Input<string> DiskAccessName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the private endpoint connection
+        /// The name of the private endpoint connection.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }

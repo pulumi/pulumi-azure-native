@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetGeoBackupPolicyResult:
     """
-    A database geo backup policy.
+    A Geo backup policy.
     """
     def __init__(__self__, id=None, kind=None, location=None, name=None, state=None, storage_type=None, type=None):
         if id and not isinstance(id, str):
@@ -122,12 +122,12 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
                           server_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGeoBackupPolicyResult:
     """
-    Gets a geo backup policy.
-    API Version: 2014-04-01.
+    Gets a Geo backup policy for the given database resource.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.
-    :param str geo_backup_policy_name: The name of the geo backup policy.
+    :param str geo_backup_policy_name: The name of the Geo backup policy. This should always be 'Default'.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
@@ -156,12 +156,12 @@ def get_geo_backup_policy_output(database_name: Optional[pulumi.Input[str]] = No
                                  server_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeoBackupPolicyResult]:
     """
-    Gets a geo backup policy.
-    API Version: 2014-04-01.
+    Gets a Geo backup policy for the given database resource.
+    Azure REST API version: 2021-11-01.
 
 
     :param str database_name: The name of the database.
-    :param str geo_backup_policy_name: The name of the geo backup policy.
+    :param str geo_backup_policy_name: The name of the Geo backup policy. This should always be 'Default'.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """

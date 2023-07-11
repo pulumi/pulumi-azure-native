@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.PolicyInsights
 {
     /// <summary>
     /// An attestation resource.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:AttestationAtSubscription")]
     public partial class AttestationAtSubscription : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The time the evidence was assessed
+        /// </summary>
+        [Output("assessmentDate")]
+        public Output<string?> AssessmentDate { get; private set; } = null!;
+
         /// <summary>
         /// Comments describing why this attestation was created.
         /// </summary>
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         [Output("lastComplianceStateChangeAt")]
         public Output<string> LastComplianceStateChangeAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional metadata for this attestation
+        /// </summary>
+        [Output("metadata")]
+        public Output<object?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -139,6 +151,12 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class AttestationAtSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The time the evidence was assessed
+        /// </summary>
+        [Input("assessmentDate")]
+        public Input<string>? AssessmentDate { get; set; }
+
+        /// <summary>
         /// The name of the attestation.
         /// </summary>
         [Input("attestationName")]
@@ -173,6 +191,12 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// </summary>
         [Input("expiresOn")]
         public Input<string>? ExpiresOn { get; set; }
+
+        /// <summary>
+        /// Additional metadata for this attestation
+        /// </summary>
+        [Input("metadata")]
+        public Input<object>? Metadata { get; set; }
 
         /// <summary>
         /// The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.

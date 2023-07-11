@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
-    /// API Version: 2018-01-01-preview.
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -41,7 +47,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

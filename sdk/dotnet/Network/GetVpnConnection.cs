@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a vpn connection.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVpnConnectionResult> InvokeAsync(GetVpnConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a vpn connection.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("azure-native:network:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());

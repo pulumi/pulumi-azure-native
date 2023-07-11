@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a HubVirtualNetworkConnection.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getHubVirtualNetworkConnection(args: GetHubVirtualNetworkConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHubVirtualNetworkConnectionResult> {
 
@@ -79,7 +79,7 @@ export interface GetHubVirtualNetworkConnectionResult {
 }
 /**
  * Retrieves the details of a HubVirtualNetworkConnection.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getHubVirtualNetworkConnectionOutput(args: GetHubVirtualNetworkConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubVirtualNetworkConnectionResult> {
     return pulumi.output(args).apply((a: any) => getHubVirtualNetworkConnection(a, opts))

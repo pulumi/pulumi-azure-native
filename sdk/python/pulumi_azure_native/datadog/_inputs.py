@@ -24,16 +24,20 @@ class DatadogOrganizationPropertiesArgs:
                  api_key: Optional[pulumi.Input[str]] = None,
                  application_key: Optional[pulumi.Input[str]] = None,
                  enterprise_app_id: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  linking_auth_code: Optional[pulumi.Input[str]] = None,
                  linking_client_id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  redirect_uri: Optional[pulumi.Input[str]] = None):
         """
         Datadog organization properties
         :param pulumi.Input[str] api_key: Api key associated to the Datadog organization.
         :param pulumi.Input[str] application_key: Application key associated to the Datadog organization.
         :param pulumi.Input[str] enterprise_app_id: The Id of the Enterprise App used for Single sign on.
+        :param pulumi.Input[str] id: Id of the Datadog organization.
         :param pulumi.Input[str] linking_auth_code: The auth code used to linking to an existing datadog organization.
         :param pulumi.Input[str] linking_client_id: The client_id from an existing in exchange for an auth token to link organization.
+        :param pulumi.Input[str] name: Name of the Datadog organization.
         :param pulumi.Input[str] redirect_uri: The redirect uri for linking.
         """
         if api_key is not None:
@@ -42,10 +46,14 @@ class DatadogOrganizationPropertiesArgs:
             pulumi.set(__self__, "application_key", application_key)
         if enterprise_app_id is not None:
             pulumi.set(__self__, "enterprise_app_id", enterprise_app_id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if linking_auth_code is not None:
             pulumi.set(__self__, "linking_auth_code", linking_auth_code)
         if linking_client_id is not None:
             pulumi.set(__self__, "linking_client_id", linking_client_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if redirect_uri is not None:
             pulumi.set(__self__, "redirect_uri", redirect_uri)
 
@@ -86,6 +94,18 @@ class DatadogOrganizationPropertiesArgs:
         pulumi.set(self, "enterprise_app_id", value)
 
     @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the Datadog organization.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
     @pulumi.getter(name="linkingAuthCode")
     def linking_auth_code(self) -> Optional[pulumi.Input[str]]:
         """
@@ -108,6 +128,18 @@ class DatadogOrganizationPropertiesArgs:
     @linking_client_id.setter
     def linking_client_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "linking_client_id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Datadog organization.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="redirectUri")

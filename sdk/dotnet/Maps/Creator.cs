@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Maps
 {
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
-    /// API Version: 2020-02-01-preview.
+    /// Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2020-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Creator")]
     public partial class Creator : global::Pulumi.CustomResource
@@ -111,10 +111,16 @@ namespace Pulumi.AzureNative.Maps
         public Input<string>? CreatorName { get; set; }
 
         /// <summary>
-        /// The location of the resource.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The Creator resource properties.
+        /// </summary>
+        [Input("properties", required: true)]
+        public Input<Inputs.CreatorPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -126,7 +132,7 @@ namespace Pulumi.AzureNative.Maps
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

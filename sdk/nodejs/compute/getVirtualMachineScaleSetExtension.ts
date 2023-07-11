@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetExtension(args: GetVirtualMachineScaleSetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetExtensionResult> {
 
@@ -67,6 +70,10 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly protectedSettings?: any;
     /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    readonly protectedSettingsFromKeyVault?: outputs.compute.KeyVaultSecretReferenceResponse;
+    /**
      * Collection of extension names after which this extension needs to be provisioned.
      */
     readonly provisionAfterExtensions?: string[];
@@ -83,6 +90,10 @@ export interface GetVirtualMachineScaleSetExtensionResult {
      */
     readonly settings?: any;
     /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    readonly suppressFailures?: boolean;
+    /**
      * Resource type
      */
     readonly type: string;
@@ -93,7 +104,7 @@ export interface GetVirtualMachineScaleSetExtensionResult {
 }
 /**
  * The operation to get the extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetExtensionOutput(args: GetVirtualMachineScaleSetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetExtension(a, opts))

@@ -134,6 +134,7 @@ __all__ = [
     'CassandraSourceResponse',
     'CassandraTableDatasetResponse',
     'ChainingTriggerResponse',
+    'ChangeDataCaptureResponseFolder',
     'CmdkeySetupResponse',
     'CommonDataServiceForAppsEntityDatasetResponse',
     'CommonDataServiceForAppsLinkedServiceResponse',
@@ -173,6 +174,7 @@ __all__ = [
     'DataFlowSourceResponse',
     'DataFlowStagingInfoResponse',
     'DataLakeAnalyticsUSQLActivityResponse',
+    'DataMapperMappingResponse',
     'DatabricksNotebookActivityResponse',
     'DatabricksSparkJarActivityResponse',
     'DatabricksSparkPythonActivityResponse',
@@ -327,6 +329,18 @@ __all__ = [
     'ManagedIntegrationRuntimeStatusResponse',
     'ManagedPrivateEndpointResponse',
     'ManagedVirtualNetworkReferenceResponse',
+    'MapperAttributeMappingResponse',
+    'MapperAttributeMappingsResponse',
+    'MapperAttributeReferenceResponse',
+    'MapperConnectionReferenceResponse',
+    'MapperConnectionResponse',
+    'MapperDslConnectorPropertiesResponse',
+    'MapperPolicyRecurrenceResponse',
+    'MapperPolicyResponse',
+    'MapperSourceConnectionsInfoResponse',
+    'MapperTableResponse',
+    'MapperTableSchemaResponse',
+    'MapperTargetConnectionsInfoResponse',
     'MappingDataFlowResponse',
     'MariaDBLinkedServiceResponse',
     'MariaDBSourceResponse',
@@ -485,6 +499,7 @@ __all__ = [
     'ScriptActivityResponse',
     'ScriptActivityScriptBlockResponse',
     'ScriptActivityTypePropertiesResponseLogSettings',
+    'SecureInputOutputPolicyResponse',
     'SecureStringResponse',
     'SelfDependencyTumblingWindowTriggerReferenceResponse',
     'SelfHostedIntegrationRuntimeNodeResponse',
@@ -1916,6 +1931,8 @@ class AmazonRdsForSqlServerSourceResponse(dict):
             suggest = "additional_columns"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
+        elif key == "isolationLevel":
+            suggest = "isolation_level"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
         elif key == "partitionOption":
@@ -1952,6 +1969,7 @@ class AmazonRdsForSqlServerSourceResponse(dict):
                  type: str,
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional['outputs.SqlPartitionSettingsResponse'] = None,
@@ -1968,6 +1986,7 @@ class AmazonRdsForSqlServerSourceResponse(dict):
                Expected value is 'AmazonRdsForSqlServerSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -1984,6 +2003,8 @@ class AmazonRdsForSqlServerSourceResponse(dict):
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if isolation_level is not None:
+            pulumi.set(__self__, "isolation_level", isolation_level)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -2029,6 +2050,14 @@ class AmazonRdsForSqlServerSourceResponse(dict):
         If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="isolationLevel")
+    def isolation_level(self) -> Optional[Any]:
+        """
+        Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "isolation_level")
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -3992,6 +4021,8 @@ class AppendVariableActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
         elif key == "variableName":
@@ -4013,6 +4044,8 @@ class AppendVariableActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  value: Optional[Any] = None,
                  variable_name: Optional[str] = None):
@@ -4023,6 +4056,8 @@ class AppendVariableActivityResponse(dict):
                Expected value is 'AppendVariable'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any value: Value to be appended. Type: could be a static value matching type of the variable item or Expression with resultType matching type of the variable item
         :param str variable_name: Name of the variable whose value needs to be appended to.
@@ -4033,6 +4068,10 @@ class AppendVariableActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if value is not None:
@@ -4072,6 +4111,22 @@ class AppendVariableActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -6992,6 +7047,8 @@ class AzureDataExplorerCommandActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -7014,7 +7071,9 @@ class AzureDataExplorerCommandActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Azure Data Explorer command activity.
@@ -7026,7 +7085,9 @@ class AzureDataExplorerCommandActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "command", command)
@@ -7040,8 +7101,12 @@ class AzureDataExplorerCommandActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -7103,12 +7168,28 @@ class AzureDataExplorerCommandActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -10625,6 +10706,8 @@ class AzureFunctionActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -10649,7 +10732,9 @@ class AzureFunctionActivityResponse(dict):
                  description: Optional[str] = None,
                  headers: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Azure Function activity.
@@ -10663,7 +10748,9 @@ class AzureFunctionActivityResponse(dict):
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "function_name", function_name)
@@ -10680,8 +10767,12 @@ class AzureFunctionActivityResponse(dict):
             pulumi.set(__self__, "headers", headers)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -10759,12 +10850,28 @@ class AzureFunctionActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -11148,6 +11255,8 @@ class AzureMLBatchExecutionActivityResponse(dict):
             suggest = "global_parameters"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
         elif key == "webServiceInputs":
@@ -11173,7 +11282,9 @@ class AzureMLBatchExecutionActivityResponse(dict):
                  description: Optional[str] = None,
                  global_parameters: Optional[Mapping[str, Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  web_service_inputs: Optional[Mapping[str, 'outputs.AzureMLWebServiceFileResponse']] = None,
                  web_service_outputs: Optional[Mapping[str, 'outputs.AzureMLWebServiceFileResponse']] = None):
@@ -11186,7 +11297,9 @@ class AzureMLBatchExecutionActivityResponse(dict):
         :param str description: Activity description.
         :param Mapping[str, Any] global_parameters: Key,Value pairs to be passed to the Azure ML Batch Execution Service endpoint. Keys must match the names of web service parameters defined in the published Azure ML web service. Values will be passed in the GlobalParameters property of the Azure ML batch execution request.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_inputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Inputs to AzureMLWebServiceFile objects specifying the input Blob locations.. This information will be passed in the WebServiceInputs property of the Azure ML batch execution request.
         :param Mapping[str, 'AzureMLWebServiceFileResponse'] web_service_outputs: Key,Value pairs, mapping the names of Azure ML endpoint's Web Service Outputs to AzureMLWebServiceFile objects specifying the output Blob locations. This information will be passed in the WebServiceOutputs property of the Azure ML batch execution request.
@@ -11201,8 +11314,12 @@ class AzureMLBatchExecutionActivityResponse(dict):
             pulumi.set(__self__, "global_parameters", global_parameters)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if web_service_inputs is not None:
@@ -11260,12 +11377,28 @@ class AzureMLBatchExecutionActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -11318,6 +11451,8 @@ class AzureMLExecutePipelineActivityResponse(dict):
             suggest = "ml_pipeline_id"
         elif key == "mlPipelineParameters":
             suggest = "ml_pipeline_parameters"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -11345,7 +11480,9 @@ class AzureMLExecutePipelineActivityResponse(dict):
                  ml_pipeline_endpoint_id: Optional[Any] = None,
                  ml_pipeline_id: Optional[Any] = None,
                  ml_pipeline_parameters: Optional[Any] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  version: Optional[Any] = None):
         """
@@ -11363,7 +11500,9 @@ class AzureMLExecutePipelineActivityResponse(dict):
         :param Any ml_pipeline_endpoint_id: ID of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
         :param Any ml_pipeline_id: ID of the published Azure ML pipeline. Type: string (or Expression with resultType string).
         :param Any ml_pipeline_parameters: Key,Value pairs to be passed to the published Azure ML pipeline endpoint. Keys must match the names of pipeline parameters defined in the published pipeline. Values will be passed in the ParameterAssignments property of the published pipeline execution request. Type: object with key value pairs (or Expression with resultType object).
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any version: Version of the published Azure ML pipeline endpoint. Type: string (or Expression with resultType string).
         """
@@ -11389,8 +11528,12 @@ class AzureMLExecutePipelineActivityResponse(dict):
             pulumi.set(__self__, "ml_pipeline_id", ml_pipeline_id)
         if ml_pipeline_parameters is not None:
             pulumi.set(__self__, "ml_pipeline_parameters", ml_pipeline_parameters)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if version is not None:
@@ -11494,12 +11637,28 @@ class AzureMLExecutePipelineActivityResponse(dict):
         return pulumi.get(self, "ml_pipeline_parameters")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -11753,6 +11912,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
                  subscription_id: Any,
                  type: str,
                  annotations: Optional[Sequence[Any]] = None,
+                 authentication: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
                  encrypted_credential: Optional[str] = None,
@@ -11768,6 +11928,7 @@ class AzureMLServiceLinkedServiceResponse(dict):
         :param str type: Type of linked service.
                Expected value is 'AzureMLService'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any authentication: Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
         :param str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
@@ -11782,6 +11943,8 @@ class AzureMLServiceLinkedServiceResponse(dict):
         pulumi.set(__self__, "type", 'AzureMLService')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
@@ -11837,6 +12000,14 @@ class AzureMLServiceLinkedServiceResponse(dict):
         List of tags that can be used for describing the linked service.
         """
         return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[Any]:
+        """
+        Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="connectVia")
@@ -11913,6 +12084,8 @@ class AzureMLUpdateResourceActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -11936,7 +12109,9 @@ class AzureMLUpdateResourceActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Azure ML Update Resource management activity.
@@ -11949,7 +12124,9 @@ class AzureMLUpdateResourceActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -11963,8 +12140,12 @@ class AzureMLUpdateResourceActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -12034,12 +12215,28 @@ class AzureMLUpdateResourceActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -15299,6 +15496,8 @@ class AzureSqlSourceResponse(dict):
             suggest = "additional_columns"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
+        elif key == "isolationLevel":
+            suggest = "isolation_level"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
         elif key == "partitionOption":
@@ -15335,6 +15534,7 @@ class AzureSqlSourceResponse(dict):
                  type: str,
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional['outputs.SqlPartitionSettingsResponse'] = None,
@@ -15351,6 +15551,7 @@ class AzureSqlSourceResponse(dict):
                Expected value is 'AzureSqlSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -15367,6 +15568,8 @@ class AzureSqlSourceResponse(dict):
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if isolation_level is not None:
+            pulumi.set(__self__, "isolation_level", isolation_level)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -15412,6 +15615,14 @@ class AzureSqlSourceResponse(dict):
         If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="isolationLevel")
+    def isolation_level(self) -> Optional[Any]:
+        """
+        Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "isolation_level")
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -18287,6 +18498,29 @@ class ChainingTriggerResponse(dict):
 
 
 @pulumi.output_type
+class ChangeDataCaptureResponseFolder(dict):
+    """
+    The folder that this CDC is in. If not specified, CDC will appear at the root level.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        The folder that this CDC is in. If not specified, CDC will appear at the root level.
+        :param str name: The name of the folder that this CDC is in.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the folder that this CDC is in.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class CmdkeySetupResponse(dict):
     """
     The custom setup of running cmdkey commands.
@@ -19639,6 +19873,8 @@ class ControlActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -19658,6 +19894,8 @@ class ControlActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Base class for all control activities like IfCondition, ForEach , Until.
@@ -19666,6 +19904,8 @@ class ControlActivityResponse(dict):
                Expected value is 'Container'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -19674,6 +19914,10 @@ class ControlActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -19709,6 +19953,22 @@ class ControlActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -19795,6 +20055,8 @@ class CopyActivityResponse(dict):
             suggest = "log_settings"
         elif key == "logStorageSettings":
             suggest = "log_storage_settings"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "parallelCopies":
             suggest = "parallel_copies"
         elif key == "preserveRules":
@@ -19835,6 +20097,7 @@ class CopyActivityResponse(dict):
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  log_settings: Optional['outputs.LogSettingsResponse'] = None,
                  log_storage_settings: Optional['outputs.LogStorageSettingsResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  outputs: Optional[Sequence['outputs.DatasetReferenceResponse']] = None,
                  parallel_copies: Optional[Any] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -19843,6 +20106,7 @@ class CopyActivityResponse(dict):
                  redirect_incompatible_row_settings: Optional['outputs.RedirectIncompatibleRowSettingsResponse'] = None,
                  skip_error_file: Optional['outputs.SkipErrorFileResponse'] = None,
                  staging_settings: Optional['outputs.StagingSettingsResponse'] = None,
+                 state: Optional[str] = None,
                  translator: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  validate_data_consistency: Optional[Any] = None):
@@ -19862,6 +20126,7 @@ class CopyActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param 'LogSettingsResponse' log_settings: Log settings customer needs provide when enabling log.
         :param 'LogStorageSettingsResponse' log_storage_settings: (Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Sequence['DatasetReferenceResponse'] outputs: List of outputs for the activity.
         :param Any parallel_copies: Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -19870,6 +20135,7 @@ class CopyActivityResponse(dict):
         :param 'RedirectIncompatibleRowSettingsResponse' redirect_incompatible_row_settings: Redirect incompatible row settings when EnableSkipIncompatibleRow is true.
         :param 'SkipErrorFileResponse' skip_error_file: Specify the fault tolerance for data consistency.
         :param 'StagingSettingsResponse' staging_settings: Specifies interim staging settings when EnableStaging is true.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any translator: Copy activity translator. If not specified, tabular translator is used.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any validate_data_consistency: Whether to enable Data Consistency validation. Type: boolean (or Expression with resultType boolean).
@@ -19896,6 +20162,8 @@ class CopyActivityResponse(dict):
             pulumi.set(__self__, "log_settings", log_settings)
         if log_storage_settings is not None:
             pulumi.set(__self__, "log_storage_settings", log_storage_settings)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if outputs is not None:
             pulumi.set(__self__, "outputs", outputs)
         if parallel_copies is not None:
@@ -19912,6 +20180,8 @@ class CopyActivityResponse(dict):
             pulumi.set(__self__, "skip_error_file", skip_error_file)
         if staging_settings is not None:
             pulumi.set(__self__, "staging_settings", staging_settings)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if translator is not None:
             pulumi.set(__self__, "translator", translator)
         if user_properties is not None:
@@ -20025,6 +20295,14 @@ class CopyActivityResponse(dict):
         return pulumi.get(self, "log_storage_settings")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def outputs(self) -> Optional[Sequence['outputs.DatasetReferenceResponse']]:
         """
@@ -20087,6 +20365,14 @@ class CopyActivityResponse(dict):
         Specifies interim staging settings when EnableStaging is true.
         """
         return pulumi.get(self, "staging_settings")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
@@ -21941,6 +22227,8 @@ class CustomActivityResponse(dict):
             suggest = "folder_path"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "referenceObjects":
             suggest = "reference_objects"
         elif key == "resourceLinkedService":
@@ -21971,10 +22259,12 @@ class CustomActivityResponse(dict):
                  extended_properties: Optional[Mapping[str, Any]] = None,
                  folder_path: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  reference_objects: Optional['outputs.CustomActivityReferenceObjectResponse'] = None,
                  resource_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  retention_time_in_days: Optional[Any] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Custom activity type.
@@ -21988,10 +22278,12 @@ class CustomActivityResponse(dict):
         :param Mapping[str, Any] extended_properties: User defined property bag. There is no restriction on the keys or values that can be used. The user specified custom activity has the full responsibility to consume and interpret the content defined.
         :param Any folder_path: Folder path for resource files Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param 'CustomActivityReferenceObjectResponse' reference_objects: Reference objects
         :param 'LinkedServiceReferenceResponse' resource_linked_service: Resource linked service reference.
         :param Any retention_time_in_days: The retention time for the files submitted for custom activity. Type: double (or Expression with resultType double).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "command", command)
@@ -22009,6 +22301,8 @@ class CustomActivityResponse(dict):
             pulumi.set(__self__, "folder_path", folder_path)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if reference_objects is not None:
@@ -22017,6 +22311,8 @@ class CustomActivityResponse(dict):
             pulumi.set(__self__, "resource_linked_service", resource_linked_service)
         if retention_time_in_days is not None:
             pulumi.set(__self__, "retention_time_in_days", retention_time_in_days)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -22094,6 +22390,14 @@ class CustomActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -22124,6 +22428,14 @@ class CustomActivityResponse(dict):
         The retention time for the files submitted for custom activity. Type: double (or Expression with resultType double).
         """
         return pulumi.get(self, "retention_time_in_days")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -22982,6 +23294,8 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "runtimeVersion":
             suggest = "runtime_version"
         elif key == "userProperties":
@@ -23008,10 +23322,12 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  parameters: Optional[Mapping[str, Any]] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  priority: Optional[Any] = None,
                  runtime_version: Optional[Any] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Data Lake Analytics U-SQL activity.
@@ -23025,10 +23341,12 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Mapping[str, Any] parameters: Parameters for U-SQL job request.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any priority: Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.
         :param Any runtime_version: Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -23045,6 +23363,8 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
@@ -23053,6 +23373,8 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
             pulumi.set(__self__, "priority", priority)
         if runtime_version is not None:
             pulumi.set(__self__, "runtime_version", runtime_version)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -23130,6 +23452,14 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, Any]]:
         """
@@ -23162,12 +23492,116 @@ class DataLakeAnalyticsUSQLActivityResponse(dict):
         return pulumi.get(self, "runtime_version")
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
+
+    @property
     @pulumi.getter(name="userProperties")
     def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
         """
         Activity user properties.
         """
         return pulumi.get(self, "user_properties")
+
+
+@pulumi.output_type
+class DataMapperMappingResponse(dict):
+    """
+    Source and target table mapping details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeMappingInfo":
+            suggest = "attribute_mapping_info"
+        elif key == "sourceConnectionReference":
+            suggest = "source_connection_reference"
+        elif key == "sourceDenormalizeInfo":
+            suggest = "source_denormalize_info"
+        elif key == "sourceEntityName":
+            suggest = "source_entity_name"
+        elif key == "targetEntityName":
+            suggest = "target_entity_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataMapperMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataMapperMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataMapperMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_mapping_info: Optional['outputs.MapperAttributeMappingsResponse'] = None,
+                 source_connection_reference: Optional['outputs.MapperConnectionReferenceResponse'] = None,
+                 source_denormalize_info: Optional[Any] = None,
+                 source_entity_name: Optional[str] = None,
+                 target_entity_name: Optional[str] = None):
+        """
+        Source and target table mapping details.
+        :param 'MapperAttributeMappingsResponse' attribute_mapping_info: This holds the user provided attribute mapping information.
+        :param 'MapperConnectionReferenceResponse' source_connection_reference: The connection reference for the source connection.
+        :param Any source_denormalize_info: This holds the source denormalization information used while joining multiple sources.
+        :param str source_entity_name: Name of the source table
+        :param str target_entity_name: Name of the target table
+        """
+        if attribute_mapping_info is not None:
+            pulumi.set(__self__, "attribute_mapping_info", attribute_mapping_info)
+        if source_connection_reference is not None:
+            pulumi.set(__self__, "source_connection_reference", source_connection_reference)
+        if source_denormalize_info is not None:
+            pulumi.set(__self__, "source_denormalize_info", source_denormalize_info)
+        if source_entity_name is not None:
+            pulumi.set(__self__, "source_entity_name", source_entity_name)
+        if target_entity_name is not None:
+            pulumi.set(__self__, "target_entity_name", target_entity_name)
+
+    @property
+    @pulumi.getter(name="attributeMappingInfo")
+    def attribute_mapping_info(self) -> Optional['outputs.MapperAttributeMappingsResponse']:
+        """
+        This holds the user provided attribute mapping information.
+        """
+        return pulumi.get(self, "attribute_mapping_info")
+
+    @property
+    @pulumi.getter(name="sourceConnectionReference")
+    def source_connection_reference(self) -> Optional['outputs.MapperConnectionReferenceResponse']:
+        """
+        The connection reference for the source connection.
+        """
+        return pulumi.get(self, "source_connection_reference")
+
+    @property
+    @pulumi.getter(name="sourceDenormalizeInfo")
+    def source_denormalize_info(self) -> Optional[Any]:
+        """
+        This holds the source denormalization information used while joining multiple sources.
+        """
+        return pulumi.get(self, "source_denormalize_info")
+
+    @property
+    @pulumi.getter(name="sourceEntityName")
+    def source_entity_name(self) -> Optional[str]:
+        """
+        Name of the source table
+        """
+        return pulumi.get(self, "source_entity_name")
+
+    @property
+    @pulumi.getter(name="targetEntityName")
+    def target_entity_name(self) -> Optional[str]:
+        """
+        Name of the target table
+        """
+        return pulumi.get(self, "target_entity_name")
 
 
 @pulumi.output_type
@@ -23186,6 +23620,8 @@ class DatabricksNotebookActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -23209,7 +23645,9 @@ class DatabricksNotebookActivityResponse(dict):
                  description: Optional[str] = None,
                  libraries: Optional[Sequence[Mapping[str, Any]]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         DatabricksNotebook activity.
@@ -23222,7 +23660,9 @@ class DatabricksNotebookActivityResponse(dict):
         :param str description: Activity description.
         :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -23238,8 +23678,12 @@ class DatabricksNotebookActivityResponse(dict):
             pulumi.set(__self__, "libraries", libraries)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -23309,12 +23753,28 @@ class DatabricksNotebookActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -23339,6 +23799,8 @@ class DatabricksSparkJarActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -23361,8 +23823,10 @@ class DatabricksSparkJarActivityResponse(dict):
                  description: Optional[str] = None,
                  libraries: Optional[Sequence[Mapping[str, Any]]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  parameters: Optional[Sequence[Any]] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         DatabricksSparkJar activity.
@@ -23374,8 +23838,10 @@ class DatabricksSparkJarActivityResponse(dict):
         :param str description: Activity description.
         :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Sequence[Any] parameters: Parameters that will be passed to the main method.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "main_class_name", main_class_name)
@@ -23389,10 +23855,14 @@ class DatabricksSparkJarActivityResponse(dict):
             pulumi.set(__self__, "libraries", libraries)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -23454,6 +23924,14 @@ class DatabricksSparkJarActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence[Any]]:
         """
@@ -23468,6 +23946,14 @@ class DatabricksSparkJarActivityResponse(dict):
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -23492,6 +23978,8 @@ class DatabricksSparkPythonActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -23514,8 +24002,10 @@ class DatabricksSparkPythonActivityResponse(dict):
                  description: Optional[str] = None,
                  libraries: Optional[Sequence[Mapping[str, Any]]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  parameters: Optional[Sequence[Any]] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         DatabricksSparkPython activity.
@@ -23527,8 +24017,10 @@ class DatabricksSparkPythonActivityResponse(dict):
         :param str description: Activity description.
         :param Sequence[Mapping[str, Any]] libraries: A list of libraries to be installed on the cluster that will execute the job.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Sequence[Any] parameters: Command line parameters that will be passed to the Python file.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -23542,10 +24034,14 @@ class DatabricksSparkPythonActivityResponse(dict):
             pulumi.set(__self__, "libraries", libraries)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -23607,6 +24103,14 @@ class DatabricksSparkPythonActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Sequence[Any]]:
         """
@@ -23621,6 +24125,14 @@ class DatabricksSparkPythonActivityResponse(dict):
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -24376,6 +24888,8 @@ class DeleteActivityResponse(dict):
             suggest = "log_storage_settings"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "storeSettings":
             suggest = "store_settings"
         elif key == "userProperties":
@@ -24402,8 +24916,10 @@ class DeleteActivityResponse(dict):
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  log_storage_settings: Optional['outputs.LogStorageSettingsResponse'] = None,
                  max_concurrent_connections: Optional[int] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  recursive: Optional[Any] = None,
+                 state: Optional[str] = None,
                  store_settings: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -24418,8 +24934,10 @@ class DeleteActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param 'LogStorageSettingsResponse' log_storage_settings: Log storage settings customer need to provide when enableLogging is true.
         :param int max_concurrent_connections: The max concurrent connections to connect data source at the same time.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any recursive: If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: Delete activity store settings.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -24438,10 +24956,14 @@ class DeleteActivityResponse(dict):
             pulumi.set(__self__, "log_storage_settings", log_storage_settings)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if recursive is not None:
             pulumi.set(__self__, "recursive", recursive)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if store_settings is not None:
             pulumi.set(__self__, "store_settings", store_settings)
         if user_properties is not None:
@@ -24521,6 +25043,14 @@ class DeleteActivityResponse(dict):
         return pulumi.get(self, "max_concurrent_connections")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -24535,6 +25065,14 @@ class DeleteActivityResponse(dict):
         If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "recursive")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storeSettings")
@@ -28987,6 +29525,8 @@ class ExecuteDataFlowActivityResponse(dict):
             suggest = "integration_runtime"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "runConcurrently":
             suggest = "run_concurrently"
         elif key == "sourceStagingConcurrency":
@@ -29017,10 +29557,12 @@ class ExecuteDataFlowActivityResponse(dict):
                  description: Optional[str] = None,
                  integration_runtime: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  run_concurrently: Optional[Any] = None,
                  source_staging_concurrency: Optional[Any] = None,
                  staging: Optional['outputs.DataFlowStagingInfoResponse'] = None,
+                 state: Optional[str] = None,
                  trace_level: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -29035,10 +29577,12 @@ class ExecuteDataFlowActivityResponse(dict):
         :param str description: Activity description.
         :param 'IntegrationRuntimeReferenceResponse' integration_runtime: The integration runtime reference.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         :param Any source_staging_concurrency: Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
         :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -29057,6 +29601,8 @@ class ExecuteDataFlowActivityResponse(dict):
             pulumi.set(__self__, "integration_runtime", integration_runtime)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if run_concurrently is not None:
@@ -29065,6 +29611,8 @@ class ExecuteDataFlowActivityResponse(dict):
             pulumi.set(__self__, "source_staging_concurrency", source_staging_concurrency)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if trace_level is not None:
             pulumi.set(__self__, "trace_level", trace_level)
         if user_properties is not None:
@@ -29144,6 +29692,14 @@ class ExecuteDataFlowActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -29174,6 +29730,14 @@ class ExecuteDataFlowActivityResponse(dict):
         Staging info for execute data flow activity.
         """
         return pulumi.get(self, "staging")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="traceLevel")
@@ -29296,6 +29860,8 @@ class ExecutePipelineActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
         elif key == "waitOnCompletion":
@@ -29318,8 +29884,10 @@ class ExecutePipelineActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  parameters: Optional[Mapping[str, Any]] = None,
                  policy: Optional['outputs.ExecutePipelineActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  wait_on_completion: Optional[bool] = None):
         """
@@ -29330,8 +29898,10 @@ class ExecutePipelineActivityResponse(dict):
                Expected value is 'ExecutePipeline'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Mapping[str, Any] parameters: Pipeline parameters.
         :param 'ExecutePipelineActivityPolicyResponse' policy: Execute pipeline activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param bool wait_on_completion: Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.
         """
@@ -29342,10 +29912,14 @@ class ExecutePipelineActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if wait_on_completion is not None:
@@ -29393,6 +29967,14 @@ class ExecutePipelineActivityResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, Any]]:
         """
@@ -29407,6 +29989,14 @@ class ExecutePipelineActivityResponse(dict):
         Execute pipeline activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -29449,6 +30039,8 @@ class ExecuteSSISPackageActivityResponse(dict):
             suggest = "log_location"
         elif key == "loggingLevel":
             suggest = "logging_level"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "packageConnectionManagers":
             suggest = "package_connection_managers"
         elif key == "packageParameters":
@@ -29485,6 +30077,7 @@ class ExecuteSSISPackageActivityResponse(dict):
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  log_location: Optional['outputs.SSISLogLocationResponse'] = None,
                  logging_level: Optional[Any] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  package_connection_managers: Optional[Mapping[str, Mapping[str, 'outputs.SSISExecutionParameterResponse']]] = None,
                  package_parameters: Optional[Mapping[str, 'outputs.SSISExecutionParameterResponse']] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
@@ -29492,6 +30085,7 @@ class ExecuteSSISPackageActivityResponse(dict):
                  project_parameters: Optional[Mapping[str, 'outputs.SSISExecutionParameterResponse']] = None,
                  property_overrides: Optional[Mapping[str, 'outputs.SSISPropertyOverrideResponse']] = None,
                  runtime: Optional[Any] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute SSIS package activity.
@@ -29507,6 +30101,7 @@ class ExecuteSSISPackageActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param 'SSISLogLocationResponse' log_location: SSIS package execution log location.
         :param Any logging_level: The logging level of SSIS package execution. Type: string (or Expression with resultType string).
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Mapping[str, Mapping[str, 'SSISExecutionParameterResponse']] package_connection_managers: The package level connection managers to execute the SSIS package.
         :param Mapping[str, 'SSISExecutionParameterResponse'] package_parameters: The package level parameters to execute the SSIS package.
         :param 'ActivityPolicyResponse' policy: Activity policy.
@@ -29514,6 +30109,7 @@ class ExecuteSSISPackageActivityResponse(dict):
         :param Mapping[str, 'SSISExecutionParameterResponse'] project_parameters: The project level parameters to execute the SSIS package.
         :param Mapping[str, 'SSISPropertyOverrideResponse'] property_overrides: The property overrides to execute the SSIS package.
         :param Any runtime: Specifies the runtime to execute SSIS package. The value should be "x86" or "x64". Type: string (or Expression with resultType string).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "connect_via", connect_via)
@@ -29534,6 +30130,8 @@ class ExecuteSSISPackageActivityResponse(dict):
             pulumi.set(__self__, "log_location", log_location)
         if logging_level is not None:
             pulumi.set(__self__, "logging_level", logging_level)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if package_connection_managers is not None:
             pulumi.set(__self__, "package_connection_managers", package_connection_managers)
         if package_parameters is not None:
@@ -29548,6 +30146,8 @@ class ExecuteSSISPackageActivityResponse(dict):
             pulumi.set(__self__, "property_overrides", property_overrides)
         if runtime is not None:
             pulumi.set(__self__, "runtime", runtime)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -29641,6 +30241,14 @@ class ExecuteSSISPackageActivityResponse(dict):
         return pulumi.get(self, "logging_level")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter(name="packageConnectionManagers")
     def package_connection_managers(self) -> Optional[Mapping[str, Mapping[str, 'outputs.SSISExecutionParameterResponse']]]:
         """
@@ -29697,6 +30305,14 @@ class ExecuteSSISPackageActivityResponse(dict):
         return pulumi.get(self, "runtime")
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
+
+    @property
     @pulumi.getter(name="userProperties")
     def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
         """
@@ -29721,6 +30337,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
             suggest = "depends_on"
         elif key == "integrationRuntime":
             suggest = "integration_runtime"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "runConcurrently":
             suggest = "run_concurrently"
         elif key == "sourceStagingConcurrency":
@@ -29750,12 +30368,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  integration_runtime: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  queries: Optional[Sequence['outputs.PowerQuerySinkMappingResponse']] = None,
                  run_concurrently: Optional[Any] = None,
                  sinks: Optional[Mapping[str, 'outputs.PowerQuerySinkResponse']] = None,
                  source_staging_concurrency: Optional[Any] = None,
                  staging: Optional['outputs.DataFlowStagingInfoResponse'] = None,
+                 state: Optional[str] = None,
                  trace_level: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -29769,12 +30389,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'IntegrationRuntimeReferenceResponse' integration_runtime: The integration runtime reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Sequence['PowerQuerySinkMappingResponse'] queries: List of mapping for Power Query mashup query to sink dataset(s).
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         :param Mapping[str, 'PowerQuerySinkResponse'] sinks: (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         :param Any source_staging_concurrency: Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
         :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -29791,6 +30413,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if integration_runtime is not None:
             pulumi.set(__self__, "integration_runtime", integration_runtime)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if queries is not None:
@@ -29803,6 +30427,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
             pulumi.set(__self__, "source_staging_concurrency", source_staging_concurrency)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if trace_level is not None:
             pulumi.set(__self__, "trace_level", trace_level)
         if user_properties is not None:
@@ -29874,6 +30500,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         return pulumi.get(self, "integration_runtime")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -29922,6 +30556,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         return pulumi.get(self, "staging")
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
+
+    @property
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[Any]:
         """
@@ -29950,6 +30592,8 @@ class ExecutionActivityResponse(dict):
             suggest = "depends_on"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -29970,7 +30614,9 @@ class ExecutionActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Base class for all execution activities.
@@ -29980,7 +30626,9 @@ class ExecutionActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -29991,8 +30639,12 @@ class ExecutionActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -30038,12 +30690,28 @@ class ExecutionActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -30483,6 +31151,8 @@ class FailActivityResponse(dict):
             suggest = "error_code"
         elif key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -30504,6 +31174,8 @@ class FailActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity will fail within its own scope and output a custom error message and error code. The error message and code can provided either as a string literal or as an expression that can be evaluated to a string at runtime. The activity scope can be the whole pipeline or a control activity (e.g. foreach, switch, until), if the fail activity is contained in it.
@@ -30514,6 +31186,8 @@ class FailActivityResponse(dict):
                Expected value is 'Fail'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "error_code", error_code)
@@ -30524,6 +31198,10 @@ class FailActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -30575,6 +31253,22 @@ class FailActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -31564,6 +32258,8 @@ class FilterActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -31585,6 +32281,8 @@ class FilterActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Filter and return results from input array based on the conditions.
@@ -31595,6 +32293,8 @@ class FilterActivityResponse(dict):
                Expected value is 'Filter'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "condition", condition)
@@ -31605,6 +32305,10 @@ class FilterActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -31656,6 +32360,22 @@ class FilterActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -31817,6 +32537,8 @@ class ForEachActivityResponse(dict):
             suggest = "depends_on"
         elif key == "isSequential":
             suggest = "is_sequential"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -31840,6 +32562,8 @@ class ForEachActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  is_sequential: Optional[bool] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity is used for iterating over a collection and execute given activities.
@@ -31852,6 +32576,8 @@ class ForEachActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param bool is_sequential: Should the loop be executed in sequence or in parallel (max 50)
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "activities", activities)
@@ -31866,6 +32592,10 @@ class ForEachActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if is_sequential is not None:
             pulumi.set(__self__, "is_sequential", is_sequential)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -31933,6 +32663,22 @@ class ForEachActivityResponse(dict):
         Should the loop be executed in sequence or in parallel (max 50)
         """
         return pulumi.get(self, "is_sequential")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -32411,6 +33157,8 @@ class GetMetadataActivityResponse(dict):
             suggest = "format_settings"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "storeSettings":
             suggest = "store_settings"
         elif key == "userProperties":
@@ -32436,7 +33184,9 @@ class GetMetadataActivityResponse(dict):
                  field_list: Optional[Sequence[Any]] = None,
                  format_settings: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  store_settings: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -32450,7 +33200,9 @@ class GetMetadataActivityResponse(dict):
         :param Sequence[Any] field_list: Fields of metadata to get from dataset.
         :param Union['BinaryReadSettingsResponse', 'DelimitedTextReadSettingsResponse', 'JsonReadSettingsResponse', 'XmlReadSettingsResponse'] format_settings: GetMetadata activity format settings.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Union['AmazonS3CompatibleReadSettingsResponse', 'AmazonS3ReadSettingsResponse', 'AzureBlobFSReadSettingsResponse', 'AzureBlobStorageReadSettingsResponse', 'AzureDataLakeStoreReadSettingsResponse', 'AzureFileStorageReadSettingsResponse', 'FileServerReadSettingsResponse', 'FtpReadSettingsResponse', 'GoogleCloudStorageReadSettingsResponse', 'HdfsReadSettingsResponse', 'HttpReadSettingsResponse', 'OracleCloudStorageReadSettingsResponse', 'SftpReadSettingsResponse'] store_settings: GetMetadata activity store settings.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -32467,8 +33219,12 @@ class GetMetadataActivityResponse(dict):
             pulumi.set(__self__, "format_settings", format_settings)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if store_settings is not None:
             pulumi.set(__self__, "store_settings", store_settings)
         if user_properties is not None:
@@ -32540,12 +33296,28 @@ class GetMetadataActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storeSettings")
@@ -35218,6 +35990,8 @@ class HDInsightHiveActivityResponse(dict):
             suggest = "get_debug_info"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "queryTimeout":
             suggest = "query_timeout"
         elif key == "scriptLinkedService":
@@ -35249,10 +36023,12 @@ class HDInsightHiveActivityResponse(dict):
                  description: Optional[str] = None,
                  get_debug_info: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  query_timeout: Optional[int] = None,
                  script_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  script_path: Optional[Any] = None,
+                 state: Optional[str] = None,
                  storage_linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  variables: Optional[Mapping[str, Any]] = None):
@@ -35267,10 +36043,12 @@ class HDInsightHiveActivityResponse(dict):
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param int query_timeout: Query timeout value (in minutes).  Effective when the HDInsight cluster is with ESP (Enterprise Security Package)
         :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Mapping[str, Any] variables: User specified arguments under hivevar namespace.
@@ -35289,6 +36067,8 @@ class HDInsightHiveActivityResponse(dict):
             pulumi.set(__self__, "get_debug_info", get_debug_info)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if query_timeout is not None:
@@ -35297,6 +36077,8 @@ class HDInsightHiveActivityResponse(dict):
             pulumi.set(__self__, "script_linked_service", script_linked_service)
         if script_path is not None:
             pulumi.set(__self__, "script_path", script_path)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if storage_linked_services is not None:
             pulumi.set(__self__, "storage_linked_services", storage_linked_services)
         if user_properties is not None:
@@ -35370,6 +36152,14 @@ class HDInsightHiveActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -35400,6 +36190,14 @@ class HDInsightHiveActivityResponse(dict):
         Script path. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "script_path")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageLinkedServices")
@@ -35646,6 +36444,8 @@ class HDInsightMapReduceActivityResponse(dict):
             suggest = "jar_linked_service"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "storageLinkedServices":
             suggest = "storage_linked_services"
         elif key == "userProperties":
@@ -35675,7 +36475,9 @@ class HDInsightMapReduceActivityResponse(dict):
                  jar_libs: Optional[Sequence[Any]] = None,
                  jar_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  storage_linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -35693,7 +36495,9 @@ class HDInsightMapReduceActivityResponse(dict):
         :param Sequence[Any] jar_libs: Jar libs.
         :param 'LinkedServiceReferenceResponse' jar_linked_service: Jar linked service reference.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -35717,8 +36521,12 @@ class HDInsightMapReduceActivityResponse(dict):
             pulumi.set(__self__, "jar_linked_service", jar_linked_service)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if storage_linked_services is not None:
             pulumi.set(__self__, "storage_linked_services", storage_linked_services)
         if user_properties is not None:
@@ -35822,12 +36630,28 @@ class HDInsightMapReduceActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageLinkedServices")
@@ -36412,6 +37236,8 @@ class HDInsightPigActivityResponse(dict):
             suggest = "get_debug_info"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "scriptLinkedService":
             suggest = "script_linked_service"
         elif key == "scriptPath":
@@ -36441,9 +37267,11 @@ class HDInsightPigActivityResponse(dict):
                  description: Optional[str] = None,
                  get_debug_info: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  script_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  script_path: Optional[Any] = None,
+                 state: Optional[str] = None,
                  storage_linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -36457,9 +37285,11 @@ class HDInsightPigActivityResponse(dict):
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param 'LinkedServiceReferenceResponse' script_linked_service: Script linked service reference.
         :param Any script_path: Script path. Type: string (or Expression with resultType string).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -36477,12 +37307,16 @@ class HDInsightPigActivityResponse(dict):
             pulumi.set(__self__, "get_debug_info", get_debug_info)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if script_linked_service is not None:
             pulumi.set(__self__, "script_linked_service", script_linked_service)
         if script_path is not None:
             pulumi.set(__self__, "script_path", script_path)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if storage_linked_services is not None:
             pulumi.set(__self__, "storage_linked_services", storage_linked_services)
         if user_properties is not None:
@@ -36554,6 +37388,14 @@ class HDInsightPigActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -36576,6 +37418,14 @@ class HDInsightPigActivityResponse(dict):
         Script path. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "script_path")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageLinkedServices")
@@ -36614,6 +37464,8 @@ class HDInsightSparkActivityResponse(dict):
             suggest = "get_debug_info"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "proxyUser":
             suggest = "proxy_user"
         elif key == "sparkConfig":
@@ -36645,10 +37497,12 @@ class HDInsightSparkActivityResponse(dict):
                  description: Optional[str] = None,
                  get_debug_info: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  proxy_user: Optional[Any] = None,
                  spark_config: Optional[Mapping[str, Any]] = None,
                  spark_job_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         HDInsight Spark activity.
@@ -36663,10 +37517,12 @@ class HDInsightSparkActivityResponse(dict):
         :param str description: Activity description.
         :param str get_debug_info: Debug info option.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any proxy_user: The user to impersonate that will execute the job. Type: string (or Expression with resultType string).
         :param Mapping[str, Any] spark_config: Spark configuration property.
         :param 'LinkedServiceReferenceResponse' spark_job_linked_service: The storage linked service for uploading the entry file and dependencies, and for receiving logs.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "entry_file_path", entry_file_path)
@@ -36685,6 +37541,8 @@ class HDInsightSparkActivityResponse(dict):
             pulumi.set(__self__, "get_debug_info", get_debug_info)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if proxy_user is not None:
@@ -36693,6 +37551,8 @@ class HDInsightSparkActivityResponse(dict):
             pulumi.set(__self__, "spark_config", spark_config)
         if spark_job_linked_service is not None:
             pulumi.set(__self__, "spark_job_linked_service", spark_job_linked_service)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -36778,6 +37638,14 @@ class HDInsightSparkActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -36810,6 +37678,14 @@ class HDInsightSparkActivityResponse(dict):
         return pulumi.get(self, "spark_job_linked_service")
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
+
+    @property
     @pulumi.getter(name="userProperties")
     def user_properties(self) -> Optional[Sequence['outputs.UserPropertyResponse']]:
         """
@@ -36838,6 +37714,8 @@ class HDInsightStreamingActivityResponse(dict):
             suggest = "get_debug_info"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "storageLinkedServices":
             suggest = "storage_linked_services"
         elif key == "userProperties":
@@ -36871,7 +37749,9 @@ class HDInsightStreamingActivityResponse(dict):
                  file_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  get_debug_info: Optional[str] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  storage_linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -36893,7 +37773,9 @@ class HDInsightStreamingActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' file_linked_service: Linked service reference where the files are located.
         :param str get_debug_info: Debug info option.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['LinkedServiceReferenceResponse'] storage_linked_services: Storage linked service references.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -36922,8 +37804,12 @@ class HDInsightStreamingActivityResponse(dict):
             pulumi.set(__self__, "get_debug_info", get_debug_info)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if storage_linked_services is not None:
             pulumi.set(__self__, "storage_linked_services", storage_linked_services)
         if user_properties is not None:
@@ -37059,12 +37945,28 @@ class HDInsightStreamingActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storageLinkedServices")
@@ -39464,6 +40366,8 @@ class IfConditionActivityResponse(dict):
             suggest = "if_false_activities"
         elif key == "ifTrueActivities":
             suggest = "if_true_activities"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -39486,6 +40390,8 @@ class IfConditionActivityResponse(dict):
                  description: Optional[str] = None,
                  if_false_activities: Optional[Sequence[Any]] = None,
                  if_true_activities: Optional[Sequence[Any]] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity evaluates a boolean expression and executes either the activities under the ifTrueActivities property or the ifFalseActivities property depending on the result of the expression.
@@ -39497,6 +40403,8 @@ class IfConditionActivityResponse(dict):
         :param str description: Activity description.
         :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_false_activities: List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] if_true_activities: List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "expression", expression)
@@ -39510,6 +40418,10 @@ class IfConditionActivityResponse(dict):
             pulumi.set(__self__, "if_false_activities", if_false_activities)
         if if_true_activities is not None:
             pulumi.set(__self__, "if_true_activities", if_true_activities)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -39569,6 +40481,22 @@ class IfConditionActivityResponse(dict):
         List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.
         """
         return pulumi.get(self, "if_true_activities")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -43077,6 +44005,8 @@ class LookupActivityResponse(dict):
             suggest = "first_row_only"
         elif key == "linkedServiceName":
             suggest = "linked_service_name"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -43100,7 +44030,9 @@ class LookupActivityResponse(dict):
                  description: Optional[str] = None,
                  first_row_only: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Lookup activity.
@@ -43113,7 +44045,9 @@ class LookupActivityResponse(dict):
         :param str description: Activity description.
         :param Any first_row_only: Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -43128,8 +44062,12 @@ class LookupActivityResponse(dict):
             pulumi.set(__self__, "first_row_only", first_row_only)
         if linked_service_name is not None:
             pulumi.set(__self__, "linked_service_name", linked_service_name)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -43199,12 +44137,28 @@ class LookupActivityResponse(dict):
         return pulumi.get(self, "linked_service_name")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -44274,6 +45228,710 @@ class ManagedVirtualNetworkReferenceResponse(dict):
         Managed Virtual Network reference type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MapperAttributeMappingResponse(dict):
+    """
+    Source and target column mapping details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeReference":
+            suggest = "attribute_reference"
+        elif key == "attributeReferences":
+            suggest = "attribute_references"
+        elif key == "functionName":
+            suggest = "function_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperAttributeMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperAttributeMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperAttributeMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_reference: Optional['outputs.MapperAttributeReferenceResponse'] = None,
+                 attribute_references: Optional[Sequence['outputs.MapperAttributeReferenceResponse']] = None,
+                 expression: Optional[str] = None,
+                 function_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Source and target column mapping details.
+        :param 'MapperAttributeReferenceResponse' attribute_reference: Reference of the source column used in the mapping. It is used for 'Direct' mapping type only.
+        :param Sequence['MapperAttributeReferenceResponse'] attribute_references: List of references for source columns. It is used for 'Derived' and 'Aggregate' type mappings only.
+        :param str expression: Expression used for 'Aggregate' and 'Derived' type mapping.
+        :param str function_name: Name of the function used for 'Aggregate' and 'Derived' (except 'Advanced') type mapping.
+        :param str name: Name of the target column.
+        :param str type: Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.
+        """
+        if attribute_reference is not None:
+            pulumi.set(__self__, "attribute_reference", attribute_reference)
+        if attribute_references is not None:
+            pulumi.set(__self__, "attribute_references", attribute_references)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if function_name is not None:
+            pulumi.set(__self__, "function_name", function_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="attributeReference")
+    def attribute_reference(self) -> Optional['outputs.MapperAttributeReferenceResponse']:
+        """
+        Reference of the source column used in the mapping. It is used for 'Direct' mapping type only.
+        """
+        return pulumi.get(self, "attribute_reference")
+
+    @property
+    @pulumi.getter(name="attributeReferences")
+    def attribute_references(self) -> Optional[Sequence['outputs.MapperAttributeReferenceResponse']]:
+        """
+        List of references for source columns. It is used for 'Derived' and 'Aggregate' type mappings only.
+        """
+        return pulumi.get(self, "attribute_references")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> Optional[str]:
+        """
+        Expression used for 'Aggregate' and 'Derived' type mapping.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> Optional[str]:
+        """
+        Name of the function used for 'Aggregate' and 'Derived' (except 'Advanced') type mapping.
+        """
+        return pulumi.get(self, "function_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the target column.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MapperAttributeMappingsResponse(dict):
+    """
+    Attribute mapping details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeMappings":
+            suggest = "attribute_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperAttributeMappingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperAttributeMappingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperAttributeMappingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_mappings: Optional[Sequence['outputs.MapperAttributeMappingResponse']] = None):
+        """
+        Attribute mapping details.
+        :param Sequence['MapperAttributeMappingResponse'] attribute_mappings: List of attribute mappings.
+        """
+        if attribute_mappings is not None:
+            pulumi.set(__self__, "attribute_mappings", attribute_mappings)
+
+    @property
+    @pulumi.getter(name="attributeMappings")
+    def attribute_mappings(self) -> Optional[Sequence['outputs.MapperAttributeMappingResponse']]:
+        """
+        List of attribute mappings.
+        """
+        return pulumi.get(self, "attribute_mappings")
+
+
+@pulumi.output_type
+class MapperAttributeReferenceResponse(dict):
+    """
+    Attribute reference details for the referred column.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityConnectionReference":
+            suggest = "entity_connection_reference"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperAttributeReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperAttributeReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperAttributeReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity: Optional[str] = None,
+                 entity_connection_reference: Optional['outputs.MapperConnectionReferenceResponse'] = None,
+                 name: Optional[str] = None):
+        """
+        Attribute reference details for the referred column.
+        :param str entity: Name of the table.
+        :param 'MapperConnectionReferenceResponse' entity_connection_reference: The connection reference for the connection.
+        :param str name: Name of the column.
+        """
+        if entity is not None:
+            pulumi.set(__self__, "entity", entity)
+        if entity_connection_reference is not None:
+            pulumi.set(__self__, "entity_connection_reference", entity_connection_reference)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def entity(self) -> Optional[str]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "entity")
+
+    @property
+    @pulumi.getter(name="entityConnectionReference")
+    def entity_connection_reference(self) -> Optional['outputs.MapperConnectionReferenceResponse']:
+        """
+        The connection reference for the connection.
+        """
+        return pulumi.get(self, "entity_connection_reference")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the column.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MapperConnectionReferenceResponse(dict):
+    """
+    Source or target connection reference details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionName":
+            suggest = "connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperConnectionReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperConnectionReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperConnectionReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Source or target connection reference details.
+        :param str connection_name: Name of the connection
+        :param str type: Type of connection via linked service or dataset.
+        """
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> Optional[str]:
+        """
+        Name of the connection
+        """
+        return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of connection via linked service or dataset.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MapperConnectionResponse(dict):
+    """
+    Source connection details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commonDslConnectorProperties":
+            suggest = "common_dsl_connector_properties"
+        elif key == "isInlineDataset":
+            suggest = "is_inline_dataset"
+        elif key == "linkedService":
+            suggest = "linked_service"
+        elif key == "linkedServiceType":
+            suggest = "linked_service_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 common_dsl_connector_properties: Optional[Sequence['outputs.MapperDslConnectorPropertiesResponse']] = None,
+                 is_inline_dataset: Optional[bool] = None,
+                 linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 linked_service_type: Optional[str] = None):
+        """
+        Source connection details.
+        :param str type: Type of connection via linked service or dataset.
+        :param Sequence['MapperDslConnectorPropertiesResponse'] common_dsl_connector_properties: List of name/value pairs for connection properties.
+        :param bool is_inline_dataset: A boolean indicating whether linked service is of type inline dataset. Currently only inline datasets are supported.
+        :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param str linked_service_type: Type of the linked service e.g.: AzureBlobFS.
+        """
+        pulumi.set(__self__, "type", type)
+        if common_dsl_connector_properties is not None:
+            pulumi.set(__self__, "common_dsl_connector_properties", common_dsl_connector_properties)
+        if is_inline_dataset is not None:
+            pulumi.set(__self__, "is_inline_dataset", is_inline_dataset)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
+        if linked_service_type is not None:
+            pulumi.set(__self__, "linked_service_type", linked_service_type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of connection via linked service or dataset.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="commonDslConnectorProperties")
+    def common_dsl_connector_properties(self) -> Optional[Sequence['outputs.MapperDslConnectorPropertiesResponse']]:
+        """
+        List of name/value pairs for connection properties.
+        """
+        return pulumi.get(self, "common_dsl_connector_properties")
+
+    @property
+    @pulumi.getter(name="isInlineDataset")
+    def is_inline_dataset(self) -> Optional[bool]:
+        """
+        A boolean indicating whether linked service is of type inline dataset. Currently only inline datasets are supported.
+        """
+        return pulumi.get(self, "is_inline_dataset")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="linkedServiceType")
+    def linked_service_type(self) -> Optional[str]:
+        """
+        Type of the linked service e.g.: AzureBlobFS.
+        """
+        return pulumi.get(self, "linked_service_type")
+
+
+@pulumi.output_type
+class MapperDslConnectorPropertiesResponse(dict):
+    """
+    Connector properties of a CDC table in terms of name / value pairs.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 value: Optional[Any] = None):
+        """
+        Connector properties of a CDC table in terms of name / value pairs.
+        :param str name: Name of the property.
+        :param Any value: Value of the property.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Any]:
+        """
+        Value of the property.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class MapperPolicyRecurrenceResponse(dict):
+    """
+    CDC policy recurrence details.
+    """
+    def __init__(__self__, *,
+                 frequency: Optional[str] = None,
+                 interval: Optional[int] = None):
+        """
+        CDC policy recurrence details.
+        :param str frequency: Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
+        :param int interval: Actual interval value as per chosen frequency.
+        """
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[str]:
+        """
+        Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
+        """
+        return pulumi.get(self, "frequency")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Actual interval value as per chosen frequency.
+        """
+        return pulumi.get(self, "interval")
+
+
+@pulumi.output_type
+class MapperPolicyResponse(dict):
+    """
+    CDC Policy.
+    """
+    def __init__(__self__, *,
+                 mode: Optional[str] = None,
+                 recurrence: Optional['outputs.MapperPolicyRecurrenceResponse'] = None):
+        """
+        CDC Policy.
+        :param str mode: Mode of running the CDC: batch vs continuous.
+        :param 'MapperPolicyRecurrenceResponse' recurrence: Defines the frequency and interval for running the CDC for batch mode.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if recurrence is not None:
+            pulumi.set(__self__, "recurrence", recurrence)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        Mode of running the CDC: batch vs continuous.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def recurrence(self) -> Optional['outputs.MapperPolicyRecurrenceResponse']:
+        """
+        Defines the frequency and interval for running the CDC for batch mode.
+        """
+        return pulumi.get(self, "recurrence")
+
+
+@pulumi.output_type
+class MapperSourceConnectionsInfoResponse(dict):
+    """
+    A object which contains list of tables and connection details for a source connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceEntities":
+            suggest = "source_entities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperSourceConnectionsInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperSourceConnectionsInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperSourceConnectionsInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection: Optional['outputs.MapperConnectionResponse'] = None,
+                 source_entities: Optional[Sequence['outputs.MapperTableResponse']] = None):
+        """
+        A object which contains list of tables and connection details for a source connection.
+        :param 'MapperConnectionResponse' connection: Source connection details.
+        :param Sequence['MapperTableResponse'] source_entities: List of source tables for a source connection.
+        """
+        if connection is not None:
+            pulumi.set(__self__, "connection", connection)
+        if source_entities is not None:
+            pulumi.set(__self__, "source_entities", source_entities)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> Optional['outputs.MapperConnectionResponse']:
+        """
+        Source connection details.
+        """
+        return pulumi.get(self, "connection")
+
+    @property
+    @pulumi.getter(name="sourceEntities")
+    def source_entities(self) -> Optional[Sequence['outputs.MapperTableResponse']]:
+        """
+        List of source tables for a source connection.
+        """
+        return pulumi.get(self, "source_entities")
+
+
+@pulumi.output_type
+class MapperTableResponse(dict):
+    """
+    CDC table details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dslConnectorProperties":
+            suggest = "dsl_connector_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperTableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperTableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperTableResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dsl_connector_properties: Optional[Sequence['outputs.MapperDslConnectorPropertiesResponse']] = None,
+                 name: Optional[str] = None,
+                 schema: Optional[Sequence['outputs.MapperTableSchemaResponse']] = None):
+        """
+        CDC table details.
+        :param Sequence['MapperDslConnectorPropertiesResponse'] dsl_connector_properties: List of name/value pairs for connection properties.
+        :param str name: Name of the table.
+        :param Sequence['MapperTableSchemaResponse'] schema: List of columns for the source table.
+        """
+        if dsl_connector_properties is not None:
+            pulumi.set(__self__, "dsl_connector_properties", dsl_connector_properties)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="dslConnectorProperties")
+    def dsl_connector_properties(self) -> Optional[Sequence['outputs.MapperDslConnectorPropertiesResponse']]:
+        """
+        List of name/value pairs for connection properties.
+        """
+        return pulumi.get(self, "dsl_connector_properties")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the table.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Sequence['outputs.MapperTableSchemaResponse']]:
+        """
+        List of columns for the source table.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class MapperTableSchemaResponse(dict):
+    """
+    Schema of a CDC table in terms of column names and their corresponding data types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataType":
+            suggest = "data_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperTableSchemaResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperTableSchemaResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperTableSchemaResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Schema of a CDC table in terms of column names and their corresponding data types.
+        :param str data_type: Data type of the column.
+        :param str name: Name of the column.
+        """
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[str]:
+        """
+        Data type of the column.
+        """
+        return pulumi.get(self, "data_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the column.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class MapperTargetConnectionsInfoResponse(dict):
+    """
+    A object which contains list of tables and connection details for a target connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataMapperMappings":
+            suggest = "data_mapper_mappings"
+        elif key == "targetEntities":
+            suggest = "target_entities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MapperTargetConnectionsInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MapperTargetConnectionsInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MapperTargetConnectionsInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection: Optional['outputs.MapperConnectionResponse'] = None,
+                 data_mapper_mappings: Optional[Sequence['outputs.DataMapperMappingResponse']] = None,
+                 relationships: Optional[Sequence[Any]] = None,
+                 target_entities: Optional[Sequence['outputs.MapperTableResponse']] = None):
+        """
+        A object which contains list of tables and connection details for a target connection.
+        :param 'MapperConnectionResponse' connection: Source connection details.
+        :param Sequence['DataMapperMappingResponse'] data_mapper_mappings: List of table mappings.
+        :param Sequence[Any] relationships: List of relationship info among the tables.
+        :param Sequence['MapperTableResponse'] target_entities: List of source tables for a target connection.
+        """
+        if connection is not None:
+            pulumi.set(__self__, "connection", connection)
+        if data_mapper_mappings is not None:
+            pulumi.set(__self__, "data_mapper_mappings", data_mapper_mappings)
+        if relationships is not None:
+            pulumi.set(__self__, "relationships", relationships)
+        if target_entities is not None:
+            pulumi.set(__self__, "target_entities", target_entities)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> Optional['outputs.MapperConnectionResponse']:
+        """
+        Source connection details.
+        """
+        return pulumi.get(self, "connection")
+
+    @property
+    @pulumi.getter(name="dataMapperMappings")
+    def data_mapper_mappings(self) -> Optional[Sequence['outputs.DataMapperMappingResponse']]:
+        """
+        List of table mappings.
+        """
+        return pulumi.get(self, "data_mapper_mappings")
+
+    @property
+    @pulumi.getter
+    def relationships(self) -> Optional[Sequence[Any]]:
+        """
+        List of relationship info among the tables.
+        """
+        return pulumi.get(self, "relationships")
+
+    @property
+    @pulumi.getter(name="targetEntities")
+    def target_entities(self) -> Optional[Sequence['outputs.MapperTableResponse']]:
+        """
+        List of source tables for a target connection.
+        """
+        return pulumi.get(self, "target_entities")
 
 
 @pulumi.output_type
@@ -50042,7 +51700,7 @@ class Office365SourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any end_time: End time of the requested range for this dataset. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
-        :param Any output_columns: The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
+        :param Any output_columns: The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). itemType: OutputColumn. Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any start_time: Start time of the requested range for this dataset. Type: string (or Expression with resultType string).
@@ -50123,7 +51781,7 @@ class Office365SourceResponse(dict):
     @pulumi.getter(name="outputColumns")
     def output_columns(self) -> Optional[Any]:
         """
-        The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
+        The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). itemType: OutputColumn. Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
         """
         return pulumi.get(self, "output_columns")
 
@@ -60032,7 +61690,7 @@ class SalesforceServiceCloudSourceResponse(dict):
                  disable_metrics_collection: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
-                 read_behavior: Optional[str] = None,
+                 read_behavior: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
@@ -60043,7 +61701,7 @@ class SalesforceServiceCloudSourceResponse(dict):
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
-        :param str read_behavior: The read behavior for the operation. Default is Query.
+        :param Any read_behavior: The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -60106,9 +61764,9 @@ class SalesforceServiceCloudSourceResponse(dict):
 
     @property
     @pulumi.getter(name="readBehavior")
-    def read_behavior(self) -> Optional[str]:
+    def read_behavior(self) -> Optional[Any]:
         """
-        The read behavior for the operation. Default is Query.
+        The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "read_behavior")
 
@@ -60335,7 +61993,7 @@ class SalesforceSourceResponse(dict):
                  max_concurrent_connections: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
-                 read_behavior: Optional[str] = None,
+                 read_behavior: Optional[Any] = None,
                  source_retry_count: Optional[Any] = None,
                  source_retry_wait: Optional[Any] = None):
         """
@@ -60347,7 +62005,7 @@ class SalesforceSourceResponse(dict):
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any query: Database query. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
-        :param str read_behavior: The read behavior for the operation. Default is Query.
+        :param Any read_behavior: The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
         :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         """
@@ -60420,9 +62078,9 @@ class SalesforceSourceResponse(dict):
 
     @property
     @pulumi.getter(name="readBehavior")
-    def read_behavior(self) -> Optional[str]:
+    def read_behavior(self) -> Optional[Any]:
         """
-        The read behavior for the operation. Default is Query.
+        The read behavior for the operation. Default is Query. Allowed values: Query/QueryAll. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "read_behavior")
 
@@ -64743,6 +66401,8 @@ class ScriptActivityResponse(dict):
             suggest = "depends_on"
         elif key == "logSettings":
             suggest = "log_settings"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "scriptBlockExecutionTimeout":
             suggest = "script_block_execution_timeout"
         elif key == "userProperties":
@@ -64766,9 +66426,11 @@ class ScriptActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  log_settings: Optional['outputs.ScriptActivityTypePropertiesResponseLogSettings'] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  script_block_execution_timeout: Optional[Any] = None,
                  scripts: Optional[Sequence['outputs.ScriptActivityScriptBlockResponse']] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Script activity type.
@@ -64779,9 +66441,11 @@ class ScriptActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param 'ScriptActivityTypePropertiesResponseLogSettings' log_settings: Log settings of script activity.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any script_block_execution_timeout: ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['ScriptActivityScriptBlockResponse'] scripts: Array of script blocks. Type: array.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -64793,12 +66457,16 @@ class ScriptActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if log_settings is not None:
             pulumi.set(__self__, "log_settings", log_settings)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if script_block_execution_timeout is not None:
             pulumi.set(__self__, "script_block_execution_timeout", script_block_execution_timeout)
         if scripts is not None:
             pulumi.set(__self__, "scripts", scripts)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -64852,6 +66520,14 @@ class ScriptActivityResponse(dict):
         return pulumi.get(self, "log_settings")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -64874,6 +66550,14 @@ class ScriptActivityResponse(dict):
         Array of script blocks. Type: array.
         """
         return pulumi.get(self, "scripts")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -64980,6 +66664,60 @@ class ScriptActivityTypePropertiesResponseLogSettings(dict):
         Log location settings customer needs to provide when enabling log.
         """
         return pulumi.get(self, "log_location_settings")
+
+
+@pulumi.output_type
+class SecureInputOutputPolicyResponse(dict):
+    """
+    Execution policy for an activity that supports secure input and output.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureInput":
+            suggest = "secure_input"
+        elif key == "secureOutput":
+            suggest = "secure_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecureInputOutputPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecureInputOutputPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecureInputOutputPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secure_input: Optional[bool] = None,
+                 secure_output: Optional[bool] = None):
+        """
+        Execution policy for an activity that supports secure input and output.
+        :param bool secure_input: When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        :param bool secure_output: When set to true, Output from activity is considered as secure and will not be logged to monitoring.
+        """
+        if secure_input is not None:
+            pulumi.set(__self__, "secure_input", secure_input)
+        if secure_output is not None:
+            pulumi.set(__self__, "secure_output", secure_output)
+
+    @property
+    @pulumi.getter(name="secureInput")
+    def secure_input(self) -> Optional[bool]:
+        """
+        When set to true, Input from activity is considered as secure and will not be logged to monitoring.
+        """
+        return pulumi.get(self, "secure_input")
+
+    @property
+    @pulumi.getter(name="secureOutput")
+    def secure_output(self) -> Optional[bool]:
+        """
+        When set to true, Output from activity is considered as secure and will not be logged to monitoring.
+        """
+        return pulumi.get(self, "secure_output")
 
 
 @pulumi.output_type
@@ -66066,6 +67804,8 @@ class SetVariableActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "setSystemVariable":
             suggest = "set_system_variable"
         elif key == "userProperties":
@@ -66089,7 +67829,10 @@ class SetVariableActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 policy: Optional['outputs.SecureInputOutputPolicyResponse'] = None,
                  set_system_variable: Optional[bool] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None,
                  value: Optional[Any] = None,
                  variable_name: Optional[str] = None):
@@ -66100,7 +67843,10 @@ class SetVariableActivityResponse(dict):
                Expected value is 'SetVariable'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param 'SecureInputOutputPolicyResponse' policy: Activity policy.
         :param bool set_system_variable: If set to true, it sets the pipeline run return value.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         :param Any value: Value to be set. Could be a static value or Expression.
         :param str variable_name: Name of the variable whose value needs to be set.
@@ -66111,8 +67857,14 @@ class SetVariableActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
         if set_system_variable is not None:
             pulumi.set(__self__, "set_system_variable", set_system_variable)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
         if value is not None:
@@ -66154,12 +67906,36 @@ class SetVariableActivityResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional['outputs.SecureInputOutputPolicyResponse']:
+        """
+        Activity policy.
+        """
+        return pulumi.get(self, "policy")
+
+    @property
     @pulumi.getter(name="setSystemVariable")
     def set_system_variable(self) -> Optional[bool]:
         """
         If set to true, it sets the pipeline run return value.
         """
         return pulumi.get(self, "set_system_variable")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -69448,6 +71224,8 @@ class SqlDWSourceResponse(dict):
             suggest = "additional_columns"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
+        elif key == "isolationLevel":
+            suggest = "isolation_level"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
         elif key == "partitionOption":
@@ -69482,6 +71260,7 @@ class SqlDWSourceResponse(dict):
                  type: str,
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional['outputs.SqlPartitionSettingsResponse'] = None,
@@ -69497,6 +71276,7 @@ class SqlDWSourceResponse(dict):
                Expected value is 'SqlDWSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -69512,6 +71292,8 @@ class SqlDWSourceResponse(dict):
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if isolation_level is not None:
+            pulumi.set(__self__, "isolation_level", isolation_level)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -69555,6 +71337,14 @@ class SqlDWSourceResponse(dict):
         If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="isolationLevel")
+    def isolation_level(self) -> Optional[Any]:
+        """
+        Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "isolation_level")
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -69942,6 +71732,8 @@ class SqlMISourceResponse(dict):
             suggest = "additional_columns"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
+        elif key == "isolationLevel":
+            suggest = "isolation_level"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
         elif key == "partitionOption":
@@ -69978,6 +71770,7 @@ class SqlMISourceResponse(dict):
                  type: str,
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional['outputs.SqlPartitionSettingsResponse'] = None,
@@ -69994,6 +71787,7 @@ class SqlMISourceResponse(dict):
                Expected value is 'SqlMISource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -70010,6 +71804,8 @@ class SqlMISourceResponse(dict):
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if isolation_level is not None:
+            pulumi.set(__self__, "isolation_level", isolation_level)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -70055,6 +71851,14 @@ class SqlMISourceResponse(dict):
         If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="isolationLevel")
+    def isolation_level(self) -> Optional[Any]:
+        """
+        Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "isolation_level")
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -70622,6 +72426,8 @@ class SqlServerSourceResponse(dict):
             suggest = "additional_columns"
         elif key == "disableMetricsCollection":
             suggest = "disable_metrics_collection"
+        elif key == "isolationLevel":
+            suggest = "isolation_level"
         elif key == "maxConcurrentConnections":
             suggest = "max_concurrent_connections"
         elif key == "partitionOption":
@@ -70658,6 +72464,7 @@ class SqlServerSourceResponse(dict):
                  type: str,
                  additional_columns: Optional[Any] = None,
                  disable_metrics_collection: Optional[Any] = None,
+                 isolation_level: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  partition_option: Optional[Any] = None,
                  partition_settings: Optional['outputs.SqlPartitionSettingsResponse'] = None,
@@ -70674,6 +72481,7 @@ class SqlServerSourceResponse(dict):
                Expected value is 'SqlServerSource'.
         :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
         :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any isolation_level: Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any partition_option: The partition mechanism that will be used for Sql read in parallel. Possible values include: "None", "PhysicalPartitionsOfTable", "DynamicRange".
         :param 'SqlPartitionSettingsResponse' partition_settings: The settings that will be leveraged for Sql source partitioning.
@@ -70690,6 +72498,8 @@ class SqlServerSourceResponse(dict):
             pulumi.set(__self__, "additional_columns", additional_columns)
         if disable_metrics_collection is not None:
             pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if isolation_level is not None:
+            pulumi.set(__self__, "isolation_level", isolation_level)
         if max_concurrent_connections is not None:
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if partition_option is not None:
@@ -70735,6 +72545,14 @@ class SqlServerSourceResponse(dict):
         If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="isolationLevel")
+    def isolation_level(self) -> Optional[Any]:
+        """
+        Specifies the transaction locking behavior for the SQL source. Allowed values: ReadCommitted/ReadUncommitted/RepeatableRead/Serializable/Snapshot. The default value is ReadCommitted. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "isolation_level")
 
     @property
     @pulumi.getter(name="maxConcurrentConnections")
@@ -70831,6 +72649,8 @@ class SqlServerStoredProcedureActivityResponse(dict):
             suggest = "stored_procedure_name"
         elif key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "storedProcedureParameters":
             suggest = "stored_procedure_parameters"
         elif key == "userProperties":
@@ -70854,7 +72674,9 @@ class SqlServerStoredProcedureActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  stored_procedure_parameters: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -70866,7 +72688,9 @@ class SqlServerStoredProcedureActivityResponse(dict):
                Expected value is 'SqlServerStoredProcedure'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any stored_procedure_parameters: Value and type setting for stored procedure parameters. Example: "{Parameter1: {value: "1", type: "int"}}".
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -70878,8 +72702,12 @@ class SqlServerStoredProcedureActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if stored_procedure_parameters is not None:
             pulumi.set(__self__, "stored_procedure_parameters", stored_procedure_parameters)
         if user_properties is not None:
@@ -70935,12 +72763,28 @@ class SqlServerStoredProcedureActivityResponse(dict):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="storedProcedureParameters")
@@ -72863,6 +74707,8 @@ class SwitchActivityResponse(dict):
             suggest = "default_activities"
         elif key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -72885,6 +74731,8 @@ class SwitchActivityResponse(dict):
                  default_activities: Optional[Sequence[Any]] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity evaluates an expression and executes activities under the cases property that correspond to the expression evaluation expected in the equals property.
@@ -72896,6 +74744,8 @@ class SwitchActivityResponse(dict):
         :param Sequence[Union['AppendVariableActivityResponse', 'AzureDataExplorerCommandActivityResponse', 'AzureFunctionActivityResponse', 'AzureMLBatchExecutionActivityResponse', 'AzureMLExecutePipelineActivityResponse', 'AzureMLUpdateResourceActivityResponse', 'ControlActivityResponse', 'CopyActivityResponse', 'CustomActivityResponse', 'DataLakeAnalyticsUSQLActivityResponse', 'DatabricksNotebookActivityResponse', 'DatabricksSparkJarActivityResponse', 'DatabricksSparkPythonActivityResponse', 'DeleteActivityResponse', 'ExecuteDataFlowActivityResponse', 'ExecutePipelineActivityResponse', 'ExecuteSSISPackageActivityResponse', 'ExecuteWranglingDataflowActivityResponse', 'ExecutionActivityResponse', 'FailActivityResponse', 'FilterActivityResponse', 'ForEachActivityResponse', 'GetMetadataActivityResponse', 'HDInsightHiveActivityResponse', 'HDInsightMapReduceActivityResponse', 'HDInsightPigActivityResponse', 'HDInsightSparkActivityResponse', 'HDInsightStreamingActivityResponse', 'IfConditionActivityResponse', 'LookupActivityResponse', 'ScriptActivityResponse', 'SetVariableActivityResponse', 'SqlServerStoredProcedureActivityResponse', 'SwitchActivityResponse', 'SynapseNotebookActivityResponse', 'SynapseSparkJobDefinitionActivityResponse', 'UntilActivityResponse', 'ValidationActivityResponse', 'WaitActivityResponse', 'WebActivityResponse', 'WebHookActivityResponse']] default_activities: List of activities to execute if no case condition is satisfied. This is an optional property and if not provided, the activity will exit without any action.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -72909,6 +74759,10 @@ class SwitchActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -72968,6 +74822,22 @@ class SwitchActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -73469,7 +75339,9 @@ class SynapseNotebookActivityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dependsOn":
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "dependsOn":
             suggest = "depends_on"
         elif key == "driverSize":
             suggest = "driver_size"
@@ -73479,8 +75351,14 @@ class SynapseNotebookActivityResponse(dict):
             suggest = "linked_service_name"
         elif key == "numExecutors":
             suggest = "num_executors"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
+        elif key == "sparkConfig":
+            suggest = "spark_config"
         elif key == "sparkPool":
             suggest = "spark_pool"
+        elif key == "targetSparkConfiguration":
+            suggest = "target_spark_configuration"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -73500,15 +75378,20 @@ class SynapseNotebookActivityResponse(dict):
                  notebook: 'outputs.SynapseNotebookReferenceResponse',
                  type: str,
                  conf: Optional[Any] = None,
+                 configuration_type: Optional[str] = None,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  driver_size: Optional[Any] = None,
                  executor_size: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  num_executors: Optional[Any] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  parameters: Optional[Mapping[str, 'outputs.NotebookParameterResponse']] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 spark_config: Optional[Mapping[str, Any]] = None,
                  spark_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
+                 state: Optional[str] = None,
+                 target_spark_configuration: Optional['outputs.SparkConfigurationParametrizationReferenceResponse'] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Execute Synapse notebook activity.
@@ -73517,15 +75400,20 @@ class SynapseNotebookActivityResponse(dict):
         :param str type: Type of activity.
                Expected value is 'SynapseNotebook'.
         :param Any conf: Spark configuration properties, which will override the 'conf' of the notebook you provide.
+        :param str configuration_type: The type of the spark config.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any driver_size: Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).
         :param Any executor_size: Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any num_executors: Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Mapping[str, 'NotebookParameterResponse'] parameters: Notebook parameters.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param Mapping[str, Any] spark_config: Spark configuration property.
         :param 'BigDataPoolParametrizationReferenceResponse' spark_pool: The name of the big data pool which will be used to execute the notebook.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
+        :param 'SparkConfigurationParametrizationReferenceResponse' target_spark_configuration: The spark configuration of the spark job.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -73533,6 +75421,8 @@ class SynapseNotebookActivityResponse(dict):
         pulumi.set(__self__, "type", 'SynapseNotebook')
         if conf is not None:
             pulumi.set(__self__, "conf", conf)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
         if depends_on is not None:
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
@@ -73545,12 +75435,20 @@ class SynapseNotebookActivityResponse(dict):
             pulumi.set(__self__, "linked_service_name", linked_service_name)
         if num_executors is not None:
             pulumi.set(__self__, "num_executors", num_executors)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if spark_config is not None:
+            pulumi.set(__self__, "spark_config", spark_config)
         if spark_pool is not None:
             pulumi.set(__self__, "spark_pool", spark_pool)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if target_spark_configuration is not None:
+            pulumi.set(__self__, "target_spark_configuration", target_spark_configuration)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -73586,6 +75484,14 @@ class SynapseNotebookActivityResponse(dict):
         Spark configuration properties, which will override the 'conf' of the notebook you provide.
         """
         return pulumi.get(self, "conf")
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[str]:
+        """
+        The type of the spark config.
+        """
+        return pulumi.get(self, "configuration_type")
 
     @property
     @pulumi.getter(name="dependsOn")
@@ -73636,6 +75542,14 @@ class SynapseNotebookActivityResponse(dict):
         return pulumi.get(self, "num_executors")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[Mapping[str, 'outputs.NotebookParameterResponse']]:
         """
@@ -73652,12 +75566,36 @@ class SynapseNotebookActivityResponse(dict):
         return pulumi.get(self, "policy")
 
     @property
+    @pulumi.getter(name="sparkConfig")
+    def spark_config(self) -> Optional[Mapping[str, Any]]:
+        """
+        Spark configuration property.
+        """
+        return pulumi.get(self, "spark_config")
+
+    @property
     @pulumi.getter(name="sparkPool")
     def spark_pool(self) -> Optional['outputs.BigDataPoolParametrizationReferenceResponse']:
         """
         The name of the big data pool which will be used to execute the notebook.
         """
         return pulumi.get(self, "spark_pool")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="targetSparkConfiguration")
+    def target_spark_configuration(self) -> Optional['outputs.SparkConfigurationParametrizationReferenceResponse']:
+        """
+        The spark configuration of the spark job.
+        """
+        return pulumi.get(self, "target_spark_configuration")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -73744,6 +75682,8 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
             suggest = "linked_service_name"
         elif key == "numExecutors":
             suggest = "num_executors"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "pythonCodeReference":
             suggest = "python_code_reference"
         elif key == "scanFolder":
@@ -73785,10 +75725,12 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
                  files_v2: Optional[Sequence[Any]] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  num_executors: Optional[Any] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  python_code_reference: Optional[Sequence[Any]] = None,
                  scan_folder: Optional[Any] = None,
                  spark_config: Optional[Mapping[str, Any]] = None,
+                 state: Optional[str] = None,
                  target_big_data_pool: Optional['outputs.BigDataPoolParametrizationReferenceResponse'] = None,
                  target_spark_configuration: Optional['outputs.SparkConfigurationParametrizationReferenceResponse'] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
@@ -73811,10 +75753,12 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
         :param Sequence[Any] files_v2: Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Any num_executors: Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide. Type: integer (or Expression with resultType integer).
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Sequence[Any] python_code_reference: Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.
         :param Any scan_folder: Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).
         :param Mapping[str, Any] spark_config: Spark configuration property.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param 'BigDataPoolParametrizationReferenceResponse' target_big_data_pool: The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
         :param 'SparkConfigurationParametrizationReferenceResponse' target_spark_configuration: The spark configuration of the spark job.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -73848,6 +75792,8 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
             pulumi.set(__self__, "linked_service_name", linked_service_name)
         if num_executors is not None:
             pulumi.set(__self__, "num_executors", num_executors)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if python_code_reference is not None:
@@ -73856,6 +75802,8 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
             pulumi.set(__self__, "scan_folder", scan_folder)
         if spark_config is not None:
             pulumi.set(__self__, "spark_config", spark_config)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if target_big_data_pool is not None:
             pulumi.set(__self__, "target_big_data_pool", target_big_data_pool)
         if target_spark_configuration is not None:
@@ -73993,6 +75941,14 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
         return pulumi.get(self, "num_executors")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
@@ -74023,6 +75979,14 @@ class SynapseSparkJobDefinitionActivityResponse(dict):
         Spark configuration property.
         """
         return pulumi.get(self, "spark_config")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="targetBigDataPool")
@@ -75859,6 +77823,8 @@ class UntilActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -75880,6 +77846,8 @@ class UntilActivityResponse(dict):
                  type: str,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  timeout: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -75891,6 +77859,8 @@ class UntilActivityResponse(dict):
                Expected value is 'Until'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -75902,6 +77872,10 @@ class UntilActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if user_properties is not None:
@@ -75955,6 +77929,22 @@ class UntilActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
@@ -76091,6 +78081,8 @@ class ValidationActivityResponse(dict):
             suggest = "depends_on"
         elif key == "minimumSize":
             suggest = "minimum_size"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -76113,7 +78105,9 @@ class ValidationActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  minimum_size: Optional[Any] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  sleep: Optional[Any] = None,
+                 state: Optional[str] = None,
                  timeout: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -76126,7 +78120,9 @@ class ValidationActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any minimum_size: Can be used if dataset points to a file. The file must be greater than or equal in size to the value specified. Type: integer (or Expression with resultType integer).
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Any sleep: A delay in seconds between validation attempts. If no value is specified, 10 seconds will be used as the default. Type: integer (or Expression with resultType integer).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Any timeout: Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -76141,8 +78137,12 @@ class ValidationActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if minimum_size is not None:
             pulumi.set(__self__, "minimum_size", minimum_size)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if sleep is not None:
             pulumi.set(__self__, "sleep", sleep)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if user_properties is not None:
@@ -76206,12 +78206,28 @@ class ValidationActivityResponse(dict):
         return pulumi.get(self, "minimum_size")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def sleep(self) -> Optional[Any]:
         """
         A delay in seconds between validation attempts. If no value is specified, 10 seconds will be used as the default. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "sleep")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
@@ -76707,6 +78723,8 @@ class WaitActivityResponse(dict):
             suggest = "wait_time_in_seconds"
         elif key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -76727,6 +78745,8 @@ class WaitActivityResponse(dict):
                  wait_time_in_seconds: Any,
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
+                 on_inactive_mark_as: Optional[str] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         This activity suspends pipeline execution for the specified interval.
@@ -76736,6 +78756,8 @@ class WaitActivityResponse(dict):
         :param Any wait_time_in_seconds: Duration in seconds. Type: integer (or Expression with resultType integer).
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "name", name)
@@ -76745,6 +78767,10 @@ class WaitActivityResponse(dict):
             pulumi.set(__self__, "depends_on", depends_on)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -76788,6 +78814,22 @@ class WaitActivityResponse(dict):
         Activity description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -76928,6 +78970,8 @@ class WebActivityResponse(dict):
             suggest = "linked_service_name"
         elif key == "linkedServices":
             suggest = "linked_services"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -76957,7 +79001,9 @@ class WebActivityResponse(dict):
                  headers: Optional[Any] = None,
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  linked_services: Optional[Sequence['outputs.LinkedServiceReferenceResponse']] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
+                 state: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Web activity.
@@ -76976,7 +79022,9 @@ class WebActivityResponse(dict):
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param Sequence['LinkedServiceReferenceResponse'] linked_services: List of linked services passed to web endpoint.
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "method", method)
@@ -77003,8 +79051,12 @@ class WebActivityResponse(dict):
             pulumi.set(__self__, "linked_service_name", linked_service_name)
         if linked_services is not None:
             pulumi.set(__self__, "linked_services", linked_services)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -77122,12 +79174,28 @@ class WebActivityResponse(dict):
         return pulumi.get(self, "linked_services")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter
     def policy(self) -> Optional['outputs.ActivityPolicyResponse']:
         """
         Activity policy.
         """
         return pulumi.get(self, "policy")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -77348,6 +79416,8 @@ class WebHookActivityResponse(dict):
         suggest = None
         if key == "dependsOn":
             suggest = "depends_on"
+        elif key == "onInactiveMarkAs":
+            suggest = "on_inactive_mark_as"
         elif key == "reportStatusOnCallBack":
             suggest = "report_status_on_call_back"
         elif key == "userProperties":
@@ -77374,7 +79444,9 @@ class WebHookActivityResponse(dict):
                  depends_on: Optional[Sequence['outputs.ActivityDependencyResponse']] = None,
                  description: Optional[str] = None,
                  headers: Optional[Any] = None,
+                 on_inactive_mark_as: Optional[str] = None,
                  report_status_on_call_back: Optional[Any] = None,
+                 state: Optional[str] = None,
                  timeout: Optional[str] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
@@ -77389,7 +79461,9 @@ class WebHookActivityResponse(dict):
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
         :param str description: Activity description.
         :param Any headers: Represents the headers that will be sent to the request. For example, to set the language and type on a request: "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. Type: string (or Expression with resultType string).
+        :param str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param Any report_status_on_call_back: When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
         :param str timeout: The timeout within which the webhook should be called back. If there is no value specified, it defaults to 10 minutes. Type: string. Pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
@@ -77407,8 +79481,12 @@ class WebHookActivityResponse(dict):
             pulumi.set(__self__, "description", description)
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
+        if on_inactive_mark_as is not None:
+            pulumi.set(__self__, "on_inactive_mark_as", on_inactive_mark_as)
         if report_status_on_call_back is not None:
             pulumi.set(__self__, "report_status_on_call_back", report_status_on_call_back)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
         if user_properties is not None:
@@ -77488,12 +79566,28 @@ class WebHookActivityResponse(dict):
         return pulumi.get(self, "headers")
 
     @property
+    @pulumi.getter(name="onInactiveMarkAs")
+    def on_inactive_mark_as(self) -> Optional[str]:
+        """
+        Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        """
+        return pulumi.get(self, "on_inactive_mark_as")
+
+    @property
     @pulumi.getter(name="reportStatusOnCallBack")
     def report_status_on_call_back(self) -> Optional[Any]:
         """
         When set to true, statusCode, output and error in callback request body will be consumed by activity. The activity can be marked as failed by setting statusCode >= 400 in callback request. Default is false. Type: boolean (or Expression with resultType boolean).
         """
         return pulumi.get(self, "report_status_on_call_back")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Activity state. This is an optional property and if not provided, the state will be Active by default.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

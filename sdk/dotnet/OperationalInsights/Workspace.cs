@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 {
     /// <summary>
     /// The top level Workspace resource container.
-    /// API Version: 2020-10-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -29,10 +29,16 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Output<string> CustomerId { get; private set; } = null!;
 
         /// <summary>
-        /// The ETag of the workspace.
+        /// The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         /// </summary>
-        [Output("eTag")]
-        public Output<string?> ETag { get; private set; } = null!;
+        [Output("defaultDataCollectionRuleResourceId")]
+        public Output<string?> DefaultDataCollectionRuleResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The etag of the workspace.
+        /// </summary>
+        [Output("etag")]
+        public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
         /// Workspace features.
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("forceCmkForQuery")]
         public Output<bool?> ForceCmkForQuery { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -74,7 +86,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// The provisioning state of the workspace.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.
@@ -99,6 +111,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         [Output("sku")]
         public Output<Outputs.WorkspaceSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -174,10 +192,10 @@ namespace Pulumi.AzureNative.OperationalInsights
     public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ETag of the workspace.
+        /// The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         /// </summary>
-        [Input("eTag")]
-        public Input<string>? ETag { get; set; }
+        [Input("defaultDataCollectionRuleResourceId")]
+        public Input<string>? DefaultDataCollectionRuleResourceId { get; set; }
 
         /// <summary>
         /// Workspace features.
@@ -192,16 +210,16 @@ namespace Pulumi.AzureNative.OperationalInsights
         public Input<bool>? ForceCmkForQuery { get; set; }
 
         /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The provisioning state of the workspace.
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.OperationalInsights.WorkspaceEntityStatus>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.

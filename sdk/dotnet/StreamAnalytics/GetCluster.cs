@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets information about the specified cluster.
-        /// API Version: 2020-03-01-preview.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified cluster.
-        /// API Version: 2020-03-01-preview.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:streamanalytics:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,22 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Represents the number of streaming units currently being used on the cluster.
+        /// </summary>
+        public readonly int CapacityAllocated;
+        /// <summary>
+        /// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+        /// </summary>
+        public readonly int CapacityAssigned;
+        /// <summary>
+        /// Unique identifier for the cluster.
+        /// </summary>
+        public readonly string ClusterId;
+        /// <summary>
+        /// The date this cluster was created.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
         /// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
         public readonly string Etag;
@@ -88,9 +104,9 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with a Stream Analytics cluster.
+        /// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponse Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.
         /// </summary>
@@ -106,6 +122,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         [OutputConstructor]
         private GetClusterResult(
+            int capacityAllocated,
+
+            int capacityAssigned,
+
+            string clusterId,
+
+            string createdDate,
+
             string etag,
 
             string id,
@@ -114,7 +138,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string name,
 
-            Outputs.ClusterPropertiesResponse properties,
+            string provisioningState,
 
             Outputs.ClusterSkuResponse? sku,
 
@@ -122,11 +146,15 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
             string type)
         {
+            CapacityAllocated = capacityAllocated;
+            CapacityAssigned = capacityAssigned;
+            ClusterId = clusterId;
+            CreatedDate = createdDate;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

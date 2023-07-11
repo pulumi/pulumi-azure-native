@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * LoadTest details
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
  */
 export class LoadTest extends pulumi.CustomResource {
     /**
@@ -47,9 +47,13 @@ export class LoadTest extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * CMK Encryption property.
+     */
+    public readonly encryption!: pulumi.Output<outputs.loadtestservice.EncryptionPropertiesResponse | undefined>;
+    /**
      * The type of identity used for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.loadtestservice.SystemAssignedServiceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.loadtestservice.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -90,6 +94,7 @@ export class LoadTest extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["loadTestName"] = args ? args.loadTestName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -103,6 +108,7 @@ export class LoadTest extends pulumi.CustomResource {
         } else {
             resourceInputs["dataPlaneURI"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -127,11 +133,15 @@ export interface LoadTestArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * CMK Encryption property.
+     */
+    encryption?: pulumi.Input<inputs.loadtestservice.EncryptionPropertiesArgs>;
+    /**
      * The type of identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.loadtestservice.SystemAssignedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.loadtestservice.ManagedServiceIdentityArgs>;
     /**
-     * Load Test resource name.
+     * Load Test name.
      */
     loadTestName?: pulumi.Input<string>;
     /**

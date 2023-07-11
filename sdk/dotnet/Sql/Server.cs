@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// An Azure SQL Database server.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -23,10 +23,16 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure Active Directory identity of the server.
+        /// The Azure Active Directory administrator of the server.
         /// </summary>
         [Output("administrators")]
         public Output<Outputs.ServerExternalAdministratorResponse?> Administrators { get; private set; } = null!;
+
+        /// <summary>
+        /// The Client id used for cross tenant CMK scenario
+        /// </summary>
+        [Output("federatedClientId")]
+        public Output<string?> FederatedClientId { get; private set; } = null!;
 
         /// <summary>
         /// The fully qualified domain name of the server.
@@ -87,6 +93,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("restrictOutboundNetworkAccess")]
+        public Output<string?> RestrictOutboundNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The state of the server.
@@ -157,6 +169,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -193,10 +206,16 @@ namespace Pulumi.AzureNative.Sql
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
-        /// The Azure Active Directory identity of the server.
+        /// The Azure Active Directory administrator of the server.
         /// </summary>
         [Input("administrators")]
         public Input<Inputs.ServerExternalAdministratorArgs>? Administrators { get; set; }
+
+        /// <summary>
+        /// The Client id used for cross tenant CMK scenario
+        /// </summary>
+        [Input("federatedClientId")]
+        public Input<string>? FederatedClientId { get; set; }
 
         /// <summary>
         /// The Azure Active Directory identity of the server.
@@ -232,13 +251,19 @@ namespace Pulumi.AzureNative.Sql
         /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         /// </summary>
         [Input("publicNetworkAccess")]
-        public InputUnion<string, Pulumi.AzureNative.Sql.ServerPublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Sql.ServerNetworkAccessFlag>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Input("restrictOutboundNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Sql.ServerNetworkAccessFlag>? RestrictOutboundNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the server.

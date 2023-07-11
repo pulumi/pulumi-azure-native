@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Cognitive Services account.
-        /// API Version: 2017-04-18.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:cognitiveservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint connection associated with the Cognitive Services account.
-        /// API Version: 2017-04-18.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:cognitiveservices:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Entity Tag
+        /// Resource Etag.
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             Outputs.PrivateEndpointConnectionPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Etag = etag;
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.CognitiveServices
             Location = location;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

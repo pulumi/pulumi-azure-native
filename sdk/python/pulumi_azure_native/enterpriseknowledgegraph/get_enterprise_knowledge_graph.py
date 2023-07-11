@@ -122,7 +122,7 @@ def get_enterprise_knowledge_graph(resource_group_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnterpriseKnowledgeGraphResult:
     """
     Returns a EnterpriseKnowledgeGraph service specified by the parameters.
-    API Version: 2018-12-03.
+    Azure REST API version: 2018-12-03.
 
 
     :param str resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
@@ -150,7 +150,7 @@ def get_enterprise_knowledge_graph_output(resource_group_name: Optional[pulumi.I
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnterpriseKnowledgeGraphResult]:
     """
     Returns a EnterpriseKnowledgeGraph service specified by the parameters.
-    API Version: 2018-12-03.
+    Azure REST API version: 2018-12-03.
 
 
     :param str resource_group_name: The name of the EnterpriseKnowledgeGraph resource group in the user subscription.

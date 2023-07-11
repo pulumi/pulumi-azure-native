@@ -9,14 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Metadata.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getMetadata", {
         "metadataName": args.metadataName,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
@@ -27,10 +26,6 @@ export interface GetMetadataArgs {
      * The Metadata name.
      */
     metadataName: string;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -58,6 +53,14 @@ export interface GetMetadataResult {
      */
     readonly contentId?: string;
     /**
+     * Schema version of the content. Can be used to distinguish between different flow based on the schema version
+     */
+    readonly contentSchemaVersion?: string;
+    /**
+     * The custom version of the content. A optional free text
+     */
+    readonly customVersion?: string;
+    /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
     readonly dependencies?: outputs.securityinsights.MetadataDependenciesResponse;
@@ -70,7 +73,11 @@ export interface GetMetadataResult {
      */
     readonly firstPublishDate?: string;
     /**
-     * Azure resource Id
+     * the icon identifier. this id can later be fetched from the solution template
+     */
+    readonly icon?: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -82,13 +89,21 @@ export interface GetMetadataResult {
      */
     readonly lastPublishDate?: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
      * Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
      */
     readonly parentId: string;
+    /**
+     * preview image file names. These will be taken from the solution artifacts
+     */
+    readonly previewImages?: string[];
+    /**
+     * preview image file names. These will be taken from the solution artifacts. used for dark theme support
+     */
+    readonly previewImagesDark?: string[];
     /**
      * Providers for the solution content item
      */
@@ -106,7 +121,15 @@ export interface GetMetadataResult {
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * the tactics the resource covers
+     */
+    readonly threatAnalysisTactics?: string[];
+    /**
+     * the techniques the resource covers, these have to be aligned with the tactics being used
+     */
+    readonly threatAnalysisTechniques?: string[];
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -116,7 +139,7 @@ export interface GetMetadataResult {
 }
 /**
  * Get a Metadata.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
     return pulumi.output(args).apply((a: any) => getMetadata(a, opts))
@@ -127,10 +150,6 @@ export interface GetMetadataOutputArgs {
      * The Metadata name.
      */
     metadataName: pulumi.Input<string>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

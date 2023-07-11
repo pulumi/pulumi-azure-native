@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * HealthBot resource definition
- * API Version: 2020-12-08.
+ * Azure Health Bot resource definition
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08
  */
 export class Bot extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Bot extends pulumi.CustomResource {
     }
 
     /**
+     * The identity of the Azure Health Bot.
+     */
+    public readonly identity!: pulumi.Output<outputs.healthbot.IdentityResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -47,11 +51,11 @@ export class Bot extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The set of properties specific to Healthbot resource.
+     * The set of properties specific to Azure Health Bot resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.healthbot.HealthBotPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.healthbot.HealthBotPropertiesResponse>;
     /**
-     * SKU of the HealthBot.
+     * SKU of the Azure Health Bot.
      */
     public readonly sku!: pulumi.Output<outputs.healthbot.SkuResponse>;
     /**
@@ -85,15 +89,17 @@ export class Bot extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["botName"] = args ? args.botName : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -103,7 +109,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-native:healthbot/v20210610:Bot" }, { type: "azure-native:healthbot/v20210824:Bot" }, { type: "azure-native:healthbot/v20220808:Bot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthbot/v20201020:Bot" }, { type: "azure-native:healthbot/v20201020preview:Bot" }, { type: "azure-native:healthbot/v20201208:Bot" }, { type: "azure-native:healthbot/v20201208preview:Bot" }, { type: "azure-native:healthbot/v20210610:Bot" }, { type: "azure-native:healthbot/v20210824:Bot" }, { type: "azure-native:healthbot/v20220808:Bot" }, { type: "azure-native:healthbot/v20230501:Bot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Bot.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,15 +124,23 @@ export interface BotArgs {
      */
     botName?: pulumi.Input<string>;
     /**
+     * The identity of the Azure Health Bot.
+     */
+    identity?: pulumi.Input<inputs.healthbot.IdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The set of properties specific to Azure Health Bot resource.
+     */
+    properties?: pulumi.Input<inputs.healthbot.HealthBotPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * SKU of the HealthBot.
+     * SKU of the Azure Health Bot.
      */
     sku: pulumi.Input<inputs.healthbot.SkuArgs>;
     /**

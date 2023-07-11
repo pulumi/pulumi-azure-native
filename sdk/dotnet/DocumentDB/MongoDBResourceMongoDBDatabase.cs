@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB database.
-    /// API Version: 2021-03-15.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoDBDatabase")]
     public partial class MongoDBResourceMongoDBDatabase : global::Pulumi.CustomResource
@@ -99,7 +99,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:MongoDBResourceMongoDBDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoDBResourceMongoDBDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoDBResourceMongoDBDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:MongoDBResourceMongoDBDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

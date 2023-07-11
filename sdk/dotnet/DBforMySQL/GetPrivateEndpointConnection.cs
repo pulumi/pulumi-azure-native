@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforMySQL
     {
         /// <summary>
         /// Gets a private endpoint connection.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2022-09-30-preview.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:dbformysql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a private endpoint connection.
-        /// API Version: 2018-06-01.
+        /// Azure REST API version: 2022-09-30-preview.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:dbformysql:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,11 @@ namespace Pulumi.AzureNative.DBforMySQL
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// The group ids for the private endpoint resource.
+        /// </summary>
+        public readonly ImmutableArray<string> GroupIds;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -92,17 +96,21 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Private endpoint which the connection belongs to.
+        /// The private endpoint resource.
         /// </summary>
-        public readonly Outputs.PrivateEndpointPropertyResponse? PrivateEndpoint;
+        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponse PrivateLinkServiceConnectionState;
         /// <summary>
-        /// State of the private endpoint connection.
+        /// The provisioning state of the private endpoint connection resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -110,23 +118,29 @@ namespace Pulumi.AzureNative.DBforMySQL
 
         [OutputConstructor]
         private GetPrivateEndpointConnectionResult(
+            ImmutableArray<string> groupIds,
+
             string id,
 
             string name,
 
-            Outputs.PrivateEndpointPropertyResponse? privateEndpoint,
+            Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStatePropertyResponse? privateLinkServiceConnectionState,
+            Outputs.PrivateLinkServiceConnectionStateResponse privateLinkServiceConnectionState,
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            GroupIds = groupIds;
             Id = id;
             Name = name;
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCodeContainer(args: GetCodeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeContainerResult> {
 
@@ -23,7 +23,7 @@ export function getCodeContainer(args: GetCodeContainerArgs, opts?: pulumi.Invok
 
 export interface GetCodeContainerArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: string;
     /**
@@ -41,6 +41,10 @@ export interface GetCodeContainerArgs {
  */
 export interface GetCodeContainerResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly codeContainerProperties: outputs.machinelearningservices.CodeContainerResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -49,11 +53,7 @@ export interface GetCodeContainerResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.CodeContainerResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -63,7 +63,7 @@ export interface GetCodeContainerResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeContainerResult> {
     return pulumi.output(args).apply((a: any) => getCodeContainer(a, opts))
@@ -71,7 +71,7 @@ export function getCodeContainerOutput(args: GetCodeContainerOutputArgs, opts?: 
 
 export interface GetCodeContainerOutputArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
     /**

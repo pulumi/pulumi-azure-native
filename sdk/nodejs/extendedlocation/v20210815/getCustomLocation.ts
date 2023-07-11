@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the customLocation with a specified resource group and name.
  */
-/** @deprecated azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Upgrade to at least azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility. */
 export function getCustomLocation(args: GetCustomLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomLocationResult> {
-    pulumi.log.warn("getCustomLocation is deprecated: azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Upgrade to at least azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:extendedlocation/v20210815:getCustomLocation", {
@@ -96,7 +94,6 @@ export interface GetCustomLocationResult {
 /**
  * Gets the details of the customLocation with a specified resource group and name.
  */
-/** @deprecated azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Upgrade to at least azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility. */
 export function getCustomLocationOutput(args: GetCustomLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomLocationResult> {
     return pulumi.output(args).apply((a: any) => getCustomLocation(a, opts))
 }

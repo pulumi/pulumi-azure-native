@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AssessmentSizingCriterion',
     'AssessmentStage',
+    'AutomationArtifactStatus',
     'AzureDiskType',
     'AzureHybridUseBenefit',
     'AzureLocation',
@@ -14,14 +15,26 @@ __all__ = [
     'AzurePricingTier',
     'AzureStorageRedundancy',
     'AzureVmFamily',
+    'ConfigurationType',
     'Currency',
+    'LoadBalancerType',
+    'OperatingSystemType',
     'Percentile',
     'ProjectStatus',
     'ProvisioningState',
     'ReservedInstance',
     'ResourceIdentityType',
+    'ResourceIdentityTypes',
+    'SecretStoreType',
+    'Status',
     'TargetAvailabilityZone',
+    'TargetHydrationStorageProviderType',
+    'TargetStorageAccessType',
+    'TargetStorageProjectionType',
     'TimeRange',
+    'WorkloadDeploymentTarget',
+    'WorkloadDeploymentType',
+    'WorkloadType',
     'ZoneRedundant',
 ]
 
@@ -41,6 +54,14 @@ class AssessmentStage(str, Enum):
     IN_PROGRESS = "InProgress"
     UNDER_REVIEW = "UnderReview"
     APPROVED = "Approved"
+
+
+class AutomationArtifactStatus(str, Enum):
+    """
+    Gets or sets the status of automation artifacts.
+    """
+    NOT_GENERATED = "NotGenerated"
+    GENERATED = "Generated"
 
 
 class AzureDiskType(str, Enum):
@@ -199,6 +220,15 @@ class AzureVmFamily(str, Enum):
     D_C_SERIES = "DC_Series"
 
 
+class ConfigurationType(str, Enum):
+    """
+    Gets or sets the configuration type.
+    """
+    IIS_CONNECTION_STRING = "IISConnectionString"
+    IIS_AUTHENTICATION = "IISAuthentication"
+    APACHE_TOMCAT_CONTEXT_RESOURCE = "ApacheTomcatContextResource"
+
+
 class Currency(str, Enum):
     """
     Currency to report prices in.
@@ -229,6 +259,19 @@ class Currency(str, Enum):
     ARS = "ARS"
     AUD = "AUD"
     CNY = "CNY"
+
+
+class LoadBalancerType(str, Enum):
+    """
+    Gets or sets the load balancer type.
+    """
+    PRIVATE = "Private"
+    PUBLIC = "Public"
+
+
+class OperatingSystemType(str, Enum):
+    WINDOWS = "Windows"
+    LINUX = "Linux"
 
 
 class Percentile(str, Enum):
@@ -279,6 +322,29 @@ class ResourceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
 
 
+class ResourceIdentityTypes(str, Enum):
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class SecretStoreType(str, Enum):
+    NONE = "None"
+    KUBE_SECRET = "KubeSecret"
+    KEY_VAULT_SECRET = "KeyVaultSecret"
+    APP_SERVICE_APP_SETTINGS = "AppServiceAppSettings"
+
+
+class Status(str, Enum):
+    """
+    Private link connection state.
+    """
+    APPROVED = "Approved"
+    PENDING = "Pending"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"
+
+
 class TargetAvailabilityZone(str, Enum):
     """
     Gets or sets the target availability zone.
@@ -289,6 +355,30 @@ class TargetAvailabilityZone(str, Enum):
     NA = "NA"
 
 
+class TargetHydrationStorageProviderType(str, Enum):
+    """
+    Gets or sets the storage provider type on the target.
+    Applicable when StorageProjectionType is not ContainerFileSystem.
+    """
+    AZURE_FILE_SHARE = "AzureFileShare"
+
+
+class TargetStorageAccessType(str, Enum):
+    """
+    Gets or sets the target storage access type.
+    """
+    SHARED = "Shared"
+    EXCLUSIVE = "Exclusive"
+
+
+class TargetStorageProjectionType(str, Enum):
+    """
+    Gets or sets the target projection type.
+    """
+    CONTAINER_FILE_SYSTEM = "ContainerFileSystem"
+    PERSISTENT_VOLUME = "PersistentVolume"
+
+
 class TimeRange(str, Enum):
     """
     Time range of performance data used to recommend a size.
@@ -297,6 +387,31 @@ class TimeRange(str, Enum):
     WEEK = "Week"
     MONTH = "Month"
     CUSTOM = "Custom"
+
+
+class WorkloadDeploymentTarget(str, Enum):
+    """
+    Gets or sets the deployment target platform.
+    """
+    AZURE_KUBERNETES_SERVICE = "AzureKubernetesService"
+    AZURE_APP_SERVICE_CONTAINER = "AzureAppServiceContainer"
+    AZURE_APP_SERVICE_NATIVE = "AzureAppServiceNative"
+
+
+class WorkloadDeploymentType(str, Enum):
+    """
+    Gets or sets the instance type.
+    """
+    IISAKS_WORKLOAD_DEPLOYMENT = "IISAKSWorkloadDeployment"
+    APACHE_TOMCAT_AKS_WORKLOAD_DEPLOYMENT = "ApacheTomcatAKSWorkloadDeployment"
+
+
+class WorkloadType(str, Enum):
+    """
+    Gets or sets the instance type.
+    """
+    IIS_WORKLOAD = "IISWorkload"
+    APACHE_TOMCAT_WORKLOAD = "ApacheTomcatWorkload"
 
 
 class ZoneRedundant(str, Enum):

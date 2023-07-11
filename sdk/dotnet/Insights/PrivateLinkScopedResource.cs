@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// A private link scoped resource
-    /// API Version: 2019-10-17-preview.
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<string?> LinkedResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,7 +35,13 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// System data
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;

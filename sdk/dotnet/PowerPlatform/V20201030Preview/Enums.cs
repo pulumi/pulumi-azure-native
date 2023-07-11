@@ -56,6 +56,7 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
 
         public static HealthStatus Undetermined { get; } = new HealthStatus("Undetermined");
         public static HealthStatus Healthy { get; } = new HealthStatus("Healthy");
+        public static HealthStatus Warning { get; } = new HealthStatus("Warning");
         public static HealthStatus Unhealthy { get; } = new HealthStatus("Unhealthy");
 
         public static bool operator ==(HealthStatus left, HealthStatus right) => left.Equals(right);

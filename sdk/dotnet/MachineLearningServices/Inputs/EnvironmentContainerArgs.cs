@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        [Input("isArchived")]
+        public Input<bool>? IsArchived { get; set; }
+
         [Input("properties")]
         private InputMap<string>? _properties;
 
@@ -47,6 +53,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public EnvironmentContainerArgs()
         {
+            IsArchived = false;
         }
         public static new EnvironmentContainerArgs Empty => new EnvironmentContainerArgs();
     }

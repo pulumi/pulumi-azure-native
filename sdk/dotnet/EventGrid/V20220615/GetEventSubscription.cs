@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20220615
 {
-    [Obsolete(@"azure-native:eventgrid/v20220615:EventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:EventSubscription to guarantee forwards compatibility.")]
     public static class GetEventSubscription
     {
         /// <summary>

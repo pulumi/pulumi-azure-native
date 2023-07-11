@@ -22,6 +22,7 @@ class DatabaseBlobAuditingPolicyArgs:
                  audit_actions_and_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blob_auditing_policy_name: Optional[pulumi.Input[str]] = None,
                  is_azure_monitor_target_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_managed_identity_in_use: Optional[pulumi.Input[bool]] = None,
                  is_storage_secondary_key_in_use: Optional[pulumi.Input[bool]] = None,
                  queue_delay_ms: Optional[pulumi.Input[int]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
@@ -66,6 +67,10 @@ class DatabaseBlobAuditingPolicyArgs:
                USER_CHANGE_PASSWORD_GROUP
                BATCH_STARTED_GROUP
                BATCH_COMPLETED_GROUP
+               DBCC_GROUP
+               DATABASE_OWNERSHIP_CHANGE_GROUP
+               DATABASE_CHANGE_GROUP
+               LEDGER_OPERATION_GROUP
                
                These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
                
@@ -103,6 +108,7 @@ class DatabaseBlobAuditingPolicyArgs:
                
                For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
                or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
+        :param pulumi.Input[bool] is_managed_identity_in_use: Specifies whether Managed Identity is used to access blob storage
         :param pulumi.Input[bool] is_storage_secondary_key_in_use: Specifies whether storageAccountAccessKey value is the storage's secondary key.
         :param pulumi.Input[int] queue_delay_ms: Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
                The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
@@ -126,6 +132,8 @@ class DatabaseBlobAuditingPolicyArgs:
             pulumi.set(__self__, "blob_auditing_policy_name", blob_auditing_policy_name)
         if is_azure_monitor_target_enabled is not None:
             pulumi.set(__self__, "is_azure_monitor_target_enabled", is_azure_monitor_target_enabled)
+        if is_managed_identity_in_use is not None:
+            pulumi.set(__self__, "is_managed_identity_in_use", is_managed_identity_in_use)
         if is_storage_secondary_key_in_use is not None:
             pulumi.set(__self__, "is_storage_secondary_key_in_use", is_storage_secondary_key_in_use)
         if queue_delay_ms is not None:
@@ -223,6 +231,10 @@ class DatabaseBlobAuditingPolicyArgs:
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
+        DBCC_GROUP
+        DATABASE_OWNERSHIP_CHANGE_GROUP
+        DATABASE_CHANGE_GROUP
+        LEDGER_OPERATION_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         
@@ -288,6 +300,18 @@ class DatabaseBlobAuditingPolicyArgs:
     @is_azure_monitor_target_enabled.setter
     def is_azure_monitor_target_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_azure_monitor_target_enabled", value)
+
+    @property
+    @pulumi.getter(name="isManagedIdentityInUse")
+    def is_managed_identity_in_use(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether Managed Identity is used to access blob storage
+        """
+        return pulumi.get(self, "is_managed_identity_in_use")
+
+    @is_managed_identity_in_use.setter
+    def is_managed_identity_in_use(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_managed_identity_in_use", value)
 
     @property
     @pulumi.getter(name="isStorageSecondaryKeyInUse")
@@ -377,6 +401,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                  blob_auditing_policy_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  is_azure_monitor_target_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_managed_identity_in_use: Optional[pulumi.Input[bool]] = None,
                  is_storage_secondary_key_in_use: Optional[pulumi.Input[bool]] = None,
                  queue_delay_ms: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -389,7 +414,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A database blob auditing policy.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -425,6 +450,10 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                USER_CHANGE_PASSWORD_GROUP
                BATCH_STARTED_GROUP
                BATCH_COMPLETED_GROUP
+               DBCC_GROUP
+               DATABASE_OWNERSHIP_CHANGE_GROUP
+               DATABASE_CHANGE_GROUP
+               LEDGER_OPERATION_GROUP
                
                These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
                
@@ -463,6 +492,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                
                For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
                or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
+        :param pulumi.Input[bool] is_managed_identity_in_use: Specifies whether Managed Identity is used to access blob storage
         :param pulumi.Input[bool] is_storage_secondary_key_in_use: Specifies whether storageAccountAccessKey value is the storage's secondary key.
         :param pulumi.Input[int] queue_delay_ms: Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
                The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
@@ -487,7 +517,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A database blob auditing policy.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param DatabaseBlobAuditingPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -508,6 +538,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                  blob_auditing_policy_name: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  is_azure_monitor_target_enabled: Optional[pulumi.Input[bool]] = None,
+                 is_managed_identity_in_use: Optional[pulumi.Input[bool]] = None,
                  is_storage_secondary_key_in_use: Optional[pulumi.Input[bool]] = None,
                  queue_delay_ms: Optional[pulumi.Input[int]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -532,6 +563,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["is_azure_monitor_target_enabled"] = is_azure_monitor_target_enabled
+            __props__.__dict__["is_managed_identity_in_use"] = is_managed_identity_in_use
             __props__.__dict__["is_storage_secondary_key_in_use"] = is_storage_secondary_key_in_use
             __props__.__dict__["queue_delay_ms"] = queue_delay_ms
             if resource_group_name is None and not opts.urn:
@@ -550,7 +582,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
             __props__.__dict__["kind"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseBlobAuditingPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseBlobAuditingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseBlobAuditingPolicy, __self__).__init__(
             'azure-native:sql:DatabaseBlobAuditingPolicy',
@@ -576,6 +608,7 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
 
         __props__.__dict__["audit_actions_and_groups"] = None
         __props__.__dict__["is_azure_monitor_target_enabled"] = None
+        __props__.__dict__["is_managed_identity_in_use"] = None
         __props__.__dict__["is_storage_secondary_key_in_use"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
@@ -623,6 +656,10 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
         USER_CHANGE_PASSWORD_GROUP
         BATCH_STARTED_GROUP
         BATCH_COMPLETED_GROUP
+        DBCC_GROUP
+        DATABASE_OWNERSHIP_CHANGE_GROUP
+        DATABASE_CHANGE_GROUP
+        LEDGER_OPERATION_GROUP
         
         These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
         
@@ -668,6 +705,14 @@ class DatabaseBlobAuditingPolicy(pulumi.CustomResource):
         or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
         """
         return pulumi.get(self, "is_azure_monitor_target_enabled")
+
+    @property
+    @pulumi.getter(name="isManagedIdentityInUse")
+    def is_managed_identity_in_use(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether Managed Identity is used to access blob storage
+        """
+        return pulumi.get(self, "is_managed_identity_in_use")
 
     @property
     @pulumi.getter(name="isStorageSecondaryKeyInUse")

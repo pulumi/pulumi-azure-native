@@ -22,16 +22,16 @@ class GetEntityAnalyticsResult:
     """
     Settings with single toggle.
     """
-    def __init__(__self__, etag=None, id=None, is_enabled=None, kind=None, name=None, system_data=None, type=None):
+    def __init__(__self__, entity_providers=None, etag=None, id=None, kind=None, name=None, system_data=None, type=None):
+        if entity_providers and not isinstance(entity_providers, list):
+            raise TypeError("Expected argument 'entity_providers' to be a list")
+        pulumi.set(__self__, "entity_providers", entity_providers)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if is_enabled and not isinstance(is_enabled, bool):
-            raise TypeError("Expected argument 'is_enabled' to be a bool")
-        pulumi.set(__self__, "is_enabled", is_enabled)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -46,6 +46,14 @@ class GetEntityAnalyticsResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="entityProviders")
+    def entity_providers(self) -> Optional[Sequence[str]]:
+        """
+        The relevant entity providers that are synced
+        """
+        return pulumi.get(self, "entity_providers")
+
+    @property
     @pulumi.getter
     def etag(self) -> Optional[str]:
         """
@@ -57,17 +65,9 @@ class GetEntityAnalyticsResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> bool:
-        """
-        Determines whether the setting is enable or disabled.
-        """
-        return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter
@@ -82,7 +82,7 @@ class GetEntityAnalyticsResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -98,7 +98,7 @@ class GetEntityAnalyticsResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -109,32 +109,29 @@ class AwaitableGetEntityAnalyticsResult(GetEntityAnalyticsResult):
         if False:
             yield self
         return GetEntityAnalyticsResult(
+            entity_providers=self.entity_providers,
             etag=self.etag,
             id=self.id,
-            is_enabled=self.is_enabled,
             kind=self.kind,
             name=self.name,
             system_data=self.system_data,
             type=self.type)
 
 
-def get_entity_analytics(operational_insights_resource_provider: Optional[str] = None,
-                         resource_group_name: Optional[str] = None,
+def get_entity_analytics(resource_group_name: Optional[str] = None,
                          settings_name: Optional[str] = None,
                          workspace_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityAnalyticsResult:
     """
     Gets a setting.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['settingsName'] = settings_name
     __args__['workspaceName'] = workspace_name
@@ -142,9 +139,9 @@ def get_entity_analytics(operational_insights_resource_provider: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getEntityAnalytics', __args__, opts=opts, typ=GetEntityAnalyticsResult).value
 
     return AwaitableGetEntityAnalyticsResult(
+        entity_providers=__ret__.entity_providers,
         etag=__ret__.etag,
         id=__ret__.id,
-        is_enabled=__ret__.is_enabled,
         kind=__ret__.kind,
         name=__ret__.name,
         system_data=__ret__.system_data,
@@ -152,17 +149,15 @@ def get_entity_analytics(operational_insights_resource_provider: Optional[str] =
 
 
 @_utilities.lift_output_func(get_entity_analytics)
-def get_entity_analytics_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                                resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_entity_analytics_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                 settings_name: Optional[pulumi.Input[str]] = None,
                                 workspace_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityAnalyticsResult]:
     """
     Gets a setting.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
     :param str workspace_name: The name of the workspace.

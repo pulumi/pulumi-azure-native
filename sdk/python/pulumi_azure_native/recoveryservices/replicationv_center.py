@@ -20,22 +20,22 @@ class ReplicationvCenterArgs:
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
                  properties: Optional[pulumi.Input['AddVCenterRequestPropertiesArgs']] = None,
-                 v_center_name: Optional[pulumi.Input[str]] = None):
+                 vcenter_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicationvCenter resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
         :param pulumi.Input['AddVCenterRequestPropertiesArgs'] properties: The properties of an add vCenter request.
-        :param pulumi.Input[str] v_center_name: vCenter name.
+        :param pulumi.Input[str] vcenter_name: vcenter name.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-        if v_center_name is not None:
-            pulumi.set(__self__, "v_center_name", v_center_name)
+        if vcenter_name is not None:
+            pulumi.set(__self__, "vcenter_name", vcenter_name)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -86,16 +86,16 @@ class ReplicationvCenterArgs:
         pulumi.set(self, "properties", value)
 
     @property
-    @pulumi.getter(name="vCenterName")
-    def v_center_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="vcenterName")
+    def vcenter_name(self) -> Optional[pulumi.Input[str]]:
         """
-        vCenter name.
+        vcenter name.
         """
-        return pulumi.get(self, "v_center_name")
+        return pulumi.get(self, "vcenter_name")
 
-    @v_center_name.setter
-    def v_center_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "v_center_name", value)
+    @vcenter_name.setter
+    def vcenter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vcenter_name", value)
 
 
 class ReplicationvCenter(pulumi.CustomResource):
@@ -107,11 +107,11 @@ class ReplicationvCenter(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 v_center_name: Optional[pulumi.Input[str]] = None,
+                 vcenter_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         vCenter definition.
-        API Version: 2018-07-10.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,7 +119,7 @@ class ReplicationvCenter(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']] properties: The properties of an add vCenter request.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-        :param pulumi.Input[str] v_center_name: vCenter name.
+        :param pulumi.Input[str] vcenter_name: vcenter name.
         """
         ...
     @overload
@@ -129,7 +129,7 @@ class ReplicationvCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         vCenter definition.
-        API Version: 2018-07-10.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param ReplicationvCenterArgs args: The arguments to use to populate this resource's properties.
@@ -150,7 +150,7 @@ class ReplicationvCenter(pulumi.CustomResource):
                  properties: Optional[pulumi.Input[pulumi.InputType['AddVCenterRequestPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 v_center_name: Optional[pulumi.Input[str]] = None,
+                 vcenter_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -170,11 +170,11 @@ class ReplicationvCenter(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
-            __props__.__dict__["v_center_name"] = v_center_name
+            __props__.__dict__["vcenter_name"] = vcenter_name
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160810:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ReplicationvCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160810:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ReplicationvCenter"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ReplicationvCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationvCenter, __self__).__init__(
             'azure-native:recoveryservices:ReplicationvCenter',

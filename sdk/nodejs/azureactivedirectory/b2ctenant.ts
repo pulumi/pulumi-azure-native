@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview
  */
 export class B2CTenant extends pulumi.CustomResource {
     /**
@@ -42,11 +42,11 @@ export class B2CTenant extends pulumi.CustomResource {
      */
     public /*out*/ readonly billingConfig!: pulumi.Output<outputs.azureactivedirectory.B2CTenantResourcePropertiesResponseBillingConfig | undefined>;
     /**
-     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the B2C tenant resource.
+     * The name of the Azure AD B2C tenant resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -54,11 +54,15 @@ export class B2CTenant extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.azureactivedirectory.B2CResourceSKUResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.azureactivedirectory.SystemDataResponse>;
+    /**
      * Resource Tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * An identifier of the B2C tenant.
+     * An identifier of the Azure AD B2C tenant.
      */
     public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
     /**
@@ -77,23 +81,22 @@ export class B2CTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["countryCode"] = args ? args.countryCode : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["billingConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -101,6 +104,7 @@ export class B2CTenant extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -117,16 +121,23 @@ export class B2CTenant extends pulumi.CustomResource {
  */
 export interface B2CTenantArgs {
     /**
-     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+     * Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+     */
+    countryCode?: pulumi.Input<string>;
+    /**
+     * The display name of the Azure AD B2C tenant.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
      */
     location?: pulumi.Input<string>;
-    properties: pulumi.Input<inputs.azureactivedirectory.CreateTenantRequestBodyPropertiesArgs>;
     /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The initial domain name of the B2C tenant.
+     * The initial domain name of the Azure AD B2C tenant.
      */
     resourceName?: pulumi.Input<string>;
     /**

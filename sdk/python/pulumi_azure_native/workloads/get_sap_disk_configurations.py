@@ -23,18 +23,18 @@ class GetSAPDiskConfigurationsResult:
     """
     The list of disk configuration for vmSku which are part of SAP deployment.
     """
-    def __init__(__self__, disk_configurations=None):
-        if disk_configurations and not isinstance(disk_configurations, list):
-            raise TypeError("Expected argument 'disk_configurations' to be a list")
-        pulumi.set(__self__, "disk_configurations", disk_configurations)
+    def __init__(__self__, volume_configurations=None):
+        if volume_configurations and not isinstance(volume_configurations, dict):
+            raise TypeError("Expected argument 'volume_configurations' to be a dict")
+        pulumi.set(__self__, "volume_configurations", volume_configurations)
 
     @property
-    @pulumi.getter(name="diskConfigurations")
-    def disk_configurations(self) -> Optional[Sequence['outputs.SAPDiskConfigurationResponse']]:
+    @pulumi.getter(name="volumeConfigurations")
+    def volume_configurations(self) -> Optional[Mapping[str, 'outputs.SAPDiskConfigurationResponse']]:
         """
-        Gets the list of Disk Configurations.
+        The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
         """
-        return pulumi.get(self, "disk_configurations")
+        return pulumi.get(self, "volume_configurations")
 
 
 class AwaitableGetSAPDiskConfigurationsResult(GetSAPDiskConfigurationsResult):
@@ -43,7 +43,7 @@ class AwaitableGetSAPDiskConfigurationsResult(GetSAPDiskConfigurationsResult):
         if False:
             yield self
         return GetSAPDiskConfigurationsResult(
-            disk_configurations=self.disk_configurations)
+            volume_configurations=self.volume_configurations)
 
 
 def get_sap_disk_configurations(app_location: Optional[str] = None,
@@ -56,7 +56,7 @@ def get_sap_disk_configurations(app_location: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPDiskConfigurationsResult:
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.
@@ -79,7 +79,7 @@ def get_sap_disk_configurations(app_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSAPDiskConfigurations', __args__, opts=opts, typ=GetSAPDiskConfigurationsResult).value
 
     return AwaitableGetSAPDiskConfigurationsResult(
-        disk_configurations=__ret__.disk_configurations)
+        volume_configurations=__ret__.volume_configurations)
 
 
 @_utilities.lift_output_func(get_sap_disk_configurations)
@@ -93,7 +93,7 @@ def get_sap_disk_configurations_output(app_location: Optional[pulumi.Input[str]]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPDiskConfigurationsResult]:
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str app_location: The geo-location where the SAP resources will be created.

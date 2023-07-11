@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetTableServicePropertiesResult> InvokeAsync(GetTableServicePropertiesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableServicePropertiesResult>("azure-native:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of a storage account’s Table service, including properties for Storage Analytics and CORS (Cross-Origin Resource Sharing) rules.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetTableServicePropertiesResult> Invoke(GetTableServicePropertiesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableServicePropertiesResult>("azure-native:storage:getTableServiceProperties", args ?? new GetTableServicePropertiesInvokeArgs(), options.WithDefaults());

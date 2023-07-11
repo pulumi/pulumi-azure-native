@@ -17,8 +17,6 @@ __all__ = [
     'get_application_group_output',
 ]
 
-warnings.warn("""azure-native:desktopvirtualization/v20220909:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ApplicationGroup to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetApplicationGroupResult:
     """
@@ -264,7 +262,6 @@ def get_application_group(application_group_name: Optional[str] = None,
     :param str application_group_name: The name of the application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_application_group is deprecated: azure-native:desktopvirtualization/v20220909:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ApplicationGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['applicationGroupName'] = application_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -304,5 +301,4 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
     :param str application_group_name: The name of the application group
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_application_group is deprecated: azure-native:desktopvirtualization/v20220909:ApplicationGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ApplicationGroup to guarantee forwards compatibility.""")
     ...

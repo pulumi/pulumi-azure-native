@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class ServicePrincipalProfileResponse
     {
         /// <summary>
-        /// The client ID used for the cluster (immutable).
+        /// The client ID used for the cluster.
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// The client secret used for the cluster (immutable).
+        /// The client secret used for the cluster.
         /// </summary>
         public readonly string? ClientSecret;
 

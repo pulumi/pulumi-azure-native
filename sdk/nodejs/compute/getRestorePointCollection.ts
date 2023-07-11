@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the restore point collection.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getRestorePointCollection(args: GetRestorePointCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorePointCollectionResult> {
 
@@ -79,7 +79,7 @@ export interface GetRestorePointCollectionResult {
 }
 /**
  * The operation to get the restore point collection.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getRestorePointCollectionOutput(args: GetRestorePointCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestorePointCollectionResult> {
     return pulumi.output(args).apply((a: any) => getRestorePointCollection(a, opts))

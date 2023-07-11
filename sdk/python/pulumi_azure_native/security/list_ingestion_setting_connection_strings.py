@@ -49,7 +49,7 @@ def list_ingestion_setting_connection_strings(ingestion_setting_name: Optional[s
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListIngestionSettingConnectionStringsResult:
     """
     Connection strings for ingesting security scan logs and data.
-    API Version: 2021-01-15-preview.
+    Azure REST API version: 2021-01-15-preview.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting
@@ -68,7 +68,7 @@ def list_ingestion_setting_connection_strings_output(ingestion_setting_name: Opt
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListIngestionSettingConnectionStringsResult]:
     """
     Connection strings for ingesting security scan logs and data.
-    API Version: 2021-01-15-preview.
+    Azure REST API version: 2021-01-15-preview.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting

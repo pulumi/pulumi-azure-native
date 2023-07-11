@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// List the device groups for the catalog.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<ListCatalogDeviceGroupsResult> InvokeAsync(ListCatalogDeviceGroupsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCatalogDeviceGroupsResult>("azure-native:azuresphere:listCatalogDeviceGroups", args ?? new ListCatalogDeviceGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the device groups for the catalog.
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<ListCatalogDeviceGroupsResult> Invoke(ListCatalogDeviceGroupsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeviceGroupsResult>("azure-native:azuresphere:listCatalogDeviceGroups", args ?? new ListCatalogDeviceGroupsInvokeArgs(), options.WithDefaults());

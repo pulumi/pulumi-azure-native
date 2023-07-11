@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A private endpoint connection
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Group IDs.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -83,6 +89,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,6 +12,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DataPlaneAadOrApiKeyAuthOptionResponse',
+    'DataPlaneAuthOptionsResponse',
+    'EncryptionWithCmkResponse',
     'IdentityResponse',
     'IpRuleResponse',
     'NetworkRuleSetResponse',
@@ -24,6 +27,151 @@ __all__ = [
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
 ]
+
+@pulumi.output_type
+class DataPlaneAadOrApiKeyAuthOptionResponse(dict):
+    """
+    Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadAuthFailureMode":
+            suggest = "aad_auth_failure_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataPlaneAadOrApiKeyAuthOptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataPlaneAadOrApiKeyAuthOptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataPlaneAadOrApiKeyAuthOptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aad_auth_failure_mode: Optional[str] = None):
+        """
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        :param str aad_auth_failure_mode: Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        """
+        if aad_auth_failure_mode is not None:
+            pulumi.set(__self__, "aad_auth_failure_mode", aad_auth_failure_mode)
+
+    @property
+    @pulumi.getter(name="aadAuthFailureMode")
+    def aad_auth_failure_mode(self) -> Optional[str]:
+        """
+        Describes what response the data plane API of a Search service would send for requests that failed authentication.
+        """
+        return pulumi.get(self, "aad_auth_failure_mode")
+
+
+@pulumi.output_type
+class DataPlaneAuthOptionsResponse(dict):
+    """
+    Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aadOrApiKey":
+            suggest = "aad_or_api_key"
+        elif key == "apiKeyOnly":
+            suggest = "api_key_only"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataPlaneAuthOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataPlaneAuthOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataPlaneAuthOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aad_or_api_key: Optional['outputs.DataPlaneAadOrApiKeyAuthOptionResponse'] = None,
+                 api_key_only: Optional[Any] = None):
+        """
+        Defines the options for how the data plane API of a Search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        :param 'DataPlaneAadOrApiKeyAuthOptionResponse' aad_or_api_key: Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        :param Any api_key_only: Indicates that only the API key needs to be used for authentication.
+        """
+        if aad_or_api_key is not None:
+            pulumi.set(__self__, "aad_or_api_key", aad_or_api_key)
+        if api_key_only is not None:
+            pulumi.set(__self__, "api_key_only", api_key_only)
+
+    @property
+    @pulumi.getter(name="aadOrApiKey")
+    def aad_or_api_key(self) -> Optional['outputs.DataPlaneAadOrApiKeyAuthOptionResponse']:
+        """
+        Indicates that either the API key or an access token from Azure Active Directory can be used for authentication.
+        """
+        return pulumi.get(self, "aad_or_api_key")
+
+    @property
+    @pulumi.getter(name="apiKeyOnly")
+    def api_key_only(self) -> Optional[Any]:
+        """
+        Indicates that only the API key needs to be used for authentication.
+        """
+        return pulumi.get(self, "api_key_only")
+
+
+@pulumi.output_type
+class EncryptionWithCmkResponse(dict):
+    """
+    Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionComplianceStatus":
+            suggest = "encryption_compliance_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionWithCmkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionWithCmkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionWithCmkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_compliance_status: str,
+                 enforcement: Optional[str] = None):
+        """
+        Describes a policy that determines how resources within the search service are to be encrypted with Customer Managed Keys.
+        :param str encryption_compliance_status: Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
+        :param str enforcement: Describes how a search service should enforce having one or more non customer encrypted resources.
+        """
+        pulumi.set(__self__, "encryption_compliance_status", encryption_compliance_status)
+        if enforcement is not None:
+            pulumi.set(__self__, "enforcement", enforcement)
+
+    @property
+    @pulumi.getter(name="encryptionComplianceStatus")
+    def encryption_compliance_status(self) -> str:
+        """
+        Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
+        """
+        return pulumi.get(self, "encryption_compliance_status")
+
+    @property
+    @pulumi.getter
+    def enforcement(self) -> Optional[str]:
+        """
+        Describes how a search service should enforce having one or more non customer encrypted resources.
+        """
+        return pulumi.get(self, "enforcement")
+
 
 @pulumi.output_type
 class IdentityResponse(dict):
@@ -55,8 +203,8 @@ class IdentityResponse(dict):
                  type: str):
         """
         Identity for the resource.
-        :param str principal_id: The principal ID of resource identity.
-        :param str tenant_id: The tenant ID of resource.
+        :param str principal_id: The principal ID of the system-assigned identity of the search service.
+        :param str tenant_id: The tenant ID of the system-assigned identity of the search service.
         :param str type: The identity type.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -67,7 +215,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal ID of resource identity.
+        The principal ID of the system-assigned identity of the search service.
         """
         return pulumi.get(self, "principal_id")
 
@@ -75,7 +223,7 @@ class IdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant ID of resource.
+        The tenant ID of the system-assigned identity of the search service.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -159,10 +307,14 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateEndpoint":
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "privateEndpoint":
             suggest = "private_endpoint"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -176,17 +328,33 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_id: Optional[str] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateEndpoint'] = None,
-                 private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None):
+                 private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None,
+                 provisioning_state: Optional[str] = None):
         """
         Describes the properties of an existing Private Endpoint connection to the Azure Cognitive Search service.
+        :param str group_id: The group id from the provider of resource the private link service connection is for.
         :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint' private_endpoint: The private endpoint resource from Microsoft.Network provider.
         :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        :param str provisioning_state: The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
         """
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        The group id from the provider of resource the private link service connection is for.
+        """
+        return pulumi.get(self, "group_id")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -203,6 +371,14 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         """
         return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the private link service connection. Can be Updating, Deleting, Failed, Succeeded, or Incomplete
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

@@ -8,15 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get user
- * API Version: 2018-10-15.
+ * Returns the properties of a lab user.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise<GetUserResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:labservices:getUser", {
-        "expand": args.expand,
-        "labAccountName": args.labAccountName,
         "labName": args.labName,
         "resourceGroupName": args.resourceGroupName,
         "userName": args.userName,
@@ -25,87 +23,75 @@ export function getUser(args: GetUserArgs, opts?: pulumi.InvokeOptions): Promise
 
 export interface GetUserArgs {
     /**
-     * Specify the $expand query. Example: 'properties($select=email)'
-     */
-    expand?: string;
-    /**
-     * The name of the lab Account.
-     */
-    labAccountName: string;
-    /**
-     * The name of the lab.
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * The name of the user.
+     * The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
      */
     userName: string;
 }
 
 /**
- * The User registered to a lab
+ * User of a lab that can register for and use virtual machines within the lab.
  */
 export interface GetUserResult {
     /**
-     * The user email address, as it was specified during registration.
+     * The amount of usage quota time the user gets in addition to the lab usage quota.
+     */
+    readonly additionalUsageQuota?: string;
+    /**
+     * Display name of the user, for example user's full name.
+     */
+    readonly displayName: string;
+    /**
+     * Email address of the user.
      */
     readonly email: string;
     /**
-     * The user family name, as it was specified during registration.
-     */
-    readonly familyName: string;
-    /**
-     * The user given name, as it was specified during registration.
-     */
-    readonly givenName: string;
-    /**
-     * The identifier of the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The details of the latest operation. ex: status, error
+     * Date and time when the invitation message was sent to the user.
      */
-    readonly latestOperationResult: outputs.labservices.LatestOperationResultResponse;
+    readonly invitationSent: string;
     /**
-     * The location of the resource.
+     * State of the invitation message for the user.
      */
-    readonly location?: string;
+    readonly invitationState: string;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The provisioning status of the resource.
+     * Current provisioning state of the user resource.
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
     /**
-     * The tags of the resource.
+     * State of the user's registration within the lab.
      */
-    readonly tags?: {[key: string]: string};
+    readonly registrationState: string;
     /**
-     * The user tenant ID, as it was specified during registration.
+     * Metadata pertaining to creation and last modification of the user resource.
      */
-    readonly tenantId: string;
+    readonly systemData: outputs.labservices.SystemDataResponse;
     /**
-     * How long the user has used his VMs in this lab
+     * How long the user has used their virtual machines in this lab.
      */
     readonly totalUsage: string;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    readonly uniqueIdentifier?: string;
 }
 /**
- * Get user
- * API Version: 2018-10-15.
+ * Returns the properties of a lab user.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
     return pulumi.output(args).apply((a: any) => getUser(a, opts))
@@ -113,23 +99,15 @@ export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptio
 
 export interface GetUserOutputArgs {
     /**
-     * Specify the $expand query. Example: 'properties($select=email)'
-     */
-    expand?: pulumi.Input<string>;
-    /**
-     * The name of the lab Account.
-     */
-    labAccountName: pulumi.Input<string>;
-    /**
-     * The name of the lab.
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the user.
+     * The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
      */
     userName: pulumi.Input<string>;
 }

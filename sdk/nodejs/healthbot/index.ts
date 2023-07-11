@@ -15,27 +15,22 @@ export const getBot: typeof import("./getBot").getBot = null as any;
 export const getBotOutput: typeof import("./getBot").getBotOutput = null as any;
 utilities.lazyLoad(exports, ["getBot","getBotOutput"], () => require("./getBot"));
 
+export { ListBotSecretsArgs, ListBotSecretsResult, ListBotSecretsOutputArgs } from "./listBotSecrets";
+export const listBotSecrets: typeof import("./listBotSecrets").listBotSecrets = null as any;
+export const listBotSecretsOutput: typeof import("./listBotSecrets").listBotSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listBotSecrets","listBotSecretsOutput"], () => require("./listBotSecrets"));
+
 
 // Export enums:
 export * from "../types/enums/healthbot";
 
 // Export sub-modules:
-import * as v20201020 from "./v20201020";
-import * as v20201020preview from "./v20201020preview";
-import * as v20201208 from "./v20201208";
 import * as v20201208preview from "./v20201208preview";
-import * as v20210610 from "./v20210610";
-import * as v20210824 from "./v20210824";
-import * as v20220808 from "./v20220808";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20201020,
-    v20201020preview,
-    v20201208,
     v20201208preview,
-    v20210610,
-    v20210824,
-    v20220808,
+    v20230501,
 };
 
 const _module = {

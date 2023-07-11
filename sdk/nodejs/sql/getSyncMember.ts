@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a sync member.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getSyncMember(args: GetSyncMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncMemberResult> {
 
@@ -106,7 +106,7 @@ export interface GetSyncMemberResult {
 }
 /**
  * Gets a sync member.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getSyncMemberOutput(args: GetSyncMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncMemberResult> {
     return pulumi.output(args).apply((a: any) => getSyncMember(a, opts))

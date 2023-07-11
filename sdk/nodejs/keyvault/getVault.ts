@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Azure key vault.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
 
@@ -52,6 +52,10 @@ export interface GetVaultResult {
      */
     readonly properties: outputs.keyvault.VaultPropertiesResponse;
     /**
+     * System metadata for the key vault.
+     */
+    readonly systemData: outputs.keyvault.SystemDataResponse;
+    /**
      * Tags assigned to the key vault resource.
      */
     readonly tags?: {[key: string]: string};
@@ -62,7 +66,7 @@ export interface GetVaultResult {
 }
 /**
  * Gets the specified Azure key vault.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))

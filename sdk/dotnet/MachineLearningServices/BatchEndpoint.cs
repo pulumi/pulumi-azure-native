@@ -10,16 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:BatchEndpoint")]
     public partial class BatchEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Service identity associated with a resource.
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("batchEndpointProperties")]
+        public Output<Outputs.BatchEndpointResponse> BatchEndpointProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -40,13 +46,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
+        /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BatchEndpointResponse> Properties { get; private set; } = null!;
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -95,7 +101,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:BatchEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:BatchEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:BatchEndpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:BatchEndpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:BatchEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,16 +129,22 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class BatchEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Input("batchEndpointProperties", required: true)]
+        public Input<Inputs.BatchEndpointArgs> BatchEndpointProperties { get; set; } = null!;
+
+        /// <summary>
         /// Name for the Batch inference endpoint.
         /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
 
         /// <summary>
-        /// Service identity associated with a resource.
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
@@ -144,16 +159,16 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BatchEndpointArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Sku details required for ARM contract for Autoscaling.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

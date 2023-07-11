@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Association Subresource of Traffic Controller
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
  */
 export class AssociationsInterface extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class AssociationsInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning State
+     * Provisioning State of Traffic Controller Association Resource
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export class AssociationsInterface extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:AssociationsInterface" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicenetworking/v20221001preview:AssociationsInterface" }, { type: "azure-native:servicenetworking/v20230501preview:AssociationsInterface" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AssociationsInterface.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,7 +130,7 @@ export interface AssociationsInterfaceArgs {
     /**
      * Association Type
      */
-    associationType: pulumi.Input<enums.servicenetworking.AssociationType>;
+    associationType: pulumi.Input<string | enums.servicenetworking.AssociationType>;
     /**
      * The geo-location where the resource lives
      */

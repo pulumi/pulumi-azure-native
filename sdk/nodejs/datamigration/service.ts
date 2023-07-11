@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Database Migration Service resource
- * API Version: 2018-04-19.
+ * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-04-19
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -67,6 +67,10 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.datamigration.ServiceSkuResponse | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -74,6 +78,10 @@ export class Service extends pulumi.CustomResource {
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    public readonly virtualNicId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
@@ -103,10 +111,12 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNicId"] = args ? args.virtualNicId : undefined;
             resourceInputs["virtualSubnetId"] = args ? args.virtualSubnetId : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
@@ -116,8 +126,10 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicKey"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["virtualNicId"] = undefined /*out*/;
             resourceInputs["virtualSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -159,6 +171,10 @@ export interface ServiceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    virtualNicId?: pulumi.Input<string>;
     /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Workspace definition.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -82,6 +82,10 @@ export class Workspace extends pulumi.CustomResource {
     public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -120,6 +124,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["applicationGroupReferences"] = undefined /*out*/;
@@ -135,6 +140,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

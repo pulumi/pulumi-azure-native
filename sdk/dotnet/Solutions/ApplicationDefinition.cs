@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Solutions
 {
     /// <summary>
     /// Information about managed application definition.
-    /// API Version: 2019-07-01.
+    /// Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
     public partial class ApplicationDefinition : global::Pulumi.CustomResource
@@ -129,6 +129,12 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

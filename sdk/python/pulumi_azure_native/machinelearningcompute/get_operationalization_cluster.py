@@ -230,7 +230,7 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOperationalizationClusterResult:
     """
     Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
-    API Version: 2017-08-01-preview.
+    Azure REST API version: 2017-08-01-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -267,7 +267,7 @@ def get_operationalization_cluster_output(cluster_name: Optional[pulumi.Input[st
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOperationalizationClusterResult]:
     """
     Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
-    API Version: 2017-08-01-preview.
+    Azure REST API version: 2017-08-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

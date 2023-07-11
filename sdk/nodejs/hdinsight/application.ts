@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The HDInsight cluster application
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview
  */
 export class Application extends pulumi.CustomResource {
     /**
@@ -51,11 +51,15 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.hdinsight.ApplicationPropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hdinsight.SystemDataResponse>;
+    /**
      * The tags for the application.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -83,16 +87,18 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }, { type: "azure-native:hdinsight/v20210601:Application" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hdinsight/v20150301preview:Application" }, { type: "azure-native:hdinsight/v20180601preview:Application" }, { type: "azure-native:hdinsight/v20210601:Application" }, { type: "azure-native:hdinsight/v20230415preview:Application" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,8 +27,8 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
+        [Input("typeName", required: true)]
+        public Input<string> TypeName { get; set; } = null!;
 
         /// <summary>
         /// Value for the specified action

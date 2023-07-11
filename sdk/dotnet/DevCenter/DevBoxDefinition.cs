@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a definition for a Developer Machine.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         [Output("activeImageReference")]
         public Output<Outputs.ImageReferenceResponse> ActiveImageReference { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+        /// </summary>
+        [Output("hibernateSupport")]
+        public Output<string?> HibernateSupport { get; private set; } = null!;
 
         /// <summary>
         /// Image reference information.
@@ -56,7 +62,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// The storage type used for the Operating System disk of Dev Boxes created using this definition.
         /// </summary>
         [Output("osStorageType")]
-        public Output<string> OsStorageType { get; private set; } = null!;
+        public Output<string?> OsStorageType { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the resource.
@@ -117,6 +123,8 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:DevBoxDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:DevBoxDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:DevBoxDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:DevBoxDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:DevBoxDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -153,6 +161,12 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> DevCenterName { get; set; } = null!;
 
         /// <summary>
+        /// Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+        /// </summary>
+        [Input("hibernateSupport")]
+        public InputUnion<string, Pulumi.AzureNative.DevCenter.HibernateSupport>? HibernateSupport { get; set; }
+
+        /// <summary>
         /// Image reference information.
         /// </summary>
         [Input("imageReference", required: true)]
@@ -167,11 +181,11 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The storage type used for the Operating System disk of Dev Boxes created using this definition.
         /// </summary>
-        [Input("osStorageType", required: true)]
-        public Input<string> OsStorageType { get; set; } = null!;
+        [Input("osStorageType")]
+        public Input<string>? OsStorageType { get; set; }
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get environment setting
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getEnvironmentSetting(args: GetEnvironmentSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSettingResult> {
 
@@ -113,7 +113,7 @@ export interface GetEnvironmentSettingResult {
 }
 /**
  * Get environment setting
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getEnvironmentSettingOutput(args: GetEnvironmentSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSettingResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentSetting(a, opts))

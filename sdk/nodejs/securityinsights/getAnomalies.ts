@@ -9,13 +9,12 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getAnomalies(args: GetAnomaliesArgs, opts?: pulumi.InvokeOptions): Promise<GetAnomaliesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getAnomalies", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "settingsName": args.settingsName,
         "workspaceName": args.workspaceName,
@@ -23,10 +22,6 @@ export function getAnomalies(args: GetAnomaliesArgs, opts?: pulumi.InvokeOptions
 }
 
 export interface GetAnomaliesArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -50,7 +45,7 @@ export interface GetAnomaliesResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -63,7 +58,7 @@ export interface GetAnomaliesResult {
      */
     readonly kind: "Anomalies";
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,23 +66,19 @@ export interface GetAnomaliesResult {
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a setting.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getAnomaliesOutput(args: GetAnomaliesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomaliesResult> {
     return pulumi.output(args).apply((a: any) => getAnomalies(a, opts))
 }
 
 export interface GetAnomaliesOutputArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

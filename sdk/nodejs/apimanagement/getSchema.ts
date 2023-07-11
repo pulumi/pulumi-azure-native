@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Schema specified by its identifier.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-04-01-preview.
  */
 export function getSchema(args: GetSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetSchemaResult> {
 
@@ -64,7 +64,7 @@ export interface GetSchemaResult {
 }
 /**
  * Gets the details of the Schema specified by its identifier.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-04-01-preview.
  */
 export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
     return pulumi.output(args).apply((a: any) => getSchema(a, opts))

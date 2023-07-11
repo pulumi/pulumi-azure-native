@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 {
     /// <summary>
     /// Define the datastore.
-    /// API Version: 2020-10-01-preview.
+    /// Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Gets or sets Maximum capacity of this datastore in GBs.
+        /// </summary>
+        [Output("capacityGB")]
+        public Output<double> CapacityGB { get; private set; } = null!;
+
         /// <summary>
         /// Gets the name of the corresponding resource in Kubernetes.
         /// </summary>
@@ -27,6 +33,12 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Available space of this datastore in GBs.
+        /// </summary>
+        [Output("freeSpaceGB")]
+        public Output<double> FreeSpaceGB { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the inventory Item ID for the datastore.

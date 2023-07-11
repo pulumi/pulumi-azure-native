@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// Define the Virtual Instance for SAP solutions resource.
-    /// API Version: 2021-12-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPVirtualInstance")]
     public partial class SAPVirtualInstance : global::Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Health { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.AzureNative.Workloads
         public InputUnion<string, Pulumi.AzureNative.Workloads.SAPEnvironmentType> Environment { get; set; } = null!;
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }

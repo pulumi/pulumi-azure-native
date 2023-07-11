@@ -2,14 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
     /**
@@ -55,10 +52,6 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
      */
     public readonly swiftSupported!: pulumi.Output<boolean | undefined>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.web.SystemDataResponse>;
-    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -85,14 +78,12 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
             resourceInputs["swiftSupported"] = args ? args.swiftSupported : undefined;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subnetResourceId"] = undefined /*out*/;
             resourceInputs["swiftSupported"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

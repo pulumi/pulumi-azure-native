@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Communication
     {
         /// <summary>
         /// Get the Domains resource and its properties.
-        /// API Version: 2021-10-01-preview.
+        /// Azure REST API version: 2023-03-31.
         /// </summary>
         public static Task<GetDomainResult> InvokeAsync(GetDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the Domains resource and its properties.
-        /// API Version: 2021-10-01-preview.
+        /// Azure REST API version: 2023-03-31.
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("azure-native:communication:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string FromSenderDomain;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -132,10 +132,6 @@ namespace Pulumi.AzureNative.Communication
         /// </summary>
         public readonly string? UserEngagementTracking;
         /// <summary>
-        /// Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-        /// </summary>
-        public readonly ImmutableDictionary<string, string>? ValidSenderUsernames;
-        /// <summary>
         /// List of DnsRecord
         /// </summary>
         public readonly Outputs.DomainPropertiesResponseVerificationRecords VerificationRecords;
@@ -170,8 +166,6 @@ namespace Pulumi.AzureNative.Communication
 
             string? userEngagementTracking,
 
-            ImmutableDictionary<string, string>? validSenderUsernames,
-
             Outputs.DomainPropertiesResponseVerificationRecords verificationRecords,
 
             Outputs.DomainPropertiesResponseVerificationStates verificationStates)
@@ -188,7 +182,6 @@ namespace Pulumi.AzureNative.Communication
             Tags = tags;
             Type = type;
             UserEngagementTracking = userEngagementTracking;
-            ValidSenderUsernames = validSenderUsernames;
             VerificationRecords = verificationRecords;
             VerificationStates = verificationStates;
         }

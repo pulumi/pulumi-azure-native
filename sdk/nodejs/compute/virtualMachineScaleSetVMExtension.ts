@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a VMSS VM Extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      */
     public readonly instanceView!: pulumi.Output<outputs.compute.VirtualMachineExtensionInstanceViewResponse | undefined>;
     /**
+     * The location of the extension.
+     */
+    public readonly location!: pulumi.Output<string | undefined>;
+    /**
      * The name of the extension.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -62,6 +66,14 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     public readonly protectedSettings!: pulumi.Output<any | undefined>;
+    /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    public readonly protectedSettingsFromKeyVault!: pulumi.Output<outputs.compute.KeyVaultSecretReferenceResponse | undefined>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    public readonly provisionAfterExtensions!: pulumi.Output<string[] | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -74,6 +86,10 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
      * Json formatted public settings for the extension.
      */
     public readonly settings!: pulumi.Output<any | undefined>;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    public readonly suppressFailures!: pulumi.Output<boolean | undefined>;
     /**
      * Resource type
      */
@@ -108,10 +124,14 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["instanceView"] = args ? args.instanceView : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            resourceInputs["protectedSettingsFromKeyVault"] = args ? args.protectedSettingsFromKeyVault : undefined;
+            resourceInputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
             resourceInputs["publisher"] = args ? args.publisher : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["suppressFailures"] = args ? args.suppressFailures : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             resourceInputs["vmExtensionName"] = args ? args.vmExtensionName : undefined;
@@ -123,11 +143,15 @@ export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {
             resourceInputs["enableAutomaticUpgrade"] = undefined /*out*/;
             resourceInputs["forceUpdateTag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protectedSettings"] = undefined /*out*/;
+            resourceInputs["protectedSettingsFromKeyVault"] = undefined /*out*/;
+            resourceInputs["provisionAfterExtensions"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisher"] = undefined /*out*/;
             resourceInputs["settings"] = undefined /*out*/;
+            resourceInputs["suppressFailures"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["typeHandlerVersion"] = undefined /*out*/;
         }
@@ -163,9 +187,21 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      */
     instanceView?: pulumi.Input<inputs.compute.VirtualMachineExtensionInstanceViewArgs>;
     /**
+     * The location of the extension.
+     */
+    location?: pulumi.Input<string>;
+    /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     protectedSettings?: any;
+    /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.KeyVaultSecretReferenceArgs>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the extension handler publisher.
      */
@@ -178,6 +214,10 @@ export interface VirtualMachineScaleSetVMExtensionArgs {
      * Json formatted public settings for the extension.
      */
     settings?: any;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    suppressFailures?: pulumi.Input<boolean>;
     /**
      * Specifies the type of the extension; an example is "CustomScriptExtension".
      */

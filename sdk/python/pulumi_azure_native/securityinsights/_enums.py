@@ -5,40 +5,133 @@
 from enum import Enum
 
 __all__ = [
+    'ActionType',
+    'AlertDetail',
+    'AlertProperty',
     'AlertRuleKind',
     'AlertSeverity',
     'AttackTactic',
-    'AutomationRuleActionType',
-    'AutomationRuleConditionType',
+    'AutomationRulePropertyArrayChangedConditionSupportedArrayType',
+    'AutomationRulePropertyArrayChangedConditionSupportedChangeType',
+    'AutomationRulePropertyChangedConditionSupportedChangedType',
+    'AutomationRulePropertyChangedConditionSupportedPropertyType',
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
+    'ConditionType',
     'ContentType',
-    'CreatedByType',
     'CustomEntityQueryKind',
     'DataConnectorKind',
     'DataTypeState',
+    'DeploymentFetchStatus',
+    'DeploymentResult',
+    'DeploymentState',
+    'EntityMappingType',
+    'EntityProviders',
     'EntityTimelineKind',
     'EntityType',
+    'EventGroupingAggregationKind',
+    'FileFormat',
+    'FileImportContentType',
+    'Flag',
+    'HypothesisStatus',
     'IncidentClassification',
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
+    'IncidentTaskStatus',
+    'IngestionMode',
     'Kind',
+    'MatchingMethod',
     'MicrosoftSecurityProductName',
+    'Mode',
     'Operator',
+    'OwnerType',
+    'PackageKind',
     'RepoType',
     'SecurityMLAnalyticsSettingsKind',
     'SettingKind',
     'SettingsStatus',
     'Source',
     'SourceKind',
+    'Status',
     'SupportTier',
-    'ThreatIntelligenceResourceKind',
+    'ThreatIntelligenceResourceInnerKind',
     'TriggerOperator',
     'TriggersOn',
     'TriggersWhen',
     'UebaDataSources',
+    'Version',
 ]
+
+
+class ActionType(str, Enum):
+    """
+    The type of the automation rule action.
+    """
+    MODIFY_PROPERTIES = "ModifyProperties"
+    """
+    Modify an object's properties
+    """
+    RUN_PLAYBOOK = "RunPlaybook"
+    """
+    Run a playbook on an object
+    """
+
+
+class AlertDetail(str, Enum):
+    """
+    Alert detail
+    """
+    DISPLAY_NAME = "DisplayName"
+    """
+    Alert display name
+    """
+    SEVERITY = "Severity"
+    """
+    Alert severity
+    """
+
+
+class AlertProperty(str, Enum):
+    """
+    The V3 alert property
+    """
+    ALERT_LINK = "AlertLink"
+    """
+    Alert's link
+    """
+    CONFIDENCE_LEVEL = "ConfidenceLevel"
+    """
+    Confidence level property
+    """
+    CONFIDENCE_SCORE = "ConfidenceScore"
+    """
+    Confidence score
+    """
+    EXTENDED_LINKS = "ExtendedLinks"
+    """
+    Extended links to the alert
+    """
+    PRODUCT_NAME = "ProductName"
+    """
+    Product name alert property
+    """
+    PROVIDER_NAME = "ProviderName"
+    """
+    Provider name alert property
+    """
+    PRODUCT_COMPONENT_NAME = "ProductComponentName"
+    """
+    Product component name alert property
+    """
+    REMEDIATION_STEPS = "RemediationSteps"
+    """
+    Remediation steps alert property
+    """
+    TECHNIQUES = "Techniques"
+    """
+    Techniques alert property
+    """
 
 
 class AlertRuleKind(str, Enum):
@@ -95,34 +188,59 @@ class AttackTactic(str, Enum):
     INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
 
 
-class AutomationRuleActionType(str, Enum):
+class AutomationRulePropertyArrayChangedConditionSupportedArrayType(str, Enum):
+    ALERTS = "Alerts"
     """
-    The type of the automation rule action
+    Evaluate the condition on the alerts
     """
-    MODIFY_PROPERTIES = "ModifyProperties"
+    LABELS = "Labels"
     """
-    Modify an object's properties
+    Evaluate the condition on the labels
     """
-    RUN_PLAYBOOK = "RunPlaybook"
+    TACTICS = "Tactics"
     """
-    Run a playbook on an object
+    Evaluate the condition on the tactics
+    """
+    COMMENTS = "Comments"
+    """
+    Evaluate the condition on the comments
     """
 
 
-class AutomationRuleConditionType(str, Enum):
+class AutomationRulePropertyArrayChangedConditionSupportedChangeType(str, Enum):
+    ADDED = "Added"
     """
-    The type of the automation rule condition
+    Evaluate the condition on items added to the array
     """
-    PROPERTY = "Property"
+
+
+class AutomationRulePropertyChangedConditionSupportedChangedType(str, Enum):
+    CHANGED_FROM = "ChangedFrom"
     """
-    Evaluate an object property value
+    Evaluate the condition on the previous value of the property
+    """
+    CHANGED_TO = "ChangedTo"
+    """
+    Evaluate the condition on the updated value of the property
+    """
+
+
+class AutomationRulePropertyChangedConditionSupportedPropertyType(str, Enum):
+    INCIDENT_SEVERITY = "IncidentSeverity"
+    """
+    Evaluate the condition on the incident severity
+    """
+    INCIDENT_STATUS = "IncidentStatus"
+    """
+    Evaluate the condition on the incident status
+    """
+    INCIDENT_OWNER = "IncidentOwner"
+    """
+    Evaluate the condition on the incident owner
     """
 
 
 class AutomationRulePropertyConditionSupportedOperator(str, Enum):
-    """
-    The operator to use for evaluation the condition
-    """
     EQUALS = "Equals"
     """
     Evaluates if the property equals at least one of the condition values
@@ -159,7 +277,7 @@ class AutomationRulePropertyConditionSupportedOperator(str, Enum):
 
 class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
-    The property to evaluate
+    The property to evaluate in an automation rule property condition.
     """
     INCIDENT_TITLE = "IncidentTitle"
     """
@@ -177,17 +295,25 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
     The status of the incident
     """
-    INCIDENT_TACTICS = "IncidentTactics"
-    """
-    The tactics of the incident
-    """
     INCIDENT_RELATED_ANALYTIC_RULE_IDS = "IncidentRelatedAnalyticRuleIds"
     """
     The related Analytic rule ids of the incident
     """
+    INCIDENT_TACTICS = "IncidentTactics"
+    """
+    The tactics of the incident
+    """
+    INCIDENT_LABEL = "IncidentLabel"
+    """
+    The labels of the incident
+    """
     INCIDENT_PROVIDER_NAME = "IncidentProviderName"
     """
     The provider name of the incident
+    """
+    INCIDENT_UPDATED_BY_SOURCE = "IncidentUpdatedBySource"
+    """
+    The update source of the incident
     """
     ACCOUNT_AAD_TENANT_ID = "AccountAadTenantId"
     """
@@ -195,7 +321,7 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
     ACCOUNT_AAD_USER_ID = "AccountAadUserId"
     """
-    The account Azure Active Directory user id.
+    The account Azure Active Directory user id
     """
     ACCOUNT_NAME = "AccountName"
     """
@@ -220,6 +346,14 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     ACCOUNT_UPN_SUFFIX = "AccountUPNSuffix"
     """
     The account user principal name suffix
+    """
+    ALERT_PRODUCT_NAMES = "AlertProductNames"
+    """
+    The name of the product of the alert
+    """
+    ALERT_ANALYTIC_RULE_IDS = "AlertAnalyticRuleIds"
+    """
+    The analytic rule ids of the alert
     """
     AZURE_RESOURCE_RESOURCE_ID = "AzureResourceResourceId"
     """
@@ -275,7 +409,7 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
     IO_T_DEVICE_ID = "IoTDeviceId"
     """
-    The IoT device id
+    "The IoT device id
     """
     IO_T_DEVICE_NAME = "IoTDeviceName"
     """
@@ -371,22 +505,27 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
 
 
+class ConditionType(str, Enum):
+    PROPERTY = "Property"
+    """
+    Evaluate an object property value
+    """
+    PROPERTY_CHANGED = "PropertyChanged"
+    """
+    Evaluate an object property changed value
+    """
+    PROPERTY_ARRAY_CHANGED = "PropertyArrayChanged"
+    """
+    Evaluate an object array property changed value
+    """
+
+
 class ContentType(str, Enum):
     """
     Content type.
     """
     ANALYTIC_RULE = "AnalyticRule"
     WORKBOOK = "Workbook"
-
-
-class CreatedByType(str, Enum):
-    """
-    The type of identity that last modified the resource.
-    """
-    USER = "User"
-    APPLICATION = "Application"
-    MANAGED_IDENTITY = "ManagedIdentity"
-    KEY = "Key"
 
 
 class CustomEntityQueryKind(str, Enum):
@@ -418,6 +557,120 @@ class DataTypeState(str, Enum):
     DISABLED = "Disabled"
 
 
+class DeploymentFetchStatus(str, Enum):
+    """
+    Status while fetching the last deployment.
+    """
+    SUCCESS = "Success"
+    UNAUTHORIZED = "Unauthorized"
+    NOT_FOUND = "NotFound"
+
+
+class DeploymentResult(str, Enum):
+    """
+    The outcome of the deployment.
+    """
+    SUCCESS = "Success"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class DeploymentState(str, Enum):
+    """
+    Current status of the deployment.
+    """
+    IN_PROGRESS = "In_Progress"
+    COMPLETED = "Completed"
+    QUEUED = "Queued"
+    CANCELING = "Canceling"
+
+
+class EntityMappingType(str, Enum):
+    """
+    The V3 type of the mapped entity
+    """
+    ACCOUNT = "Account"
+    """
+    User account entity type
+    """
+    HOST = "Host"
+    """
+    Host entity type
+    """
+    IP = "IP"
+    """
+    IP address entity type
+    """
+    MALWARE = "Malware"
+    """
+    Malware entity type
+    """
+    FILE = "File"
+    """
+    System file entity type
+    """
+    PROCESS = "Process"
+    """
+    Process entity type
+    """
+    CLOUD_APPLICATION = "CloudApplication"
+    """
+    Cloud app entity type
+    """
+    DNS = "DNS"
+    """
+    DNS entity type
+    """
+    AZURE_RESOURCE = "AzureResource"
+    """
+    Azure resource entity type
+    """
+    FILE_HASH = "FileHash"
+    """
+    File-hash entity type
+    """
+    REGISTRY_KEY = "RegistryKey"
+    """
+    Registry key entity type
+    """
+    REGISTRY_VALUE = "RegistryValue"
+    """
+    Registry value entity type
+    """
+    SECURITY_GROUP = "SecurityGroup"
+    """
+    Security group entity type
+    """
+    URL = "URL"
+    """
+    URL entity type
+    """
+    MAILBOX = "Mailbox"
+    """
+    Mailbox entity type
+    """
+    MAIL_CLUSTER = "MailCluster"
+    """
+    Mail cluster entity type
+    """
+    MAIL_MESSAGE = "MailMessage"
+    """
+    Mail message entity type
+    """
+    SUBMISSION_MAIL = "SubmissionMail"
+    """
+    Submission mail entity type
+    """
+
+
+class EntityProviders(str, Enum):
+    """
+    The entity provider that is synced.
+    """
+    ACTIVE_DIRECTORY = "ActiveDirectory"
+    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
+
+
 class EntityTimelineKind(str, Enum):
     """
     The entity query kind
@@ -433,6 +686,10 @@ class EntityTimelineKind(str, Enum):
     SECURITY_ALERT = "SecurityAlert"
     """
     security alerts
+    """
+    ANOMALY = "Anomaly"
+    """
+    anomaly
     """
 
 
@@ -524,6 +781,71 @@ class EntityType(str, Enum):
     """
     Entity represents submission mail in the system.
     """
+    NIC = "Nic"
+    """
+    Entity represents network interface in the system.
+    """
+
+
+class EventGroupingAggregationKind(str, Enum):
+    """
+    The event grouping aggregation kinds
+    """
+    SINGLE_ALERT = "SingleAlert"
+    ALERT_PER_RESULT = "AlertPerResult"
+
+
+class FileFormat(str, Enum):
+    """
+    The format of the file
+    """
+    CSV = "CSV"
+    """
+    A CSV file.
+    """
+    JSON = "JSON"
+    """
+    A JSON file.
+    """
+    UNSPECIFIED = "Unspecified"
+    """
+    A file of other format.
+    """
+
+
+class FileImportContentType(str, Enum):
+    """
+    The content type of this file.
+    """
+    BASIC_INDICATOR = "BasicIndicator"
+    """
+    File containing records with the core fields of an indicator, plus the observables to construct the STIX pattern.
+    """
+    STIX_INDICATOR = "StixIndicator"
+    """
+    File containing STIX indicators.
+    """
+    UNSPECIFIED = "Unspecified"
+    """
+    File containing other records.
+    """
+
+
+class Flag(str, Enum):
+    """
+    Flag indicates if this package is in preview.
+    """
+    TRUE = "true"
+    FALSE = "false"
+
+
+class HypothesisStatus(str, Enum):
+    """
+    The hypothesis status of the hunt.
+    """
+    UNKNOWN = "Unknown"
+    INVALIDATED = "Invalidated"
+    VALIDATED = "Validated"
 
 
 class IncidentClassification(str, Enum):
@@ -610,9 +932,38 @@ class IncidentStatus(str, Enum):
     """
 
 
+class IncidentTaskStatus(str, Enum):
+    NEW = "New"
+    """
+    A new task
+    """
+    COMPLETED = "Completed"
+    """
+    A completed task
+    """
+
+
+class IngestionMode(str, Enum):
+    """
+    Describes how to ingest the records in the file.
+    """
+    INGEST_ONLY_IF_ALL_ARE_VALID = "IngestOnlyIfAllAreValid"
+    """
+    No records should be ingested when invalid records are detected.
+    """
+    INGEST_ANY_VALID_RECORDS = "IngestAnyValidRecords"
+    """
+    Valid records should still be ingested when invalid records are detected.
+    """
+    UNSPECIFIED = "Unspecified"
+    """
+    Unspecified
+    """
+
+
 class Kind(str, Enum):
     """
-    The kind of content the metadata is for.
+    Type of the content item we depend on
     """
     DATA_CONNECTOR = "DataConnector"
     DATA_TYPE = "DataType"
@@ -628,6 +979,27 @@ class Kind(str, Enum):
     WATCHLIST = "Watchlist"
     WATCHLIST_TEMPLATE = "WatchlistTemplate"
     SOLUTION = "Solution"
+    AZURE_FUNCTION = "AzureFunction"
+    LOGIC_APPS_CUSTOM_CONNECTOR = "LogicAppsCustomConnector"
+    AUTOMATION_RULE = "AutomationRule"
+
+
+class MatchingMethod(str, Enum):
+    """
+    Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+    """
+    ALL_ENTITIES = "AllEntities"
+    """
+    Grouping alerts into a single incident if all the entities match
+    """
+    ANY_ALERT = "AnyAlert"
+    """
+    Grouping any alerts triggered by this rule into a single incident
+    """
+    SELECTED = "Selected"
+    """
+    Grouping alerts into a single incident if the selected entities, custom details and alert details match
+    """
 
 
 class MicrosoftSecurityProductName(str, Enum):
@@ -641,12 +1013,52 @@ class MicrosoftSecurityProductName(str, Enum):
     AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
 
 
+class Mode(str, Enum):
+    """
+    The current mode of the workspace manager configuration
+    """
+    ENABLED = "Enabled"
+    """
+    The workspace manager configuration is enabled
+    """
+    DISABLED = "Disabled"
+    """
+    The workspace manager configuration is disabled
+    """
+
+
 class Operator(str, Enum):
     """
     Operator used for list of dependencies in criteria array.
     """
     AND_ = "AND"
     OR_ = "OR"
+
+
+class OwnerType(str, Enum):
+    """
+    The type of the owner the incident is assigned to.
+    """
+    UNKNOWN = "Unknown"
+    """
+    The incident owner type is unknown
+    """
+    USER = "User"
+    """
+    The incident owner type is an AAD user
+    """
+    GROUP = "Group"
+    """
+    The incident owner type is an AAD group
+    """
+
+
+class PackageKind(str, Enum):
+    """
+    the packageKind of the package contains this template
+    """
+    SOLUTION = "Solution"
+    STANDALONE = "Standalone"
 
 
 class RepoType(str, Enum):
@@ -706,6 +1118,15 @@ class SourceKind(str, Enum):
     SOURCE_REPOSITORY = "SourceRepository"
 
 
+class Status(str, Enum):
+    """
+    The status of the hunt.
+    """
+    NEW = "New"
+    ACTIVE = "Active"
+    CLOSED = "Closed"
+
+
 class SupportTier(str, Enum):
     """
     Type of support for content item
@@ -715,7 +1136,7 @@ class SupportTier(str, Enum):
     COMMUNITY = "Community"
 
 
-class ThreatIntelligenceResourceKind(str, Enum):
+class ThreatIntelligenceResourceInnerKind(str, Enum):
     """
     The kind of the entity.
     """
@@ -736,22 +1157,24 @@ class TriggerOperator(str, Enum):
 
 
 class TriggersOn(str, Enum):
-    """
-    The type of object the automation rule triggers on
-    """
     INCIDENTS = "Incidents"
     """
     Trigger on Incidents
     """
+    ALERTS = "Alerts"
+    """
+    Trigger on Alerts
+    """
 
 
 class TriggersWhen(str, Enum):
-    """
-    The type of event the automation rule triggers on
-    """
     CREATED = "Created"
     """
     Trigger on created objects
+    """
+    UPDATED = "Updated"
+    """
+    Trigger on updated objects
     """
 
 
@@ -763,3 +1186,11 @@ class UebaDataSources(str, Enum):
     AZURE_ACTIVITY = "AzureActivity"
     SECURITY_EVENT = "SecurityEvent"
     SIGNIN_LOGS = "SigninLogs"
+
+
+class Version(str, Enum):
+    """
+    The version number associated with the source control
+    """
+    V1 = "V1"
+    V2 = "V2"

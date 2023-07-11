@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Connection strings for ingesting security scan logs and data.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview.
  */
 export function listIngestionSettingConnectionStrings(args: ListIngestionSettingConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListIngestionSettingConnectionStringsResult> {
 
@@ -37,7 +37,7 @@ export interface ListIngestionSettingConnectionStringsResult {
 }
 /**
  * Connection strings for ingesting security scan logs and data.
- * API Version: 2021-01-15-preview.
+ * Azure REST API version: 2021-01-15-preview.
  */
 export function listIngestionSettingConnectionStringsOutput(args: ListIngestionSettingConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIngestionSettingConnectionStringsResult> {
     return pulumi.output(args).apply((a: any) => listIngestionSettingConnectionStrings(a, opts))

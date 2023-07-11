@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteCircuitConnection")]
     public partial class ExpressRouteCircuitConnection : global::Pulumi.CustomResource
@@ -132,6 +132,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRouteCircuitConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRouteCircuitConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRouteCircuitConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRouteCircuitConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ExpressRouteCircuitConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

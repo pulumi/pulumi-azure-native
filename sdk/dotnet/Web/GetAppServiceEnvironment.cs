@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetAppServiceEnvironment
     {
         /// <summary>
-        /// Get the properties of an App Service Environment.
-        /// API Version: 2020-12-01.
+        /// Description for Get the properties of an App Service Environment.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetAppServiceEnvironmentResult> InvokeAsync(GetAppServiceEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the properties of an App Service Environment.
-        /// API Version: 2020-12-01.
+        /// Description for Get the properties of an App Service Environment.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetAppServiceEnvironmentResult> Invoke(GetAppServiceEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppServiceEnvironmentResult>("azure-native:web:getAppServiceEnvironment", args ?? new GetAppServiceEnvironmentInvokeArgs(), options.WithDefaults());
@@ -76,9 +76,13 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly ImmutableArray<Outputs.NameValuePairResponse> ClusterSettings;
         /// <summary>
+        /// Full view of the custom domain suffix configuration for ASEv3.
+        /// </summary>
+        public readonly Outputs.CustomDnsSuffixConfigurationResponse? CustomDnsSuffixConfiguration;
+        /// <summary>
         /// Dedicated Host Count
         /// </summary>
-        public readonly int DedicatedHostCount;
+        public readonly int? DedicatedHostCount;
         /// <summary>
         /// DNS suffix of the App Service Environment.
         /// </summary>
@@ -128,6 +132,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Full view of networking configuration for an ASE.
+        /// </summary>
+        public readonly Outputs.AseV3NetworkingConfigurationResponse? NetworkingConfiguration;
+        /// <summary>
         /// Provisioning state of the App Service Environment.
         /// </summary>
         public readonly string ProvisioningState;
@@ -149,19 +157,33 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// User added list of IP Ranges allowed on ASE db
+        /// Whether an upgrade is available for this App Service Environment.
+        /// </summary>
+        public readonly string UpgradeAvailability;
+        /// <summary>
+        /// Upgrade Preference
+        /// </summary>
+        public readonly string? UpgradePreference;
+        /// <summary>
+        /// User added ip ranges to whitelist on ASE db
         /// </summary>
         public readonly ImmutableArray<string> UserWhitelistedIpRanges;
         /// <summary>
         /// Description of the Virtual Network.
         /// </summary>
         public readonly Outputs.VirtualNetworkProfileResponse VirtualNetwork;
+        /// <summary>
+        /// Whether or not this App Service Environment is zone-redundant.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetAppServiceEnvironmentResult(
             ImmutableArray<Outputs.NameValuePairResponse> clusterSettings,
 
-            int dedicatedHostCount,
+            Outputs.CustomDnsSuffixConfigurationResponse? customDnsSuffixConfiguration,
+
+            int? dedicatedHostCount,
 
             string? dnsSuffix,
 
@@ -187,6 +209,8 @@ namespace Pulumi.AzureNative.Web
 
             string name,
 
+            Outputs.AseV3NetworkingConfigurationResponse? networkingConfiguration,
+
             string provisioningState,
 
             string status,
@@ -197,11 +221,18 @@ namespace Pulumi.AzureNative.Web
 
             string type,
 
+            string upgradeAvailability,
+
+            string? upgradePreference,
+
             ImmutableArray<string> userWhitelistedIpRanges,
 
-            Outputs.VirtualNetworkProfileResponse virtualNetwork)
+            Outputs.VirtualNetworkProfileResponse virtualNetwork,
+
+            bool? zoneRedundant)
         {
             ClusterSettings = clusterSettings;
+            CustomDnsSuffixConfiguration = customDnsSuffixConfiguration;
             DedicatedHostCount = dedicatedHostCount;
             DnsSuffix = dnsSuffix;
             FrontEndScaleFactor = frontEndScaleFactor;
@@ -215,13 +246,17 @@ namespace Pulumi.AzureNative.Web
             MultiRoleCount = multiRoleCount;
             MultiSize = multiSize;
             Name = name;
+            NetworkingConfiguration = networkingConfiguration;
             ProvisioningState = provisioningState;
             Status = status;
             Suspended = suspended;
             Tags = tags;
             Type = type;
+            UpgradeAvailability = upgradeAvailability;
+            UpgradePreference = upgradePreference;
             UserWhitelistedIpRanges = userWhitelistedIpRanges;
             VirtualNetwork = virtualNetwork;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

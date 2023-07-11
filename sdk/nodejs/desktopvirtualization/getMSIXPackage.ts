@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a msixpackage.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
 
@@ -89,6 +89,10 @@ export interface GetMSIXPackageResult {
      */
     readonly packageRelativePath?: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -99,7 +103,7 @@ export interface GetMSIXPackageResult {
 }
 /**
  * Get a msixpackage.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getMSIXPackageOutput(args: GetMSIXPackageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMSIXPackageResult> {
     return pulumi.output(args).apply((a: any) => getMSIXPackage(a, opts))

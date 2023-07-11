@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The resource representation of a service in a service topology.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -68,7 +68,7 @@ export interface GetServiceResult {
 }
 /**
  * The resource representation of a service in a service topology.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

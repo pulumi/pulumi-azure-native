@@ -100,7 +100,7 @@ def get_gateway_custom_domain(domain_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayCustomDomainResult:
     """
     Get the Spring Cloud Gateway custom domain.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str domain_name: The name of the Spring Cloud Gateway custom domain.
@@ -132,7 +132,7 @@ def get_gateway_custom_domain_output(domain_name: Optional[pulumi.Input[str]] = 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayCustomDomainResult]:
     """
     Get the Spring Cloud Gateway custom domain.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str domain_name: The name of the Spring Cloud Gateway custom domain.

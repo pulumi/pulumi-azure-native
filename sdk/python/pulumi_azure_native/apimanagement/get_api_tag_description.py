@@ -83,7 +83,7 @@ class GetApiTagDescriptionResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -91,7 +91,7 @@ class GetApiTagDescriptionResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -107,7 +107,7 @@ class GetApiTagDescriptionResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -135,11 +135,11 @@ def get_api_tag_description(api_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiTagDescriptionResult:
     """
     Get Tag description in scope of API
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
     """
@@ -170,11 +170,11 @@ def get_api_tag_description_output(api_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
     Get Tag description in scope of API
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
     """

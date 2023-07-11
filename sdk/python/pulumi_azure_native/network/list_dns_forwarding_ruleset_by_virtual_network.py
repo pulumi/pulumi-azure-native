@@ -63,7 +63,7 @@ def list_dns_forwarding_ruleset_by_virtual_network(resource_group_name: Optional
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDnsForwardingRulesetByVirtualNetworkResult:
     """
     Lists DNS forwarding ruleset resource IDs attached to a virtual network.
-    API Version: 2020-04-01-preview.
+    Azure REST API version: 2022-07-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -89,7 +89,7 @@ def list_dns_forwarding_ruleset_by_virtual_network_output(resource_group_name: O
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDnsForwardingRulesetByVirtualNetworkResult]:
     """
     Lists DNS forwarding ruleset resource IDs attached to a virtual network.
-    API Version: 2020-04-01-preview.
+    Azure REST API version: 2022-07-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

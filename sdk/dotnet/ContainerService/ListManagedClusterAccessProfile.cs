@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Task<ListManagedClusterAccessProfileResult> InvokeAsync(ListManagedClusterAccessProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the accessProfile for the specified role name of the managed cluster with a specified resource group and name.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Output<ListManagedClusterAccessProfileResult> Invoke(ListManagedClusterAccessProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterAccessProfileResult>("azure-native:containerservice:listManagedClusterAccessProfile", args ?? new ListManagedClusterAccessProfileInvokeArgs(), options.WithDefaults());

@@ -22,34 +22,34 @@ class GetArcSettingResult:
     """
     ArcSetting details.
     """
-    def __init__(__self__, aggregate_state=None, arc_instance_resource_group=None, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, per_node_details=None, provisioning_state=None, type=None):
+    def __init__(__self__, aggregate_state=None, arc_application_client_id=None, arc_application_object_id=None, arc_application_tenant_id=None, arc_instance_resource_group=None, arc_service_principal_object_id=None, connectivity_properties=None, default_extensions=None, id=None, name=None, per_node_details=None, provisioning_state=None, system_data=None, type=None):
         if aggregate_state and not isinstance(aggregate_state, str):
             raise TypeError("Expected argument 'aggregate_state' to be a str")
         pulumi.set(__self__, "aggregate_state", aggregate_state)
+        if arc_application_client_id and not isinstance(arc_application_client_id, str):
+            raise TypeError("Expected argument 'arc_application_client_id' to be a str")
+        pulumi.set(__self__, "arc_application_client_id", arc_application_client_id)
+        if arc_application_object_id and not isinstance(arc_application_object_id, str):
+            raise TypeError("Expected argument 'arc_application_object_id' to be a str")
+        pulumi.set(__self__, "arc_application_object_id", arc_application_object_id)
+        if arc_application_tenant_id and not isinstance(arc_application_tenant_id, str):
+            raise TypeError("Expected argument 'arc_application_tenant_id' to be a str")
+        pulumi.set(__self__, "arc_application_tenant_id", arc_application_tenant_id)
         if arc_instance_resource_group and not isinstance(arc_instance_resource_group, str):
             raise TypeError("Expected argument 'arc_instance_resource_group' to be a str")
         pulumi.set(__self__, "arc_instance_resource_group", arc_instance_resource_group)
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
+        if arc_service_principal_object_id and not isinstance(arc_service_principal_object_id, str):
+            raise TypeError("Expected argument 'arc_service_principal_object_id' to be a str")
+        pulumi.set(__self__, "arc_service_principal_object_id", arc_service_principal_object_id)
+        if connectivity_properties and not isinstance(connectivity_properties, list):
+            raise TypeError("Expected argument 'connectivity_properties' to be a list")
+        pulumi.set(__self__, "connectivity_properties", connectivity_properties)
+        if default_extensions and not isinstance(default_extensions, list):
+            raise TypeError("Expected argument 'default_extensions' to be a list")
+        pulumi.set(__self__, "default_extensions", default_extensions)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -59,6 +59,9 @@ class GetArcSettingResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -72,36 +75,60 @@ class GetArcSettingResult:
         return pulumi.get(self, "aggregate_state")
 
     @property
+    @pulumi.getter(name="arcApplicationClientId")
+    def arc_application_client_id(self) -> Optional[str]:
+        """
+        App id of arc AAD identity.
+        """
+        return pulumi.get(self, "arc_application_client_id")
+
+    @property
+    @pulumi.getter(name="arcApplicationObjectId")
+    def arc_application_object_id(self) -> Optional[str]:
+        """
+        Object id of arc AAD identity.
+        """
+        return pulumi.get(self, "arc_application_object_id")
+
+    @property
+    @pulumi.getter(name="arcApplicationTenantId")
+    def arc_application_tenant_id(self) -> Optional[str]:
+        """
+        Tenant id of arc AAD identity.
+        """
+        return pulumi.get(self, "arc_application_tenant_id")
+
+    @property
     @pulumi.getter(name="arcInstanceResourceGroup")
-    def arc_instance_resource_group(self) -> str:
+    def arc_instance_resource_group(self) -> Optional[str]:
         """
         The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
         """
         return pulumi.get(self, "arc_instance_resource_group")
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
+    @pulumi.getter(name="arcServicePrincipalObjectId")
+    def arc_service_principal_object_id(self) -> Optional[str]:
         """
-        The timestamp of resource creation (UTC).
+        Object id of arc AAD service principal.
         """
-        return pulumi.get(self, "created_at")
+        return pulumi.get(self, "arc_service_principal_object_id")
 
     @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
+    @pulumi.getter(name="connectivityProperties")
+    def connectivity_properties(self) -> Optional[Sequence['outputs.ArcConnectivityPropertiesResponse']]:
         """
-        The identity that created the resource.
+        contains connectivity related configuration for ARC resources
         """
-        return pulumi.get(self, "created_by")
+        return pulumi.get(self, "connectivity_properties")
 
     @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
+    @pulumi.getter(name="defaultExtensions")
+    def default_extensions(self) -> Sequence['outputs.DefaultExtensionDetailsResponse']:
         """
-        The type of identity that created the resource.
+        Properties for each of the default extensions category
         """
-        return pulumi.get(self, "created_by_type")
+        return pulumi.get(self, "default_extensions")
 
     @property
     @pulumi.getter
@@ -110,30 +137,6 @@ class GetArcSettingResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter
@@ -160,6 +163,14 @@ class GetArcSettingResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -175,17 +186,18 @@ class AwaitableGetArcSettingResult(GetArcSettingResult):
             yield self
         return GetArcSettingResult(
             aggregate_state=self.aggregate_state,
+            arc_application_client_id=self.arc_application_client_id,
+            arc_application_object_id=self.arc_application_object_id,
+            arc_application_tenant_id=self.arc_application_tenant_id,
             arc_instance_resource_group=self.arc_instance_resource_group,
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
+            arc_service_principal_object_id=self.arc_service_principal_object_id,
+            connectivity_properties=self.connectivity_properties,
+            default_extensions=self.default_extensions,
             id=self.id,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
             name=self.name,
             per_node_details=self.per_node_details,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -195,7 +207,7 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArcSettingResult:
     """
     Get ArcSetting resource details of HCI Cluster.
-    API Version: 2021-01-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -211,17 +223,18 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
 
     return AwaitableGetArcSettingResult(
         aggregate_state=__ret__.aggregate_state,
+        arc_application_client_id=__ret__.arc_application_client_id,
+        arc_application_object_id=__ret__.arc_application_object_id,
+        arc_application_tenant_id=__ret__.arc_application_tenant_id,
         arc_instance_resource_group=__ret__.arc_instance_resource_group,
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
+        arc_service_principal_object_id=__ret__.arc_service_principal_object_id,
+        connectivity_properties=__ret__.connectivity_properties,
+        default_extensions=__ret__.default_extensions,
         id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
         name=__ret__.name,
         per_node_details=__ret__.per_node_details,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -232,7 +245,7 @@ def get_arc_setting_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArcSettingResult]:
     """
     Get ArcSetting resource details of HCI Cluster.
-    API Version: 2021-01-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.

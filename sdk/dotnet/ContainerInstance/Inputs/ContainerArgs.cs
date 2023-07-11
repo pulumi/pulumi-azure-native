@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
         [Input("resources", required: true)]
         public Input<Inputs.ResourceRequirementsArgs> Resources { get; set; } = null!;
 
+        /// <summary>
+        /// The container security properties.
+        /// </summary>
+        [Input("securityContext")]
+        public Input<Inputs.SecurityContextDefinitionArgs>? SecurityContext { get; set; }
+
         [Input("volumeMounts")]
         private InputList<Inputs.VolumeMountArgs>? _volumeMounts;
 

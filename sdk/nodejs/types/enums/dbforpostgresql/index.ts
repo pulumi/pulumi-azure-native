@@ -4,178 +4,223 @@
 // Export sub-modules:
 import * as v20171201 from "./v20171201";
 import * as v20171201preview from "./v20171201preview";
-import * as v20200101 from "./v20200101";
-import * as v20200101privatepreview from "./v20200101privatepreview";
 import * as v20200214preview from "./v20200214preview";
 import * as v20200214privatepreview from "./v20200214privatepreview";
 import * as v20201005privatepreview from "./v20201005privatepreview";
 import * as v20210410privatepreview from "./v20210410privatepreview";
-import * as v20210601 from "./v20210601";
-import * as v20210601preview from "./v20210601preview";
 import * as v20210615privatepreview from "./v20210615privatepreview";
-import * as v20220120preview from "./v20220120preview";
 import * as v20220308preview from "./v20220308preview";
 import * as v20220308privatepreview from "./v20220308privatepreview";
+import * as v20220501preview from "./v20220501preview";
 import * as v20221108 from "./v20221108";
 import * as v20221201 from "./v20221201";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20171201,
     v20171201preview,
-    v20200101,
-    v20200101privatepreview,
     v20200214preview,
     v20200214privatepreview,
     v20201005privatepreview,
     v20210410privatepreview,
-    v20210601,
-    v20210601preview,
     v20210615privatepreview,
-    v20220120preview,
     v20220308preview,
     v20220308privatepreview,
+    v20220501preview,
     v20221108,
     v20221201,
+    v20230301preview,
 };
 
-export const AdministratorType = {
-    ActiveDirectory: "ActiveDirectory",
+export const ActiveDirectoryAuthEnum = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
 } as const;
 
 /**
- * The type of administrator.
+ * If Enabled, Azure Active Directory authentication is enabled.
  */
-export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
+export type ActiveDirectoryAuthEnum = (typeof ActiveDirectoryAuthEnum)[keyof typeof ActiveDirectoryAuthEnum];
+
+export const ArmServerKeyType = {
+    SystemManaged: "SystemManaged",
+    AzureKeyVault: "AzureKeyVault",
+} as const;
+
+/**
+ * Data encryption type to depict if it is System Managed vs Azure Key vault.
+ */
+export type ArmServerKeyType = (typeof ArmServerKeyType)[keyof typeof ArmServerKeyType];
+
+export const CancelEnum = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * To trigger cancel for entire migration we need to send this flag as True
+ */
+export type CancelEnum = (typeof CancelEnum)[keyof typeof CancelEnum];
 
 export const CreateMode = {
     Default: "Default",
+    Create: "Create",
+    Update: "Update",
     PointInTimeRestore: "PointInTimeRestore",
     GeoRestore: "GeoRestore",
     Replica: "Replica",
 } as const;
 
 /**
- * The mode to create a new server.
+ * The mode to create a new PostgreSQL server.
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
-export const GeoRedundantBackup = {
+export const GeoRedundantBackupEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Enable Geo-redundant or not for server backup.
+ * A value indicating whether Geo-Redundant backup is enabled on the server.
  */
-export type GeoRedundantBackup = (typeof GeoRedundantBackup)[keyof typeof GeoRedundantBackup];
+export type GeoRedundantBackupEnum = (typeof GeoRedundantBackupEnum)[keyof typeof GeoRedundantBackupEnum];
 
-export const IdentityType = {
-    SystemAssigned: "SystemAssigned",
+export const HighAvailabilityMode = {
+    Disabled: "Disabled",
+    ZoneRedundant: "ZoneRedundant",
+    SameZone: "SameZone",
 } as const;
 
 /**
- * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+ * The HA mode for the server.
+ */
+export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
+
+export const IdentityType = {
+    None: "None",
+    UserAssigned: "UserAssigned",
+} as const;
+
+/**
+ * the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
  */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
-export const InfrastructureEncryption = {
-    /**
-     * Default value for single layer of encryption for data at rest.
-     */
-    Enabled: "Enabled",
-    /**
-     * Additional (2nd) layer of encryption for data at rest
-     */
-    Disabled: "Disabled",
+export const LogicalReplicationOnSourceDbEnum = {
+    True: "True",
+    False: "False",
 } as const;
 
 /**
- * Status showing whether the server enabled infrastructure encryption.
+ * Indicates whether to setup LogicalReplicationOnSourceDb, if needed
  */
-export type InfrastructureEncryption = (typeof InfrastructureEncryption)[keyof typeof InfrastructureEncryption];
+export type LogicalReplicationOnSourceDbEnum = (typeof LogicalReplicationOnSourceDbEnum)[keyof typeof LogicalReplicationOnSourceDbEnum];
 
-export const MinimalTlsVersionEnum = {
-    TLS1_0: "TLS1_0",
-    TLS1_1: "TLS1_1",
-    TLS1_2: "TLS1_2",
-    TLSEnforcementDisabled: "TLSEnforcementDisabled",
+export const MigrationMode = {
+    Offline: "Offline",
+    Online: "Online",
 } as const;
 
 /**
- * Enforce a minimal Tls version for the server.
+ * There are two types of migration modes Online and Offline
  */
-export type MinimalTlsVersionEnum = (typeof MinimalTlsVersionEnum)[keyof typeof MinimalTlsVersionEnum];
+export type MigrationMode = (typeof MigrationMode)[keyof typeof MigrationMode];
 
-export const PublicNetworkAccessEnum = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
+export const OverwriteDbsInTargetEnum = {
+    True: "True",
+    False: "False",
 } as const;
 
 /**
- * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ * Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
  */
-export type PublicNetworkAccessEnum = (typeof PublicNetworkAccessEnum)[keyof typeof PublicNetworkAccessEnum];
+export type OverwriteDbsInTargetEnum = (typeof OverwriteDbsInTargetEnum)[keyof typeof OverwriteDbsInTargetEnum];
 
-export const ServerKeyType = {
-    AzureKeyVault: "AzureKeyVault",
-} as const;
-
-/**
- * The key type like 'AzureKeyVault'.
- */
-export type ServerKeyType = (typeof ServerKeyType)[keyof typeof ServerKeyType];
-
-export const ServerSecurityAlertPolicyState = {
+export const PasswordAuthEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Specifies the state of the policy, whether it is enabled or disabled.
+ * If Enabled, Password authentication is enabled.
  */
-export type ServerSecurityAlertPolicyState = (typeof ServerSecurityAlertPolicyState)[keyof typeof ServerSecurityAlertPolicyState];
+export type PasswordAuthEnum = (typeof PasswordAuthEnum)[keyof typeof PasswordAuthEnum];
+
+export const PrincipalType = {
+    Unknown: "Unknown",
+    User: "User",
+    Group: "Group",
+    ServicePrincipal: "ServicePrincipal",
+} as const;
+
+/**
+ * The principal type used to represent the type of Active Directory Administrator.
+ */
+export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const ReplicationRole = {
+    None: "None",
+    Primary: "Primary",
+    AsyncReplica: "AsyncReplica",
+    GeoAsyncReplica: "GeoAsyncReplica",
+} as const;
+
+/**
+ * Replication role of the server
+ */
+export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 export const ServerVersion = {
-    ServerVersion_9_5: "9.5",
-    ServerVersion_9_6: "9.6",
-    ServerVersion_10: "10",
-    ServerVersion_10_0: "10.0",
-    ServerVersion_10_2: "10.2",
+    ServerVersion_14: "14",
+    ServerVersion_13: "13",
+    ServerVersion_12: "12",
     ServerVersion_11: "11",
 } as const;
 
 /**
- * Server version.
+ * PostgreSQL Server version.
  */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
 export const SkuTier = {
-    Basic: "Basic",
+    Burstable: "Burstable",
     GeneralPurpose: "GeneralPurpose",
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
 /**
- * The tier of the particular SKU, e.g. Basic.
+ * The tier of the particular SKU, e.g. Burstable.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
-export const SslEnforcementEnum = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
+export const StartDataMigrationEnum = {
+    True: "True",
+    False: "False",
 } as const;
 
 /**
- * Enable ssl enforcement or not when connect to server.
+ * Indicates whether the data migration should start right away
  */
-export type SslEnforcementEnum = (typeof SslEnforcementEnum)[keyof typeof SslEnforcementEnum];
+export type StartDataMigrationEnum = (typeof StartDataMigrationEnum)[keyof typeof StartDataMigrationEnum];
 
-export const StorageAutogrow = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
+export const TriggerCutoverEnum = {
+    True: "True",
+    False: "False",
 } as const;
 
 /**
- * Enable Storage Auto Grow.
+ * To trigger cutover for entire migration we need to send this flag as True
  */
-export type StorageAutogrow = (typeof StorageAutogrow)[keyof typeof StorageAutogrow];
+export type TriggerCutoverEnum = (typeof TriggerCutoverEnum)[keyof typeof TriggerCutoverEnum];

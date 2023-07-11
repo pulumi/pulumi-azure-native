@@ -22,37 +22,25 @@ class GetExtensionResult:
     """
     Details of a particular extension in HCI Cluster.
     """
-    def __init__(__self__, aggregate_state=None, auto_upgrade_minor_version=None, created_at=None, created_by=None, created_by_type=None, force_update_tag=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, per_node_extension_details=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
+    def __init__(__self__, aggregate_state=None, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, managed_by=None, name=None, per_node_extension_details=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, type=None, type_handler_version=None):
         if aggregate_state and not isinstance(aggregate_state, str):
             raise TypeError("Expected argument 'aggregate_state' to be a str")
         pulumi.set(__self__, "aggregate_state", aggregate_state)
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
+        if enable_automatic_upgrade and not isinstance(enable_automatic_upgrade, bool):
+            raise TypeError("Expected argument 'enable_automatic_upgrade' to be a bool")
+        pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -71,6 +59,9 @@ class GetExtensionResult:
         if settings and not isinstance(settings, dict):
             raise TypeError("Expected argument 'settings' to be a dict")
         pulumi.set(__self__, "settings", settings)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -95,28 +86,12 @@ class GetExtensionResult:
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
         """
-        The timestamp of resource creation (UTC).
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
+        return pulumi.get(self, "enable_automatic_upgrade")
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -135,28 +110,12 @@ class GetExtensionResult:
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
         """
-        The timestamp of resource last modification (UTC)
+        Indicates if the extension is managed by azure or the user.
         """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -207,6 +166,14 @@ class GetExtensionResult:
         return pulumi.get(self, "settings")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -218,7 +185,7 @@ class GetExtensionResult:
     @pulumi.getter(name="typeHandlerVersion")
     def type_handler_version(self) -> Optional[str]:
         """
-        Specifies the version of the script handler.
+        Specifies the version of the script handler. Latest version would be used if not specified.
         """
         return pulumi.get(self, "type_handler_version")
 
@@ -231,20 +198,17 @@ class AwaitableGetExtensionResult(GetExtensionResult):
         return GetExtensionResult(
             aggregate_state=self.aggregate_state,
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
+            enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             id=self.id,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
+            managed_by=self.managed_by,
             name=self.name,
             per_node_extension_details=self.per_node_extension_details,
             protected_settings=self.protected_settings,
             provisioning_state=self.provisioning_state,
             publisher=self.publisher,
             settings=self.settings,
+            system_data=self.system_data,
             type=self.type,
             type_handler_version=self.type_handler_version)
 
@@ -256,7 +220,7 @@ def get_extension(arc_setting_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExtensionResult:
     """
     Get particular Arc Extension of HCI Cluster.
-    API Version: 2021-01-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -275,20 +239,17 @@ def get_extension(arc_setting_name: Optional[str] = None,
     return AwaitableGetExtensionResult(
         aggregate_state=__ret__.aggregate_state,
         auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
+        enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
         force_update_tag=__ret__.force_update_tag,
         id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
+        managed_by=__ret__.managed_by,
         name=__ret__.name,
         per_node_extension_details=__ret__.per_node_extension_details,
         protected_settings=__ret__.protected_settings,
         provisioning_state=__ret__.provisioning_state,
         publisher=__ret__.publisher,
         settings=__ret__.settings,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
 
@@ -301,7 +262,7 @@ def get_extension_output(arc_setting_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Get particular Arc Extension of HCI Cluster.
-    API Version: 2021-01-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.

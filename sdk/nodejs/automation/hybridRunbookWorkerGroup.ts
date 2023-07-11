@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of hybrid runbook worker group.
- * API Version: 2021-06-22.
+ * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
  */
 export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**
@@ -47,13 +47,9 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly groupType!: pulumi.Output<string | undefined>;
     /**
-     * Gets or sets the list of hybrid runbook workers.
+     * The name of the resource
      */
-    public /*out*/ readonly hybridRunbookWorkers!: pulumi.Output<outputs.automation.HybridRunbookWorkerLegacyResponse[] | undefined>;
-    /**
-     * Gets or sets the name of the group.
-     */
-    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Resource system metadata.
      */
@@ -83,16 +79,14 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
             resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             resourceInputs["credential"] = args ? args.credential : undefined;
             resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["groupType"] = undefined /*out*/;
-            resourceInputs["hybridRunbookWorkers"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["credential"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
-            resourceInputs["hybridRunbookWorkers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -120,6 +114,10 @@ export interface HybridRunbookWorkerGroupArgs {
      * The hybrid runbook worker group name
      */
     hybridRunbookWorkerGroupName?: pulumi.Input<string>;
+    /**
+     * Gets or sets the name of the resource.
+     */
+    name?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

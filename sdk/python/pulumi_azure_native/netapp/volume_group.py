@@ -21,16 +21,14 @@ class VolumeGroupArgs:
                  resource_group_name: pulumi.Input[str],
                  group_meta_data: Optional[pulumi.Input['VolumeGroupMetaDataArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['VolumeGroupMetaDataArgs'] group_meta_data: Volume group details
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[str] volume_group_name: The name of the volumeGroup
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]] volumes: List of volumes from group
         """
@@ -40,8 +38,6 @@ class VolumeGroupArgs:
             pulumi.set(__self__, "group_meta_data", group_meta_data)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
         if volume_group_name is not None:
             pulumi.set(__self__, "volume_group_name", volume_group_name)
         if volumes is not None:
@@ -63,7 +59,7 @@ class VolumeGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -94,18 +90,6 @@ class VolumeGroupArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
 
     @property
     @pulumi.getter(name="volumeGroupName")
@@ -141,21 +125,19 @@ class VolumeGroup(pulumi.CustomResource):
                  group_meta_data: Optional[pulumi.Input[pulumi.InputType['VolumeGroupMetaDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]]] = None,
                  __props__=None):
         """
         Volume group resource for create
-        API Version: 2021-10-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[pulumi.InputType['VolumeGroupMetaDataArgs']] group_meta_data: Volume group details
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_group_name: The name of the volumeGroup
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]] volumes: List of volumes from group
         """
@@ -167,7 +149,7 @@ class VolumeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Volume group resource for create
-        API Version: 2021-10-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupArgs args: The arguments to use to populate this resource's properties.
@@ -188,7 +170,6 @@ class VolumeGroup(pulumi.CustomResource):
                  group_meta_data: Optional[pulumi.Input[pulumi.InputType['VolumeGroupMetaDataArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VolumeGroupVolumePropertiesArgs']]]]] = None,
                  __props__=None):
@@ -208,13 +189,12 @@ class VolumeGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["tags"] = tags
             __props__.__dict__["volume_group_name"] = volume_group_name
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20210801:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20211001:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20210801:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20211001:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeGroup"), pulumi.Alias(type_="azure-native:netapp/v20221101:VolumeGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeGroup, __self__).__init__(
             'azure-native:netapp:VolumeGroup',
@@ -242,7 +222,6 @@ class VolumeGroup(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volumes"] = None
         return VolumeGroup(resource_name, opts=opts, __props__=__props__)
@@ -278,14 +257,6 @@ class VolumeGroup(pulumi.CustomResource):
         Azure lifecycle management
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
-        """
-        Resource tags
-        """
-        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

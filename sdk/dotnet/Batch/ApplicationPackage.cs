@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Batch
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:batch:ApplicationPackage")]
     public partial class ApplicationPackage : global::Pulumi.CustomResource
@@ -104,6 +104,7 @@ namespace Pulumi.AzureNative.Batch
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220101:ApplicationPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20220601:ApplicationPackage"},
                     new global::Pulumi.Alias { Type = "azure-native:batch/v20221001:ApplicationPackage"},
+                    new global::Pulumi.Alias { Type = "azure-native:batch/v20230501:ApplicationPackage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

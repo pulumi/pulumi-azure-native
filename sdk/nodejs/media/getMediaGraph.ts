@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Media Graph in the Media Services account.
- * API Version: 2020-02-01-preview.
+ * Azure REST API version: 2020-02-01-preview.
  */
 export function getMediaGraph(args: GetMediaGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetMediaGraphResult> {
 
@@ -79,7 +79,7 @@ export interface GetMediaGraphResult {
 }
 /**
  * Get the details of a Media Graph in the Media Services account.
- * API Version: 2020-02-01-preview.
+ * Azure REST API version: 2020-02-01-preview.
  */
 export function getMediaGraphOutput(args: GetMediaGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMediaGraphResult> {
     return pulumi.output(args).apply((a: any) => getMediaGraph(a, opts))

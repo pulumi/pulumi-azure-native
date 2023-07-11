@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the view by view name.
- * API Version: 2019-11-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
 
@@ -43,7 +43,7 @@ export interface GetViewResult {
      */
     readonly createdOn: string;
     /**
-     * Selected currency.
+     * Currency of the current view.
      */
     readonly currency: string;
     /**
@@ -51,9 +51,9 @@ export interface GetViewResult {
      */
     readonly dataSet?: outputs.costmanagement.ReportConfigDatasetResponse;
     /**
-     * Selected date range for viewing cost in.
+     * Date range of the current view.
      */
-    readonly dateRange: string;
+    readonly dateRange?: string;
     /**
      * User input name of the view. Required.
      */
@@ -67,9 +67,9 @@ export interface GetViewResult {
      */
     readonly id: string;
     /**
-     * Include monetary commitment
+     * If true, report includes monetary commitment.
      */
-    readonly includeMonetaryCommitment: boolean;
+    readonly includeMonetaryCommitment?: boolean;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
@@ -81,7 +81,7 @@ export interface GetViewResult {
     /**
      * Date when the user last modified this view.
      */
-    readonly modifiedOn: string;
+    readonly modifiedOn?: string;
     /**
      * Resource name.
      */
@@ -109,7 +109,7 @@ export interface GetViewResult {
 }
 /**
  * Gets the view by view name.
- * API Version: 2019-11-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
     return pulumi.output(args).apply((a: any) => getView(a, opts))

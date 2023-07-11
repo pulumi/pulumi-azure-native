@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a Schedule to execute a task.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
@@ -93,6 +93,8 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Schedule"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Schedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Schedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,7 +137,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -150,7 +152,7 @@ namespace Pulumi.AzureNative.DevCenter
         /// Indicates whether or not this scheduled task is enabled.
         /// </summary>
         [Input("state")]
-        public InputUnion<string, Pulumi.AzureNative.DevCenter.EnableStatus>? State { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DevCenter.ScheduleEnableStatus>? State { get; set; }
 
         /// <summary>
         /// The target time to trigger the action. The format is HH:MM.

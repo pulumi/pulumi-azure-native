@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.DomainRegistration
     public static class ListTopLevelDomainAgreements
     {
         /// <summary>
-        /// Gets all legal agreements that user needs to accept before purchasing a domain.
-        /// API Version: 2020-10-01.
+        /// Description for Gets all legal agreements that user needs to accept before purchasing a domain.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListTopLevelDomainAgreementsResult> InvokeAsync(ListTopLevelDomainAgreementsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets all legal agreements that user needs to accept before purchasing a domain.
-        /// API Version: 2020-10-01.
+        /// Description for Gets all legal agreements that user needs to accept before purchasing a domain.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListTopLevelDomainAgreementsResult> Invoke(ListTopLevelDomainAgreementsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListTopLevelDomainAgreementsResult>("azure-native:domainregistration:listTopLevelDomainAgreements", args ?? new ListTopLevelDomainAgreementsInvokeArgs(), options.WithDefaults());

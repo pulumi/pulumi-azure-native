@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20221201
     /// <summary>
     /// An object that represents a token for a container registry.
     /// </summary>
-    [Obsolete(@"azure-native:containerregistry/v20221201:Token is being removed in the next major version of this provider. Upgrade to at least azure-native:containerregistry/v20230101preview:Token to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:containerregistry/v20221201:Token")]
     public partial class Token : global::Pulumi.CustomResource
     {

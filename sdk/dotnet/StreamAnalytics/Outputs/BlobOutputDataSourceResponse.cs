@@ -17,6 +17,14 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
     public sealed class BlobOutputDataSourceResponse
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        public readonly string? AuthenticationMode;
+        /// <summary>
+        /// Blob path prefix.
+        /// </summary>
+        public readonly string? BlobPathPrefix;
+        /// <summary>
         /// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         public readonly string? Container;
@@ -44,6 +52,10 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
         [OutputConstructor]
         private BlobOutputDataSourceResponse(
+            string? authenticationMode,
+
+            string? blobPathPrefix,
+
             string? container,
 
             string? dateFormat,
@@ -56,6 +68,8 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string type)
         {
+            AuthenticationMode = authenticationMode;
+            BlobPathPrefix = blobPathPrefix;
             Container = container;
             DateFormat = dateFormat;
             PathPattern = pathPattern;

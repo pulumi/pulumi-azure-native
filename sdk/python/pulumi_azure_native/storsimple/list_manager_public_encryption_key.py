@@ -73,7 +73,7 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListManagerPublicEncryptionKeyResult:
     """
     Returns the symmetric encrypted public encryption key of the manager.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str manager_name: The manager name
@@ -97,7 +97,7 @@ def list_manager_public_encryption_key_output(manager_name: Optional[pulumi.Inpu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListManagerPublicEncryptionKeyResult]:
     """
     Returns the symmetric encrypted public encryption key of the manager.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str manager_name: The manager name

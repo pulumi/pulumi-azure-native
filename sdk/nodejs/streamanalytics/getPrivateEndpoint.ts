@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified Private Endpoint.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2020-03-01.
  */
 export function getPrivateEndpoint(args: GetPrivateEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointResult> {
 
@@ -41,6 +41,10 @@ export interface GetPrivateEndpointArgs {
  */
 export interface GetPrivateEndpointResult {
     /**
+     * The date when this private endpoint was created.
+     */
+    readonly createdDate: string;
+    /**
      * Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
      */
     readonly etag: string;
@@ -49,13 +53,13 @@ export interface GetPrivateEndpointResult {
      */
     readonly id: string;
     /**
+     * A list of connections to the remote resource. Immutable after it is set.
+     */
+    readonly manualPrivateLinkServiceConnections?: outputs.streamanalytics.PrivateLinkServiceConnectionResponse[];
+    /**
      * The name of the resource
      */
     readonly name: string;
-    /**
-     * The properties associated with a private endpoint.
-     */
-    readonly properties: outputs.streamanalytics.PrivateEndpointPropertiesResponse;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -63,7 +67,7 @@ export interface GetPrivateEndpointResult {
 }
 /**
  * Gets information about the specified Private Endpoint.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2020-03-01.
  */
 export function getPrivateEndpointOutput(args: GetPrivateEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpoint(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve an alert rule definition.
- * API Version: 2018-03-01.
+ * Azure REST API version: 2018-03-01.
  */
 export function getMetricAlert(args: GetMetricAlertArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricAlertResult> {
 
@@ -110,7 +110,7 @@ export interface GetMetricAlertResult {
 }
 /**
  * Retrieve an alert rule definition.
- * API Version: 2018-03-01.
+ * Azure REST API version: 2018-03-01.
  */
 export function getMetricAlertOutput(args: GetMetricAlertOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricAlertResult> {
     return pulumi.output(args).apply((a: any) => getMetricAlert(a, opts))

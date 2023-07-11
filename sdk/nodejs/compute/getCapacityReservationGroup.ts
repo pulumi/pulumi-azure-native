@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation that retrieves information about a capacity reservation group.
- * API Version: 2021-04-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getCapacityReservationGroup(args: GetCapacityReservationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetCapacityReservationGroupResult> {
 
@@ -37,7 +37,7 @@ export interface GetCapacityReservationGroupArgs {
 }
 
 /**
- * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
+ * Specifies information about the capacity reservation group that the capacity reservations should be assigned to. Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
  */
 export interface GetCapacityReservationGroupResult {
     /**
@@ -79,7 +79,7 @@ export interface GetCapacityReservationGroupResult {
 }
 /**
  * The operation that retrieves information about a capacity reservation group.
- * API Version: 2021-04-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getCapacityReservationGroupOutput(args: GetCapacityReservationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationGroupResult> {
     return pulumi.output(args).apply((a: any) => getCapacityReservationGroup(a, opts))

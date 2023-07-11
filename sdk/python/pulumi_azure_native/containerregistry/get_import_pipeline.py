@@ -159,12 +159,12 @@ def get_import_pipeline(import_pipeline_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImportPipelineResult:
     """
     Gets the properties of the import pipeline.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str import_pipeline_name: The name of the import pipeline.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['importPipelineName'] = import_pipeline_name
@@ -193,11 +193,11 @@ def get_import_pipeline_output(import_pipeline_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImportPipelineResult]:
     """
     Gets the properties of the import pipeline.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str import_pipeline_name: The name of the import pipeline.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Blueprint
     {
         /// <summary>
         /// Get a blueprint artifact.
-        /// API Version: 2018-11-01-preview.
+        /// Azure REST API version: 2018-11-01-preview.
         /// </summary>
         public static Task<GetRoleAssignmentArtifactResult> InvokeAsync(GetRoleAssignmentArtifactArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleAssignmentArtifactResult>("azure-native:blueprint:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a blueprint artifact.
-        /// API Version: 2018-11-01-preview.
+        /// Azure REST API version: 2018-11-01-preview.
         /// </summary>
         public static Output<GetRoleAssignmentArtifactResult> Invoke(GetRoleAssignmentArtifactInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAssignmentArtifactResult>("azure-native:blueprint:getRoleAssignmentArtifact", args ?? new GetRoleAssignmentArtifactInvokeArgs(), options.WithDefaults());

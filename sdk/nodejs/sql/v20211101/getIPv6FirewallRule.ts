@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets an IPv6 firewall rule.
  */
-/** @deprecated azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility. */
 export function getIPv6FirewallRule(args: GetIPv6FirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetIPv6FirewallRuleResult> {
-    pulumi.log.warn("getIPv6FirewallRule is deprecated: azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getIPv6FirewallRule", {
@@ -62,7 +60,6 @@ export interface GetIPv6FirewallRuleResult {
 /**
  * Gets an IPv6 firewall rule.
  */
-/** @deprecated azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility. */
 export function getIPv6FirewallRuleOutput(args: GetIPv6FirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIPv6FirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getIPv6FirewallRule(a, opts))
 }

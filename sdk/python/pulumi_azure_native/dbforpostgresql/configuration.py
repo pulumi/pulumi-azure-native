@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['ConfigurationArgs', 'Configuration']
 
@@ -110,7 +111,7 @@ class Configuration(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Configuration.
-        API Version: 2017-12-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +129,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Configuration.
-        API Version: 2017-12-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -172,9 +173,15 @@ class Configuration(pulumi.CustomResource):
             __props__.__dict__["data_type"] = None
             __props__.__dict__["default_value"] = None
             __props__.__dict__["description"] = None
+            __props__.__dict__["documentation_link"] = None
+            __props__.__dict__["is_config_pending_restart"] = None
+            __props__.__dict__["is_dynamic_config"] = None
+            __props__.__dict__["is_read_only"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20171201preview:Configuration")])
+            __props__.__dict__["unit"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220308preview:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20221201:Configuration"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20230301preview:Configuration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Configuration, __self__).__init__(
             'azure-native:dbforpostgresql:Configuration',
@@ -202,9 +209,15 @@ class Configuration(pulumi.CustomResource):
         __props__.__dict__["data_type"] = None
         __props__.__dict__["default_value"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["documentation_link"] = None
+        __props__.__dict__["is_config_pending_restart"] = None
+        __props__.__dict__["is_dynamic_config"] = None
+        __props__.__dict__["is_read_only"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["source"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["unit"] = None
         __props__.__dict__["value"] = None
         return Configuration(resource_name, opts=opts, __props__=__props__)
 
@@ -241,6 +254,38 @@ class Configuration(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="documentationLink")
+    def documentation_link(self) -> pulumi.Output[str]:
+        """
+        Configuration documentation link.
+        """
+        return pulumi.get(self, "documentation_link")
+
+    @property
+    @pulumi.getter(name="isConfigPendingRestart")
+    def is_config_pending_restart(self) -> pulumi.Output[bool]:
+        """
+        Configuration is pending restart or not.
+        """
+        return pulumi.get(self, "is_config_pending_restart")
+
+    @property
+    @pulumi.getter(name="isDynamicConfig")
+    def is_dynamic_config(self) -> pulumi.Output[bool]:
+        """
+        Configuration dynamic or static.
+        """
+        return pulumi.get(self, "is_dynamic_config")
+
+    @property
+    @pulumi.getter(name="isReadOnly")
+    def is_read_only(self) -> pulumi.Output[bool]:
+        """
+        Configuration read-only or not.
+        """
+        return pulumi.get(self, "is_read_only")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -257,12 +302,28 @@ class Configuration(pulumi.CustomResource):
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Output[str]:
+        """
+        Configuration unit.
+        """
+        return pulumi.get(self, "unit")
 
     @property
     @pulumi.getter

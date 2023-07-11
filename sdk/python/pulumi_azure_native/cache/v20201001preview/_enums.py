@@ -5,51 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'ClusteringPolicy',
-    'EvictionPolicy',
-    'PrivateEndpointServiceConnectionStatus',
-    'Protocol',
     'SkuName',
 ]
-
-
-class ClusteringPolicy(str, Enum):
-    """
-    Clustering policy - default is OSSCluster. Specified at create time.
-    """
-    ENTERPRISE_CLUSTER = "EnterpriseCluster"
-    OSS_CLUSTER = "OSSCluster"
-
-
-class EvictionPolicy(str, Enum):
-    """
-    Redis eviction policy - default is VolatileLRU
-    """
-    ALL_KEYS_LFU = "AllKeysLFU"
-    ALL_KEYS_LRU = "AllKeysLRU"
-    ALL_KEYS_RANDOM = "AllKeysRandom"
-    VOLATILE_LRU = "VolatileLRU"
-    VOLATILE_LFU = "VolatileLFU"
-    VOLATILE_TTL = "VolatileTTL"
-    VOLATILE_RANDOM = "VolatileRandom"
-    NO_EVICTION = "NoEviction"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
-class Protocol(str, Enum):
-    """
-    Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-    """
-    ENCRYPTED = "Encrypted"
-    PLAINTEXT = "Plaintext"
 
 
 class SkuName(str, Enum):

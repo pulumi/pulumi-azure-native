@@ -24,7 +24,7 @@ class SqlPoolTransparentDataEncryptionArgs:
         The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sql_pool_name: SQL pool name
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
         """
@@ -64,7 +64,7 @@ class SqlPoolTransparentDataEncryptionArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -110,7 +110,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a Sql pool transparent data encryption configuration.
-        API Version: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[str] sql_pool_name: SQL pool name
         :param pulumi.Input[Union[str, 'TransparentDataEncryptionStatus']] status: The status of the database transparent data encryption.
         :param pulumi.Input[str] transparent_data_encryption_name: The name of the transparent data encryption configuration.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -128,7 +128,7 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Sql pool transparent data encryption configuration.
-        API Version: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param SqlPoolTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

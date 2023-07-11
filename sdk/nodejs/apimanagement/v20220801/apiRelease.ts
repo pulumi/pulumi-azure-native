@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * ApiRelease details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiRelease to guarantee forwards compatibility.
  */
 export class ApiRelease extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiRelease {
-        pulumi.log.warn("ApiRelease is deprecated: azure-native:apimanagement/v20220801:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiRelease to guarantee forwards compatibility.")
         return new ApiRelease(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +66,7 @@ export class ApiRelease extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiRelease to guarantee forwards compatibility. */
     constructor(name: string, args: ApiReleaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiRelease is deprecated: azure-native:apimanagement/v20220801:ApiRelease is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiRelease to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -102,7 +97,7 @@ export class ApiRelease extends pulumi.CustomResource {
             resourceInputs["updatedDateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiRelease" }, { type: "azure-native:apimanagement/v20170301:ApiRelease" }, { type: "azure-native:apimanagement/v20180101:ApiRelease" }, { type: "azure-native:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20190101:ApiRelease" }, { type: "azure-native:apimanagement/v20191201:ApiRelease" }, { type: "azure-native:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20200601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20201201:ApiRelease" }, { type: "azure-native:apimanagement/v20210101preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210401preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210801:ApiRelease" }, { type: "azure-native:apimanagement/v20211201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20220401preview:ApiRelease" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiRelease" }, { type: "azure-native:apimanagement/v20170301:ApiRelease" }, { type: "azure-native:apimanagement/v20180101:ApiRelease" }, { type: "azure-native:apimanagement/v20180601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20190101:ApiRelease" }, { type: "azure-native:apimanagement/v20191201:ApiRelease" }, { type: "azure-native:apimanagement/v20191201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20200601preview:ApiRelease" }, { type: "azure-native:apimanagement/v20201201:ApiRelease" }, { type: "azure-native:apimanagement/v20210101preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210401preview:ApiRelease" }, { type: "azure-native:apimanagement/v20210801:ApiRelease" }, { type: "azure-native:apimanagement/v20211201preview:ApiRelease" }, { type: "azure-native:apimanagement/v20220401preview:ApiRelease" }, { type: "azure-native:apimanagement/v20220901preview:ApiRelease" }, { type: "azure-native:apimanagement/v20230301preview:ApiRelease" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiRelease.__pulumiType, name, resourceInputs, opts);
     }

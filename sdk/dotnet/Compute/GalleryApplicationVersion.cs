@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Specifies information about the gallery Application Version that you want to create or update.
-    /// API Version: 2020-09-30.
+    /// Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryApplicationVersion")]
     public partial class GalleryApplicationVersion : global::Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("replicationStatus")]
         public Output<Outputs.ReplicationStatusResponse> ReplicationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The safety profile of the Gallery Application Version.
+        /// </summary>
+        [Output("safetyProfile")]
+        public Output<Outputs.GalleryApplicationVersionSafetyProfileResponse?> SafetyProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -149,6 +155,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The safety profile of the Gallery Application Version.
+        /// </summary>
+        [Input("safetyProfile")]
+        public Input<Inputs.GalleryApplicationVersionSafetyProfileArgs>? SafetyProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

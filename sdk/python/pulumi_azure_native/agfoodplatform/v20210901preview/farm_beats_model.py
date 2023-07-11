@@ -214,7 +214,7 @@ class FarmBeatsModel(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform:FarmBeatsModel"), pulumi.Alias(type_="azure-native:agfoodplatform/v20200512preview:FarmBeatsModel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:agfoodplatform:FarmBeatsModel"), pulumi.Alias(type_="azure-native:agfoodplatform/v20200512preview:FarmBeatsModel"), pulumi.Alias(type_="azure-native:agfoodplatform/v20230601preview:FarmBeatsModel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FarmBeatsModel, __self__).__init__(
             'azure-native:agfoodplatform/v20210901preview:FarmBeatsModel',

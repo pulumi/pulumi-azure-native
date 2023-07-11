@@ -16,13 +16,19 @@ namespace Pulumi.AzureNative.Storage.Inputs
     public sealed class AzureFilesIdentityBasedAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Required if choose AD.
+        /// Required if directoryServiceOptions are AD, optional if they are AADKERB.
         /// </summary>
         [Input("activeDirectoryProperties")]
         public Input<Inputs.ActiveDirectoryPropertiesArgs>? ActiveDirectoryProperties { get; set; }
 
         /// <summary>
-        /// Indicates the directory service used.
+        /// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+        /// </summary>
+        [Input("defaultSharePermission")]
+        public InputUnion<string, Pulumi.AzureNative.Storage.DefaultSharePermission>? DefaultSharePermission { get; set; }
+
+        /// <summary>
+        /// Indicates the directory service used. Note that this enum may be extended in the future.
         /// </summary>
         [Input("directoryServiceOptions", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Storage.DirectoryServiceOptions> DirectoryServiceOptions { get; set; } = null!;

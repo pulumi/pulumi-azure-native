@@ -123,7 +123,7 @@ class GetViewByScopeResult:
 
     @property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> str:
+    def date_range(self) -> Optional[str]:
         """
         Date range of the current view.
         """

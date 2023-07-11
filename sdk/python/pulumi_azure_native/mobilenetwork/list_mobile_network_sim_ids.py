@@ -62,7 +62,7 @@ def list_mobile_network_sim_ids(mobile_network_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMobileNetworkSimIdsResult:
     """
     Lists the IDs of all provisioned SIMs in a mobile network
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -85,7 +85,7 @@ def list_mobile_network_sim_ids_output(mobile_network_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMobileNetworkSimIdsResult]:
     """
     Lists the IDs of all provisioned SIMs in a mobile network
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str mobile_network_name: The name of the mobile network.

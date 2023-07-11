@@ -24,7 +24,7 @@ export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve';
 
     /**
      * Returns true if the given object is an instance of NetworkinterfaceRetrieve.  This is designed to work even
@@ -126,7 +126,7 @@ export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:NetworkinterfaceRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:networkinterfaceRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkinterfaceRetrieve.__pulumiType, name, resourceInputs, opts);
     }

@@ -17,26 +17,28 @@ __all__ = ['BatchEndpointInitArgs', 'BatchEndpoint']
 @pulumi.input_type
 class BatchEndpointInitArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['BatchEndpointArgs'],
+                 batch_endpoint_properties: pulumi.Input['BatchEndpointArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BatchEndpoint resource.
-        :param pulumi.Input['BatchEndpointArgs'] properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input['BatchEndpointArgs'] batch_endpoint_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[str] endpoint_name: Name for the Batch inference endpoint.
-        :param pulumi.Input['ResourceIdentityArgs'] identity: Service identity associated with a resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['SkuArgs'] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "batch_endpoint_properties", batch_endpoint_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if endpoint_name is not None:
@@ -47,20 +49,22 @@ class BatchEndpointInitArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['BatchEndpointArgs']:
+    @pulumi.getter(name="batchEndpointProperties")
+    def batch_endpoint_properties(self) -> pulumi.Input['BatchEndpointArgs']:
         """
         [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "batch_endpoint_properties")
 
-    @properties.setter
-    def properties(self, value: pulumi.Input['BatchEndpointArgs']):
-        pulumi.set(self, "properties", value)
+    @batch_endpoint_properties.setter
+    def batch_endpoint_properties(self, value: pulumi.Input['BatchEndpointArgs']):
+        pulumi.set(self, "batch_endpoint_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,14 +104,14 @@ class BatchEndpointInitArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Service identity associated with a resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -136,6 +140,18 @@ class BatchEndpointInitArgs:
 
     @property
     @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        Sku details required for ARM contract for Autoscaling.
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -152,26 +168,28 @@ class BatchEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 batch_endpoint_properties: Optional[pulumi.Input[pulumi.InputType['BatchEndpointArgs']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BatchEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['BatchEndpointArgs']] batch_endpoint_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] endpoint_name: Name for the Batch inference endpoint.
-        :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Service identity associated with a resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[pulumi.InputType['BatchEndpointArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku details required for ARM contract for Autoscaling.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
@@ -182,7 +200,7 @@ class BatchEndpoint(pulumi.CustomResource):
                  args: BatchEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param BatchEndpointInitArgs args: The arguments to use to populate this resource's properties.
@@ -199,12 +217,13 @@ class BatchEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 batch_endpoint_properties: Optional[pulumi.Input[pulumi.InputType['BatchEndpointArgs']]] = None,
                  endpoint_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['BatchEndpointArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -216,16 +235,17 @@ class BatchEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BatchEndpointInitArgs.__new__(BatchEndpointInitArgs)
 
+            if batch_endpoint_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'batch_endpoint_properties'")
+            __props__.__dict__["batch_endpoint_properties"] = batch_endpoint_properties
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
-            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -233,7 +253,7 @@ class BatchEndpoint(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:BatchEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:BatchEndpoint"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:BatchEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BatchEndpoint, __self__).__init__(
             'azure-native:machinelearningservices:BatchEndpoint',
@@ -257,21 +277,30 @@ class BatchEndpoint(pulumi.CustomResource):
 
         __props__ = BatchEndpointInitArgs.__new__(BatchEndpointInitArgs)
 
+        __props__.__dict__["batch_endpoint_properties"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BatchEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.ResourceIdentityResponse']]:
+    @pulumi.getter(name="batchEndpointProperties")
+    def batch_endpoint_properties(self) -> pulumi.Output['outputs.BatchEndpointResponse']:
         """
-        Service identity associated with a resource.
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "batch_endpoint_properties")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -301,17 +330,17 @@ class BatchEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.BatchEndpointResponse']:
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        [Required] Additional attributes of the entity.
+        Sku details required for ARM contract for Autoscaling.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

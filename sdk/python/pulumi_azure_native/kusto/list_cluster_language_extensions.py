@@ -50,7 +50,7 @@ def list_cluster_language_extensions(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListClusterLanguageExtensionsResult:
     """
     Returns a list of language extensions that can run within KQL queries.
-    API Version: 2021-01-01.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -72,7 +72,7 @@ def list_cluster_language_extensions_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListClusterLanguageExtensionsResult]:
     """
     Returns a list of language extensions that can run within KQL queries.
-    API Version: 2021-01-01.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

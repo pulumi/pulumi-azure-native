@@ -147,7 +147,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDscNodeConfigurationResult:
     """
     Retrieve the Dsc node configurations by node configuration.
-    API Version: 2019-06-01.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -180,7 +180,7 @@ def get_dsc_node_configuration_output(automation_account_name: Optional[pulumi.I
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDscNodeConfigurationResult]:
     """
     Retrieve the Dsc node configurations by node configuration.
-    API Version: 2019-06-01.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

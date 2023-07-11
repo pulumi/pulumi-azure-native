@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an iot hub data connection.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:IotHubDataConnection")]
     public partial class IotHubDataConnection : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Output("databaseRouting")]
+        public Output<string?> DatabaseRouting { get; private set; } = null!;
 
         /// <summary>
         /// System properties of the iot hub
@@ -70,6 +76,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        /// </summary>
+        [Output("retrievalStartDate")]
+        public Output<string?> RetrievalStartDate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the share access policy
@@ -134,6 +146,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:IotHubDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:IotHubDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:IotHubDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:IotHubDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,6 +200,12 @@ namespace Pulumi.AzureNative.Kusto
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Input("databaseRouting")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DatabaseRouting>? DatabaseRouting { get; set; }
+
         [Input("eventSystemProperties")]
         private InputList<string>? _eventSystemProperties;
 
@@ -231,6 +250,12 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        /// </summary>
+        [Input("retrievalStartDate")]
+        public Input<string>? RetrievalStartDate { get; set; }
+
+        /// <summary>
         /// The name of the share access policy
         /// </summary>
         [Input("sharedAccessPolicyName", required: true)]
@@ -244,6 +269,7 @@ namespace Pulumi.AzureNative.Kusto
 
         public IotHubDataConnectionArgs()
         {
+            DatabaseRouting = "Single";
         }
         public static new IotHubDataConnectionArgs Empty => new IotHubDataConnectionArgs();
     }

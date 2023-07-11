@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getDatabaseAccount(args: GetDatabaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountResult> {
 
@@ -36,6 +36,10 @@ export interface GetDatabaseAccountArgs {
  */
 export interface GetDatabaseAccountResult {
     /**
+     * Analytical storage specific properties.
+     */
+    readonly analyticalStorageConfiguration?: outputs.documentdb.AnalyticalStorageConfigurationResponse;
+    /**
      * API specific properties.
      */
     readonly apiProperties?: outputs.documentdb.ApiPropertiesResponse;
@@ -47,6 +51,10 @@ export interface GetDatabaseAccountResult {
      * List of Cosmos DB capabilities for the account
      */
     readonly capabilities?: outputs.documentdb.CapabilityResponse[];
+    /**
+     * The object that represents all properties related to capacity enforcement on an account.
+     */
+    readonly capacity?: outputs.documentdb.CapacityResponse;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
@@ -60,6 +68,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly cors?: outputs.documentdb.CorsPolicyResponse[];
     /**
+     * Enum to indicate the mode of account creation.
+     */
+    readonly createMode?: string;
+    /**
      * The offer type for the Cosmos DB database account. Default value: Standard.
      */
     readonly databaseAccountOfferType: string;
@@ -71,6 +83,10 @@ export interface GetDatabaseAccountResult {
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
     readonly disableKeyBasedMetadataWriteAccess?: boolean;
+    /**
+     * Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
+     */
+    readonly disableLocalAuth?: boolean;
     /**
      * The connection endpoint for the Cosmos DB database account.
      */
@@ -96,6 +112,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly enableMultipleWriteLocations?: boolean;
     /**
+     * Flag to indicate enabling/disabling of Partition Merge feature on the account
+     */
+    readonly enablePartitionMerge?: boolean;
+    /**
      * An array that contains the regions ordered by their failover priorities.
      */
     readonly failoverPolicies: outputs.documentdb.FailoverPolicyResponse[];
@@ -107,6 +127,10 @@ export interface GetDatabaseAccountResult {
      * Identity for the resource.
      */
     readonly identity?: outputs.documentdb.ManagedServiceIdentityResponse;
+    /**
+     * A unique identifier assigned to the database account
+     */
+    readonly instanceId: string;
     /**
      * List of IpRules.
      */
@@ -120,6 +144,10 @@ export interface GetDatabaseAccountResult {
      */
     readonly keyVaultKeyUri?: string;
     /**
+     * The object that represents the metadata for the Account Keys of the Cosmos DB account.
+     */
+    readonly keysMetadata: outputs.documentdb.DatabaseAccountKeysMetadataResponse;
+    /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
     readonly kind?: string;
@@ -131,6 +159,10 @@ export interface GetDatabaseAccountResult {
      * An array that contains all of the locations enabled for the Cosmos DB account.
      */
     readonly locations: outputs.documentdb.LocationResponse[];
+    /**
+     * Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+     */
+    readonly minimalTlsVersion?: string;
     /**
      * The name of the ARM resource.
      */
@@ -160,6 +192,14 @@ export interface GetDatabaseAccountResult {
      */
     readonly readLocations: outputs.documentdb.LocationResponse[];
     /**
+     * Parameters to indicate the information about the restore.
+     */
+    readonly restoreParameters?: outputs.documentdb.RestoreParametersResponse;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.documentdb.SystemDataResponse;
+    /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
     readonly tags?: {[key: string]: string};
@@ -178,7 +218,7 @@ export interface GetDatabaseAccountResult {
 }
 /**
  * Retrieves the properties of an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getDatabaseAccountOutput(args: GetDatabaseAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseAccountResult> {
     return pulumi.output(args).apply((a: any) => getDatabaseAccount(a, opts))

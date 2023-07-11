@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
     public sealed class DeploymentModelResponse
     {
         /// <summary>
+        /// The call rate limit Cognitive Services account.
+        /// </summary>
+        public readonly Outputs.CallRateLimitResponse CallRateLimit;
+        /// <summary>
         /// Deployment model format.
         /// </summary>
         public readonly string? Format;
@@ -25,20 +29,30 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Deployment model version.
+        /// Optional. Deployment model source ARM resource ID.
+        /// </summary>
+        public readonly string? Source;
+        /// <summary>
+        /// Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         /// </summary>
         public readonly string? Version;
 
         [OutputConstructor]
         private DeploymentModelResponse(
+            Outputs.CallRateLimitResponse callRateLimit,
+
             string? format,
 
             string? name,
 
+            string? source,
+
             string? version)
         {
+            CallRateLimit = callRateLimit;
             Format = format;
             Name = name;
+            Source = source;
             Version = version;
         }
     }

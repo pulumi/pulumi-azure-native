@@ -11,11 +11,35 @@ namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
     /// A Stream Analytics Cluster object
-    /// API Version: 2020-03-01-preview.
+    /// Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Represents the number of streaming units currently being used on the cluster.
+        /// </summary>
+        [Output("capacityAllocated")]
+        public Output<int> CapacityAllocated { get; private set; } = null!;
+
+        /// <summary>
+        /// Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+        /// </summary>
+        [Output("capacityAssigned")]
+        public Output<int> CapacityAssigned { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique identifier for the cluster.
+        /// </summary>
+        [Output("clusterId")]
+        public Output<string> ClusterId { get; private set; } = null!;
+
+        /// <summary>
+        /// The date this cluster was created.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
         /// <summary>
         /// The current entity tag for the cluster. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
         /// </summary>
@@ -35,10 +59,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with a Stream Analytics cluster.
+        /// The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponse> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the cluster. This determines the size/capacity of the cluster. Required on PUT (CreateOrUpdate) requests.

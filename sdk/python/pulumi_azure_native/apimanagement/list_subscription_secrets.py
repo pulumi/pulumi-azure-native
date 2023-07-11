@@ -62,10 +62,10 @@ def list_subscription_secrets(resource_group_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSubscriptionSecretsResult:
     """
     Gets the specified Subscription keys.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """
@@ -88,10 +88,10 @@ def list_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSubscriptionSecretsResult]:
     """
     Gets the specified Subscription keys.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
     """

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing an EmailService resource.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview
  */
 export class EmailService extends pulumi.CustomResource {
     /**
@@ -103,7 +103,7 @@ export class EmailService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:EmailService" }, { type: "azure-native:communication/v20220701preview:EmailService" }, { type: "azure-native:communication/v20230331:EmailService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:EmailService" }, { type: "azure-native:communication/v20220701preview:EmailService" }, { type: "azure-native:communication/v20230301preview:EmailService" }, { type: "azure-native:communication/v20230331:EmailService" }, { type: "azure-native:communication/v20230401preview:EmailService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EmailService.__pulumiType, name, resourceInputs, opts);
     }

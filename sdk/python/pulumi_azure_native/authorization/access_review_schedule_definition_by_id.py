@@ -25,13 +25,19 @@ class AccessReviewScheduleDefinitionByIdArgs:
                  description_for_reviewers: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 exclude_resource_id: Optional[pulumi.Input[str]] = None,
+                 exclude_role_definition_id: Optional[pulumi.Input[str]] = None,
+                 expand_nested_memberships: Optional[pulumi.Input[bool]] = None,
                  inactive_duration: Optional[pulumi.Input[str]] = None,
+                 include_access_below_resource: Optional[pulumi.Input[bool]] = None,
+                 include_inherited_access: Optional[pulumi.Input[bool]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  justification_required_on_approval: Optional[pulumi.Input[bool]] = None,
                  mail_notifications_enabled: Optional[pulumi.Input[bool]] = None,
                  number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 recommendation_look_back_duration: Optional[pulumi.Input[str]] = None,
                  recommendations_enabled: Optional[pulumi.Input[bool]] = None,
                  reminder_notifications_enabled: Optional[pulumi.Input[bool]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
@@ -48,13 +54,19 @@ class AccessReviewScheduleDefinitionByIdArgs:
         :param pulumi.Input[str] description_for_reviewers: The description provided by the access review creator to be shown to reviewers.
         :param pulumi.Input[str] display_name: The display name for the schedule definition.
         :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
+        :param pulumi.Input[str] exclude_resource_id: This is used to indicate the resource id(s) to exclude
+        :param pulumi.Input[str] exclude_role_definition_id: This is used to indicate the role definition id(s) to exclude
+        :param pulumi.Input[bool] expand_nested_memberships: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[str] inactive_duration: Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        :param pulumi.Input[bool] include_access_below_resource: Flag to indicate whether to expand nested memberships or not.
+        :param pulumi.Input[bool] include_inherited_access: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[int] instance_duration_in_days: The duration in days for an instance.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewInstanceArgs']]] instances: This is the collection of instances returned when one does an expand on it.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         :param pulumi.Input[bool] justification_required_on_approval: Flag to indicate whether the reviewer is required to pass justification when recording a decision.
         :param pulumi.Input[bool] mail_notifications_enabled: Flag to indicate whether sending mails to reviewers and the review creator is enabled.
         :param pulumi.Input[int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
+        :param pulumi.Input[str] recommendation_look_back_duration: Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         :param pulumi.Input[bool] recommendations_enabled: Flag to indicate whether showing recommendations to reviewers is enabled.
         :param pulumi.Input[bool] reminder_notifications_enabled: Flag to indicate whether sending reminder emails to reviewers are enabled.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] reviewers: This is the collection of reviewers.
@@ -78,8 +90,18 @@ class AccessReviewScheduleDefinitionByIdArgs:
             pulumi.set(__self__, "display_name", display_name)
         if end_date is not None:
             pulumi.set(__self__, "end_date", end_date)
+        if exclude_resource_id is not None:
+            pulumi.set(__self__, "exclude_resource_id", exclude_resource_id)
+        if exclude_role_definition_id is not None:
+            pulumi.set(__self__, "exclude_role_definition_id", exclude_role_definition_id)
+        if expand_nested_memberships is not None:
+            pulumi.set(__self__, "expand_nested_memberships", expand_nested_memberships)
         if inactive_duration is not None:
             pulumi.set(__self__, "inactive_duration", inactive_duration)
+        if include_access_below_resource is not None:
+            pulumi.set(__self__, "include_access_below_resource", include_access_below_resource)
+        if include_inherited_access is not None:
+            pulumi.set(__self__, "include_inherited_access", include_inherited_access)
         if instance_duration_in_days is not None:
             pulumi.set(__self__, "instance_duration_in_days", instance_duration_in_days)
         if instances is not None:
@@ -92,6 +114,8 @@ class AccessReviewScheduleDefinitionByIdArgs:
             pulumi.set(__self__, "mail_notifications_enabled", mail_notifications_enabled)
         if number_of_occurrences is not None:
             pulumi.set(__self__, "number_of_occurrences", number_of_occurrences)
+        if recommendation_look_back_duration is not None:
+            pulumi.set(__self__, "recommendation_look_back_duration", recommendation_look_back_duration)
         if recommendations_enabled is not None:
             pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
         if reminder_notifications_enabled is not None:
@@ -202,6 +226,42 @@ class AccessReviewScheduleDefinitionByIdArgs:
         pulumi.set(self, "end_date", value)
 
     @property
+    @pulumi.getter(name="excludeResourceId")
+    def exclude_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is used to indicate the resource id(s) to exclude
+        """
+        return pulumi.get(self, "exclude_resource_id")
+
+    @exclude_resource_id.setter
+    def exclude_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_resource_id", value)
+
+    @property
+    @pulumi.getter(name="excludeRoleDefinitionId")
+    def exclude_role_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        This is used to indicate the role definition id(s) to exclude
+        """
+        return pulumi.get(self, "exclude_role_definition_id")
+
+    @exclude_role_definition_id.setter
+    def exclude_role_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exclude_role_definition_id", value)
+
+    @property
+    @pulumi.getter(name="expandNestedMemberships")
+    def expand_nested_memberships(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "expand_nested_memberships")
+
+    @expand_nested_memberships.setter
+    def expand_nested_memberships(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "expand_nested_memberships", value)
+
+    @property
     @pulumi.getter(name="inactiveDuration")
     def inactive_duration(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +272,30 @@ class AccessReviewScheduleDefinitionByIdArgs:
     @inactive_duration.setter
     def inactive_duration(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "inactive_duration", value)
+
+    @property
+    @pulumi.getter(name="includeAccessBelowResource")
+    def include_access_below_resource(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "include_access_below_resource")
+
+    @include_access_below_resource.setter
+    def include_access_below_resource(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_access_below_resource", value)
+
+    @property
+    @pulumi.getter(name="includeInheritedAccess")
+    def include_inherited_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "include_inherited_access")
+
+    @include_inherited_access.setter
+    def include_inherited_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_inherited_access", value)
 
     @property
     @pulumi.getter(name="instanceDurationInDays")
@@ -284,6 +368,18 @@ class AccessReviewScheduleDefinitionByIdArgs:
     @number_of_occurrences.setter
     def number_of_occurrences(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "number_of_occurrences", value)
+
+    @property
+    @pulumi.getter(name="recommendationLookBackDuration")
+    def recommendation_look_back_duration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        return pulumi.get(self, "recommendation_look_back_duration")
+
+    @recommendation_look_back_duration.setter
+    def recommendation_look_back_duration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "recommendation_look_back_duration", value)
 
     @property
     @pulumi.getter(name="recommendationsEnabled")
@@ -371,13 +467,19 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  description_for_reviewers: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 exclude_resource_id: Optional[pulumi.Input[str]] = None,
+                 exclude_role_definition_id: Optional[pulumi.Input[str]] = None,
+                 expand_nested_memberships: Optional[pulumi.Input[bool]] = None,
                  inactive_duration: Optional[pulumi.Input[str]] = None,
+                 include_access_below_resource: Optional[pulumi.Input[bool]] = None,
+                 include_inherited_access: Optional[pulumi.Input[bool]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  justification_required_on_approval: Optional[pulumi.Input[bool]] = None,
                  mail_notifications_enabled: Optional[pulumi.Input[bool]] = None,
                  number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 recommendation_look_back_duration: Optional[pulumi.Input[str]] = None,
                  recommendations_enabled: Optional[pulumi.Input[bool]] = None,
                  reminder_notifications_enabled: Optional[pulumi.Input[bool]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
@@ -387,7 +489,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  __props__=None):
         """
         Access Review Schedule Definition.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -399,13 +501,19 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         :param pulumi.Input[str] description_for_reviewers: The description provided by the access review creator to be shown to reviewers.
         :param pulumi.Input[str] display_name: The display name for the schedule definition.
         :param pulumi.Input[str] end_date: The DateTime when the review is scheduled to end. Required if type is endDate
+        :param pulumi.Input[str] exclude_resource_id: This is used to indicate the resource id(s) to exclude
+        :param pulumi.Input[str] exclude_role_definition_id: This is used to indicate the role definition id(s) to exclude
+        :param pulumi.Input[bool] expand_nested_memberships: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[str] inactive_duration: Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        :param pulumi.Input[bool] include_access_below_resource: Flag to indicate whether to expand nested memberships or not.
+        :param pulumi.Input[bool] include_inherited_access: Flag to indicate whether to expand nested memberships or not.
         :param pulumi.Input[int] instance_duration_in_days: The duration in days for an instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]] instances: This is the collection of instances returned when one does an expand on it.
         :param pulumi.Input[int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         :param pulumi.Input[bool] justification_required_on_approval: Flag to indicate whether the reviewer is required to pass justification when recording a decision.
         :param pulumi.Input[bool] mail_notifications_enabled: Flag to indicate whether sending mails to reviewers and the review creator is enabled.
         :param pulumi.Input[int] number_of_occurrences: The number of times to repeat the access review. Required and must be positive if type is numbered.
+        :param pulumi.Input[str] recommendation_look_back_duration: Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         :param pulumi.Input[bool] recommendations_enabled: Flag to indicate whether showing recommendations to reviewers is enabled.
         :param pulumi.Input[bool] reminder_notifications_enabled: Flag to indicate whether sending reminder emails to reviewers are enabled.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]] reviewers: This is the collection of reviewers.
@@ -421,7 +529,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Access Review Schedule Definition.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param AccessReviewScheduleDefinitionByIdArgs args: The arguments to use to populate this resource's properties.
@@ -446,13 +554,19 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  description_for_reviewers: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  end_date: Optional[pulumi.Input[str]] = None,
+                 exclude_resource_id: Optional[pulumi.Input[str]] = None,
+                 exclude_role_definition_id: Optional[pulumi.Input[str]] = None,
+                 expand_nested_memberships: Optional[pulumi.Input[bool]] = None,
                  inactive_duration: Optional[pulumi.Input[str]] = None,
+                 include_access_below_resource: Optional[pulumi.Input[bool]] = None,
+                 include_inherited_access: Optional[pulumi.Input[bool]] = None,
                  instance_duration_in_days: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewInstanceArgs']]]]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
                  justification_required_on_approval: Optional[pulumi.Input[bool]] = None,
                  mail_notifications_enabled: Optional[pulumi.Input[bool]] = None,
                  number_of_occurrences: Optional[pulumi.Input[int]] = None,
+                 recommendation_look_back_duration: Optional[pulumi.Input[str]] = None,
                  recommendations_enabled: Optional[pulumi.Input[bool]] = None,
                  reminder_notifications_enabled: Optional[pulumi.Input[bool]] = None,
                  reviewers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccessReviewReviewerArgs']]]]] = None,
@@ -476,13 +590,19 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__.__dict__["description_for_reviewers"] = description_for_reviewers
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["end_date"] = end_date
+            __props__.__dict__["exclude_resource_id"] = exclude_resource_id
+            __props__.__dict__["exclude_role_definition_id"] = exclude_role_definition_id
+            __props__.__dict__["expand_nested_memberships"] = expand_nested_memberships
             __props__.__dict__["inactive_duration"] = inactive_duration
+            __props__.__dict__["include_access_below_resource"] = include_access_below_resource
+            __props__.__dict__["include_inherited_access"] = include_inherited_access
             __props__.__dict__["instance_duration_in_days"] = instance_duration_in_days
             __props__.__dict__["instances"] = instances
             __props__.__dict__["interval"] = interval
             __props__.__dict__["justification_required_on_approval"] = justification_required_on_approval
             __props__.__dict__["mail_notifications_enabled"] = mail_notifications_enabled
             __props__.__dict__["number_of_occurrences"] = number_of_occurrences
+            __props__.__dict__["recommendation_look_back_duration"] = recommendation_look_back_duration
             __props__.__dict__["recommendations_enabled"] = recommendations_enabled
             __props__.__dict__["reminder_notifications_enabled"] = reminder_notifications_enabled
             __props__.__dict__["reviewers"] = reviewers
@@ -532,7 +652,12 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         __props__.__dict__["description_for_reviewers"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["end_date"] = None
+        __props__.__dict__["exclude_resource_id"] = None
+        __props__.__dict__["exclude_role_definition_id"] = None
+        __props__.__dict__["expand_nested_memberships"] = None
         __props__.__dict__["inactive_duration"] = None
+        __props__.__dict__["include_access_below_resource"] = None
+        __props__.__dict__["include_inherited_access"] = None
         __props__.__dict__["instance_duration_in_days"] = None
         __props__.__dict__["instances"] = None
         __props__.__dict__["interval"] = None
@@ -543,6 +668,7 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
         __props__.__dict__["principal_type"] = None
+        __props__.__dict__["recommendation_look_back_duration"] = None
         __props__.__dict__["recommendations_enabled"] = None
         __props__.__dict__["reminder_notifications_enabled"] = None
         __props__.__dict__["resource_id"] = None
@@ -628,12 +754,52 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         return pulumi.get(self, "end_date")
 
     @property
+    @pulumi.getter(name="excludeResourceId")
+    def exclude_resource_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        This is used to indicate the resource id(s) to exclude
+        """
+        return pulumi.get(self, "exclude_resource_id")
+
+    @property
+    @pulumi.getter(name="excludeRoleDefinitionId")
+    def exclude_role_definition_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        This is used to indicate the role definition id(s) to exclude
+        """
+        return pulumi.get(self, "exclude_role_definition_id")
+
+    @property
+    @pulumi.getter(name="expandNestedMemberships")
+    def expand_nested_memberships(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "expand_nested_memberships")
+
+    @property
     @pulumi.getter(name="inactiveDuration")
     def inactive_duration(self) -> pulumi.Output[Optional[str]]:
         """
         Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         """
         return pulumi.get(self, "inactive_duration")
+
+    @property
+    @pulumi.getter(name="includeAccessBelowResource")
+    def include_access_below_resource(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "include_access_below_resource")
+
+    @property
+    @pulumi.getter(name="includeInheritedAccess")
+    def include_inherited_access(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "include_inherited_access")
 
     @property
     @pulumi.getter(name="instanceDurationInDays")
@@ -714,6 +880,14 @@ class AccessReviewScheduleDefinitionById(pulumi.CustomResource):
         The identity type user/servicePrincipal to review
         """
         return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="recommendationLookBackDuration")
+    def recommendation_look_back_duration(self) -> pulumi.Output[Optional[str]]:
+        """
+        Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        return pulumi.get(self, "recommendation_look_back_duration")
 
     @property
     @pulumi.getter(name="recommendationsEnabled")

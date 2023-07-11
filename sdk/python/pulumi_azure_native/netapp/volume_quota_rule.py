@@ -30,7 +30,7 @@ class VolumeQuotaRuleArgs:
         The set of arguments for constructing a VolumeQuotaRule resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] quota_size_in_ki_bs: Size of quota
@@ -84,7 +84,7 @@ class VolumeQuotaRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -195,7 +195,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
                  __props__=None):
         """
         Quota Rule of a Volume
-        API Version: 2022-01-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -205,7 +205,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         :param pulumi.Input[float] quota_size_in_ki_bs: Size of quota
         :param pulumi.Input[str] quota_target: UserID/GroupID/SID based on the quota target type. UserID and groupID can be found by running ‘id’ or ‘getent’ command for the user or group and SID can be found by running <wmic useraccount where name='user-name' get sid>
         :param pulumi.Input[Union[str, 'Type']] quota_type: Type of quota
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] volume_quota_rule_name: The name of volume quota rule
@@ -218,7 +218,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Quota Rule of a Volume
-        API Version: 2022-01-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-01-01
 
         :param str resource_name: The name of the resource.
         :param VolumeQuotaRuleArgs args: The arguments to use to populate this resource's properties.
@@ -276,7 +276,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeQuotaRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20220101:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220301:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220501:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20220901:VolumeQuotaRule"), pulumi.Alias(type_="azure-native:netapp/v20221101:VolumeQuotaRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VolumeQuotaRule, __self__).__init__(
             'azure-native:netapp:VolumeQuotaRule',

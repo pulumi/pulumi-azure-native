@@ -42,50 +42,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cdn.v20150601 as __v20150601
-    v20150601 = __v20150601
-    import pulumi_azure_native.cdn.v20160402 as __v20160402
-    v20160402 = __v20160402
-    import pulumi_azure_native.cdn.v20161002 as __v20161002
-    v20161002 = __v20161002
-    import pulumi_azure_native.cdn.v20170402 as __v20170402
-    v20170402 = __v20170402
-    import pulumi_azure_native.cdn.v20171012 as __v20171012
-    v20171012 = __v20171012
-    import pulumi_azure_native.cdn.v20190415 as __v20190415
-    v20190415 = __v20190415
-    import pulumi_azure_native.cdn.v20190615 as __v20190615
-    v20190615 = __v20190615
-    import pulumi_azure_native.cdn.v20190615preview as __v20190615preview
-    v20190615preview = __v20190615preview
-    import pulumi_azure_native.cdn.v20191231 as __v20191231
-    v20191231 = __v20191231
-    import pulumi_azure_native.cdn.v20200331 as __v20200331
-    v20200331 = __v20200331
-    import pulumi_azure_native.cdn.v20200415 as __v20200415
-    v20200415 = __v20200415
     import pulumi_azure_native.cdn.v20200901 as __v20200901
     v20200901 = __v20200901
-    import pulumi_azure_native.cdn.v20210601 as __v20210601
-    v20210601 = __v20210601
-    import pulumi_azure_native.cdn.v20220501preview as __v20220501preview
-    v20220501preview = __v20220501preview
-    import pulumi_azure_native.cdn.v20221101preview as __v20221101preview
-    v20221101preview = __v20221101preview
+    import pulumi_azure_native.cdn.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
-    v20150601 = _utilities.lazy_import('pulumi_azure_native.cdn.v20150601')
-    v20160402 = _utilities.lazy_import('pulumi_azure_native.cdn.v20160402')
-    v20161002 = _utilities.lazy_import('pulumi_azure_native.cdn.v20161002')
-    v20170402 = _utilities.lazy_import('pulumi_azure_native.cdn.v20170402')
-    v20171012 = _utilities.lazy_import('pulumi_azure_native.cdn.v20171012')
-    v20190415 = _utilities.lazy_import('pulumi_azure_native.cdn.v20190415')
-    v20190615 = _utilities.lazy_import('pulumi_azure_native.cdn.v20190615')
-    v20190615preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20190615preview')
-    v20191231 = _utilities.lazy_import('pulumi_azure_native.cdn.v20191231')
-    v20200331 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200331')
-    v20200415 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200415')
     v20200901 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200901')
-    v20210601 = _utilities.lazy_import('pulumi_azure_native.cdn.v20210601')
-    v20220501preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20220501preview')
-    v20221101preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20221101preview')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.cdn.v20230501')
 

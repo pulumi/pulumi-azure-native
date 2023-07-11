@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List all replications for a specified volume
- * API Version: 2022-01-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function listVolumeReplications(args: ListVolumeReplicationsArgs, opts?: pulumi.InvokeOptions): Promise<ListVolumeReplicationsResult> {
 
@@ -32,7 +32,7 @@ export interface ListVolumeReplicationsArgs {
      */
     poolName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -52,7 +52,7 @@ export interface ListVolumeReplicationsResult {
 }
 /**
  * List all replications for a specified volume
- * API Version: 2022-01-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function listVolumeReplicationsOutput(args: ListVolumeReplicationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListVolumeReplicationsResult> {
     return pulumi.output(args).apply((a: any) => listVolumeReplications(a, opts))
@@ -68,7 +68,7 @@ export interface ListVolumeReplicationsOutputArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

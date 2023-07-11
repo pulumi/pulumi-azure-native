@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Lists DNS forwarding ruleset resource IDs attached to a virtual network.
-        /// API Version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-07-01.
         /// </summary>
         public static Task<ListDnsForwardingRulesetByVirtualNetworkResult> InvokeAsync(ListDnsForwardingRulesetByVirtualNetworkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists DNS forwarding ruleset resource IDs attached to a virtual network.
-        /// API Version: 2020-04-01-preview.
+        /// Azure REST API version: 2022-07-01.
         /// </summary>
         public static Output<ListDnsForwardingRulesetByVirtualNetworkResult> Invoke(ListDnsForwardingRulesetByVirtualNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDnsForwardingRulesetByVirtualNetworkResult>("azure-native:network:listDnsForwardingRulesetByVirtualNetwork", args ?? new ListDnsForwardingRulesetByVirtualNetworkInvokeArgs(), options.WithDefaults());

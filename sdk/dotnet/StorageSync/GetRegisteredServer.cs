@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StorageSync
     {
         /// <summary>
         /// Get a given registered server.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetRegisteredServerResult> InvokeAsync(GetRegisteredServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a given registered server.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetRegisteredServerResult> Invoke(GetRegisteredServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegisteredServerResult>("azure-native:storagesync:getRegisteredServer", args ?? new GetRegisteredServerInvokeArgs(), options.WithDefaults());
@@ -164,6 +164,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly int? ServerManagementErrorCode;
         /// <summary>
+        /// Server name
+        /// </summary>
+        public readonly string ServerName;
+        /// <summary>
         /// Registered Server OS Version
         /// </summary>
         public readonly string? ServerOSVersion;
@@ -179,6 +183,10 @@ namespace Pulumi.AzureNative.StorageSync
         /// Registered Server storageSyncServiceUid
         /// </summary>
         public readonly string? StorageSyncServiceUid;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -226,6 +234,8 @@ namespace Pulumi.AzureNative.StorageSync
 
             int? serverManagementErrorCode,
 
+            string serverName,
+
             string? serverOSVersion,
 
             string? serverRole,
@@ -233,6 +243,8 @@ namespace Pulumi.AzureNative.StorageSync
             string? serviceLocation,
 
             string? storageSyncServiceUid,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -256,10 +268,12 @@ namespace Pulumi.AzureNative.StorageSync
             ServerCertificate = serverCertificate;
             ServerId = serverId;
             ServerManagementErrorCode = serverManagementErrorCode;
+            ServerName = serverName;
             ServerOSVersion = serverOSVersion;
             ServerRole = serverRole;
             ServiceLocation = serviceLocation;
             StorageSyncServiceUid = storageSyncServiceUid;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -16,8 +16,6 @@ __all__ = [
     'get_documentation_output',
 ]
 
-warnings.warn("""azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDocumentationResult:
     """
@@ -106,7 +104,6 @@ def get_documentation(documentation_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_documentation is deprecated: azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['documentationId'] = documentation_id
     __args__['resourceGroupName'] = resource_group_name
@@ -135,5 +132,4 @@ def get_documentation_output(documentation_id: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
-    pulumi.log.warn("""get_documentation is deprecated: azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.""")
     ...

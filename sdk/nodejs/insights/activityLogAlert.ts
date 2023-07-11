@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Activity Log Alert rule resource.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**
@@ -65,11 +65,15 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    public readonly scopes!: pulumi.Output<string[] | undefined>;
     /**
      * The tags of the resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The tenant GUID. Must be provided for tenant-level and management group events rules.
+     */
+    public readonly tenantScope!: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
@@ -95,9 +99,6 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'scopes'");
-            }
             resourceInputs["actions"] = args ? args.actions : undefined;
             resourceInputs["activityLogAlertName"] = args ? args.activityLogAlertName : undefined;
             resourceInputs["condition"] = args ? args.condition : undefined;
@@ -107,6 +108,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenantScope"] = args ? args.tenantScope : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -118,6 +120,7 @@ export class ActivityLogAlert extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scopes"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tenantScope"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -162,9 +165,13 @@ export interface ActivityLogAlertArgs {
     /**
      * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
-    scopes: pulumi.Input<pulumi.Input<string>[]>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The tags of the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The tenant GUID. Must be provided for tenant-level and management group events rules.
+     */
+    tenantScope?: pulumi.Input<string>;
 }

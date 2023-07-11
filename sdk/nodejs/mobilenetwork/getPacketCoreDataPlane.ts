@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified packet core data plane.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getPacketCoreDataPlane(args: GetPacketCoreDataPlaneArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCoreDataPlaneResult> {
 
@@ -37,37 +37,13 @@ export interface GetPacketCoreDataPlaneArgs {
 }
 
 /**
- * Packet core data plane resource.
+ * Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
  */
 export interface GetPacketCoreDataPlaneResult {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -99,7 +75,7 @@ export interface GetPacketCoreDataPlaneResult {
 }
 /**
  * Gets information about the specified packet core data plane.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getPacketCoreDataPlaneOutput(args: GetPacketCoreDataPlaneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPacketCoreDataPlaneResult> {
     return pulumi.output(args).apply((a: any) => getPacketCoreDataPlane(a, opts))

@@ -111,7 +111,7 @@ def get_private_endpoint_connection(pe_connection_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     REST model used to encapsulate the user visible state of a PrivateEndpoint.
-    API Version: 2020-07-07.
+    Azure REST API version: 2020-07-07.
 
 
     :param str pe_connection_name: Private link resource name.
@@ -141,7 +141,7 @@ def get_private_endpoint_connection_output(pe_connection_name: Optional[pulumi.I
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     REST model used to encapsulate the user visible state of a PrivateEndpoint.
-    API Version: 2020-07-07.
+    Azure REST API version: 2020-07-07.
 
 
     :param str pe_connection_name: Private link resource name.

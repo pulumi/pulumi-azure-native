@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Function information.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppInstanceFunctionSlot")]
     public partial class WebAppInstanceFunctionSlot : global::Pulumi.CustomResource

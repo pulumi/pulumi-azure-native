@@ -22,7 +22,10 @@ class GetEndpointResult:
     """
     Class representing a Traffic Manager endpoint.
     """
-    def __init__(__self__, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, id=None, min_child_endpoints=None, min_child_endpoints_i_pv4=None, min_child_endpoints_i_pv6=None, name=None, priority=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None):
+    def __init__(__self__, always_serve=None, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, id=None, min_child_endpoints=None, min_child_endpoints_i_pv4=None, min_child_endpoints_i_pv6=None, name=None, priority=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None):
+        if always_serve and not isinstance(always_serve, str):
+            raise TypeError("Expected argument 'always_serve' to be a str")
+        pulumi.set(__self__, "always_serve", always_serve)
         if custom_headers and not isinstance(custom_headers, list):
             raise TypeError("Expected argument 'custom_headers' to be a list")
         pulumi.set(__self__, "custom_headers", custom_headers)
@@ -71,6 +74,14 @@ class GetEndpointResult:
         if weight and not isinstance(weight, float):
             raise TypeError("Expected argument 'weight' to be a float")
         pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="alwaysServe")
+    def always_serve(self) -> Optional[str]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        """
+        return pulumi.get(self, "always_serve")
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -207,6 +218,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
         if False:
             yield self
         return GetEndpointResult(
+            always_serve=self.always_serve,
             custom_headers=self.custom_headers,
             endpoint_location=self.endpoint_location,
             endpoint_monitor_status=self.endpoint_monitor_status,
@@ -232,13 +244,13 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets a Traffic Manager endpoint.
-    API Version: 2018-08-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
     :param str endpoint_type: The type of the Traffic Manager endpoint.
     :param str profile_name: The name of the Traffic Manager profile.
-    :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
@@ -249,6 +261,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
+        always_serve=__ret__.always_serve,
         custom_headers=__ret__.custom_headers,
         endpoint_location=__ret__.endpoint_location,
         endpoint_monitor_status=__ret__.endpoint_monitor_status,
@@ -275,12 +288,12 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets a Traffic Manager endpoint.
-    API Version: 2018-08-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param str endpoint_name: The name of the Traffic Manager endpoint.
     :param str endpoint_type: The type of the Traffic Manager endpoint.
     :param str profile_name: The name of the Traffic Manager profile.
-    :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

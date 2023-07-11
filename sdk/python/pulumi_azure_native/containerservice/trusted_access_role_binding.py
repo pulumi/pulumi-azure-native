@@ -109,7 +109,7 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
                  __props__=None):
         """
         Defines binding between a resource and role
-        API Version: 2022-04-02-preview.
+        Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines binding between a resource and role
-        API Version: 2022-04-02-preview.
+        Azure REST API version: 2023-05-02-preview. Prior API version in Azure Native 1.x: 2022-04-02-preview
 
         :param str resource_name: The name of the resource.
         :param TrustedAccessRoleBindingArgs args: The arguments to use to populate this resource's properties.
@@ -175,7 +175,7 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220803preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20221102preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220602preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220702preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220802preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220803preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20220902preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20221002preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20221102preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20230102preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20230202preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20230302preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20230402preview:TrustedAccessRoleBinding"), pulumi.Alias(type_="azure-native:containerservice/v20230502preview:TrustedAccessRoleBinding")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TrustedAccessRoleBinding, __self__).__init__(
             'azure-native:containerservice:TrustedAccessRoleBinding',

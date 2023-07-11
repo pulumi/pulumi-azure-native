@@ -19,19 +19,19 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Gets the caching type.
         /// </summary>
-        public readonly string? Caching;
+        public readonly string Caching;
         /// <summary>
-        /// Gets the disk restore point Id.
+        /// Contains Disk Restore Point properties.
         /// </summary>
-        public readonly Outputs.ApiEntityReferenceResponse? DiskRestorePoint;
+        public readonly Outputs.DiskRestorePointAttributesResponse? DiskRestorePoint;
         /// <summary>
         /// Gets the disk size in GB.
         /// </summary>
-        public readonly int? DiskSizeGB;
+        public readonly int DiskSizeGB;
         /// <summary>
         /// Gets the disk encryption settings.
         /// </summary>
-        public readonly Outputs.DiskEncryptionSettingsResponse? EncryptionSettings;
+        public readonly Outputs.DiskEncryptionSettingsResponse EncryptionSettings;
         /// <summary>
         /// Gets the managed disk details
         /// </summary>
@@ -39,27 +39,33 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Gets the disk name.
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Gets the Operating System type.
         /// </summary>
-        public readonly string? OsType;
+        public readonly string OsType;
+        /// <summary>
+        /// Shows true if the disk is write-accelerator enabled.
+        /// </summary>
+        public readonly bool WriteAcceleratorEnabled;
 
         [OutputConstructor]
         private RestorePointSourceVMOSDiskResponse(
-            string? caching,
+            string caching,
 
-            Outputs.ApiEntityReferenceResponse? diskRestorePoint,
+            Outputs.DiskRestorePointAttributesResponse? diskRestorePoint,
 
-            int? diskSizeGB,
+            int diskSizeGB,
 
-            Outputs.DiskEncryptionSettingsResponse? encryptionSettings,
+            Outputs.DiskEncryptionSettingsResponse encryptionSettings,
 
             Outputs.ManagedDiskParametersResponse? managedDisk,
 
-            string? name,
+            string name,
 
-            string? osType)
+            string osType,
+
+            bool writeAcceleratorEnabled)
         {
             Caching = caching;
             DiskRestorePoint = diskRestorePoint;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
             ManagedDisk = managedDisk;
             Name = name;
             OsType = osType;
+            WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }
 }

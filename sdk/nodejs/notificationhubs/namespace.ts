@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Description of a Namespace resource.
- * API Version: 2017-04-01.
+ * Notification Hubs Namespace Resource.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -39,77 +39,33 @@ export class Namespace extends pulumi.CustomResource {
     }
 
     /**
-     * The time the namespace was created.
+     * The geo-location where the resource lives
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Whether or not the namespace is set as Critical.
+     * The name of the resource
      */
-    public readonly critical!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Data center for the namespace
+     * Represents namespace properties.
      */
-    public readonly dataCenter!: pulumi.Output<string | undefined>;
+    public readonly properties!: pulumi.Output<outputs.notificationhubs.NamespacePropertiesResponse>;
     /**
-     * Whether or not the namespace is currently enabled.
+     * The Sku description for a namespace
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    public readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse>;
     /**
-     * Resource location
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
     /**
-     * Identifier for Azure Insights metrics
-     */
-    public /*out*/ readonly metricId!: pulumi.Output<string>;
-    /**
-     * Resource name
-     */
-    public readonly name!: pulumi.Output<string>;
-    /**
-     * The namespace type.
-     */
-    public readonly namespaceType!: pulumi.Output<string | undefined>;
-    /**
-     * Provisioning state of the Namespace.
-     */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
-    /**
-     * Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-     */
-    public readonly region!: pulumi.Output<string | undefined>;
-    /**
-     * ScaleUnit where the namespace gets created
-     */
-    public readonly scaleUnit!: pulumi.Output<string | undefined>;
-    /**
-     * Endpoint you can use to perform NotificationHub operations.
-     */
-    public readonly serviceBusEndpoint!: pulumi.Output<string | undefined>;
-    /**
-     * The sku of the created namespace
-     */
-    public readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse | undefined>;
-    /**
-     * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-     */
-    public readonly status!: pulumi.Output<string | undefined>;
-    /**
-     * The Id of the Azure subscription associated with the namespace.
-     */
-    public readonly subscriptionId!: pulumi.Output<string | undefined>;
-    /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The time the namespace was updated.
-     */
-    public readonly updatedAt!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -125,48 +81,29 @@ export class Namespace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["critical"] = args ? args.critical : undefined;
-            resourceInputs["dataCenter"] = args ? args.dataCenter : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            if ((!args || args.sku === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
+            }
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["namespaceType"] = args ? args.namespaceType : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            resourceInputs["serviceBusEndpoint"] = args ? args.serviceBusEndpoint : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["updatedAt"] = args ? args.updatedAt : undefined;
-            resourceInputs["metricId"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["critical"] = undefined /*out*/;
-            resourceInputs["dataCenter"] = undefined /*out*/;
-            resourceInputs["enabled"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
-            resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["namespaceType"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["region"] = undefined /*out*/;
-            resourceInputs["scaleUnit"] = undefined /*out*/;
-            resourceInputs["serviceBusEndpoint"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:notificationhubs/v20140901:Namespace" }, { type: "azure-native:notificationhubs/v20160301:Namespace" }, { type: "azure-native:notificationhubs/v20170401:Namespace" }, { type: "azure-native:notificationhubs/v20230101preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }
@@ -177,75 +114,27 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
-     * The time the namespace was created.
-     */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * Whether or not the namespace is set as Critical.
-     */
-    critical?: pulumi.Input<boolean>;
-    /**
-     * Data center for the namespace
-     */
-    dataCenter?: pulumi.Input<string>;
-    /**
-     * Whether or not the namespace is currently enabled.
-     */
-    enabled?: pulumi.Input<boolean>;
-    /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the namespace.
-     */
-    name?: pulumi.Input<string>;
-    /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName?: pulumi.Input<string>;
     /**
-     * The namespace type.
+     * Represents namespace properties.
      */
-    namespaceType?: pulumi.Input<enums.notificationhubs.NamespaceType>;
+    properties?: pulumi.Input<inputs.notificationhubs.NamespacePropertiesArgs>;
     /**
-     * Provisioning state of the Namespace.
-     */
-    provisioningState?: pulumi.Input<string>;
-    /**
-     * Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-     */
-    region?: pulumi.Input<string>;
-    /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * ScaleUnit where the namespace gets created
+     * The Sku description for a namespace
      */
-    scaleUnit?: pulumi.Input<string>;
+    sku: pulumi.Input<inputs.notificationhubs.SkuArgs>;
     /**
-     * Endpoint you can use to perform NotificationHub operations.
-     */
-    serviceBusEndpoint?: pulumi.Input<string>;
-    /**
-     * The sku of the created namespace
-     */
-    sku?: pulumi.Input<inputs.notificationhubs.SkuArgs>;
-    /**
-     * Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-     */
-    status?: pulumi.Input<string>;
-    /**
-     * The Id of the Azure subscription associated with the namespace.
-     */
-    subscriptionId?: pulumi.Input<string>;
-    /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The time the namespace was updated.
-     */
-    updatedAt?: pulumi.Input<string>;
 }

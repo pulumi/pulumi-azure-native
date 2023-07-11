@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnServerConfigurationPolicyGroup Resource.
- * API Version: 2022-01-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01
  */
 export class ConfigurationPolicyGroup extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class ConfigurationPolicyGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210801:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220101:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220501:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220701:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220901:ConfigurationPolicyGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210801:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220101:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220501:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220701:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20220901:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20221101:ConfigurationPolicyGroup" }, { type: "azure-native:network/v20230201:ConfigurationPolicyGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationPolicyGroup.__pulumiType, name, resourceInputs, opts);
     }

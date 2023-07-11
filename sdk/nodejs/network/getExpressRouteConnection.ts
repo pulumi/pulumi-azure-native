@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified ExpressRouteConnection.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getExpressRouteConnection(args: GetExpressRouteConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteConnectionResult> {
 
@@ -49,6 +49,10 @@ export interface GetExpressRouteConnectionResult {
      */
     readonly enableInternetSecurity?: boolean;
     /**
+     * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+     */
+    readonly enablePrivateLinkFastPath?: boolean;
+    /**
      * The ExpressRoute circuit peering.
      */
     readonly expressRouteCircuitPeering: outputs.network.ExpressRouteCircuitPeeringIdResponse;
@@ -79,7 +83,7 @@ export interface GetExpressRouteConnectionResult {
 }
 /**
  * Gets the specified ExpressRouteConnection.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getExpressRouteConnectionOutput(args: GetExpressRouteConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteConnectionResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteConnection(a, opts))

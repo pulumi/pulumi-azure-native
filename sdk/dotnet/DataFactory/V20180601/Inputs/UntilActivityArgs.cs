@@ -58,6 +58,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        [Input("onInactiveMarkAs")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
+
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.ActivityState>? State { get; set; }
+
+        /// <summary>
         /// Specifies the timeout for the activity to run. If there is no value specified, it takes the value of TimeSpan.FromDays(7) which is 1 week as default. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         /// </summary>
         [Input("timeout")]

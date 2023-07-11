@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get tenant access information details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listTenantAccessSecrets(args: ListTenantAccessSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListTenantAccessSecretsResult> {
 
@@ -24,7 +24,7 @@ export interface ListTenantAccessSecretsArgs {
      */
     accessName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -60,7 +60,7 @@ export interface ListTenantAccessSecretsResult {
 }
 /**
  * Get tenant access information details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listTenantAccessSecretsOutput(args: ListTenantAccessSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTenantAccessSecretsResult> {
     return pulumi.output(args).apply((a: any) => listTenantAccessSecrets(a, opts))
@@ -72,7 +72,7 @@ export interface ListTenantAccessSecretsOutputArgs {
      */
     accessName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

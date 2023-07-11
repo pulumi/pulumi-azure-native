@@ -16,7 +16,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     [OutputType]
     public sealed class KeyVaultSigningKeyParametersResponse
     {
-        public readonly string OdataType;
         /// <summary>
         /// Resource group of the user's Key Vault containing the secret
         /// </summary>
@@ -33,6 +32,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Subscription Id of the user's Key Vault containing the secret
         /// </summary>
         public readonly string SubscriptionId;
+        public readonly string TypeName;
         /// <summary>
         /// The name of the user's Key Vault containing the secret
         /// </summary>
@@ -40,8 +40,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
         [OutputConstructor]
         private KeyVaultSigningKeyParametersResponse(
-            string odataType,
-
             string resourceGroupName,
 
             string secretName,
@@ -50,13 +48,15 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             string subscriptionId,
 
+            string typeName,
+
             string vaultName)
         {
-            OdataType = odataType;
             ResourceGroupName = resourceGroupName;
             SecretName = secretName;
             SecretVersion = secretVersion;
             SubscriptionId = subscriptionId;
+            TypeName = typeName;
             VaultName = vaultName;
         }
     }

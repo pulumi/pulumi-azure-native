@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly Outputs.AvailabilityInformationResponse AvailabilityInformation;
         /// <summary>
+        /// Different types of child configurations which exist for this configuration, these can be used to populate the child configuration filter.
+        /// </summary>
+        public readonly ImmutableArray<string> ChildConfigurationTypes;
+        /// <summary>
         /// Cost information for the product system.
         /// </summary>
         public readonly Outputs.CostInformationResponse CostInformation;
@@ -29,7 +33,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly Outputs.DescriptionResponse Description;
         /// <summary>
-        /// Dimensions of the configuration
+        /// Dimensions of the configuration.
         /// </summary>
         public readonly Outputs.DimensionsResponse Dimensions;
         /// <summary>
@@ -37,9 +41,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// list of filters supported for a product
+        /// List of filters supported for a product.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterablePropertyResponse> FilterableProperties;
+        /// <summary>
+        /// The entity responsible for fulfillment of the item at the given hierarchy level.
+        /// </summary>
+        public readonly string FulfilledBy;
+        /// <summary>
+        /// Child configurations present for the configuration after applying child configuration filter, grouped by the category name of the child configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GroupedChildConfigurationsResponse> GroupedChildConfigurations;
         /// <summary>
         /// Hierarchy information of a product.
         /// </summary>
@@ -49,13 +61,15 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageInformationResponse> ImageInformation;
         /// <summary>
-        /// Specifications of the configuration
+        /// Specifications of the configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpecificationResponse> Specifications;
 
         [OutputConstructor]
         private ConfigurationResponse(
             Outputs.AvailabilityInformationResponse availabilityInformation,
+
+            ImmutableArray<string> childConfigurationTypes,
 
             Outputs.CostInformationResponse costInformation,
 
@@ -67,6 +81,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             ImmutableArray<Outputs.FilterablePropertyResponse> filterableProperties,
 
+            string fulfilledBy,
+
+            ImmutableArray<Outputs.GroupedChildConfigurationsResponse> groupedChildConfigurations,
+
             Outputs.HierarchyInformationResponse hierarchyInformation,
 
             ImmutableArray<Outputs.ImageInformationResponse> imageInformation,
@@ -74,11 +92,14 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
             ImmutableArray<Outputs.SpecificationResponse> specifications)
         {
             AvailabilityInformation = availabilityInformation;
+            ChildConfigurationTypes = childConfigurationTypes;
             CostInformation = costInformation;
             Description = description;
             Dimensions = dimensions;
             DisplayName = displayName;
             FilterableProperties = filterableProperties;
+            FulfilledBy = fulfilledBy;
+            GroupedChildConfigurations = groupedChildConfigurations;
             HierarchyInformation = hierarchyInformation;
             ImageInformation = imageInformation;
             Specifications = specifications;

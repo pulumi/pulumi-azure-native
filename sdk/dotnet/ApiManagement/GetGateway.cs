@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the Gateway specified by its identifier.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetGatewayResult> InvokeAsync(GetGatewayArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGatewayResult>("azure-native:apimanagement:getGateway", args ?? new GetGatewayArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the Gateway specified by its identifier.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("azure-native:apimanagement:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public string GatewayId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> GatewayId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -96,11 +96,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly Outputs.ResourceLocationDataContractResponse? LocationData;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

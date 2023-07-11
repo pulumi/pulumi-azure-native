@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
- * API Version: 2020-12-01.
+ * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppHybridConnection(args: GetWebAppHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppHybridConnectionResult> {
 
@@ -93,8 +93,8 @@ export interface GetWebAppHybridConnectionResult {
     readonly type: string;
 }
 /**
- * Retrieves a specific Service Bus Hybrid Connection used by this Web App.
- * API Version: 2020-12-01.
+ * Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppHybridConnectionOutput(args: GetWebAppHybridConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppHybridConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppHybridConnection(a, opts))

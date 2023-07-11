@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Type of the Storage Target.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class StorageTarget extends pulumi.CustomResource {
     }
 
     /**
+     * The percentage of cache space allocated for this storage target
+     */
+    public /*out*/ readonly allocationPercentage!: pulumi.Output<number>;
+    /**
      * Properties when targetType is blobNfs.
      */
     public readonly blobNfs!: pulumi.Output<outputs.storagecache.BlobNfsTargetResponse | undefined>;
@@ -47,7 +51,7 @@ export class StorageTarget extends pulumi.CustomResource {
      */
     public readonly clfs!: pulumi.Output<outputs.storagecache.ClfsTargetResponse | undefined>;
     /**
-     * List of Cache namespace junctions to target for namespace associations.
+     * List of cache namespace junctions to target for namespace associations.
      */
     public readonly junctions!: pulumi.Output<outputs.storagecache.NamespaceJunctionResponse[] | undefined>;
     /**
@@ -65,7 +69,11 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Storage target operational state.
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
@@ -108,16 +116,19 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["clfs"] = args ? args.clfs : undefined;
             resourceInputs["junctions"] = args ? args.junctions : undefined;
             resourceInputs["nfs3"] = args ? args.nfs3 : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["storageTargetName"] = args ? args.storageTargetName : undefined;
             resourceInputs["targetType"] = args ? args.targetType : undefined;
             resourceInputs["unknown"] = args ? args.unknown : undefined;
+            resourceInputs["allocationPercentage"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["allocationPercentage"] = undefined /*out*/;
             resourceInputs["blobNfs"] = undefined /*out*/;
             resourceInputs["clfs"] = undefined /*out*/;
             resourceInputs["junctions"] = undefined /*out*/;
@@ -125,13 +136,14 @@ export class StorageTarget extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nfs3"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["targetType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["unknown"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }, { type: "azure-native:storagecache/v20220101:StorageTarget" }, { type: "azure-native:storagecache/v20220501:StorageTarget" }, { type: "azure-native:storagecache/v20230101:StorageTarget" }, { type: "azure-native:storagecache/v20230301preview:StorageTarget" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20190801preview:StorageTarget" }, { type: "azure-native:storagecache/v20191101:StorageTarget" }, { type: "azure-native:storagecache/v20200301:StorageTarget" }, { type: "azure-native:storagecache/v20201001:StorageTarget" }, { type: "azure-native:storagecache/v20210301:StorageTarget" }, { type: "azure-native:storagecache/v20210501:StorageTarget" }, { type: "azure-native:storagecache/v20210901:StorageTarget" }, { type: "azure-native:storagecache/v20220101:StorageTarget" }, { type: "azure-native:storagecache/v20220501:StorageTarget" }, { type: "azure-native:storagecache/v20230101:StorageTarget" }, { type: "azure-native:storagecache/v20230301preview:StorageTarget" }, { type: "azure-native:storagecache/v20230501:StorageTarget" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageTarget.__pulumiType, name, resourceInputs, opts);
     }
@@ -146,7 +158,7 @@ export interface StorageTargetArgs {
      */
     blobNfs?: pulumi.Input<inputs.storagecache.BlobNfsTargetArgs>;
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName: pulumi.Input<string>;
     /**
@@ -154,7 +166,7 @@ export interface StorageTargetArgs {
      */
     clfs?: pulumi.Input<inputs.storagecache.ClfsTargetArgs>;
     /**
-     * List of Cache namespace junctions to target for namespace associations.
+     * List of cache namespace junctions to target for namespace associations.
      */
     junctions?: pulumi.Input<pulumi.Input<inputs.storagecache.NamespaceJunctionArgs>[]>;
     /**
@@ -162,13 +174,13 @@ export interface StorageTargetArgs {
      */
     nfs3?: pulumi.Input<inputs.storagecache.Nfs3TargetArgs>;
     /**
-     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-     */
-    provisioningState?: pulumi.Input<string | enums.storagecache.ProvisioningStateType>;
-    /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Storage target operational state.
+     */
+    state?: pulumi.Input<string | enums.storagecache.OperationalStateType>;
     /**
      * Name of Storage Target.
      */

@@ -169,7 +169,7 @@ def get_service(device_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Get the non-security related metadata of a Windows IoT Device Service.
-    API Version: 2019-06-01.
+    Azure REST API version: 2019-06-01.
 
 
     :param str device_name: The name of the Windows IoT Device Service.
@@ -201,7 +201,7 @@ def get_service_output(device_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Get the non-security related metadata of a Windows IoT Device Service.
-    API Version: 2019-06-01.
+    Azure REST API version: 2019-06-01.
 
 
     :param str device_name: The name of the Windows IoT Device Service.

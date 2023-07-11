@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Media.Inputs
         public Input<string>? BufferWindow { get; set; }
 
         /// <summary>
+        /// The value of CRF to be used when encoding this layer. This setting takes effect when RateControlMode of video codec is set at CRF mode. The range of CRF value is between 0 and 51, where lower values would result in better quality, at the expense of higher file sizes. Higher values mean more compression, but at some point quality degradation will be noticed. Default value is 28.
+        /// </summary>
+        [Input("crf")]
+        public Input<double>? Crf { get; set; }
+
+        /// <summary>
         /// The frame rate (in frames per second) at which to encode this layer. The value can be in the form of M/N where M and N are integers (For example, 30000/1001), or in the form of a number (For example, 30, or 29.97). The encoder enforces constraints on allowed frame rates based on the profile and level. If it is not specified, the encoder will use the same frame rate as the input video.
         /// </summary>
         [Input("frameRate")]
@@ -68,13 +74,6 @@ namespace Pulumi.AzureNative.Media.Inputs
         /// </summary>
         [Input("maxBitrate")]
         public Input<int>? MaxBitrate { get; set; }
-
-        /// <summary>
-        /// The discriminator for derived types.
-        /// Expected value is '#Microsoft.Media.H265Layer'.
-        /// </summary>
-        [Input("odataType", required: true)]
-        public Input<string> OdataType { get; set; } = null!;
 
         /// <summary>
         /// We currently support Main. Default is Auto.

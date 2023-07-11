@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a user rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultUserRuleResult> {
 
@@ -25,7 +25,7 @@ export function getDefaultUserRule(args: GetDefaultUserRuleArgs, opts?: pulumi.I
 
 export interface GetDefaultUserRuleArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -66,10 +66,6 @@ export interface GetDefaultUserRuleResult {
      * Indicates if the traffic matched against the rule in inbound or outbound.
      */
     readonly direction: string;
-    /**
-     * A friendly name for the rule.
-     */
-    readonly displayName: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -118,7 +114,7 @@ export interface GetDefaultUserRuleResult {
 }
 /**
  * Gets a user rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultUserRuleResult> {
     return pulumi.output(args).apply((a: any) => getDefaultUserRule(a, opts))
@@ -126,7 +122,7 @@ export function getDefaultUserRuleOutput(args: GetDefaultUserRuleOutputArgs, opt
 
 export interface GetDefaultUserRuleOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

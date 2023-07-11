@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the Dedicated host.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly autoReplaceOnFailure!: pulumi.Output<boolean | undefined>;
     /**
-     * A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+     * A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
      */
     public /*out*/ readonly hostId!: pulumi.Output<string>;
     /**
@@ -51,7 +51,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.DedicatedHostInstanceViewResponse>;
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
     /**
@@ -82,6 +82,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the time at which the Dedicated Host resource was created. Minimum api-version: 2021-11-01.
+     */
+    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
     /**
      * Resource type
      */
@@ -125,6 +129,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["provisioningTime"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         } else {
@@ -139,6 +144,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["provisioningTime"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachines"] = undefined /*out*/;
         }
@@ -166,7 +172,7 @@ export interface DedicatedHostArgs {
      */
     hostName?: pulumi.Input<string>;
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+     * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
      */
     licenseType?: pulumi.Input<enums.compute.DedicatedHostLicenseTypes>;
     /**

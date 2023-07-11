@@ -98,7 +98,7 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerSubscriptionResult:
     """
     Returns the specified product.
-    API Version: 2017-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str customer_subscription_name: Name of the product.
@@ -127,7 +127,7 @@ def get_customer_subscription_output(customer_subscription_name: Optional[pulumi
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:
     """
     Returns the specified product.
-    API Version: 2017-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str customer_subscription_name: Name of the product.

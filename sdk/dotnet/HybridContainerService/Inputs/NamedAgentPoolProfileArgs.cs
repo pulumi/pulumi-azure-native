@@ -115,7 +115,6 @@ namespace Pulumi.AzureNative.HybridContainerService.Inputs
         {
             Count = 1;
             Mode = "User";
-            OsType = "Linux";
         }
         public static new NamedAgentPoolProfileArgs Empty => new NamedAgentPoolProfileArgs();
     }

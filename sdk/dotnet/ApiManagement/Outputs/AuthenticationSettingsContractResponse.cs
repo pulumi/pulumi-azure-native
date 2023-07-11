@@ -21,18 +21,32 @@ namespace Pulumi.AzureNative.ApiManagement.Outputs
         /// </summary>
         public readonly Outputs.OAuth2AuthenticationSettingsContractResponse? OAuth2;
         /// <summary>
+        /// Collection of OAuth2 authentication settings included into this API.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OAuth2AuthenticationSettingsContractResponse> OAuth2AuthenticationSettings;
+        /// <summary>
         /// OpenID Connect Authentication Settings
         /// </summary>
         public readonly Outputs.OpenIdAuthenticationSettingsContractResponse? Openid;
+        /// <summary>
+        /// Collection of Open ID Connect authentication settings included into this API.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OpenIdAuthenticationSettingsContractResponse> OpenidAuthenticationSettings;
 
         [OutputConstructor]
         private AuthenticationSettingsContractResponse(
             Outputs.OAuth2AuthenticationSettingsContractResponse? oAuth2,
 
-            Outputs.OpenIdAuthenticationSettingsContractResponse? openid)
+            ImmutableArray<Outputs.OAuth2AuthenticationSettingsContractResponse> oAuth2AuthenticationSettings,
+
+            Outputs.OpenIdAuthenticationSettingsContractResponse? openid,
+
+            ImmutableArray<Outputs.OpenIdAuthenticationSettingsContractResponse> openidAuthenticationSettings)
         {
             OAuth2 = oAuth2;
+            OAuth2AuthenticationSettings = oAuth2AuthenticationSettings;
             Openid = openid;
+            OpenidAuthenticationSettings = openidAuthenticationSettings;
         }
     }
 }

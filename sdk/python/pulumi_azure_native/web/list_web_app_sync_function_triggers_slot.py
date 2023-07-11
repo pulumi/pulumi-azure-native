@@ -61,8 +61,8 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
                                              slot: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppSyncFunctionTriggersSlotResult:
     """
-    This is to allow calling via powershell and ARM template.
-    API Version: 2020-12-01.
+    Description for This is to allow calling via powershell and ARM template.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -87,8 +87,8 @@ def list_web_app_sync_function_triggers_slot_output(name: Optional[pulumi.Input[
                                                     slot: Optional[pulumi.Input[str]] = None,
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersSlotResult]:
     """
-    This is to allow calling via powershell and ARM template.
-    API Version: 2020-12-01.
+    Description for This is to allow calling via powershell and ARM template.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

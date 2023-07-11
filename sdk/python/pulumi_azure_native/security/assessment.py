@@ -145,8 +145,8 @@ class Assessment(pulumi.CustomResource):
                  status: Optional[pulumi.Input[pulumi.InputType['AssessmentStatusArgs']]] = None,
                  __props__=None):
         """
-        Security assessment on a resource
-        API Version: 2020-01-01.
+        Security assessment on a resource - response format
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -165,8 +165,8 @@ class Assessment(pulumi.CustomResource):
                  args: AssessmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Security assessment on a resource
-        API Version: 2020-01-01.
+        Security assessment on a resource - response format
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.
@@ -309,7 +309,7 @@ class Assessment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output['outputs.AssessmentStatusResponse']:
+    def status(self) -> pulumi.Output['outputs.AssessmentStatusResponseResponse']:
         """
         The result of the assessment
         """

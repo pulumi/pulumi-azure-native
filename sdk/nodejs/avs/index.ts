@@ -130,6 +130,11 @@ export type HcxEnterpriseSite = import("./hcxEnterpriseSite").HcxEnterpriseSite;
 export const HcxEnterpriseSite: typeof import("./hcxEnterpriseSite").HcxEnterpriseSite = null as any;
 utilities.lazyLoad(exports, ["HcxEnterpriseSite"], () => require("./hcxEnterpriseSite"));
 
+export { ListClusterZonesArgs, ListClusterZonesResult, ListClusterZonesOutputArgs } from "./listClusterZones";
+export const listClusterZones: typeof import("./listClusterZones").listClusterZones = null as any;
+export const listClusterZonesOutput: typeof import("./listClusterZones").listClusterZonesOutput = null as any;
+utilities.lazyLoad(exports, ["listClusterZones","listClusterZonesOutput"], () => require("./listClusterZones"));
+
 export { ListPrivateCloudAdminCredentialsArgs, ListPrivateCloudAdminCredentialsResult, ListPrivateCloudAdminCredentialsOutputArgs } from "./listPrivateCloudAdminCredentials";
 export const listPrivateCloudAdminCredentials: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentials = null as any;
 export const listPrivateCloudAdminCredentialsOutput: typeof import("./listPrivateCloudAdminCredentials").listPrivateCloudAdminCredentialsOutput = null as any;
@@ -191,18 +196,14 @@ export * from "../types/enums/avs";
 
 // Export sub-modules:
 import * as v20200320 from "./v20200320";
-import * as v20200717preview from "./v20200717preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601 from "./v20210601";
-import * as v20211201 from "./v20211201";
 import * as v20220501 from "./v20220501";
 
 export {
     v20200320,
-    v20200717preview,
     v20210101preview,
     v20210601,
-    v20211201,
     v20220501,
 };
 

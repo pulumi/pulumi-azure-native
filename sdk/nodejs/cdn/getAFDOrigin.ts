@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
 
@@ -32,7 +32,7 @@ export interface GetAFDOriginArgs {
      */
     originName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -42,7 +42,7 @@ export interface GetAFDOriginArgs {
 }
 
 /**
- * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ * Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  */
 export interface GetAFDOriginResult {
     /**
@@ -54,6 +54,10 @@ export interface GetAFDOriginResult {
      * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
      */
     readonly enabledState?: string;
+    /**
+     * Whether to enable certificate name check at origin level
+     */
+    readonly enforceCertificateNameCheck?: boolean;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
@@ -75,7 +79,11 @@ export interface GetAFDOriginResult {
      */
     readonly name: string;
     /**
-     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+     * The name of the origin group which contains this origin.
+     */
+    readonly originGroupName: string;
+    /**
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
     readonly originHostHeader?: string;
     /**
@@ -105,7 +113,7 @@ export interface GetAFDOriginResult {
 }
 /**
  * Gets an existing origin within an origin group.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDOriginResult> {
     return pulumi.output(args).apply((a: any) => getAFDOrigin(a, opts))
@@ -121,7 +129,7 @@ export interface GetAFDOriginOutputArgs {
      */
     originName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

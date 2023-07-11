@@ -9,23 +9,18 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a list of repositories metadata.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function listSourceControlRepositories(args: ListSourceControlRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<ListSourceControlRepositoriesResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:listSourceControlRepositories", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "workspaceName": args.workspaceName,
     }, opts);
 }
 
 export interface ListSourceControlRepositoriesArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -51,17 +46,13 @@ export interface ListSourceControlRepositoriesResult {
 }
 /**
  * Gets a list of repositories metadata.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function listSourceControlRepositoriesOutput(args: ListSourceControlRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSourceControlRepositoriesResult> {
     return pulumi.output(args).apply((a: any) => listSourceControlRepositories(a, opts))
 }
 
 export interface ListSourceControlRepositoriesOutputArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

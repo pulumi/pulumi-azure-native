@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
     /// </summary>
-    [Obsolete(@"azure-native:app/v20221001:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:Certificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
     {
@@ -81,6 +80,8 @@ namespace Pulumi.AzureNative.App.V20221001
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

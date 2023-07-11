@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Confluent
     {
         /// <summary>
         /// Organization resource.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Organization resource.
-        /// API Version: 2020-03-01.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("azure-native:confluent:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent offer detail
         /// </summary>
-        public readonly Outputs.OrganizationResourcePropertiesResponseOfferDetail? OfferDetail;
+        public readonly Outputs.OfferDetailResponse OfferDetail;
         /// <summary>
         /// Id of the Confluent organization.
         /// </summary>
@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.Confluent
         /// </summary>
         public readonly string SsoUrl;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Organization resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -114,7 +118,7 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Subscriber detail
         /// </summary>
-        public readonly Outputs.OrganizationResourcePropertiesResponseUserDetail? UserDetail;
+        public readonly Outputs.UserDetailResponse UserDetail;
 
         [OutputConstructor]
         private GetOrganizationResult(
@@ -126,7 +130,7 @@ namespace Pulumi.AzureNative.Confluent
 
             string name,
 
-            Outputs.OrganizationResourcePropertiesResponseOfferDetail? offerDetail,
+            Outputs.OfferDetailResponse offerDetail,
 
             string organizationId,
 
@@ -134,11 +138,13 @@ namespace Pulumi.AzureNative.Confluent
 
             string ssoUrl,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            Outputs.OrganizationResourcePropertiesResponseUserDetail? userDetail)
+            Outputs.UserDetailResponse userDetail)
         {
             CreatedTime = createdTime;
             Id = id;
@@ -148,6 +154,7 @@ namespace Pulumi.AzureNative.Confluent
             OrganizationId = organizationId;
             ProvisioningState = provisioningState;
             SsoUrl = ssoUrl;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UserDetail = userDetail;

@@ -3,8 +3,13 @@ module main
 go 1.19
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/authorization v1.99.2
+	github.com/pulumi/pulumi-azure-native-sdk/authorization/v2 v2.0.0-alpha.1
 	github.com/pulumi/pulumi/sdk/v3 v3.63.0
+)
+
+replace (
+	github.com/pulumi/pulumi-azure-native-sdk/authorization/v2 => ../../../sdk/pulumi-azure-native-sdk/authorization
+	github.com/pulumi/pulumi-azure-native-sdk/v2 => ../../../sdk/pulumi-azure-native-sdk
 )
 
 require (
@@ -38,7 +43,7 @@ require (
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk v1.99.2 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.0.0-alpha.dev // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.10.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect

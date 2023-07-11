@@ -59,7 +59,7 @@ class AwaitableListBotConnectionServiceProvidersResult(ListBotConnectionServiceP
 def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBotConnectionServiceProvidersResult:
     """
     Lists the available Service Providers for creating Connection Settings
-    API Version: 2021-03-01.
+    Azure REST API version: 2022-09-15.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

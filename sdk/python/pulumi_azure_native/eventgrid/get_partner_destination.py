@@ -138,7 +138,7 @@ class GetPartnerDestinationResult:
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         Provisioning state of the partner destination.
         """
@@ -195,7 +195,7 @@ def get_partner_destination(partner_destination_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerDestinationResult:
     """
     Get properties of a partner destination.
-    API Version: 2021-10-15-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str partner_destination_name: Name of the partner destination.
@@ -229,7 +229,7 @@ def get_partner_destination_output(partner_destination_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerDestinationResult]:
     """
     Get properties of a partner destination.
-    API Version: 2021-10-15-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str partner_destination_name: Name of the partner destination.

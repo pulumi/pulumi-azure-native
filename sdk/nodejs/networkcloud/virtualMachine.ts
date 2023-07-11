@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**
@@ -41,6 +41,10 @@ export class VirtualMachine extends pulumi.CustomResource {
      * The name of the administrator to which the ssh public keys will be added into the authorized keys.
      */
     public readonly adminUsername!: pulumi.Output<string>;
+    /**
+     * The cluster availability zone containing this virtual machine.
+     */
+    public /*out*/ readonly availabilityZone!: pulumi.Output<string>;
     /**
      * The resource ID of the bare metal machine the virtual machine has landed to.
      */
@@ -210,6 +214,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["vmDeviceModel"] = (args ? args.vmDeviceModel : undefined) ?? "T2";
             resourceInputs["vmImage"] = args ? args.vmImage : undefined;
             resourceInputs["vmImageRepositoryCredentials"] = args ? args.vmImageRepositoryCredentials : undefined;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["bareMetalMachineId"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
@@ -222,6 +227,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         } else {
             resourceInputs["adminUsername"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["bareMetalMachineId"] = undefined /*out*/;
             resourceInputs["bootMethod"] = undefined /*out*/;
             resourceInputs["cloudServicesNetworkAttachment"] = undefined /*out*/;
@@ -252,7 +258,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:VirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:VirtualMachine" }, { type: "azure-native:networkcloud/v20230501preview:VirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

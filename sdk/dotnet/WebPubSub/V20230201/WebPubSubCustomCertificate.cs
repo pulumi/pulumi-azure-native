@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
     /// <summary>
     /// A custom certificate.
     /// </summary>
-    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSubCustomCertificate")]
     public partial class WebPubSubCustomCertificate : global::Pulumi.CustomResource
     {
@@ -83,7 +82,10 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubCustomCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubCustomCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

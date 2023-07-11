@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Logger details.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Logger")]
     public partial class Logger : global::Pulumi.CustomResource
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> LoggerType { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -100,6 +100,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Logger"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Logger"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Logger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -161,7 +163,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.LoggerType> LoggerType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -22,10 +22,28 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         public Input<Inputs.IntegrationRuntimeComputePropertiesArgs>? ComputeProperties { get; set; }
 
         /// <summary>
+        /// The name of virtual network to which Azure-SSIS integration runtime will join
+        /// </summary>
+        [Input("customerVirtualNetwork")]
+        public Input<Inputs.IntegrationRuntimeCustomerVirtualNetworkArgs>? CustomerVirtualNetwork { get; set; }
+
+        /// <summary>
         /// Integration runtime description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The id of the managed virtual network.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The reference name of the managed virtual network
+        /// </summary>
+        [Input("referenceName")]
+        public Input<string>? ReferenceName { get; set; }
 
         /// <summary>
         /// SSIS properties for managed integration runtime.

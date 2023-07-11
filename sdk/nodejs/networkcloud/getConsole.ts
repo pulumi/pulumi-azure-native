@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided virtual machine console.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
 
@@ -58,7 +58,7 @@ export interface GetConsoleResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -100,7 +100,7 @@ export interface GetConsoleResult {
 }
 /**
  * Get properties of the provided virtual machine console.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsoleResult> {
     return pulumi.output(args).apply((a: any) => getConsole(a, opts))

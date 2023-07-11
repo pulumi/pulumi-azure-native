@@ -22,18 +22,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string DistributionType;
         /// <summary>
-        /// Total process count for the distributed job.
+        /// Number of processes per node.
         /// </summary>
-        public readonly int? ProcessCount;
+        public readonly int? ProcessCountPerInstance;
 
         [OutputConstructor]
         private PyTorchResponse(
             string distributionType,
 
-            int? processCount)
+            int? processCountPerInstance)
         {
             DistributionType = distributionType;
-            ProcessCount = processCount;
+            ProcessCountPerInstance = processCountPerInstance;
         }
     }
 }

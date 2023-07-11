@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.HubResponse> Hubs;
         /// <summary>
-        /// Resource ID.
+        /// Connectivity configuration ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
@@ -56,6 +56,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// The provisioning state of the connectivity configuration resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
 
         [OutputConstructor]
         private EffectiveConnectivityConfigurationResponse(
@@ -77,7 +81,9 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? isGlobal,
 
-            string provisioningState)
+            string provisioningState,
+
+            string resourceGuid)
         {
             AppliesToGroups = appliesToGroups;
             ConfigurationGroups = configurationGroups;
@@ -89,6 +95,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Id = id;
             IsGlobal = isGlobal;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network manager connectivity configuration resource
-    /// API Version: 2021-02-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConnectivityConfiguration")]
     public partial class ConnectivityConfiguration : global::Pulumi.CustomResource
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -75,6 +69,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -121,6 +121,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ConnectivityConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ConnectivityConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ConnectivityConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -144,7 +146,7 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class ConnectivityConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("appliesToGroups")]
+        [Input("appliesToGroups", required: true)]
         private InputList<Inputs.ConnectivityGroupItemArgs>? _appliesToGroups;
 
         /// <summary>
@@ -179,12 +181,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         [Input("hubs")]
         private InputList<Inputs.HubArgs>? _hubs;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2021-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:EnvironmentSpecificationVersion")]
     public partial class EnvironmentSpecificationVersion : global::Pulumi.CustomResource
@@ -72,7 +72,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:EnvironmentSpecificationVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:EnvironmentSpecificationVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:EnvironmentSpecificationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:EnvironmentSpecificationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:EnvironmentSpecificationVersion"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:EnvironmentSpecificationVersion"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:EnvironmentSpecificationVersion"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

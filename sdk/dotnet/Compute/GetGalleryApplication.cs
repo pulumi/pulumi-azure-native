@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a gallery Application Definition.
-        /// API Version: 2020-09-30.
+        /// Azure REST API version: 2022-03-03.
         /// </summary>
         public static Task<GetGalleryApplicationResult> InvokeAsync(GetGalleryApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGalleryApplicationResult>("azure-native:compute:getGalleryApplication", args ?? new GetGalleryApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a gallery Application Definition.
-        /// API Version: 2020-09-30.
+        /// Azure REST API version: 2022-03-03.
         /// </summary>
         public static Output<GetGalleryApplicationResult> Invoke(GetGalleryApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGalleryApplicationResult>("azure-native:compute:getGalleryApplication", args ?? new GetGalleryApplicationInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetGalleryApplicationResult
     {
         /// <summary>
+        /// A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GalleryApplicationCustomActionResponse> CustomActions;
+        /// <summary>
         /// The description of this gallery Application Definition resource. This property is updatable.
         /// </summary>
         public readonly string? Description;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetGalleryApplicationResult(
+            ImmutableArray<Outputs.GalleryApplicationCustomActionResponse> customActions,
+
             string? description,
 
             string? endOfLifeDate,
@@ -152,6 +158,7 @@ namespace Pulumi.AzureNative.Compute
 
             string type)
         {
+            CustomActions = customActions;
             Description = description;
             EndOfLifeDate = endOfLifeDate;
             Eula = eula;

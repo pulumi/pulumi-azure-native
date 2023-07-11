@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Access Review Schedule Definition.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     /**
@@ -75,9 +75,29 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      */
     public readonly endDate!: pulumi.Output<string | undefined>;
     /**
+     * This is used to indicate the resource id(s) to exclude
+     */
+    public readonly excludeResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * This is used to indicate the role definition id(s) to exclude
+     */
+    public readonly excludeRoleDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    public readonly expandNestedMemberships!: pulumi.Output<boolean | undefined>;
+    /**
      * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
     public readonly inactiveDuration!: pulumi.Output<string | undefined>;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    public readonly includeAccessBelowResource!: pulumi.Output<boolean | undefined>;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    public readonly includeInheritedAccess!: pulumi.Output<boolean | undefined>;
     /**
      * The duration in days for an instance.
      */
@@ -118,6 +138,10 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      * The identity type user/servicePrincipal to review
      */
     public /*out*/ readonly principalType!: pulumi.Output<string>;
+    /**
+     * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+     */
+    public readonly recommendationLookBackDuration!: pulumi.Output<string | undefined>;
     /**
      * Flag to indicate whether showing recommendations to reviewers is enabled.
      */
@@ -178,13 +202,19 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["descriptionForReviewers"] = args ? args.descriptionForReviewers : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["excludeResourceId"] = args ? args.excludeResourceId : undefined;
+            resourceInputs["excludeRoleDefinitionId"] = args ? args.excludeRoleDefinitionId : undefined;
+            resourceInputs["expandNestedMemberships"] = args ? args.expandNestedMemberships : undefined;
             resourceInputs["inactiveDuration"] = args ? args.inactiveDuration : undefined;
+            resourceInputs["includeAccessBelowResource"] = args ? args.includeAccessBelowResource : undefined;
+            resourceInputs["includeInheritedAccess"] = args ? args.includeInheritedAccess : undefined;
             resourceInputs["instanceDurationInDays"] = args ? args.instanceDurationInDays : undefined;
             resourceInputs["instances"] = args ? args.instances : undefined;
             resourceInputs["interval"] = args ? args.interval : undefined;
             resourceInputs["justificationRequiredOnApproval"] = args ? args.justificationRequiredOnApproval : undefined;
             resourceInputs["mailNotificationsEnabled"] = args ? args.mailNotificationsEnabled : undefined;
             resourceInputs["numberOfOccurrences"] = args ? args.numberOfOccurrences : undefined;
+            resourceInputs["recommendationLookBackDuration"] = args ? args.recommendationLookBackDuration : undefined;
             resourceInputs["recommendationsEnabled"] = args ? args.recommendationsEnabled : undefined;
             resourceInputs["reminderNotificationsEnabled"] = args ? args.reminderNotificationsEnabled : undefined;
             resourceInputs["reviewers"] = args ? args.reviewers : undefined;
@@ -211,7 +241,12 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["descriptionForReviewers"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;
+            resourceInputs["excludeResourceId"] = undefined /*out*/;
+            resourceInputs["excludeRoleDefinitionId"] = undefined /*out*/;
+            resourceInputs["expandNestedMemberships"] = undefined /*out*/;
             resourceInputs["inactiveDuration"] = undefined /*out*/;
+            resourceInputs["includeAccessBelowResource"] = undefined /*out*/;
+            resourceInputs["includeInheritedAccess"] = undefined /*out*/;
             resourceInputs["instanceDurationInDays"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["interval"] = undefined /*out*/;
@@ -222,6 +257,7 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["principalType"] = undefined /*out*/;
+            resourceInputs["recommendationLookBackDuration"] = undefined /*out*/;
             resourceInputs["recommendationsEnabled"] = undefined /*out*/;
             resourceInputs["reminderNotificationsEnabled"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
@@ -277,9 +313,29 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      */
     endDate?: pulumi.Input<string>;
     /**
+     * This is used to indicate the resource id(s) to exclude
+     */
+    excludeResourceId?: pulumi.Input<string>;
+    /**
+     * This is used to indicate the role definition id(s) to exclude
+     */
+    excludeRoleDefinitionId?: pulumi.Input<string>;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    expandNestedMemberships?: pulumi.Input<boolean>;
+    /**
      * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
     inactiveDuration?: pulumi.Input<string>;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    includeAccessBelowResource?: pulumi.Input<boolean>;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    includeInheritedAccess?: pulumi.Input<boolean>;
     /**
      * The duration in days for an instance.
      */
@@ -304,6 +360,10 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
      * The number of times to repeat the access review. Required and must be positive if type is numbered.
      */
     numberOfOccurrences?: pulumi.Input<number>;
+    /**
+     * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+     */
+    recommendationLookBackDuration?: pulumi.Input<string>;
     /**
      * Flag to indicate whether showing recommendations to reviewers is enabled.
      */

@@ -227,12 +227,7 @@ class DiagnosticArgs:
         pulumi.set(self, "verbosity", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Diagnostic(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -308,7 +303,6 @@ class Diagnostic(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  verbosity: Optional[pulumi.Input[Union[str, 'Verbosity']]] = None,
                  __props__=None):
-        pulumi.log.warn("""Diagnostic is deprecated: azure-native:apimanagement/v20220801:Diagnostic is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Diagnostic to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -338,7 +332,7 @@ class Diagnostic(pulumi.CustomResource):
             __props__.__dict__["verbosity"] = verbosity
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Diagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Diagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Diagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Diagnostic, __self__).__init__(
             'azure-native:apimanagement/v20220801:Diagnostic',

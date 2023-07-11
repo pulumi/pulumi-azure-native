@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a database transparent data encryption configuration.
- * API Version: 2014-04-01.
+ * A logical database transparent data encryption state.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
  */
 export class TransparentDataEncryption extends pulumi.CustomResource {
     /**
@@ -39,17 +39,13 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location.
-     */
-    public /*out*/ readonly location!: pulumi.Output<string>;
-    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The status of the database transparent data encryption.
+     * Specifies the state of the transparent data encryption.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string>;
     /**
      * Resource type.
      */
@@ -75,22 +71,23 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if ((!args || args.state === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'state'");
+            }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["transparentDataEncryptionName"] = args ? args.transparentDataEncryptionName : undefined;
-            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["tdeName"] = args ? args.tdeName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:TransparentDataEncryption" }, { type: "azure-native:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20201101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220801preview:TransparentDataEncryption" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:TransparentDataEncryption" }, { type: "azure-native:sql/v20200202preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20200801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20201101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20210801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101:TransparentDataEncryption" }, { type: "azure-native:sql/v20211101preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220201preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220501preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20220801preview:TransparentDataEncryption" }, { type: "azure-native:sql/v20221101preview:TransparentDataEncryption" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TransparentDataEncryption.__pulumiType, name, resourceInputs, opts);
     }
@@ -101,7 +98,7 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
  */
 export interface TransparentDataEncryptionArgs {
     /**
-     * The name of the database for which setting the transparent data encryption applies.
+     * The name of the logical database for which the security alert policy is defined.
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -113,11 +110,11 @@ export interface TransparentDataEncryptionArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * The status of the database transparent data encryption.
+     * Specifies the state of the transparent data encryption.
      */
-    status?: pulumi.Input<string | enums.sql.TransparentDataEncryptionStatus>;
+    state: pulumi.Input<enums.sql.TransparentDataEncryptionState>;
     /**
      * The name of the transparent data encryption configuration.
      */
-    transparentDataEncryptionName?: pulumi.Input<string>;
+    tdeName?: pulumi.Input<string>;
 }

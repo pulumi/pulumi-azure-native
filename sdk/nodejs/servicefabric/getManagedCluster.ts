@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getManagedCluster(args: GetManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterResult> {
 
@@ -32,23 +32,35 @@ export interface GetManagedClusterArgs {
 }
 
 /**
- * The manged cluster resource
+ * The managed cluster resource
  */
 export interface GetManagedClusterResult {
     /**
-     * client certificates for the cluster.
+     * List of add-on features to enable on the cluster.
      */
     readonly addonFeatures?: string[];
     /**
-     * vm admin user password.
+     * VM admin user password.
      */
     readonly adminPassword?: string;
     /**
-     * vm admin user name.
+     * VM admin user name.
      */
     readonly adminUserName: string;
     /**
-     * Azure active directory.
+     * Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
+     */
+    readonly allowRdpAccess?: boolean;
+    /**
+     * The policy used to clean up unused versions.
+     */
+    readonly applicationTypeVersionsCleanupPolicy?: outputs.servicefabric.ApplicationTypeVersionsCleanupPolicyResponse;
+    /**
+     * Auxiliary subnets for the cluster.
+     */
+    readonly auxiliarySubnets?: outputs.servicefabric.SubnetResponse[];
+    /**
+     * The AAD authentication settings of the cluster.
      */
     readonly azureActiveDirectory?: outputs.servicefabric.AzureActiveDirectoryResponse;
     /**
@@ -56,15 +68,15 @@ export interface GetManagedClusterResult {
      */
     readonly clientConnectionPort?: number;
     /**
-     * client certificates for the cluster.
+     * Client certificates that are allowed to manage the cluster.
      */
     readonly clients?: outputs.servicefabric.ClientCertificateResponse[];
     /**
-     * The cluster certificate thumbprint used node to node communication.
+     * List of thumbprints of the cluster certificates.
      */
-    readonly clusterCertificateThumbprint: string;
+    readonly clusterCertificateThumbprints: string[];
     /**
-     * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+     * The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
     readonly clusterCodeVersion?: string;
     /**
@@ -76,9 +88,29 @@ export interface GetManagedClusterResult {
      */
     readonly clusterState: string;
     /**
+     * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
+     */
+    readonly clusterUpgradeCadence?: string;
+    /**
+     * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     */
+    readonly clusterUpgradeMode?: string;
+    /**
      * The cluster dns name.
      */
     readonly dnsName: string;
+    /**
+     * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
+     */
+    readonly enableAutoOSUpgrade?: boolean;
+    /**
+     * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
+     */
+    readonly enableIpv6?: boolean;
+    /**
+     * Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
+     */
+    readonly enableServicePublicIP?: boolean;
     /**
      * Azure resource etag.
      */
@@ -88,11 +120,11 @@ export interface GetManagedClusterResult {
      */
     readonly fabricSettings?: outputs.servicefabric.SettingsSectionDescriptionResponse[];
     /**
-     * the cluster Fully qualified domain name.
+     * The fully qualified domain name associated with the public load balancer of the cluster.
      */
     readonly fqdn: string;
     /**
-     * The port used for http connections to the cluster.
+     * The port used for HTTP connections to the cluster.
      */
     readonly httpGatewayConnectionPort?: number;
     /**
@@ -100,7 +132,19 @@ export interface GetManagedClusterResult {
      */
     readonly id: string;
     /**
-     * Describes load balancing rules.
+     * The list of IP tags associated with the default public IP address of the cluster.
+     */
+    readonly ipTags?: outputs.servicefabric.IPTagResponse[];
+    /**
+     * The IPv4 address associated with the public load balancer of the cluster.
+     */
+    readonly ipv4Address: string;
+    /**
+     * IPv6 address for the cluster if IPv6 is enabled.
+     */
+    readonly ipv6Address: string;
+    /**
+     * Load balancing rules that are applied to the public load balancer of the cluster.
      */
     readonly loadBalancingRules?: outputs.servicefabric.LoadBalancingRuleResponse[];
     /**
@@ -112,13 +156,33 @@ export interface GetManagedClusterResult {
      */
     readonly name: string;
     /**
+     * Custom Network Security Rules that are applied to the Virtual Network of the cluster.
+     */
+    readonly networkSecurityRules?: outputs.servicefabric.NetworkSecurityRuleResponse[];
+    /**
      * The provisioning state of the managed cluster resource.
      */
     readonly provisioningState: string;
     /**
+     * Specify the resource id of a public IP prefix that the load balancer will allocate a public IP address from. Only supports IPv4.
+     */
+    readonly publicIPPrefixId?: string;
+    /**
+     * Service endpoints for subnets in the cluster.
+     */
+    readonly serviceEndpoints?: outputs.servicefabric.ServiceEndpointResponse[];
+    /**
      * The sku of the managed cluster
      */
-    readonly sku?: outputs.servicefabric.SkuResponse;
+    readonly sku: outputs.servicefabric.SkuResponse;
+    /**
+     * If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
+     */
+    readonly subnetId?: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.servicefabric.SystemDataResponse;
     /**
      * Azure resource tags.
      */
@@ -127,10 +191,22 @@ export interface GetManagedClusterResult {
      * Azure resource type.
      */
     readonly type: string;
+    /**
+     * For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
+     */
+    readonly useCustomVnet?: boolean;
+    /**
+     * Indicates if the cluster has zone resiliency.
+     */
+    readonly zonalResiliency?: boolean;
+    /**
+     * Indicates the update mode for Cross Az clusters.
+     */
+    readonly zonalUpdateMode?: string;
 }
 /**
  * Get a Service Fabric managed cluster resource created or in the process of being created in the specified resource group.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getManagedClusterOutput(args: GetManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getManagedCluster(a, opts))

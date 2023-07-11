@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>?> CustomHttpsParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status of Custom Https of the custom domain.
+        /// Provisioning status of the custom domain.
         /// </summary>
         [Output("customHttpsProvisioningState")]
         public Output<string> CustomHttpsProvisioningState { get; private set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status of the custom domain.
+        /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:CustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:CustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace resource.
- *
- * @deprecated azure-native:servicebus/v20220101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Namespace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Namespace {
-        pulumi.log.warn("Namespace is deprecated: azure-native:servicebus/v20220101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.")
         return new Namespace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -128,9 +125,7 @@ export class Namespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:servicebus/v20220101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility. */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Namespace is deprecated: azure-native:servicebus/v20220101preview:Namespace is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Namespace to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['GalleryApplicationArgs', 'GalleryApplication']
 
@@ -18,6 +20,7 @@ class GalleryApplicationArgs:
                  gallery_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  supported_os_type: pulumi.Input['OperatingSystemTypes'],
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -31,6 +34,7 @@ class GalleryApplicationArgs:
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['OperatingSystemTypes'] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        :param pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgs']]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
         :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery Application Definition.
@@ -43,6 +47,8 @@ class GalleryApplicationArgs:
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "supported_os_type", supported_os_type)
+        if custom_actions is not None:
+            pulumi.set(__self__, "custom_actions", custom_actions)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if end_of_life_date is not None:
@@ -95,6 +101,18 @@ class GalleryApplicationArgs:
     @supported_os_type.setter
     def supported_os_type(self, value: pulumi.Input['OperatingSystemTypes']):
         pulumi.set(self, "supported_os_type", value)
+
+    @property
+    @pulumi.getter(name="customActions")
+    def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgs']]]]:
+        """
+        A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        """
+        return pulumi.get(self, "custom_actions")
+
+    @custom_actions.setter
+    def custom_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GalleryApplicationCustomActionArgs']]]]):
+        pulumi.set(self, "custom_actions", value)
 
     @property
     @pulumi.getter
@@ -198,6 +216,7 @@ class GalleryApplication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -212,10 +231,11 @@ class GalleryApplication(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
-        API Version: 2020-09-30.
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
         :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
         :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[str] eula: The Eula agreement for the gallery Application Definition.
@@ -236,7 +256,7 @@ class GalleryApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
-        API Version: 2020-09-30.
+        Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -253,6 +273,7 @@ class GalleryApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
                  eula: Optional[pulumi.Input[str]] = None,
@@ -273,6 +294,7 @@ class GalleryApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GalleryApplicationArgs.__new__(GalleryApplicationArgs)
 
+            __props__.__dict__["custom_actions"] = custom_actions
             __props__.__dict__["description"] = description
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["eula"] = eula
@@ -316,6 +338,7 @@ class GalleryApplication(pulumi.CustomResource):
 
         __props__ = GalleryApplicationArgs.__new__(GalleryApplicationArgs)
 
+        __props__.__dict__["custom_actions"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["end_of_life_date"] = None
         __props__.__dict__["eula"] = None
@@ -327,6 +350,14 @@ class GalleryApplication(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return GalleryApplication(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="customActions")
+    def custom_actions(self) -> pulumi.Output[Optional[Sequence['outputs.GalleryApplicationCustomActionResponse']]]:
+        """
+        A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        """
+        return pulumi.get(self, "custom_actions")
 
     @property
     @pulumi.getter

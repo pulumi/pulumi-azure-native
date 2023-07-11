@@ -46,7 +46,7 @@ def list_private_store_new_plans_notifications(private_store_id: Optional[str] =
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateStoreNewPlansNotificationsResult:
     """
     List new plans notifications
-    API Version: 2021-12-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID
@@ -65,7 +65,7 @@ def list_private_store_new_plans_notifications_output(private_store_id: Optional
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreNewPlansNotificationsResult]:
     """
     List new plans notifications
-    API Version: 2021-12-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID

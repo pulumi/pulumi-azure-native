@@ -14,10 +14,10 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning"
 	dotnetgen "github.com/pulumi/pulumi/pkg/v3/codegen/dotnet"
 	gogen "github.com/pulumi/pulumi/pkg/v3/codegen/go"
 	nodejsgen "github.com/pulumi/pulumi/pkg/v3/codegen/nodejs"
@@ -61,7 +61,6 @@ func main() {
 	// Use DEBUG_CODEGEN_APIVERSIONS to just generate certain versions (e.g. "2019-09-01", "2019*") for quick testing,
 	// likely in combination with DEBUG_CODEGEN_NAMESPACES
 	apiVersions := os.Getenv("DEBUG_CODEGEN_APIVERSIONS")
-	codegenVersion := os.Getenv("CODEGEN_VERSION")
 	codegenSchemaOutputPath := os.Getenv("CODEGEN_SCHEMA_OUTPUT_PATH")
 	codegenMetadataOutputPath := os.Getenv("CODEGEN_METADATA_OUTPUT_PATH")
 
@@ -71,9 +70,8 @@ func main() {
 			NamespaceFilter: namespaces,
 			VersionsFilter:  apiVersions,
 		},
-		RootDir:  wd,
-		Version:  version,
-		Version2: codegenVersion == "v2",
+		RootDir: wd,
+		Version: version,
 	}
 
 	switch languages {
@@ -83,6 +81,13 @@ func main() {
 			panic(err)
 		}
 
+		if namespaces == "*" && apiVersions == "" {
+			if err = buildSchemaResult.Version.WriteTo("versions"); err != nil {
+				panic(err)
+			}
+		} else {
+			fmt.Println("Note: skipping writing version metadata because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
+		}
 		if codegenSchemaOutputPath == "" {
 			codegenSchemaOutputPath = path.Join("bin", "schema-full.json")
 		}
@@ -104,14 +109,6 @@ func main() {
 		}
 		fmt.Printf("Emitted %q.\n", codegenMetadataOutputPath)
 
-		if namespaces == "*" && apiVersions == "" {
-			if err = buildSchemaResult.Version.WriteTo("versions"); err != nil {
-				panic(err)
-			}
-		} else {
-			fmt.Println("Note: skipping writing version metadata because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
-		}
-
 	case "docs":
 		buildSchemaArgs.ExcludeExplicitVersions = true
 		buildSchemaArgs.ExampleLanguages = []string{"nodejs", "dotnet", "python", "go", "java", "yaml"}
@@ -126,6 +123,21 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
+
+	case "raw-schema":
+		buildSchemaArgs.OnlyExplicitVersions = true
+		buildSchemaResult, err := versioning.BuildSchema(buildSchemaArgs)
+		if err != nil {
+			panic(err)
+		}
+		if codegenSchemaOutputPath == "" {
+			codegenSchemaOutputPath = path.Join(".", "bin", "raw-schema.json")
+		}
+		err = emitDocsSchema(&buildSchemaResult.PackageSpec, codegenSchemaOutputPath)
+		if err != nil {
+			panic(err)
+		}
+
 	case "go":
 		// Just read existing schema if we're not re-generating
 		schemaBytes, err := os.ReadFile(schemaPath)
@@ -137,7 +149,7 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		outdir := path.Join(".", "sdk")
+		outdir := path.Join(".", "sdk", "pulumi-azure-native-sdk")
 		pkgSpec.Version = version
 		err = emitSplitPackage(&pkgSpec, "go", outdir)
 		if err != nil {
@@ -219,21 +231,23 @@ func emitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
 }
 
 func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) error {
-	pkgCopy := gen.SetGoBasePath(*pkgSpec, "github.com/pulumi/pulumi-azure-native-sdk")
+	moduleVersionPath := gen.GoModulePathVersion(pkgSpec.Version)
 
-	ppkg, err := schema.ImportSpec(*pkgCopy, nil)
+	ppkg, err := schema.ImportSpec(*pkgSpec, nil)
 	if err != nil {
 		return errors.Wrap(err, "reading schema")
 	}
 
+	version := gen.GoModVersion(ppkg.Version)
 	files, err := generate(ppkg, language)
 	if err != nil {
 		return errors.Wrapf(err, "generating %s package", language)
 	}
 
-	version := gen.GoModVersion(ppkg.Version)
-	files["pulumi-azure-native-sdk/version.txt"] = []byte(version)
-	files["pulumi-azure-native-sdk/go.mod"] = []byte(goModTemplate(GoMod{}))
+	files["version.txt"] = []byte(version)
+	files["go.mod"] = []byte(goModTemplate(GoMod{
+		ModuleVersionPath: moduleVersionPath,
+	}))
 
 	for f, contents := range files {
 		if err := gen.EmitFile(path.Join(outDir, f), contents); err != nil {
@@ -241,7 +255,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 		}
 
 		// Special case for identifying where we need modules in subdirectories.
-		matched, err := filepath.Match("pulumi-azure-native-sdk/*/init.go", f)
+		matched, err := filepath.Match("*/init.go", f)
 		if err != nil {
 			return err
 		}
@@ -250,8 +264,9 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 			module := filepath.Base(dir)
 			modPath := filepath.Join(dir, "go.mod")
 			modContent := goModTemplate(GoMod{
-				Version:       version,
-				SubmoduleName: module,
+				Version:           version,
+				SubmoduleName:     module,
+				ModuleVersionPath: moduleVersionPath,
 			})
 
 			if err := gen.EmitFile(path.Join(outDir, modPath), []byte(modContent)); err != nil {
@@ -259,7 +274,7 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 			}
 
 			pluginPath := filepath.Join(dir, "pulumi-plugin.json")
-			pluginContent := files["pulumi-azure-native-sdk/pulumi-plugin.json"]
+			pluginContent := files["pulumi-plugin.json"]
 			if err := gen.EmitFile(path.Join(outDir, pluginPath), pluginContent); err != nil {
 				return err
 			}
@@ -270,8 +285,9 @@ func emitSplitPackage(pkgSpec *schema.PackageSpec, language, outDir string) erro
 }
 
 type GoMod struct {
-	Version       string
-	SubmoduleName string
+	Version           string
+	SubmoduleName     string
+	ModuleVersionPath string
 }
 
 var goModTemplateCache *template.Template
@@ -281,9 +297,9 @@ func goModTemplate(goMod GoMod) string {
 	if goModTemplateCache == nil {
 		goModTemplateCache, err = template.New("go-mod").Parse(`
 {{ if eq .SubmoduleName "" }}
-module github.com/pulumi/pulumi-azure-native-sdk
+module github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }}
 {{ else }}
-module github.com/pulumi/pulumi-azure-native-sdk/{{ .SubmoduleName }}
+module github.com/pulumi/pulumi-azure-native-sdk/{{ .SubmoduleName }}{{ .ModuleVersionPath }}
 {{ end }}
 
 go 1.17
@@ -292,13 +308,13 @@ require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/pkg/errors v0.9.1
 {{ if ne .SubmoduleName "" }}
-	github.com/pulumi/pulumi-azure-native-sdk {{ .Version }}
+	github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} {{ .Version }}
 {{ end }}
 	github.com/pulumi/pulumi/sdk/v3 v3.37.2
 )
 
 {{ if ne .SubmoduleName "" }}
-replace github.com/pulumi/pulumi-azure-native-sdk {{ .Version }} => ../
+replace github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }} => ../
 {{ end }}
 `)
 		if err != nil {

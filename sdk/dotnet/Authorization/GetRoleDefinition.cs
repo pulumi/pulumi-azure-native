@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Authorization
     public static class GetRoleDefinition
     {
         /// <summary>
-        /// Get role definition by name (GUID).
-        /// API Version: 2018-01-01-preview.
+        /// Get role definition by ID (GUID).
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get role definition by name (GUID).
-        /// API Version: 2018-01-01-preview.
+        /// Get role definition by ID (GUID).
+        /// Azure REST API version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure-native:authorization:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Authorization
         public string RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the role definition.
+        /// The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -75,6 +75,14 @@ namespace Pulumi.AzureNative.Authorization
         /// Role definition assignable scopes.
         /// </summary>
         public readonly ImmutableArray<string> AssignableScopes;
+        /// <summary>
+        /// Id of the user who created the assignment
+        /// </summary>
+        public readonly string CreatedBy;
+        /// <summary>
+        /// Time it was created
+        /// </summary>
+        public readonly string CreatedOn;
         /// <summary>
         /// The role definition description.
         /// </summary>
@@ -103,10 +111,22 @@ namespace Pulumi.AzureNative.Authorization
         /// The role definition type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Id of the user who updated the assignment
+        /// </summary>
+        public readonly string UpdatedBy;
+        /// <summary>
+        /// Time it was updated
+        /// </summary>
+        public readonly string UpdatedOn;
 
         [OutputConstructor]
         private GetRoleDefinitionResult(
             ImmutableArray<string> assignableScopes,
+
+            string createdBy,
+
+            string createdOn,
 
             string? description,
 
@@ -120,9 +140,15 @@ namespace Pulumi.AzureNative.Authorization
 
             string? roleType,
 
-            string type)
+            string type,
+
+            string updatedBy,
+
+            string updatedOn)
         {
             AssignableScopes = assignableScopes;
+            CreatedBy = createdBy;
+            CreatedOn = createdOn;
             Description = description;
             Id = id;
             Name = name;
@@ -130,6 +156,8 @@ namespace Pulumi.AzureNative.Authorization
             RoleName = roleName;
             RoleType = roleType;
             Type = type;
+            UpdatedBy = updatedBy;
+            UpdatedOn = updatedOn;
         }
     }
 }

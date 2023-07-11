@@ -96,7 +96,7 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
                  __props__=None):
         """
         Storage resource for managedEnvironment.
-        API Version: 2022-03-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,7 +113,7 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage resource for managedEnvironment.
-        API Version: 2022-03-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentsStorageArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +154,7 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20220301:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20220601preview:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221001:ManagedEnvironmentsStorage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20220301:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20220601preview:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221001:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20221101preview:ManagedEnvironmentsStorage"), pulumi.Alias(type_="azure-native:app/v20230401preview:ManagedEnvironmentsStorage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedEnvironmentsStorage, __self__).__init__(
             'azure-native:app:ManagedEnvironmentsStorage',

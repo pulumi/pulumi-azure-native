@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2021-10-15-preview.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview
  */
 export class DomainTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -57,7 +57,7 @@ export class DomainTopicEventSubscription extends pulumi.CustomResource {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.PartnerEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
+    public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
@@ -154,7 +154,7 @@ export class DomainTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:DomainTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:DomainTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }
@@ -183,7 +183,7 @@ export interface DomainTopicEventSubscriptionArgs {
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.PartnerEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
     /**
      * Name of the top level domain.
      */

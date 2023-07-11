@@ -183,7 +183,7 @@ def get_virtual_router(expand: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualRouterResult:
     """
     Gets the specified Virtual Router.
-    API Version: 2022-01-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -219,7 +219,7 @@ def get_virtual_router_output(expand: Optional[pulumi.Input[Optional[str]]] = No
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
     Gets the specified Virtual Router.
-    API Version: 2022-01-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

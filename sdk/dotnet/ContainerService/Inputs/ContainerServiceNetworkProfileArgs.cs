@@ -21,11 +21,17 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("dnsServiceIP")]
         public Input<string>? DnsServiceIP { get; set; }
 
+        [Input("ipFamilies")]
+        private InputList<Union<string, Pulumi.AzureNative.ContainerService.IpFamily>>? _ipFamilies;
+
         /// <summary>
-        /// A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+        /// IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         /// </summary>
-        [Input("dockerBridgeCidr")]
-        public Input<string>? DockerBridgeCidr { get; set; }
+        public InputList<Union<string, Pulumi.AzureNative.ContainerService.IpFamily>> IpFamilies
+        {
+            get => _ipFamilies ?? (_ipFamilies = new InputList<Union<string, Pulumi.AzureNative.ContainerService.IpFamily>>());
+            set => _ipFamilies = value;
+        }
 
         /// <summary>
         /// Profile of the cluster load balancer.
@@ -34,31 +40,49 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.ManagedClusterLoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
 
         /// <summary>
-        /// The load balancer sku for the managed cluster.
+        /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         /// </summary>
         [Input("loadBalancerSku")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.LoadBalancerSku>? LoadBalancerSku { get; set; }
 
         /// <summary>
-        /// Network mode used for building Kubernetes network.
+        /// Profile of the cluster NAT gateway.
+        /// </summary>
+        [Input("natGatewayProfile")]
+        public Input<Inputs.ManagedClusterNATGatewayProfileArgs>? NatGatewayProfile { get; set; }
+
+        /// <summary>
+        /// Network dataplane used in the Kubernetes cluster.
+        /// </summary>
+        [Input("networkDataplane")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkDataplane>? NetworkDataplane { get; set; }
+
+        /// <summary>
+        /// This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         [Input("networkMode")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkMode>? NetworkMode { get; set; }
 
         /// <summary>
-        /// Network plugin used for building Kubernetes network.
+        /// Network plugin used for building the Kubernetes network.
         /// </summary>
         [Input("networkPlugin")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkPlugin>? NetworkPlugin { get; set; }
 
         /// <summary>
-        /// Network policy used for building Kubernetes network.
+        /// The mode the network plugin should use.
+        /// </summary>
+        [Input("networkPluginMode")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkPluginMode>? NetworkPluginMode { get; set; }
+
+        /// <summary>
+        /// Network policy used for building the Kubernetes network.
         /// </summary>
         [Input("networkPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// The outbound (egress) routing method.
+        /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         /// </summary>
         [Input("outboundType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.OutboundType>? OutboundType { get; set; }
@@ -69,16 +93,39 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
 
+        [Input("podCidrs")]
+        private InputList<string>? _podCidrs;
+
+        /// <summary>
+        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        /// </summary>
+        public InputList<string> PodCidrs
+        {
+            get => _podCidrs ?? (_podCidrs = new InputList<string>());
+            set => _podCidrs = value;
+        }
+
         /// <summary>
         /// A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
         /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }
 
+        [Input("serviceCidrs")]
+        private InputList<string>? _serviceCidrs;
+
+        /// <summary>
+        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        /// </summary>
+        public InputList<string> ServiceCidrs
+        {
+            get => _serviceCidrs ?? (_serviceCidrs = new InputList<string>());
+            set => _serviceCidrs = value;
+        }
+
         public ContainerServiceNetworkProfileArgs()
         {
             DnsServiceIP = "10.0.0.10";
-            DockerBridgeCidr = "172.17.0.1/16";
             NetworkPlugin = "kubenet";
             OutboundType = "loadBalancer";
             PodCidr = "10.244.0.0/16";

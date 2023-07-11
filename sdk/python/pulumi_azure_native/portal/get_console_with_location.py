@@ -50,7 +50,7 @@ def get_console_with_location(console_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleWithLocationResult:
     """
     Gets the console for the user.
-    API Version: 2018-10-01.
+    Azure REST API version: 2018-10-01.
 
 
     :param str console_name: The name of the console
@@ -72,7 +72,7 @@ def get_console_with_location_output(console_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleWithLocationResult]:
     """
     Gets the console for the user.
-    API Version: 2018-10-01.
+    Azure REST API version: 2018-10-01.
 
 
     :param str console_name: The name of the console

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * API Version: 2021-01-01-preview.
+ * Azure REST API version: 2023-03-01.
  */
 export function getArcSetting(args: GetArcSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetArcSettingResult> {
 
@@ -45,37 +45,37 @@ export interface GetArcSettingResult {
      */
     readonly aggregateState: string;
     /**
+     * App id of arc AAD identity.
+     */
+    readonly arcApplicationClientId?: string;
+    /**
+     * Object id of arc AAD identity.
+     */
+    readonly arcApplicationObjectId?: string;
+    /**
+     * Tenant id of arc AAD identity.
+     */
+    readonly arcApplicationTenantId?: string;
+    /**
      * The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
      */
-    readonly arcInstanceResourceGroup: string;
+    readonly arcInstanceResourceGroup?: string;
     /**
-     * The timestamp of resource creation (UTC).
+     * Object id of arc AAD service principal.
      */
-    readonly createdAt?: string;
+    readonly arcServicePrincipalObjectId?: string;
     /**
-     * The identity that created the resource.
+     * contains connectivity related configuration for ARC resources
      */
-    readonly createdBy?: string;
+    readonly connectivityProperties?: outputs.azurestackhci.ArcConnectivityPropertiesResponse[];
     /**
-     * The type of identity that created the resource.
+     * Properties for each of the default extensions category
      */
-    readonly createdByType?: string;
+    readonly defaultExtensions: outputs.azurestackhci.DefaultExtensionDetailsResponse[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The name of the resource
      */
@@ -89,13 +89,17 @@ export interface GetArcSettingResult {
      */
     readonly provisioningState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.azurestackhci.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get ArcSetting resource details of HCI Cluster.
- * API Version: 2021-01-01-preview.
+ * Azure REST API version: 2023-03-01.
  */
 export function getArcSettingOutput(args: GetArcSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArcSettingResult> {
     return pulumi.output(args).apply((a: any) => getArcSetting(a, opts))

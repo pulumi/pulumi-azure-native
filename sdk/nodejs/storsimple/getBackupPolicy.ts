@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified backup policy name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getBackupPolicy(args: GetBackupPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupPolicyResult> {
 
@@ -89,7 +89,7 @@ export interface GetBackupPolicyResult {
 }
 /**
  * Gets the properties of the specified backup policy name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getBackupPolicyOutput(args: GetBackupPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupPolicyResult> {
     return pulumi.output(args).apply((a: any) => getBackupPolicy(a, opts))

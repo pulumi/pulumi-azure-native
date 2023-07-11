@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:KustoPoolPrincipalAssignment")]
     public partial class KustoPoolPrincipalAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        [Output("aadObjectId")]
+        public Output<string> AadObjectId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -169,7 +175,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

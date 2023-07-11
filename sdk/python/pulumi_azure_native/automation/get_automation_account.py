@@ -266,7 +266,7 @@ def get_automation_account(automation_account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAutomationAccountResult:
     """
     Get information about an Automation Account.
-    API Version: 2021-06-22.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -306,7 +306,7 @@ def get_automation_account_output(automation_account_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutomationAccountResult]:
     """
     Get information about an Automation Account.
-    API Version: 2021-06-22.
+    Azure REST API version: 2022-08-08.
 
 
     :param str automation_account_name: The name of the automation account.

@@ -5,13 +5,24 @@
 from enum import Enum
 
 __all__ = [
-    'SystemAssignedServiceIdentityType',
+    'ManagedServiceIdentityType',
+    'Type',
 ]
 
 
-class SystemAssignedServiceIdentityType(str, Enum):
+class ManagedServiceIdentityType(str, Enum):
     """
-    Type of managed service identity (either system assigned, or none).
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class Type(str, Enum):
+    """
+    Managed identity type to use for accessing encryption key Url
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"

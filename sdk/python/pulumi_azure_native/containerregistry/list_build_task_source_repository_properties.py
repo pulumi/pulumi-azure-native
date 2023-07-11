@@ -87,7 +87,7 @@ def list_build_task_source_repository_properties(build_task_name: Optional[str] 
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildTaskSourceRepositoryPropertiesResult:
     """
     Get the source control properties for a build task.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_task_name: The name of the container registry build task.
@@ -115,7 +115,7 @@ def list_build_task_source_repository_properties_output(build_task_name: Optiona
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildTaskSourceRepositoryPropertiesResult]:
     """
     Get the source control properties for a build task.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_task_name: The name of the container registry build task.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 {
 
     /// <summary>
-    /// A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+    /// A rule governing the accessibility of a managed HSM pool from a specific IP address or IP range.
     /// </summary>
     [OutputType]
     public sealed class MHSMIPRuleResponse

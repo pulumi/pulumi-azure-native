@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class Watchlist extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class Watchlist extends pulumi.CustomResource {
     }
 
     /**
-     * The content type of the raw content. Example : text/csv or text/tsv 
+     * The content type of the raw content. For now, only text/csv is valid
      */
     public readonly contentType!: pulumi.Output<string | undefined>;
     /**
@@ -79,11 +79,11 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly labels!: pulumi.Output<string[] | undefined>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The number of lines in a csv/tsv content to skip before the header
+     * The number of lines in a csv content to skip before the header
      */
     public readonly numberOfLinesToSkip!: pulumi.Output<number | undefined>;
     /**
@@ -91,7 +91,9 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly provider!: pulumi.Output<string>;
     /**
-     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+     * The raw content that represents to watchlist items to create. Example : This line will be skipped
+     * header1,header2
+     * value1,value2
      */
     public readonly rawContent!: pulumi.Output<string | undefined>;
     /**
@@ -107,7 +109,7 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -119,7 +121,7 @@ export class Watchlist extends pulumi.CustomResource {
      */
     public readonly updatedBy!: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
     /**
-     * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+     * The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
      */
     public readonly uploadStatus!: pulumi.Output<string | undefined>;
     /**
@@ -130,10 +132,6 @@ export class Watchlist extends pulumi.CustomResource {
      * The id (a Guid) of the watchlist
      */
     public readonly watchlistId!: pulumi.Output<string | undefined>;
-    /**
-     * The number of Watchlist Items in the Watchlist
-     */
-    public readonly watchlistItemsCount!: pulumi.Output<number | undefined>;
     /**
      * The type of the watchlist
      */
@@ -155,9 +153,6 @@ export class Watchlist extends pulumi.CustomResource {
             }
             if ((!args || args.itemsSearchKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'itemsSearchKey'");
-            }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
             }
             if ((!args || args.provider === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
@@ -181,7 +176,6 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["itemsSearchKey"] = args ? args.itemsSearchKey : undefined;
             resourceInputs["labels"] = args ? args.labels : undefined;
             resourceInputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["provider"] = args ? args.provider : undefined;
             resourceInputs["rawContent"] = args ? args.rawContent : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -192,7 +186,6 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["uploadStatus"] = args ? args.uploadStatus : undefined;
             resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
             resourceInputs["watchlistId"] = args ? args.watchlistId : undefined;
-            resourceInputs["watchlistItemsCount"] = args ? args.watchlistItemsCount : undefined;
             resourceInputs["watchlistType"] = args ? args.watchlistType : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
@@ -223,11 +216,10 @@ export class Watchlist extends pulumi.CustomResource {
             resourceInputs["uploadStatus"] = undefined /*out*/;
             resourceInputs["watchlistAlias"] = undefined /*out*/;
             resourceInputs["watchlistId"] = undefined /*out*/;
-            resourceInputs["watchlistItemsCount"] = undefined /*out*/;
             resourceInputs["watchlistType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-native:securityinsights/v20210301preview:Watchlist" }, { type: "azure-native:securityinsights/v20210401:Watchlist" }, { type: "azure-native:securityinsights/v20210901preview:Watchlist" }, { type: "azure-native:securityinsights/v20211001:Watchlist" }, { type: "azure-native:securityinsights/v20211001preview:Watchlist" }, { type: "azure-native:securityinsights/v20220101preview:Watchlist" }, { type: "azure-native:securityinsights/v20220401preview:Watchlist" }, { type: "azure-native:securityinsights/v20220501preview:Watchlist" }, { type: "azure-native:securityinsights/v20220601preview:Watchlist" }, { type: "azure-native:securityinsights/v20220701preview:Watchlist" }, { type: "azure-native:securityinsights/v20220801:Watchlist" }, { type: "azure-native:securityinsights/v20220801preview:Watchlist" }, { type: "azure-native:securityinsights/v20220901preview:Watchlist" }, { type: "azure-native:securityinsights/v20221001preview:Watchlist" }, { type: "azure-native:securityinsights/v20221101:Watchlist" }, { type: "azure-native:securityinsights/v20221101preview:Watchlist" }, { type: "azure-native:securityinsights/v20221201preview:Watchlist" }, { type: "azure-native:securityinsights/v20230201:Watchlist" }, { type: "azure-native:securityinsights/v20230201preview:Watchlist" }, { type: "azure-native:securityinsights/v20230401preview:Watchlist" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:Watchlist" }, { type: "azure-native:securityinsights/v20210301preview:Watchlist" }, { type: "azure-native:securityinsights/v20210401:Watchlist" }, { type: "azure-native:securityinsights/v20210901preview:Watchlist" }, { type: "azure-native:securityinsights/v20211001:Watchlist" }, { type: "azure-native:securityinsights/v20211001preview:Watchlist" }, { type: "azure-native:securityinsights/v20220101preview:Watchlist" }, { type: "azure-native:securityinsights/v20220401preview:Watchlist" }, { type: "azure-native:securityinsights/v20220501preview:Watchlist" }, { type: "azure-native:securityinsights/v20220601preview:Watchlist" }, { type: "azure-native:securityinsights/v20220701preview:Watchlist" }, { type: "azure-native:securityinsights/v20220801:Watchlist" }, { type: "azure-native:securityinsights/v20220801preview:Watchlist" }, { type: "azure-native:securityinsights/v20220901preview:Watchlist" }, { type: "azure-native:securityinsights/v20221001preview:Watchlist" }, { type: "azure-native:securityinsights/v20221101:Watchlist" }, { type: "azure-native:securityinsights/v20221101preview:Watchlist" }, { type: "azure-native:securityinsights/v20221201preview:Watchlist" }, { type: "azure-native:securityinsights/v20230201:Watchlist" }, { type: "azure-native:securityinsights/v20230201preview:Watchlist" }, { type: "azure-native:securityinsights/v20230301preview:Watchlist" }, { type: "azure-native:securityinsights/v20230401preview:Watchlist" }, { type: "azure-native:securityinsights/v20230501preview:Watchlist" }, { type: "azure-native:securityinsights/v20230601preview:Watchlist" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Watchlist.__pulumiType, name, resourceInputs, opts);
     }
@@ -238,7 +230,7 @@ export class Watchlist extends pulumi.CustomResource {
  */
 export interface WatchlistArgs {
     /**
-     * The content type of the raw content. Example : text/csv or text/tsv 
+     * The content type of the raw content. For now, only text/csv is valid
      */
     contentType?: pulumi.Input<string>;
     /**
@@ -274,19 +266,17 @@ export interface WatchlistArgs {
      */
     labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of lines in a csv/tsv content to skip before the header
+     * The number of lines in a csv content to skip before the header
      */
     numberOfLinesToSkip?: pulumi.Input<number>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The provider of the watchlist
      */
     provider: pulumi.Input<string>;
     /**
-     * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
+     * The raw content that represents to watchlist items to create. Example : This line will be skipped
+     * header1,header2
+     * value1,value2
      */
     rawContent?: pulumi.Input<string>;
     /**
@@ -310,7 +300,7 @@ export interface WatchlistArgs {
      */
     updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
     /**
-     * The status of the Watchlist upload : New, InProgress or Complete. Pls note : When a Watchlist upload status is equal to InProgress, the Watchlist cannot be deleted
+     * The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
      */
     uploadStatus?: pulumi.Input<string>;
     /**
@@ -321,10 +311,6 @@ export interface WatchlistArgs {
      * The id (a Guid) of the watchlist
      */
     watchlistId?: pulumi.Input<string>;
-    /**
-     * The number of Watchlist Items in the Watchlist
-     */
-    watchlistItemsCount?: pulumi.Input<number>;
     /**
      * The type of the watchlist
      */

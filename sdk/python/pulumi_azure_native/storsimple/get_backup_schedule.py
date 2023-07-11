@@ -161,7 +161,7 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupScheduleResult:
     """
     Gets the properties of the specified backup schedule name.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str backup_policy_name: The backup policy name.
@@ -201,7 +201,7 @@ def get_backup_schedule_output(backup_policy_name: Optional[pulumi.Input[str]] =
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupScheduleResult]:
     """
     Gets the properties of the specified backup schedule name.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str backup_policy_name: The backup policy name.

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Subscription
- *
- * @deprecated azure-native:eventgrid/v20220615:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription to guarantee forwards compatibility.
  */
 export class SystemTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SystemTopicEventSubscription {
-        pulumi.log.warn("SystemTopicEventSubscription is deprecated: azure-native:eventgrid/v20220615:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription to guarantee forwards compatibility.")
         return new SystemTopicEventSubscription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +105,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:eventgrid/v20220615:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription to guarantee forwards compatibility. */
     constructor(name: string, args: SystemTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SystemTopicEventSubscription is deprecated: azure-native:eventgrid/v20220615:SystemTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -154,7 +149,7 @@ export class SystemTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211201:SystemTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

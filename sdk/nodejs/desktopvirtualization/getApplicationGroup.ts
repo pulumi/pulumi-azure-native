@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an application group.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
 
@@ -77,10 +77,6 @@ export interface GetApplicationGroupResult {
      */
     readonly managedBy?: string;
     /**
-     * The registration info of HostPool.
-     */
-    readonly migrationRequest?: outputs.desktopvirtualization.MigrationRequestPropertiesResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
@@ -90,6 +86,10 @@ export interface GetApplicationGroupResult {
     readonly objectId: string;
     readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
     readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -105,7 +105,7 @@ export interface GetApplicationGroupResult {
 }
 /**
  * Get an application group.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getApplicationGroupOutput(args: GetApplicationGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGroupResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGroup(a, opts))

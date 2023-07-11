@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'AdministratorType',
     'CreateMode',
     'GeoRedundantBackup',
     'IdentityType',
@@ -17,13 +16,6 @@ __all__ = [
     'SslEnforcementEnum',
     'StorageAutogrow',
 ]
-
-
-class AdministratorType(str, Enum):
-    """
-    The type of administrator.
-    """
-    ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
 class CreateMode(str, Enum):

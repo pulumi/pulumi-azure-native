@@ -134,7 +134,7 @@ def get_report_by_billing_account(billing_account_id: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByBillingAccountResult:
     """
     Gets the report for a billing account by report name.
-    API Version: 2018-08-01-preview.
+    Azure REST API version: 2018-08-01-preview.
 
 
     :param str billing_account_id: BillingAccount ID
@@ -163,7 +163,7 @@ def get_report_by_billing_account_output(billing_account_id: Optional[pulumi.Inp
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByBillingAccountResult]:
     """
     Gets the report for a billing account by report name.
-    API Version: 2018-08-01-preview.
+    Azure REST API version: 2018-08-01-preview.
 
 
     :param str billing_account_id: BillingAccount ID

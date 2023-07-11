@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.SignalRService
     public static class ListSignalRKeys
     {
         /// <summary>
-        /// Get the access keys of the SignalR resource.
-        /// API Version: 2020-05-01.
+        /// Get the access keys of the resource.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<ListSignalRKeysResult> InvokeAsync(ListSignalRKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSignalRKeysResult>("azure-native:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get the access keys of the SignalR resource.
-        /// API Version: 2020-05-01.
+        /// Get the access keys of the resource.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<ListSignalRKeysResult> Invoke(ListSignalRKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSignalRKeysResult>("azure-native:signalrservice:listSignalRKeys", args ?? new ListSignalRKeysInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SignalRService
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the SignalR resource.
+        /// The name of the resource.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.SignalRService
     public sealed class ListSignalRKeysResult
     {
         /// <summary>
-        /// SignalR connection string constructed via the primaryKey
+        /// Connection string constructed via the primaryKey
         /// </summary>
         public readonly string? PrimaryConnectionString;
         /// <summary>
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.SignalRService
         /// </summary>
         public readonly string? PrimaryKey;
         /// <summary>
-        /// SignalR connection string constructed via the secondaryKey
+        /// Connection string constructed via the secondaryKey
         /// </summary>
         public readonly string? SecondaryConnectionString;
         /// <summary>

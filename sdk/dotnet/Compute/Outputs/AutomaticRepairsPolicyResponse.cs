@@ -21,18 +21,25 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The amount of time for which automatic repairs are suspended due to a state change on VM. The grace time starts after the state change has completed. This helps avoid premature or accidental repairs. The time duration should be specified in ISO 8601 format. The minimum allowed grace period is 30 minutes (PT30M), which is also the default value. The maximum allowed grace period is 90 minutes (PT90M).
+        /// The amount of time for which automatic repairs are suspended due to a state change on VM. The grace time starts after the state change has completed. This helps avoid premature or accidental repairs. The time duration should be specified in ISO 8601 format. The minimum allowed grace period is 10 minutes (PT10M), which is also the default value. The maximum allowed grace period is 90 minutes (PT90M).
         /// </summary>
         public readonly string? GracePeriod;
+        /// <summary>
+        /// Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+        /// </summary>
+        public readonly string? RepairAction;
 
         [OutputConstructor]
         private AutomaticRepairsPolicyResponse(
             bool? enabled,
 
-            string? gracePeriod)
+            string? gracePeriod,
+
+            string? repairAction)
         {
             Enabled = enabled;
             GracePeriod = gracePeriod;
+            RepairAction = repairAction;
         }
     }
 }

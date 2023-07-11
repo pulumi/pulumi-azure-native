@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a HostPool definition.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class HostPool extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class HostPool extends pulumi.CustomResource {
         return obj['__pulumiType'] === HostPool.__pulumiType;
     }
 
+    /**
+     * The session host configuration for updating agent, monitoring agent, and stack component.
+     */
+    public readonly agentUpdate!: pulumi.Output<outputs.desktopvirtualization.AgentUpdatePropertiesResponse | undefined>;
     /**
      * List of applicationGroup links.
      */
@@ -88,10 +92,6 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly maxSessionLimit!: pulumi.Output<number | undefined>;
     /**
-     * The registration info of HostPool.
-     */
-    public readonly migrationRequest!: pulumi.Output<outputs.desktopvirtualization.MigrationRequestPropertiesResponse | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -138,6 +138,10 @@ export class HostPool extends pulumi.CustomResource {
      */
     public readonly startVMOnConnect!: pulumi.Output<boolean | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -177,6 +181,7 @@ export class HostPool extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["agentUpdate"] = args ? args.agentUpdate : undefined;
             resourceInputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
@@ -188,7 +193,6 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
-            resourceInputs["migrationRequest"] = args ? args.migrationRequest : undefined;
             resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
@@ -209,8 +213,10 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["agentUpdate"] = undefined /*out*/;
             resourceInputs["applicationGroupReferences"] = undefined /*out*/;
             resourceInputs["cloudPcResource"] = undefined /*out*/;
             resourceInputs["customRdpProperty"] = undefined /*out*/;
@@ -224,7 +230,6 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["maxSessionLimit"] = undefined /*out*/;
-            resourceInputs["migrationRequest"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["personalDesktopAssignmentType"] = undefined /*out*/;
@@ -238,6 +243,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["ssoSecretType"] = undefined /*out*/;
             resourceInputs["ssoadfsAuthority"] = undefined /*out*/;
             resourceInputs["startVMOnConnect"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["validationEnvironment"] = undefined /*out*/;
@@ -254,6 +260,10 @@ export class HostPool extends pulumi.CustomResource {
  * The set of arguments for constructing a HostPool resource.
  */
 export interface HostPoolArgs {
+    /**
+     * The session host configuration for updating agent, monitoring agent, and stack component.
+     */
+    agentUpdate?: pulumi.Input<inputs.desktopvirtualization.AgentUpdatePropertiesArgs>;
     /**
      * Custom rdp property of HostPool.
      */
@@ -295,10 +305,6 @@ export interface HostPoolArgs {
      * The max session limit of HostPool.
      */
     maxSessionLimit?: pulumi.Input<number>;
-    /**
-     * The registration info of HostPool.
-     */
-    migrationRequest?: pulumi.Input<inputs.desktopvirtualization.MigrationRequestPropertiesArgs>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */

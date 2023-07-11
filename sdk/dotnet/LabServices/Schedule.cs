@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
     /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
-    /// API Version: 2021-10-01-preview.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+        /// The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;

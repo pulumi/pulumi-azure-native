@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * A private link scoped resource
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**
@@ -40,7 +43,7 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
      */
     public readonly linkedResourceId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -48,7 +51,11 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * System data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -74,11 +81,13 @@ export class PrivateLinkScopedResource extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["linkedResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

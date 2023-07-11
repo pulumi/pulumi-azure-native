@@ -158,10 +158,10 @@ def get_vault(resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVaultResult:
     """
     Get the Vault details.
-    API Version: 2021-01-01.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the recovery services vault.
     """
     __args__ = dict()
@@ -189,10 +189,10 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVaultResult]:
     """
     Get the Vault details.
-    API Version: 2021-01-01.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str resource_group_name: The name of the resource group where the recovery services vault is present.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str vault_name: The name of the recovery services vault.
     """
     ...

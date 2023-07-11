@@ -22,10 +22,10 @@ class GetRouteResult:
     """
     Friendly Routes name mapping to the any Routes or secret related information.
     """
-    def __init__(__self__, compression_settings=None, custom_domains=None, deployment_status=None, enabled_state=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, query_string_caching_behavior=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
-        if compression_settings and not isinstance(compression_settings, dict):
-            raise TypeError("Expected argument 'compression_settings' to be a dict")
-        pulumi.set(__self__, "compression_settings", compression_settings)
+    def __init__(__self__, cache_configuration=None, custom_domains=None, deployment_status=None, enabled_state=None, endpoint_name=None, forwarding_protocol=None, https_redirect=None, id=None, link_to_default_domain=None, name=None, origin_group=None, origin_path=None, patterns_to_match=None, provisioning_state=None, rule_sets=None, supported_protocols=None, system_data=None, type=None):
+        if cache_configuration and not isinstance(cache_configuration, dict):
+            raise TypeError("Expected argument 'cache_configuration' to be a dict")
+        pulumi.set(__self__, "cache_configuration", cache_configuration)
         if custom_domains and not isinstance(custom_domains, list):
             raise TypeError("Expected argument 'custom_domains' to be a list")
         pulumi.set(__self__, "custom_domains", custom_domains)
@@ -35,6 +35,9 @@ class GetRouteResult:
         if enabled_state and not isinstance(enabled_state, str):
             raise TypeError("Expected argument 'enabled_state' to be a str")
         pulumi.set(__self__, "enabled_state", enabled_state)
+        if endpoint_name and not isinstance(endpoint_name, str):
+            raise TypeError("Expected argument 'endpoint_name' to be a str")
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
         if forwarding_protocol and not isinstance(forwarding_protocol, str):
             raise TypeError("Expected argument 'forwarding_protocol' to be a str")
         pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
@@ -62,9 +65,6 @@ class GetRouteResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if query_string_caching_behavior and not isinstance(query_string_caching_behavior, str):
-            raise TypeError("Expected argument 'query_string_caching_behavior' to be a str")
-        pulumi.set(__self__, "query_string_caching_behavior", query_string_caching_behavior)
         if rule_sets and not isinstance(rule_sets, list):
             raise TypeError("Expected argument 'rule_sets' to be a list")
         pulumi.set(__self__, "rule_sets", rule_sets)
@@ -79,16 +79,16 @@ class GetRouteResult:
         pulumi.set(__self__, "type", type)
 
     @property
-    @pulumi.getter(name="compressionSettings")
-    def compression_settings(self) -> Optional['outputs.CompressionSettingsResponse']:
+    @pulumi.getter(name="cacheConfiguration")
+    def cache_configuration(self) -> Optional['outputs.AfdRouteCacheConfigurationResponse']:
         """
-        compression settings.
+        The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
         """
-        return pulumi.get(self, "compression_settings")
+        return pulumi.get(self, "cache_configuration")
 
     @property
     @pulumi.getter(name="customDomains")
-    def custom_domains(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
+    def custom_domains(self) -> Optional[Sequence['outputs.ActivatedResourceReferenceResponse']]:
         """
         Domains referenced by this endpoint.
         """
@@ -106,6 +106,14 @@ class GetRouteResult:
         Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "enabled_state")
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> str:
+        """
+        The name of the endpoint which holds the route.
+        """
+        return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="forwardingProtocol")
@@ -180,14 +188,6 @@ class GetRouteResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="queryStringCachingBehavior")
-    def query_string_caching_behavior(self) -> Optional[str]:
-        """
-        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-        """
-        return pulumi.get(self, "query_string_caching_behavior")
-
-    @property
     @pulumi.getter(name="ruleSets")
     def rule_sets(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
         """
@@ -226,10 +226,11 @@ class AwaitableGetRouteResult(GetRouteResult):
         if False:
             yield self
         return GetRouteResult(
-            compression_settings=self.compression_settings,
+            cache_configuration=self.cache_configuration,
             custom_domains=self.custom_domains,
             deployment_status=self.deployment_status,
             enabled_state=self.enabled_state,
+            endpoint_name=self.endpoint_name,
             forwarding_protocol=self.forwarding_protocol,
             https_redirect=self.https_redirect,
             id=self.id,
@@ -239,7 +240,6 @@ class AwaitableGetRouteResult(GetRouteResult):
             origin_path=self.origin_path,
             patterns_to_match=self.patterns_to_match,
             provisioning_state=self.provisioning_state,
-            query_string_caching_behavior=self.query_string_caching_behavior,
             rule_sets=self.rule_sets,
             supported_protocols=self.supported_protocols,
             system_data=self.system_data,
@@ -253,11 +253,11 @@ def get_route(endpoint_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteResult:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str route_name: Name of the routing rule.
     """
@@ -270,10 +270,11 @@ def get_route(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        compression_settings=__ret__.compression_settings,
+        cache_configuration=__ret__.cache_configuration,
         custom_domains=__ret__.custom_domains,
         deployment_status=__ret__.deployment_status,
         enabled_state=__ret__.enabled_state,
+        endpoint_name=__ret__.endpoint_name,
         forwarding_protocol=__ret__.forwarding_protocol,
         https_redirect=__ret__.https_redirect,
         id=__ret__.id,
@@ -283,7 +284,6 @@ def get_route(endpoint_name: Optional[str] = None,
         origin_path=__ret__.origin_path,
         patterns_to_match=__ret__.patterns_to_match,
         provisioning_state=__ret__.provisioning_state,
-        query_string_caching_behavior=__ret__.query_string_caching_behavior,
         rule_sets=__ret__.rule_sets,
         supported_protocols=__ret__.supported_protocols,
         system_data=__ret__.system_data,
@@ -298,11 +298,11 @@ def get_route_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets an existing route with the specified route name under the specified subscription, resource group, profile, and AzureFrontDoor endpoint.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     :param str route_name: Name of the routing rule.
     """

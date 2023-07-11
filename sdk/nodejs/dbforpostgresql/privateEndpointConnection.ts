@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection
- * API Version: 2018-06-01.
+ * The private endpoint connection resource.
+ * Azure REST API version: 2022-11-08. Prior API version in Azure Native 1.x: 2018-06-01
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,21 +39,29 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The group ids for the private endpoint resource.
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint which the connection belongs to.
+     * The private endpoint resource.
      */
-    public readonly privateEndpoint!: pulumi.Output<outputs.dbforpostgresql.PrivateEndpointPropertyResponse | undefined>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.dbforpostgresql.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.dbforpostgresql.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.dbforpostgresql.PrivateLinkServiceConnectionStateResponse>;
     /**
-     * State of the private endpoint connection.
+     * The provisioning state of the private endpoint connection resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -70,29 +78,36 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.clusterName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'clusterName'");
+            }
+            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serverName'");
-            }
-            resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20180601:PrivateEndpointConnection" }, { type: "azure-native:dbforpostgresql/v20180601privatepreview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -103,20 +118,19 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface PrivateEndpointConnectionArgs {
     /**
-     * Private endpoint which the connection belongs to.
+     * The name of the cluster.
      */
-    privateEndpoint?: pulumi.Input<inputs.dbforpostgresql.PrivateEndpointPropertyArgs>;
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the private endpoint connection associated with the cluster.
+     */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.dbforpostgresql.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.dbforpostgresql.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The name of the server.
-     */
-    serverName: pulumi.Input<string>;
 }

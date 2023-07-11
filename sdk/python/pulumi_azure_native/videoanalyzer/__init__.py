@@ -18,7 +18,6 @@ from .get_video import *
 from .get_video_analyzer import *
 from .list_edge_module_provisioning_token import *
 from .list_video_content_token import *
-from .list_video_streaming_token import *
 from .live_pipeline import *
 from .pipeline_job import *
 from .pipeline_topology import *

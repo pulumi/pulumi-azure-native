@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// information about the failed queries
         /// </summary>
-        public readonly ImmutableArray<Outputs.GetInsightsErrorResponse> Errors;
+        public readonly ImmutableArray<Outputs.GetInsightsErrorKindResponse> Errors;
         /// <summary>
         /// the total items found for the insights request
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
         [OutputConstructor]
         private GetInsightsResultsMetadataResponse(
-            ImmutableArray<Outputs.GetInsightsErrorResponse> errors,
+            ImmutableArray<Outputs.GetInsightsErrorKindResponse> errors,
 
             int totalCount)
         {

@@ -92,7 +92,7 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Active Directory only authentication.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -109,7 +109,7 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Active Directory only authentication.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceAzureADOnlyAuthenticationArgs args: The arguments to use to populate this resource's properties.
@@ -151,7 +151,7 @@ class ManagedInstanceAzureADOnlyAuthentication(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstanceAzureADOnlyAuthentication"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstanceAzureADOnlyAuthentication")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstanceAzureADOnlyAuthentication, __self__).__init__(
             'azure-native:sql:ManagedInstanceAzureADOnlyAuthentication',

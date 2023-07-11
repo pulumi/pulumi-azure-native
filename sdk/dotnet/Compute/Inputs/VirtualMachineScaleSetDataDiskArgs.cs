@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class VirtualMachineScaleSetDataDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
+        /// Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
         /// </summary>
         [Input("caching")]
         public Input<Pulumi.AzureNative.Compute.CachingTypes>? Caching { get; set; }
@@ -26,6 +26,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("createOption", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Compute.DiskCreateOptionTypes> CreateOption { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether data disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only).&lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the data disk is deleted when the VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the data disk is retained after VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; The default value is set to **Delete**.
+        /// </summary>
+        [Input("deleteOption")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DiskDeleteOptionTypes>? DeleteOption { get; set; }
 
         /// <summary>
         /// Specifies the Read-Write IOPS for the managed disk. Should be used only when StorageAccountType is UltraSSD_LRS. If not specified, a default value would be assigned based on diskSizeGB.
@@ -40,7 +46,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<double>? DiskMBpsReadWrite { get; set; }
 
         /// <summary>
-        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
+        /// Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.
         /// </summary>
         [Input("diskSizeGB")]
         public Input<int>? DiskSizeGB { get; set; }

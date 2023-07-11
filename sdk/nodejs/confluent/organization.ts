@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Organization resource.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-03-01
  */
 export class Organization extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class Organization extends pulumi.CustomResource {
     /**
      * Confluent offer detail
      */
-    public readonly offerDetail!: pulumi.Output<outputs.confluent.OrganizationResourcePropertiesResponseOfferDetail | undefined>;
+    public readonly offerDetail!: pulumi.Output<outputs.confluent.OfferDetailResponse>;
     /**
      * Id of the Confluent organization.
      */
@@ -67,6 +67,10 @@ export class Organization extends pulumi.CustomResource {
      */
     public /*out*/ readonly ssoUrl!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.confluent.SystemDataResponse>;
+    /**
      * Organization resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -77,7 +81,7 @@ export class Organization extends pulumi.CustomResource {
     /**
      * Subscriber detail
      */
-    public readonly userDetail!: pulumi.Output<outputs.confluent.OrganizationResourcePropertiesResponseUserDetail | undefined>;
+    public readonly userDetail!: pulumi.Output<outputs.confluent.UserDetailResponse>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -90,8 +94,14 @@ export class Organization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.offerDetail === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'offerDetail'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if ((!args || args.userDetail === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'userDetail'");
             }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["offerDetail"] = args ? args.offerDetail : undefined;
@@ -104,6 +114,7 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["organizationId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["ssoUrl"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdTime"] = undefined /*out*/;
@@ -113,6 +124,7 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["organizationId"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["ssoUrl"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userDetail"] = undefined /*out*/;
@@ -135,7 +147,7 @@ export interface OrganizationArgs {
     /**
      * Confluent offer detail
      */
-    offerDetail?: pulumi.Input<inputs.confluent.OrganizationResourcePropertiesOfferDetailArgs>;
+    offerDetail: pulumi.Input<inputs.confluent.OfferDetailArgs>;
     /**
      * Organization resource name
      */
@@ -151,5 +163,5 @@ export interface OrganizationArgs {
     /**
      * Subscriber detail
      */
-    userDetail?: pulumi.Input<inputs.confluent.OrganizationResourcePropertiesUserDetailArgs>;
+    userDetail: pulumi.Input<inputs.confluent.UserDetailArgs>;
 }

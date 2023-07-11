@@ -97,12 +97,7 @@ class ServerKeyArgs:
         pulumi.set(self, "uri", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ServerKey(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +149,6 @@ class ServerKey(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServerKey is deprecated: azure-native:sql/v20211101:ServerKey is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerKey to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -182,7 +176,7 @@ class ServerKey(pulumi.CustomResource):
             __props__.__dict__["subregion"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azure-native:sql/v20211101:ServerKey',

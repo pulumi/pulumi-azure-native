@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Returns an attached database configuration.
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Task<GetAttachedDatabaseConfigurationResult> InvokeAsync(GetAttachedDatabaseConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns an attached database configuration.
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Output<GetAttachedDatabaseConfigurationResult> Invoke(GetAttachedDatabaseConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachedDatabaseConfigurationResult>("azure-native:kusto:getAttachedDatabaseConfiguration", args ?? new GetAttachedDatabaseConfigurationInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,14 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly string DatabaseName;
         /// <summary>
+        /// Overrides the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        public readonly string? DatabaseNameOverride;
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// </summary>
+        public readonly string? DatabaseNamePrefix;
+        /// <summary>
         /// The default principals modification kind
         /// </summary>
         public readonly string DefaultPrincipalsModificationKind;
@@ -132,6 +140,10 @@ namespace Pulumi.AzureNative.Kusto
 
             string databaseName,
 
+            string? databaseNameOverride,
+
+            string? databaseNamePrefix,
+
             string defaultPrincipalsModificationKind,
 
             string id,
@@ -149,6 +161,8 @@ namespace Pulumi.AzureNative.Kusto
             AttachedDatabaseNames = attachedDatabaseNames;
             ClusterResourceId = clusterResourceId;
             DatabaseName = databaseName;
+            DatabaseNameOverride = databaseNameOverride;
+            DatabaseNamePrefix = databaseNamePrefix;
             DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind;
             Id = id;
             Location = location;

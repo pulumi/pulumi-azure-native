@@ -7,11 +7,19 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .account import *
+from .configuration_profile import *
 from .configuration_profile_assignment import *
+from .configuration_profile_hciassignment import *
+from .configuration_profile_hcrpassignment import *
 from .configuration_profile_preference import *
+from .configuration_profiles_version import *
 from .get_account import *
+from .get_configuration_profile import *
 from .get_configuration_profile_assignment import *
+from .get_configuration_profile_hciassignment import *
+from .get_configuration_profile_hcrpassignment import *
 from .get_configuration_profile_preference import *
+from .get_configuration_profiles_version import *
 from ._inputs import *
 from . import outputs
 
@@ -19,12 +27,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.automanage.v20200630preview as __v20200630preview
     v20200630preview = __v20200630preview
-    import pulumi_azure_native.automanage.v20210430preview as __v20210430preview
-    v20210430preview = __v20210430preview
     import pulumi_azure_native.automanage.v20220504 as __v20220504
     v20220504 = __v20220504
 else:
     v20200630preview = _utilities.lazy_import('pulumi_azure_native.automanage.v20200630preview')
-    v20210430preview = _utilities.lazy_import('pulumi_azure_native.automanage.v20210430preview')
     v20220504 = _utilities.lazy_import('pulumi_azure_native.automanage.v20220504')
 

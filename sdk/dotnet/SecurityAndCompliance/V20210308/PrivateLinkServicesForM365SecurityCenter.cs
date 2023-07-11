@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter")]
+    [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365SecurityCenter")]
     public partial class PrivateLinkServicesForM365SecurityCenter : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -78,12 +78,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForM365SecurityCenter(string name, PrivateLinkServicesForM365SecurityCenterArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter", name, args ?? new PrivateLinkServicesForM365SecurityCenterArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365SecurityCenter", name, args ?? new PrivateLinkServicesForM365SecurityCenterArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForM365SecurityCenter(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365SecurityCenter", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -94,7 +94,10 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365SecurityCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:PrivateLinkServicesForM365SecurityCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForM365SecurityCenter"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365SecurityCenter"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365SecurityCenter"},
                 },
             };

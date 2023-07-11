@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Migrate
 {
     /// <summary>
     /// Define the move collection.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MoveCollection")]
     public partial class MoveCollection : global::Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.Migrate
         /// </summary>
         [Output("properties")]
         public Output<Outputs.MoveCollectionPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

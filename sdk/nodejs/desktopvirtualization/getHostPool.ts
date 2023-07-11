@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a host pool.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getHostPool(args: GetHostPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetHostPoolResult> {
 
@@ -35,6 +35,10 @@ export interface GetHostPoolArgs {
  * Represents a HostPool definition.
  */
 export interface GetHostPoolResult {
+    /**
+     * The session host configuration for updating agent, monitoring agent, and stack component.
+     */
+    readonly agentUpdate?: outputs.desktopvirtualization.AgentUpdatePropertiesResponse;
     /**
      * List of applicationGroup links.
      */
@@ -89,10 +93,6 @@ export interface GetHostPoolResult {
      */
     readonly maxSessionLimit?: number;
     /**
-     * The registration info of HostPool.
-     */
-    readonly migrationRequest?: outputs.desktopvirtualization.MigrationRequestPropertiesResponse;
-    /**
      * The name of the resource
      */
     readonly name: string;
@@ -139,6 +139,10 @@ export interface GetHostPoolResult {
      */
     readonly startVMOnConnect?: boolean;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -157,7 +161,7 @@ export interface GetHostPoolResult {
 }
 /**
  * Get a host pool.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getHostPoolOutput(args: GetHostPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostPoolResult> {
     return pulumi.output(args).apply((a: any) => getHostPool(a, opts))

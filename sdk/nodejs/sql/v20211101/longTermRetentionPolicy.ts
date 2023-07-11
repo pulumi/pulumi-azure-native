@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A long term retention policy.
- *
- * @deprecated azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.
  */
 export class LongTermRetentionPolicy extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LongTermRetentionPolicy {
-        pulumi.log.warn("LongTermRetentionPolicy is deprecated: azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.")
         return new LongTermRetentionPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +66,7 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: LongTermRetentionPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("LongTermRetentionPolicy is deprecated: azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -103,7 +98,7 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["yearlyRetention"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20170301preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20211101preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20220201preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20220501preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:LongTermRetentionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20170301preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20211101preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20220201preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20220501preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:LongTermRetentionPolicy" }, { type: "azure-native:sql/v20221101preview:LongTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LongTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }

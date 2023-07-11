@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns a Azure Arc PrivateLinkScope.
  */
-/** @deprecated azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility. */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
-    pulumi.log.warn("getPrivateLinkScope is deprecated: azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20221227:getPrivateLinkScope", {
@@ -68,7 +66,6 @@ export interface GetPrivateLinkScopeResult {
 /**
  * Returns a Azure Arc PrivateLinkScope.
  */
-/** @deprecated azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility. */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))
 }

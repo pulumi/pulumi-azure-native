@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a scope map for a container registry.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ScopeMap")]
     public partial class ScopeMap : global::Pulumi.CustomResource
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A sensitivity label.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
     /**
@@ -196,7 +196,7 @@ export interface SqlPoolSensitivityLabelArgs {
      */
     tableName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

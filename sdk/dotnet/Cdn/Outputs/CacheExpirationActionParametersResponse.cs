@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// The level at which the content needs to be cached.
         /// </summary>
         public readonly string CacheType;
-        public readonly string OdataType;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private CacheExpirationActionParametersResponse(
@@ -38,12 +38,12 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             string cacheType,
 
-            string odataType)
+            string typeName)
         {
             CacheBehavior = cacheBehavior;
             CacheDuration = cacheDuration;
             CacheType = cacheType;
-            OdataType = odataType;
+            TypeName = typeName;
         }
     }
 }

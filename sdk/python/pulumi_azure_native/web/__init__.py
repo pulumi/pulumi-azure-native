@@ -25,7 +25,9 @@ from .get_connection_gateway import *
 from .get_custom_api import *
 from .get_kube_environment import *
 from .get_static_site import *
+from .get_static_site_build_database_connection import *
 from .get_static_site_custom_domain import *
+from .get_static_site_database_connection import *
 from .get_static_site_linked_backend import *
 from .get_static_site_linked_backend_for_build import *
 from .get_static_site_private_endpoint_connection import *
@@ -37,6 +39,7 @@ from .get_web_app_deployment_slot import *
 from .get_web_app_diagnostic_logs_configuration import *
 from .get_web_app_domain_ownership_identifier import *
 from .get_web_app_domain_ownership_identifier_slot import *
+from .get_web_app_ftp_allowed import *
 from .get_web_app_function import *
 from .get_web_app_host_name_binding import *
 from .get_web_app_host_name_binding_slot import *
@@ -51,6 +54,7 @@ from .get_web_app_public_certificate import *
 from .get_web_app_public_certificate_slot import *
 from .get_web_app_relay_service_connection import *
 from .get_web_app_relay_service_connection_slot import *
+from .get_web_app_scm_allowed import *
 from .get_web_app_site_extension import *
 from .get_web_app_site_extension_slot import *
 from .get_web_app_slot import *
@@ -65,7 +69,6 @@ from .kube_environment import *
 from .list_app_service_plan_hybrid_connection_keys import *
 from .list_connection_consent_links import *
 from .list_connection_keys import *
-from .list_container_app_secrets import *
 from .list_custom_api_wsdl_interfaces import *
 from .list_site_identifiers_assigned_to_host_name import *
 from .list_static_site_app_settings import *
@@ -105,11 +108,15 @@ from .list_web_app_site_push_settings import *
 from .list_web_app_site_push_settings_slot import *
 from .list_web_app_sync_function_triggers import *
 from .list_web_app_sync_function_triggers_slot import *
+from .list_web_app_workflows_connections import *
+from .list_web_app_workflows_connections_slot import *
 from .list_workflow_run_action_expression_traces import *
 from .list_workflow_run_action_repetition_expression_traces import *
 from .list_workflow_trigger_callback_url import *
 from .static_site import *
+from .static_site_build_database_connection import *
 from .static_site_custom_domain import *
+from .static_site_database_connection import *
 from .static_site_linked_backend import *
 from .static_site_linked_backend_for_build import *
 from .static_site_private_endpoint_connection import *
@@ -133,6 +140,7 @@ from .web_app_deployment_slot import *
 from .web_app_diagnostic_logs_configuration import *
 from .web_app_domain_ownership_identifier import *
 from .web_app_domain_ownership_identifier_slot import *
+from .web_app_ftp_allowed import *
 from .web_app_function import *
 from .web_app_host_name_binding import *
 from .web_app_host_name_binding_slot import *
@@ -149,6 +157,7 @@ from .web_app_public_certificate import *
 from .web_app_public_certificate_slot import *
 from .web_app_relay_service_connection import *
 from .web_app_relay_service_connection_slot import *
+from .web_app_scm_allowed import *
 from .web_app_site_extension import *
 from .web_app_site_extension_slot import *
 from .web_app_site_push_settings import *
@@ -166,8 +175,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.web.v20150801 as __v20150801
-    v20150801 = __v20150801
     import pulumi_azure_native.web.v20150801preview as __v20150801preview
     v20150801preview = __v20150801preview
     import pulumi_azure_native.web.v20160301 as __v20160301
@@ -205,7 +212,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.web.v20220901 as __v20220901
     v20220901 = __v20220901
 else:
-    v20150801 = _utilities.lazy_import('pulumi_azure_native.web.v20150801')
     v20150801preview = _utilities.lazy_import('pulumi_azure_native.web.v20150801preview')
     v20160301 = _utilities.lazy_import('pulumi_azure_native.web.v20160301')
     v20160601 = _utilities.lazy_import('pulumi_azure_native.web.v20160601')

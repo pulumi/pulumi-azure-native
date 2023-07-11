@@ -110,7 +110,7 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualNetworkRuleResult:
     """
     Gets a virtual network rule.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -140,7 +140,7 @@ def get_virtual_network_rule_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets a virtual network rule.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

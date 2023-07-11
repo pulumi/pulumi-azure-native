@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A Media Services account.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
  */
 export class MediaService extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class MediaService extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.media.MediaServiceIdentityResponse | undefined>;
     /**
+     * The Key Delivery properties for Media Services account.
+     */
+    public readonly keyDelivery!: pulumi.Output<outputs.media.KeyDeliveryResponse | undefined>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
@@ -55,9 +59,25 @@ export class MediaService extends pulumi.CustomResource {
      */
     public /*out*/ readonly mediaServiceId!: pulumi.Output<string>;
     /**
+     * The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The Private Endpoint Connections created for the Media Service account.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.media.PrivateEndpointConnectionResponse[]>;
+    /**
+     * Provisioning state of the Media Services account.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Whether or not public network access is allowed for resources under the Media Services account.
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The storage accounts for this resource.
      */
@@ -93,21 +113,31 @@ export class MediaService extends pulumi.CustomResource {
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["keyDelivery"] = args ? args.keyDelivery : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["minimumTlsVersion"] = (args ? args.minimumTlsVersion : undefined) ?? "Tls12";
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["storageAuthentication"] = args ? args.storageAuthentication : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["mediaServiceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["keyDelivery"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["mediaServiceId"] = undefined /*out*/;
+            resourceInputs["minimumTlsVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["storageAccounts"] = undefined /*out*/;
             resourceInputs["storageAuthentication"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -138,9 +168,21 @@ export interface MediaServiceArgs {
      */
     identity?: pulumi.Input<inputs.media.MediaServiceIdentityArgs>;
     /**
+     * The Key Delivery properties for Media Services account.
+     */
+    keyDelivery?: pulumi.Input<inputs.media.KeyDeliveryArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+     */
+    minimumTlsVersion?: pulumi.Input<string | enums.media.MinimumTlsVersion>;
+    /**
+     * Whether or not public network access is allowed for resources under the Media Services account.
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.media.PublicNetworkAccess>;
     /**
      * The name of the resource group within the Azure subscription.
      */

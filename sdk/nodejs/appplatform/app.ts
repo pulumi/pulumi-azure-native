@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * App resource payload
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
  */
 export class App extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class App extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.appplatform.AppResourcePropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -83,16 +87,18 @@ export class App extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-native:appplatform/v20210601preview:App" }, { type: "azure-native:appplatform/v20210901preview:App" }, { type: "azure-native:appplatform/v20220101preview:App" }, { type: "azure-native:appplatform/v20220301preview:App" }, { type: "azure-native:appplatform/v20220401:App" }, { type: "azure-native:appplatform/v20220501preview:App" }, { type: "azure-native:appplatform/v20220901preview:App" }, { type: "azure-native:appplatform/v20221101preview:App" }, { type: "azure-native:appplatform/v20221201:App" }, { type: "azure-native:appplatform/v20230101preview:App" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:App" }, { type: "azure-native:appplatform/v20201101preview:App" }, { type: "azure-native:appplatform/v20210601preview:App" }, { type: "azure-native:appplatform/v20210901preview:App" }, { type: "azure-native:appplatform/v20220101preview:App" }, { type: "azure-native:appplatform/v20220301preview:App" }, { type: "azure-native:appplatform/v20220401:App" }, { type: "azure-native:appplatform/v20220501preview:App" }, { type: "azure-native:appplatform/v20220901preview:App" }, { type: "azure-native:appplatform/v20221101preview:App" }, { type: "azure-native:appplatform/v20221201:App" }, { type: "azure-native:appplatform/v20230101preview:App" }, { type: "azure-native:appplatform/v20230301preview:App" }, { type: "azure-native:appplatform/v20230501preview:App" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(App.__pulumiType, name, resourceInputs, opts);
     }

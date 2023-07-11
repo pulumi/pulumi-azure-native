@@ -25,7 +25,7 @@ class GroupArgs:
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[str] display_name: Group name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] description: Group description.
         :param pulumi.Input[str] external_id: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
@@ -60,7 +60,7 @@ class GroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -144,7 +144,7 @@ class Group(pulumi.CustomResource):
                  __props__=None):
         """
         Contract details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,7 +152,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: Group name.
         :param pulumi.Input[str] external_id: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input['GroupType'] type: Group type.
         """
@@ -164,7 +164,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contract details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.
@@ -212,7 +212,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["built_in"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Group")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azure-native:apimanagement:Group',
@@ -280,7 +280,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -288,7 +288,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

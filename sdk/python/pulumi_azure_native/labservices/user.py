@@ -15,56 +15,44 @@ __all__ = ['UserArgs', 'User']
 @pulumi.input_type
 class UserArgs:
     def __init__(__self__, *,
-                 lab_account_name: pulumi.Input[str],
+                 email: pulumi.Input[str],
                  lab_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
+                 additional_usage_quota: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a User resource.
-        :param pulumi.Input[str] lab_account_name: The name of the lab Account.
-        :param pulumi.Input[str] lab_name: The name of the lab.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input[str] user_name: The name of the user.
+        :param pulumi.Input[str] email: Email address of the user.
+        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
+        :param pulumi.Input[str] user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         """
-        pulumi.set(__self__, "lab_account_name", lab_account_name)
+        pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "lab_name", lab_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if tags is not None:
-            pulumi.set(__self__, "tags", tags)
-        if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+        if additional_usage_quota is not None:
+            pulumi.set(__self__, "additional_usage_quota", additional_usage_quota)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
     @property
-    @pulumi.getter(name="labAccountName")
-    def lab_account_name(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def email(self) -> pulumi.Input[str]:
         """
-        The name of the lab Account.
+        Email address of the user.
         """
-        return pulumi.get(self, "lab_account_name")
+        return pulumi.get(self, "email")
 
-    @lab_account_name.setter
-    def lab_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "lab_account_name", value)
+    @email.setter
+    def email(self, value: pulumi.Input[str]):
+        pulumi.set(self, "email", value)
 
     @property
     @pulumi.getter(name="labName")
     def lab_name(self) -> pulumi.Input[str]:
         """
-        The name of the lab.
+        The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         """
         return pulumi.get(self, "lab_name")
 
@@ -76,7 +64,7 @@ class UserArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -85,58 +73,22 @@ class UserArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="additionalUsageQuota")
+    def additional_usage_quota(self) -> Optional[pulumi.Input[str]]:
         """
-        The location of the resource.
+        The amount of usage quota time the user gets in addition to the lab usage quota.
         """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "additional_usage_quota")
 
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The provisioning status of the resource.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
-    @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The tags of the resource.
-        """
-        return pulumi.get(self, "tags")
-
-    @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
-
-    @unique_identifier.setter
-    def unique_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "unique_identifier", value)
+    @additional_usage_quota.setter
+    def additional_usage_quota(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "additional_usage_quota", value)
 
     @property
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the user.
+        The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         """
         return pulumi.get(self, "user_name")
 
@@ -150,29 +102,23 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_account_name: Optional[pulumi.Input[str]] = None,
+                 additional_usage_quota: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        The User registered to a lab
-        API Version: 2018-10-15.
+        User of a lab that can register for and use virtual machines within the lab.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] lab_account_name: The name of the lab Account.
-        :param pulumi.Input[str] lab_name: The name of the lab.
-        :param pulumi.Input[str] location: The location of the resource.
-        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags of the resource.
-        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
-        :param pulumi.Input[str] user_name: The name of the user.
+        :param pulumi.Input[str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
+        :param pulumi.Input[str] email: Email address of the user.
+        :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] user_name: The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         """
         ...
     @overload
@@ -181,8 +127,8 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        The User registered to a lab
-        API Version: 2018-10-15.
+        User of a lab that can register for and use virtual machines within the lab.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.
@@ -199,13 +145,10 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lab_account_name: Optional[pulumi.Input[str]] = None,
+                 additional_usage_quota: Optional[pulumi.Input[str]] = None,
+                 email: Optional[pulumi.Input[str]] = None,
                  lab_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 unique_identifier: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -216,29 +159,27 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = UserArgs.__new__(UserArgs)
 
-            if lab_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'lab_account_name'")
-            __props__.__dict__["lab_account_name"] = lab_account_name
+            __props__.__dict__["additional_usage_quota"] = additional_usage_quota
+            if email is None and not opts.urn:
+                raise TypeError("Missing required property 'email'")
+            __props__.__dict__["email"] = email
             if lab_name is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
-            __props__.__dict__["location"] = location
-            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["tags"] = tags
-            __props__.__dict__["unique_identifier"] = unique_identifier
             __props__.__dict__["user_name"] = user_name
-            __props__.__dict__["email"] = None
-            __props__.__dict__["family_name"] = None
-            __props__.__dict__["given_name"] = None
-            __props__.__dict__["latest_operation_result"] = None
+            __props__.__dict__["display_name"] = None
+            __props__.__dict__["invitation_sent"] = None
+            __props__.__dict__["invitation_state"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["tenant_id"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["registration_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["total_usage"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20181015:User")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:labservices/v20211001preview:User"), pulumi.Alias(type_="azure-native:labservices/v20211115preview:User"), pulumi.Alias(type_="azure-native:labservices/v20220801:User")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(User, __self__).__init__(
             'azure-native:labservices:User',
@@ -262,97 +203,96 @@ class User(pulumi.CustomResource):
 
         __props__ = UserArgs.__new__(UserArgs)
 
+        __props__.__dict__["additional_usage_quota"] = None
+        __props__.__dict__["display_name"] = None
         __props__.__dict__["email"] = None
-        __props__.__dict__["family_name"] = None
-        __props__.__dict__["given_name"] = None
-        __props__.__dict__["latest_operation_result"] = None
-        __props__.__dict__["location"] = None
+        __props__.__dict__["invitation_sent"] = None
+        __props__.__dict__["invitation_state"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["tags"] = None
-        __props__.__dict__["tenant_id"] = None
+        __props__.__dict__["registration_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["total_usage"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["unique_identifier"] = None
         return User(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalUsageQuota")
+    def additional_usage_quota(self) -> pulumi.Output[Optional[str]]:
+        """
+        The amount of usage quota time the user gets in addition to the lab usage quota.
+        """
+        return pulumi.get(self, "additional_usage_quota")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[str]:
+        """
+        Display name of the user, for example user's full name.
+        """
+        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
         """
-        The user email address, as it was specified during registration.
+        Email address of the user.
         """
         return pulumi.get(self, "email")
 
     @property
-    @pulumi.getter(name="familyName")
-    def family_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="invitationSent")
+    def invitation_sent(self) -> pulumi.Output[str]:
         """
-        The user family name, as it was specified during registration.
+        Date and time when the invitation message was sent to the user.
         """
-        return pulumi.get(self, "family_name")
+        return pulumi.get(self, "invitation_sent")
 
     @property
-    @pulumi.getter(name="givenName")
-    def given_name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="invitationState")
+    def invitation_state(self) -> pulumi.Output[str]:
         """
-        The user given name, as it was specified during registration.
+        State of the invitation message for the user.
         """
-        return pulumi.get(self, "given_name")
-
-    @property
-    @pulumi.getter(name="latestOperationResult")
-    def latest_operation_result(self) -> pulumi.Output['outputs.LatestOperationResultResponse']:
-        """
-        The details of the latest operation. ex: status, error
-        """
-        return pulumi.get(self, "latest_operation_result")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        The location of the resource.
-        """
-        return pulumi.get(self, "location")
+        return pulumi.get(self, "invitation_state")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning status of the resource.
+        Current provisioning state of the user resource.
         """
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+    @pulumi.getter(name="registrationState")
+    def registration_state(self) -> pulumi.Output[str]:
         """
-        The tags of the resource.
+        State of the user's registration within the lab.
         """
-        return pulumi.get(self, "tags")
+        return pulumi.get(self, "registration_state")
 
     @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The user tenant ID, as it was specified during registration.
+        Metadata pertaining to creation and last modification of the user resource.
         """
-        return pulumi.get(self, "tenant_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="totalUsage")
     def total_usage(self) -> pulumi.Output[str]:
         """
-        How long the user has used his VMs in this lab
+        How long the user has used their virtual machines in this lab.
         """
         return pulumi.get(self, "total_usage")
 
@@ -360,15 +300,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="uniqueIdentifier")
-    def unique_identifier(self) -> pulumi.Output[Optional[str]]:
-        """
-        The unique immutable identifier of a resource (Guid).
-        """
-        return pulumi.get(self, "unique_identifier")
 

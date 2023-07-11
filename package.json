@@ -2,7 +2,7 @@
   "name": "pulumi-azure-native",
   "private": "true",
   "scripts": {
-    "explode": "pulumi-schema explode"
+    "schema": "pulumi-schema"
   },
   "devDependencies": {
     "schema-explode": "github:pulumi/pulumi-schema-explode#1.0.0"

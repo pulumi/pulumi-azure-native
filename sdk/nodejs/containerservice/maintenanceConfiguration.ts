@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * maintenance configuration.
- * API Version: 2021-03-01.
+ * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
@@ -47,11 +47,11 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
      */
     public readonly notAllowedTime!: pulumi.Output<outputs.containerservice.TimeSpanResponse[] | undefined>;
     /**
-     * The system meta data relating to this resource.
+     * The system metadata relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.containerservice.SystemDataResponse>;
     /**
-     * Weekday time slots allowed to upgrade.
+     * If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */
     public readonly timeInWeek!: pulumi.Output<outputs.containerservice.TimeInWeekResponse[] | undefined>;
     /**
@@ -92,7 +92,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210501:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210701:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210801:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210901:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211001:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211101preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220101:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220102preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220202preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220302preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220401:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220402preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220502preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220601:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220602preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220701:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220702preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220802preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220803preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220901:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220902preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20221002preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20221101:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20221102preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230101:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230102preview:MaintenanceConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20201201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210501:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210701:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210801:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20210901:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211001:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20211101preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220101:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220102preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220202preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220302preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220401:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220402preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220502preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220601:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220602preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220701:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220702preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220802preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220803preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220901:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20220902preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20221002preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20221101:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20221102preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230101:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230102preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230201:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230202preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230301:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230302preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230401:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230402preview:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230501:MaintenanceConfiguration" }, { type: "azure-native:containerservice/v20230502preview:MaintenanceConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MaintenanceConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,7 +111,7 @@ export interface MaintenanceConfigurationArgs {
      */
     notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeSpanArgs>[]>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -119,7 +119,7 @@ export interface MaintenanceConfigurationArgs {
      */
     resourceName: pulumi.Input<string>;
     /**
-     * Weekday time slots allowed to upgrade.
+     * If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */
     timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeInWeekArgs>[]>;
 }

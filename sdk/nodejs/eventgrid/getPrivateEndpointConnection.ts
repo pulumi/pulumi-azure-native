@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a specific private endpoint connection under a topic or domain.
- * API Version: 2020-06-01.
+ * Get a specific private endpoint connection under a topic, domain, or partner namespace.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -24,11 +24,11 @@ export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionA
 
 export interface GetPrivateEndpointConnectionArgs {
     /**
-     * The name of the parent resource (namely, either, the topic name or domain name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
      */
     parentName: string;
     /**
-     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
      */
     parentType: string;
     /**
@@ -72,8 +72,8 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Get a specific private endpoint connection under a topic or domain.
- * API Version: 2020-06-01.
+ * Get a specific private endpoint connection under a topic, domain, or partner namespace.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
@@ -81,11 +81,11 @@ export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConne
 
 export interface GetPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the parent resource (namely, either, the topic name or domain name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
      */
     parentName: pulumi.Input<string>;
     /**
-     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
      */
     parentType: pulumi.Input<string>;
     /**

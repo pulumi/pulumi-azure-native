@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A schedule.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
  */
 export class ServiceFabricSchedule extends pulumi.CustomResource {
     /**
@@ -83,7 +83,7 @@ export class ServiceFabricSchedule extends pulumi.CustomResource {
      */
     public readonly taskType!: pulumi.Output<string | undefined>;
     /**
-     * The time zone ID (e.g. Pacific Standard time).
+     * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
     public readonly timeZoneId!: pulumi.Output<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface ServiceFabricScheduleArgs {
      */
     taskType?: pulumi.Input<string>;
     /**
-     * The time zone ID (e.g. Pacific Standard time).
+     * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
     timeZoneId?: pulumi.Input<string>;
     /**

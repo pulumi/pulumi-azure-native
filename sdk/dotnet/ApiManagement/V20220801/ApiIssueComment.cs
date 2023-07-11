@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Issue Comment Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueComment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiIssueComment")]
     public partial class ApiIssueComment : global::Pulumi.CustomResource
     {
@@ -85,6 +84,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiIssueComment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssueComment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiIssueComment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ApiIssueComment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

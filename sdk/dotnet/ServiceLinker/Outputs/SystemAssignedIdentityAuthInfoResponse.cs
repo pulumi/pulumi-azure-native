@@ -21,11 +21,33 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// Expected value is 'systemAssignedIdentity'.
         /// </summary>
         public readonly string AuthType;
+        /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        public readonly string? DeleteOrUpdateBehavior;
+        /// <summary>
+        /// Optional, this value specifies the Azure role to be assigned
+        /// </summary>
+        public readonly ImmutableArray<string> Roles;
+        /// <summary>
+        /// Username created in the database which is mapped to a user in AAD.
+        /// </summary>
+        public readonly string? UserName;
 
         [OutputConstructor]
-        private SystemAssignedIdentityAuthInfoResponse(string authType)
+        private SystemAssignedIdentityAuthInfoResponse(
+            string authType,
+
+            string? deleteOrUpdateBehavior,
+
+            ImmutableArray<string> roles,
+
+            string? userName)
         {
             AuthType = authType;
+            DeleteOrUpdateBehavior = deleteOrUpdateBehavior;
+            Roles = roles;
+            UserName = userName;
         }
     }
 }

@@ -39,6 +39,137 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
+    /// The comparison operator.
+    /// 
+    ///  Supported for CategoryType(s): Cost, ReservationUtilization.
+    /// 
+    ///  Supported operators for **CategoryType: Cost**
+    /// - GreaterThan
+    /// - GreaterThanOrEqualTo
+    /// 
+    ///  Supported operators for **CategoryType: ReservationUtilization**
+    /// - LessThan
+    /// </summary>
+    [EnumType]
+    public readonly struct BudgetNotificationOperatorType : IEquatable<BudgetNotificationOperatorType>
+    {
+        private readonly string _value;
+
+        private BudgetNotificationOperatorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Notification will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future.
+        /// 
+        ///  Supported for CategoryType(s): Cost.
+        /// </summary>
+        public static BudgetNotificationOperatorType EqualTo { get; } = new BudgetNotificationOperatorType("EqualTo");
+        /// <summary>
+        /// Notification will be triggered if the evaluated cost is greater than the threshold value. Note: This is the recommended OperatorType while configuring Budget Alert.
+        /// 
+        ///  Supported for CategoryType(s): Cost.
+        /// </summary>
+        public static BudgetNotificationOperatorType GreaterThan { get; } = new BudgetNotificationOperatorType("GreaterThan");
+        /// <summary>
+        /// Notification will be triggered if the evaluated cost is greater than or equal to the threshold value.
+        /// 
+        ///  Supported for CategoryType(s): Cost.
+        /// </summary>
+        public static BudgetNotificationOperatorType GreaterThanOrEqualTo { get; } = new BudgetNotificationOperatorType("GreaterThanOrEqualTo");
+        /// <summary>
+        /// Notification will be triggered if any Reservations in the scope of the Reservation Utilization Alert Rule have a utilization less than the threshold percentage.
+        /// 
+        ///  Supported for CategoryType(s): ReservationUtilization.
+        /// </summary>
+        public static BudgetNotificationOperatorType LessThan { get; } = new BudgetNotificationOperatorType("LessThan");
+
+        public static bool operator ==(BudgetNotificationOperatorType left, BudgetNotificationOperatorType right) => left.Equals(right);
+        public static bool operator !=(BudgetNotificationOperatorType left, BudgetNotificationOperatorType right) => !left.Equals(right);
+
+        public static explicit operator string(BudgetNotificationOperatorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BudgetNotificationOperatorType other && Equals(other);
+        public bool Equals(BudgetNotificationOperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operator to use for comparison.
+    /// </summary>
+    [EnumType]
+    public readonly struct BudgetOperatorType : IEquatable<BudgetOperatorType>
+    {
+        private readonly string _value;
+
+        private BudgetOperatorType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BudgetOperatorType In { get; } = new BudgetOperatorType("In");
+
+        public static bool operator ==(BudgetOperatorType left, BudgetOperatorType right) => left.Equals(right);
+        public static bool operator !=(BudgetOperatorType left, BudgetOperatorType right) => !left.Equals(right);
+
+        public static explicit operator string(BudgetOperatorType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BudgetOperatorType other && Equals(other);
+        public bool Equals(BudgetOperatorType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The category of the budget.
+    /// - 'Cost' defines a Budget.
+    /// - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct CategoryType : IEquatable<CategoryType>
+    {
+        private readonly string _value;
+
+        private CategoryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// A Budget that evaluates monetary cost of Azure resources against an amount, and alerts based on a configured notification threshold.
+        /// </summary>
+        public static CategoryType Cost { get; } = new CategoryType("Cost");
+        /// <summary>
+        /// An Alert Rule that evaluates the utilization percentage of Azure Reservations, and alerts based on a configured notification threshold.
+        /// </summary>
+        public static CategoryType ReservationUtilization { get; } = new CategoryType("ReservationUtilization");
+
+        public static bool operator ==(CategoryType left, CategoryType right) => left.Equals(right);
+        public static bool operator !=(CategoryType left, CategoryType right) => !left.Equals(right);
+
+        public static explicit operator string(CategoryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CategoryType other && Equals(other);
+        public bool Equals(CategoryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Chart type of the main view in Cost Analysis. Required.
     /// </summary>
     [EnumType]
@@ -106,6 +237,38 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
+    /// Connector status
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectorStatus : IEquatable<ConnectorStatus>
+    {
+        private readonly string _value;
+
+        private ConnectorStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectorStatus Active { get; } = new ConnectorStatus("active");
+        public static ConnectorStatus Error { get; } = new ConnectorStatus("error");
+        public static ConnectorStatus Suspended { get; } = new ConnectorStatus("suspended");
+
+        public static bool operator ==(ConnectorStatus left, ConnectorStatus right) => left.Equals(right);
+        public static bool operator !=(ConnectorStatus left, ConnectorStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectorStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectorStatus other && Equals(other);
+        public bool Equals(ConnectorStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Method of cost allocation for the rule
     /// </summary>
     [EnumType]
@@ -165,6 +328,58 @@ namespace Pulumi.AzureNative.CostManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CostAllocationResourceType other && Equals(other);
         public bool Equals(CostAllocationResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Language in which the recipient will receive the notification, 
+    /// 
+    ///  Supported for CategoryType(s): Cost, ReservationUtilization.
+    /// </summary>
+    [EnumType]
+    public readonly struct CultureCode : IEquatable<CultureCode>
+    {
+        private readonly string _value;
+
+        private CultureCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CultureCode En_us { get; } = new CultureCode("en-us");
+        public static CultureCode Ja_jp { get; } = new CultureCode("ja-jp");
+        public static CultureCode Zh_cn { get; } = new CultureCode("zh-cn");
+        public static CultureCode De_de { get; } = new CultureCode("de-de");
+        public static CultureCode Es_es { get; } = new CultureCode("es-es");
+        public static CultureCode Fr_fr { get; } = new CultureCode("fr-fr");
+        public static CultureCode It_it { get; } = new CultureCode("it-it");
+        public static CultureCode Ko_kr { get; } = new CultureCode("ko-kr");
+        public static CultureCode Pt_br { get; } = new CultureCode("pt-br");
+        public static CultureCode Ru_ru { get; } = new CultureCode("ru-ru");
+        public static CultureCode Zh_tw { get; } = new CultureCode("zh-tw");
+        public static CultureCode Cs_cz { get; } = new CultureCode("cs-cz");
+        public static CultureCode Pl_pl { get; } = new CultureCode("pl-pl");
+        public static CultureCode Tr_tr { get; } = new CultureCode("tr-tr");
+        public static CultureCode Da_dk { get; } = new CultureCode("da-dk");
+        public static CultureCode En_gb { get; } = new CultureCode("en-gb");
+        public static CultureCode Hu_hu { get; } = new CultureCode("hu-hu");
+        public static CultureCode Nb_no { get; } = new CultureCode("nb-no");
+        public static CultureCode Nl_nl { get; } = new CultureCode("nl-nl");
+        public static CultureCode Pt_pt { get; } = new CultureCode("pt-pt");
+        public static CultureCode Sv_se { get; } = new CultureCode("sv-se");
+
+        public static bool operator ==(CultureCode left, CultureCode right) => left.Equals(right);
+        public static bool operator !=(CultureCode left, CultureCode right) => !left.Equals(right);
+
+        public static explicit operator string(CultureCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CultureCode other && Equals(other);
+        public bool Equals(CultureCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -241,7 +456,7 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// Destination of the view data. Currently only csv format is supported.
+    /// Destination of the view data. Currently only CSV format is supported.
     /// </summary>
     [EnumType]
     public readonly struct FileFormat : IEquatable<FileFormat>
@@ -301,6 +516,49 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
+    /// Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
+    /// 
+    ///  Supported for CategoryType(s): ReservationUtilization.
+    /// </summary>
+    [EnumType]
+    public readonly struct Frequency : IEquatable<Frequency>
+    {
+        private readonly string _value;
+
+        private Frequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// After the threshold breaches and an Alert is fired, no further alerts will be sent until the next calendar day.
+        /// </summary>
+        public static Frequency Daily { get; } = new Frequency("Daily");
+        /// <summary>
+        /// After the threshold breaches and an Alert is fired, no further alerts will be sent for 7 calendar days.
+        /// </summary>
+        public static Frequency Weekly { get; } = new Frequency("Weekly");
+        /// <summary>
+        /// After the threshold breaches and an Alert is fired, no further alerts will be sent for 30 calendar days.
+        /// </summary>
+        public static Frequency Monthly { get; } = new Frequency("Monthly");
+
+        public static bool operator ==(Frequency left, Frequency right) => left.Equals(right);
+        public static bool operator !=(Frequency left, Frequency right) => !left.Equals(right);
+
+        public static explicit operator string(Frequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Frequency other && Equals(other);
+        public bool Equals(Frequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The name of the aggregation function to use.
     /// </summary>
     [EnumType]
@@ -313,9 +571,6 @@ namespace Pulumi.AzureNative.CostManagement
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static FunctionType Avg { get; } = new FunctionType("Avg");
-        public static FunctionType Max { get; } = new FunctionType("Max");
-        public static FunctionType Min { get; } = new FunctionType("Min");
         public static FunctionType Sum { get; } = new FunctionType("Sum");
 
         public static bool operator ==(FunctionType left, FunctionType right) => left.Equals(right);
@@ -490,6 +745,43 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
+    /// Has type of the column to group.
+    /// </summary>
+    [EnumType]
+    public readonly struct QueryColumnType : IEquatable<QueryColumnType>
+    {
+        private readonly string _value;
+
+        private QueryColumnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The tag associated with the cost data.
+        /// </summary>
+        public static QueryColumnType TagKey { get; } = new QueryColumnType("TagKey");
+        /// <summary>
+        /// The dimension of cost data.
+        /// </summary>
+        public static QueryColumnType Dimension { get; } = new QueryColumnType("Dimension");
+
+        public static bool operator ==(QueryColumnType left, QueryColumnType right) => left.Equals(right);
+        public static bool operator !=(QueryColumnType left, QueryColumnType right) => !left.Equals(right);
+
+        public static explicit operator string(QueryColumnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QueryColumnType other && Equals(other);
+        public bool Equals(QueryColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The schedule recurrence.
     /// </summary>
     [EnumType]
@@ -554,29 +846,29 @@ namespace Pulumi.AzureNative.CostManagement
     }
 
     /// <summary>
-    /// Has type of the column to group.
+    /// Direction of sort.
     /// </summary>
     [EnumType]
-    public readonly struct ReportConfigColumnType : IEquatable<ReportConfigColumnType>
+    public readonly struct ReportConfigSortingType : IEquatable<ReportConfigSortingType>
     {
         private readonly string _value;
 
-        private ReportConfigColumnType(string value)
+        private ReportConfigSortingType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ReportConfigColumnType Tag { get; } = new ReportConfigColumnType("Tag");
-        public static ReportConfigColumnType Dimension { get; } = new ReportConfigColumnType("Dimension");
+        public static ReportConfigSortingType Ascending { get; } = new ReportConfigSortingType("Ascending");
+        public static ReportConfigSortingType Descending { get; } = new ReportConfigSortingType("Descending");
 
-        public static bool operator ==(ReportConfigColumnType left, ReportConfigColumnType right) => left.Equals(right);
-        public static bool operator !=(ReportConfigColumnType left, ReportConfigColumnType right) => !left.Equals(right);
+        public static bool operator ==(ReportConfigSortingType left, ReportConfigSortingType right) => left.Equals(right);
+        public static bool operator !=(ReportConfigSortingType left, ReportConfigSortingType right) => !left.Equals(right);
 
-        public static explicit operator string(ReportConfigColumnType value) => value._value;
+        public static explicit operator string(ReportConfigSortingType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReportConfigColumnType other && Equals(other);
-        public bool Equals(ReportConfigColumnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ReportConfigSortingType other && Equals(other);
+        public bool Equals(ReportConfigSortingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -777,6 +1069,10 @@ namespace Pulumi.AzureNative.CostManagement
         /// Cost analysis data will be emailed.
         /// </summary>
         public static ScheduledActionKind Email { get; } = new ScheduledActionKind("Email");
+        /// <summary>
+        /// Cost anomaly information will be emailed. Available only on subscription scope at daily frequency. If no anomaly is detected on the resource, an email won't be sent.
+        /// </summary>
+        public static ScheduledActionKind InsightAlert { get; } = new ScheduledActionKind("InsightAlert");
 
         public static bool operator ==(ScheduledActionKind left, ScheduledActionKind right) => left.Equals(right);
         public static bool operator !=(ScheduledActionKind left, ScheduledActionKind right) => !left.Equals(right);
@@ -807,13 +1103,17 @@ namespace Pulumi.AzureNative.CostManagement
         }
 
         /// <summary>
-        /// Scheduled action is saved but will not be executed.
+        /// Scheduled action is saved but will not be run.
         /// </summary>
         public static ScheduledActionStatus Disabled { get; } = new ScheduledActionStatus("Disabled");
         /// <summary>
-        /// Scheduled action is saved and will be executed.
+        /// Scheduled action is saved and will be run.
         /// </summary>
         public static ScheduledActionStatus Enabled { get; } = new ScheduledActionStatus("Enabled");
+        /// <summary>
+        /// Scheduled action is expired.
+        /// </summary>
+        public static ScheduledActionStatus Expired { get; } = new ScheduledActionStatus("Expired");
 
         public static bool operator ==(ScheduledActionStatus left, ScheduledActionStatus right) => left.Equals(right);
         public static bool operator !=(ScheduledActionStatus left, ScheduledActionStatus right) => !left.Equals(right);
@@ -823,6 +1123,36 @@ namespace Pulumi.AzureNative.CostManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScheduledActionStatus other && Equals(other);
         public bool Equals(ScheduledActionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the kind of settings.
+    /// </summary>
+    [EnumType]
+    public readonly struct SettingsKind : IEquatable<SettingsKind>
+    {
+        private readonly string _value;
+
+        private SettingsKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SettingsKind Taginheritance { get; } = new SettingsKind("taginheritance");
+
+        public static bool operator ==(SettingsKind left, SettingsKind right) => left.Equals(right);
+        public static bool operator !=(SettingsKind left, SettingsKind right) => !left.Equals(right);
+
+        public static explicit operator string(SettingsKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SettingsKind other && Equals(other);
+        public bool Equals(SettingsKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -854,6 +1184,141 @@ namespace Pulumi.AzureNative.CostManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StatusType other && Equals(other);
         public bool Equals(StatusType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of threshold.
+    /// 
+    ///  Supported for CategoryType(s): Cost.
+    /// </summary>
+    [EnumType]
+    public readonly struct ThresholdType : IEquatable<ThresholdType>
+    {
+        private readonly string _value;
+
+        private ThresholdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Actual costs budget alerts notify when the actual accrued cost exceeds the allocated budget.
+        /// </summary>
+        public static ThresholdType Actual { get; } = new ThresholdType("Actual");
+        /// <summary>
+        /// Forecasted costs budget alerts provide advanced notification that your spending trends are likely to exceed your allocated budget, as it relies on forecasted cost predictions.
+        /// </summary>
+        public static ThresholdType Forecasted { get; } = new ThresholdType("Forecasted");
+
+        public static bool operator ==(ThresholdType left, ThresholdType right) => left.Equals(right);
+        public static bool operator !=(ThresholdType left, ThresholdType right) => !left.Equals(right);
+
+        public static explicit operator string(ThresholdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThresholdType other && Equals(other);
+        public bool Equals(ThresholdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+    /// 
+    /// Supported for CategoryType(s): Cost, ReservationUtilization.
+    /// 
+    ///  Supported timeGrainTypes for **CategoryType: Cost**
+    /// 
+    /// - Monthly
+    /// - Quarterly
+    /// - Annually
+    /// - BillingMonth*
+    /// - BillingQuarter*
+    /// - BillingAnnual*
+    /// 
+    ///   *only supported for Web Direct customers.
+    /// 
+    ///  Supported timeGrainTypes for **CategoryType: ReservationUtilization**
+    /// - Last7Days
+    /// - Last30Days
+    /// 
+    ///  Required for CategoryType(s): Cost, ReservationUtilization.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeGrainType : IEquatable<TimeGrainType>
+    {
+        private readonly string _value;
+
+        private TimeGrainType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The budget will track costs in the current calendar month against the amount.
+        /// 
+        ///  Supported for CategoryType: Cost only.
+        /// </summary>
+        public static TimeGrainType Monthly { get; } = new TimeGrainType("Monthly");
+        /// <summary>
+        /// The budget will track costs in the current calendar quarter against the amount.
+        /// 
+        ///  Supported for CategoryType: Cost only.
+        /// </summary>
+        public static TimeGrainType Quarterly { get; } = new TimeGrainType("Quarterly");
+        /// <summary>
+        /// The budget will track costs in the current calendar year against the amount.
+        /// 
+        ///  Supported for CategoryType: Cost only.
+        /// </summary>
+        public static TimeGrainType Annually { get; } = new TimeGrainType("Annually");
+        /// <summary>
+        /// The budget will track costs in the current billing month against the amount.
+        /// 
+        ///  Supported for CategoryType: Cost and Web Direct customers only.
+        /// </summary>
+        public static TimeGrainType BillingMonth { get; } = new TimeGrainType("BillingMonth");
+        /// <summary>
+        /// The budget will track costs in the current billing quarter against the amount.
+        /// 
+        ///  Supported for CategoryType: Cost and Web Direct customers only.
+        /// </summary>
+        public static TimeGrainType BillingQuarter { get; } = new TimeGrainType("BillingQuarter");
+        /// <summary>
+        /// The budget will track costs in the current billing year against the amount.
+        /// 
+        ///  Supported for CategoryType: Cost and Web Direct customers only.
+        /// </summary>
+        public static TimeGrainType BillingAnnual { get; } = new TimeGrainType("BillingAnnual");
+        /// <summary>
+        /// The Reservation Utilization Alert Rule will evaluate reservations based on their 7-Day utilization percentage.
+        /// 
+        ///  Supported for CategoryType: ReservationUtilization only.
+        /// </summary>
+        public static TimeGrainType Last7Days { get; } = new TimeGrainType("Last7Days");
+        /// <summary>
+        /// The Reservation Utilization Alert Rule will evaluate reservations based on their 30-Day utilization percentage.
+        /// 
+        ///  Supported for CategoryType: ReservationUtilization only.
+        /// </summary>
+        public static TimeGrainType Last30Days { get; } = new TimeGrainType("Last30Days");
+
+        public static bool operator ==(TimeGrainType left, TimeGrainType right) => left.Equals(right);
+        public static bool operator !=(TimeGrainType left, TimeGrainType right) => !left.Equals(right);
+
+        public static explicit operator string(TimeGrainType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeGrainType other && Equals(other);
+        public bool Equals(TimeGrainType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

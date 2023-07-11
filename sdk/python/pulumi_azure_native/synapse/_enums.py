@@ -5,17 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'AzureSkuName',
-    'AzureSkuTier',
     'BlobStorageEventType',
     'ClusterPrincipalRole',
     'Compression',
+    'ConfigurationType',
     'CreateMode',
     'DataConnectionKind',
     'DataFlowComputeType',
     'DatabasePrincipalRole',
     'DefaultPrincipalsModificationKind',
-    'EngineType',
     'EventGridDataFormat',
     'EventHubDataFormat',
     'IntegrationRuntimeEdition',
@@ -30,49 +28,12 @@ __all__ = [
     'PrincipalType',
     'ResourceIdentityType',
     'SensitivityLabelRank',
+    'SkuName',
+    'SkuSize',
     'StorageAccountType',
     'TransparentDataEncryptionStatus',
     'WorkspacePublicNetworkAccess',
 ]
-
-
-class AzureSkuName(str, Enum):
-    """
-    SKU name.
-    """
-    STANDARD_DS13_V2_1_T_B_PS = "Standard_DS13_v2+1TB_PS"
-    STANDARD_DS13_V2_2_T_B_PS = "Standard_DS13_v2+2TB_PS"
-    STANDARD_DS14_V2_3_T_B_PS = "Standard_DS14_v2+3TB_PS"
-    STANDARD_DS14_V2_4_T_B_PS = "Standard_DS14_v2+4TB_PS"
-    STANDARD_D13_V2 = "Standard_D13_v2"
-    STANDARD_D14_V2 = "Standard_D14_v2"
-    STANDARD_L8S = "Standard_L8s"
-    STANDARD_L16S = "Standard_L16s"
-    STANDARD_L8S_V2 = "Standard_L8s_v2"
-    STANDARD_L16S_V2 = "Standard_L16s_v2"
-    STANDARD_D11_V2 = "Standard_D11_v2"
-    STANDARD_D12_V2 = "Standard_D12_v2"
-    STANDARD_L4S = "Standard_L4s"
-    DEV_NO_SL_A_STANDARD_D11_V2 = "Dev(No SLA)_Standard_D11_v2"
-    STANDARD_E64I_V3 = "Standard_E64i_v3"
-    STANDARD_E80IDS_V4 = "Standard_E80ids_v4"
-    STANDARD_E2A_V4 = "Standard_E2a_v4"
-    STANDARD_E4A_V4 = "Standard_E4a_v4"
-    STANDARD_E8A_V4 = "Standard_E8a_v4"
-    STANDARD_E16A_V4 = "Standard_E16a_v4"
-    STANDARD_E8AS_V4_1_T_B_PS = "Standard_E8as_v4+1TB_PS"
-    STANDARD_E8AS_V4_2_T_B_PS = "Standard_E8as_v4+2TB_PS"
-    STANDARD_E16AS_V4_3_T_B_PS = "Standard_E16as_v4+3TB_PS"
-    STANDARD_E16AS_V4_4_T_B_PS = "Standard_E16as_v4+4TB_PS"
-    DEV_NO_SL_A_STANDARD_E2A_V4 = "Dev(No SLA)_Standard_E2a_v4"
-
-
-class AzureSkuTier(str, Enum):
-    """
-    SKU tier.
-    """
-    BASIC = "Basic"
-    STANDARD = "Standard"
 
 
 class BlobStorageEventType(str, Enum):
@@ -97,6 +58,14 @@ class Compression(str, Enum):
     """
     NONE = "None"
     G_ZIP = "GZip"
+
+
+class ConfigurationType(str, Enum):
+    """
+    The type of the spark config properties file.
+    """
+    FILE = "File"
+    ARTIFACT = "Artifact"
 
 
 class CreateMode(str, Enum):
@@ -154,14 +123,6 @@ class DefaultPrincipalsModificationKind(str, Enum):
     UNION = "Union"
     REPLACE = "Replace"
     NONE = "None"
-
-
-class EngineType(str, Enum):
-    """
-    The engine type
-    """
-    V2 = "V2"
-    V3 = "V3"
 
 
 class EventGridDataFormat(str, Enum):
@@ -318,6 +279,7 @@ class ResourceIdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 class SensitivityLabelRank(str, Enum):
@@ -328,13 +290,30 @@ class SensitivityLabelRank(str, Enum):
     CRITICAL = "Critical"
 
 
+class SkuName(str, Enum):
+    """
+    SKU name.
+    """
+    COMPUTE_OPTIMIZED = "Compute optimized"
+    STORAGE_OPTIMIZED = "Storage optimized"
+
+
+class SkuSize(str, Enum):
+    """
+    SKU size.
+    """
+    EXTRA_SMALL = "Extra small"
+    SMALL = "Small"
+    MEDIUM = "Medium"
+    LARGE = "Large"
+
+
 class StorageAccountType(str, Enum):
     """
     The storage account type used to store backups for this sql pool.
     """
     GRS = "GRS"
     LRS = "LRS"
-    ZRS = "ZRS"
 
 
 class TransparentDataEncryptionStatus(str, Enum):

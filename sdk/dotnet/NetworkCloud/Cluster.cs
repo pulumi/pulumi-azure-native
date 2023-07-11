@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// API Version: 2022-12-12-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         /// </summary>
         [Output("analyticsWorkspaceId")]
-        public Output<string> AnalyticsWorkspaceId { get; private set; } = null!;
+        public Output<string?> AnalyticsWorkspaceId { get; private set; } = null!;
 
         /// <summary>
         /// The list of cluster runtime version upgrades available for this cluster.
@@ -119,7 +119,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        /// Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         /// </summary>
         [Output("hybridAksExtendedLocation")]
         public Output<Outputs.ExtendedLocationResponse> HybridAksExtendedLocation { get; private set; } = null!;
@@ -216,6 +216,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -248,8 +249,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         /// </summary>
-        [Input("analyticsWorkspaceId", required: true)]
-        public Input<string> AnalyticsWorkspaceId { get; set; } = null!;
+        [Input("analyticsWorkspaceId")]
+        public Input<string>? AnalyticsWorkspaceId { get; set; }
 
         /// <summary>
         /// The customer-provided location information to identify where the cluster resides.

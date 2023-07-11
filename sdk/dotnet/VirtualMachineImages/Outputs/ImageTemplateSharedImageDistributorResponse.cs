@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 {
 
     /// <summary>
-    /// Distribute via Shared Image Gallery.
+    /// Distribute via Azure Compute Gallery.
     /// </summary>
     [OutputType]
     public sealed class ImageTemplateSharedImageDistributorResponse
@@ -25,11 +25,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         /// </summary>
         public readonly bool? ExcludeFromLatest;
         /// <summary>
-        /// Resource Id of the Shared Image Gallery image
+        /// Resource Id of the Azure Compute Gallery image
         /// </summary>
         public readonly string GalleryImageId;
         /// <summary>
-        /// A list of regions that the image will be replicated to
+        /// [Deprecated] A list of regions that the image will be replicated to. This list can be specified only if targetRegions is not specified. This field is deprecated - use targetRegions instead.
         /// </summary>
         public readonly ImmutableArray<string> ReplicationRegions;
         /// <summary>
@@ -37,14 +37,22 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
         /// </summary>
         public readonly string RunOutputName;
         /// <summary>
-        /// Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+        /// [Deprecated] Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS). This field can be specified only if replicationRegions is specified. This field is deprecated - use targetRegions instead.
         /// </summary>
         public readonly string? StorageAccountType;
+        /// <summary>
+        /// The target regions where the distributed Image Version is going to be replicated to. This object supersedes replicationRegions and can be specified only if replicationRegions is not specified.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TargetRegionResponse> TargetRegions;
         /// <summary>
         /// Type of distribution.
         /// Expected value is 'SharedImage'.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Describes how to generate new x.y.z version number for distribution.
+        /// </summary>
+        public readonly Union<Outputs.DistributeVersionerLatestResponse, Outputs.DistributeVersionerSourceResponse>? Versioning;
 
         [OutputConstructor]
         private ImageTemplateSharedImageDistributorResponse(
@@ -60,7 +68,11 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
 
             string? storageAccountType,
 
-            string type)
+            ImmutableArray<Outputs.TargetRegionResponse> targetRegions,
+
+            string type,
+
+            Union<Outputs.DistributeVersionerLatestResponse, Outputs.DistributeVersionerSourceResponse>? versioning)
         {
             ArtifactTags = artifactTags;
             ExcludeFromLatest = excludeFromLatest;
@@ -68,7 +80,9 @@ namespace Pulumi.AzureNative.VirtualMachineImages.Outputs
             ReplicationRegions = replicationRegions;
             RunOutputName = runOutputName;
             StorageAccountType = storageAccountType;
+            TargetRegions = targetRegions;
             Type = type;
+            Versioning = versioning;
         }
     }
 }

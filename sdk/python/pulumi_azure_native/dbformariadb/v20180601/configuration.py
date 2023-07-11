@@ -97,12 +97,7 @@ class ConfigurationArgs:
         pulumi.set(self, "value", value)
 
 
-warnings.warn("""azure-native:dbformariadb/v20180601:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformariadb/v20180601preview:Configuration to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Configuration(pulumi.CustomResource):
-    warnings.warn("""azure-native:dbformariadb/v20180601:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformariadb/v20180601preview:Configuration to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +149,6 @@ class Configuration(pulumi.CustomResource):
                  source: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Configuration is deprecated: azure-native:dbformariadb/v20180601:Configuration is being removed in the next major version of this provider. Upgrade to at least azure-native:dbformariadb/v20180601preview:Configuration to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

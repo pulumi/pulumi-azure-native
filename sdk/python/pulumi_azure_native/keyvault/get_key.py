@@ -22,7 +22,7 @@ class GetKeyResult:
     """
     The key resource.
     """
-    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, attributes=None, curve_name=None, id=None, key_ops=None, key_size=None, key_uri=None, key_uri_with_version=None, kty=None, location=None, name=None, release_policy=None, rotation_policy=None, tags=None, type=None):
         if attributes and not isinstance(attributes, dict):
             raise TypeError("Expected argument 'attributes' to be a dict")
         pulumi.set(__self__, "attributes", attributes)
@@ -53,6 +53,12 @@ class GetKeyResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if release_policy and not isinstance(release_policy, dict):
+            raise TypeError("Expected argument 'release_policy' to be a dict")
+        pulumi.set(__self__, "release_policy", release_policy)
+        if rotation_policy and not isinstance(rotation_policy, dict):
+            raise TypeError("Expected argument 'rotation_policy' to be a dict")
+        pulumi.set(__self__, "rotation_policy", rotation_policy)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -138,6 +144,22 @@ class GetKeyResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> Optional['outputs.KeyReleasePolicyResponse']:
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "release_policy")
+
+    @property
+    @pulumi.getter(name="rotationPolicy")
+    def rotation_policy(self) -> Optional['outputs.RotationPolicyResponse']:
+        """
+        Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "rotation_policy")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -170,6 +192,8 @@ class AwaitableGetKeyResult(GetKeyResult):
             kty=self.kty,
             location=self.location,
             name=self.name,
+            release_policy=self.release_policy,
+            rotation_policy=self.rotation_policy,
             tags=self.tags,
             type=self.type)
 
@@ -180,7 +204,7 @@ def get_key(key_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKeyResult:
     """
     Gets the current version of the specified key from the specified key vault.
-    API Version: 2019-09-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str key_name: The name of the key to be retrieved.
@@ -205,6 +229,8 @@ def get_key(key_name: Optional[str] = None,
         kty=__ret__.kty,
         location=__ret__.location,
         name=__ret__.name,
+        release_policy=__ret__.release_policy,
+        rotation_policy=__ret__.rotation_policy,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -216,7 +242,7 @@ def get_key_output(key_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets the current version of the specified key from the specified key vault.
-    API Version: 2019-09-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str key_name: The name of the key to be retrieved.

@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.App.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Tcp requests based scaling.
+        /// </summary>
+        [Input("tcp")]
+        public Input<Inputs.TcpScaleRuleArgs>? Tcp { get; set; }
+
         public ScaleRuleArgs()
         {
         }

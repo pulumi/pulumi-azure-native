@@ -22,7 +22,7 @@ class GetAccessReviewScheduleDefinitionByIdResult:
     """
     Access Review Schedule Definition.
     """
-    def __init__(__self__, assignment_state=None, auto_apply_decisions_enabled=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, end_date=None, id=None, inactive_duration=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, recommendations_enabled=None, reminder_notifications_enabled=None, resource_id=None, reviewers=None, reviewers_type=None, role_definition_id=None, start_date=None, status=None, type=None, user_principal_name=None):
+    def __init__(__self__, assignment_state=None, auto_apply_decisions_enabled=None, backup_reviewers=None, default_decision=None, default_decision_enabled=None, description_for_admins=None, description_for_reviewers=None, display_name=None, end_date=None, exclude_resource_id=None, exclude_role_definition_id=None, expand_nested_memberships=None, id=None, inactive_duration=None, include_access_below_resource=None, include_inherited_access=None, instance_duration_in_days=None, instances=None, interval=None, justification_required_on_approval=None, mail_notifications_enabled=None, name=None, number_of_occurrences=None, principal_id=None, principal_name=None, principal_type=None, recommendation_look_back_duration=None, recommendations_enabled=None, reminder_notifications_enabled=None, resource_id=None, reviewers=None, reviewers_type=None, role_definition_id=None, start_date=None, status=None, type=None, user_principal_name=None):
         if assignment_state and not isinstance(assignment_state, str):
             raise TypeError("Expected argument 'assignment_state' to be a str")
         pulumi.set(__self__, "assignment_state", assignment_state)
@@ -50,12 +50,27 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         if end_date and not isinstance(end_date, str):
             raise TypeError("Expected argument 'end_date' to be a str")
         pulumi.set(__self__, "end_date", end_date)
+        if exclude_resource_id and not isinstance(exclude_resource_id, str):
+            raise TypeError("Expected argument 'exclude_resource_id' to be a str")
+        pulumi.set(__self__, "exclude_resource_id", exclude_resource_id)
+        if exclude_role_definition_id and not isinstance(exclude_role_definition_id, str):
+            raise TypeError("Expected argument 'exclude_role_definition_id' to be a str")
+        pulumi.set(__self__, "exclude_role_definition_id", exclude_role_definition_id)
+        if expand_nested_memberships and not isinstance(expand_nested_memberships, bool):
+            raise TypeError("Expected argument 'expand_nested_memberships' to be a bool")
+        pulumi.set(__self__, "expand_nested_memberships", expand_nested_memberships)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if inactive_duration and not isinstance(inactive_duration, str):
             raise TypeError("Expected argument 'inactive_duration' to be a str")
         pulumi.set(__self__, "inactive_duration", inactive_duration)
+        if include_access_below_resource and not isinstance(include_access_below_resource, bool):
+            raise TypeError("Expected argument 'include_access_below_resource' to be a bool")
+        pulumi.set(__self__, "include_access_below_resource", include_access_below_resource)
+        if include_inherited_access and not isinstance(include_inherited_access, bool):
+            raise TypeError("Expected argument 'include_inherited_access' to be a bool")
+        pulumi.set(__self__, "include_inherited_access", include_inherited_access)
         if instance_duration_in_days and not isinstance(instance_duration_in_days, int):
             raise TypeError("Expected argument 'instance_duration_in_days' to be a int")
         pulumi.set(__self__, "instance_duration_in_days", instance_duration_in_days)
@@ -86,6 +101,9 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         if principal_type and not isinstance(principal_type, str):
             raise TypeError("Expected argument 'principal_type' to be a str")
         pulumi.set(__self__, "principal_type", principal_type)
+        if recommendation_look_back_duration and not isinstance(recommendation_look_back_duration, str):
+            raise TypeError("Expected argument 'recommendation_look_back_duration' to be a str")
+        pulumi.set(__self__, "recommendation_look_back_duration", recommendation_look_back_duration)
         if recommendations_enabled and not isinstance(recommendations_enabled, bool):
             raise TypeError("Expected argument 'recommendations_enabled' to be a bool")
         pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
@@ -190,6 +208,30 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         return pulumi.get(self, "end_date")
 
     @property
+    @pulumi.getter(name="excludeResourceId")
+    def exclude_resource_id(self) -> Optional[str]:
+        """
+        This is used to indicate the resource id(s) to exclude
+        """
+        return pulumi.get(self, "exclude_resource_id")
+
+    @property
+    @pulumi.getter(name="excludeRoleDefinitionId")
+    def exclude_role_definition_id(self) -> Optional[str]:
+        """
+        This is used to indicate the role definition id(s) to exclude
+        """
+        return pulumi.get(self, "exclude_role_definition_id")
+
+    @property
+    @pulumi.getter(name="expandNestedMemberships")
+    def expand_nested_memberships(self) -> Optional[bool]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "expand_nested_memberships")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -204,6 +246,22 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         """
         return pulumi.get(self, "inactive_duration")
+
+    @property
+    @pulumi.getter(name="includeAccessBelowResource")
+    def include_access_below_resource(self) -> Optional[bool]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "include_access_below_resource")
+
+    @property
+    @pulumi.getter(name="includeInheritedAccess")
+    def include_inherited_access(self) -> Optional[bool]:
+        """
+        Flag to indicate whether to expand nested memberships or not.
+        """
+        return pulumi.get(self, "include_inherited_access")
 
     @property
     @pulumi.getter(name="instanceDurationInDays")
@@ -284,6 +342,14 @@ class GetAccessReviewScheduleDefinitionByIdResult:
         The identity type user/servicePrincipal to review
         """
         return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter(name="recommendationLookBackDuration")
+    def recommendation_look_back_duration(self) -> Optional[str]:
+        """
+        Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        """
+        return pulumi.get(self, "recommendation_look_back_duration")
 
     @property
     @pulumi.getter(name="recommendationsEnabled")
@@ -381,8 +447,13 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
             description_for_reviewers=self.description_for_reviewers,
             display_name=self.display_name,
             end_date=self.end_date,
+            exclude_resource_id=self.exclude_resource_id,
+            exclude_role_definition_id=self.exclude_role_definition_id,
+            expand_nested_memberships=self.expand_nested_memberships,
             id=self.id,
             inactive_duration=self.inactive_duration,
+            include_access_below_resource=self.include_access_below_resource,
+            include_inherited_access=self.include_inherited_access,
             instance_duration_in_days=self.instance_duration_in_days,
             instances=self.instances,
             interval=self.interval,
@@ -393,6 +464,7 @@ class AwaitableGetAccessReviewScheduleDefinitionByIdResult(GetAccessReviewSchedu
             principal_id=self.principal_id,
             principal_name=self.principal_name,
             principal_type=self.principal_type,
+            recommendation_look_back_duration=self.recommendation_look_back_duration,
             recommendations_enabled=self.recommendations_enabled,
             reminder_notifications_enabled=self.reminder_notifications_enabled,
             resource_id=self.resource_id,
@@ -409,7 +481,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessReviewScheduleDefinitionByIdResult:
     """
     Get single access review definition
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.
@@ -429,8 +501,13 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         description_for_reviewers=__ret__.description_for_reviewers,
         display_name=__ret__.display_name,
         end_date=__ret__.end_date,
+        exclude_resource_id=__ret__.exclude_resource_id,
+        exclude_role_definition_id=__ret__.exclude_role_definition_id,
+        expand_nested_memberships=__ret__.expand_nested_memberships,
         id=__ret__.id,
         inactive_duration=__ret__.inactive_duration,
+        include_access_below_resource=__ret__.include_access_below_resource,
+        include_inherited_access=__ret__.include_inherited_access,
         instance_duration_in_days=__ret__.instance_duration_in_days,
         instances=__ret__.instances,
         interval=__ret__.interval,
@@ -441,6 +518,7 @@ def get_access_review_schedule_definition_by_id(schedule_definition_id: Optional
         principal_id=__ret__.principal_id,
         principal_name=__ret__.principal_name,
         principal_type=__ret__.principal_type,
+        recommendation_look_back_duration=__ret__.recommendation_look_back_duration,
         recommendations_enabled=__ret__.recommendations_enabled,
         reminder_notifications_enabled=__ret__.reminder_notifications_enabled,
         resource_id=__ret__.resource_id,
@@ -458,7 +536,7 @@ def get_access_review_schedule_definition_by_id_output(schedule_definition_id: O
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessReviewScheduleDefinitionByIdResult]:
     """
     Get single access review definition
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str schedule_definition_id: The id of the access review schedule definition.

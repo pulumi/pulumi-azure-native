@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
 {
 
     /// <summary>
-    /// Describes a reference to Key Vault Key.
+    /// Describes a reference to key vault key.
     /// </summary>
     public sealed class KeyVaultKeyReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL referencing a key encryption key in Key Vault.
+        /// The URL referencing a key encryption key in key vault.
         /// </summary>
         [Input("keyUrl", required: true)]
         public Input<string> KeyUrl { get; set; } = null!;
 
         /// <summary>
-        /// Describes a resource Id to source Key Vault.
+        /// Describes a resource Id to source key vault.
         /// </summary>
         [Input("sourceVault", required: true)]
         public Input<Inputs.KeyVaultKeyReferenceSourceVaultArgs> SourceVault { get; set; } = null!;

@@ -27,11 +27,35 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("computeInstanceAuthorizationType")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ComputeInstanceAuthorizationType>? ComputeInstanceAuthorizationType { get; set; }
 
+        [Input("customServices")]
+        private InputList<Inputs.CustomServiceArgs>? _customServices;
+
+        /// <summary>
+        /// List of Custom Services added to the compute.
+        /// </summary>
+        public InputList<Inputs.CustomServiceArgs> CustomServices
+        {
+            get => _customServices ?? (_customServices = new InputList<Inputs.CustomServiceArgs>());
+            set => _customServices = value;
+        }
+
+        /// <summary>
+        /// Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.
+        /// </summary>
+        [Input("enableNodePublicIp")]
+        public Input<bool>? EnableNodePublicIp { get; set; }
+
         /// <summary>
         /// Settings for a personal compute instance.
         /// </summary>
         [Input("personalComputeInstanceSettings")]
         public Input<Inputs.PersonalComputeInstanceSettingsArgs>? PersonalComputeInstanceSettings { get; set; }
+
+        /// <summary>
+        /// The list of schedules to be applied on the computes.
+        /// </summary>
+        [Input("schedules")]
+        public Input<Inputs.ComputeSchedulesArgs>? Schedules { get; set; }
 
         /// <summary>
         /// Details of customized scripts to execute for setting up the cluster.

@@ -194,11 +194,11 @@ def get_profile(profile_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProfileResult:
     """
     Gets a Traffic Manager profile.
-    API Version: 2018-08-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param str profile_name: The name of the Traffic Manager profile.
-    :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['profileName'] = profile_name
@@ -228,10 +228,10 @@ def get_profile_output(profile_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
     """
     Gets a Traffic Manager profile.
-    API Version: 2018-08-01.
+    Azure REST API version: 2022-04-01.
 
 
     :param str profile_name: The name of the Traffic Manager profile.
-    :param str resource_group_name: The name of the resource group containing the Traffic Manager profile.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

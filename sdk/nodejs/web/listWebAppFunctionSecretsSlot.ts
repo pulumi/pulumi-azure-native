@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get function secrets for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function secrets for a function in a web site, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppFunctionSecretsSlot(args: ListWebAppFunctionSecretsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionSecretsSlotResult> {
 
@@ -52,8 +52,8 @@ export interface ListWebAppFunctionSecretsSlotResult {
     readonly triggerUrl?: string;
 }
 /**
- * Get function secrets for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function secrets for a function in a web site, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppFunctionSecretsSlotOutput(args: ListWebAppFunctionSecretsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionSecretsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionSecretsSlot(a, opts))

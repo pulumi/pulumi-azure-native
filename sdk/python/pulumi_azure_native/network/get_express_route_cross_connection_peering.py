@@ -255,7 +255,7 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRouteCrossConnectionPeeringResult:
     """
     Gets the specified peering for the ExpressRouteCrossConnection.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str cross_connection_name: The name of the ExpressRouteCrossConnection.
@@ -297,7 +297,7 @@ def get_express_route_cross_connection_peering_output(cross_connection_name: Opt
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRouteCrossConnectionPeeringResult]:
     """
     Gets the specified peering for the ExpressRouteCrossConnection.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str cross_connection_name: The name of the ExpressRouteCrossConnection.

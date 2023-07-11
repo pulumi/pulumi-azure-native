@@ -8,25 +8,36 @@ import typing
 from ._enums import *
 from .api_portal import *
 from .api_portal_custom_domain import *
+from .apm import *
 from .app import *
+from .application_accelerator import *
+from .application_live_view import *
 from .binding import *
 from .build_service_agent_pool import *
+from .build_service_build import *
 from .build_service_builder import *
 from .buildpack_binding import *
 from .certificate import *
 from .config_server import *
 from .configuration_service import *
+from .container_registry import *
 from .custom_domain import *
+from .customized_accelerator import *
 from .deployment import *
+from .dev_tool_portal import *
 from .gateway import *
 from .gateway_custom_domain import *
 from .gateway_route_config import *
 from .get_api_portal import *
 from .get_api_portal_custom_domain import *
+from .get_apm import *
 from .get_app import *
 from .get_app_resource_upload_url import *
+from .get_application_accelerator import *
+from .get_application_live_view import *
 from .get_binding import *
 from .get_build_service_agent_pool import *
+from .get_build_service_build import *
 from .get_build_service_build_result_log import *
 from .get_build_service_builder import *
 from .get_build_service_resource_upload_url import *
@@ -34,9 +45,13 @@ from .get_buildpack_binding import *
 from .get_certificate import *
 from .get_config_server import *
 from .get_configuration_service import *
+from .get_container_registry import *
 from .get_custom_domain import *
+from .get_customized_accelerator import *
 from .get_deployment import *
 from .get_deployment_log_file_url import *
+from .get_deployment_remote_debugging_config import *
+from .get_dev_tool_portal import *
 from .get_gateway import *
 from .get_gateway_custom_domain import *
 from .get_gateway_route_config import *
@@ -44,6 +59,9 @@ from .get_monitoring_setting import *
 from .get_service import *
 from .get_service_registry import *
 from .get_storage import *
+from .list_apm_secret_keys import *
+from .list_build_service_builder_deployments import *
+from .list_service_globally_enabled_apms import *
 from .list_service_test_keys import *
 from .monitoring_setting import *
 from .service import *
@@ -54,41 +72,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.appplatform.v20200701 as __v20200701
-    v20200701 = __v20200701
-    import pulumi_azure_native.appplatform.v20201101preview as __v20201101preview
-    v20201101preview = __v20201101preview
     import pulumi_azure_native.appplatform.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
-    import pulumi_azure_native.appplatform.v20210901preview as __v20210901preview
-    v20210901preview = __v20210901preview
-    import pulumi_azure_native.appplatform.v20220101preview as __v20220101preview
-    v20220101preview = __v20220101preview
-    import pulumi_azure_native.appplatform.v20220301preview as __v20220301preview
-    v20220301preview = __v20220301preview
-    import pulumi_azure_native.appplatform.v20220401 as __v20220401
-    v20220401 = __v20220401
-    import pulumi_azure_native.appplatform.v20220501preview as __v20220501preview
-    v20220501preview = __v20220501preview
-    import pulumi_azure_native.appplatform.v20220901preview as __v20220901preview
-    v20220901preview = __v20220901preview
-    import pulumi_azure_native.appplatform.v20221101preview as __v20221101preview
-    v20221101preview = __v20221101preview
-    import pulumi_azure_native.appplatform.v20221201 as __v20221201
-    v20221201 = __v20221201
-    import pulumi_azure_native.appplatform.v20230101preview as __v20230101preview
-    v20230101preview = __v20230101preview
+    import pulumi_azure_native.appplatform.v20230501preview as __v20230501preview
+    v20230501preview = __v20230501preview
 else:
-    v20200701 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20200701')
-    v20201101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20201101preview')
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210601preview')
-    v20210901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210901preview')
-    v20220101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220101preview')
-    v20220301preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220301preview')
-    v20220401 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220401')
-    v20220501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220501preview')
-    v20220901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220901preview')
-    v20221101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221101preview')
-    v20221201 = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221201')
-    v20230101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230101preview')
+    v20230501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230501preview')
 

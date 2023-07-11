@@ -9,7 +9,7 @@ const resourceGroupVar = azure_native.resources.getResourceGroup({
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const storageAccountNameParam = config.require("storageAccountNameParam");
 const storageAccountTypeParam = config.get("storageAccountTypeParam") || "Standard_LRS";
-const storageAccountResource = new azure_native.storage.v20190401.StorageAccount("storageAccountResource", {
+const storageAccountResource = new azure_native.storage.v20220901.StorageAccount("storageAccountResource", {
     accountName: storageAccountNameParam,
     kind: "StorageV2",
     location: locationParam,

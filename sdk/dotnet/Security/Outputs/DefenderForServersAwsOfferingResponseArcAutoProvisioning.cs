@@ -17,22 +17,29 @@ namespace Pulumi.AzureNative.Security.Outputs
     public sealed class DefenderForServersAwsOfferingResponseArcAutoProvisioning
     {
         /// <summary>
+        /// The cloud role ARN in AWS for this feature
+        /// </summary>
+        public readonly string? CloudRoleArn;
+        /// <summary>
+        /// Configuration for servers Arc auto provisioning
+        /// </summary>
+        public readonly Outputs.DefenderForServersAwsOfferingResponseConfiguration? Configuration;
+        /// <summary>
         /// Is arc auto provisioning enabled
         /// </summary>
         public readonly bool? Enabled;
-        /// <summary>
-        /// Metadata of Service Principal secret for autoprovisioning
-        /// </summary>
-        public readonly Outputs.DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata? ServicePrincipalSecretMetadata;
 
         [OutputConstructor]
         private DefenderForServersAwsOfferingResponseArcAutoProvisioning(
-            bool? enabled,
+            string? cloudRoleArn,
 
-            Outputs.DefenderForServersAwsOfferingResponseServicePrincipalSecretMetadata? servicePrincipalSecretMetadata)
+            Outputs.DefenderForServersAwsOfferingResponseConfiguration? configuration,
+
+            bool? enabled)
         {
+            CloudRoleArn = cloudRoleArn;
+            Configuration = configuration;
             Enabled = enabled;
-            ServicePrincipalSecretMetadata = servicePrincipalSecretMetadata;
         }
     }
 }

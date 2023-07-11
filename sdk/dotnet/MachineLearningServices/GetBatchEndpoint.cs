@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// 
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetBatchEndpointResult> InvokeAsync(GetBatchEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetBatchEndpointResult> Invoke(GetBatchEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBatchEndpointResult>("azure-native:machinelearningservices:getBatchEndpoint", args ?? new GetBatchEndpointInvokeArgs(), options.WithDefaults());
@@ -84,13 +84,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetBatchEndpointResult
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.BatchEndpointResponse BatchEndpointProperties;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Service identity associated with a resource.
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.ResourceIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         /// </summary>
@@ -104,11 +108,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
+        /// Sku details required for ARM contract for Autoscaling.
         /// </summary>
-        public readonly Outputs.BatchEndpointResponse Properties;
+        public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -122,9 +126,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetBatchEndpointResult(
+            Outputs.BatchEndpointResponse batchEndpointProperties,
+
             string id,
 
-            Outputs.ResourceIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? kind,
 
@@ -132,7 +138,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string name,
 
-            Outputs.BatchEndpointResponse properties,
+            Outputs.SkuResponse? sku,
 
             Outputs.SystemDataResponse systemData,
 
@@ -140,12 +146,13 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
+            BatchEndpointProperties = batchEndpointProperties;
             Id = id;
             Identity = identity;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

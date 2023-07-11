@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['SqlServerInstanceArgs', 'SqlServerInstance']
@@ -26,7 +27,7 @@ class SqlServerInstanceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['SqlServerInstancePropertiesArgs'] properties: null
-        :param pulumi.Input[str] sql_server_instance_name: The name of SQL Server Instance
+        :param pulumi.Input[str] sql_server_instance_name: Name of SQL Server Instance
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -79,7 +80,7 @@ class SqlServerInstanceArgs:
     @pulumi.getter(name="sqlServerInstanceName")
     def sql_server_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of SQL Server Instance
+        Name of SQL Server Instance
         """
         return pulumi.get(self, "sql_server_instance_name")
 
@@ -113,14 +114,14 @@ class SqlServerInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A SqlServerInstance.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['SqlServerInstancePropertiesArgs']] properties: null
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
-        :param pulumi.Input[str] sql_server_instance_name: The name of SQL Server Instance
+        :param pulumi.Input[str] sql_server_instance_name: Name of SQL Server Instance
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -131,7 +132,7 @@ class SqlServerInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlServerInstance.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param SqlServerInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -172,7 +173,7 @@ class SqlServerInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210801:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20211101:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:SqlServerInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:SqlServerInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlServerInstance, __self__).__init__(
             'azure-native:azurearcdata:SqlServerInstance',
@@ -232,7 +233,7 @@ class SqlServerInstance(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -248,7 +249,7 @@ class SqlServerInstance(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

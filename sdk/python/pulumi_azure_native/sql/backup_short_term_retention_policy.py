@@ -17,6 +17,7 @@ class BackupShortTermRetentionPolicyArgs:
                  database_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
+                 diff_backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
         """
@@ -24,12 +25,15 @@ class BackupShortTermRetentionPolicyArgs:
         :param pulumi.Input[str] database_name: The name of the database.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[int] diff_backup_interval_in_hours: The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
         :param pulumi.Input[str] policy_name: The policy name. Should always be "default".
         :param pulumi.Input[int] retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        if diff_backup_interval_in_hours is not None:
+            pulumi.set(__self__, "diff_backup_interval_in_hours", diff_backup_interval_in_hours)
         if policy_name is not None:
             pulumi.set(__self__, "policy_name", policy_name)
         if retention_days is not None:
@@ -72,6 +76,18 @@ class BackupShortTermRetentionPolicyArgs:
         pulumi.set(self, "server_name", value)
 
     @property
+    @pulumi.getter(name="diffBackupIntervalInHours")
+    def diff_backup_interval_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        """
+        return pulumi.get(self, "diff_backup_interval_in_hours")
+
+    @diff_backup_interval_in_hours.setter
+    def diff_backup_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "diff_backup_interval_in_hours", value)
+
+    @property
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -102,6 +118,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 diff_backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
@@ -109,11 +126,12 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A short term retention policy.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input[int] diff_backup_interval_in_hours: The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
         :param pulumi.Input[str] policy_name: The policy name. Should always be "default".
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[int] retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
@@ -127,7 +145,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A short term retention policy.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param BackupShortTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -145,6 +163,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 diff_backup_interval_in_hours: Optional[pulumi.Input[int]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None,
@@ -161,6 +180,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["diff_backup_interval_in_hours"] = diff_backup_interval_in_hours
             __props__.__dict__["policy_name"] = policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -171,7 +191,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupShortTermRetentionPolicy, __self__).__init__(
             'azure-native:sql:BackupShortTermRetentionPolicy',
@@ -195,10 +215,19 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
 
         __props__ = BackupShortTermRetentionPolicyArgs.__new__(BackupShortTermRetentionPolicyArgs)
 
+        __props__.__dict__["diff_backup_interval_in_hours"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["retention_days"] = None
         __props__.__dict__["type"] = None
         return BackupShortTermRetentionPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="diffBackupIntervalInHours")
+    def diff_backup_interval_in_hours(self) -> pulumi.Output[Optional[int]]:
+        """
+        The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        """
+        return pulumi.get(self, "diff_backup_interval_in_hours")
 
     @property
     @pulumi.getter

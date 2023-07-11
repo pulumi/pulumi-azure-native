@@ -22,7 +22,7 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, id=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
+    def __init__(__self__, access_keys=None, enable_non_ssl_port=None, host_name=None, id=None, identity=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, replicas_per_primary=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, zones=None):
         if access_keys and not isinstance(access_keys, dict):
             raise TypeError("Expected argument 'access_keys' to be a dict")
         pulumi.set(__self__, "access_keys", access_keys)
@@ -35,6 +35,9 @@ class GetRedisResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if instances and not isinstance(instances, list):
             raise TypeError("Expected argument 'instances' to be a list")
         pulumi.set(__self__, "instances", instances)
@@ -71,6 +74,9 @@ class GetRedisResult:
         if replicas_per_master and not isinstance(replicas_per_master, int):
             raise TypeError("Expected argument 'replicas_per_master' to be a int")
         pulumi.set(__self__, "replicas_per_master", replicas_per_master)
+        if replicas_per_primary and not isinstance(replicas_per_primary, int):
+            raise TypeError("Expected argument 'replicas_per_primary' to be a int")
+        pulumi.set(__self__, "replicas_per_primary", replicas_per_primary)
         if shard_count and not isinstance(shard_count, int):
             raise TypeError("Expected argument 'shard_count' to be a int")
         pulumi.set(__self__, "shard_count", shard_count)
@@ -127,9 +133,17 @@ class GetRedisResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -167,7 +181,7 @@ class GetRedisResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -213,9 +227,9 @@ class GetRedisResult:
 
     @property
     @pulumi.getter(name="redisVersion")
-    def redis_version(self) -> str:
+    def redis_version(self) -> Optional[str]:
         """
-        Redis version.
+        Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         """
         return pulumi.get(self, "redis_version")
 
@@ -223,9 +237,17 @@ class GetRedisResult:
     @pulumi.getter(name="replicasPerMaster")
     def replicas_per_master(self) -> Optional[int]:
         """
-        The number of replicas to be created per master.
+        The number of replicas to be created per primary.
         """
         return pulumi.get(self, "replicas_per_master")
+
+    @property
+    @pulumi.getter(name="replicasPerPrimary")
+    def replicas_per_primary(self) -> Optional[int]:
+        """
+        The number of replicas to be created per primary.
+        """
+        return pulumi.get(self, "replicas_per_primary")
 
     @property
     @pulumi.getter(name="shardCount")
@@ -287,7 +309,7 @@ class GetRedisResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -310,6 +332,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             enable_non_ssl_port=self.enable_non_ssl_port,
             host_name=self.host_name,
             id=self.id,
+            identity=self.identity,
             instances=self.instances,
             linked_servers=self.linked_servers,
             location=self.location,
@@ -322,6 +345,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             redis_configuration=self.redis_configuration,
             redis_version=self.redis_version,
             replicas_per_master=self.replicas_per_master,
+            replicas_per_primary=self.replicas_per_primary,
             shard_count=self.shard_count,
             sku=self.sku,
             ssl_port=self.ssl_port,
@@ -338,7 +362,7 @@ def get_redis(name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisResult:
     """
     Gets a Redis cache (resource description).
-    API Version: 2020-06-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str name: The name of the Redis cache.
@@ -355,6 +379,7 @@ def get_redis(name: Optional[str] = None,
         enable_non_ssl_port=__ret__.enable_non_ssl_port,
         host_name=__ret__.host_name,
         id=__ret__.id,
+        identity=__ret__.identity,
         instances=__ret__.instances,
         linked_servers=__ret__.linked_servers,
         location=__ret__.location,
@@ -367,6 +392,7 @@ def get_redis(name: Optional[str] = None,
         redis_configuration=__ret__.redis_configuration,
         redis_version=__ret__.redis_version,
         replicas_per_master=__ret__.replicas_per_master,
+        replicas_per_primary=__ret__.replicas_per_primary,
         shard_count=__ret__.shard_count,
         sku=__ret__.sku,
         ssl_port=__ret__.ssl_port,
@@ -384,7 +410,7 @@ def get_redis_output(name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRedisResult]:
     """
     Gets a Redis cache (resource description).
-    API Version: 2020-06-01.
+    Azure REST API version: 2023-04-01.
 
 
     :param str name: The name of the Redis cache.

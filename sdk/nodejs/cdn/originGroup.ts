@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**
@@ -123,7 +123,7 @@ export class OriginGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20191231:OriginGroup" }, { type: "azure-native:cdn/v20200331:OriginGroup" }, { type: "azure-native:cdn/v20200415:OriginGroup" }, { type: "azure-native:cdn/v20200901:OriginGroup" }, { type: "azure-native:cdn/v20210601:OriginGroup" }, { type: "azure-native:cdn/v20220501preview:OriginGroup" }, { type: "azure-native:cdn/v20221101preview:OriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20191231:OriginGroup" }, { type: "azure-native:cdn/v20200331:OriginGroup" }, { type: "azure-native:cdn/v20200415:OriginGroup" }, { type: "azure-native:cdn/v20200901:OriginGroup" }, { type: "azure-native:cdn/v20210601:OriginGroup" }, { type: "azure-native:cdn/v20220501preview:OriginGroup" }, { type: "azure-native:cdn/v20221101preview:OriginGroup" }, { type: "azure-native:cdn/v20230501:OriginGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OriginGroup.__pulumiType, name, resourceInputs, opts);
     }

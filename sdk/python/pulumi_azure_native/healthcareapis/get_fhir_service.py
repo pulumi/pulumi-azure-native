@@ -22,7 +22,7 @@ class GetFhirServiceResult:
     """
     The description of Fhir Service
     """
-    def __init__(__self__, access_policies=None, acr_configuration=None, authentication_configuration=None, cors_configuration=None, etag=None, event_state=None, export_configuration=None, id=None, identity=None, kind=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, resource_version_policy_configuration=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, access_policies=None, acr_configuration=None, authentication_configuration=None, cors_configuration=None, etag=None, event_state=None, export_configuration=None, id=None, identity=None, implementation_guides_configuration=None, import_configuration=None, kind=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, resource_version_policy_configuration=None, system_data=None, tags=None, type=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -50,6 +50,12 @@ class GetFhirServiceResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if implementation_guides_configuration and not isinstance(implementation_guides_configuration, dict):
+            raise TypeError("Expected argument 'implementation_guides_configuration' to be a dict")
+        pulumi.set(__self__, "implementation_guides_configuration", implementation_guides_configuration)
+        if import_configuration and not isinstance(import_configuration, dict):
+            raise TypeError("Expected argument 'import_configuration' to be a dict")
+        pulumi.set(__self__, "import_configuration", import_configuration)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
@@ -154,6 +160,22 @@ class GetFhirServiceResult:
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="implementationGuidesConfiguration")
+    def implementation_guides_configuration(self) -> Optional['outputs.ImplementationGuidesConfigurationResponse']:
+        """
+        Implementation Guides configuration.
+        """
+        return pulumi.get(self, "implementation_guides_configuration")
+
+    @property
+    @pulumi.getter(name="importConfiguration")
+    def import_configuration(self) -> Optional['outputs.FhirServiceImportConfigurationResponse']:
+        """
+        Fhir Service import configuration.
+        """
+        return pulumi.get(self, "import_configuration")
+
+    @property
     @pulumi.getter
     def kind(self) -> Optional[str]:
         """
@@ -249,6 +271,8 @@ class AwaitableGetFhirServiceResult(GetFhirServiceResult):
             export_configuration=self.export_configuration,
             id=self.id,
             identity=self.identity,
+            implementation_guides_configuration=self.implementation_guides_configuration,
+            import_configuration=self.import_configuration,
             kind=self.kind,
             location=self.location,
             name=self.name,
@@ -267,7 +291,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirServiceResult:
     """
     Gets the properties of the specified FHIR Service.
-    API Version: 2022-05-15.
+    Azure REST API version: 2023-02-28.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.
@@ -291,6 +315,8 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
         export_configuration=__ret__.export_configuration,
         id=__ret__.id,
         identity=__ret__.identity,
+        implementation_guides_configuration=__ret__.implementation_guides_configuration,
+        import_configuration=__ret__.import_configuration,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
@@ -310,7 +336,7 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     Gets the properties of the specified FHIR Service.
-    API Version: 2022-05-15.
+    Azure REST API version: 2023-02-28.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.

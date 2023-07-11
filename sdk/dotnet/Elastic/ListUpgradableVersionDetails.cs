@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Elastic
     {
         /// <summary>
         /// Stack Versions that this version can upgrade to
-        /// API Version: 2021-10-01-preview.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Task<ListUpgradableVersionDetailsResult> InvokeAsync(ListUpgradableVersionDetailsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListUpgradableVersionDetailsResult>("azure-native:elastic:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Stack Versions that this version can upgrade to
-        /// API Version: 2021-10-01-preview.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Output<ListUpgradableVersionDetailsResult> Invoke(ListUpgradableVersionDetailsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListUpgradableVersionDetailsResult>("azure-native:elastic:listUpgradableVersionDetails", args ?? new ListUpgradableVersionDetailsInvokeArgs(), options.WithDefaults());

@@ -26,7 +26,7 @@ class ApiVersionSetArgs:
         """
         The set of arguments for constructing a ApiVersionSet resource.
         :param pulumi.Input[str] display_name: Name of API Version Set
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'VersioningScheme']] versioning_scheme: An value that determines where the API Version identifier will be located in a HTTP request.
         :param pulumi.Input[str] description: Description of API Version Set.
@@ -63,7 +63,7 @@ class ApiVersionSetArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -159,14 +159,14 @@ class ApiVersionSet(pulumi.CustomResource):
                  versioning_scheme: Optional[pulumi.Input[Union[str, 'VersioningScheme']]] = None,
                  __props__=None):
         """
-        Api Version Set Contract details.
-        API Version: 2020-12-01.
+        API Version Set Contract details.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of API Version Set.
         :param pulumi.Input[str] display_name: Name of API Version Set
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] version_header_name: Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
         :param pulumi.Input[str] version_query_name: Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
@@ -180,8 +180,8 @@ class ApiVersionSet(pulumi.CustomResource):
                  args: ApiVersionSetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Api Version Set Contract details.
-        API Version: 2020-12-01.
+        API Version Set Contract details.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param ApiVersionSetArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +233,7 @@ class ApiVersionSet(pulumi.CustomResource):
             __props__.__dict__["versioning_scheme"] = versioning_scheme
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiVersionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiVersionSet"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiVersionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiVersionSet, __self__).__init__(
             'azure-native:apimanagement:ApiVersionSet',
@@ -286,7 +286,7 @@ class ApiVersionSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -294,7 +294,7 @@ class ApiVersionSet(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

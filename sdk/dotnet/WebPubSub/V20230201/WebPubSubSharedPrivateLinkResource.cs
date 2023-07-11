@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
     /// <summary>
     /// Describes a Shared Private Link Resource
     /// </summary>
-    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource")]
     public partial class WebPubSubSharedPrivateLinkResource : global::Pulumi.CustomResource
     {
@@ -95,6 +94,8 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20210901preview:WebPubSubSharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

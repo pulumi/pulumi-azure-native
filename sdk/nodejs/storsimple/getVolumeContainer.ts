@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified volume container name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getVolumeContainer(args: GetVolumeContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeContainerResult> {
 
@@ -96,7 +96,7 @@ export interface GetVolumeContainerResult {
 }
 /**
  * Gets the properties of the specified volume container name.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getVolumeContainerOutput(args: GetVolumeContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeContainerResult> {
     return pulumi.output(args).apply((a: any) => getVolumeContainer(a, opts))

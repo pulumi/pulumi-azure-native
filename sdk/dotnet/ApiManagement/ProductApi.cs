@@ -10,20 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
-    /// Api details.
-    /// API Version: 2020-12-01.
+    /// API details.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ProductApi")]
     public partial class ProductApi : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        /// Describes the revision of the API. If no value is provided, default revision 1 is created
         /// </summary>
         [Output("apiRevision")]
         public Output<string?> ApiRevision { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Api Revision.
+        /// Description of the API Revision.
         /// </summary>
         [Output("apiRevisionDescription")]
         public Output<string?> ApiRevisionDescription { get; private set; } = null!;
@@ -35,13 +35,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> ApiType { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates the Version identifier of the API if the API is versioned
+        /// Indicates the version identifier of the API if the API is versioned
         /// </summary>
         [Output("apiVersion")]
         public Output<string?> ApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the Api Version.
+        /// Description of the API Version.
         /// </summary>
         [Output("apiVersionDescription")]
         public Output<string?> ApiVersionDescription { get; private set; } = null!;
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         [Output("authenticationSettings")]
         public Output<Outputs.AuthenticationSettingsContractResponse?> AuthenticationSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Contact information for the API.
+        /// </summary>
+        [Output("contact")]
+        public Output<Outputs.ApiContactInformationResponse?> Contact { get; private set; } = null!;
 
         /// <summary>
         /// Description of the API. May include HTML formatting tags.
@@ -89,7 +95,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool> IsOnline { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// License information for the API.
+        /// </summary>
+        [Output("license")]
+        public Output<Outputs.ApiLicenseInformationResponse?> License { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -131,7 +143,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        ///  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+        /// </summary>
+        [Output("termsOfServiceUrl")]
+        public Output<string?> TermsOfServiceUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -175,6 +193,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ProductApi"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ProductApi"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ProductApi"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ProductApi"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -211,7 +231,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> ProductId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

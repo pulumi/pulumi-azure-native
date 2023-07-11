@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin database.
-    /// API Version: 2021-03-15.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:GremlinResourceGremlinDatabase")]
     public partial class GremlinResourceGremlinDatabase : global::Pulumi.CustomResource
@@ -99,7 +99,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:GremlinResourceGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:GremlinResourceGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:GremlinResourceGremlinDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:GremlinResourceGremlinDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:GremlinResourceGremlinDatabase"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:GremlinResourceGremlinDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:GremlinResourceGremlinDatabase"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:GremlinResourceGremlinDatabase"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

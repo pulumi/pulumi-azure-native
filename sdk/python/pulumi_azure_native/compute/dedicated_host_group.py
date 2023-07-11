@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = ['DedicatedHostGroupArgs', 'DedicatedHostGroup']
 
@@ -17,6 +18,7 @@ class DedicatedHostGroupArgs:
     def __init__(__self__, *,
                  platform_fault_domain_count: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
+                 additional_capabilities: Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  support_automatic_placement: Optional[pulumi.Input[bool]] = None,
@@ -26,14 +28,17 @@ class DedicatedHostGroupArgs:
         The set of arguments for constructing a DedicatedHostGroup resource.
         :param pulumi.Input[int] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs'] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+        :param pulumi.Input[bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if additional_capabilities is not None:
+            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if host_group_name is not None:
             pulumi.set(__self__, "host_group_name", host_group_name)
         if location is not None:
@@ -70,6 +75,18 @@ class DedicatedHostGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]:
+        """
+        Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        """
+        return pulumi.get(self, "additional_capabilities")
+
+    @additional_capabilities.setter
+    def additional_capabilities(self, value: Optional[pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]):
+        pulumi.set(self, "additional_capabilities", value)
+
+    @property
     @pulumi.getter(name="hostGroupName")
     def host_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -97,7 +114,7 @@ class DedicatedHostGroupArgs:
     @pulumi.getter(name="supportAutomaticPlacement")
     def support_automatic_placement(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "support_automatic_placement")
 
@@ -135,6 +152,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -144,16 +162,17 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        API Version: 2020-12-01.
+        Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+        :param pulumi.Input[bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
         """
@@ -164,8 +183,8 @@ class DedicatedHostGroup(pulumi.CustomResource):
                  args: DedicatedHostGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-        API Version: 2020-12-01.
+        Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostGroupArgs args: The arguments to use to populate this resource's properties.
@@ -182,6 +201,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 additional_capabilities: Optional[pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]] = None,
                  host_group_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  platform_fault_domain_count: Optional[pulumi.Input[int]] = None,
@@ -198,6 +218,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
+            __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["host_group_name"] = host_group_name
             __props__.__dict__["location"] = location
             if platform_fault_domain_count is None and not opts.urn:
@@ -237,6 +258,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
 
         __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
+        __props__.__dict__["additional_capabilities"] = None
         __props__.__dict__["hosts"] = None
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["location"] = None
@@ -247,6 +269,14 @@ class DedicatedHostGroup(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
         return DedicatedHostGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="additionalCapabilities")
+    def additional_capabilities(self) -> pulumi.Output[Optional['outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities']]:
+        """
+        Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        """
+        return pulumi.get(self, "additional_capabilities")
 
     @property
     @pulumi.getter
@@ -292,7 +322,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     @pulumi.getter(name="supportAutomaticPlacement")
     def support_automatic_placement(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         """
         return pulumi.get(self, "support_automatic_placement")
 

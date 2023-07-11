@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a database.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getReadWriteDatabase(args: GetReadWriteDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetReadWriteDatabaseResult> {
 
@@ -36,7 +36,7 @@ export interface GetReadWriteDatabaseArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -93,7 +93,7 @@ export interface GetReadWriteDatabaseResult {
 }
 /**
  * Returns a database.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getReadWriteDatabaseOutput(args: GetReadWriteDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadWriteDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getReadWriteDatabase(a, opts))
@@ -113,7 +113,7 @@ export interface GetReadWriteDatabaseOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

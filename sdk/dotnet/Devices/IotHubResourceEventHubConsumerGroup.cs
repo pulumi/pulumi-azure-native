@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Devices
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
-    /// API Version: 2020-08-31.
+    /// Azure REST API version: 2022-11-15-preview. Prior API version in Azure Native 1.x: 2020-08-31
     /// </summary>
     [AzureNativeResourceType("azure-native:devices:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : global::Pulumi.CustomResource
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Devices
         /// The tags.
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, string>> Properties { get; private set; } = null!;
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// the resource type.
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Devices
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20210702preview:IotHubResourceEventHubConsumerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:devices/v20221115preview:IotHubResourceEventHubConsumerGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,8 +129,8 @@ namespace Pulumi.AzureNative.Devices
         /// <summary>
         /// The EventHub consumer group name.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EventHubConsumerGroupNameArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.EventHubConsumerGroupNameArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the IoT hub.

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Tag Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:Tag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Tag to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:Tag")]
     public partial class Tag : global::Pulumi.CustomResource
     {
@@ -73,6 +72,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Tag"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Tag"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Tag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Tag"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Tag"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

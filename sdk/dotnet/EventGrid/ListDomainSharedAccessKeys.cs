@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// List the two keys used to publish to a domain.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Task<ListDomainSharedAccessKeysResult> InvokeAsync(ListDomainSharedAccessKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListDomainSharedAccessKeysResult>("azure-native:eventgrid:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List the two keys used to publish to a domain.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Output<ListDomainSharedAccessKeysResult> Invoke(ListDomainSharedAccessKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListDomainSharedAccessKeysResult>("azure-native:eventgrid:listDomainSharedAccessKeys", args ?? new ListDomainSharedAccessKeysInvokeArgs(), options.WithDefaults());

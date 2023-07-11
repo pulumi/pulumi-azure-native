@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
- *
- * @deprecated azure-native:streamanalytics/v20200301:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.
  */
 export class Function extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Function extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Function {
-        pulumi.log.warn("Function is deprecated: azure-native:streamanalytics/v20200301:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.")
         return new Function(name, undefined as any, { ...opts, id: id });
     }
 
@@ -60,9 +57,7 @@ export class Function extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:streamanalytics/v20200301:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility. */
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Function is deprecated: azure-native:streamanalytics/v20200301:Function is being removed in the next major version of this provider. Upgrade to at least azure-native:streamanalytics/v20211001preview:Function to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public Input<double>? AnalyticalStorageTtl { get; set; }
 
         /// <summary>
+        /// The client encryption policy for the container.
+        /// </summary>
+        [Input("clientEncryptionPolicy")]
+        public Input<Inputs.ClientEncryptionPolicyArgs>? ClientEncryptionPolicy { get; set; }
+
+        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         [Input("conflictResolutionPolicy")]

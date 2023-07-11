@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements datastore GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getDatastore(args: GetDatastoreArgs, opts?: pulumi.InvokeOptions): Promise<GetDatastoreResult> {
 
@@ -36,6 +36,10 @@ export interface GetDatastoreArgs {
  */
 export interface GetDatastoreResult {
     /**
+     * Gets or sets Maximum capacity of this datastore in GBs.
+     */
+    readonly capacityGB: number;
+    /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
     readonly customResourceName: string;
@@ -43,6 +47,10 @@ export interface GetDatastoreResult {
      * Gets or sets the extended location.
      */
     readonly extendedLocation?: outputs.connectedvmwarevsphere.ExtendedLocationResponse;
+    /**
+     * Gets or sets Available space of this datastore in GBs.
+     */
+    readonly freeSpaceGB: number;
     /**
      * Gets or sets the Id.
      */
@@ -102,7 +110,7 @@ export interface GetDatastoreResult {
 }
 /**
  * Implements datastore GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
     return pulumi.output(args).apply((a: any) => getDatastore(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// Scheduled action definition.
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ScheduledActionByScope")]
     public partial class ScheduledActionByScope : global::Pulumi.CustomResource
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Resource Etag.
+        /// Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
         /// </summary>
         [Output("eTag")]
         public Output<string> ETag { get; private set; } = null!;
 
         /// <summary>
-        /// Destination format of the view data.
+        /// Destination format of the view data. This is optional.
         /// </summary>
         [Output("fileDestination")]
         public Output<Outputs.FileDestinationResponse?> FileDestination { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -53,13 +53,19 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<Outputs.NotificationPropertiesResponse> Notification { get; private set; } = null!;
 
         /// <summary>
+        /// Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Output("notificationEmail")]
+        public Output<string?> NotificationEmail { get; private set; } = null!;
+
+        /// <summary>
         /// Schedule of the scheduled action.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.SchedulePropertiesResponse> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        /// For private scheduled action(Create or Update), scope will be empty.&lt;br /&gt; For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         /// </summary>
         [Output("scope")]
         public Output<string?> Scope { get; private set; } = null!;
@@ -71,13 +77,13 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// Kind of the scheduled action.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -116,6 +122,8 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220401preview:ScheduledActionByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20220601preview:ScheduledActionByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:ScheduledActionByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:ScheduledActionByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ScheduledActionByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,7 +154,7 @@ namespace Pulumi.AzureNative.CostManagement
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// Destination format of the view data.
+        /// Destination format of the view data. This is optional.
         /// </summary>
         [Input("fileDestination")]
         public Input<Inputs.FileDestinationArgs>? FileDestination { get; set; }
@@ -170,13 +178,19 @@ namespace Pulumi.AzureNative.CostManagement
         public Input<Inputs.NotificationPropertiesArgs> Notification { get; set; } = null!;
 
         /// <summary>
+        /// Email address of the point of contact that should get the unsubscribe requests and notification emails.
+        /// </summary>
+        [Input("notificationEmail")]
+        public Input<string>? NotificationEmail { get; set; }
+
+        /// <summary>
         /// Schedule of the scheduled action.
         /// </summary>
         [Input("schedule", required: true)]
         public Input<Inputs.SchedulePropertiesArgs> Schedule { get; set; } = null!;
 
         /// <summary>
-        /// Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        /// For private scheduled action(Create or Update), scope will be empty.&lt;br /&gt; For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

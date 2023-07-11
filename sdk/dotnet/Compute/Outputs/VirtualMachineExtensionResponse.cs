@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Resource location
         /// </summary>
-        public readonly string Location;
+        public readonly string? Location;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -48,6 +48,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         public readonly object? ProtectedSettings;
+        /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        public readonly Outputs.KeyVaultSecretReferenceResponse? ProtectedSettingsFromKeyVault;
+        /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public readonly ImmutableArray<string> ProvisionAfterExtensions;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -60,6 +68,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Json formatted public settings for the extension.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        public readonly bool? SuppressFailures;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -85,17 +97,23 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             Outputs.VirtualMachineExtensionInstanceViewResponse? instanceView,
 
-            string location,
+            string? location,
 
             string name,
 
             object? protectedSettings,
+
+            Outputs.KeyVaultSecretReferenceResponse? protectedSettingsFromKeyVault,
+
+            ImmutableArray<string> provisionAfterExtensions,
 
             string provisioningState,
 
             string? publisher,
 
             object? settings,
+
+            bool? suppressFailures,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -111,9 +129,12 @@ namespace Pulumi.AzureNative.Compute.Outputs
             Location = location;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            ProvisionAfterExtensions = provisionAfterExtensions;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SuppressFailures = suppressFailures;
             Tags = tags;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;

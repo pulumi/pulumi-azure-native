@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Arc PrivateLinkScope definition.
- *
- * @deprecated azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class PrivateLinkScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateLinkScope {
-        pulumi.log.warn("PrivateLinkScope is deprecated: azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.")
         return new PrivateLinkScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateLinkScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateLinkScope is deprecated: azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -98,7 +93,7 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210325preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210422preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210517preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210520:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210610preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20211210preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20220310:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20220510preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20220811preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20221110:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20221227preview:PrivateLinkScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20200815preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210325preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210422preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210517preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210520:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20210610preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20211210preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20220310:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20220510preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20220811preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20221110:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20221227preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20230315preview:PrivateLinkScope" }, { type: "azure-native:hybridcompute/v20230425preview:PrivateLinkScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkScope.__pulumiType, name, resourceInputs, opts);
     }

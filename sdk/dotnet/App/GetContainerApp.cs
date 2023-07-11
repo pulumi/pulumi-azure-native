@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Container App.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetContainerAppResult> InvokeAsync(GetContainerAppArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// Container App.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetContainerAppResult> Invoke(GetContainerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerAppResult>("azure-native:app:getContainerApp", args ?? new GetContainerAppInvokeArgs(), options.WithDefaults());
@@ -80,6 +80,18 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string CustomDomainVerificationId;
         /// <summary>
+        /// Resource ID of environment.
+        /// </summary>
+        public readonly string? EnvironmentId;
+        /// <summary>
+        /// The endpoint of the eventstream of the container app.
+        /// </summary>
+        public readonly string EventStreamEndpoint;
+        /// <summary>
+        /// The complex type of the extended location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -87,6 +99,10 @@ namespace Pulumi.AzureNative.App
         /// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// Name of the latest ready revision of the Container App.
+        /// </summary>
+        public readonly string LatestReadyRevisionName;
         /// <summary>
         /// Fully Qualified Domain Name of the latest revision of the Container App.
         /// </summary>
@@ -100,7 +116,7 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource ID of the Container App's environment.
+        /// Deprecated. Resource ID of the Container App's environment.
         /// </summary>
         public readonly string? ManagedEnvironmentId;
         /// <summary>
@@ -131,6 +147,10 @@ namespace Pulumi.AzureNative.App
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Workload profile type to pin for container app execution.
+        /// </summary>
+        public readonly string? WorkloadProfileType;
 
         [OutputConstructor]
         private GetContainerAppResult(
@@ -138,9 +158,17 @@ namespace Pulumi.AzureNative.App
 
             string customDomainVerificationId,
 
+            string? environmentId,
+
+            string eventStreamEndpoint,
+
+            Outputs.ExtendedLocationResponse? extendedLocation,
+
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
+
+            string latestReadyRevisionName,
 
             string latestRevisionFqdn,
 
@@ -162,12 +190,18 @@ namespace Pulumi.AzureNative.App
 
             Outputs.TemplateResponse? template,
 
-            string type)
+            string type,
+
+            string? workloadProfileType)
         {
             Configuration = configuration;
             CustomDomainVerificationId = customDomainVerificationId;
+            EnvironmentId = environmentId;
+            EventStreamEndpoint = eventStreamEndpoint;
+            ExtendedLocation = extendedLocation;
             Id = id;
             Identity = identity;
+            LatestReadyRevisionName = latestReadyRevisionName;
             LatestRevisionFqdn = latestRevisionFqdn;
             LatestRevisionName = latestRevisionName;
             Location = location;
@@ -179,6 +213,7 @@ namespace Pulumi.AzureNative.App
             Tags = tags;
             Template = template;
             Type = type;
+            WorkloadProfileType = workloadProfileType;
         }
     }
 }

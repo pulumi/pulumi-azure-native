@@ -23,10 +23,10 @@ class DiskAccessAPrivateEndpointConnectionArgs:
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DiskAccessAPrivateEndpointConnection resource.
-        :param pulumi.Input[str] disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         """
         pulumi.set(__self__, "disk_access_name", disk_access_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -38,7 +38,7 @@ class DiskAccessAPrivateEndpointConnectionArgs:
     @pulumi.getter(name="diskAccessName")
     def disk_access_name(self) -> pulumi.Input[str]:
         """
-        The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         """
         return pulumi.get(self, "disk_access_name")
 
@@ -74,7 +74,7 @@ class DiskAccessAPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection
+        The name of the private endpoint connection.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -95,12 +95,12 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input[str] disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between DiskAccess and Virtual Network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -112,7 +112,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param DiskAccessAPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -156,7 +156,7 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20200930:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskAccessAPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:compute/v20230102:DiskAccessAPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskAccessAPrivateEndpointConnection, __self__).__init__(
             'azure-native:compute:DiskAccessAPrivateEndpointConnection',

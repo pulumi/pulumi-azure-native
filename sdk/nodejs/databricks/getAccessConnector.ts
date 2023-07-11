@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an azure databricks accessConnector.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAccessConnector(args: GetAccessConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessConnectorResult> {
 
@@ -40,9 +40,9 @@ export interface GetAccessConnectorResult {
      */
     readonly id: string;
     /**
-     * Identity for the resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.databricks.IdentityDataResponse;
+    readonly identity?: outputs.databricks.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -70,7 +70,7 @@ export interface GetAccessConnectorResult {
 }
 /**
  * Gets an azure databricks accessConnector.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAccessConnectorOutput(args: GetAccessConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessConnectorResult> {
     return pulumi.output(args).apply((a: any) => getAccessConnector(a, opts))

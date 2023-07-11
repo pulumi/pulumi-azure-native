@@ -19,6 +19,7 @@ class ExpressRoutePortArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class ExpressRoutePortArgs:
         The set of arguments for constructing a ExpressRoutePort resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
+        :param pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']] billing_type: The billing type of the ExpressRoutePort resource.
         :param pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -43,6 +45,8 @@ class ExpressRoutePortArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if billing_type is not None:
+            pulumi.set(__self__, "billing_type", billing_type)
         if encapsulation is not None:
             pulumi.set(__self__, "encapsulation", encapsulation)
         if express_route_port_name is not None:
@@ -83,6 +87,18 @@ class ExpressRoutePortArgs:
     @bandwidth_in_gbps.setter
     def bandwidth_in_gbps(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]]:
+        """
+        The billing type of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "billing_type")
+
+    @billing_type.setter
+    def billing_type(self, value: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]]):
+        pulumi.set(self, "billing_type", value)
 
     @property
     @pulumi.getter
@@ -187,6 +203,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -199,11 +216,12 @@ class ExpressRoutePort(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRoutePort resource definition.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
+        :param pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']] billing_type: The billing type of the ExpressRoutePort resource.
         :param pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] express_route_port_name: The name of the ExpressRoutePort resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -222,7 +240,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoutePort resource definition.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param ExpressRoutePortArgs args: The arguments to use to populate this resource's properties.
@@ -240,6 +258,7 @@ class ExpressRoutePort(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bandwidth_in_gbps: Optional[pulumi.Input[int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsBillingType']]] = None,
                  encapsulation: Optional[pulumi.Input[Union[str, 'ExpressRoutePortsEncapsulation']]] = None,
                  express_route_port_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -259,6 +278,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__ = ExpressRoutePortArgs.__new__(ExpressRoutePortArgs)
 
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
+            __props__.__dict__["billing_type"] = billing_type
             __props__.__dict__["encapsulation"] = encapsulation
             __props__.__dict__["express_route_port_name"] = express_route_port_name
             __props__.__dict__["id"] = id
@@ -280,7 +300,7 @@ class ExpressRoutePort(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRoutePort")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181001:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20181201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190401:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190601:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20190901:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20191101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20191201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200301:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200401:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200601:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20200801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20201101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210201:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210301:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20210801:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220501:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220701:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20220901:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20221101:ExpressRoutePort"), pulumi.Alias(type_="azure-native:network/v20230201:ExpressRoutePort")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ExpressRoutePort, __self__).__init__(
             'azure-native:network:ExpressRoutePort',
@@ -306,6 +326,7 @@ class ExpressRoutePort(pulumi.CustomResource):
 
         __props__.__dict__["allocation_date"] = None
         __props__.__dict__["bandwidth_in_gbps"] = None
+        __props__.__dict__["billing_type"] = None
         __props__.__dict__["circuits"] = None
         __props__.__dict__["encapsulation"] = None
         __props__.__dict__["etag"] = None
@@ -338,6 +359,14 @@ class ExpressRoutePort(pulumi.CustomResource):
         Bandwidth of procured ports in Gbps.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        The billing type of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "billing_type")
 
     @property
     @pulumi.getter

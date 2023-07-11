@@ -17,9 +17,9 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class RestorePointResponse
     {
         /// <summary>
-        /// Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
+        /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
         /// </summary>
-        public readonly string ConsistencyMode;
+        public readonly string? ConsistencyMode;
         /// <summary>
         /// List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
         /// </summary>
@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The restore point instance view.
+        /// </summary>
+        public readonly Outputs.RestorePointInstanceViewResponse InstanceView;
         /// <summary>
         /// Resource name
         /// </summary>
@@ -39,7 +43,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Gets the details of the VM captured at the time of the restore point creation.
         /// </summary>
-        public readonly Outputs.RestorePointSourceMetadataResponse SourceMetadata;
+        public readonly Outputs.RestorePointSourceMetadataResponse? SourceMetadata;
+        /// <summary>
+        /// Resource Id of the source restore point from which a copy needs to be created.
+        /// </summary>
+        public readonly Outputs.ApiEntityReferenceResponse? SourceRestorePoint;
         /// <summary>
         /// Gets the creation time of the restore point.
         /// </summary>
@@ -51,17 +59,21 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
         [OutputConstructor]
         private RestorePointResponse(
-            string consistencyMode,
+            string? consistencyMode,
 
             ImmutableArray<Outputs.ApiEntityReferenceResponse> excludeDisks,
 
             string id,
 
+            Outputs.RestorePointInstanceViewResponse instanceView,
+
             string name,
 
             string provisioningState,
 
-            Outputs.RestorePointSourceMetadataResponse sourceMetadata,
+            Outputs.RestorePointSourceMetadataResponse? sourceMetadata,
+
+            Outputs.ApiEntityReferenceResponse? sourceRestorePoint,
 
             string? timeCreated,
 
@@ -70,9 +82,11 @@ namespace Pulumi.AzureNative.Compute.Outputs
             ConsistencyMode = consistencyMode;
             ExcludeDisks = excludeDisks;
             Id = id;
+            InstanceView = instanceView;
             Name = name;
             ProvisioningState = provisioningState;
             SourceMetadata = sourceMetadata;
+            SourceRestorePoint = sourceRestorePoint;
             TimeCreated = timeCreated;
             Type = type;
         }

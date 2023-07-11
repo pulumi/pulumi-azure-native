@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Subvolume Information properties
-    /// API Version: 2021-10-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Subvolume")]
     public partial class Subvolume : global::Pulumi.CustomResource
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Subvolume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Subvolume"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Subvolume"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Subvolume"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -130,7 +131,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -11,7 +11,7 @@ const resourceGroupVar = azure_native.resources.getResourceGroup({
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const originUrlParam = config.require("originUrlParam");
 const profileNameParam = config.require("profileNameParam");
-const profileResource = new azure_native.cdn.v20190415.Profile("profileResource", {
+const profileResource = new azure_native.cdn.v20200901.Profile("profileResource", {
     location: locationParam,
     profileName: profileNameParam,
     resourceGroupName: resourceGroupNameParam,
@@ -19,7 +19,7 @@ const profileResource = new azure_native.cdn.v20190415.Profile("profileResource"
         name: cDNSkuParam,
     },
 });
-const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResource", {
+const endpointResource = new azure_native.cdn.v20230501.Endpoint("endpointResource", {
     contentTypesToCompress: [
         "text/plain",
         "text/html",
@@ -35,7 +35,6 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
                     name: "UrlRewrite",
                     parameters: {
                         destination: "/mobile",
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRewriteActionParameters",
                         sourcePattern: "/standard",
                     },
                 }],
@@ -43,7 +42,6 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
                     name: "IsDevice",
                     parameters: {
                         matchValues: ["Mobile"],
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleIsDeviceConditionParameters",
                         operator: "Equal",
                     },
                 }],
@@ -55,7 +53,6 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
                     name: "UrlRedirect",
                     parameters: {
                         destinationProtocol: "Https",
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleUrlRedirectActionParameters",
                         redirectType: "Found",
                     },
                 }],
@@ -63,7 +60,6 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
                     name: "RequestScheme",
                     parameters: {
                         matchValues: ["HTTP"],
-                        odataType: "#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestSchemeConditionParameters",
                         operator: "Equal",
                     },
                 }],
@@ -83,6 +79,6 @@ const endpointResource = new azure_native.cdn.v20190415.Endpoint("endpointResour
         name: "origin1",
     }],
     profileName: profileResource.name,
-    queryStringCachingBehavior: azure_native.cdn.v20190415.QueryStringCachingBehavior.IgnoreQueryString,
+    queryStringCachingBehavior: azure_native.cdn.v20230501.QueryStringCachingBehavior.IgnoreQueryString,
     resourceGroupName: resourceGroupNameParam,
 });

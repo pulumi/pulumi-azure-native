@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Logic
     {
         /// <summary>
         /// Get a batch configuration for an integration account.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Task<GetIntegrationAccountBatchConfigurationResult> InvokeAsync(GetIntegrationAccountBatchConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a batch configuration for an integration account.
-        /// API Version: 2019-05-01.
+        /// Azure REST API version: 2019-05-01.
         /// </summary>
         public static Output<GetIntegrationAccountBatchConfigurationResult> Invoke(GetIntegrationAccountBatchConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAccountBatchConfigurationResult>("azure-native:logic:getIntegrationAccountBatchConfiguration", args ?? new GetIntegrationAccountBatchConfigurationInvokeArgs(), options.WithDefaults());

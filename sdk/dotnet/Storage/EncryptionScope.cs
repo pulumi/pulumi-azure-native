@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// The Encryption Scope resource.
-    /// API Version: 2021-02-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:EncryptionScope")]
     public partial class EncryptionScope : global::Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevTestLab
     {
         /// <summary>
         /// Get schedule.
-        /// API Version: 2018-09-15.
+        /// Azure REST API version: 2018-09-15.
         /// </summary>
         public static Task<GetGlobalScheduleResult> InvokeAsync(GetGlobalScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get schedule.
-        /// API Version: 2018-09-15.
+        /// Azure REST API version: 2018-09-15.
         /// </summary>
         public static Output<GetGlobalScheduleResult> Invoke(GetGlobalScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalScheduleResult>("azure-native:devtestlab:getGlobalSchedule", args ?? new GetGlobalScheduleInvokeArgs(), options.WithDefaults());
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.DevTestLab
         /// </summary>
         public readonly string? TaskType;
         /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
+        /// The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection&lt;string&gt; TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         /// </summary>
         public readonly string? TimeZoneId;
         /// <summary>

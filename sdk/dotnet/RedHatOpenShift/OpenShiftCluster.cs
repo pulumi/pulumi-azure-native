@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-    /// API Version: 2020-04-30.
+    /// Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:OpenShiftCluster")]
     public partial class OpenShiftCluster : global::Pulumi.CustomResource
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster provisioning state (immutable).
+        /// The cluster provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// </summary>
         [Output("servicePrincipalProfile")]
         public Output<Outputs.ServicePrincipalProfileResponse?> ServicePrincipalProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -195,7 +201,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The cluster provisioning state (immutable).
+        /// The cluster provisioning state.
         /// </summary>
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

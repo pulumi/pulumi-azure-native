@@ -6,29 +6,41 @@ from enum import Enum
 
 __all__ = [
     'AdvancedFilterOperatorType',
+    'AlternativeAuthenticationNameSource',
     'ChannelProvisioningState',
     'ChannelType',
+    'ClientCertificateValidationScheme',
+    'ClientState',
+    'DataResidencyBoundary',
     'DeadLetterEndPointType',
     'DeliveryAttributeMappingType',
+    'DeliveryMode',
+    'DeliverySchema',
     'EndpointType',
     'EventDefinitionKind',
     'EventDeliverySchema',
+    'EventInputSchema',
     'EventSubscriptionIdentityType',
+    'FilterOperatorType',
     'IdentityType',
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
-    'PartnerClientAuthenticationType',
     'PartnerConfigurationProvisioningState',
     'PartnerDestinationActivationState',
-    'PartnerDestinationProvisioningState',
-    'PartnerEndpointType',
-    'PartnerRegistrationVisibilityState',
     'PartnerTopicActivationState',
+    'PartnerTopicRoutingMode',
+    'PermissionType',
     'PersistedConnectionStatus',
     'PublicNetworkAccess',
+    'PublisherType',
     'ReadinessState',
     'ResourceProvisioningState',
+    'RoutingIdentityType',
+    'SkuName',
+    'StaticRoutingEnrichmentType',
+    'TlsVersion',
+    'TopicSpacesConfigurationState',
 ]
 
 
@@ -57,6 +69,14 @@ class AdvancedFilterOperatorType(str, Enum):
     IS_NOT_NULL = "IsNotNull"
 
 
+class AlternativeAuthenticationNameSource(str, Enum):
+    CLIENT_CERTIFICATE_SUBJECT = "ClientCertificateSubject"
+    CLIENT_CERTIFICATE_DNS = "ClientCertificateDns"
+    CLIENT_CERTIFICATE_URI = "ClientCertificateUri"
+    CLIENT_CERTIFICATE_IP = "ClientCertificateIp"
+    CLIENT_CERTIFICATE_EMAIL = "ClientCertificateEmail"
+
+
 class ChannelProvisioningState(str, Enum):
     """
     Provisioning state of the channel.
@@ -67,14 +87,42 @@ class ChannelProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
     CANCELED = "Canceled"
     FAILED = "Failed"
+    IDLE_DUE_TO_MIRRORED_PARTNER_TOPIC_DELETION = "IdleDueToMirroredPartnerTopicDeletion"
 
 
 class ChannelType(str, Enum):
     """
-    The type of the event channel which represents the  direction flow of events.
+    The type of the event channel which represents the direction flow of events.
     """
     PARTNER_TOPIC = "PartnerTopic"
-    PARTNER_DESTINATION = "PartnerDestination"
+
+
+class ClientCertificateValidationScheme(str, Enum):
+    """
+    The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
+    """
+    SUBJECT_MATCHES_AUTHENTICATION_NAME = "SubjectMatchesAuthenticationName"
+    DNS_MATCHES_AUTHENTICATION_NAME = "DnsMatchesAuthenticationName"
+    URI_MATCHES_AUTHENTICATION_NAME = "UriMatchesAuthenticationName"
+    IP_MATCHES_AUTHENTICATION_NAME = "IpMatchesAuthenticationName"
+    EMAIL_MATCHES_AUTHENTICATION_NAME = "EmailMatchesAuthenticationName"
+    THUMBPRINT_MATCH = "ThumbprintMatch"
+
+
+class ClientState(str, Enum):
+    """
+    Indicates if the client is enabled or not. Default value is Enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class DataResidencyBoundary(str, Enum):
+    """
+    Data Residency Boundary of the resource.
+    """
+    WITHIN_GEOPAIR = "WithinGeopair"
+    WITHIN_REGION = "WithinRegion"
 
 
 class DeadLetterEndPointType(str, Enum):
@@ -92,6 +140,20 @@ class DeliveryAttributeMappingType(str, Enum):
     DYNAMIC = "Dynamic"
 
 
+class DeliveryMode(str, Enum):
+    """
+    Delivery mode of the event subscription.
+    """
+    QUEUE = "Queue"
+
+
+class DeliverySchema(str, Enum):
+    """
+    The event delivery schema for the event subscription.
+    """
+    CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
+
+
 class EndpointType(str, Enum):
     """
     Type of the endpoint for the event subscription destination.
@@ -103,7 +165,6 @@ class EndpointType(str, Enum):
     SERVICE_BUS_QUEUE = "ServiceBusQueue"
     SERVICE_BUS_TOPIC = "ServiceBusTopic"
     AZURE_FUNCTION = "AzureFunction"
-    PARTNER_DESTINATION = "PartnerDestination"
 
 
 class EventDefinitionKind(str, Enum):
@@ -122,12 +183,44 @@ class EventDeliverySchema(str, Enum):
     CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
 
 
+class EventInputSchema(str, Enum):
+    """
+    This determines the format that is expected for incoming events published to the topic.
+    """
+    CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
+
+
 class EventSubscriptionIdentityType(str, Enum):
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
+
+
+class FilterOperatorType(str, Enum):
+    """
+    The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+    """
+    NUMBER_IN = "NumberIn"
+    NUMBER_NOT_IN = "NumberNotIn"
+    NUMBER_LESS_THAN = "NumberLessThan"
+    NUMBER_GREATER_THAN = "NumberGreaterThan"
+    NUMBER_LESS_THAN_OR_EQUALS = "NumberLessThanOrEquals"
+    NUMBER_GREATER_THAN_OR_EQUALS = "NumberGreaterThanOrEquals"
+    BOOL_EQUALS = "BoolEquals"
+    STRING_IN = "StringIn"
+    STRING_NOT_IN = "StringNotIn"
+    STRING_BEGINS_WITH = "StringBeginsWith"
+    STRING_ENDS_WITH = "StringEndsWith"
+    STRING_CONTAINS = "StringContains"
+    NUMBER_IN_RANGE = "NumberInRange"
+    NUMBER_NOT_IN_RANGE = "NumberNotInRange"
+    STRING_NOT_BEGINS_WITH = "StringNotBeginsWith"
+    STRING_NOT_ENDS_WITH = "StringNotEndsWith"
+    STRING_NOT_CONTAINS = "StringNotContains"
+    IS_NULL_OR_UNDEFINED = "IsNullOrUndefined"
+    IS_NOT_NULL = "IsNotNull"
 
 
 class IdentityType(str, Enum):
@@ -163,13 +256,6 @@ class IpActionType(str, Enum):
     ALLOW = "Allow"
 
 
-class PartnerClientAuthenticationType(str, Enum):
-    """
-    Type of client authentication
-    """
-    AZURE_AD = "AzureAD"
-
-
 class PartnerConfigurationProvisioningState(str, Enum):
     """
     Provisioning state of the partner configuration.
@@ -190,34 +276,6 @@ class PartnerDestinationActivationState(str, Enum):
     ACTIVATED = "Activated"
 
 
-class PartnerDestinationProvisioningState(str, Enum):
-    """
-    Provisioning state of the partner destination.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
-
-
-class PartnerEndpointType(str, Enum):
-    """
-    Type of the endpoint for the partner destination
-    """
-    WEB_HOOK = "WebHook"
-
-
-class PartnerRegistrationVisibilityState(str, Enum):
-    """
-    Visibility state of the partner registration.
-    """
-    HIDDEN = "Hidden"
-    PUBLIC_PREVIEW = "PublicPreview"
-    GENERALLY_AVAILABLE = "GenerallyAvailable"
-
-
 class PartnerTopicActivationState(str, Enum):
     """
     Activation state of the partner topic.
@@ -225,6 +283,23 @@ class PartnerTopicActivationState(str, Enum):
     NEVER_ACTIVATED = "NeverActivated"
     ACTIVATED = "Activated"
     DEACTIVATED = "Deactivated"
+
+
+class PartnerTopicRoutingMode(str, Enum):
+    """
+    This determines if events published to this partner namespace should use the source attribute in the event payload
+    or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+    """
+    SOURCE_EVENT_ATTRIBUTE = "SourceEventAttribute"
+    CHANNEL_NAME_HEADER = "ChannelNameHeader"
+
+
+class PermissionType(str, Enum):
+    """
+    The allowed permission.
+    """
+    PUBLISHER = "Publisher"
+    SUBSCRIBER = "Subscriber"
 
 
 class PersistedConnectionStatus(str, Enum):
@@ -246,6 +321,13 @@ class PublicNetworkAccess(str, Enum):
     DISABLED = "Disabled"
 
 
+class PublisherType(str, Enum):
+    """
+    Publisher type of the namespace topic.
+    """
+    CUSTOM = "Custom"
+
+
 class ReadinessState(str, Enum):
     """
     The readiness state of the corresponding partner topic.
@@ -264,3 +346,40 @@ class ResourceProvisioningState(str, Enum):
     SUCCEEDED = "Succeeded"
     CANCELED = "Canceled"
     FAILED = "Failed"
+
+
+class RoutingIdentityType(str, Enum):
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class SkuName(str, Enum):
+    """
+    The name of the SKU.
+    """
+    STANDARD = "Standard"
+
+
+class StaticRoutingEnrichmentType(str, Enum):
+    """
+    Static routing enrichment value type. For e.g. this property value can be 'String'.
+    """
+    STRING = "String"
+
+
+class TlsVersion(str, Enum):
+    """
+    Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+    """
+    TLS_VERSION_1_0 = "1.0"
+    TLS_VERSION_1_1 = "1.1"
+    TLS_VERSION_1_2 = "1.2"
+
+
+class TopicSpacesConfigurationState(str, Enum):
+    """
+    Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// Workload group operations for a data warehouse
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:WorkloadGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:WorkloadGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:WorkloadGroup")]
     public partial class WorkloadGroup : global::Pulumi.CustomResource
     {
@@ -101,6 +100,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:WorkloadGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:WorkloadGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:WorkloadGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

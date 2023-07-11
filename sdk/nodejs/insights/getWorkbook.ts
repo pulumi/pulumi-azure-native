@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single workbook by its resourceName.
- * API Version: 2020-10-20.
+ * Azure REST API version: 2022-04-01.
  */
 export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:insights:getWorkbook", {
+        "canFetchContent": args.canFetchContent,
         "resourceGroupName": args.resourceGroupName,
         "resourceName": args.resourceName,
     }, opts);
@@ -22,17 +23,21 @@ export function getWorkbook(args: GetWorkbookArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetWorkbookArgs {
     /**
+     * Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+     */
+    canFetchContent?: boolean;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * The name of the Application Insights component resource.
+     * The name of the resource.
      */
     resourceName: string;
 }
 
 /**
- * An Application Insights workbook definition.
+ * A workbook definition.
  */
 export interface GetWorkbookResult {
     /**
@@ -40,33 +45,41 @@ export interface GetWorkbookResult {
      */
     readonly category: string;
     /**
+     * The description of the workbook.
+     */
+    readonly description?: string;
+    /**
      * The user-defined name (display name) of the workbook.
      */
     readonly displayName: string;
     /**
      * Resource etag
      */
-    readonly etag?: {[key: string]: string};
+    readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
-    readonly id?: string;
+    readonly id: string;
     /**
      * Identity used for BYOS
      */
-    readonly identity?: outputs.insights.WorkbookManagedIdentityResponse;
+    readonly identity?: outputs.insights.WorkbookResourceResponseIdentity;
     /**
-     * The kind of workbook. Choices are user and shared.
+     * The kind of workbook. Only valid value is shared.
      */
     readonly kind?: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
-    readonly name?: string;
+    readonly name: string;
+    /**
+     * The unique revision id for this workbook definition
+     */
+    readonly revision: string;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
@@ -76,11 +89,15 @@ export interface GetWorkbookResult {
      */
     readonly sourceId?: string;
     /**
-     * BYOS Storage Account URI
+     * The resourceId to the storage account when bring your own storage is used
      */
     readonly storageUri?: string;
     /**
-     * Resource tags
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -88,21 +105,21 @@ export interface GetWorkbookResult {
      */
     readonly timeModified: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    readonly type?: string;
+    readonly type: string;
     /**
      * Unique user id of the specific user that owns this workbook.
      */
     readonly userId: string;
     /**
-     * Workbook version
+     * Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
      */
     readonly version?: string;
 }
 /**
  * Get a single workbook by its resourceName.
- * API Version: 2020-10-20.
+ * Azure REST API version: 2022-04-01.
  */
 export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getWorkbook(a, opts))
@@ -110,11 +127,15 @@ export function getWorkbookOutput(args: GetWorkbookOutputArgs, opts?: pulumi.Inv
 
 export interface GetWorkbookOutputArgs {
     /**
+     * Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
+     */
+    canFetchContent?: pulumi.Input<boolean>;
+    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Application Insights component resource.
+     * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
 }

@@ -2,10 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200605preview from "./v20200605preview";
+import * as v20220521preview from "./v20220521preview";
 
 export {
-    v20200605preview,
+    v20220521preview,
 };
 
 export const AllocationMethod = {
@@ -38,6 +38,16 @@ export const DynamicMemoryEnabled = {
  */
 export type DynamicMemoryEnabled = (typeof DynamicMemoryEnabled)[keyof typeof DynamicMemoryEnabled];
 
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The type of managed service identity.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const InventoryType = {
     Cloud: "Cloud",
     VirtualNetwork: "VirtualNetwork",
@@ -59,3 +69,14 @@ export const LimitCpuForMigration = {
  * Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
  */
 export type LimitCpuForMigration = (typeof LimitCpuForMigration)[keyof typeof LimitCpuForMigration];
+
+export const ProvisioningAction = {
+    Install: "install",
+    Uninstall: "uninstall",
+    Repair: "repair",
+} as const;
+
+/**
+ * Gets or sets the guest agent provisioning action.
+ */
+export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details about a blockchain member.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function getBlockchainMember(args: GetBlockchainMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetBlockchainMemberResult> {
 
@@ -118,7 +118,7 @@ export interface GetBlockchainMemberResult {
 }
 /**
  * Get details about a blockchain member.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview.
  */
 export function getBlockchainMemberOutput(args: GetBlockchainMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBlockchainMemberResult> {
     return pulumi.output(args).apply((a: any) => getBlockchainMember(a, opts))

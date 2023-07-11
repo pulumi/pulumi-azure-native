@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A sensitivity label.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SensitivityLabel")]
     public partial class SensitivityLabel : global::Pulumi.CustomResource
@@ -122,6 +122,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:SensitivityLabel"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:SensitivityLabel"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:SensitivityLabel"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:SensitivityLabel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

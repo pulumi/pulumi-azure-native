@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Device Update account details.
-    /// API Version: 2020-03-01-preview.
+    /// Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// CMK encryption at rest properties
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
+
         /// <summary>
         /// API host name.
         /// </summary>
@@ -33,6 +39,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Device Update account primary and failover location details
+        /// </summary>
+        [Output("locations")]
+        public Output<ImmutableArray<Outputs.LocationResponse>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -57,6 +69,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -105,6 +123,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221001:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20221201preview:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:deviceupdate/v20230701:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,6 +152,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
+
+        /// <summary>
+        /// CMK encryption at rest properties
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
         /// The type of identity used for the resource.
@@ -170,6 +195,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        [Input("sku")]
+        public InputUnion<string, Pulumi.AzureNative.DeviceUpdate.SKU>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -185,6 +216,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
         public AccountArgs()
         {
             PublicNetworkAccess = "Enabled";
+            Sku = "Standard";
         }
         public static new AccountArgs Empty => new AccountArgs();
     }

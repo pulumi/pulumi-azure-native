@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ManagedServices
     public static class GetRegistrationAssignment
     {
         /// <summary>
-        /// Gets the details of specified registration assignment.
-        /// API Version: 2019-09-01.
+        /// Gets the details of the specified registration assignment.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetRegistrationAssignmentResult> InvokeAsync(GetRegistrationAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the details of specified registration assignment.
-        /// API Version: 2019-09-01.
+        /// Gets the details of the specified registration assignment.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetRegistrationAssignmentResult> Invoke(GetRegistrationAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationAssignmentResult>("azure-native:managedservices:getRegistrationAssignment", args ?? new GetRegistrationAssignmentInvokeArgs(), options.WithDefaults());
@@ -30,19 +30,19 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class GetRegistrationAssignmentArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Tells whether to return registration definition details also along with registration assignment details.
+        /// The flag indicating whether to return the registration definition details along with the registration assignment details.
         /// </summary>
         [Input("expandRegistrationDefinition")]
         public bool? ExpandRegistrationDefinition { get; set; }
 
         /// <summary>
-        /// Guid of the registration assignment.
+        /// The GUID of the registration assignment.
         /// </summary>
         [Input("registrationAssignmentId", required: true)]
         public string RegistrationAssignmentId { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public string Scope { get; set; } = null!;
@@ -56,19 +56,19 @@ namespace Pulumi.AzureNative.ManagedServices
     public sealed class GetRegistrationAssignmentInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Tells whether to return registration definition details also along with registration assignment details.
+        /// The flag indicating whether to return the registration definition details along with the registration assignment details.
         /// </summary>
         [Input("expandRegistrationDefinition")]
         public Input<bool>? ExpandRegistrationDefinition { get; set; }
 
         /// <summary>
-        /// Guid of the registration assignment.
+        /// The GUID of the registration assignment.
         /// </summary>
         [Input("registrationAssignmentId", required: true)]
         public Input<string> RegistrationAssignmentId { get; set; } = null!;
 
         /// <summary>
-        /// Scope of the resource.
+        /// The scope of the resource.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
@@ -88,15 +88,19 @@ namespace Pulumi.AzureNative.ManagedServices
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Name of the registration assignment.
+        /// The name of the registration assignment.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of a registration assignment.
+        /// The properties of a registration assignment.
         /// </summary>
         public readonly Outputs.RegistrationAssignmentPropertiesResponse Properties;
         /// <summary>
-        /// Type of the resource.
+        /// The metadata for the registration assignment resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         /// </summary>
         public readonly string Type;
 
@@ -108,11 +112,14 @@ namespace Pulumi.AzureNative.ManagedServices
 
             Outputs.RegistrationAssignmentPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

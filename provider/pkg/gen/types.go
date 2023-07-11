@@ -22,8 +22,8 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -185,13 +185,6 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 		additionalProperties, err := m.genTypeSpec(propertyName, resolvedSchema.AdditionalProperties.Schema, resolvedSchema.ReferenceContext, isOutput)
 		if err != nil {
 			return nil, err
-		}
-
-		// Use a generic 'object' value type for a dictionary with empty value type.
-		if additionalProperties == nil {
-			additionalProperties = &pschema.TypeSpec{
-				Ref: resources.TypeAny,
-			}
 		}
 
 		return &pschema.TypeSpec{

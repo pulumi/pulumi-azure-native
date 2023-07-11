@@ -13,6 +13,7 @@ __all__ = [
     'Kind',
     'ParameterType',
     'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'RtspTransport',
     'SkuName',
     'VideoScaleMode',
@@ -148,6 +149,20 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public network access is allowed for resources under the Video Analyzer account.
+    """
+    ENABLED = "Enabled"
+    """
+    Public network access is enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Public network access is disabled.
+    """
 
 
 class RtspTransport(str, Enum):

@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
     public sealed class ResourceReferenceResponse
     {
         /// <summary>
-        /// The fully qualified resource Id.
+        /// The resourceId of a resource managed by the deployment stack.
         /// </summary>
         public readonly string Id;
 

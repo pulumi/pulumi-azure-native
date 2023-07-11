@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     {
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// API Version: 2020-05-01-preview.
+        /// Azure REST API version: 2021-04-01.
         /// </summary>
         public static Task<GetGuestUsageResult> InvokeAsync(GetGuestUsageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
-        /// API Version: 2020-05-01-preview.
+        /// Azure REST API version: 2021-04-01.
         /// </summary>
         public static Output<GetGuestUsageResult> Invoke(GetGuestUsageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuestUsageResult>("azure-native:azureactivedirectory:getGuestUsage", args ?? new GetGuestUsageInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The initial domain name of the AAD tenant.
+        /// The initial domain name of the Azure AD B2C tenant.
         /// </summary>
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The initial domain name of the AAD tenant.
+        /// The initial domain name of the Azure AD B2C tenant.
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string? tenantId,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
             Id = id;
             Location = location;
             Name = name;
+            SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;
             Type = type;

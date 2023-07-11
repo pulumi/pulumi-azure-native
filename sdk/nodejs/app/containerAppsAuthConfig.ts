@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
  */
 export class ContainerAppsAuthConfig extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220301:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220601preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20221001:ContainerAppsAuthConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20220101preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220301:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20220601preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20221001:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20221101preview:ContainerAppsAuthConfig" }, { type: "azure-native:app/v20230401preview:ContainerAppsAuthConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerAppsAuthConfig.__pulumiType, name, resourceInputs, opts);
     }

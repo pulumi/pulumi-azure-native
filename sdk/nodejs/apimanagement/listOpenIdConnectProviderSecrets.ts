@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the client secret details of the OpenID Connect Provider.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listOpenIdConnectProviderSecrets(args: ListOpenIdConnectProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenIdConnectProviderSecretsResult> {
 
@@ -24,7 +24,7 @@ export interface ListOpenIdConnectProviderSecretsArgs {
      */
     opid: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -44,7 +44,7 @@ export interface ListOpenIdConnectProviderSecretsResult {
 }
 /**
  * Gets the client secret details of the OpenID Connect Provider.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listOpenIdConnectProviderSecretsOutput(args: ListOpenIdConnectProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListOpenIdConnectProviderSecretsResult> {
     return pulumi.output(args).apply((a: any) => listOpenIdConnectProviderSecrets(a, opts))
@@ -56,7 +56,7 @@ export interface ListOpenIdConnectProviderSecretsOutputArgs {
      */
     opid: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

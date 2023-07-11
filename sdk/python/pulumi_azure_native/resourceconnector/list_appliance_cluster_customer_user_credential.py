@@ -62,7 +62,7 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListApplianceClusterCustomerUserCredentialResult:
     """
     Returns the cluster customer user credentials for the dedicated appliance.
-    API Version: 2022-04-15-preview.
+    Azure REST API version: 2022-04-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -85,7 +85,7 @@ def list_appliance_cluster_customer_user_credential_output(resource_group_name: 
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
     """
     Returns the cluster customer user credentials for the dedicated appliance.
-    API Version: 2022-04-15-preview.
+    Azure REST API version: 2022-04-15-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

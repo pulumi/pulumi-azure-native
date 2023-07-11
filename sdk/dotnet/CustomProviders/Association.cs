@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CustomProviders
 {
     /// <summary>
     /// The resource definition of this association.
-    /// API Version: 2018-09-01-preview.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:customproviders:Association")]
     public partial class Association : global::Pulumi.CustomResource

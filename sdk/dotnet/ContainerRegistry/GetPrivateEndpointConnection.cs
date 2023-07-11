@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Get the specified private endpoint connection associated with the container registry.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:containerregistry:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specified private endpoint connection associated with the container registry.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:containerregistry:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

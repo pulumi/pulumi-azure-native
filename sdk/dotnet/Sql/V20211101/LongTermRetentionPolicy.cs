@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// A long term retention policy.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:LongTermRetentionPolicy")]
     public partial class LongTermRetentionPolicy : global::Pulumi.CustomResource
     {
@@ -89,6 +88,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:LongTermRetentionPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:LongTermRetentionPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:LongTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:LongTermRetentionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DesktopVirtualization.V20220909
 {
-    [Obsolete(@"azure-native:desktopvirtualization/v20220909:ScalingPlan is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlan to guarantee forwards compatibility.")]
     public static class GetScalingPlan
     {
         /// <summary>

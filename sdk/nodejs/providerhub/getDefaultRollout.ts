@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the default rollout details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getDefaultRollout(args: GetDefaultRolloutArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultRolloutResult> {
 
@@ -48,13 +48,17 @@ export interface GetDefaultRolloutResult {
      */
     readonly properties: outputs.providerhub.DefaultRolloutResponseProperties;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.providerhub.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the default rollout details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getDefaultRolloutOutput(args: GetDefaultRolloutOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultRolloutResult> {
     return pulumi.output(args).apply((a: any) => getDefaultRollout(a, opts))

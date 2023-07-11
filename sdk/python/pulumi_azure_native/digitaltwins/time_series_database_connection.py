@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['TimeSeriesDatabaseConnectionArgs', 'TimeSeriesDatabaseConnection']
@@ -95,7 +96,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a time series database connection resource.
-        API Version: 2021-06-30-preview.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2021-06-30-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +113,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a time series database connection resource.
-        API Version: 2021-06-30-preview.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2021-06-30-preview
 
         :param str resource_name: The name of the resource.
         :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

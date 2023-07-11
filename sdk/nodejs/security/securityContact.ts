@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2020-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getHub(args: GetHubArgs, opts?: pulumi.InvokeOptions): Promise<GetHubResult> {
 
@@ -78,7 +78,7 @@ export interface GetHubResult {
 }
 /**
  * Gets information about the specified hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
     return pulumi.output(args).apply((a: any) => getHub(a, opts))

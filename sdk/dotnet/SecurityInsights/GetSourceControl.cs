@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a source control byt its identifier.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetSourceControlResult> InvokeAsync(GetSourceControlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a source control byt its identifier.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetSourceControlResult> Invoke(GetSourceControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceControlResult>("azure-native:securityinsights:getSourceControl", args ?? new GetSourceControlInvokeArgs(), options.WithDefaults());
@@ -29,12 +29,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class GetSourceControlArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -61,12 +55,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class GetSourceControlInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -100,18 +88,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly ImmutableArray<string> ContentTypes;
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
-        /// <summary>
         /// A description of the source control
         /// </summary>
         public readonly string? Description;
@@ -124,23 +100,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
+        /// Information regarding the latest deployment for the source control.
         /// </summary>
-        public readonly string? LastModifiedAt;
+        public readonly Outputs.DeploymentInfoResponse? LastDeploymentInfo;
         /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
-        /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -152,23 +120,25 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.RepositoryResponse Repository;
         /// <summary>
+        /// Information regarding the resources created in user's repository.
+        /// </summary>
+        public readonly Outputs.RepositoryResourceInfoResponse? RepositoryResourceInfo;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version number associated with the source control
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetSourceControlResult(
             ImmutableArray<string> contentTypes,
-
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
 
             string? description,
 
@@ -178,11 +148,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string id,
 
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
+            Outputs.DeploymentInfoResponse? lastDeploymentInfo,
 
             string name,
 
@@ -190,26 +156,27 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.RepositoryResponse repository,
 
+            Outputs.RepositoryResourceInfoResponse? repositoryResourceInfo,
+
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            string? version)
         {
             ContentTypes = contentTypes;
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
             Description = description;
             DisplayName = displayName;
             Etag = etag;
             Id = id;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
+            LastDeploymentInfo = lastDeploymentInfo;
             Name = name;
             RepoType = repoType;
             Repository = repository;
+            RepositoryResourceInfo = repositoryResourceInfo;
             SystemData = systemData;
             Type = type;
+            Version = version;
         }
     }
 }

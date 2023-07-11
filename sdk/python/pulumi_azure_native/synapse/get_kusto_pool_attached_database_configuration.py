@@ -172,7 +172,7 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetKustoPoolAttachedDatabaseConfigurationResult:
     """
     Returns an attached database configuration.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.
@@ -210,7 +210,7 @@ def get_kusto_pool_attached_database_configuration_output(attached_database_conf
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKustoPoolAttachedDatabaseConfigurationResult]:
     """
     Returns an attached database configuration.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str attached_database_configuration_name: The name of the attached database configuration.

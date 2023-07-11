@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 {
 
     /// <summary>
-    /// Describes the script sources for run command.
+    /// Describes the script sources for run command. Use only one of script, scriptUri, commandId.
     /// </summary>
     [OutputType]
     public sealed class VirtualMachineRunCommandScriptSourceResponse
@@ -25,9 +25,13 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly string? Script;
         /// <summary>
-        /// Specifies the script download location.
+        /// Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
         /// </summary>
         public readonly string? ScriptUri;
+        /// <summary>
+        /// User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        /// </summary>
+        public readonly Outputs.RunCommandManagedIdentityResponse? ScriptUriManagedIdentity;
 
         [OutputConstructor]
         private VirtualMachineRunCommandScriptSourceResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             string? script,
 
-            string? scriptUri)
+            string? scriptUri,
+
+            Outputs.RunCommandManagedIdentityResponse? scriptUriManagedIdentity)
         {
             CommandId = commandId;
             Script = script;
             ScriptUri = scriptUri;
+            ScriptUriManagedIdentity = scriptUriManagedIdentity;
         }
     }
 }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the ISV access token for a SaaS resource.
- * API Version: 2018-03-01-beta.
+ * Azure REST API version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessToken(args: ListSaasResourceAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListSaasResourceAccessTokenResult> {
 
@@ -38,7 +38,7 @@ export interface ListSaasResourceAccessTokenResult {
 }
 /**
  * Gets the ISV access token for a SaaS resource.
- * API Version: 2018-03-01-beta.
+ * Azure REST API version: 2018-03-01-beta.
  */
 export function listSaasResourceAccessTokenOutput(args: ListSaasResourceAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSaasResourceAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => listSaasResourceAccessToken(a, opts))

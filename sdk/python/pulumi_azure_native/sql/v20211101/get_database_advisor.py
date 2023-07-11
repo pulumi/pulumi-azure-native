@@ -17,8 +17,6 @@ __all__ = [
     'get_database_advisor_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101:DatabaseAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseAdvisor to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDatabaseAdvisorResult:
     """
@@ -181,7 +179,6 @@ def get_database_advisor(advisor_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_database_advisor is deprecated: azure-native:sql/v20211101:DatabaseAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseAdvisor to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['advisorName'] = advisor_name
     __args__['databaseName'] = database_name
@@ -219,5 +216,4 @@ def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_database_advisor is deprecated: azure-native:sql/v20211101:DatabaseAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseAdvisor to guarantee forwards compatibility.""")
     ...

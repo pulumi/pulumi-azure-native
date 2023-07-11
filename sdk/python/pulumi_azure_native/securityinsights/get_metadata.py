@@ -22,7 +22,7 @@ class GetMetadataResult:
     """
     Metadata resource definition.
     """
-    def __init__(__self__, author=None, categories=None, content_id=None, dependencies=None, etag=None, first_publish_date=None, id=None, kind=None, last_publish_date=None, name=None, parent_id=None, providers=None, source=None, support=None, system_data=None, type=None, version=None):
+    def __init__(__self__, author=None, categories=None, content_id=None, content_schema_version=None, custom_version=None, dependencies=None, etag=None, first_publish_date=None, icon=None, id=None, kind=None, last_publish_date=None, name=None, parent_id=None, preview_images=None, preview_images_dark=None, providers=None, source=None, support=None, system_data=None, threat_analysis_tactics=None, threat_analysis_techniques=None, type=None, version=None):
         if author and not isinstance(author, dict):
             raise TypeError("Expected argument 'author' to be a dict")
         pulumi.set(__self__, "author", author)
@@ -32,6 +32,12 @@ class GetMetadataResult:
         if content_id and not isinstance(content_id, str):
             raise TypeError("Expected argument 'content_id' to be a str")
         pulumi.set(__self__, "content_id", content_id)
+        if content_schema_version and not isinstance(content_schema_version, str):
+            raise TypeError("Expected argument 'content_schema_version' to be a str")
+        pulumi.set(__self__, "content_schema_version", content_schema_version)
+        if custom_version and not isinstance(custom_version, str):
+            raise TypeError("Expected argument 'custom_version' to be a str")
+        pulumi.set(__self__, "custom_version", custom_version)
         if dependencies and not isinstance(dependencies, dict):
             raise TypeError("Expected argument 'dependencies' to be a dict")
         pulumi.set(__self__, "dependencies", dependencies)
@@ -41,6 +47,9 @@ class GetMetadataResult:
         if first_publish_date and not isinstance(first_publish_date, str):
             raise TypeError("Expected argument 'first_publish_date' to be a str")
         pulumi.set(__self__, "first_publish_date", first_publish_date)
+        if icon and not isinstance(icon, str):
+            raise TypeError("Expected argument 'icon' to be a str")
+        pulumi.set(__self__, "icon", icon)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,6 +65,12 @@ class GetMetadataResult:
         if parent_id and not isinstance(parent_id, str):
             raise TypeError("Expected argument 'parent_id' to be a str")
         pulumi.set(__self__, "parent_id", parent_id)
+        if preview_images and not isinstance(preview_images, list):
+            raise TypeError("Expected argument 'preview_images' to be a list")
+        pulumi.set(__self__, "preview_images", preview_images)
+        if preview_images_dark and not isinstance(preview_images_dark, list):
+            raise TypeError("Expected argument 'preview_images_dark' to be a list")
+        pulumi.set(__self__, "preview_images_dark", preview_images_dark)
         if providers and not isinstance(providers, list):
             raise TypeError("Expected argument 'providers' to be a list")
         pulumi.set(__self__, "providers", providers)
@@ -68,6 +83,12 @@ class GetMetadataResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if threat_analysis_tactics and not isinstance(threat_analysis_tactics, list):
+            raise TypeError("Expected argument 'threat_analysis_tactics' to be a list")
+        pulumi.set(__self__, "threat_analysis_tactics", threat_analysis_tactics)
+        if threat_analysis_techniques and not isinstance(threat_analysis_techniques, list):
+            raise TypeError("Expected argument 'threat_analysis_techniques' to be a list")
+        pulumi.set(__self__, "threat_analysis_techniques", threat_analysis_techniques)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -100,6 +121,22 @@ class GetMetadataResult:
         return pulumi.get(self, "content_id")
 
     @property
+    @pulumi.getter(name="contentSchemaVersion")
+    def content_schema_version(self) -> Optional[str]:
+        """
+        Schema version of the content. Can be used to distinguish between different flow based on the schema version
+        """
+        return pulumi.get(self, "content_schema_version")
+
+    @property
+    @pulumi.getter(name="customVersion")
+    def custom_version(self) -> Optional[str]:
+        """
+        The custom version of the content. A optional free text
+        """
+        return pulumi.get(self, "custom_version")
+
+    @property
     @pulumi.getter
     def dependencies(self) -> Optional['outputs.MetadataDependenciesResponse']:
         """
@@ -125,9 +162,17 @@ class GetMetadataResult:
 
     @property
     @pulumi.getter
+    def icon(self) -> Optional[str]:
+        """
+        the icon identifier. this id can later be fetched from the solution template
+        """
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -151,7 +196,7 @@ class GetMetadataResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -162,6 +207,22 @@ class GetMetadataResult:
         Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         """
         return pulumi.get(self, "parent_id")
+
+    @property
+    @pulumi.getter(name="previewImages")
+    def preview_images(self) -> Optional[Sequence[str]]:
+        """
+        preview image file names. These will be taken from the solution artifacts
+        """
+        return pulumi.get(self, "preview_images")
+
+    @property
+    @pulumi.getter(name="previewImagesDark")
+    def preview_images_dark(self) -> Optional[Sequence[str]]:
+        """
+        preview image file names. These will be taken from the solution artifacts. used for dark theme support
+        """
+        return pulumi.get(self, "preview_images_dark")
 
     @property
     @pulumi.getter
@@ -196,10 +257,26 @@ class GetMetadataResult:
         return pulumi.get(self, "system_data")
 
     @property
+    @pulumi.getter(name="threatAnalysisTactics")
+    def threat_analysis_tactics(self) -> Optional[Sequence[str]]:
+        """
+        the tactics the resource covers
+        """
+        return pulumi.get(self, "threat_analysis_tactics")
+
+    @property
+    @pulumi.getter(name="threatAnalysisTechniques")
+    def threat_analysis_techniques(self) -> Optional[Sequence[str]]:
+        """
+        the techniques the resource covers, these have to be aligned with the tactics being used
+        """
+        return pulumi.get(self, "threat_analysis_techniques")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -221,40 +298,44 @@ class AwaitableGetMetadataResult(GetMetadataResult):
             author=self.author,
             categories=self.categories,
             content_id=self.content_id,
+            content_schema_version=self.content_schema_version,
+            custom_version=self.custom_version,
             dependencies=self.dependencies,
             etag=self.etag,
             first_publish_date=self.first_publish_date,
+            icon=self.icon,
             id=self.id,
             kind=self.kind,
             last_publish_date=self.last_publish_date,
             name=self.name,
             parent_id=self.parent_id,
+            preview_images=self.preview_images,
+            preview_images_dark=self.preview_images_dark,
             providers=self.providers,
             source=self.source,
             support=self.support,
             system_data=self.system_data,
+            threat_analysis_tactics=self.threat_analysis_tactics,
+            threat_analysis_techniques=self.threat_analysis_techniques,
             type=self.type,
             version=self.version)
 
 
 def get_metadata(metadata_name: Optional[str] = None,
-                 operational_insights_resource_provider: Optional[str] = None,
                  resource_group_name: Optional[str] = None,
                  workspace_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMetadataResult:
     """
     Get a Metadata.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str metadata_name: The Metadata name.
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['metadataName'] = metadata_name
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -264,35 +345,40 @@ def get_metadata(metadata_name: Optional[str] = None,
         author=__ret__.author,
         categories=__ret__.categories,
         content_id=__ret__.content_id,
+        content_schema_version=__ret__.content_schema_version,
+        custom_version=__ret__.custom_version,
         dependencies=__ret__.dependencies,
         etag=__ret__.etag,
         first_publish_date=__ret__.first_publish_date,
+        icon=__ret__.icon,
         id=__ret__.id,
         kind=__ret__.kind,
         last_publish_date=__ret__.last_publish_date,
         name=__ret__.name,
         parent_id=__ret__.parent_id,
+        preview_images=__ret__.preview_images,
+        preview_images_dark=__ret__.preview_images_dark,
         providers=__ret__.providers,
         source=__ret__.source,
         support=__ret__.support,
         system_data=__ret__.system_data,
+        threat_analysis_tactics=__ret__.threat_analysis_tactics,
+        threat_analysis_techniques=__ret__.threat_analysis_techniques,
         type=__ret__.type,
         version=__ret__.version)
 
 
 @_utilities.lift_output_func(get_metadata)
 def get_metadata_output(metadata_name: Optional[pulumi.Input[str]] = None,
-                        operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                         resource_group_name: Optional[pulumi.Input[str]] = None,
                         workspace_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetadataResult]:
     """
     Get a Metadata.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str metadata_name: The Metadata name.
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """

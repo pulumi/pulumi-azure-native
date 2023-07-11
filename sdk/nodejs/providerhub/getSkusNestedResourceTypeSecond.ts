@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the sku details for the given resource type and sku name.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getSkusNestedResourceTypeSecond(args: GetSkusNestedResourceTypeSecondArgs, opts?: pulumi.InvokeOptions): Promise<GetSkusNestedResourceTypeSecondResult> {
 
@@ -57,13 +57,17 @@ export interface GetSkusNestedResourceTypeSecondResult {
     readonly name: string;
     readonly properties: outputs.providerhub.SkuResourceResponseProperties;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.providerhub.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the sku details for the given resource type and sku name.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getSkusNestedResourceTypeSecondOutput(args: GetSkusNestedResourceTypeSecondOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSkusNestedResourceTypeSecondResult> {
     return pulumi.output(args).apply((a: any) => getSkusNestedResourceTypeSecond(a, opts))

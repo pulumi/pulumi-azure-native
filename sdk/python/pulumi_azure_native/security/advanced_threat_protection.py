@@ -77,7 +77,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
                  __props__=None):
         """
         The Advanced Threat Protection resource.
-        API Version: 2019-01-01.
+        Azure REST API version: 2019-01-01. Prior API version in Azure Native 1.x: 2019-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,7 +93,7 @@ class AdvancedThreatProtection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Advanced Threat Protection resource.
-        API Version: 2019-01-01.
+        Azure REST API version: 2019-01-01. Prior API version in Azure Native 1.x: 2019-01-01
 
         :param str resource_name: The name of the resource.
         :param AdvancedThreatProtectionArgs args: The arguments to use to populate this resource's properties.

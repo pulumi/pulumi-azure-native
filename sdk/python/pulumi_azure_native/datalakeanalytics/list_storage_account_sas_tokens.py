@@ -64,7 +64,7 @@ def list_storage_account_sas_tokens(account_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStorageAccountSasTokensResult:
     """
     Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
-    API Version: 2016-11-01.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.
@@ -93,7 +93,7 @@ def list_storage_account_sas_tokens_output(account_name: Optional[pulumi.Input[s
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStorageAccountSasTokensResult]:
     """
     Gets the SAS token associated with the specified Data Lake Analytics and Azure Storage account and container combination.
-    API Version: 2016-11-01.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

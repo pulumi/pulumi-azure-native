@@ -22,16 +22,16 @@ class GetModelContainerResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, model_container_properties=None, name=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if model_container_properties and not isinstance(model_container_properties, dict):
+            raise TypeError("Expected argument 'model_container_properties' to be a dict")
+        pulumi.set(__self__, "model_container_properties", model_container_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -48,6 +48,14 @@ class GetModelContainerResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="modelContainerProperties")
+    def model_container_properties(self) -> 'outputs.ModelContainerResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "model_container_properties")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -56,18 +64,10 @@ class GetModelContainerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.ModelContainerResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -87,8 +87,8 @@ class AwaitableGetModelContainerResult(GetModelContainerResult):
             yield self
         return GetModelContainerResult(
             id=self.id,
+            model_container_properties=self.model_container_properties,
             name=self.name,
-            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -99,10 +99,10 @@ def get_model_container(name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetModelContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str name: Container name.
+    :param str name: Container name. This is case-sensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
@@ -115,8 +115,8 @@ def get_model_container(name: Optional[str] = None,
 
     return AwaitableGetModelContainerResult(
         id=__ret__.id,
+        model_container_properties=__ret__.model_container_properties,
         name=__ret__.name,
-        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -128,10 +128,10 @@ def get_model_container_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str name: Container name.
+    :param str name: Container name. This is case-sensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """

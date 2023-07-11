@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
  */
 export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
     /**
@@ -94,7 +94,7 @@ export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByName.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,7 +117,7 @@ export interface PrivateEndpointConnectionByNameArgs {
      */
     properties?: pulumi.Input<inputs.apimanagement.PrivateEndpointConnectionRequestPropertiesArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

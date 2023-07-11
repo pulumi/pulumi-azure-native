@@ -131,7 +131,7 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
                  __props__=None):
         """
         SaaS REST API resource definition.
-        API Version: 2018-03-01-beta.
+        Azure REST API version: 2018-03-01-beta. Prior API version in Azure Native 1.x: 2018-03-01-beta
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SaaS REST API resource definition.
-        API Version: 2018-03-01-beta.
+        Azure REST API version: 2018-03-01-beta. Prior API version in Azure Native 1.x: 2018-03-01-beta
 
         :param str resource_name: The name of the resource.
         :param SaasSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

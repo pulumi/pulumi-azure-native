@@ -135,7 +135,7 @@ def get_sql_server(expand: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlServerResult:
     """
     Gets a SQL Server.
-    API Version: 2019-07-24-preview.
+    Azure REST API version: 2019-07-24-preview.
 
 
     :param str expand: The child resources to include in the response.
@@ -170,7 +170,7 @@ def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlServerResult]:
     """
     Gets a SQL Server.
-    API Version: 2019-07-24-preview.
+    Azure REST API version: 2019-07-24-preview.
 
 
     :param str expand: The child resources to include in the response.

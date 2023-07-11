@@ -14,9 +14,17 @@ namespace Pulumi.AzureNative.Media.Outputs
     public sealed class AccountEncryptionResponse
     {
         /// <summary>
+        /// The Key Vault identity.
+        /// </summary>
+        public readonly Outputs.ResourceIdentityResponse? Identity;
+        /// <summary>
         /// The properties of the key used to encrypt the account.
         /// </summary>
         public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
+        /// <summary>
+        /// The current status of the Key Vault mapping.
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// The type of key used to encrypt the Account Key.
         /// </summary>
@@ -24,11 +32,17 @@ namespace Pulumi.AzureNative.Media.Outputs
 
         [OutputConstructor]
         private AccountEncryptionResponse(
+            Outputs.ResourceIdentityResponse? identity,
+
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
+
+            string status,
 
             string type)
         {
+            Identity = identity;
             KeyVaultProperties = keyVaultProperties;
+            Status = status;
             Type = type;
         }
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a gallery image definition.
- * API Version: 2020-09-30.
+ * Azure REST API version: 2022-03-03.
  */
 export function getGalleryImage(args: GetGalleryImageArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryImageResult> {
 
@@ -40,6 +40,10 @@ export interface GetGalleryImageArgs {
  * Specifies information about the gallery image definition that you want to create or update.
  */
 export interface GetGalleryImageResult {
+    /**
+     * The architecture of the image. Applicable to OS disks only.
+     */
+    readonly architecture?: string;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */
@@ -119,7 +123,7 @@ export interface GetGalleryImageResult {
 }
 /**
  * Retrieves information about a gallery image definition.
- * API Version: 2020-09-30.
+ * Azure REST API version: 2022-03-03.
  */
 export function getGalleryImageOutput(args: GetGalleryImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryImageResult> {
     return pulumi.output(args).apply((a: any) => getGalleryImage(a, opts))

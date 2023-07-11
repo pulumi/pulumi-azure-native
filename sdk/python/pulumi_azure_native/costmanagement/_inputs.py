@@ -11,9 +11,14 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'BudgetComparisonExpressionArgs',
+    'BudgetFilterPropertiesArgs',
+    'BudgetFilterArgs',
+    'BudgetTimePeriodArgs',
     'CostAllocationProportionArgs',
     'CostAllocationRuleDetailsArgs',
     'CostAllocationRulePropertiesArgs',
+    'CustomerMetadataArgs',
     'ExportDatasetConfigurationArgs',
     'ExportDatasetArgs',
     'ExportDefinitionArgs',
@@ -25,6 +30,7 @@ __all__ = [
     'FileDestinationArgs',
     'KpiPropertiesArgs',
     'NotificationPropertiesArgs',
+    'NotificationArgs',
     'PivotPropertiesArgs',
     'ReportAggregationArgs',
     'ReportComparisonExpressionArgs',
@@ -49,8 +55,257 @@ __all__ = [
     'SchedulePropertiesArgs',
     'SettingsPropertiesCacheArgs',
     'SourceCostAllocationResourceArgs',
+    'TagInheritancePropertiesArgs',
     'TargetCostAllocationResourceArgs',
 ]
+
+@pulumi.input_type
+class BudgetComparisonExpressionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 operator: pulumi.Input[Union[str, 'BudgetOperatorType']],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        The comparison expression to be used in the budgets.
+        :param pulumi.Input[str] name: The name of the column to use in comparison.
+        :param pulumi.Input[Union[str, 'BudgetOperatorType']] operator: The operator to use for comparison.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: Array of values to use for comparison
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the column to use in comparison.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[str, 'BudgetOperatorType']]:
+        """
+        The operator to use for comparison.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[str, 'BudgetOperatorType']]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Array of values to use for comparison
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class BudgetFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
+        """
+        The Dimensions or Tags to filter a budget by.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+               Supported dimension names for **CategoryType: ReservationUtilization** 
+               - ReservationId
+               - ReservedResourceType
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a dimension.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+        Supported dimension names for **CategoryType: ReservationUtilization** 
+        - ReservationId
+        - ReservedResourceType
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a tag.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class BudgetFilterArgs:
+    def __init__(__self__, *,
+                 and_: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]] = None,
+                 dimensions: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None,
+                 tags: Optional[pulumi.Input['BudgetComparisonExpressionArgs']] = None):
+        """
+        May be used to filter budgets by user-specified dimensions and/or tags.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
+               
+                Supported for CategoryType(s): Cost.
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+               Supported dimension names for **CategoryType: ReservationUtilization** 
+               - ReservationId
+               - ReservedResourceType
+        :param pulumi.Input['BudgetComparisonExpressionArgs'] tags: Has comparison expression for a tag.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]:
+        """
+        The logical "AND" expression. Must have at least 2 items.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "and_")
+
+    @and_.setter
+    def and_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetFilterPropertiesArgs']]]]):
+        pulumi.set(self, "and_", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a dimension.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+        Supported dimension names for **CategoryType: ReservationUtilization** 
+        - ReservationId
+        - ReservedResourceType
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input['BudgetComparisonExpressionArgs']]:
+        """
+        Has comparison expression for a tag.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input['BudgetComparisonExpressionArgs']]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class BudgetTimePeriodArgs:
+    def __init__(__self__, *,
+                 start_date: pulumi.Input[str],
+                 end_date: Optional[pulumi.Input[str]] = None):
+        """
+        The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+         Required for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input[str] start_date: The start date for the budget.
+               
+               - Constraints for **CategoryType: Cost** - Must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period.
+               
+               - Constraints for **CategoryType: ReservationUtilization** - Must be on or after the current date and less than the end date.
+        :param pulumi.Input[str] end_date: The end date for the budget.
+               
+               - Constraints for **CategoryType: Cost** - No constraints. If not provided, we default this to 10 years from the start date.
+               
+               - Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.
+        """
+        pulumi.set(__self__, "start_date", start_date)
+        if end_date is not None:
+            pulumi.set(__self__, "end_date", end_date)
+
+    @property
+    @pulumi.getter(name="startDate")
+    def start_date(self) -> pulumi.Input[str]:
+        """
+        The start date for the budget.
+
+        - Constraints for **CategoryType: Cost** - Must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period.
+
+        - Constraints for **CategoryType: ReservationUtilization** - Must be on or after the current date and less than the end date.
+        """
+        return pulumi.get(self, "start_date")
+
+    @start_date.setter
+    def start_date(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_date", value)
+
+    @property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        The end date for the budget.
+
+        - Constraints for **CategoryType: Cost** - No constraints. If not provided, we default this to 10 years from the start date.
+
+        - Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.
+        """
+        return pulumi.get(self, "end_date")
+
+    @end_date.setter
+    def end_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "end_date", value)
+
 
 @pulumi.input_type
 class CostAllocationProportionArgs:
@@ -182,6 +437,44 @@ class CostAllocationRulePropertiesArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class CustomerMetadataArgs:
+    def __init__(__self__, *,
+                 billing_account_id: pulumi.Input[str],
+                 billing_profile_id: pulumi.Input[str]):
+        """
+        The customer billing metadata
+        :param pulumi.Input[str] billing_account_id: Customer billing account id
+        :param pulumi.Input[str] billing_profile_id: Customer billing profile id
+        """
+        pulumi.set(__self__, "billing_account_id", billing_account_id)
+        pulumi.set(__self__, "billing_profile_id", billing_profile_id)
+
+    @property
+    @pulumi.getter(name="billingAccountId")
+    def billing_account_id(self) -> pulumi.Input[str]:
+        """
+        Customer billing account id
+        """
+        return pulumi.get(self, "billing_account_id")
+
+    @billing_account_id.setter
+    def billing_account_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "billing_account_id", value)
+
+    @property
+    @pulumi.getter(name="billingProfileId")
+    def billing_profile_id(self) -> pulumi.Input[str]:
+        """
+        Customer billing profile id
+        """
+        return pulumi.get(self, "billing_profile_id")
+
+    @billing_profile_id.setter
+    def billing_profile_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "billing_profile_id", value)
 
 
 @pulumi.input_type
@@ -322,24 +615,33 @@ class ExportDefinitionArgs:
 class ExportDeliveryDestinationArgs:
     def __init__(__self__, *,
                  container: pulumi.Input[str],
-                 resource_id: pulumi.Input[str],
-                 root_folder_path: Optional[pulumi.Input[str]] = None):
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 root_folder_path: Optional[pulumi.Input[str]] = None,
+                 sas_token: Optional[pulumi.Input[str]] = None,
+                 storage_account: Optional[pulumi.Input[str]] = None):
         """
-        The destination information for the delivery of the export. To allow access to a storage account, you must register the account's subscription with the Microsoft.CostManagementExports resource provider. This is required once per subscription. When creating an export in the Azure portal, it is done automatically, however API users need to register the subscription. For more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services .
-        :param pulumi.Input[str] container: The name of the container where exports will be uploaded.
-        :param pulumi.Input[str] resource_id: The resource id of the storage account where exports will be delivered.
+        This represents the blob storage account location where exports of costs will be delivered. There are two ways to configure the destination. The approach recommended for most customers is to specify the resourceId of the storage account. This requires a one-time registration of the account's subscription with the Microsoft.CostManagementExports resource provider in order to give Cost Management services access to the storage. When creating an export in the Azure portal this registration is performed automatically but API users may need to register the subscription explicitly (for more information see https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services ). Another way to configure the destination is available ONLY to Partners with a Microsoft Partner Agreement plan who are global admins of their billing account. These Partners, instead of specifying the resourceId of a storage account, can specify the storage account name along with a SAS token for the account. This allows exports of costs to a storage account in any tenant. The SAS token should be created for the blob service with Service/Container/Object resource types and with Read/Write/Delete/List/Add/Create permissions (for more information see https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/export-cost-data-storage-account-sas-key ).
+        :param pulumi.Input[str] container: The name of the container where exports will be uploaded. If the container does not exist it will be created.
+        :param pulumi.Input[str] resource_id: The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
         :param pulumi.Input[str] root_folder_path: The name of the directory where exports will be uploaded.
+        :param pulumi.Input[str] sas_token: A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+        :param pulumi.Input[str] storage_account: The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
         """
         pulumi.set(__self__, "container", container)
-        pulumi.set(__self__, "resource_id", resource_id)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
         if root_folder_path is not None:
             pulumi.set(__self__, "root_folder_path", root_folder_path)
+        if sas_token is not None:
+            pulumi.set(__self__, "sas_token", sas_token)
+        if storage_account is not None:
+            pulumi.set(__self__, "storage_account", storage_account)
 
     @property
     @pulumi.getter
     def container(self) -> pulumi.Input[str]:
         """
-        The name of the container where exports will be uploaded.
+        The name of the container where exports will be uploaded. If the container does not exist it will be created.
         """
         return pulumi.get(self, "container")
 
@@ -349,14 +651,14 @@ class ExportDeliveryDestinationArgs:
 
     @property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Input[str]:
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The resource id of the storage account where exports will be delivered.
+        The resource id of the storage account where exports will be delivered. This is not required if a sasToken and storageAccount are specified.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: pulumi.Input[str]):
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_id", value)
 
     @property
@@ -370,6 +672,30 @@ class ExportDeliveryDestinationArgs:
     @root_folder_path.setter
     def root_folder_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "root_folder_path", value)
+
+    @property
+    @pulumi.getter(name="sasToken")
+    def sas_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        A SAS token for the storage account. For a restricted set of Azure customers this together with storageAccount can be specified instead of resourceId. Note: the value returned by the API for this property will always be obfuscated. Returning this same obfuscated value will not result in the SAS token being updated. To update this value a new SAS token must be specified.
+        """
+        return pulumi.get(self, "sas_token")
+
+    @sas_token.setter
+    def sas_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sas_token", value)
+
+    @property
+    @pulumi.getter(name="storageAccount")
+    def storage_account(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage account where exports will be uploaded. For a restricted set of Azure customers this together with sasToken can be specified instead of resourceId.
+        """
+        return pulumi.get(self, "storage_account")
+
+    @storage_account.setter
+    def storage_account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account", value)
 
 
 @pulumi.input_type
@@ -533,8 +859,8 @@ class FileDestinationArgs:
     def __init__(__self__, *,
                  file_formats: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]]] = None):
         """
-        Destination of the view data. Currently only csv format is supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]] file_formats: Destination of the view data. Currently only csv format is supported.
+        Destination of the view data. This is optional. Currently only CSV format is supported.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]] file_formats: Destination of the view data. Currently only CSV format is supported.
         """
         if file_formats is not None:
             pulumi.set(__self__, "file_formats", file_formats)
@@ -543,7 +869,7 @@ class FileDestinationArgs:
     @pulumi.getter(name="fileFormats")
     def file_formats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'FileFormat']]]]]:
         """
-        Destination of the view data. Currently only csv format is supported.
+        Destination of the view data. Currently only CSV format is supported.
         """
         return pulumi.get(self, "file_formats")
 
@@ -613,17 +939,25 @@ class NotificationPropertiesArgs:
     def __init__(__self__, *,
                  subject: pulumi.Input[str],
                  to: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 message: Optional[pulumi.Input[str]] = None):
+                 language: Optional[pulumi.Input[str]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 regional_format: Optional[pulumi.Input[str]] = None):
         """
         The properties of the scheduled action notification.
         :param pulumi.Input[str] subject: Subject of the email. Length is limited to 70 characters.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] to: Array of email addresses.
+        :param pulumi.Input[str] language: Locale of the email.
         :param pulumi.Input[str] message: Optional message to be added in the email. Length is limited to 250 characters.
+        :param pulumi.Input[str] regional_format: Regional format used for formatting date/time and currency values in the email.
         """
         pulumi.set(__self__, "subject", subject)
         pulumi.set(__self__, "to", to)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if regional_format is not None:
+            pulumi.set(__self__, "regional_format", regional_format)
 
     @property
     @pulumi.getter
@@ -651,6 +985,18 @@ class NotificationPropertiesArgs:
 
     @property
     @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[str]]:
+        """
+        Locale of the email.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "language", value)
+
+    @property
+    @pulumi.getter
     def message(self) -> Optional[pulumi.Input[str]]:
         """
         Optional message to be added in the email. Length is limited to 250 characters.
@@ -660,6 +1006,228 @@ class NotificationPropertiesArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="regionalFormat")
+    def regional_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        Regional format used for formatting date/time and currency values in the email.
+        """
+        return pulumi.get(self, "regional_format")
+
+    @regional_format.setter
+    def regional_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regional_format", value)
+
+
+@pulumi.input_type
+class NotificationArgs:
+    def __init__(__self__, *,
+                 contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 enabled: pulumi.Input[bool],
+                 operator: pulumi.Input[Union[str, 'BudgetNotificationOperatorType']],
+                 threshold: pulumi.Input[float],
+                 contact_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 contact_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 frequency: Optional[pulumi.Input[Union[str, 'Frequency']]] = None,
+                 locale: Optional[pulumi.Input[Union[str, 'CultureCode']]] = None,
+                 threshold_type: Optional[pulumi.Input[Union[str, 'ThresholdType']]] = None):
+        """
+        The notification associated with a budget.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_emails: Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input[bool] enabled: The notification is enabled or not.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input[Union[str, 'BudgetNotificationOperatorType']] operator: The comparison operator.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+                Supported operators for **CategoryType: Cost**
+               - GreaterThan
+               - GreaterThanOrEqualTo
+               
+                Supported operators for **CategoryType: ReservationUtilization**
+               - LessThan
+        :param pulumi.Input[float] threshold: Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+               
+                **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.
+               
+                **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_groups: Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.
+               
+                Supported for CategoryType(s): Cost.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] contact_roles: Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.
+               
+                Supported for CategoryType(s): Cost.
+        :param pulumi.Input[Union[str, 'Frequency']] frequency: Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
+               
+                Supported for CategoryType(s): ReservationUtilization.
+        :param pulumi.Input[Union[str, 'CultureCode']] locale: Language in which the recipient will receive the notification, 
+               
+                Supported for CategoryType(s): Cost, ReservationUtilization.
+        :param pulumi.Input[Union[str, 'ThresholdType']] threshold_type: The type of threshold.
+               
+                Supported for CategoryType(s): Cost.
+        """
+        pulumi.set(__self__, "contact_emails", contact_emails)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+        if contact_groups is not None:
+            pulumi.set(__self__, "contact_groups", contact_groups)
+        if contact_roles is not None:
+            pulumi.set(__self__, "contact_roles", contact_roles)
+        if frequency is not None:
+            pulumi.set(__self__, "frequency", frequency)
+        if locale is not None:
+            pulumi.set(__self__, "locale", locale)
+        if threshold_type is None:
+            threshold_type = 'Actual'
+        if threshold_type is not None:
+            pulumi.set(__self__, "threshold_type", threshold_type)
+
+    @property
+    @pulumi.getter(name="contactEmails")
+    def contact_emails(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        """
+        return pulumi.get(self, "contact_emails")
+
+    @contact_emails.setter
+    def contact_emails(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "contact_emails", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        The notification is enabled or not.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[str, 'BudgetNotificationOperatorType']]:
+        """
+        The comparison operator.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+         Supported operators for **CategoryType: Cost**
+        - GreaterThan
+        - GreaterThanOrEqualTo
+
+         Supported operators for **CategoryType: ReservationUtilization**
+        - LessThan
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[str, 'BudgetNotificationOperatorType']]):
+        pulumi.set(self, "operator", value)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+
+         **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.
+
+         **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter(name="contactGroups")
+    def contact_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "contact_groups")
+
+    @contact_groups.setter
+    def contact_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "contact_groups", value)
+
+    @property
+    @pulumi.getter(name="contactRoles")
+    def contact_roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "contact_roles")
+
+    @contact_roles.setter
+    def contact_roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "contact_roles", value)
+
+    @property
+    @pulumi.getter
+    def frequency(self) -> Optional[pulumi.Input[Union[str, 'Frequency']]]:
+        """
+        Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
+
+         Supported for CategoryType(s): ReservationUtilization.
+        """
+        return pulumi.get(self, "frequency")
+
+    @frequency.setter
+    def frequency(self, value: Optional[pulumi.Input[Union[str, 'Frequency']]]):
+        pulumi.set(self, "frequency", value)
+
+    @property
+    @pulumi.getter
+    def locale(self) -> Optional[pulumi.Input[Union[str, 'CultureCode']]]:
+        """
+        Language in which the recipient will receive the notification, 
+
+         Supported for CategoryType(s): Cost, ReservationUtilization.
+        """
+        return pulumi.get(self, "locale")
+
+    @locale.setter
+    def locale(self, value: Optional[pulumi.Input[Union[str, 'CultureCode']]]):
+        pulumi.set(self, "locale", value)
+
+    @property
+    @pulumi.getter(name="thresholdType")
+    def threshold_type(self) -> Optional[pulumi.Input[Union[str, 'ThresholdType']]]:
+        """
+        The type of threshold.
+
+         Supported for CategoryType(s): Cost.
+        """
+        return pulumi.get(self, "threshold_type")
+
+    @threshold_type.setter
+    def threshold_type(self, value: Optional[pulumi.Input[Union[str, 'ThresholdType']]]):
+        pulumi.set(self, "threshold_type", value)
 
 
 @pulumi.input_type
@@ -1018,16 +1586,12 @@ class ReportConfigFilterArgs:
                  and_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
                  dimensions: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
                  or_: Optional[pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]]] = None,
-                 tag_key: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
-                 tag_value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None,
                  tags: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']] = None):
         """
         The filter expression to be used in the report.
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] and_: The logical "AND" expression. Must have at least 2 items.
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] dimensions: Has comparison expression for a dimension
         :param pulumi.Input[Sequence[pulumi.Input['ReportConfigFilterArgs']]] or_: The logical "OR" expression. Must have at least 2 items.
-        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tag_key: Has comparison expression for a tag key
-        :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tag_value: Has comparison expression for a tag value
         :param pulumi.Input['ReportConfigComparisonExpressionArgs'] tags: Has comparison expression for a tag
         """
         if and_ is not None:
@@ -1036,10 +1600,6 @@ class ReportConfigFilterArgs:
             pulumi.set(__self__, "dimensions", dimensions)
         if or_ is not None:
             pulumi.set(__self__, "or_", or_)
-        if tag_key is not None:
-            pulumi.set(__self__, "tag_key", tag_key)
-        if tag_value is not None:
-            pulumi.set(__self__, "tag_value", tag_value)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -1080,30 +1640,6 @@ class ReportConfigFilterArgs:
         pulumi.set(self, "or_", value)
 
     @property
-    @pulumi.getter(name="tagKey")
-    def tag_key(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a tag key
-        """
-        return pulumi.get(self, "tag_key")
-
-    @tag_key.setter
-    def tag_key(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
-        pulumi.set(self, "tag_key", value)
-
-    @property
-    @pulumi.getter(name="tagValue")
-    def tag_value(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
-        """
-        Has comparison expression for a tag value
-        """
-        return pulumi.get(self, "tag_value")
-
-    @tag_value.setter
-    def tag_value(self, value: Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]):
-        pulumi.set(self, "tag_value", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input['ReportConfigComparisonExpressionArgs']]:
         """
@@ -1120,11 +1656,11 @@ class ReportConfigFilterArgs:
 class ReportConfigGroupingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 type: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
+                 type: pulumi.Input[Union[str, 'QueryColumnType']]):
         """
         The group by expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to group. This version supports subscription lowest possible grain.
-        :param pulumi.Input[Union[str, 'ReportConfigColumnType']] type: Has type of the column to group.
+        :param pulumi.Input[Union[str, 'QueryColumnType']] type: Has type of the column to group.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -1143,14 +1679,14 @@ class ReportConfigGroupingArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ReportConfigColumnType']]:
+    def type(self) -> pulumi.Input[Union[str, 'QueryColumnType']]:
         """
         Has type of the column to group.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ReportConfigColumnType']]):
+    def type(self, value: pulumi.Input[Union[str, 'QueryColumnType']]):
         pulumi.set(self, "type", value)
 
 
@@ -1158,11 +1694,11 @@ class ReportConfigGroupingArgs:
 class ReportConfigSortingArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 direction: Optional[pulumi.Input[str]] = None):
+                 direction: Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]] = None):
         """
         The order by expression to be used in the report.
         :param pulumi.Input[str] name: The name of the column to sort.
-        :param pulumi.Input[str] direction: Direction of sort.
+        :param pulumi.Input[Union[str, 'ReportConfigSortingType']] direction: Direction of sort.
         """
         pulumi.set(__self__, "name", name)
         if direction is not None:
@@ -1182,14 +1718,14 @@ class ReportConfigSortingArgs:
 
     @property
     @pulumi.getter
-    def direction(self) -> Optional[pulumi.Input[str]]:
+    def direction(self) -> Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]]:
         """
         Direction of sort.
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[str]]):
+    def direction(self, value: Optional[pulumi.Input[Union[str, 'ReportConfigSortingType']]]):
         pulumi.set(self, "direction", value)
 
 
@@ -2015,6 +2551,29 @@ class SourceCostAllocationResourceArgs:
     @values.setter
     def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class TagInheritancePropertiesArgs:
+    def __init__(__self__, *,
+                 prefer_container_tags: pulumi.Input[bool]):
+        """
+        The properties of the tag inheritance setting.
+        :param pulumi.Input[bool] prefer_container_tags: When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
+        """
+        pulumi.set(__self__, "prefer_container_tags", prefer_container_tags)
+
+    @property
+    @pulumi.getter(name="preferContainerTags")
+    def prefer_container_tags(self) -> pulumi.Input[bool]:
+        """
+        When resource has the same tag as subscription or resource group and this property is set to true - the subscription or resource group tag will be applied. If subscription and resource group tags are also the same, subscription tag will be applied.
+        """
+        return pulumi.get(self, "prefer_container_tags")
+
+    @prefer_container_tags.setter
+    def prefer_container_tags(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "prefer_container_tags", value)
 
 
 @pulumi.input_type

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Machine Learning labeling job object wrapped into ARM resource envelope.
- * API Version: 2020-09-01-preview.
+ * Azure Resource Manager resource envelope.
+ * Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview
  */
 export class LabelingJob extends pulumi.CustomResource {
     /**
@@ -39,19 +39,19 @@ export class LabelingJob extends pulumi.CustomResource {
     }
 
     /**
-     * The name of the resource entity.
+     * [Required] Additional attributes of the entity.
+     */
+    public readonly labelingJobProperties!: pulumi.Output<outputs.machinelearningservices.LabelingJobResponse>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Definition of a labeling job.
-     */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.LabelingJobPropertiesResponse>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
-     * The resource provider and type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -66,27 +66,30 @@ export class LabelingJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.labelingJobProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'labelingJobProperties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["labelingJobId"] = args ? args.labelingJobId : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["id"] = args ? args.id : undefined;
+            resourceInputs["labelingJobProperties"] = args ? (args.labelingJobProperties ? pulumi.output(args.labelingJobProperties).apply(inputs.machinelearningservices.labelingJobArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["labelingJobProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200901preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20210301preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20220601preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221001preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230401preview:LabelingJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200901preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20210301preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20220601preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221001preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20221201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230201preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230401preview:LabelingJob" }, { type: "azure-native:machinelearningservices/v20230601preview:LabelingJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LabelingJob.__pulumiType, name, resourceInputs, opts);
     }
@@ -97,15 +100,15 @@ export class LabelingJob extends pulumi.CustomResource {
  */
 export interface LabelingJobArgs {
     /**
-     * Name and identifier for LabelingJob.
+     * The name and identifier for the LabelingJob.
      */
-    labelingJobId?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
-     * Definition of a labeling job.
+     * [Required] Additional attributes of the entity.
      */
-    properties?: pulumi.Input<inputs.machinelearningservices.LabelingJobPropertiesArgs>;
+    labelingJobProperties: pulumi.Input<inputs.machinelearningservices.LabelingJobArgs>;
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

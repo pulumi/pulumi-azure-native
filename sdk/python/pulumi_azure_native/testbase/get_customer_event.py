@@ -111,7 +111,7 @@ def get_customer_event(customer_event_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerEventResult:
     """
     Gets a Test Base CustomerEvent.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.
@@ -141,7 +141,7 @@ def get_customer_event_output(customer_event_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerEventResult]:
     """
     Gets a Test Base CustomerEvent.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str customer_event_name: The resource name of the Test Base Customer event.

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-06-01.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211201:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20220615:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20200601:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211015preview:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20211201:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20220615:PrivateEndpointConnection" }, { type: "azure-native:eventgrid/v20230601preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -116,11 +116,11 @@ export interface PrivateEndpointConnectionArgs {
      */
     groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The name of the parent resource (namely, either, the topic name or domain name).
+     * The name of the parent resource (namely, either, the topic name, domain name, or partner namespace name).
      */
     parentName: pulumi.Input<string>;
     /**
-     * The type of the parent resource. This can be either \'topics\' or \'domains\'.
+     * The type of the parent resource. This can be either \'topics\', \'domains\', or \'partnerNamespaces\'.
      */
     parentType: pulumi.Input<string>;
     /**

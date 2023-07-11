@@ -2519,7 +2519,7 @@ class ScheduleCreationParameterResponse(dict):
         :param Mapping[str, str] tags: The tags of the resource.
         :param str target_resource_id: The resource ID to which the schedule belongs
         :param str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
+        :param str time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "location", location)
@@ -2622,7 +2622,7 @@ class ScheduleCreationParameterResponse(dict):
     @pulumi.getter(name="timeZoneId")
     def time_zone_id(self) -> Optional[str]:
         """
-        The time zone ID (e.g. Pacific Standard time).
+        The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 
@@ -2708,7 +2708,7 @@ class ScheduleResponse(dict):
         :param Mapping[str, str] tags: The tags of the resource.
         :param str target_resource_id: The resource ID to which the schedule belongs
         :param str task_type: The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-        :param str time_zone_id: The time zone ID (e.g. Pacific Standard time).
+        :param str time_zone_id: The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         :param 'WeekDetailsResponse' weekly_recurrence: If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
         pulumi.set(__self__, "created_date", created_date)
@@ -2856,7 +2856,7 @@ class ScheduleResponse(dict):
     @pulumi.getter(name="timeZoneId")
     def time_zone_id(self) -> Optional[str]:
         """
-        The time zone ID (e.g. Pacific Standard time).
+        The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 

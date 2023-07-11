@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// The VirtualMachines resource definition.
-    /// API Version: 2020-06-05-preview.
+    /// Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
@@ -53,16 +53,34 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<int?> Generation { get; private set; } = null!;
 
         /// <summary>
+        /// Guest agent status properties.
+        /// </summary>
+        [Output("guestAgentProfile")]
+        public Output<Outputs.GuestAgentProfileResponse?> GuestAgentProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Hardware properties.
         /// </summary>
         [Output("hardwareProfile")]
         public Output<Outputs.HardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
 
         /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the inventory Item ID for the resource.
         /// </summary>
         [Output("inventoryItemId")]
         public Output<string?> InventoryItemId { get; private set; } = null!;
+
+        /// <summary>
+        /// Last restored checkpoint in the vm.
+        /// </summary>
+        [Output("lastRestoredVMCheckpoint")]
+        public Output<Outputs.CheckpointResponse> LastRestoredVMCheckpoint { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the location.
@@ -174,6 +192,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:VirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -246,10 +265,22 @@ namespace Pulumi.AzureNative.ScVmm
         public Input<int>? Generation { get; set; }
 
         /// <summary>
+        /// Guest agent status properties.
+        /// </summary>
+        [Input("guestAgentProfile")]
+        public Input<Inputs.GuestAgentProfileArgs>? GuestAgentProfile { get; set; }
+
+        /// <summary>
         /// Hardware properties.
         /// </summary>
         [Input("hardwareProfile")]
         public Input<Inputs.HardwareProfileArgs>? HardwareProfile { get; set; }
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Gets or sets the inventory Item ID for the resource.

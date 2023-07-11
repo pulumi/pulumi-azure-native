@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Application Insights private workbook definition.
- * API Version: 2020-10-20.
+ * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2020-10-20
  */
 export class MyWorkbook extends pulumi.CustomResource {
     /**
@@ -79,6 +79,10 @@ export class MyWorkbook extends pulumi.CustomResource {
      */
     public readonly storageUri!: pulumi.Output<string | undefined>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -138,6 +142,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
         } else {
@@ -151,6 +156,7 @@ export class MyWorkbook extends pulumi.CustomResource {
             resourceInputs["serializedData"] = undefined /*out*/;
             resourceInputs["sourceId"] = undefined /*out*/;
             resourceInputs["storageUri"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -15,6 +15,11 @@ export type DataController = import("./dataController").DataController;
 export const DataController: typeof import("./dataController").DataController = null as any;
 utilities.lazyLoad(exports, ["DataController"], () => require("./dataController"));
 
+export { FailoverGroupArgs } from "./failoverGroup";
+export type FailoverGroup = import("./failoverGroup").FailoverGroup;
+export const FailoverGroup: typeof import("./failoverGroup").FailoverGroup = null as any;
+utilities.lazyLoad(exports, ["FailoverGroup"], () => require("./failoverGroup"));
+
 export { GetActiveDirectoryConnectorArgs, GetActiveDirectoryConnectorResult, GetActiveDirectoryConnectorOutputArgs } from "./getActiveDirectoryConnector";
 export const getActiveDirectoryConnector: typeof import("./getActiveDirectoryConnector").getActiveDirectoryConnector = null as any;
 export const getActiveDirectoryConnectorOutput: typeof import("./getActiveDirectoryConnector").getActiveDirectoryConnectorOutput = null as any;
@@ -25,6 +30,11 @@ export const getDataController: typeof import("./getDataController").getDataCont
 export const getDataControllerOutput: typeof import("./getDataController").getDataControllerOutput = null as any;
 utilities.lazyLoad(exports, ["getDataController","getDataControllerOutput"], () => require("./getDataController"));
 
+export { GetFailoverGroupArgs, GetFailoverGroupResult, GetFailoverGroupOutputArgs } from "./getFailoverGroup";
+export const getFailoverGroup: typeof import("./getFailoverGroup").getFailoverGroup = null as any;
+export const getFailoverGroupOutput: typeof import("./getFailoverGroup").getFailoverGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFailoverGroup","getFailoverGroupOutput"], () => require("./getFailoverGroup"));
+
 export { GetPostgresInstanceArgs, GetPostgresInstanceResult, GetPostgresInstanceOutputArgs } from "./getPostgresInstance";
 export const getPostgresInstance: typeof import("./getPostgresInstance").getPostgresInstance = null as any;
 export const getPostgresInstanceOutput: typeof import("./getPostgresInstance").getPostgresInstanceOutput = null as any;
@@ -34,6 +44,11 @@ export { GetSqlManagedInstanceArgs, GetSqlManagedInstanceResult, GetSqlManagedIn
 export const getSqlManagedInstance: typeof import("./getSqlManagedInstance").getSqlManagedInstance = null as any;
 export const getSqlManagedInstanceOutput: typeof import("./getSqlManagedInstance").getSqlManagedInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlManagedInstance","getSqlManagedInstanceOutput"], () => require("./getSqlManagedInstance"));
+
+export { GetSqlServerDatabaseArgs, GetSqlServerDatabaseResult, GetSqlServerDatabaseOutputArgs } from "./getSqlServerDatabase";
+export const getSqlServerDatabase: typeof import("./getSqlServerDatabase").getSqlServerDatabase = null as any;
+export const getSqlServerDatabaseOutput: typeof import("./getSqlServerDatabase").getSqlServerDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlServerDatabase","getSqlServerDatabaseOutput"], () => require("./getSqlServerDatabase"));
 
 export { GetSqlServerInstanceArgs, GetSqlServerInstanceResult, GetSqlServerInstanceOutputArgs } from "./getSqlServerInstance";
 export const getSqlServerInstance: typeof import("./getSqlServerInstance").getSqlServerInstance = null as any;
@@ -50,6 +65,11 @@ export type SqlManagedInstance = import("./sqlManagedInstance").SqlManagedInstan
 export const SqlManagedInstance: typeof import("./sqlManagedInstance").SqlManagedInstance = null as any;
 utilities.lazyLoad(exports, ["SqlManagedInstance"], () => require("./sqlManagedInstance"));
 
+export { SqlServerDatabaseArgs } from "./sqlServerDatabase";
+export type SqlServerDatabase = import("./sqlServerDatabase").SqlServerDatabase;
+export const SqlServerDatabase: typeof import("./sqlServerDatabase").SqlServerDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlServerDatabase"], () => require("./sqlServerDatabase"));
+
 export { SqlServerInstanceArgs } from "./sqlServerInstance";
 export type SqlServerInstance = import("./sqlServerInstance").SqlServerInstance;
 export const SqlServerInstance: typeof import("./sqlServerInstance").SqlServerInstance = null as any;
@@ -60,20 +80,10 @@ utilities.lazyLoad(exports, ["SqlServerInstance"], () => require("./sqlServerIns
 export * from "../types/enums/azurearcdata";
 
 // Export sub-modules:
-import * as v20210601preview from "./v20210601preview";
-import * as v20210701preview from "./v20210701preview";
-import * as v20210801 from "./v20210801";
-import * as v20211101 from "./v20211101";
-import * as v20220301preview from "./v20220301preview";
-import * as v20220615preview from "./v20220615preview";
+import * as v20230115preview from "./v20230115preview";
 
 export {
-    v20210601preview,
-    v20210701preview,
-    v20210801,
-    v20211101,
-    v20220301preview,
-    v20220615preview,
+    v20230115preview,
 };
 
 const _module = {
@@ -84,10 +94,14 @@ const _module = {
                 return new ActiveDirectoryConnector(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:DataController":
                 return new DataController(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:FailoverGroup":
+                return new FailoverGroup(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:PostgresInstance":
                 return new PostgresInstance(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlManagedInstance":
                 return new SqlManagedInstance(name, <any>undefined, { urn })
+            case "azure-native:azurearcdata:SqlServerDatabase":
+                return new SqlServerDatabase(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerInstance":
                 return new SqlServerInstance(name, <any>undefined, { urn })
             default:

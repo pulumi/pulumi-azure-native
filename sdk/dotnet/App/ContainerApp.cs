@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Container App.
-    /// API Version: 2022-03-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource
@@ -29,10 +29,34 @@ namespace Pulumi.AzureNative.App
         public Output<string> CustomDomainVerificationId { get; private set; } = null!;
 
         /// <summary>
+        /// Resource ID of environment.
+        /// </summary>
+        [Output("environmentId")]
+        public Output<string?> EnvironmentId { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint of the eventstream of the container app.
+        /// </summary>
+        [Output("eventStreamEndpoint")]
+        public Output<string> EventStreamEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The complex type of the extended location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
         /// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the latest ready revision of the Container App.
+        /// </summary>
+        [Output("latestReadyRevisionName")]
+        public Output<string> LatestReadyRevisionName { get; private set; } = null!;
 
         /// <summary>
         /// Fully Qualified Domain Name of the latest revision of the Container App.
@@ -53,7 +77,7 @@ namespace Pulumi.AzureNative.App
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource ID of the Container App's environment.
+        /// Deprecated. Resource ID of the Container App's environment.
         /// </summary>
         [Output("managedEnvironmentId")]
         public Output<string?> ManagedEnvironmentId { get; private set; } = null!;
@@ -100,6 +124,12 @@ namespace Pulumi.AzureNative.App
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// Workload profile type to pin for container app execution.
+        /// </summary>
+        [Output("workloadProfileType")]
+        public Output<string?> WorkloadProfileType { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ContainerApp resource with the given unique name, arguments, and options.
@@ -129,6 +159,8 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerApp"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerApp"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ContainerApp"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerApp"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerApp"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -165,6 +197,18 @@ namespace Pulumi.AzureNative.App
         public Input<string>? ContainerAppName { get; set; }
 
         /// <summary>
+        /// Resource ID of environment.
+        /// </summary>
+        [Input("environmentId")]
+        public Input<string>? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// The complex type of the extended location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
         /// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
         [Input("identity")]
@@ -177,7 +221,7 @@ namespace Pulumi.AzureNative.App
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Resource ID of the Container App's environment.
+        /// Deprecated. Resource ID of the Container App's environment.
         /// </summary>
         [Input("managedEnvironmentId")]
         public Input<string>? ManagedEnvironmentId { get; set; }
@@ -205,6 +249,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("template")]
         public Input<Inputs.TemplateArgs>? Template { get; set; }
+
+        /// <summary>
+        /// Workload profile type to pin for container app execution.
+        /// </summary>
+        [Input("workloadProfileType")]
+        public Input<string>? WorkloadProfileType { get; set; }
 
         public ContainerAppArgs()
         {

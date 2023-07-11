@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Progress metrics for a labeling job.
+    /// Progress metrics definition
     /// </summary>
     [OutputType]
     public sealed class ProgressMetricsResponse
@@ -21,9 +21,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly double CompletedDatapointCount;
         /// <summary>
-        /// The time of last successful incremental dataset refresh in UTC.
+        /// The time of last successful incremental data refresh in UTC.
         /// </summary>
-        public readonly string IncrementalDatasetLastRefreshTime;
+        public readonly string IncrementalDataLastRefreshDateTime;
         /// <summary>
         /// The skipped datapoint count.
         /// </summary>
@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private ProgressMetricsResponse(
             double completedDatapointCount,
 
-            string incrementalDatasetLastRefreshTime,
+            string incrementalDataLastRefreshDateTime,
 
             double skippedDatapointCount,
 
             double totalDatapointCount)
         {
             CompletedDatapointCount = completedDatapointCount;
-            IncrementalDatasetLastRefreshTime = incrementalDatasetLastRefreshTime;
+            IncrementalDataLastRefreshDateTime = incrementalDataLastRefreshDateTime;
             SkippedDatapointCount = skippedDatapointCount;
             TotalDatapointCount = totalDatapointCount;
         }

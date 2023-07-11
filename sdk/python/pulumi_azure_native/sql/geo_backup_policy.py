@@ -26,7 +26,7 @@ class GeoBackupPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
-        :param pulumi.Input[str] geo_backup_policy_name: The name of the geo backup policy.
+        :param pulumi.Input[str] geo_backup_policy_name: The name of the Geo backup policy. This should always be 'Default'.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -87,7 +87,7 @@ class GeoBackupPolicyArgs:
     @pulumi.getter(name="geoBackupPolicyName")
     def geo_backup_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the geo backup policy.
+        The name of the Geo backup policy. This should always be 'Default'.
         """
         return pulumi.get(self, "geo_backup_policy_name")
 
@@ -108,13 +108,13 @@ class GeoBackupPolicy(pulumi.CustomResource):
                  state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
                  __props__=None):
         """
-        A database geo backup policy.
-        API Version: 2014-04-01.
+        A Geo backup policy.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
-        :param pulumi.Input[str] geo_backup_policy_name: The name of the geo backup policy.
+        :param pulumi.Input[str] geo_backup_policy_name: The name of the Geo backup policy. This should always be 'Default'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input['GeoBackupPolicyState'] state: The state of the geo backup policy.
@@ -126,8 +126,8 @@ class GeoBackupPolicy(pulumi.CustomResource):
                  args: GeoBackupPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A database geo backup policy.
-        API Version: 2014-04-01.
+        A Geo backup policy.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
 
         :param str resource_name: The name of the resource.
         :param GeoBackupPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class GeoBackupPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["storage_type"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:GeoBackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:GeoBackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GeoBackupPolicy, __self__).__init__(
             'azure-native:sql:GeoBackupPolicy',

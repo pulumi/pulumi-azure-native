@@ -172,7 +172,7 @@ def get_database_advisor(advisor_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseAdvisorResult:
     """
     Gets a database advisor.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str advisor_name: The name of the Database Advisor.
@@ -210,7 +210,7 @@ def get_database_advisor_output(advisor_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseAdvisorResult]:
     """
     Gets a database advisor.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str advisor_name: The name of the Database Advisor.

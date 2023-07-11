@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
-        /// API Version: 2021-01-15-preview.
+        /// Azure REST API version: 2021-01-15-preview.
         /// </summary>
         public static Task<ListIngestionSettingTokensResult> InvokeAsync(ListIngestionSettingTokensArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListIngestionSettingTokensResult>("azure-native:security:listIngestionSettingTokens", args ?? new ListIngestionSettingTokensArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the token that is used for correlating ingested telemetry with the resources in the subscription.
-        /// API Version: 2021-01-15-preview.
+        /// Azure REST API version: 2021-01-15-preview.
         /// </summary>
         public static Output<ListIngestionSettingTokensResult> Invoke(ListIngestionSettingTokensInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListIngestionSettingTokensResult>("azure-native:security:listIngestionSettingTokens", args ?? new ListIngestionSettingTokensInvokeArgs(), options.WithDefaults());

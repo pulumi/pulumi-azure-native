@@ -114,12 +114,7 @@ class CommunicationServiceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class CommunicationService(pulumi.CustomResource):
-    warnings.warn("""azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -174,7 +169,6 @@ class CommunicationService(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""CommunicationService is deprecated: azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -201,7 +195,7 @@ class CommunicationService(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20211001preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:CommunicationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:communication:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20200820preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20211001preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20220701preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230301preview:CommunicationService"), pulumi.Alias(type_="azure-native:communication/v20230401preview:CommunicationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CommunicationService, __self__).__init__(
             'azure-native:communication/v20230331:CommunicationService',

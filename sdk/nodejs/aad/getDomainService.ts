@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getDomainService(args: GetDomainServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainServiceResult> {
 
@@ -35,6 +35,10 @@ export interface GetDomainServiceArgs {
  * Domain service.
  */
 export interface GetDomainServiceResult {
+    /**
+     * Configuration diagnostics data containing latest execution from client.
+     */
+    readonly configDiagnostics?: outputs.aad.ConfigDiagnosticsResponse;
     /**
      * Deployment Id
      */
@@ -100,9 +104,17 @@ export interface GetDomainServiceResult {
      */
     readonly sku?: string;
     /**
+     * The unique sync application id of the Azure AD Domain Services deployment.
+     */
+    readonly syncApplicationId: string;
+    /**
      * SyncOwner ReplicaSet Id
      */
     readonly syncOwner: string;
+    /**
+     * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+     */
+    readonly syncScope?: string;
     /**
      * The system meta data relating to this resource.
      */
@@ -126,7 +138,7 @@ export interface GetDomainServiceResult {
 }
 /**
  * The Get Domain Service operation retrieves a json representation of the Domain Service.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getDomainServiceOutput(args: GetDomainServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainServiceResult> {
     return pulumi.output(args).apply((a: any) => getDomainService(a, opts))

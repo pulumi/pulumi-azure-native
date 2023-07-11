@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -71,7 +71,7 @@ export interface GetCertificateResult {
 }
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

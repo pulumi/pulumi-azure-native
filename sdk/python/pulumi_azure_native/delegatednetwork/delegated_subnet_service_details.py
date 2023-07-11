@@ -130,7 +130,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an instance of a orchestrator.
-        API Version: 2021-03-15.
+        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -149,7 +149,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a orchestrator.
-        API Version: 2021-03-15.
+        Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
 
         :param str resource_name: The name of the resource.
         :param DelegatedSubnetServiceDetailsArgs args: The arguments to use to populate this resource's properties.
@@ -193,7 +193,7 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails"), pulumi.Alias(type_="azure-native:delegatednetwork/v20230518preview:DelegatedSubnetServiceDetails")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DelegatedSubnetServiceDetails, __self__).__init__(
             'azure-native:delegatednetwork:DelegatedSubnetServiceDetails',

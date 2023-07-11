@@ -20,6 +20,8 @@ class RedisEnterpriseArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['EnterpriseSkuArgs'],
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input['ClusterPropertiesEncryptionArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -29,6 +31,8 @@ class RedisEnterpriseArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['EnterpriseSkuArgs'] sku: The SKU to create, which affects price, performance, and features.
         :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
+        :param pulumi.Input['ClusterPropertiesEncryptionArgs'] encryption: Encryption-at-rest configuration for the cluster.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -38,6 +42,10 @@ class RedisEnterpriseArgs:
         pulumi.set(__self__, "sku", sku)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version is not None:
@@ -82,6 +90,30 @@ class RedisEnterpriseArgs:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_name", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['ClusterPropertiesEncryptionArgs']]:
+        """
+        Encryption-at-rest configuration for the cluster.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['ClusterPropertiesEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -138,6 +170,8 @@ class RedisEnterprise(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['ClusterPropertiesEncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,11 +181,13 @@ class RedisEnterprise(pulumi.CustomResource):
                  __props__=None):
         """
         Describes the RedisEnterprise cluster
-        API Version: 2021-03-01.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
+        :param pulumi.Input[pulumi.InputType['ClusterPropertiesEncryptionArgs']] encryption: Encryption-at-rest configuration for the cluster.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[str, 'TlsVersion']] minimum_tls_version: The minimum TLS version for the cluster to support, e.g. '1.2'
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -167,7 +203,7 @@ class RedisEnterprise(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the RedisEnterprise cluster
-        API Version: 2021-03-01.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param RedisEnterpriseArgs args: The arguments to use to populate this resource's properties.
@@ -185,6 +221,8 @@ class RedisEnterprise(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['ClusterPropertiesEncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[Union[str, 'TlsVersion']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -201,6 +239,8 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__ = RedisEnterpriseArgs.__new__(RedisEnterpriseArgs)
 
             __props__.__dict__["cluster_name"] = cluster_name
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             if resource_group_name is None and not opts.urn:
@@ -217,6 +257,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["redis_version"] = None
             __props__.__dict__["resource_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -242,7 +283,9 @@ class RedisEnterprise(pulumi.CustomResource):
 
         __props__ = RedisEnterpriseArgs.__new__(RedisEnterpriseArgs)
 
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["host_name"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["minimum_tls_version"] = None
         __props__.__dict__["name"] = None
@@ -251,10 +294,19 @@ class RedisEnterprise(pulumi.CustomResource):
         __props__.__dict__["redis_version"] = None
         __props__.__dict__["resource_state"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
         return RedisEnterprise(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.ClusterPropertiesResponseEncryption']]:
+        """
+        Encryption-at-rest configuration for the cluster.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="hostName")
@@ -263,6 +315,14 @@ class RedisEnterprise(pulumi.CustomResource):
         DNS name of the cluster endpoint
         """
         return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
+        """
+        The identity of the resource.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter
@@ -327,6 +387,14 @@ class RedisEnterprise(pulumi.CustomResource):
         The SKU to create, which affects price, performance, and features.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

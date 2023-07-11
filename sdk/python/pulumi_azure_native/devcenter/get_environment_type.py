@@ -111,12 +111,12 @@ def get_environment_type(dev_center_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentTypeResult:
     """
     Gets an environment type.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
     :param str environment_type_name: The name of the environment type.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['devCenterName'] = dev_center_name
@@ -141,11 +141,11 @@ def get_environment_type_output(dev_center_name: Optional[pulumi.Input[str]] = N
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentTypeResult]:
     """
     Gets an environment type.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str dev_center_name: The name of the devcenter.
     :param str environment_type_name: The name of the environment type.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

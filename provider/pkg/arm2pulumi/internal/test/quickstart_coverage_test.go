@@ -10,7 +10,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/olekukonko/tablewriter"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
 	"github.com/segmentio/encoding/json"
 	"github.com/stretchr/testify/require"
 	"io/ioutil"

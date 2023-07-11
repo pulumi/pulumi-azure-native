@@ -24,7 +24,7 @@ export class Marketplacegalleryimage extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:marketplacegalleryimage';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:Marketplacegalleryimage';
 
     /**
      * Returns true if the given object is an instance of Marketplacegalleryimage.  This is designed to work even
@@ -147,6 +147,8 @@ export class Marketplacegalleryimage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:marketplacegalleryimage" }, { type: "azure-native:azurestackhci:Marketplacegalleryimage" }, { type: "azure-native:azurestackhci:marketplacegalleryimage" }, { type: "azure-native:azurestackhci/v20221215preview:Marketplacegalleryimage" }, { type: "azure-native:azurestackhci/v20221215preview:marketplacegalleryimage" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Marketplacegalleryimage.__pulumiType, name, resourceInputs, opts);
     }
 }

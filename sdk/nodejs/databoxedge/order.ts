@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The order details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class Order extends pulumi.CustomResource {
     /**
@@ -51,6 +51,10 @@ export class Order extends pulumi.CustomResource {
      */
     public /*out*/ readonly deliveryTrackingInfo!: pulumi.Output<outputs.databoxedge.TrackingInfoResponse[]>;
     /**
+     * It specify the order api version.
+     */
+    public /*out*/ readonly kind!: pulumi.Output<string>;
+    /**
      * The object name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -58,6 +62,10 @@ export class Order extends pulumi.CustomResource {
      * List of status changes in the order.
      */
     public /*out*/ readonly orderHistory!: pulumi.Output<outputs.databoxedge.OrderStatusResponse[]>;
+    /**
+     * It specify the order resource id.
+     */
+    public /*out*/ readonly orderId!: pulumi.Output<string>;
     /**
      * Tracking information for the package returned from the customer whether it has an original or a replacement device.
      */
@@ -74,6 +82,10 @@ export class Order extends pulumi.CustomResource {
      * The shipping address.
      */
     public readonly shippingAddress!: pulumi.Output<outputs.databoxedge.AddressResponse | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of Order
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -106,21 +118,27 @@ export class Order extends pulumi.CustomResource {
             resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["orderHistory"] = undefined /*out*/;
+            resourceInputs["orderId"] = undefined /*out*/;
             resourceInputs["returnTrackingInfo"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["contactInformation"] = undefined /*out*/;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["deliveryTrackingInfo"] = undefined /*out*/;
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["orderHistory"] = undefined /*out*/;
+            resourceInputs["orderId"] = undefined /*out*/;
             resourceInputs["returnTrackingInfo"] = undefined /*out*/;
             resourceInputs["serialNumber"] = undefined /*out*/;
             resourceInputs["shipmentType"] = undefined /*out*/;
             resourceInputs["shippingAddress"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

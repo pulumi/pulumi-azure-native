@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse? BackendAddressPool;
         /// <summary>
+        /// An array of references to pool of DIPs.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> BackendAddressPools;
+        /// <summary>
         /// The port used for internal connections on the endpoint. Acceptable values are between 0 and 65535. Note that value 0 enables "Any Port".
         /// </summary>
         public readonly int? BackendPort;
@@ -85,6 +89,8 @@ namespace Pulumi.AzureNative.Network.Outputs
         private LoadBalancingRuleResponse(
             Outputs.SubResourceResponse? backendAddressPool,
 
+            ImmutableArray<Outputs.SubResourceResponse> backendAddressPools,
+
             int? backendPort,
 
             bool? disableOutboundSnat,
@@ -116,6 +122,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             string type)
         {
             BackendAddressPool = backendAddressPool;
+            BackendAddressPools = backendAddressPools;
             BackendPort = backendPort;
             DisableOutboundSnat = disableOutboundSnat;
             EnableFloatingIP = enableFloatingIP;

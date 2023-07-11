@@ -171,7 +171,7 @@ def get_instance(account_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceResult:
     """
     Returns instance details for the given instance and account name.
-    API Version: 2020-03-01-preview.
+    Azure REST API version: 2023-07-01.
 
 
     :param str account_name: Account name.
@@ -206,7 +206,7 @@ def get_instance_output(account_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceResult]:
     """
     Returns instance details for the given instance and account name.
-    API Version: 2020-03-01-preview.
+    Azure REST API version: 2023-07-01.
 
 
     :param str account_name: Account name.

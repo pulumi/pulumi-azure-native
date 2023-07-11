@@ -249,7 +249,7 @@ class Application(pulumi.CustomResource):
                  __props__=None):
         """
         Information about managed application.
-        API Version: 2019-07-01.
+        Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,7 +275,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about managed application.
-        API Version: 2019-07-01.
+        Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.
@@ -342,6 +342,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["publisher_tenant_id"] = None
             __props__.__dict__["support_urls"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["updated_by"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:solutions/v20160901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20170901:Application"), pulumi.Alias(type_="azure-native:solutions/v20171201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180201:Application"), pulumi.Alias(type_="azure-native:solutions/v20180301:Application"), pulumi.Alias(type_="azure-native:solutions/v20180601:Application"), pulumi.Alias(type_="azure-native:solutions/v20180901preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20190701:Application"), pulumi.Alias(type_="azure-native:solutions/v20200821preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210201preview:Application"), pulumi.Alias(type_="azure-native:solutions/v20210701:Application")])
@@ -389,6 +390,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["publisher_tenant_id"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["support_urls"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["updated_by"] = None
@@ -561,6 +563,14 @@ class Application(pulumi.CustomResource):
         The read-only support URLs property that is retrieved from the application package.
         """
         return pulumi.get(self, "support_urls")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

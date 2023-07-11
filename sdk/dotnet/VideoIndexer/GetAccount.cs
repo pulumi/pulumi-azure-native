@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.VideoIndexer
     public static class GetAccount
     {
         /// <summary>
-        /// Gets the properties of an Azure Video Analyzer for Media account.
-        /// API Version: 2021-10-18-preview.
+        /// Gets the properties of an Azure Video Indexer account.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the properties of an Azure Video Analyzer for Media account.
-        /// API Version: 2021-10-18-preview.
+        /// Gets the properties of an Azure Video Indexer account.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:videoindexer:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.VideoIndexer
     public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Video Analyzer for Media account.
+        /// The name of the Azure Video Indexer account.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.VideoIndexer
     public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Video Analyzer for Media account.
+        /// The name of the Azure Video Indexer account.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// </summary>
         public readonly string TenantId;
         /// <summary>
+        /// An integer representing the total seconds that have been indexed on the account
+        /// </summary>
+        public readonly int TotalSecondsIndexed;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.VideoIndexer
 
             string tenantId,
 
+            int totalSecondsIndexed,
+
             string type)
         {
             AccountId = accountId;
@@ -157,6 +163,7 @@ namespace Pulumi.AzureNative.VideoIndexer
             SystemData = systemData;
             Tags = tags;
             TenantId = tenantId;
+            TotalSecondsIndexed = totalSecondsIndexed;
             Type = type;
         }
     }

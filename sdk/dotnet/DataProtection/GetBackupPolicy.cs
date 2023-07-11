@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataProtection
     {
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetBackupPolicyResult> InvokeAsync(GetBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a backup policy belonging to a backup vault
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetBackupPolicyResult> Invoke(GetBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupPolicyResult>("azure-native:dataprotection:getBackupPolicy", args ?? new GetBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DataProtection
         public string BackupPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DataProtection
         public Input<string> BackupPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -168,7 +168,7 @@ def get_partner(partner_id: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPartnerResult:
     """
     Get the management partner using the partnerId, objectId and tenantId.
-    API Version: 2018-02-01.
+    Azure REST API version: 2018-02-01.
 
 
     :param str partner_id: Id of the Partner
@@ -197,7 +197,7 @@ def get_partner_output(partner_id: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnerResult]:
     """
     Get the management partner using the partnerId, objectId and tenantId.
-    API Version: 2018-02-01.
+    Azure REST API version: 2018-02-01.
 
 
     :param str partner_id: Id of the Partner

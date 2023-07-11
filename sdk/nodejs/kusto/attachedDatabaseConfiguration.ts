@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an attached database configuration.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
@@ -50,6 +50,14 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
     public readonly databaseName!: pulumi.Output<string>;
+    /**
+     * Overrides the original database name. Relevant only when attaching to a specific database.
+     */
+    public readonly databaseNameOverride!: pulumi.Output<string | undefined>;
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     */
+    public readonly databaseNamePrefix!: pulumi.Output<string | undefined>;
     /**
      * The default principals modification kind
      */
@@ -105,6 +113,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseNameOverride"] = args ? args.databaseNameOverride : undefined;
+            resourceInputs["databaseNamePrefix"] = args ? args.databaseNamePrefix : undefined;
             resourceInputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -117,6 +127,8 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
             resourceInputs["clusterResourceId"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
+            resourceInputs["databaseNameOverride"] = undefined /*out*/;
+            resourceInputs["databaseNamePrefix"] = undefined /*out*/;
             resourceInputs["defaultPrincipalsModificationKind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -125,7 +137,7 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210827:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220201:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220707:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221111:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221229:AttachedDatabaseConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190907:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20191109:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200215:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200614:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20200918:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210101:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20210827:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220201:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20220707:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221111:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20221229:AttachedDatabaseConfiguration" }, { type: "azure-native:kusto/v20230502:AttachedDatabaseConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttachedDatabaseConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -151,6 +163,14 @@ export interface AttachedDatabaseConfigurationArgs {
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * Overrides the original database name. Relevant only when attaching to a specific database.
+     */
+    databaseNameOverride?: pulumi.Input<string>;
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     */
+    databaseNamePrefix?: pulumi.Input<string>;
     /**
      * The default principals modification kind
      */

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List Both of the 2 Keys of an object anchors Account
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeys(args: ListObjectAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListObjectAnchorsAccountKeysResult> {
 
@@ -43,7 +43,7 @@ export interface ListObjectAnchorsAccountKeysResult {
 }
 /**
  * List Both of the 2 Keys of an object anchors Account
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function listObjectAnchorsAccountKeysOutput(args: ListObjectAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListObjectAnchorsAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listObjectAnchorsAccountKeys(a, opts))

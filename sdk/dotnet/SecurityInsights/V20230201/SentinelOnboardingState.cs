@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     /// <summary>
     /// Sentinel onboarding state
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20230201:SentinelOnboardingState is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:SentinelOnboardingState to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201:SentinelOnboardingState")]
     public partial class SentinelOnboardingState : global::Pulumi.CustomResource
     {
@@ -89,7 +88,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:SentinelOnboardingState"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:SentinelOnboardingState"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:SentinelOnboardingState"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:SentinelOnboardingState"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:SentinelOnboardingState"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:SentinelOnboardingState"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:SentinelOnboardingState"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

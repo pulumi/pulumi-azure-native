@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of an artifact source.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
  */
 export class ArtifactSource extends pulumi.CustomResource {
     /**

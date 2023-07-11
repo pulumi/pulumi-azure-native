@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed cluster snapshot resource.
- * API Version: 2022-02-02-preview.
+ * Azure REST API version: 2023-05-02-preview.
  */
 export function getManagedClusterSnapshot(args: GetManagedClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedClusterSnapshotResult> {
 
@@ -44,7 +44,7 @@ export interface GetManagedClusterSnapshotResult {
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -64,7 +64,7 @@ export interface GetManagedClusterSnapshotResult {
      */
     readonly systemData: outputs.containerservice.SystemDataResponse;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -74,7 +74,7 @@ export interface GetManagedClusterSnapshotResult {
 }
 /**
  * A managed cluster snapshot resource.
- * API Version: 2022-02-02-preview.
+ * Azure REST API version: 2023-05-02-preview.
  */
 export function getManagedClusterSnapshotOutput(args: GetManagedClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedClusterSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getManagedClusterSnapshot(a, opts))

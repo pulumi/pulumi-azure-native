@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a dedicated host.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a dedicated host.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("azure-native:compute:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDedicatedHostArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDedicatedHostInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated host. 'UserData' is not supported for dedicated host.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly bool? AutoReplaceOnFailure;
         /// <summary>
-        /// A unique id generated and assigned to the dedicated host by the platform. &lt;br&gt;&lt;br&gt; Does not change throughout the lifetime of the host.
+        /// A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
         /// </summary>
         public readonly string HostId;
         /// <summary>
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.DedicatedHostInstanceViewResponse InstanceView;
         /// <summary>
-        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **Windows_Server_Hybrid** &lt;br&gt;&lt;br&gt; **Windows_Server_Perpetual** &lt;br&gt;&lt;br&gt; Default: **None**
+        /// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         /// </summary>
         public readonly string? LicenseType;
         /// <summary>
@@ -143,6 +143,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the time at which the Dedicated Host resource was created. Minimum api-version: 2021-11-01.
+        /// </summary>
+        public readonly string TimeCreated;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -178,6 +182,8 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableDictionary<string, string>? tags,
 
+            string timeCreated,
+
             string type,
 
             ImmutableArray<Outputs.SubResourceReadOnlyResponse> virtualMachines)
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.Compute
             ProvisioningTime = provisioningTime;
             Sku = sku;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
             VirtualMachines = virtualMachines;
         }

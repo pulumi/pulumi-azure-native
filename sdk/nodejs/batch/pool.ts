@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about a pool.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -54,11 +54,14 @@ export class Pool extends pulumi.CustomResource {
     public /*out*/ readonly autoScaleRun!: pulumi.Output<outputs.batch.AutoScaleRunResponse>;
     /**
      * For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+     *
+     * Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     public readonly certificates!: pulumi.Output<outputs.batch.CertificateReferenceResponse[] | undefined>;
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     public /*out*/ readonly currentDedicatedNodes!: pulumi.Output<number>;
     public /*out*/ readonly currentLowPriorityNodes!: pulumi.Output<number>;
+    public /*out*/ readonly currentNodeCommunicationMode!: pulumi.Output<string>;
     /**
      * Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
      */
@@ -114,6 +117,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly startTask!: pulumi.Output<outputs.batch.StartTaskResponse | undefined>;
     /**
+     * If omitted, the default value is Default.
+     */
+    public readonly targetNodeCommunicationMode!: pulumi.Output<string | undefined>;
+    /**
      * If not specified, the default is spread.
      */
     public readonly taskSchedulingPolicy!: pulumi.Output<outputs.batch.TaskSchedulingPolicyResponse | undefined>;
@@ -163,6 +170,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleSettings"] = args ? args.scaleSettings : undefined;
             resourceInputs["startTask"] = args ? args.startTask : undefined;
+            resourceInputs["targetNodeCommunicationMode"] = args ? args.targetNodeCommunicationMode : undefined;
             resourceInputs["taskSchedulingPolicy"] = args ? args.taskSchedulingPolicy : undefined;
             resourceInputs["taskSlotsPerNode"] = args ? args.taskSlotsPerNode : undefined;
             resourceInputs["userAccounts"] = args ? args.userAccounts : undefined;
@@ -173,6 +181,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentDedicatedNodes"] = undefined /*out*/;
             resourceInputs["currentLowPriorityNodes"] = undefined /*out*/;
+            resourceInputs["currentNodeCommunicationMode"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -190,6 +199,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["currentDedicatedNodes"] = undefined /*out*/;
             resourceInputs["currentLowPriorityNodes"] = undefined /*out*/;
+            resourceInputs["currentNodeCommunicationMode"] = undefined /*out*/;
             resourceInputs["deploymentConfiguration"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -205,6 +215,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["resizeOperationStatus"] = undefined /*out*/;
             resourceInputs["scaleSettings"] = undefined /*out*/;
             resourceInputs["startTask"] = undefined /*out*/;
+            resourceInputs["targetNodeCommunicationMode"] = undefined /*out*/;
             resourceInputs["taskSchedulingPolicy"] = undefined /*out*/;
             resourceInputs["taskSlotsPerNode"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -212,7 +223,7 @@ export class Pool extends pulumi.CustomResource {
             resourceInputs["vmSize"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20170901:Pool" }, { type: "azure-native:batch/v20181201:Pool" }, { type: "azure-native:batch/v20190401:Pool" }, { type: "azure-native:batch/v20190801:Pool" }, { type: "azure-native:batch/v20200301:Pool" }, { type: "azure-native:batch/v20200501:Pool" }, { type: "azure-native:batch/v20200901:Pool" }, { type: "azure-native:batch/v20210101:Pool" }, { type: "azure-native:batch/v20210601:Pool" }, { type: "azure-native:batch/v20220101:Pool" }, { type: "azure-native:batch/v20220601:Pool" }, { type: "azure-native:batch/v20221001:Pool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20170901:Pool" }, { type: "azure-native:batch/v20181201:Pool" }, { type: "azure-native:batch/v20190401:Pool" }, { type: "azure-native:batch/v20190801:Pool" }, { type: "azure-native:batch/v20200301:Pool" }, { type: "azure-native:batch/v20200501:Pool" }, { type: "azure-native:batch/v20200901:Pool" }, { type: "azure-native:batch/v20210101:Pool" }, { type: "azure-native:batch/v20210601:Pool" }, { type: "azure-native:batch/v20220101:Pool" }, { type: "azure-native:batch/v20220601:Pool" }, { type: "azure-native:batch/v20221001:Pool" }, { type: "azure-native:batch/v20230501:Pool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, resourceInputs, opts);
     }
@@ -236,6 +247,8 @@ export interface PoolArgs {
     applicationPackages?: pulumi.Input<pulumi.Input<inputs.batch.ApplicationPackageReferenceArgs>[]>;
     /**
      * For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+     *
+     * Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     certificates?: pulumi.Input<pulumi.Input<inputs.batch.CertificateReferenceArgs>[]>;
     /**
@@ -282,6 +295,10 @@ export interface PoolArgs {
      * In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
      */
     startTask?: pulumi.Input<inputs.batch.StartTaskArgs>;
+    /**
+     * If omitted, the default value is Default.
+     */
+    targetNodeCommunicationMode?: pulumi.Input<enums.batch.NodeCommunicationMode>;
     /**
      * If not specified, the default is spread.
      */

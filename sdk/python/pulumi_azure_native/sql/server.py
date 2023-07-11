@@ -21,12 +21,14 @@ class ServerArgs:
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input['ServerExternalAdministratorArgs']] = None,
+                 federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -35,13 +37,15 @@ class ServerArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
-        :param pulumi.Input['ServerExternalAdministratorArgs'] administrators: The Azure Active Directory identity of the server.
+        :param pulumi.Input['ServerExternalAdministratorArgs'] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
         :param pulumi.Input['ResourceIdentityArgs'] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
-        :param pulumi.Input[Union[str, 'ServerPublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: The version of the server.
@@ -53,6 +57,8 @@ class ServerArgs:
             pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if administrators is not None:
             pulumi.set(__self__, "administrators", administrators)
+        if federated_client_id is not None:
+            pulumi.set(__self__, "federated_client_id", federated_client_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if key_id is not None:
@@ -65,6 +71,8 @@ class ServerArgs:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if restrict_outbound_network_access is not None:
+            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
         if tags is not None:
@@ -112,13 +120,25 @@ class ServerArgs:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input['ServerExternalAdministratorArgs']]:
         """
-        The Azure Active Directory identity of the server.
+        The Azure Active Directory administrator of the server.
         """
         return pulumi.get(self, "administrators")
 
     @administrators.setter
     def administrators(self, value: Optional[pulumi.Input['ServerExternalAdministratorArgs']]):
         pulumi.set(self, "administrators", value)
+
+    @property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Client id used for cross tenant CMK scenario
+        """
+        return pulumi.get(self, "federated_client_id")
+
+    @federated_client_id.setter
+    def federated_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "federated_client_id", value)
 
     @property
     @pulumi.getter
@@ -182,15 +202,27 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]]:
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]:
         """
         Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]]):
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]):
         pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="restrictOutboundNetworkAccess")
+    def restrict_outbound_network_access(self) -> Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]:
+        """
+        Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "restrict_outbound_network_access")
+
+    @restrict_outbound_network_access.setter
+    def restrict_outbound_network_access(self, value: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]]):
+        pulumi.set(self, "restrict_outbound_network_access", value)
 
     @property
     @pulumi.getter(name="serverName")
@@ -237,33 +269,37 @@ class Server(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
+                 federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An Azure SQL Database server.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
         :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
-        :param pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']] administrators: The Azure Active Directory identity of the server.
+        :param pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']] administrators: The Azure Active Directory administrator of the server.
+        :param pulumi.Input[str] federated_client_id: The Client id used for cross tenant CMK scenario
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The Azure Active Directory identity of the server.
         :param pulumi.Input[str] key_id: A CMK URI of the key to use for encryption.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] minimal_tls_version: Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
-        :param pulumi.Input[Union[str, 'ServerPublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] public_network_access: Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[Union[str, 'ServerNetworkAccessFlag']] restrict_outbound_network_access: Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] version: The version of the server.
@@ -276,7 +312,7 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL Database server.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -296,13 +332,15 @@ class Server(pulumi.CustomResource):
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
                  administrators: Optional[pulumi.Input[pulumi.InputType['ServerExternalAdministratorArgs']]] = None,
+                 federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimal_tls_version: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerPublicNetworkAccess']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[Union[str, 'ServerNetworkAccessFlag']]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -318,6 +356,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = administrator_login_password
             __props__.__dict__["administrators"] = administrators
+            __props__.__dict__["federated_client_id"] = federated_client_id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_id"] = key_id
             __props__.__dict__["location"] = location
@@ -327,6 +366,7 @@ class Server(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["restrict_outbound_network_access"] = restrict_outbound_network_access
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
@@ -337,7 +377,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workspace_feature"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:Server"), pulumi.Alias(type_="azure-native:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Server"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Server"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Server"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Server"), pulumi.Alias(type_="azure-native:sql/v20210201preview:Server"), pulumi.Alias(type_="azure-native:sql/v20210501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20210801preview:Server"), pulumi.Alias(type_="azure-native:sql/v20211101:Server"), pulumi.Alias(type_="azure-native:sql/v20211101preview:Server"), pulumi.Alias(type_="azure-native:sql/v20220201preview:Server"), pulumi.Alias(type_="azure-native:sql/v20220501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20220801preview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20140401:Server"), pulumi.Alias(type_="azure-native:sql/v20150501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20190601preview:Server"), pulumi.Alias(type_="azure-native:sql/v20200202preview:Server"), pulumi.Alias(type_="azure-native:sql/v20200801preview:Server"), pulumi.Alias(type_="azure-native:sql/v20201101preview:Server"), pulumi.Alias(type_="azure-native:sql/v20210201preview:Server"), pulumi.Alias(type_="azure-native:sql/v20210501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20210801preview:Server"), pulumi.Alias(type_="azure-native:sql/v20211101:Server"), pulumi.Alias(type_="azure-native:sql/v20211101preview:Server"), pulumi.Alias(type_="azure-native:sql/v20220201preview:Server"), pulumi.Alias(type_="azure-native:sql/v20220501preview:Server"), pulumi.Alias(type_="azure-native:sql/v20220801preview:Server"), pulumi.Alias(type_="azure-native:sql/v20221101preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-native:sql:Server',
@@ -363,6 +403,7 @@ class Server(pulumi.CustomResource):
 
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["administrators"] = None
+        __props__.__dict__["federated_client_id"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["key_id"] = None
@@ -373,6 +414,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["primary_user_assigned_identity_id"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["restrict_outbound_network_access"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -392,9 +434,17 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Optional['outputs.ServerExternalAdministratorResponse']]:
         """
-        The Azure Active Directory identity of the server.
+        The Azure Active Directory administrator of the server.
         """
         return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Client id used for cross tenant CMK scenario
+        """
+        return pulumi.get(self, "federated_client_id")
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainName")
@@ -475,6 +525,14 @@ class Server(pulumi.CustomResource):
         Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="restrictOutboundNetworkAccess")
+    def restrict_outbound_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        return pulumi.get(self, "restrict_outbound_network_access")
 
     @property
     @pulumi.getter

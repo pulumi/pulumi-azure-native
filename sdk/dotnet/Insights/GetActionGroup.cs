@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get an action group.
-        /// API Version: 2019-06-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetActionGroupResult> InvokeAsync(GetActionGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an action group.
-        /// API Version: 2019-06-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetActionGroupResult> Invoke(GetActionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetActionGroupResult>("azure-native:insights:getActionGroup", args ?? new GetActionGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
+        /// The list of event hub receivers that are part of this action group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EventHubReceiverResponse> EventHubReceivers;
+        /// <summary>
         /// The short name of the action group. This will be used in SMS messages.
         /// </summary>
         public readonly string GroupShortName;
@@ -154,6 +158,8 @@ namespace Pulumi.AzureNative.Insights
 
             bool enabled,
 
+            ImmutableArray<Outputs.EventHubReceiverResponse> eventHubReceivers,
+
             string groupShortName,
 
             string id,
@@ -182,6 +188,7 @@ namespace Pulumi.AzureNative.Insights
             AzureFunctionReceivers = azureFunctionReceivers;
             EmailReceivers = emailReceivers;
             Enabled = enabled;
+            EventHubReceivers = eventHubReceivers;
             GroupShortName = groupShortName;
             Id = id;
             ItsmReceivers = itsmReceivers;

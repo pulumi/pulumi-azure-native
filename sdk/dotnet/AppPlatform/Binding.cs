@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Binding resource payload
-    /// API Version: 2020-07-01.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Binding")]
     public partial class Binding : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         [Output("properties")]
         public Output<Outputs.BindingResourcePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -71,6 +77,8 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Binding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Binding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Binding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:Binding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -166,7 +166,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:purview:Account" }, { type: "azure-native:purview/v20210701:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:purview:Account" }, { type: "azure-native:purview/v20210701:Account" }, { type: "azure-native:purview/v20211201:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

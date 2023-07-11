@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Prediction in the hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getPrediction(args: GetPredictionArgs, opts?: pulumi.InvokeOptions): Promise<GetPredictionResult> {
 
@@ -123,7 +123,7 @@ export interface GetPredictionResult {
 }
 /**
  * Gets a Prediction in the hub.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getPredictionOutput(args: GetPredictionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPredictionResult> {
     return pulumi.output(args).apply((a: any) => getPrediction(a, opts))

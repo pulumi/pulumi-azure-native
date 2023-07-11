@@ -6,9 +6,6 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
-    'Relaytype',
-    'SkuName',
-    'SkuTier',
 ]
 
 
@@ -16,25 +13,3 @@ class AccessRights(str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
-
-
-class Relaytype(str, Enum):
-    """
-    WCF relay type.
-    """
-    NET_TCP = "NetTcp"
-    HTTP = "Http"
-
-
-class SkuName(str, Enum):
-    """
-    Name of this SKU.
-    """
-    STANDARD = "Standard"
-
-
-class SkuTier(str, Enum):
-    """
-    The tier of this SKU.
-    """
-    STANDARD = "Standard"

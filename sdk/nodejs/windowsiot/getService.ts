@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the non-security related metadata of a Windows IoT Device Service.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -79,7 +79,7 @@ export interface GetServiceResult {
 }
 /**
  * Get the non-security related metadata of a Windows IoT Device Service.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The key resource.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01
  */
 export class Key extends pulumi.CustomResource {
     /**
@@ -72,6 +72,14 @@ export class Key extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Key release policy in response. It will be used for both output and input. Omitted if empty
+     */
+    public /*out*/ readonly releasePolicy!: pulumi.Output<outputs.keyvault.KeyReleasePolicyResponse | undefined>;
+    /**
+     * Key rotation policy in response. It will be used for both output and input. Omitted if empty
+     */
+    public /*out*/ readonly rotationPolicy!: pulumi.Output<outputs.keyvault.RotationPolicyResponse | undefined>;
+    /**
      * Tags assigned to the key vault resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
@@ -101,7 +109,7 @@ export class Key extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vaultName'");
             }
             resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.keyvault.keyPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
@@ -114,6 +122,8 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["kty"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["releasePolicy"] = undefined /*out*/;
+            resourceInputs["rotationPolicy"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attributes"] = undefined /*out*/;
@@ -125,6 +135,8 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["kty"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["releasePolicy"] = undefined /*out*/;
+            resourceInputs["rotationPolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -140,7 +152,7 @@ export class Key extends pulumi.CustomResource {
  */
 export interface KeyArgs {
     /**
-     * The name of the key to be created.
+     * The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
      */
     keyName?: pulumi.Input<string>;
     /**

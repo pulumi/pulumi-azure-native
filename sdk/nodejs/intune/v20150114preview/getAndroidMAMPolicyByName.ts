@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns AndroidMAMPolicy with given name.
  */
-/** @deprecated azure-native:intune/v20150114preview:AndroidMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName to guarantee forwards compatibility. */
 export function getAndroidMAMPolicyByName(args: GetAndroidMAMPolicyByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetAndroidMAMPolicyByNameResult> {
-    pulumi.log.warn("getAndroidMAMPolicyByName is deprecated: azure-native:intune/v20150114preview:AndroidMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:intune/v20150114preview:getAndroidMAMPolicyByName", {
@@ -82,7 +80,6 @@ export interface GetAndroidMAMPolicyByNameResult {
 /**
  * Returns AndroidMAMPolicy with given name.
  */
-/** @deprecated azure-native:intune/v20150114preview:AndroidMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName to guarantee forwards compatibility. */
 export function getAndroidMAMPolicyByNameOutput(args: GetAndroidMAMPolicyByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAndroidMAMPolicyByNameResult> {
     return pulumi.output(args).apply((a: any) => getAndroidMAMPolicyByName(a, opts))
 }

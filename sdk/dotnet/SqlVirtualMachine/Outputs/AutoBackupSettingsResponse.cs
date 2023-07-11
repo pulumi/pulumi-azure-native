@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly bool? BackupSystemDbs;
         /// <summary>
+        /// Days of the week for the backups when FullBackupFrequency is set to Weekly.
+        /// </summary>
+        public readonly ImmutableArray<string> DaysOfWeek;
+        /// <summary>
         /// Enable or disable autobackup on SQL virtual machine.
         /// </summary>
         public readonly bool? Enable;
@@ -49,19 +53,25 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
         /// </summary>
         public readonly int? LogBackupFrequency;
         /// <summary>
-        /// Retention period of backup: 1-30 days.
+        /// Retention period of backup: 1-90 days.
         /// </summary>
         public readonly int? RetentionPeriod;
         /// <summary>
         /// Storage account url where backup will be taken to.
         /// </summary>
         public readonly string? StorageAccountUrl;
+        /// <summary>
+        /// Storage container name where backup will be taken to.
+        /// </summary>
+        public readonly string? StorageContainerName;
 
         [OutputConstructor]
         private AutoBackupSettingsResponse(
             string? backupScheduleType,
 
             bool? backupSystemDbs,
+
+            ImmutableArray<string> daysOfWeek,
 
             bool? enable,
 
@@ -77,10 +87,13 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
 
             int? retentionPeriod,
 
-            string? storageAccountUrl)
+            string? storageAccountUrl,
+
+            string? storageContainerName)
         {
             BackupScheduleType = backupScheduleType;
             BackupSystemDbs = backupSystemDbs;
+            DaysOfWeek = daysOfWeek;
             Enable = enable;
             EnableEncryption = enableEncryption;
             FullBackupFrequency = fullBackupFrequency;
@@ -89,6 +102,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Outputs
             LogBackupFrequency = logBackupFrequency;
             RetentionPeriod = retentionPeriod;
             StorageAccountUrl = storageAccountUrl;
+            StorageContainerName = storageContainerName;
         }
     }
 }

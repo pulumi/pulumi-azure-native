@@ -60,8 +60,8 @@ class AwaitableListSiteIdentifiersAssignedToHostNameResult(ListSiteIdentifiersAs
 def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSiteIdentifiersAssignedToHostNameResult:
     """
-    List all apps that are assigned to a hostname.
-    API Version: 2020-12-01.
+    Description for List all apps that are assigned to a hostname.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the object.
@@ -80,8 +80,8 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[str] = None,
 def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
     """
-    List all apps that are assigned to a hostname.
-    API Version: 2020-12-01.
+    Description for List all apps that are assigned to a hostname.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the object.

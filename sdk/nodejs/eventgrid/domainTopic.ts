@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain Topic.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class DomainTopic extends pulumi.CustomResource {
     /**
@@ -86,7 +86,7 @@ export class DomainTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-native:eventgrid/v20190601:DomainTopic" }, { type: "azure-native:eventgrid/v20200101preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200601:DomainTopic" }, { type: "azure-native:eventgrid/v20201015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20210601preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211201:DomainTopic" }, { type: "azure-native:eventgrid/v20220615:DomainTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20190201preview:DomainTopic" }, { type: "azure-native:eventgrid/v20190601:DomainTopic" }, { type: "azure-native:eventgrid/v20200101preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200401preview:DomainTopic" }, { type: "azure-native:eventgrid/v20200601:DomainTopic" }, { type: "azure-native:eventgrid/v20201015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20210601preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211015preview:DomainTopic" }, { type: "azure-native:eventgrid/v20211201:DomainTopic" }, { type: "azure-native:eventgrid/v20220615:DomainTopic" }, { type: "azure-native:eventgrid/v20230601preview:DomainTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainTopic.__pulumiType, name, resourceInputs, opts);
     }

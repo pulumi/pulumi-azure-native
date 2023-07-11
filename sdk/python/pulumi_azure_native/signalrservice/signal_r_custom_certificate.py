@@ -126,7 +126,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         A custom certificate.
-        API Version: 2022-02-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -145,7 +145,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A custom certificate.
-        API Version: 2022-02-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01
 
         :param str resource_name: The name of the resource.
         :param SignalRCustomCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -195,7 +195,7 @@ class SignalRCustomCertificate(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRCustomCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRCustomCertificate"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRCustomCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRCustomCertificate, __self__).__init__(
             'azure-native:signalrservice:SignalRCustomCertificate',

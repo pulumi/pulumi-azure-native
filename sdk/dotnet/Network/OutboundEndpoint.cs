@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes an outbound endpoint for a DNS resolver.
-    /// API Version: 2020-04-01-preview.
+    /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:OutboundEndpoint")]
     public partial class OutboundEndpoint : global::Pulumi.CustomResource
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Network
         /// The reference to the subnet used for the outbound endpoint.
         /// </summary>
         [Output("subnet")]
-        public Output<Outputs.SubResourceResponse?> Subnet { get; private set; } = null!;
+        public Output<Outputs.SubResourceResponse> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The reference to the subnet used for the outbound endpoint.
         /// </summary>
-        [Input("subnet")]
-        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
+        [Input("subnet", required: true)]
+        public Input<Inputs.SubResourceArgs> Subnet { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// </summary>
     public sealed class KeyVaultPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityClientId")]
+        public Input<string>? IdentityClientId { get; set; }
+
         /// <summary>
         /// Name of the Key from KeyVault
         /// </summary>

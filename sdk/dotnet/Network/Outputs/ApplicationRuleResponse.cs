@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FqdnTags;
         /// <summary>
+        /// List of HTTP/S headers to insert.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FirewallPolicyHttpHeaderToInsertResponse> HttpHeadersToInsert;
+        /// <summary>
         /// Name of the rule.
         /// </summary>
         public readonly string? Name;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             ImmutableArray<string> fqdnTags,
 
+            ImmutableArray<Outputs.FirewallPolicyHttpHeaderToInsertResponse> httpHeadersToInsert,
+
             string? name,
 
             ImmutableArray<Outputs.FirewallPolicyRuleApplicationProtocolResponse> protocols,
@@ -95,6 +101,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Description = description;
             DestinationAddresses = destinationAddresses;
             FqdnTags = fqdnTags;
+            HttpHeadersToInsert = httpHeadersToInsert;
             Name = name;
             Protocols = protocols;
             RuleType = ruleType;

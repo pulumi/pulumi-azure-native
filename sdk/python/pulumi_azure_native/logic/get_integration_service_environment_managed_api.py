@@ -255,7 +255,7 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationServiceEnvironmentManagedApiResult:
     """
     Gets the integration service environment managed Api.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str api_name: The api name.
@@ -297,7 +297,7 @@ def get_integration_service_environment_managed_api_output(api_name: Optional[pu
                                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentManagedApiResult]:
     """
     Gets the integration service environment managed Api.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str api_name: The api name.

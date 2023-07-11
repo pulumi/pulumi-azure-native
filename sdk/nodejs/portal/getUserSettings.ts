@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
- * API Version: 2018-10-01.
+ * Azure REST API version: 2018-10-01.
  */
 export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
 
@@ -37,7 +37,7 @@ export interface GetUserSettingsResult {
 }
 /**
  * Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.
- * API Version: 2018-10-01.
+ * Azure REST API version: 2018-10-01.
  */
 export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsResult> {
     return pulumi.output(args).apply((a: any) => getUserSettings(a, opts))

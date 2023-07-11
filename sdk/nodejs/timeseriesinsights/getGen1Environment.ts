@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getGen1Environment(args: GetGen1EnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGen1EnvironmentResult> {
 
@@ -104,7 +104,7 @@ export interface GetGen1EnvironmentResult {
 }
 /**
  * Gets the environment with the specified name in the specified subscription and resource group.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getGen1EnvironmentOutput(args: GetGen1EnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGen1EnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getGen1Environment(a, opts))

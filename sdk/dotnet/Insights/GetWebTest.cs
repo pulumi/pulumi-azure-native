@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get a specific Application Insights web test definition.
-        /// API Version: 2015-05-01.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Task<GetWebTestResult> InvokeAsync(GetWebTestArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific Application Insights web test definition.
-        /// API Version: 2015-05-01.
+        /// Azure REST API version: 2022-06-15.
         /// </summary>
         public static Output<GetWebTestResult> Invoke(GetWebTestInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebTestResult>("azure-native:insights:getWebTest", args ?? new GetWebTestInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Insights
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights webtest resource.
+        /// The name of the Application Insights WebTest resource.
         /// </summary>
         [Input("webTestName", required: true)]
         public string WebTestName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights webtest resource.
+        /// The name of the Application Insights WebTest resource.
         /// </summary>
         [Input("webTestName", required: true)]
         public Input<string> WebTestName { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly Outputs.WebTestPropertiesResponseConfiguration? Configuration;
         /// <summary>
-        /// Purpose/user defined descriptive test for this WebTest.
+        /// User defined description for this WebTest.
         /// </summary>
         public readonly string? Description;
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The kind of web test that this web test watches. Choices are ping and multistep.
+        /// The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
@@ -111,6 +111,10 @@ namespace Pulumi.AzureNative.Insights
         /// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// The collection of request properties
+        /// </summary>
+        public readonly Outputs.WebTestPropertiesResponseRequest? Request;
         /// <summary>
         /// Allow for retries should this WebTest fail.
         /// </summary>
@@ -132,7 +136,11 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The kind of web test this is, valid choices are ping and multistep.
+        /// The collection of validation rule properties
+        /// </summary>
+        public readonly Outputs.WebTestPropertiesResponseValidationRules? ValidationRules;
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping, multistep and standard.
         /// </summary>
         public readonly string WebTestKind;
         /// <summary>
@@ -162,6 +170,8 @@ namespace Pulumi.AzureNative.Insights
 
             string provisioningState,
 
+            Outputs.WebTestPropertiesResponseRequest? request,
+
             bool? retryEnabled,
 
             string syntheticMonitorId,
@@ -171,6 +181,8 @@ namespace Pulumi.AzureNative.Insights
             int? timeout,
 
             string type,
+
+            Outputs.WebTestPropertiesResponseValidationRules? validationRules,
 
             string webTestKind,
 
@@ -186,11 +198,13 @@ namespace Pulumi.AzureNative.Insights
             Locations = locations;
             Name = name;
             ProvisioningState = provisioningState;
+            Request = request;
             RetryEnabled = retryEnabled;
             SyntheticMonitorId = syntheticMonitorId;
             Tags = tags;
             Timeout = timeout;
             Type = type;
+            ValidationRules = validationRules;
             WebTestKind = webTestKind;
             WebTestName = webTestName;
         }

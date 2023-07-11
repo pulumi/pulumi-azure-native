@@ -21,6 +21,7 @@ class ResourceArgs:
                  resource_group_name: pulumi.Input[str],
                  resource_provider_namespace: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -36,6 +37,7 @@ class ResourceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group for the resource. The name is case insensitive.
         :param pulumi.Input[str] resource_provider_namespace: The namespace of the resource provider.
         :param pulumi.Input[str] resource_type: The resource type of the resource to create.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: Resource extended location.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the resource.
         :param pulumi.Input[str] location: Resource location
@@ -50,6 +52,8 @@ class ResourceArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_provider_namespace", resource_provider_namespace)
         pulumi.set(__self__, "resource_type", resource_type)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -116,6 +120,18 @@ class ResourceArgs:
     @resource_type.setter
     def resource_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_type", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        Resource extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
 
     @property
     @pulumi.getter
@@ -231,6 +247,7 @@ class Resource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -247,10 +264,11 @@ class Resource(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information.
-        API Version: 2019-05-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Resource extended location.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] kind: The kind of the resource.
         :param pulumi.Input[str] location: Resource location
@@ -273,7 +291,7 @@ class Resource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information.
-        API Version: 2019-05-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.
@@ -290,6 +308,7 @@ class Resource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -312,6 +331,7 @@ class Resource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceArgs.__new__(ResourceArgs)
 
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
@@ -359,6 +379,7 @@ class Resource(pulumi.CustomResource):
 
         __props__ = ResourceArgs.__new__(ResourceArgs)
 
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
@@ -370,6 +391,14 @@ class Resource(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Resource(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        Resource extended location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter

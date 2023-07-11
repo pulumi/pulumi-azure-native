@@ -145,8 +145,8 @@ def list_web_app_backup_configuration(name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppBackupConfigurationResult:
     """
-    Gets the backup configuration of an app.
-    API Version: 2020-12-01.
+    Description for Gets the backup configuration of an app.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -175,8 +175,8 @@ def list_web_app_backup_configuration_output(name: Optional[pulumi.Input[str]] =
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppBackupConfigurationResult]:
     """
-    Gets the backup configuration of an app.
-    API Version: 2020-12-01.
+    Description for Gets the backup configuration of an app.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

@@ -20,18 +20,15 @@ __all__ = [
 @pulumi.output_type
 class GetUserRuleCollectionResult:
     """
-    Defines the rule collection.
+    Defines the user rule collection.
     """
-    def __init__(__self__, applies_to_groups=None, description=None, display_name=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, description=None, etag=None, id=None, name=None, provisioning_state=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -53,7 +50,7 @@ class GetUserRuleCollectionResult:
 
     @property
     @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]:
+    def applies_to_groups(self) -> Sequence['outputs.NetworkManagerSecurityGroupItemResponse']:
         """
         Groups for configuration
         """
@@ -63,17 +60,9 @@ class GetUserRuleCollectionResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the rule collection.
+        A description of the user rule collection.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        A display name of the rule collection.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -132,7 +121,6 @@ class AwaitableGetUserRuleCollectionResult(GetUserRuleCollectionResult):
         return GetUserRuleCollectionResult(
             applies_to_groups=self.applies_to_groups,
             description=self.description,
-            display_name=self.display_name,
             etag=self.etag,
             id=self.id,
             name=self.name,
@@ -148,10 +136,10 @@ def get_user_rule_collection(configuration_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserRuleCollectionResult:
     """
     Gets a network manager security user configuration rule collection.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
-    :param str configuration_name: The name of the network manager security Configuration.
+    :param str configuration_name: The name of the network manager Security Configuration.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.
@@ -167,7 +155,6 @@ def get_user_rule_collection(configuration_name: Optional[str] = None,
     return AwaitableGetUserRuleCollectionResult(
         applies_to_groups=__ret__.applies_to_groups,
         description=__ret__.description,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
         name=__ret__.name,
@@ -184,10 +171,10 @@ def get_user_rule_collection_output(configuration_name: Optional[pulumi.Input[st
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserRuleCollectionResult]:
     """
     Gets a network manager security user configuration rule collection.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
-    :param str configuration_name: The name of the network manager security Configuration.
+    :param str configuration_name: The name of the network manager Security Configuration.
     :param str network_manager_name: The name of the network manager.
     :param str resource_group_name: The name of the resource group.
     :param str rule_collection_name: The name of the network manager security Configuration rule collection.

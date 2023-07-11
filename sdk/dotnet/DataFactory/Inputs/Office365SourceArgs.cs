@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? MaxConcurrentConnections { get; set; }
 
         /// <summary>
-        /// The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
+        /// The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). itemType: OutputColumn. Example: [ { "name": "Id" }, { "name": "CreatedDateTime" } ]
         /// </summary>
         [Input("outputColumns")]
         public Input<object>? OutputColumns { get; set; }

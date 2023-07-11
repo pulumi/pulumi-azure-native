@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PrivateEndpointConnectionByName")]
     public partial class PrivateEndpointConnectionByName : global::Pulumi.CustomResource
@@ -76,6 +76,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +120,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<Inputs.PrivateEndpointConnectionRequestPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -72,7 +72,7 @@ def get_ingestion_setting(ingestion_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIngestionSettingResult:
     """
     Settings for ingesting security data and logs to correlate with resources associated with the subscription.
-    API Version: 2021-01-15-preview.
+    Azure REST API version: 2021-01-15-preview.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting
@@ -93,7 +93,7 @@ def get_ingestion_setting_output(ingestion_setting_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIngestionSettingResult]:
     """
     Settings for ingesting security data and logs to correlate with resources associated with the subscription.
-    API Version: 2021-01-15-preview.
+    Azure REST API version: 2021-01-15-preview.
 
 
     :param str ingestion_setting_name: Name of the ingestion setting

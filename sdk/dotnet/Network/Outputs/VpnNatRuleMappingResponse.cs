@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Address space for Vpn NatRule mapping.
         /// </summary>
         public readonly string? AddressSpace;
+        /// <summary>
+        /// Port range for Vpn NatRule mapping.
+        /// </summary>
+        public readonly string? PortRange;
 
         [OutputConstructor]
-        private VpnNatRuleMappingResponse(string? addressSpace)
+        private VpnNatRuleMappingResponse(
+            string? addressSpace,
+
+            string? portRange)
         {
             AddressSpace = addressSpace;
+            PortRange = portRange;
         }
     }
 }

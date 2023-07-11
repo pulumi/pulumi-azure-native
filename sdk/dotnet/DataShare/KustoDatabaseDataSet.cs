@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataShare
 {
     /// <summary>
     /// A kusto database data set.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2021-08-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:KustoDatabaseDataSet")]
     public partial class KustoDatabaseDataSet : global::Pulumi.CustomResource

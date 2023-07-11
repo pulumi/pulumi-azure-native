@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of the automation account type.
- * API Version: 2021-06-22.
+ * Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**

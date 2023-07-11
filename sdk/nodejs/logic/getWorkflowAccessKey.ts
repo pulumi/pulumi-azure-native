@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workflow access key.
- * API Version: 2015-02-01-preview.
+ * Azure REST API version: 2015-02-01-preview.
  */
 export function getWorkflowAccessKey(args: GetWorkflowAccessKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowAccessKeyResult> {
 
@@ -57,7 +57,7 @@ export interface GetWorkflowAccessKeyResult {
 }
 /**
  * Gets a workflow access key.
- * API Version: 2015-02-01-preview.
+ * Azure REST API version: 2015-02-01-preview.
  */
 export function getWorkflowAccessKeyOutput(args: GetWorkflowAccessKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowAccessKeyResult> {
     return pulumi.output(args).apply((a: any) => getWorkflowAccessKey(a, opts))

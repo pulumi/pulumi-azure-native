@@ -61,7 +61,7 @@ def get_git_hub_o_auth(location: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGitHubOAuthResult:
     """
     URL used to authorize the Developer Hub GitHub App
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-10-11-preview.
 
 
     :param str location: The name of Azure region.
@@ -84,7 +84,7 @@ def get_git_hub_o_auth_output(location: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitHubOAuthResult]:
     """
     URL used to authorize the Developer Hub GitHub App
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-10-11-preview.
 
 
     :param str location: The name of Azure region.

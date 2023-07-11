@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// Properties of an artifact source.
-    /// API Version: 2018-09-15.
+    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ArtifactSource")]
     public partial class ArtifactSource : global::Pulumi.CustomResource

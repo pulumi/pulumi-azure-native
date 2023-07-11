@@ -24,9 +24,11 @@ class IotHubDataConnectionArgs:
                  shared_access_policy_name: pulumi.Input[str],
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'IotHubDataFormat']]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IotHubDataConnection resource.
@@ -40,9 +42,11 @@ class IotHubDataConnectionArgs:
         :param pulumi.Input[str] shared_access_policy_name: The name of the share access policy
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'IotHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
+        :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: System properties of the iot hub
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+        :param pulumi.Input[str] retrieval_start_date: When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -56,12 +60,18 @@ class IotHubDataConnectionArgs:
             pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
+        if database_routing is None:
+            database_routing = 'Single'
+        if database_routing is not None:
+            pulumi.set(__self__, "database_routing", database_routing)
         if event_system_properties is not None:
             pulumi.set(__self__, "event_system_properties", event_system_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mapping_rule_name is not None:
             pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+        if retrieval_start_date is not None:
+            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -175,6 +185,18 @@ class IotHubDataConnectionArgs:
         pulumi.set(self, "data_format", value)
 
     @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[pulumi.Input[Union[str, 'DatabaseRouting']]]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
+
+    @database_routing.setter
+    def database_routing(self, value: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]]):
+        pulumi.set(self, "database_routing", value)
+
+    @property
     @pulumi.getter(name="eventSystemProperties")
     def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -211,6 +233,18 @@ class IotHubDataConnectionArgs:
         pulumi.set(self, "mapping_rule_name", value)
 
     @property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        """
+        return pulumi.get(self, "retrieval_start_date")
+
+    @retrieval_start_date.setter
+    def retrieval_start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retrieval_start_date", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -233,18 +267,20 @@ class IotHubDataConnection(pulumi.CustomResource):
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'IotHubDataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iot_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Class representing an iot hub data connection.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -253,6 +289,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'IotHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
+        :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: System properties of the iot hub
         :param pulumi.Input[str] iot_hub_resource_id: The resource ID of the Iot hub to be used to create a data connection.
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
@@ -260,6 +297,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] retrieval_start_date: When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
         :param pulumi.Input[str] shared_access_policy_name: The name of the share access policy
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
@@ -271,7 +309,7 @@ class IotHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an iot hub data connection.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -293,12 +331,14 @@ class IotHubDataConnection(pulumi.CustomResource):
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'IotHubDataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  iot_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[str]] = None,
                  shared_access_policy_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -321,6 +361,9 @@ class IotHubDataConnection(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            if database_routing is None:
+                database_routing = 'Single'
+            __props__.__dict__["database_routing"] = database_routing
             __props__.__dict__["event_system_properties"] = event_system_properties
             if iot_hub_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'iot_hub_resource_id'")
@@ -333,6 +376,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retrieval_start_date"] = retrieval_start_date
             if shared_access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_access_policy_name'")
             __props__.__dict__["shared_access_policy_name"] = shared_access_policy_name
@@ -340,7 +384,7 @@ class IotHubDataConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190121:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210827:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220201:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220707:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221111:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:IotHubDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190121:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210827:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220201:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220707:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221111:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:IotHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:IotHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IotHubDataConnection, __self__).__init__(
             'azure-native:kusto:IotHubDataConnection',
@@ -366,6 +410,7 @@ class IotHubDataConnection(pulumi.CustomResource):
 
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
+        __props__.__dict__["database_routing"] = None
         __props__.__dict__["event_system_properties"] = None
         __props__.__dict__["iot_hub_resource_id"] = None
         __props__.__dict__["kind"] = None
@@ -373,6 +418,7 @@ class IotHubDataConnection(pulumi.CustomResource):
         __props__.__dict__["mapping_rule_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["retrieval_start_date"] = None
         __props__.__dict__["shared_access_policy_name"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
@@ -393,6 +439,14 @@ class IotHubDataConnection(pulumi.CustomResource):
         The data format of the message. Optionally the data format can be added to each message.
         """
         return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
 
     @property
     @pulumi.getter(name="eventSystemProperties")
@@ -450,6 +504,14 @@ class IotHubDataConnection(pulumi.CustomResource):
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        """
+        return pulumi.get(self, "retrieval_start_date")
 
     @property
     @pulumi.getter(name="sharedAccessPolicyName")

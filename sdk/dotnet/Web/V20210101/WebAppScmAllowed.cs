@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Web.V20210101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppScmAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppScmAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppScmAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppScmAllowed"},

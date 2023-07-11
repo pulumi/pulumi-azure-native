@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the status of long running operation
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserOperationStatus(args: GetGlobalUserOperationStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserOperationStatusResult> {
 
@@ -39,7 +39,7 @@ export interface GetGlobalUserOperationStatusResult {
 }
 /**
  * Gets the status of long running operation
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserOperationStatusOutput(args: GetGlobalUserOperationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserOperationStatusResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserOperationStatus(a, opts))

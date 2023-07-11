@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// A job step.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:JobStep is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobStep to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:JobStep")]
     public partial class JobStep : global::Pulumi.CustomResource
     {
@@ -101,6 +100,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:JobStep"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:JobStep"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:JobStep"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:JobStep"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

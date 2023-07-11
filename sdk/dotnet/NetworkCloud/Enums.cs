@@ -8,6 +8,69 @@ using Pulumi;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
+    /// The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdvertiseToFabric : IEquatable<AdvertiseToFabric>
+    {
+        private readonly string _value;
+
+        private AdvertiseToFabric(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdvertiseToFabric True { get; } = new AdvertiseToFabric("True");
+        public static AdvertiseToFabric False { get; } = new AdvertiseToFabric("False");
+
+        public static bool operator ==(AdvertiseToFabric left, AdvertiseToFabric right) => left.Equals(right);
+        public static bool operator !=(AdvertiseToFabric left, AdvertiseToFabric right) => !left.Equals(right);
+
+        public static explicit operator string(AdvertiseToFabric value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdvertiseToFabric other && Equals(other);
+        public bool Equals(AdvertiseToFabric other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentPoolMode : IEquatable<AgentPoolMode>
+    {
+        private readonly string _value;
+
+        private AgentPoolMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentPoolMode System { get; } = new AgentPoolMode("System");
+        public static AgentPoolMode User { get; } = new AgentPoolMode("User");
+        public static AgentPoolMode NotApplicable { get; } = new AgentPoolMode("NotApplicable");
+
+        public static bool operator ==(AgentPoolMode left, AgentPoolMode right) => left.Equals(right);
+        public static bool operator !=(AgentPoolMode left, AgentPoolMode right) => !left.Equals(right);
+
+        public static explicit operator string(AgentPoolMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentPoolMode other && Equals(other);
+        public bool Equals(AgentPoolMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The access level allowed for the users in this key set.
     /// </summary>
     [EnumType]
@@ -31,6 +94,68 @@ namespace Pulumi.AzureNative.NetworkCloud
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BareMetalMachineKeySetPrivilegeLevel other && Equals(other);
         public bool Equals(BareMetalMachineKeySetPrivilegeLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+    /// </summary>
+    [EnumType]
+    public readonly struct BfdEnabled : IEquatable<BfdEnabled>
+    {
+        private readonly string _value;
+
+        private BfdEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BfdEnabled True { get; } = new BfdEnabled("True");
+        public static BfdEnabled False { get; } = new BfdEnabled("False");
+
+        public static bool operator ==(BfdEnabled left, BfdEnabled right) => left.Equals(right);
+        public static bool operator !=(BfdEnabled left, BfdEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(BfdEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BfdEnabled other && Equals(other);
+        public bool Equals(BfdEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The indicator to enable multi-hop peering support.
+    /// </summary>
+    [EnumType]
+    public readonly struct BgpMultiHop : IEquatable<BgpMultiHop>
+    {
+        private readonly string _value;
+
+        private BgpMultiHop(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BgpMultiHop True { get; } = new BgpMultiHop("True");
+        public static BgpMultiHop False { get; } = new BgpMultiHop("False");
+
+        public static bool operator ==(BgpMultiHop left, BgpMultiHop right) => left.Equals(right);
+        public static bool operator !=(BgpMultiHop left, BgpMultiHop right) => !left.Equals(right);
+
+        public static explicit operator string(BgpMultiHop value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BgpMultiHop other && Equals(other);
+        public bool Equals(BgpMultiHop other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -195,7 +320,69 @@ namespace Pulumi.AzureNative.NetworkCloud
     }
 
     /// <summary>
-    /// The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+    /// The indicator to specify if the load balancer peers with the network fabric.
+    /// </summary>
+    [EnumType]
+    public readonly struct FabricPeeringEnabled : IEquatable<FabricPeeringEnabled>
+    {
+        private readonly string _value;
+
+        private FabricPeeringEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FabricPeeringEnabled True { get; } = new FabricPeeringEnabled("True");
+        public static FabricPeeringEnabled False { get; } = new FabricPeeringEnabled("False");
+
+        public static bool operator ==(FabricPeeringEnabled left, FabricPeeringEnabled right) => left.Equals(right);
+        public static bool operator !=(FabricPeeringEnabled left, FabricPeeringEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(FabricPeeringEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FabricPeeringEnabled other && Equals(other);
+        public bool Equals(FabricPeeringEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The size of the hugepages to allocate.
+    /// </summary>
+    [EnumType]
+    public readonly struct HugepagesSize : IEquatable<HugepagesSize>
+    {
+        private readonly string _value;
+
+        private HugepagesSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HugepagesSize HugepagesSize_2M { get; } = new HugepagesSize("2M");
+        public static HugepagesSize HugepagesSize_1G { get; } = new HugepagesSize("1G");
+
+        public static bool operator ==(HugepagesSize left, HugepagesSize right) => left.Equals(right);
+        public static bool operator !=(HugepagesSize left, HugepagesSize right) => !left.Equals(right);
+
+        public static explicit operator string(HugepagesSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HugepagesSize other && Equals(other);
+        public bool Equals(HugepagesSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
     /// </summary>
     [EnumType]
     public readonly struct HybridAksIpamEnabled : IEquatable<HybridAksIpamEnabled>
@@ -226,7 +413,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     }
 
     /// <summary>
-    /// The network plugin type for Hybrid AKS.
+    /// Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
     /// </summary>
     [EnumType]
     public readonly struct HybridAksPluginType : IEquatable<HybridAksPluginType>
@@ -282,6 +469,71 @@ namespace Pulumi.AzureNative.NetworkCloud
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IpAllocationType other && Equals(other);
         public bool Equals(IpAllocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The indicator of how this network will be utilized by the Kubernetes cluster.
+    /// </summary>
+    [EnumType]
+    public readonly struct KubernetesPluginType : IEquatable<KubernetesPluginType>
+    {
+        private readonly string _value;
+
+        private KubernetesPluginType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KubernetesPluginType DPDK { get; } = new KubernetesPluginType("DPDK");
+        public static KubernetesPluginType SRIOV { get; } = new KubernetesPluginType("SRIOV");
+        public static KubernetesPluginType OSDevice { get; } = new KubernetesPluginType("OSDevice");
+        public static KubernetesPluginType MACVLAN { get; } = new KubernetesPluginType("MACVLAN");
+        public static KubernetesPluginType IPVLAN { get; } = new KubernetesPluginType("IPVLAN");
+
+        public static bool operator ==(KubernetesPluginType left, KubernetesPluginType right) => left.Equals(right);
+        public static bool operator !=(KubernetesPluginType left, KubernetesPluginType right) => !left.Equals(right);
+
+        public static explicit operator string(KubernetesPluginType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KubernetesPluginType other && Equals(other);
+        public bool Equals(KubernetesPluginType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+    /// </summary>
+    [EnumType]
+    public readonly struct L3NetworkConfigurationIpamEnabled : IEquatable<L3NetworkConfigurationIpamEnabled>
+    {
+        private readonly string _value;
+
+        private L3NetworkConfigurationIpamEnabled(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static L3NetworkConfigurationIpamEnabled True { get; } = new L3NetworkConfigurationIpamEnabled("True");
+        public static L3NetworkConfigurationIpamEnabled False { get; } = new L3NetworkConfigurationIpamEnabled("False");
+
+        public static bool operator ==(L3NetworkConfigurationIpamEnabled left, L3NetworkConfigurationIpamEnabled right) => left.Equals(right);
+        public static bool operator !=(L3NetworkConfigurationIpamEnabled left, L3NetworkConfigurationIpamEnabled right) => !left.Equals(right);
+
+        public static explicit operator string(L3NetworkConfigurationIpamEnabled value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is L3NetworkConfigurationIpamEnabled other && Equals(other);
+        public bool Equals(L3NetworkConfigurationIpamEnabled other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

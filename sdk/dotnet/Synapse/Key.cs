@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A workspace key
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Key")]
     public partial class Key : global::Pulumi.CustomResource
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Data Lake Store virtual network rule.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2016-11-01.
  */
 export function getVirtualNetworkRule(args: GetVirtualNetworkRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkRuleResult> {
 
@@ -56,7 +56,7 @@ export interface GetVirtualNetworkRuleResult {
 }
 /**
  * Gets the specified Data Lake Store virtual network rule.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2016-11-01.
  */
 export function getVirtualNetworkRuleOutput(args: GetVirtualNetworkRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkRuleResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetworkRule(a, opts))

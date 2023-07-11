@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get OuContainer in DomainService instance.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
 
@@ -103,7 +103,7 @@ export interface GetOuContainerResult {
 }
 /**
  * Get OuContainer in DomainService instance.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getOuContainerOutput(args: GetOuContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOuContainerResult> {
     return pulumi.output(args).apply((a: any) => getOuContainer(a, opts))

@@ -20,11 +20,9 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 export * from "../types/enums/quantum";
 
 // Export sub-modules:
-import * as v20191104preview from "./v20191104preview";
 import * as v20220110preview from "./v20220110preview";
 
 export {
-    v20191104preview,
     v20220110preview,
 };
 

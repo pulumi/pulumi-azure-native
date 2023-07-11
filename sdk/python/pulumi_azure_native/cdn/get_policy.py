@@ -22,7 +22,7 @@ class GetPolicyResult:
     """
     Defines web application firewall policy for Azure CDN.
     """
-    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, custom_rules=None, endpoint_links=None, etag=None, extended_properties=None, id=None, location=None, managed_rules=None, name=None, policy_settings=None, provisioning_state=None, rate_limit_rules=None, resource_state=None, sku=None, system_data=None, tags=None, type=None):
         if custom_rules and not isinstance(custom_rules, dict):
             raise TypeError("Expected argument 'custom_rules' to be a dict")
         pulumi.set(__self__, "custom_rules", custom_rules)
@@ -32,6 +32,9 @@ class GetPolicyResult:
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
+        if extended_properties and not isinstance(extended_properties, dict):
+            raise TypeError("Expected argument 'extended_properties' to be a dict")
+        pulumi.set(__self__, "extended_properties", extended_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -92,6 +95,14 @@ class GetPolicyResult:
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-Value pair representing additional properties for Web Application Firewall policy.
+        """
+        return pulumi.get(self, "extended_properties")
 
     @property
     @pulumi.getter
@@ -196,6 +207,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             custom_rules=self.custom_rules,
             endpoint_links=self.endpoint_links,
             etag=self.etag,
+            extended_properties=self.extended_properties,
             id=self.id,
             location=self.location,
             managed_rules=self.managed_rules,
@@ -215,7 +227,7 @@ def get_policy(policy_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyResult:
     """
     Retrieve protection policy with specified name within a resource group.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -231,6 +243,7 @@ def get_policy(policy_name: Optional[str] = None,
         custom_rules=__ret__.custom_rules,
         endpoint_links=__ret__.endpoint_links,
         etag=__ret__.etag,
+        extended_properties=__ret__.extended_properties,
         id=__ret__.id,
         location=__ret__.location,
         managed_rules=__ret__.managed_rules,
@@ -251,7 +264,7 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Retrieve protection policy with specified name within a resource group.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.

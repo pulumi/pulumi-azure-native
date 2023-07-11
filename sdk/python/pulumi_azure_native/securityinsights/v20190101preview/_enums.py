@@ -5,85 +5,20 @@
 from enum import Enum
 
 __all__ = [
-    'AlertRuleKind',
-    'AlertSeverity',
-    'AttackTactic',
     'AutomationRuleActionType',
     'AutomationRuleConditionType',
     'AutomationRulePropertyConditionSupportedOperator',
     'AutomationRulePropertyConditionSupportedProperty',
-    'DataConnectorKind',
-    'DataTypeState',
-    'EntitiesMatchingMethod',
     'EntityTimelineKind',
-    'EventGroupingAggregationKind',
-    'GroupingEntityType',
     'IncidentClassification',
     'IncidentClassificationReason',
     'IncidentSeverity',
     'IncidentStatus',
-    'MicrosoftSecurityProductName',
-    'PollingFrequency',
     'SettingKind',
     'Source',
-    'ThreatIntelligenceResourceKind',
-    'TriggerOperator',
     'TriggersOn',
     'TriggersWhen',
-    'UebaDataSources',
 ]
-
-
-class AlertRuleKind(str, Enum):
-    """
-    The kind of the alert rule
-    """
-    SCHEDULED = "Scheduled"
-    MICROSOFT_SECURITY_INCIDENT_CREATION = "MicrosoftSecurityIncidentCreation"
-    FUSION = "Fusion"
-    ML_BEHAVIOR_ANALYTICS = "MLBehaviorAnalytics"
-    THREAT_INTELLIGENCE = "ThreatIntelligence"
-
-
-class AlertSeverity(str, Enum):
-    """
-    The severity for alerts created by this alert rule.
-    """
-    HIGH = "High"
-    """
-    High severity
-    """
-    MEDIUM = "Medium"
-    """
-    Medium severity
-    """
-    LOW = "Low"
-    """
-    Low severity
-    """
-    INFORMATIONAL = "Informational"
-    """
-    Informational severity
-    """
-
-
-class AttackTactic(str, Enum):
-    """
-    The severity for alerts created by this alert rule.
-    """
-    INITIAL_ACCESS = "InitialAccess"
-    EXECUTION = "Execution"
-    PERSISTENCE = "Persistence"
-    PRIVILEGE_ESCALATION = "PrivilegeEscalation"
-    DEFENSE_EVASION = "DefenseEvasion"
-    CREDENTIAL_ACCESS = "CredentialAccess"
-    DISCOVERY = "Discovery"
-    LATERAL_MOVEMENT = "LateralMovement"
-    COLLECTION = "Collection"
-    EXFILTRATION = "Exfiltration"
-    COMMAND_AND_CONTROL = "CommandAndControl"
-    IMPACT = "Impact"
-    PRE_ATTACK = "PreAttack"
 
 
 class AutomationRuleActionType(str, Enum):
@@ -362,51 +297,6 @@ class AutomationRulePropertyConditionSupportedProperty(str, Enum):
     """
 
 
-class DataConnectorKind(str, Enum):
-    """
-    The kind of the data connector
-    """
-    AZURE_ACTIVE_DIRECTORY = "AzureActiveDirectory"
-    AZURE_SECURITY_CENTER = "AzureSecurityCenter"
-    MICROSOFT_CLOUD_APP_SECURITY = "MicrosoftCloudAppSecurity"
-    THREAT_INTELLIGENCE = "ThreatIntelligence"
-    THREAT_INTELLIGENCE_TAXII = "ThreatIntelligenceTaxii"
-    OFFICE365 = "Office365"
-    OFFICE_ATP = "OfficeATP"
-    AMAZON_WEB_SERVICES_CLOUD_TRAIL = "AmazonWebServicesCloudTrail"
-    AZURE_ADVANCED_THREAT_PROTECTION = "AzureAdvancedThreatProtection"
-    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "MicrosoftDefenderAdvancedThreatProtection"
-    DYNAMICS365 = "Dynamics365"
-    MICROSOFT_THREAT_PROTECTION = "MicrosoftThreatProtection"
-    MICROSOFT_THREAT_INTELLIGENCE = "MicrosoftThreatIntelligence"
-
-
-class DataTypeState(str, Enum):
-    """
-    Describe whether this data type connection is enabled or not.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class EntitiesMatchingMethod(str, Enum):
-    """
-    Grouping matching method
-    """
-    ALL = "All"
-    """
-    Grouping alerts into a single incident if all the entities match
-    """
-    NONE = "None"
-    """
-    Grouping all alerts triggered by this rule into a single incident
-    """
-    CUSTOM = "Custom"
-    """
-    Grouping alerts into a single incident if the selected entities match
-    """
-
-
 class EntityTimelineKind(str, Enum):
     """
     The entity query kind
@@ -422,40 +312,6 @@ class EntityTimelineKind(str, Enum):
     SECURITY_ALERT = "SecurityAlert"
     """
     security alerts
-    """
-
-
-class EventGroupingAggregationKind(str, Enum):
-    """
-    The event grouping aggregation kinds
-    """
-    SINGLE_ALERT = "SingleAlert"
-    ALERT_PER_RESULT = "AlertPerResult"
-
-
-class GroupingEntityType(str, Enum):
-    """
-    Grouping entity type
-    """
-    ACCOUNT = "Account"
-    """
-    Account entity
-    """
-    HOST = "Host"
-    """
-    Host entity
-    """
-    IP = "Ip"
-    """
-    Ip entity
-    """
-    URL = "Url"
-    """
-    Url entity
-    """
-    FILE_HASH = "FileHash"
-    """
-    FileHash entity
     """
 
 
@@ -483,7 +339,7 @@ class IncidentClassification(str, Enum):
 
 class IncidentClassificationReason(str, Enum):
     """
-    The classification reason the incident was closed with
+    The classification reason to close the incident with
     """
     SUSPICIOUS_ACTIVITY = "SuspiciousActivity"
     """
@@ -543,37 +399,6 @@ class IncidentStatus(str, Enum):
     """
 
 
-class MicrosoftSecurityProductName(str, Enum):
-    """
-    The alerts' productName on which the cases will be generated
-    """
-    MICROSOFT_CLOUD_APP_SECURITY = "Microsoft Cloud App Security"
-    AZURE_SECURITY_CENTER = "Azure Security Center"
-    AZURE_ADVANCED_THREAT_PROTECTION = "Azure Advanced Threat Protection"
-    AZURE_ACTIVE_DIRECTORY_IDENTITY_PROTECTION = "Azure Active Directory Identity Protection"
-    AZURE_SECURITY_CENTER_FOR_IO_T = "Azure Security Center for IoT"
-    OFFICE_365_ADVANCED_THREAT_PROTECTION = "Office 365 Advanced Threat Protection"
-    MICROSOFT_DEFENDER_ADVANCED_THREAT_PROTECTION = "Microsoft Defender Advanced Threat Protection"
-
-
-class PollingFrequency(str, Enum):
-    """
-    The polling frequency for the TAXII server.
-    """
-    ONCE_A_MINUTE = "OnceAMinute"
-    """
-    Once a minute
-    """
-    ONCE_AN_HOUR = "OnceAnHour"
-    """
-    Once an hour
-    """
-    ONCE_A_DAY = "OnceADay"
-    """
-    Once a day
-    """
-
-
 class SettingKind(str, Enum):
     """
     The kind of the setting
@@ -590,26 +415,6 @@ class Source(str, Enum):
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
-
-
-class ThreatIntelligenceResourceKind(str, Enum):
-    """
-    The kind of the entity.
-    """
-    INDICATOR = "indicator"
-    """
-    Entity represents threat intelligence indicator in the system.
-    """
-
-
-class TriggerOperator(str, Enum):
-    """
-    The operation against the threshold that triggers alert rule.
-    """
-    GREATER_THAN = "GreaterThan"
-    LESS_THAN = "LessThan"
-    EQUAL = "Equal"
-    NOT_EQUAL = "NotEqual"
 
 
 class TriggersOn(str, Enum):
@@ -630,13 +435,3 @@ class TriggersWhen(str, Enum):
     """
     Trigger on created objects
     """
-
-
-class UebaDataSources(str, Enum):
-    """
-    The data source that enriched by ueba.
-    """
-    AUDIT_LOGS = "AuditLogs"
-    AZURE_ACTIVITY = "AzureActivity"
-    SECURITY_EVENT = "SecurityEvent"
-    SIGNIN_LOGS = "SigninLogs"

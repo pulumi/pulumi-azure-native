@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Streaming Policy in the Media Services account
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetStreamingPolicyResult> InvokeAsync(GetStreamingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStreamingPolicyResult>("azure-native:media:getStreamingPolicy", args ?? new GetStreamingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of a Streaming Policy in the Media Services account
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetStreamingPolicyResult> Invoke(GetStreamingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingPolicyResult>("azure-native:media:getStreamingPolicy", args ?? new GetStreamingPolicyInvokeArgs(), options.WithDefaults());

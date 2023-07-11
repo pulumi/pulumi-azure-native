@@ -25,13 +25,21 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// </summary>
         public readonly bool? EnableAutoTierToHotFromCool;
         /// <summary>
-        /// The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+        /// The function to tier blobs to archive storage.
         /// </summary>
         public readonly Outputs.DateAfterModificationResponse? TierToArchive;
         /// <summary>
-        /// The function to tier blobs to cool storage. Support blobs currently at Hot tier
+        /// The function to tier blobs to cold storage.
+        /// </summary>
+        public readonly Outputs.DateAfterModificationResponse? TierToCold;
+        /// <summary>
+        /// The function to tier blobs to cool storage.
         /// </summary>
         public readonly Outputs.DateAfterModificationResponse? TierToCool;
+        /// <summary>
+        /// The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+        /// </summary>
+        public readonly Outputs.DateAfterModificationResponse? TierToHot;
 
         [OutputConstructor]
         private ManagementPolicyBaseBlobResponse(
@@ -41,12 +49,18 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
             Outputs.DateAfterModificationResponse? tierToArchive,
 
-            Outputs.DateAfterModificationResponse? tierToCool)
+            Outputs.DateAfterModificationResponse? tierToCold,
+
+            Outputs.DateAfterModificationResponse? tierToCool,
+
+            Outputs.DateAfterModificationResponse? tierToHot)
         {
             Delete = delete;
             EnableAutoTierToHotFromCool = enableAutoTierToHotFromCool;
             TierToArchive = tierToArchive;
+            TierToCold = tierToCold;
             TierToCool = tierToCool;
+            TierToHot = tierToHot;
         }
     }
 }

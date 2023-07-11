@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a managed instance key.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetManagedInstanceKeyResult> InvokeAsync(GetManagedInstanceKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedInstanceKeyResult>("azure-native:sql:getManagedInstanceKey", args ?? new GetManagedInstanceKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed instance key.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetManagedInstanceKeyResult> Invoke(GetManagedInstanceKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedInstanceKeyResult>("azure-native:sql:getManagedInstanceKey", args ?? new GetManagedInstanceKeyInvokeArgs(), options.WithDefaults());

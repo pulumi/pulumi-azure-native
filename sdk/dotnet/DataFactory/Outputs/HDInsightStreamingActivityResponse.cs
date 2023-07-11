@@ -69,6 +69,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Output blob path. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Output;
@@ -80,6 +84,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Reducer executable name. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Reducer;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Storage linked service references.
         /// </summary>
@@ -122,11 +130,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             object output,
 
             Outputs.ActivityPolicyResponse? policy,
 
             object reducer,
+
+            string? state,
 
             ImmutableArray<Outputs.LinkedServiceReferenceResponse> storageLinkedServices,
 
@@ -147,9 +159,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             LinkedServiceName = linkedServiceName;
             Mapper = mapper;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Output = output;
             Policy = policy;
             Reducer = reducer;
+            State = state;
             StorageLinkedServices = storageLinkedServices;
             Type = type;
             UserProperties = userProperties;

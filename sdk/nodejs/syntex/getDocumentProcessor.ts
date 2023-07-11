@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a document processor for a given name.
- * API Version: 2022-09-15-preview.
+ * Azure REST API version: 2022-09-15-preview.
  */
 export function getDocumentProcessor(args: GetDocumentProcessorArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentProcessorResult> {
 
@@ -66,7 +66,7 @@ export interface GetDocumentProcessorResult {
 }
 /**
  * Returns a document processor for a given name.
- * API Version: 2022-09-15-preview.
+ * Azure REST API version: 2022-09-15-preview.
  */
 export function getDocumentProcessorOutput(args: GetDocumentProcessorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentProcessorResult> {
     return pulumi.output(args).apply((a: any) => getDocumentProcessor(a, opts))

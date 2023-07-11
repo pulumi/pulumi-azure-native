@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ServiceFabric.Inputs
 {
 
+    /// <summary>
+    /// The policy used to clean up unused versions. When the policy is not specified explicitly, the default unused application versions to keep will be 3.
+    /// </summary>
     public sealed class ApplicationTypeVersionsCleanupPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of unused versions per application type to keep.
         /// </summary>
         [Input("maxUnusedVersionsToKeep", required: true)]
-        public Input<double> MaxUnusedVersionsToKeep { get; set; } = null!;
+        public Input<int> MaxUnusedVersionsToKeep { get; set; } = null!;
 
         public ApplicationTypeVersionsCleanupPolicyArgs()
         {

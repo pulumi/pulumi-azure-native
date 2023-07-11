@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection
- * API Version: 2018-06-01.
+ * The private endpoint connection resource.
+ * Azure REST API version: 2022-09-30-preview. Prior API version in Azure Native 1.x: 2018-06-01
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,21 +39,29 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * The group ids for the private endpoint resource.
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint which the connection belongs to.
+     * The private endpoint resource.
      */
-    public readonly privateEndpoint!: pulumi.Output<outputs.dbformysql.PrivateEndpointPropertyResponse | undefined>;
+    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.dbformysql.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.dbformysql.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
+    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.dbformysql.PrivateLinkServiceConnectionStateResponse>;
     /**
-     * State of the private endpoint connection.
+     * The provisioning state of the private endpoint connection resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -70,29 +78,36 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.privateLinkServiceConnectionState === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.serverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20180601:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbformysql/v20220930preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -102,15 +117,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a PrivateEndpointConnection resource.
  */
 export interface PrivateEndpointConnectionArgs {
-    /**
-     * Private endpoint which the connection belongs to.
-     */
-    privateEndpoint?: pulumi.Input<inputs.dbformysql.PrivateEndpointPropertyArgs>;
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.dbformysql.PrivateLinkServiceConnectionStatePropertyArgs>;
+    privateLinkServiceConnectionState: pulumi.Input<inputs.dbformysql.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

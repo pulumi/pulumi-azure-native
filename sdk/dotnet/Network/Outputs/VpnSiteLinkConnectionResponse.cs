@@ -93,6 +93,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string? VpnConnectionProtocolType;
         /// <summary>
+        /// vpnGatewayCustomBgpAddresses used by this connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GatewayCustomBgpIpAddressIpConfigurationResponse> VpnGatewayCustomBgpAddresses;
+        /// <summary>
         /// Vpn link connection mode.
         /// </summary>
         public readonly string? VpnLinkConnectionMode;
@@ -141,6 +145,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string? vpnConnectionProtocolType,
 
+            ImmutableArray<Outputs.GatewayCustomBgpIpAddressIpConfigurationResponse> vpnGatewayCustomBgpAddresses,
+
             string? vpnLinkConnectionMode,
 
             Outputs.SubResourceResponse? vpnSiteLink)
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             UseLocalAzureIpAddress = useLocalAzureIpAddress;
             UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
             VpnConnectionProtocolType = vpnConnectionProtocolType;
+            VpnGatewayCustomBgpAddresses = vpnGatewayCustomBgpAddresses;
             VpnLinkConnectionMode = vpnLinkConnectionMode;
             VpnSiteLink = vpnSiteLink;
         }

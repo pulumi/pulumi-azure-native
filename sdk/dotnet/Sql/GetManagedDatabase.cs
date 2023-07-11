@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a managed database.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetManagedDatabaseResult> InvokeAsync(GetManagedDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedDatabaseResult>("azure-native:sql:getManagedDatabase", args ?? new GetManagedDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a managed database.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetManagedDatabaseResult> Invoke(GetManagedDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedDatabaseResult>("azure-native:sql:getManagedDatabase", args ?? new GetManagedDatabaseInvokeArgs(), options.WithDefaults());

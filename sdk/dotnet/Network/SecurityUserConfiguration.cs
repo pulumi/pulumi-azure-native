@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// Defines the security configuration
-    /// API Version: 2021-02-01-preview.
+    /// Defines the security user configuration
+    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityUserConfiguration")]
     public partial class SecurityUserConfiguration : global::Pulumi.CustomResource
@@ -23,16 +23,10 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> DeleteExistingNSGs { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the security configuration.
+        /// A description of the security user configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A display name of the security configuration.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -51,12 +45,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Security Type.
-        /// </summary>
-        [Output("securityType")]
-        public Output<string?> SecurityType { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -123,7 +111,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class SecurityUserConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
@@ -135,16 +123,10 @@ namespace Pulumi.AzureNative.Network
         public InputUnion<string, Pulumi.AzureNative.Network.DeleteExistingNSGs>? DeleteExistingNSGs { get; set; }
 
         /// <summary>
-        /// A description of the security configuration.
+        /// A description of the security user configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A display name of the security configuration.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// The name of the network manager.
@@ -157,12 +139,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Security Type.
-        /// </summary>
-        [Input("securityType")]
-        public InputUnion<string, Pulumi.AzureNative.Network.SecurityType>? SecurityType { get; set; }
 
         public SecurityUserConfigurationArgs()
         {

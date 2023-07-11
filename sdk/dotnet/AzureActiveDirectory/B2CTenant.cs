@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.AzureActiveDirectory
 {
     /// <summary>
-    /// API Version: 2019-01-01-preview.
+    /// Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2019-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:B2CTenant")]
     public partial class B2CTenant : global::Pulumi.CustomResource
@@ -22,13 +22,13 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public Output<Outputs.B2CTenantResourcePropertiesResponseBillingConfig?> BillingConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the B2C tenant resource.
+        /// The name of the Azure AD B2C tenant resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -40,13 +40,19 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public Output<Outputs.B2CResourceSKUResponse> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// An identifier of the B2C tenant.
+        /// An identifier of the Azure AD B2C tenant.
         /// </summary>
         [Output("tenantId")]
         public Output<string?> TenantId { get; private set; } = null!;
@@ -109,13 +115,22 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     public sealed class B2CTenantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia' (preview). Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
+        /// Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
+        /// </summary>
+        [Input("countryCode")]
+        public Input<string>? CountryCode { get; set; }
+
+        /// <summary>
+        /// The display name of the Azure AD B2C tenant.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/B2CDataResidency) for more information.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        [Input("properties", required: true)]
-        public Input<Inputs.CreateTenantRequestBodyPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -124,7 +139,7 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The initial domain name of the B2C tenant.
+        /// The initial domain name of the Azure AD B2C tenant.
         /// </summary>
         [Input("resourceName")]
         public Input<string>? ResourceName { get; set; }

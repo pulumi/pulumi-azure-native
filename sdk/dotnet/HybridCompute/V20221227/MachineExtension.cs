@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227
     /// <summary>
     /// Describes a Machine Extension.
     /// </summary>
-    [Obsolete(@"azure-native:hybridcompute/v20221227:MachineExtension is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:MachineExtension to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20221227:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource
     {
@@ -143,6 +142,8 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20220811preview:MachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221110:MachineExtension"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20221227preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230315preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcompute/v20230425preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

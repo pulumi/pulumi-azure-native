@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Returns the path associated with the subvolumeName provided
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetSubvolumeResult> InvokeAsync(GetSubvolumeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubvolumeResult>("azure-native:netapp:getSubvolume", args ?? new GetSubvolumeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns the path associated with the subvolumeName provided
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetSubvolumeResult> Invoke(GetSubvolumeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubvolumeResult>("azure-native:netapp:getSubvolume", args ?? new GetSubvolumeInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.NetApp
         public string PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>

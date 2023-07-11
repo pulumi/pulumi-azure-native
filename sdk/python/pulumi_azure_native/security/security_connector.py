@@ -18,29 +18,31 @@ __all__ = ['SecurityConnectorArgs', 'SecurityConnector']
 class SecurityConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 cloud_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
+                 environment_data: Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs']]] = None,
+                 environment_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]] = None,
-                 organizational_data: Optional[pulumi.Input['SecurityConnectorPropertiesOrganizationalDataArgs']] = None,
+                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForDevOpsAzureDevOpsOfferingArgs', 'DefenderForDevOpsGitLabOfferingArgs', 'DefenderForDevOpsGithubOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a SecurityConnector resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[Union[str, 'CloudName']] cloud_name: The multi cloud resource's cloud name.
-        :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector).
+        :param pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs']] environment_data: The security connector environment data.
+        :param pulumi.Input[Union[str, 'CloudName']] environment_name: The multi cloud resource's cloud name.
+        :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]] offerings: A collection of offerings for the security connector.
-        :param pulumi.Input['SecurityConnectorPropertiesOrganizationalDataArgs'] organizational_data: The multi cloud account's organizational data
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForDevOpsAzureDevOpsOfferingArgs', 'DefenderForDevOpsGitLabOfferingArgs', 'DefenderForDevOpsGithubOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]] offerings: A collection of offerings for the security connector.
         :param pulumi.Input[str] security_connector_name: The security connector name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if cloud_name is not None:
-            pulumi.set(__self__, "cloud_name", cloud_name)
+        if environment_data is not None:
+            pulumi.set(__self__, "environment_data", environment_data)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
         if hierarchy_identifier is not None:
             pulumi.set(__self__, "hierarchy_identifier", hierarchy_identifier)
         if kind is not None:
@@ -49,8 +51,6 @@ class SecurityConnectorArgs:
             pulumi.set(__self__, "location", location)
         if offerings is not None:
             pulumi.set(__self__, "offerings", offerings)
-        if organizational_data is not None:
-            pulumi.set(__self__, "organizational_data", organizational_data)
         if security_connector_name is not None:
             pulumi.set(__self__, "security_connector_name", security_connector_name)
         if tags is not None:
@@ -69,22 +69,34 @@ class SecurityConnectorArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="cloudName")
-    def cloud_name(self) -> Optional[pulumi.Input[Union[str, 'CloudName']]]:
+    @pulumi.getter(name="environmentData")
+    def environment_data(self) -> Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs']]]:
+        """
+        The security connector environment data.
+        """
+        return pulumi.get(self, "environment_data")
+
+    @environment_data.setter
+    def environment_data(self, value: Optional[pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs']]]):
+        pulumi.set(self, "environment_data", value)
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> Optional[pulumi.Input[Union[str, 'CloudName']]]:
         """
         The multi cloud resource's cloud name.
         """
-        return pulumi.get(self, "cloud_name")
+        return pulumi.get(self, "environment_name")
 
-    @cloud_name.setter
-    def cloud_name(self, value: Optional[pulumi.Input[Union[str, 'CloudName']]]):
-        pulumi.set(self, "cloud_name", value)
+    @environment_name.setter
+    def environment_name(self, value: Optional[pulumi.Input[Union[str, 'CloudName']]]):
+        pulumi.set(self, "environment_name", value)
 
     @property
     @pulumi.getter(name="hierarchyIdentifier")
     def hierarchy_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The multi cloud resource identifier (account id in case of AWS connector).
+        The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         """
         return pulumi.get(self, "hierarchy_identifier")
 
@@ -118,27 +130,15 @@ class SecurityConnectorArgs:
 
     @property
     @pulumi.getter
-    def offerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]]:
+    def offerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForDevOpsAzureDevOpsOfferingArgs', 'DefenderForDevOpsGitLabOfferingArgs', 'DefenderForDevOpsGithubOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]]:
         """
         A collection of offerings for the security connector.
         """
         return pulumi.get(self, "offerings")
 
     @offerings.setter
-    def offerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]]):
+    def offerings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForDevOpsAzureDevOpsOfferingArgs', 'DefenderForDevOpsGitLabOfferingArgs', 'DefenderForDevOpsGithubOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs', 'InformationProtectionAwsOfferingArgs']]]]]):
         pulumi.set(self, "offerings", value)
-
-    @property
-    @pulumi.getter(name="organizationalData")
-    def organizational_data(self) -> Optional[pulumi.Input['SecurityConnectorPropertiesOrganizationalDataArgs']]:
-        """
-        The multi cloud account's organizational data
-        """
-        return pulumi.get(self, "organizational_data")
-
-    @organizational_data.setter
-    def organizational_data(self, value: Optional[pulumi.Input['SecurityConnectorPropertiesOrganizationalDataArgs']]):
-        pulumi.set(self, "organizational_data", value)
 
     @property
     @pulumi.getter(name="securityConnectorName")
@@ -170,28 +170,28 @@ class SecurityConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
+                 environment_data: Optional[pulumi.Input[Union[pulumi.InputType['AwsEnvironmentDataArgs'], pulumi.InputType['AzureDevOpsScopeEnvironmentDataArgs'], pulumi.InputType['GcpProjectEnvironmentDataArgs'], pulumi.InputType['GithubScopeEnvironmentDataArgs'], pulumi.InputType['GitlabScopeEnvironmentDataArgs']]]] = None,
+                 environment_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]]] = None,
-                 organizational_data: Optional[pulumi.Input[pulumi.InputType['SecurityConnectorPropertiesOrganizationalDataArgs']]] = None,
+                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['CspmMonitorAzureDevOpsOfferingArgs'], pulumi.InputType['CspmMonitorGcpOfferingArgs'], pulumi.InputType['CspmMonitorGitLabOfferingArgs'], pulumi.InputType['CspmMonitorGithubOfferingArgs'], pulumi.InputType['DefenderCspmAwsOfferingArgs'], pulumi.InputType['DefenderCspmGcpOfferingArgs'], pulumi.InputType['DefenderFoDatabasesAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForContainersGcpOfferingArgs'], pulumi.InputType['DefenderForDatabasesGcpOfferingArgs'], pulumi.InputType['DefenderForDevOpsAzureDevOpsOfferingArgs'], pulumi.InputType['DefenderForDevOpsGitLabOfferingArgs'], pulumi.InputType['DefenderForDevOpsGithubOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['DefenderForServersGcpOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         The security connector resource.
-        API Version: 2021-07-01-preview.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[str, 'CloudName']] cloud_name: The multi cloud resource's cloud name.
-        :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector).
+        :param pulumi.Input[Union[pulumi.InputType['AwsEnvironmentDataArgs'], pulumi.InputType['AzureDevOpsScopeEnvironmentDataArgs'], pulumi.InputType['GcpProjectEnvironmentDataArgs'], pulumi.InputType['GithubScopeEnvironmentDataArgs'], pulumi.InputType['GitlabScopeEnvironmentDataArgs']]] environment_data: The security connector environment data.
+        :param pulumi.Input[Union[str, 'CloudName']] environment_name: The multi cloud resource's cloud name.
+        :param pulumi.Input[str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         :param pulumi.Input[str] kind: Kind of the resource
         :param pulumi.Input[str] location: Location where the resource is stored
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]] offerings: A collection of offerings for the security connector.
-        :param pulumi.Input[pulumi.InputType['SecurityConnectorPropertiesOrganizationalDataArgs']] organizational_data: The multi cloud account's organizational data
+        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['CspmMonitorAzureDevOpsOfferingArgs'], pulumi.InputType['CspmMonitorGcpOfferingArgs'], pulumi.InputType['CspmMonitorGitLabOfferingArgs'], pulumi.InputType['CspmMonitorGithubOfferingArgs'], pulumi.InputType['DefenderCspmAwsOfferingArgs'], pulumi.InputType['DefenderCspmGcpOfferingArgs'], pulumi.InputType['DefenderFoDatabasesAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForContainersGcpOfferingArgs'], pulumi.InputType['DefenderForDatabasesGcpOfferingArgs'], pulumi.InputType['DefenderForDevOpsAzureDevOpsOfferingArgs'], pulumi.InputType['DefenderForDevOpsGitLabOfferingArgs'], pulumi.InputType['DefenderForDevOpsGithubOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['DefenderForServersGcpOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]] offerings: A collection of offerings for the security connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] security_connector_name: The security connector name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A list of key value pairs that describe the resource.
@@ -204,7 +204,7 @@ class SecurityConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The security connector resource.
-        API Version: 2021-07-01-preview.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -221,12 +221,12 @@ class SecurityConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloud_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
+                 environment_data: Optional[pulumi.Input[Union[pulumi.InputType['AwsEnvironmentDataArgs'], pulumi.InputType['AzureDevOpsScopeEnvironmentDataArgs'], pulumi.InputType['GcpProjectEnvironmentDataArgs'], pulumi.InputType['GithubScopeEnvironmentDataArgs'], pulumi.InputType['GitlabScopeEnvironmentDataArgs']]]] = None,
+                 environment_name: Optional[pulumi.Input[Union[str, 'CloudName']]] = None,
                  hierarchy_identifier: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]]] = None,
-                 organizational_data: Optional[pulumi.Input[pulumi.InputType['SecurityConnectorPropertiesOrganizationalDataArgs']]] = None,
+                 offerings: Optional[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['CspmMonitorAwsOfferingArgs'], pulumi.InputType['CspmMonitorAzureDevOpsOfferingArgs'], pulumi.InputType['CspmMonitorGcpOfferingArgs'], pulumi.InputType['CspmMonitorGitLabOfferingArgs'], pulumi.InputType['CspmMonitorGithubOfferingArgs'], pulumi.InputType['DefenderCspmAwsOfferingArgs'], pulumi.InputType['DefenderCspmGcpOfferingArgs'], pulumi.InputType['DefenderFoDatabasesAwsOfferingArgs'], pulumi.InputType['DefenderForContainersAwsOfferingArgs'], pulumi.InputType['DefenderForContainersGcpOfferingArgs'], pulumi.InputType['DefenderForDatabasesGcpOfferingArgs'], pulumi.InputType['DefenderForDevOpsAzureDevOpsOfferingArgs'], pulumi.InputType['DefenderForDevOpsGitLabOfferingArgs'], pulumi.InputType['DefenderForDevOpsGithubOfferingArgs'], pulumi.InputType['DefenderForServersAwsOfferingArgs'], pulumi.InputType['DefenderForServersGcpOfferingArgs'], pulumi.InputType['InformationProtectionAwsOfferingArgs']]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  security_connector_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -239,22 +239,23 @@ class SecurityConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityConnectorArgs.__new__(SecurityConnectorArgs)
 
-            __props__.__dict__["cloud_name"] = cloud_name
+            __props__.__dict__["environment_data"] = environment_data
+            __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["hierarchy_identifier"] = hierarchy_identifier
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["offerings"] = offerings
-            __props__.__dict__["organizational_data"] = organizational_data
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["security_connector_name"] = security_connector_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
+            __props__.__dict__["hierarchy_identifier_trial_end_date"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20210701preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20211201preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20220501preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20220801preview:SecurityConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20210701preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20211201preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20220501preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20220801preview:SecurityConnector"), pulumi.Alias(type_="azure-native:security/v20230301preview:SecurityConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityConnector, __self__).__init__(
             'azure-native:security:SecurityConnector',
@@ -278,26 +279,35 @@ class SecurityConnector(pulumi.CustomResource):
 
         __props__ = SecurityConnectorArgs.__new__(SecurityConnectorArgs)
 
-        __props__.__dict__["cloud_name"] = None
+        __props__.__dict__["environment_data"] = None
+        __props__.__dict__["environment_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["hierarchy_identifier"] = None
+        __props__.__dict__["hierarchy_identifier_trial_end_date"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["offerings"] = None
-        __props__.__dict__["organizational_data"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return SecurityConnector(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="cloudName")
-    def cloud_name(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="environmentData")
+    def environment_data(self) -> pulumi.Output[Optional[Any]]:
+        """
+        The security connector environment data.
+        """
+        return pulumi.get(self, "environment_data")
+
+    @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Output[Optional[str]]:
         """
         The multi cloud resource's cloud name.
         """
-        return pulumi.get(self, "cloud_name")
+        return pulumi.get(self, "environment_name")
 
     @property
     @pulumi.getter
@@ -311,9 +321,17 @@ class SecurityConnector(pulumi.CustomResource):
     @pulumi.getter(name="hierarchyIdentifier")
     def hierarchy_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The multi cloud resource identifier (account id in case of AWS connector).
+        The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         """
         return pulumi.get(self, "hierarchy_identifier")
+
+    @property
+    @pulumi.getter(name="hierarchyIdentifierTrialEndDate")
+    def hierarchy_identifier_trial_end_date(self) -> pulumi.Output[str]:
+        """
+        The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
+        """
+        return pulumi.get(self, "hierarchy_identifier_trial_end_date")
 
     @property
     @pulumi.getter
@@ -346,14 +364,6 @@ class SecurityConnector(pulumi.CustomResource):
         A collection of offerings for the security connector.
         """
         return pulumi.get(self, "offerings")
-
-    @property
-    @pulumi.getter(name="organizationalData")
-    def organizational_data(self) -> pulumi.Output[Optional['outputs.SecurityConnectorPropertiesResponseOrganizationalData']]:
-        """
-        The multi cloud account's organizational data
-        """
-        return pulumi.get(self, "organizational_data")
 
     @property
     @pulumi.getter(name="systemData")

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a guest configuration assignment
- * API Version: 2020-06-25.
+ * Azure REST API version: 2022-01-25.
  */
 export function getGuestConfigurationConnectedVMwarevSphereAssignment(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
 
@@ -57,13 +57,17 @@ export interface GetGuestConfigurationConnectedVMwarevSphereAssignmentResult {
      */
     readonly properties: outputs.guestconfiguration.GuestConfigurationAssignmentPropertiesResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.guestconfiguration.SystemDataResponse;
+    /**
      * The type of the resource.
      */
     readonly type: string;
 }
 /**
  * Get information about a guest configuration assignment
- * API Version: 2020-06-25.
+ * Azure REST API version: 2022-01-25.
  */
 export function getGuestConfigurationConnectedVMwarevSphereAssignmentOutput(args: GetGuestConfigurationConnectedVMwarevSphereAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestConfigurationConnectedVMwarevSphereAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getGuestConfigurationConnectedVMwarevSphereAssignment(a, opts))

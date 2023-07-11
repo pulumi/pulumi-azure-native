@@ -26,7 +26,7 @@ class AccessPolicyArgs:
         The set of arguments for constructing a AccessPolicy resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] access_policy_name: The name of the access policy to create or update.
+        :param pulumi.Input[str] access_policy_name: The Access Policy name.
         :param pulumi.Input['JwtAuthenticationArgs'] authentication: Authentication method to be used when validating client API access.
         :param pulumi.Input[Union[str, 'AccessPolicyRole']] role: Defines the access level granted by this policy.
         """
@@ -67,7 +67,7 @@ class AccessPolicyArgs:
     @pulumi.getter(name="accessPolicyName")
     def access_policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the access policy to create or update.
+        The Access Policy name.
         """
         return pulumi.get(self, "access_policy_name")
 
@@ -112,12 +112,12 @@ class AccessPolicy(pulumi.CustomResource):
                  role: Optional[pulumi.Input[Union[str, 'AccessPolicyRole']]] = None,
                  __props__=None):
         """
-        Policy that determines how a video can be accessed.
-        API Version: 2021-05-01-preview.
+        Access policies help define the authentication rules, and control access to specific video resources.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] access_policy_name: The name of the access policy to create or update.
+        :param pulumi.Input[str] access_policy_name: The Access Policy name.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
         :param pulumi.Input[pulumi.InputType['JwtAuthenticationArgs']] authentication: Authentication method to be used when validating client API access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -130,8 +130,8 @@ class AccessPolicy(pulumi.CustomResource):
                  args: AccessPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Policy that determines how a video can be accessed.
-        API Version: 2021-05-01-preview.
+        Access policies help define the authentication rules, and control access to specific video resources.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +233,7 @@ class AccessPolicy(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system metadata relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

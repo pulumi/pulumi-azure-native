@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class EndpointResponse
     {
         /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        /// </summary>
+        public readonly string? AlwaysServe;
+        /// <summary>
         /// List of custom headers.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> CustomHeaders;
@@ -83,6 +87,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private EndpointResponse(
+            string? alwaysServe,
+
             ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> customHeaders,
 
             string? endpointLocation,
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             double? weight)
         {
+            AlwaysServe = alwaysServe;
             CustomHeaders = customHeaders;
             EndpointLocation = endpointLocation;
             EndpointMonitorStatus = endpointMonitorStatus;

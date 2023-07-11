@@ -25,13 +25,13 @@ namespace Pulumi.AzureNative.Synapse.Inputs
         /// SKU name.
         /// </summary>
         [Input("name", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Synapse.AzureSkuName> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Synapse.SkuName> Name { get; set; } = null!;
 
         /// <summary>
-        /// SKU tier.
+        /// SKU size.
         /// </summary>
-        [Input("tier", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Synapse.AzureSkuTier> Tier { get; set; } = null!;
+        [Input("size", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.Synapse.SkuSize> Size { get; set; } = null!;
 
         public AzureSkuArgs()
         {

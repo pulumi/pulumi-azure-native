@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified service endpoint policy definitions from service endpoint policy.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getServiceEndpointPolicyDefinition(args: GetServiceEndpointPolicyDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointPolicyDefinitionResult> {
 
@@ -65,10 +65,14 @@ export interface GetServiceEndpointPolicyDefinitionResult {
      * A list of service resources.
      */
     readonly serviceResources?: string[];
+    /**
+     * The type of the resource.
+     */
+    readonly type?: string;
 }
 /**
  * Get the specified service endpoint policy definitions from service endpoint policy.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getServiceEndpointPolicyDefinitionOutput(args: GetServiceEndpointPolicyDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointPolicyDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointPolicyDefinition(a, opts))

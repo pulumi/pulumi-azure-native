@@ -20,27 +20,37 @@ class ContainerAppArgs:
                  resource_group_name: pulumi.Input[str],
                  configuration: Optional[pulumi.Input['ConfigurationArgs']] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 template: Optional[pulumi.Input['TemplateArgs']] = None):
+                 template: Optional[pulumi.Input['TemplateArgs']] = None,
+                 workload_profile_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContainerApp resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfigurationArgs'] configuration: Non versioned Container App configuration properties.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
+        :param pulumi.Input[str] environment_id: Resource ID of environment.
+        :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] managed_environment_id: Resource ID of the Container App's environment.
+        :param pulumi.Input[str] managed_environment_id: Deprecated. Resource ID of the Container App's environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['TemplateArgs'] template: Container App versioned application definition.
+        :param pulumi.Input[str] workload_profile_type: Workload profile type to pin for container app execution.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if container_app_name is not None:
             pulumi.set(__self__, "container_app_name", container_app_name)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -51,6 +61,8 @@ class ContainerAppArgs:
             pulumi.set(__self__, "tags", tags)
         if template is not None:
             pulumi.set(__self__, "template", template)
+        if workload_profile_type is not None:
+            pulumi.set(__self__, "workload_profile_type", workload_profile_type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +101,30 @@ class ContainerAppArgs:
         pulumi.set(self, "container_app_name", value)
 
     @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of environment.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_id", value)
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
+        """
+        The complex type of the extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @extended_location.setter
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
+        pulumi.set(self, "extended_location", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
@@ -116,7 +152,7 @@ class ContainerAppArgs:
     @pulumi.getter(name="managedEnvironmentId")
     def managed_environment_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource ID of the Container App's environment.
+        Deprecated. Resource ID of the Container App's environment.
         """
         return pulumi.get(self, "managed_environment_id")
 
@@ -148,6 +184,18 @@ class ContainerAppArgs:
     def template(self, value: Optional[pulumi.Input['TemplateArgs']]):
         pulumi.set(self, "template", value)
 
+    @property
+    @pulumi.getter(name="workloadProfileType")
+    def workload_profile_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Workload profile type to pin for container app execution.
+        """
+        return pulumi.get(self, "workload_profile_type")
+
+    @workload_profile_type.setter
+    def workload_profile_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "workload_profile_type", value)
+
 
 class ContainerApp(pulumi.CustomResource):
     @overload
@@ -156,27 +204,33 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationArgs']]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
+                 workload_profile_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Container App.
-        API Version: 2022-03-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationArgs']] configuration: Non versioned Container App configuration properties.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
+        :param pulumi.Input[str] environment_id: Resource ID of environment.
+        :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The complex type of the extended location.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] managed_environment_id: Resource ID of the Container App's environment.
+        :param pulumi.Input[str] managed_environment_id: Deprecated. Resource ID of the Container App's environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['TemplateArgs']] template: Container App versioned application definition.
+        :param pulumi.Input[str] workload_profile_type: Workload profile type to pin for container app execution.
         """
         ...
     @overload
@@ -186,7 +240,7 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App.
-        API Version: 2022-03-01.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.
@@ -205,12 +259,15 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationArgs']]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
+                 environment_id: Optional[pulumi.Input[str]] = None,
+                 extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
+                 workload_profile_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -222,6 +279,8 @@ class ContainerApp(pulumi.CustomResource):
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["container_app_name"] = container_app_name
+            __props__.__dict__["environment_id"] = environment_id
+            __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_environment_id"] = managed_environment_id
@@ -230,7 +289,10 @@ class ContainerApp(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template"] = template
+            __props__.__dict__["workload_profile_type"] = workload_profile_type
             __props__.__dict__["custom_domain_verification_id"] = None
+            __props__.__dict__["event_stream_endpoint"] = None
+            __props__.__dict__["latest_ready_revision_name"] = None
             __props__.__dict__["latest_revision_fqdn"] = None
             __props__.__dict__["latest_revision_name"] = None
             __props__.__dict__["name"] = None
@@ -238,7 +300,7 @@ class ContainerApp(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20221001:ContainerApp")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20220601preview:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20221001:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20221101preview:ContainerApp"), pulumi.Alias(type_="azure-native:app/v20230401preview:ContainerApp")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContainerApp, __self__).__init__(
             'azure-native:app:ContainerApp',
@@ -264,7 +326,11 @@ class ContainerApp(pulumi.CustomResource):
 
         __props__.__dict__["configuration"] = None
         __props__.__dict__["custom_domain_verification_id"] = None
+        __props__.__dict__["environment_id"] = None
+        __props__.__dict__["event_stream_endpoint"] = None
+        __props__.__dict__["extended_location"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["latest_ready_revision_name"] = None
         __props__.__dict__["latest_revision_fqdn"] = None
         __props__.__dict__["latest_revision_name"] = None
         __props__.__dict__["location"] = None
@@ -276,6 +342,7 @@ class ContainerApp(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["workload_profile_type"] = None
         return ContainerApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -295,12 +362,44 @@ class ContainerApp(pulumi.CustomResource):
         return pulumi.get(self, "custom_domain_verification_id")
 
     @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource ID of environment.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="eventStreamEndpoint")
+    def event_stream_endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint of the eventstream of the container app.
+        """
+        return pulumi.get(self, "event_stream_endpoint")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> pulumi.Output[Optional['outputs.ExtendedLocationResponse']]:
+        """
+        The complex type of the extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
         managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="latestReadyRevisionName")
+    def latest_ready_revision_name(self) -> pulumi.Output[str]:
+        """
+        Name of the latest ready revision of the Container App.
+        """
+        return pulumi.get(self, "latest_ready_revision_name")
 
     @property
     @pulumi.getter(name="latestRevisionFqdn")
@@ -330,7 +429,7 @@ class ContainerApp(pulumi.CustomResource):
     @pulumi.getter(name="managedEnvironmentId")
     def managed_environment_id(self) -> pulumi.Output[Optional[str]]:
         """
-        Resource ID of the Container App's environment.
+        Deprecated. Resource ID of the Container App's environment.
         """
         return pulumi.get(self, "managed_environment_id")
 
@@ -389,4 +488,12 @@ class ContainerApp(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="workloadProfileType")
+    def workload_profile_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Workload profile type to pin for container app execution.
+        """
+        return pulumi.get(self, "workload_profile_type")
 

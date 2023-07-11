@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An export resource.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class Export extends pulumi.CustomResource {
     /**
@@ -59,11 +59,15 @@ export class Export extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * If the export has an active schedule, provides an estimate of the next execution time.
+     * If the export has an active schedule, provides an estimate of the next run time.
      */
     public /*out*/ readonly nextRunTimeEstimate!: pulumi.Output<string>;
     /**
-     * If requested, has the most recent execution history for the export.
+     * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+     */
+    public readonly partitionData!: pulumi.Output<boolean | undefined>;
+    /**
+     * If requested, has the most recent run history for the export.
      */
     public /*out*/ readonly runHistory!: pulumi.Output<outputs.costmanagement.ExportExecutionListResultResponse | undefined>;
     /**
@@ -100,6 +104,7 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["eTag"] = args ? args.eTag : undefined;
             resourceInputs["exportName"] = args ? args.exportName : undefined;
             resourceInputs["format"] = args ? args.format : undefined;
+            resourceInputs["partitionData"] = args ? args.partitionData : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -113,12 +118,13 @@ export class Export extends pulumi.CustomResource {
             resourceInputs["format"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;
+            resourceInputs["partitionData"] = undefined /*out*/;
             resourceInputs["runHistory"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }, { type: "azure-native:costmanagement/v20221001:Export" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20190101:Export" }, { type: "azure-native:costmanagement/v20190901:Export" }, { type: "azure-native:costmanagement/v20191001:Export" }, { type: "azure-native:costmanagement/v20191101:Export" }, { type: "azure-native:costmanagement/v20200601:Export" }, { type: "azure-native:costmanagement/v20201201preview:Export" }, { type: "azure-native:costmanagement/v20210101:Export" }, { type: "azure-native:costmanagement/v20211001:Export" }, { type: "azure-native:costmanagement/v20221001:Export" }, { type: "azure-native:costmanagement/v20230301:Export" }, { type: "azure-native:costmanagement/v20230401preview:Export" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Export.__pulumiType, name, resourceInputs, opts);
     }
@@ -148,6 +154,10 @@ export interface ExportArgs {
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
     format?: pulumi.Input<string | enums.costmanagement.FormatType>;
+    /**
+     * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+     */
+    partitionData?: pulumi.Input<boolean>;
     /**
      * Has schedule information for the export.
      */

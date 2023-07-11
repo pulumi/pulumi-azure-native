@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Outputs
     public sealed class KeySetUserStatusResponse
     {
         /// <summary>
-        /// The Azure Active Directory user name (email name).
+        /// The user name that will be used for access.
         /// </summary>
         public readonly string AzureUserName;
         /// <summary>

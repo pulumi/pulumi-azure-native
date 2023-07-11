@@ -155,6 +155,11 @@ export const getFavorite: typeof import("./getFavorite").getFavorite = null as a
 export const getFavoriteOutput: typeof import("./getFavorite").getFavoriteOutput = null as any;
 utilities.lazyLoad(exports, ["getFavorite","getFavoriteOutput"], () => require("./getFavorite"));
 
+export { GetGuestDiagnosticsSettingArgs, GetGuestDiagnosticsSettingResult, GetGuestDiagnosticsSettingOutputArgs } from "./getGuestDiagnosticsSetting";
+export const getGuestDiagnosticsSetting: typeof import("./getGuestDiagnosticsSetting").getGuestDiagnosticsSetting = null as any;
+export const getGuestDiagnosticsSettingOutput: typeof import("./getGuestDiagnosticsSetting").getGuestDiagnosticsSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestDiagnosticsSetting","getGuestDiagnosticsSettingOutput"], () => require("./getGuestDiagnosticsSetting"));
+
 export { GetGuestDiagnosticsSettingsAssociationArgs, GetGuestDiagnosticsSettingsAssociationResult, GetGuestDiagnosticsSettingsAssociationOutputArgs } from "./getGuestDiagnosticsSettingsAssociation";
 export const getGuestDiagnosticsSettingsAssociation: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociation = null as any;
 export const getGuestDiagnosticsSettingsAssociationOutput: typeof import("./getGuestDiagnosticsSettingsAssociation").getGuestDiagnosticsSettingsAssociationOutput = null as any;
@@ -215,6 +220,11 @@ export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionD
 export const getSubscriptionDiagnosticSettingOutput: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionDiagnosticSetting","getSubscriptionDiagnosticSettingOutput"], () => require("./getSubscriptionDiagnosticSetting"));
 
+export { GetTenantActionGroupArgs, GetTenantActionGroupResult, GetTenantActionGroupOutputArgs } from "./getTenantActionGroup";
+export const getTenantActionGroup: typeof import("./getTenantActionGroup").getTenantActionGroup = null as any;
+export const getTenantActionGroupOutput: typeof import("./getTenantActionGroup").getTenantActionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getTenantActionGroup","getTenantActionGroupOutput"], () => require("./getTenantActionGroup"));
+
 export { GetTestResultFileArgs, GetTestResultFileResult, GetTestResultFileOutputArgs } from "./getTestResultFile";
 export const getTestResultFile: typeof import("./getTestResultFile").getTestResultFile = null as any;
 export const getTestResultFileOutput: typeof import("./getTestResultFile").getTestResultFileOutput = null as any;
@@ -234,11 +244,6 @@ export { GetWorkbookTemplateArgs, GetWorkbookTemplateResult, GetWorkbookTemplate
 export const getWorkbookTemplate: typeof import("./getWorkbookTemplate").getWorkbookTemplate = null as any;
 export const getWorkbookTemplateOutput: typeof import("./getWorkbookTemplate").getWorkbookTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkbookTemplate","getWorkbookTemplateOutput"], () => require("./getWorkbookTemplate"));
-
-export { GetguestDiagnosticsSettingArgs, GetguestDiagnosticsSettingResult, GetguestDiagnosticsSettingOutputArgs } from "./getguestDiagnosticsSetting";
-export const getguestDiagnosticsSetting: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSetting = null as any;
-export const getguestDiagnosticsSettingOutput: typeof import("./getguestDiagnosticsSetting").getguestDiagnosticsSettingOutput = null as any;
-utilities.lazyLoad(exports, ["getguestDiagnosticsSetting","getguestDiagnosticsSettingOutput"], () => require("./getguestDiagnosticsSetting"));
 
 export { GuestDiagnosticsSettingArgs } from "./guestDiagnosticsSetting";
 export type GuestDiagnosticsSetting = import("./guestDiagnosticsSetting").GuestDiagnosticsSetting;
@@ -304,6 +309,11 @@ export type SubscriptionDiagnosticSetting = import("./subscriptionDiagnosticSett
 export const SubscriptionDiagnosticSetting: typeof import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting = null as any;
 utilities.lazyLoad(exports, ["SubscriptionDiagnosticSetting"], () => require("./subscriptionDiagnosticSetting"));
 
+export { TenantActionGroupArgs } from "./tenantActionGroup";
+export type TenantActionGroup = import("./tenantActionGroup").TenantActionGroup;
+export const TenantActionGroup: typeof import("./tenantActionGroup").TenantActionGroup = null as any;
+utilities.lazyLoad(exports, ["TenantActionGroup"], () => require("./tenantActionGroup"));
+
 export { WebTestArgs } from "./webTest";
 export type WebTest = import("./webTest").WebTest;
 export const WebTest: typeof import("./webTest").WebTest = null as any;
@@ -324,8 +334,6 @@ utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTempl
 export * from "../types/enums/insights";
 
 // Export sub-modules:
-import * as v20140401 from "./v20140401";
-import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20160301 from "./v20160301";
 import * as v20170401 from "./v20170401";
@@ -335,12 +343,7 @@ import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
 import * as v20180501preview from "./v20180501preview";
 import * as v20180601preview from "./v20180601preview";
-import * as v20180617preview from "./v20180617preview";
-import * as v20180901 from "./v20180901";
-import * as v20190301 from "./v20190301";
-import * as v20190601 from "./v20190601";
 import * as v20191017preview from "./v20191017preview";
-import * as v20191101preview from "./v20191101preview";
 import * as v20200101preview from "./v20200101preview";
 import * as v20200202 from "./v20200202";
 import * as v20200202preview from "./v20200202preview";
@@ -350,17 +353,12 @@ import * as v20200501preview from "./v20200501preview";
 import * as v20200602preview from "./v20200602preview";
 import * as v20201001 from "./v20201001";
 import * as v20201005preview from "./v20201005preview";
-import * as v20201020 from "./v20201020";
 import * as v20201120 from "./v20201120";
-import * as v20210201preview from "./v20210201preview";
 import * as v20210303preview from "./v20210303preview";
 import * as v20210308 from "./v20210308";
-import * as v20210401 from "./v20210401";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
-import * as v20210901 from "./v20210901";
-import * as v20210901preview from "./v20210901preview";
 import * as v20211014 from "./v20211014";
 import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
@@ -369,11 +367,10 @@ import * as v20220801preview from "./v20220801preview";
 import * as v20221001 from "./v20221001";
 import * as v20230101 from "./v20230101";
 import * as v20230101preview from "./v20230101preview";
-import * as v20230301preview from "./v20230301preview";
+import * as v20230315preview from "./v20230315preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
-    v20140401,
-    v20150401,
     v20150501,
     v20160301,
     v20170401,
@@ -383,12 +380,7 @@ export {
     v20180416,
     v20180501preview,
     v20180601preview,
-    v20180617preview,
-    v20180901,
-    v20190301,
-    v20190601,
     v20191017preview,
-    v20191101preview,
     v20200101preview,
     v20200202,
     v20200202preview,
@@ -398,17 +390,12 @@ export {
     v20200602preview,
     v20201001,
     v20201005preview,
-    v20201020,
     v20201120,
-    v20210201preview,
     v20210303preview,
     v20210308,
-    v20210401,
     v20210501preview,
     v20210701preview,
     v20210801,
-    v20210901,
-    v20210901preview,
     v20211014,
     v20220401,
     v20220601,
@@ -417,7 +404,8 @@ export {
     v20221001,
     v20230101,
     v20230101preview,
-    v20230301preview,
+    v20230315preview,
+    v20230501preview,
 };
 
 const _module = {
@@ -452,6 +440,8 @@ const _module = {
                 return new ExportConfiguration(name, <any>undefined, { urn })
             case "azure-native:insights:Favorite":
                 return new Favorite(name, <any>undefined, { urn })
+            case "azure-native:insights:GuestDiagnosticsSetting":
+                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             case "azure-native:insights:GuestDiagnosticsSettingsAssociation":
                 return new GuestDiagnosticsSettingsAssociation(name, <any>undefined, { urn })
             case "azure-native:insights:LogProfile":
@@ -474,14 +464,14 @@ const _module = {
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:insights:SubscriptionDiagnosticSetting":
                 return new SubscriptionDiagnosticSetting(name, <any>undefined, { urn })
+            case "azure-native:insights:TenantActionGroup":
+                return new TenantActionGroup(name, <any>undefined, { urn })
             case "azure-native:insights:WebTest":
                 return new WebTest(name, <any>undefined, { urn })
             case "azure-native:insights:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             case "azure-native:insights:WorkbookTemplate":
                 return new WorkbookTemplate(name, <any>undefined, { urn })
-            case "azure-native:insights:guestDiagnosticsSetting":
-                return new GuestDiagnosticsSetting(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

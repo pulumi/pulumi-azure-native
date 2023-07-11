@@ -11,17 +11,11 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Represents a category of labels in a labeling job.
+    /// Label category definition
     /// </summary>
     public sealed class LabelCategoryArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Indicates whether it is allowed to select multiple classes in this category.
-        /// </summary>
-        [Input("allowMultiSelect")]
-        public Input<bool>? AllowMultiSelect { get; set; }
-
-        [Input("classes", required: true)]
+        [Input("classes")]
         private InputMap<Inputs.LabelClassArgs>? _classes;
 
         /// <summary>
@@ -39,8 +33,15 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// Indicates whether it is allowed to select multiple classes in this category.
+        /// </summary>
+        [Input("multiSelect")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.MultiSelect>? MultiSelect { get; set; }
+
         public LabelCategoryArgs()
         {
+            MultiSelect = "Disabled";
         }
         public static new LabelCategoryArgs Empty => new LabelCategoryArgs();
     }

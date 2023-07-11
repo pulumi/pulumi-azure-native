@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the detailed information for a given task run.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getTaskRun(args: GetTaskRunArgs, opts?: pulumi.InvokeOptions): Promise<GetTaskRunResult> {
 
@@ -84,7 +84,7 @@ export interface GetTaskRunResult {
 }
 /**
  * Gets the detailed information for a given task run.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview.
  */
 export function getTaskRunOutput(args: GetTaskRunOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskRunResult> {
     return pulumi.output(args).apply((a: any) => getTaskRun(a, opts))

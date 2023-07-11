@@ -20,6 +20,7 @@ class PolicyArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  custom_rules: Optional[pulumi.Input['CustomRuleListArgs']] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input['ManagedRuleSetListArgs']] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class PolicyArgs:
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing additional properties for Web Application Firewall policy.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['ManagedRuleSetListArgs'] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -42,6 +44,8 @@ class PolicyArgs:
         pulumi.set(__self__, "sku", sku)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
+        if extended_properties is not None:
+            pulumi.set(__self__, "extended_properties", extended_properties)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_rules is not None:
@@ -90,6 +94,18 @@ class PolicyArgs:
     @custom_rules.setter
     def custom_rules(self, value: Optional[pulumi.Input['CustomRuleListArgs']]):
         pulumi.set(self, "custom_rules", value)
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-Value pair representing additional properties for Web Application Firewall policy.
+        """
+        return pulumi.get(self, "extended_properties")
+
+    @extended_properties.setter
+    def extended_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "extended_properties", value)
 
     @property
     @pulumi.getter
@@ -170,6 +186,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -181,11 +198,12 @@ class Policy(pulumi.CustomResource):
                  __props__=None):
         """
         Defines web application firewall policy for Azure CDN.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extended_properties: Key-Value pair representing additional properties for Web Application Firewall policy.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] policy_name: The name of the CdnWebApplicationFirewallPolicy.
@@ -203,7 +221,7 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy for Azure CDN.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +239,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_rules: Optional[pulumi.Input[pulumi.InputType['CustomRuleListArgs']]] = None,
+                 extended_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_rules: Optional[pulumi.Input[pulumi.InputType['ManagedRuleSetListArgs']]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
@@ -239,6 +258,7 @@ class Policy(pulumi.CustomResource):
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
             __props__.__dict__["custom_rules"] = custom_rules
+            __props__.__dict__["extended_properties"] = extended_properties
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_rules"] = managed_rules
             __props__.__dict__["policy_name"] = policy_name
@@ -258,7 +278,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200901:Policy"), pulumi.Alias(type_="azure-native:cdn/v20210601:Policy"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20190615:Policy"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200331:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200415:Policy"), pulumi.Alias(type_="azure-native:cdn/v20200901:Policy"), pulumi.Alias(type_="azure-native:cdn/v20210601:Policy"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Policy"), pulumi.Alias(type_="azure-native:cdn/v20230501:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:cdn:Policy',
@@ -285,6 +305,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["custom_rules"] = None
         __props__.__dict__["endpoint_links"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["extended_properties"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["managed_rules"] = None
         __props__.__dict__["name"] = None
@@ -321,6 +342,14 @@ class Policy(pulumi.CustomResource):
         Gets a unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="extendedProperties")
+    def extended_properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-Value pair representing additional properties for Web Application Firewall policy.
+        """
+        return pulumi.get(self, "extended_properties")
 
     @property
     @pulumi.getter

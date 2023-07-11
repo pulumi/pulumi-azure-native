@@ -123,7 +123,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualApplianceSiteResult:
     """
     Gets the specified Virtual Appliance Site.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_virtual_appliance_name: The name of the Network Virtual Appliance.
@@ -154,7 +154,7 @@ def get_virtual_appliance_site_output(network_virtual_appliance_name: Optional[p
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualApplianceSiteResult]:
     """
     Gets the specified Virtual Appliance Site.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_virtual_appliance_name: The name of the Network Virtual Appliance.

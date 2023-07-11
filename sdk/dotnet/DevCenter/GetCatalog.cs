@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a catalog
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetCatalogResult> InvokeAsync(GetCatalogArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogResult>("azure-native:devcenter:getCatalog", args ?? new GetCatalogArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a catalog
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetCatalogResult> Invoke(GetCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogResult>("azure-native:devcenter:getCatalog", args ?? new GetCatalogInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.DevCenter
         public string DevCenterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> DevCenterName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -108,6 +108,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The synchronization state of the catalog.
+        /// </summary>
+        public readonly string SyncState;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -130,6 +134,8 @@ namespace Pulumi.AzureNative.DevCenter
 
             string provisioningState,
 
+            string syncState,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNative.DevCenter
             LastSyncTime = lastSyncTime;
             Name = name;
             ProvisioningState = provisioningState;
+            SyncState = syncState;
             SystemData = systemData;
             Type = type;
         }

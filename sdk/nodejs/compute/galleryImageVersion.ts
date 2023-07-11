@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery image version that you want to create or update.
- * API Version: 2020-09-30.
+ * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**
@@ -59,6 +59,10 @@ export class GalleryImageVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
     /**
+     * This is the safety profile of the Gallery Image Version.
+     */
+    public readonly safetyProfile!: pulumi.Output<outputs.compute.GalleryImageVersionSafetyProfileResponse | undefined>;
+    /**
      * This is the storage profile of a Gallery Image Version.
      */
     public readonly storageProfile!: pulumi.Output<outputs.compute.GalleryImageVersionStorageProfileResponse>;
@@ -100,6 +104,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -112,6 +117,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publishingProfile"] = undefined /*out*/;
             resourceInputs["replicationStatus"] = undefined /*out*/;
+            resourceInputs["safetyProfile"] = undefined /*out*/;
             resourceInputs["storageProfile"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -151,6 +157,10 @@ export interface GalleryImageVersionArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * This is the safety profile of the Gallery Image Version.
+     */
+    safetyProfile?: pulumi.Input<inputs.compute.GalleryImageVersionSafetyProfileArgs>;
     /**
      * This is the storage profile of a Gallery Image Version.
      */

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
-    /// API Version: 2022-10-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:TrafficControllerInterface")]
     public partial class TrafficControllerInterface : global::Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Associations References List
         /// </summary>
         [Output("associations")]
-        public Output<ImmutableArray<Outputs.ResourceIDResponse>> Associations { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> Associations { get; private set; } = null!;
 
         /// <summary>
         /// Configuration Endpoints.
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// Frontends References List
         /// </summary>
         [Output("frontends")]
-        public Output<ImmutableArray<Outputs.ResourceIDResponse>> Frontends { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ResourceIdResponse>> Frontends { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.ServiceNetworking
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20221001preview:TrafficControllerInterface"},
+                    new global::Pulumi.Alias { Type = "azure-native:servicenetworking/v20230501preview:TrafficControllerInterface"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,16 +11,16 @@ namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
     /// Information about azure databricks accessConnector.
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Identity for the resource.
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityDataResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Databricks
                 {
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20220401preview:AccessConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20221001preview:AccessConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20230501:AccessConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -115,10 +116,10 @@ namespace Pulumi.AzureNative.Databricks
         public Input<string>? ConnectorName { get; set; }
 
         /// <summary>
-        /// Identity for the resource.
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityDataArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

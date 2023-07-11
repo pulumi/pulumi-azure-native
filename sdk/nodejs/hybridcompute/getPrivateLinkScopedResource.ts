@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a scoped resource in a private link scope.
- * API Version: 2020-08-15-preview.
+ * Azure REST API version: 2020-08-15-preview.
  */
 export function getPrivateLinkScopedResource(args: GetPrivateLinkScopedResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopedResourceResult> {
 
@@ -60,7 +60,7 @@ export interface GetPrivateLinkScopedResourceResult {
 }
 /**
  * Gets a scoped resource in a private link scope.
- * API Version: 2020-08-15-preview.
+ * Azure REST API version: 2020-08-15-preview.
  */
 export function getPrivateLinkScopedResourceOutput(args: GetPrivateLinkScopedResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopedResourceResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScopedResource(a, opts))

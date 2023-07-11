@@ -341,6 +341,38 @@ namespace Pulumi.AzureNative.Devices
     }
 
     /// <summary>
+    /// This property specifies the IP Version the hub is currently utilizing.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpVersion : IEquatable<IpVersion>
+    {
+        private readonly string _value;
+
+        private IpVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpVersion Ipv4 { get; } = new IpVersion("ipv4");
+        public static IpVersion Ipv6 { get; } = new IpVersion("ipv6");
+        public static IpVersion Ipv4ipv6 { get; } = new IpVersion("ipv4ipv6");
+
+        public static bool operator ==(IpVersion left, IpVersion right) => left.Equals(right);
+        public static bool operator !=(IpVersion left, IpVersion right) => !left.Equals(right);
+
+        public static explicit operator string(IpVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpVersion other && Equals(other);
+        public bool Equals(IpVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// IP Filter Action
     /// </summary>
     [EnumType]
@@ -435,6 +467,39 @@ namespace Pulumi.AzureNative.Devices
     }
 
     /// <summary>
+    /// The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The source that the routing rule is to be applied to, such as DeviceMessages.
     /// </summary>
     [EnumType]
@@ -452,6 +517,9 @@ namespace Pulumi.AzureNative.Devices
         public static RoutingSource TwinChangeEvents { get; } = new RoutingSource("TwinChangeEvents");
         public static RoutingSource DeviceLifecycleEvents { get; } = new RoutingSource("DeviceLifecycleEvents");
         public static RoutingSource DeviceJobLifecycleEvents { get; } = new RoutingSource("DeviceJobLifecycleEvents");
+        public static RoutingSource DigitalTwinChangeEvents { get; } = new RoutingSource("DigitalTwinChangeEvents");
+        public static RoutingSource DeviceConnectionStateEvents { get; } = new RoutingSource("DeviceConnectionStateEvents");
+        public static RoutingSource MqttBrokerMessages { get; } = new RoutingSource("MqttBrokerMessages");
 
         public static bool operator ==(RoutingSource left, RoutingSource right) => left.Equals(right);
         public static bool operator !=(RoutingSource left, RoutingSource right) => !left.Equals(right);

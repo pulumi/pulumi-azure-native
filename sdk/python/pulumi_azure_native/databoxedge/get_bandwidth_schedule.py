@@ -100,7 +100,7 @@ class GetBandwidthScheduleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Bandwidth object related to ASE resource
+        Metadata pertaining to creation and last modification of BandwidthSchedule
         """
         return pulumi.get(self, "system_data")
 
@@ -135,7 +135,7 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBandwidthScheduleResult:
     """
     Gets the properties of the specified bandwidth schedule.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -167,7 +167,7 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBandwidthScheduleResult]:
     """
     Gets the properties of the specified bandwidth schedule.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str device_name: The device name.

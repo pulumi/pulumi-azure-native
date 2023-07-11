@@ -11,25 +11,25 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
 {
 
     /// <summary>
-    /// Managed service identity (system assigned and/or user assigned identities)
+    /// Managed service identity (User assigned identity)
     /// </summary>
     public sealed class ManagedServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        /// Type of managed service identity (currently only UserAssigned allowed).
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.ManagedServiceIdentityType> Type { get; set; } = null!;
 
         [Input("userAssignedIdentities")]
-        private InputMap<object>? _userAssignedIdentities;
+        private InputList<string>? _userAssignedIdentities;
 
         /// <summary>
         /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         /// </summary>
-        public InputMap<object> UserAssignedIdentities
+        public InputList<string> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
             set => _userAssignedIdentities = value;
         }
 

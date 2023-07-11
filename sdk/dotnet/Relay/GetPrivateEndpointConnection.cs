@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Relay
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the Relay Namespace.
-        /// API Version: 2018-01-01-preview.
+        /// Gets a description for the specified Private Endpoint Connection name.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:relay:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the specified private endpoint connection associated with the Relay Namespace.
-        /// API Version: 2018-01-01-preview.
+        /// Gets a description for the specified Private Endpoint Connection name.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:relay:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Relay
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The PrivateEndpointConnection name.
+        /// The PrivateEndpointConnection name
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public string PrivateEndpointConnectionName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Relay
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The PrivateEndpointConnection name.
+        /// The PrivateEndpointConnection name
         /// </summary>
         [Input("privateEndpointConnectionName", required: true)]
         public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
@@ -84,35 +84,35 @@ namespace Pulumi.AzureNative.Relay
     public sealed class GetPrivateEndpointConnectionResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the private endpoint object.
+        /// The Private Endpoint resource for this Connection.
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
         /// <summary>
-        /// Approval state of the private link connection.
+        /// Details about the state of the connection.
         /// </summary>
-        public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
+        public readonly Outputs.ConnectionStateResponse? PrivateLinkServiceConnectionState;
         /// <summary>
-        /// Provisioning state of the private endpoint connection.
+        /// Provisioning state of the Private Endpoint Connection.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string? ProvisioningState;
         /// <summary>
-        /// Resource tags.
+        /// The system meta data relating to this resource.
         /// </summary>
-        public readonly ImmutableDictionary<string, string>? Tags;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
@@ -126,11 +126,11 @@ namespace Pulumi.AzureNative.Relay
 
             Outputs.PrivateEndpointResponse? privateEndpoint,
 
-            Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
+            Outputs.ConnectionStateResponse? privateLinkServiceConnectionState,
 
-            string provisioningState,
+            string? provisioningState,
 
-            ImmutableDictionary<string, string>? tags,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -140,7 +140,7 @@ namespace Pulumi.AzureNative.Relay
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
-            Tags = tags;
+            SystemData = systemData;
             Type = type;
         }
     }

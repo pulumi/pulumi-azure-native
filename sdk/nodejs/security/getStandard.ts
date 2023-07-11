@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific security standard for the requested scope
- * API Version: 2021-08-01-preview.
+ * Azure REST API version: 2021-08-01-preview.
  */
 export function getStandard(args: GetStandardArgs, opts?: pulumi.InvokeOptions): Promise<GetStandardResult> {
 
@@ -94,7 +94,7 @@ export interface GetStandardResult {
 }
 /**
  * Get a specific security standard for the requested scope
- * API Version: 2021-08-01-preview.
+ * Azure REST API version: 2021-08-01-preview.
  */
 export function getStandardOutput(args: GetStandardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStandardResult> {
     return pulumi.output(args).apply((a: any) => getStandard(a, opts))

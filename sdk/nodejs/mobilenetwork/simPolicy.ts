@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SIM policy resource.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class SimPolicy extends pulumi.CustomResource {
     /**
@@ -39,33 +39,9 @@ export class SimPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that created the resource.
-     */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
-     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
      */
     public readonly defaultSlice!: pulumi.Output<outputs.mobilenetwork.SliceResourceIdResponse>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -79,13 +55,17 @@ export class SimPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Interval for the UE periodic registration update procedure, in seconds.
+     * UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
      */
     public readonly registrationTimer!: pulumi.Output<number | undefined>;
     /**
      * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
      */
     public readonly rfspIndex!: pulumi.Output<number | undefined>;
+    /**
+     * A dictionary of sites to the provisioning state of this SIM policy on that site.
+     */
+    public /*out*/ readonly siteProvisioningState!: pulumi.Output<{[key: string]: string}>;
     /**
      * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
@@ -133,13 +113,7 @@ export class SimPolicy extends pulumi.CustomResource {
             if ((!args || args.ueAmbr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ueAmbr'");
             }
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["defaultSlice"] = args ? args.defaultSlice : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
             resourceInputs["registrationTimer"] = (args ? args.registrationTimer : undefined) ?? 3240;
@@ -151,21 +125,17 @@ export class SimPolicy extends pulumi.CustomResource {
             resourceInputs["ueAmbr"] = args ? args.ueAmbr : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["siteProvisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
             resourceInputs["defaultSlice"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["registrationTimer"] = undefined /*out*/;
             resourceInputs["rfspIndex"] = undefined /*out*/;
+            resourceInputs["siteProvisioningState"] = undefined /*out*/;
             resourceInputs["sliceConfigurations"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -173,7 +143,7 @@ export class SimPolicy extends pulumi.CustomResource {
             resourceInputs["ueAmbr"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20221101:SimPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220301preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20220401preview:SimPolicy" }, { type: "azure-native:mobilenetwork/v20221101:SimPolicy" }, { type: "azure-native:mobilenetwork/v20230601:SimPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SimPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -184,33 +154,9 @@ export class SimPolicy extends pulumi.CustomResource {
  */
 export interface SimPolicyArgs {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
-    /**
-     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
      */
     defaultSlice: pulumi.Input<inputs.mobilenetwork.SliceResourceIdArgs>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
      * The geo-location where the resource lives
      */
@@ -220,7 +166,7 @@ export interface SimPolicyArgs {
      */
     mobileNetworkName: pulumi.Input<string>;
     /**
-     * Interval for the UE periodic registration update procedure, in seconds.
+     * UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
      */
     registrationTimer?: pulumi.Input<number>;
     /**

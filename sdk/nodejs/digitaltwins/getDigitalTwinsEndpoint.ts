@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get DigitalTwinsInstances Endpoint.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-01-31.
  */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
 
@@ -53,13 +53,17 @@ export interface GetDigitalTwinsEndpointResult {
      */
     readonly properties: outputs.digitaltwins.EventGridResponse | outputs.digitaltwins.EventHubResponse | outputs.digitaltwins.ServiceBusResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.digitaltwins.SystemDataResponse;
+    /**
      * The resource type.
      */
     readonly type: string;
 }
 /**
  * Get DigitalTwinsInstances Endpoint.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-01-31.
  */
 export function getDigitalTwinsEndpointOutput(args: GetDigitalTwinsEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDigitalTwinsEndpointResult> {
     return pulumi.output(args).apply((a: any) => getDigitalTwinsEndpoint(a, opts))

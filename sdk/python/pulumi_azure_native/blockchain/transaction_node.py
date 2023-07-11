@@ -129,7 +129,7 @@ class TransactionNode(pulumi.CustomResource):
                  __props__=None):
         """
         Payload of the transaction node which is the request/response of the resource provider.
-        API Version: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class TransactionNode(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Payload of the transaction node which is the request/response of the resource provider.
-        API Version: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param TransactionNodeArgs args: The arguments to use to populate this resource's properties.

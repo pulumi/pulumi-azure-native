@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the configured settings for a serial port
- * API Version: 2018-05-01.
+ * Azure REST API version: 2018-05-01.
  */
 export function getSerialPort(args: GetSerialPortArgs, opts?: pulumi.InvokeOptions): Promise<GetSerialPortResult> {
 
@@ -66,7 +66,7 @@ export interface GetSerialPortResult {
 }
 /**
  * Gets the configured settings for a serial port
- * API Version: 2018-05-01.
+ * Azure REST API version: 2018-05-01.
  */
 export function getSerialPortOutput(args: GetSerialPortOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSerialPortResult> {
     return pulumi.output(args).apply((a: any) => getSerialPort(a, opts))

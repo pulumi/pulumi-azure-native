@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid Partner Namespace.
-    /// API Version: 2021-06-01-preview.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerNamespace")]
     public partial class PartnerNamespace : global::Pulumi.CustomResource
@@ -52,6 +52,13 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("partnerRegistrationFullyQualifiedId")]
         public Output<string?> PartnerRegistrationFullyQualifiedId { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if events published to this partner namespace should use the source attribute in the event payload
+        /// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+        /// </summary>
+        [Output("partnerTopicRoutingMode")]
+        public Output<string?> PartnerTopicRoutingMode { get; private set; } = null!;
 
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
@@ -117,6 +124,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerNamespace"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerNamespace"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerNamespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PartnerNamespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,6 +186,13 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<string>? PartnerRegistrationFullyQualifiedId { get; set; }
 
         /// <summary>
+        /// This determines if events published to this partner namespace should use the source attribute in the event payload
+        /// or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+        /// </summary>
+        [Input("partnerTopicRoutingMode")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.PartnerTopicRoutingMode>? PartnerTopicRoutingMode { get; set; }
+
+        /// <summary>
         /// This determines if traffic is allowed over public network. By default it is enabled.
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" /&gt;
         /// </summary>
@@ -205,6 +220,7 @@ namespace Pulumi.AzureNative.EventGrid
         public PartnerNamespaceArgs()
         {
             DisableLocalAuth = false;
+            PartnerTopicRoutingMode = "SourceEventAttribute";
             PublicNetworkAccess = "Enabled";
         }
         public static new PartnerNamespaceArgs Empty => new PartnerNamespaceArgs();

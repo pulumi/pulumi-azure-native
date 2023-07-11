@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
- * API Version: 2020-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getPolicyExemption(args: GetPolicyExemptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyExemptionResult> {
 
@@ -35,6 +35,10 @@ export interface GetPolicyExemptionArgs {
  * The policy exemption.
  */
 export interface GetPolicyExemptionResult {
+    /**
+     * The option whether validate the exemption is at or under the assignment scope.
+     */
+    readonly assignmentScopeValidation?: string;
     /**
      * The description of the policy exemption.
      */
@@ -72,6 +76,10 @@ export interface GetPolicyExemptionResult {
      */
     readonly policyDefinitionReferenceIds?: string[];
     /**
+     * The resource selector list to filter policies by resource properties.
+     */
+    readonly resourceSelectors?: outputs.authorization.ResourceSelectorResponse[];
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.authorization.SystemDataResponse;
@@ -82,7 +90,7 @@ export interface GetPolicyExemptionResult {
 }
 /**
  * This operation retrieves a single policy exemption, given its name and the scope it was created at.
- * API Version: 2020-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getPolicyExemptionOutput(args: GetPolicyExemptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyExemptionResult> {
     return pulumi.output(args).apply((a: any) => getPolicyExemption(a, opts))

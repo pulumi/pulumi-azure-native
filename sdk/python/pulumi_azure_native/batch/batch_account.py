@@ -19,11 +19,13 @@ class BatchAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  account_name: Optional[pulumi.Input[str]] = None,
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
                  auto_storage: Optional[pulumi.Input['AutoStorageBasePropertiesArgs']] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
                  identity: Optional[pulumi.Input['BatchAccountIdentityArgs']] = None,
                  key_vault_reference: Optional[pulumi.Input['KeyVaultReferenceArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
                  pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
                  public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -31,11 +33,13 @@ class BatchAccountArgs:
         The set of arguments for constructing a BatchAccount resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]] allowed_authentication_modes: List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
         :param pulumi.Input['AutoStorageBasePropertiesArgs'] auto_storage: The properties related to the auto-storage account.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
         :param pulumi.Input['BatchAccountIdentityArgs'] identity: The identity of the Batch account.
         :param pulumi.Input['KeyVaultReferenceArgs'] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
         :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The user-specified tags associated with the account.
@@ -43,6 +47,8 @@ class BatchAccountArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if allowed_authentication_modes is not None:
+            pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if auto_storage is not None:
             pulumi.set(__self__, "auto_storage", auto_storage)
         if encryption is not None:
@@ -53,6 +59,8 @@ class BatchAccountArgs:
             pulumi.set(__self__, "key_vault_reference", key_vault_reference)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
         if pool_allocation_mode is not None:
             pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
         if public_network_access is not None:
@@ -83,6 +91,18 @@ class BatchAccountArgs:
     @account_name.setter
     def account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAuthenticationModes")
+    def allowed_authentication_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]]:
+        """
+        List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+        """
+        return pulumi.get(self, "allowed_authentication_modes")
+
+    @allowed_authentication_modes.setter
+    def allowed_authentication_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]]):
+        pulumi.set(self, "allowed_authentication_modes", value)
 
     @property
     @pulumi.getter(name="autoStorage")
@@ -145,6 +165,18 @@ class BatchAccountArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        The network profile only takes effect when publicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
     @pulumi.getter(name="poolAllocationMode")
     def pool_allocation_mode(self) -> Optional[pulumi.Input['PoolAllocationMode']]:
         """
@@ -187,11 +219,13 @@ class BatchAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
                  auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
                  public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -199,16 +233,18 @@ class BatchAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about an Azure Batch account.
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]] allowed_authentication_modes: List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
         :param pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']] auto_storage: The properties related to the auto-storage account.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
         :param pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']] identity: The identity of the Batch account.
         :param pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']] key_vault_reference: A reference to the Azure key vault associated with the Batch account.
         :param pulumi.Input[str] location: The region in which to create the account.
+        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
         :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
@@ -222,7 +258,7 @@ class BatchAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about an Azure Batch account.
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param BatchAccountArgs args: The arguments to use to populate this resource's properties.
@@ -240,11 +276,13 @@ class BatchAccount(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]]] = None,
                  auto_storage: Optional[pulumi.Input[pulumi.InputType['AutoStorageBasePropertiesArgs']]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['BatchAccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['KeyVaultReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  pool_allocation_mode: Optional[pulumi.Input['PoolAllocationMode']] = None,
                  public_network_access: Optional[pulumi.Input['PublicNetworkAccessType']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -259,11 +297,13 @@ class BatchAccount(pulumi.CustomResource):
             __props__ = BatchAccountArgs.__new__(BatchAccountArgs)
 
             __props__.__dict__["account_name"] = account_name
+            __props__.__dict__["allowed_authentication_modes"] = allowed_authentication_modes
             __props__.__dict__["auto_storage"] = auto_storage
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference"] = key_vault_reference
             __props__.__dict__["location"] = location
+            __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
@@ -277,11 +317,12 @@ class BatchAccount(pulumi.CustomResource):
             __props__.__dict__["dedicated_core_quota_per_vm_family_enforced"] = None
             __props__.__dict__["low_priority_core_quota"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["node_management_endpoint"] = None
             __props__.__dict__["pool_quota"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20151201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170901:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20181201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20190401:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20190801:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200301:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200901:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20221001:BatchAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20151201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170901:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20181201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20190401:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20190801:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200301:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200901:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20221001:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20230501:BatchAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BatchAccount, __self__).__init__(
             'azure-native:batch:BatchAccount',
@@ -307,6 +348,7 @@ class BatchAccount(pulumi.CustomResource):
 
         __props__.__dict__["account_endpoint"] = None
         __props__.__dict__["active_job_and_job_schedule_quota"] = None
+        __props__.__dict__["allowed_authentication_modes"] = None
         __props__.__dict__["auto_storage"] = None
         __props__.__dict__["dedicated_core_quota"] = None
         __props__.__dict__["dedicated_core_quota_per_vm_family"] = None
@@ -317,6 +359,8 @@ class BatchAccount(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["low_priority_core_quota"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_profile"] = None
+        __props__.__dict__["node_management_endpoint"] = None
         __props__.__dict__["pool_allocation_mode"] = None
         __props__.__dict__["pool_quota"] = None
         __props__.__dict__["private_endpoint_connections"] = None
@@ -338,6 +382,14 @@ class BatchAccount(pulumi.CustomResource):
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
     def active_job_and_job_schedule_quota(self) -> pulumi.Output[int]:
         return pulumi.get(self, "active_job_and_job_schedule_quota")
+
+    @property
+    @pulumi.getter(name="allowedAuthenticationModes")
+    def allowed_authentication_modes(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+        """
+        return pulumi.get(self, "allowed_authentication_modes")
 
     @property
     @pulumi.getter(name="autoStorage")
@@ -367,7 +419,7 @@ class BatchAccount(pulumi.CustomResource):
     @pulumi.getter(name="dedicatedCoreQuotaPerVMFamilyEnforced")
     def dedicated_core_quota_per_vm_family_enforced(self) -> pulumi.Output[bool]:
         """
-        Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+        If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
         """
         return pulumi.get(self, "dedicated_core_quota_per_vm_family_enforced")
 
@@ -420,6 +472,22 @@ class BatchAccount(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> pulumi.Output[Optional['outputs.NetworkProfileResponse']]:
+        """
+        The network profile only takes effect when publicNetworkAccess is enabled.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter(name="nodeManagementEndpoint")
+    def node_management_endpoint(self) -> pulumi.Output[str]:
+        """
+        The endpoint used by compute node to connect to the Batch node management service.
+        """
+        return pulumi.get(self, "node_management_endpoint")
+
+    @property
     @pulumi.getter(name="poolAllocationMode")
     def pool_allocation_mode(self) -> pulumi.Output[str]:
         """
@@ -450,7 +518,7 @@ class BatchAccount(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[str]:
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
         """
         If not specified, the default value is 'enabled'.
         """

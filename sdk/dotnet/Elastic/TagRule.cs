@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Elastic
 {
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
-    /// API Version: 2020-07-01.
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic:TagRule")]
     public partial class TagRule : global::Pulumi.CustomResource
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Elastic
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20220505preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20220701preview:TagRule"},
                     new global::Pulumi.Alias { Type = "azure-native:elastic/v20220901preview:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20230201preview:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20230501preview:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20230601:TagRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:elastic/v20230615preview:TagRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

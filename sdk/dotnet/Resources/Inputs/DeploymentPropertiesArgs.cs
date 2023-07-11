@@ -39,11 +39,17 @@ namespace Pulumi.AzureNative.Resources.Inputs
         [Input("onErrorDeployment")]
         public Input<Inputs.OnErrorDeploymentArgs>? OnErrorDeployment { get; set; }
 
+        [Input("parameters")]
+        private InputMap<Inputs.DeploymentParameterArgs>? _parameters;
+
         /// <summary>
         /// Name and value pairs that define the deployment parameters for the template. You use this element when you want to provide the parameter values directly in the request rather than link to an existing parameter file. Use either the parametersLink property or the parameters property, but not both. It can be a JObject or a well formed JSON string.
         /// </summary>
-        [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        public InputMap<Inputs.DeploymentParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.DeploymentParameterArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The URI of parameters file. You use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.

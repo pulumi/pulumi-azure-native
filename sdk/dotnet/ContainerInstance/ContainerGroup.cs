@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
     /// A container group.
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The properties for confidential container group
+        /// </summary>
+        [Output("confidentialComputeProperties")]
+        public Output<Outputs.ConfidentialComputePropertiesResponse?> ConfidentialComputeProperties { get; private set; } = null!;
+
         /// <summary>
         /// The containers within the container group.
         /// </summary>
@@ -41,6 +47,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<Outputs.EncryptionPropertiesResponse?> EncryptionProperties { get; private set; } = null!;
 
         /// <summary>
+        /// extensions used by virtual kubelet
+        /// </summary>
+        [Output("extensions")]
+        public Output<ImmutableArray<Outputs.DeploymentExtensionSpecResponse>> Extensions { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the container group, if configured.
         /// </summary>
         [Output("identity")]
@@ -62,7 +74,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The instance view of the container group. Only valid in response.
         /// </summary>
         [Output("instanceView")]
-        public Output<Outputs.ContainerGroupResponseInstanceView> InstanceView { get; private set; } = null!;
+        public Output<Outputs.ContainerGroupPropertiesResponseInstanceView> InstanceView { get; private set; } = null!;
 
         /// <summary>
         /// The IP address type of the container group.
@@ -83,16 +95,16 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The network profile information for a container group.
-        /// </summary>
-        [Output("networkProfile")]
-        public Output<Outputs.ContainerGroupNetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
-
-        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Output("osType")]
         public Output<string> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The priority of the container group.
+        /// </summary>
+        [Output("priority")]
+        public Output<string?> Priority { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the container group. This only appears in the response.
@@ -116,6 +128,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        [Output("subnetIds")]
+        public Output<ImmutableArray<Outputs.ContainerGroupSubnetIdResponse>> SubnetIds { get; private set; } = null!;
+
+        /// <summary>
         /// The resource tags.
         /// </summary>
         [Output("tags")]
@@ -132,6 +150,12 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Output("volumes")]
         public Output<ImmutableArray<Outputs.VolumeResponse>> Volumes { get; private set; } = null!;
+
+        /// <summary>
+        /// The zones for the container group.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,6 +198,7 @@ namespace Pulumi.AzureNative.ContainerInstance
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20211001:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20220901:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20221001preview:ContainerGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20230201preview:ContainerGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20230501:ContainerGroup"},
                 },
             };
@@ -198,6 +223,12 @@ namespace Pulumi.AzureNative.ContainerInstance
 
     public sealed class ContainerGroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The properties for confidential container group
+        /// </summary>
+        [Input("confidentialComputeProperties")]
+        public Input<Inputs.ConfidentialComputePropertiesArgs>? ConfidentialComputeProperties { get; set; }
+
         /// <summary>
         /// The name of the container group.
         /// </summary>
@@ -233,6 +264,18 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Input("encryptionProperties")]
         public Input<Inputs.EncryptionPropertiesArgs>? EncryptionProperties { get; set; }
+
+        [Input("extensions")]
+        private InputList<Inputs.DeploymentExtensionSpecArgs>? _extensions;
+
+        /// <summary>
+        /// extensions used by virtual kubelet
+        /// </summary>
+        public InputList<Inputs.DeploymentExtensionSpecArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.DeploymentExtensionSpecArgs>());
+            set => _extensions = value;
+        }
 
         /// <summary>
         /// The identity of the container group, if configured.
@@ -277,16 +320,16 @@ namespace Pulumi.AzureNative.ContainerInstance
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The network profile information for a container group.
-        /// </summary>
-        [Input("networkProfile")]
-        public Input<Inputs.ContainerGroupNetworkProfileArgs>? NetworkProfile { get; set; }
-
-        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Input("osType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.OperatingSystemTypes> OsType { get; set; } = null!;
+
+        /// <summary>
+        /// The priority of the container group.
+        /// </summary>
+        [Input("priority")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupPriority>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -308,6 +351,18 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Input("sku")]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupSku>? Sku { get; set; }
+
+        [Input("subnetIds")]
+        private InputList<Inputs.ContainerGroupSubnetIdArgs>? _subnetIds;
+
+        /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        public InputList<Inputs.ContainerGroupSubnetIdArgs> SubnetIds
+        {
+            get => _subnetIds ?? (_subnetIds = new InputList<Inputs.ContainerGroupSubnetIdArgs>());
+            set => _subnetIds = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -331,6 +386,18 @@ namespace Pulumi.AzureNative.ContainerInstance
         {
             get => _volumes ?? (_volumes = new InputList<Inputs.VolumeArgs>());
             set => _volumes = value;
+        }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// The zones for the container group.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public ContainerGroupArgs()

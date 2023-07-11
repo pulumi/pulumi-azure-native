@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * list date to migrate to new pricing model.
- * API Version: 2017-10-01.
+ * Azure REST API version: 2017-10-01.
  */
 export function listEASubscriptionListMigrationDatePost(args?: ListEASubscriptionListMigrationDatePostArgs, opts?: pulumi.InvokeOptions): Promise<ListEASubscriptionListMigrationDatePostResult> {
     args = args || {};

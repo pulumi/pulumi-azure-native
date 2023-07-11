@@ -15,23 +15,59 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     /// </summary>
     public sealed class AppResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Name of the active deployment of the App
-        /// </summary>
-        [Input("activeDeploymentName")]
-        public Input<string>? ActiveDeploymentName { get; set; }
+        [Input("addonConfigs")]
+        private InputMap<object>? _addonConfigs;
 
         /// <summary>
-        /// Fully qualified dns Name.
+        /// Collection of addons
         /// </summary>
-        [Input("fqdn")]
-        public Input<string>? Fqdn { get; set; }
+        public InputMap<object> AddonConfigs
+        {
+            get => _addonConfigs ?? (_addonConfigs = new InputMap<object>());
+            set => _addonConfigs = value;
+        }
+
+        [Input("customPersistentDisks")]
+        private InputList<Inputs.CustomPersistentDiskResourceArgs>? _customPersistentDisks;
+
+        /// <summary>
+        /// List of custom persistent disks
+        /// </summary>
+        public InputList<Inputs.CustomPersistentDiskResourceArgs> CustomPersistentDisks
+        {
+            get => _customPersistentDisks ?? (_customPersistentDisks = new InputList<Inputs.CustomPersistentDiskResourceArgs>());
+            set => _customPersistentDisks = value;
+        }
+
+        /// <summary>
+        /// Indicate if end to end TLS is enabled.
+        /// </summary>
+        [Input("enableEndToEndTLS")]
+        public Input<bool>? EnableEndToEndTLS { get; set; }
 
         /// <summary>
         /// Indicate if only https is allowed.
         /// </summary>
         [Input("httpsOnly")]
         public Input<bool>? HttpsOnly { get; set; }
+
+        /// <summary>
+        /// App ingress settings payload.
+        /// </summary>
+        [Input("ingressSettings")]
+        public Input<Inputs.IngressSettingsArgs>? IngressSettings { get; set; }
+
+        [Input("loadedCertificates")]
+        private InputList<Inputs.LoadedCertificateArgs>? _loadedCertificates;
+
+        /// <summary>
+        /// Collection of loaded certificates
+        /// </summary>
+        public InputList<Inputs.LoadedCertificateArgs> LoadedCertificates
+        {
+            get => _loadedCertificates ?? (_loadedCertificates = new InputList<Inputs.LoadedCertificateArgs>());
+            set => _loadedCertificates = value;
+        }
 
         /// <summary>
         /// Persistent disk settings
@@ -45,14 +81,39 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         [Input("public")]
         public Input<bool>? Public { get; set; }
 
+        [Input("secrets")]
+        private InputList<Inputs.SecretArgs>? _secrets;
+
+        /// <summary>
+        /// Collection of auth secrets
+        /// </summary>
+        public InputList<Inputs.SecretArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.SecretArgs>());
+            set => _secrets = value;
+        }
+
         /// <summary>
         /// Temporary disk settings
         /// </summary>
         [Input("temporaryDisk")]
         public Input<Inputs.TemporaryDiskArgs>? TemporaryDisk { get; set; }
 
+        /// <summary>
+        /// Additional App settings in vnet injection instance
+        /// </summary>
+        [Input("vnetAddons")]
+        public Input<Inputs.AppVNetAddonsArgs>? VnetAddons { get; set; }
+
+        /// <summary>
+        /// The workload profile used for this app. Supported for Consumption + Dedicated plan.
+        /// </summary>
+        [Input("workloadProfileName")]
+        public Input<string>? WorkloadProfileName { get; set; }
+
         public AppResourcePropertiesArgs()
         {
+            EnableEndToEndTLS = false;
             HttpsOnly = false;
         }
         public static new AppResourcePropertiesArgs Empty => new AppResourcePropertiesArgs();

@@ -15,13 +15,21 @@ __all__ = [
     'ActionResponse',
     'ConnectionStateResponse',
     'CorrelationFilterResponse',
+    'EncryptionResponse',
+    'IdentityResponse',
+    'KeyVaultPropertiesResponse',
     'MessageCountDetailsResponse',
     'NWRuleSetIpRulesResponse',
     'NWRuleSetVirtualNetworkRulesResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
+    'SBClientAffinePropertiesResponse',
     'SBSkuResponse',
     'SqlFilterResponse',
     'SubnetResponse',
+    'SystemDataResponse',
+    'UserAssignedIdentityPropertiesResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -292,6 +300,230 @@ class CorrelationFilterResponse(dict):
 
 
 @pulumi.output_type
+class EncryptionResponse(dict):
+    """
+    Properties to configure Encryption
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keySource":
+            suggest = "key_source"
+        elif key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+        elif key == "requireInfrastructureEncryption":
+            suggest = "require_infrastructure_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_source: Optional[str] = None,
+                 key_vault_properties: Optional[Sequence['outputs.KeyVaultPropertiesResponse']] = None,
+                 require_infrastructure_encryption: Optional[bool] = None):
+        """
+        Properties to configure Encryption
+        :param str key_source: Enumerates the possible value of keySource for Encryption
+        :param Sequence['KeyVaultPropertiesResponse'] key_vault_properties: Properties of KeyVault
+        :param bool require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
+        """
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if require_infrastructure_encryption is not None:
+            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[Sequence['outputs.KeyVaultPropertiesResponse']]:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter(name="requireInfrastructureEncryption")
+    def require_infrastructure_encryption(self) -> Optional[bool]:
+        """
+        Enable Infrastructure Encryption (Double Encryption)
+        """
+        return pulumi.get(self, "require_infrastructure_encryption")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Properties to configure User Assigned Identities for Bring your Own Keys
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Properties to configure User Assigned Identities for Bring your Own Keys
+        :param str principal_id: ObjectId from the KeyVault
+        :param str tenant_id: TenantId from the KeyVault
+        :param str type: Type of managed service identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: Properties for User Assigned Identities
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        ObjectId from the KeyVault
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        TenantId from the KeyVault
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        Properties for User Assigned Identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    """
+    Properties to configure keyVault Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyName":
+            suggest = "key_name"
+        elif key == "keyVaultUri":
+            suggest = "key_vault_uri"
+        elif key == "keyVersion":
+            suggest = "key_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity: Optional['outputs.UserAssignedIdentityPropertiesResponse'] = None,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
+                 key_version: Optional[str] = None):
+        """
+        Properties to configure keyVault Properties
+        :param str key_name: Name of the Key from KeyVault
+        :param str key_vault_uri: Uri of KeyVault
+        :param str key_version: Version of KeyVault
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.UserAssignedIdentityPropertiesResponse']:
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[str]:
+        """
+        Name of the Key from KeyVault
+        """
+        return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[str]:
+        """
+        Uri of KeyVault
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[str]:
+        """
+        Version of KeyVault
+        """
+        return pulumi.get(self, "key_version")
+
+
+@pulumi.output_type
 class MessageCountDetailsResponse(dict):
     """
     Message Count Details.
@@ -489,6 +721,131 @@ class NWRuleSetVirtualNetworkRulesResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    Properties of the PrivateEndpointConnection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 location: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.ConnectionStateResponse'] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Properties of the PrivateEndpointConnection.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str location: The geo-location where the resource lives
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: The system meta data relating to this resource.
+        :param str type: The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint resource for this Connection.
+        :param 'ConnectionStateResponse' private_link_service_connection_state: Details about the state of the connection.
+        :param str provisioning_state: Provisioning state of the Private Endpoint Connection.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The Private Endpoint resource for this Connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.ConnectionStateResponse']:
+        """
+        Details about the state of the connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Provisioning state of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     PrivateEndpoint information.
@@ -509,6 +866,74 @@ class PrivateEndpointResponse(dict):
         The ARM identifier for Private Endpoint.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SBClientAffinePropertiesResponse(dict):
+    """
+    Properties specific to client affine subscriptions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "isDurable":
+            suggest = "is_durable"
+        elif key == "isShared":
+            suggest = "is_shared"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SBClientAffinePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SBClientAffinePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SBClientAffinePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 is_durable: Optional[bool] = None,
+                 is_shared: Optional[bool] = None):
+        """
+        Properties specific to client affine subscriptions.
+        :param str client_id: Indicates the Client ID of the application that created the client-affine subscription.
+        :param bool is_durable: For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+        :param bool is_shared: For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if is_durable is not None:
+            pulumi.set(__self__, "is_durable", is_durable)
+        if is_shared is not None:
+            pulumi.set(__self__, "is_shared", is_shared)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        Indicates the Client ID of the application that created the client-affine subscription.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="isDurable")
+    def is_durable(self) -> Optional[bool]:
+        """
+        For client-affine subscriptions, this value indicates whether the subscription is durable or not.
+        """
+        return pulumi.get(self, "is_durable")
+
+    @property
+    @pulumi.getter(name="isShared")
+    def is_shared(self) -> Optional[bool]:
+        """
+        For client-affine subscriptions, this value indicates whether the subscription is shared or not.
+        """
+        return pulumi.get(self, "is_shared")
 
 
 @pulumi.output_type
@@ -593,8 +1018,6 @@ class SqlFilterResponse(dict):
         :param bool requires_preprocessing: Value that indicates whether the rule action requires preprocessing.
         :param str sql_expression: The SQL expression. e.g. MyProperty='ABC'
         """
-        if compatibility_level is None:
-            compatibility_level = 20
         if compatibility_level is not None:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if requires_preprocessing is None:
@@ -649,5 +1072,203 @@ class SubnetResponse(dict):
         Resource ID of Virtual Network Subnet
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        :param str user_assigned_identity: ARM ID of user Identity selected for encryption
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        ARM ID of user Identity selected for encryption
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    Recognized Dictionary value.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Recognized Dictionary value.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
 
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// API Version: 2019-10-17-preview.
+        /// Azure REST API version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopedResourceResult> InvokeAsync(GetPrivateLinkScopedResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a scoped resource in a private link scope.
-        /// API Version: 2019-10-17-preview.
+        /// Azure REST API version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopedResourceResult> Invoke(GetPrivateLinkScopedResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopedResourceResult>("azure-native:insights:getPrivateLinkScopedResource", args ?? new GetPrivateLinkScopedResourceInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetPrivateLinkScopedResourceResult
     {
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? LinkedResourceId;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Azure resource type
+        /// System data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -114,12 +118,15 @@ namespace Pulumi.AzureNative.Insights
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             LinkedResourceId = linkedResourceId;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

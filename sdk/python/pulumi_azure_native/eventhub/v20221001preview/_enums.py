@@ -46,7 +46,7 @@ class CleanupPolicyRetentionDescription(str, Enum):
     Enumerates the possible values for cleanup policy
     """
     DELETE = "Delete"
-    COMPACTION = "Compaction"
+    COMPACT = "Compact"
 
 
 class ClusterSkuName(str, Enum):

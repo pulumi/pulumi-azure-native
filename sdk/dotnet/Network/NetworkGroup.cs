@@ -11,17 +11,11 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The network group resource
-    /// API Version: 2021-02-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkGroup")]
     public partial class NetworkGroup : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Network group conditional filter.
-        /// </summary>
-        [Output("conditionalMembership")]
-        public Output<string?> ConditionalMembership { get; private set; } = null!;
-
         /// <summary>
         /// A description of the network group.
         /// </summary>
@@ -29,28 +23,10 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly name for the network group.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
-        /// Group members of network group.
-        /// </summary>
-        [Output("groupMembers")]
-        public Output<ImmutableArray<Outputs.GroupMembersItemResponse>> GroupMembers { get; private set; } = null!;
-
-        /// <summary>
-        /// Group member type.
-        /// </summary>
-        [Output("memberType")]
-        public Output<string?> MemberType { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
@@ -63,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -109,6 +91,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:NetworkGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:NetworkGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:NetworkGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:NetworkGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:NetworkGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -133,43 +117,13 @@ namespace Pulumi.AzureNative.Network
     public sealed class NetworkGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Network group conditional filter.
-        /// </summary>
-        [Input("conditionalMembership")]
-        public Input<string>? ConditionalMembership { get; set; }
-
-        /// <summary>
         /// A description of the network group.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// A friendly name for the network group.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        [Input("groupMembers")]
-        private InputList<Inputs.GroupMembersItemArgs>? _groupMembers;
-
-        /// <summary>
-        /// Group members of network group.
-        /// </summary>
-        public InputList<Inputs.GroupMembersItemArgs> GroupMembers
-        {
-            get => _groupMembers ?? (_groupMembers = new InputList<Inputs.GroupMembersItemArgs>());
-            set => _groupMembers = value;
-        }
-
-        /// <summary>
-        /// Group member type.
-        /// </summary>
-        [Input("memberType")]
-        public Input<string>? MemberType { get; set; }
-
-        /// <summary>
-        /// The name of the network group to get.
+        /// The name of the network group.
         /// </summary>
         [Input("networkGroupName")]
         public Input<string>? NetworkGroupName { get; set; }

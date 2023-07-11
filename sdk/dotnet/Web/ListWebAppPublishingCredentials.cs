@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppPublishingCredentials
     {
         /// <summary>
-        /// Gets the Git/FTP publishing credentials of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the Git/FTP publishing credentials of an app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppPublishingCredentialsResult> InvokeAsync(ListWebAppPublishingCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppPublishingCredentialsResult>("azure-native:web:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the Git/FTP publishing credentials of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the Git/FTP publishing credentials of an app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppPublishingCredentialsResult> Invoke(ListWebAppPublishingCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppPublishingCredentialsResult>("azure-native:web:listWebAppPublishingCredentials", args ?? new ListWebAppPublishingCredentialsInvokeArgs(), options.WithDefaults());

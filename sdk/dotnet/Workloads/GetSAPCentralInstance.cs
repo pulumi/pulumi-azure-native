@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets the SAP Central Services Instance resource.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetSAPCentralInstanceResult> InvokeAsync(GetSAPCentralInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSAPCentralInstanceResult>("azure-native:workloads:getSAPCentralInstance", args ?? new GetSAPCentralInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the SAP Central Services Instance resource.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetSAPCentralInstanceResult> Invoke(GetSAPCentralInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSAPCentralInstanceResult>("azure-native:workloads:getSAPCentralInstance", args ?? new GetSAPCentralInstanceInvokeArgs(), options.WithDefaults());

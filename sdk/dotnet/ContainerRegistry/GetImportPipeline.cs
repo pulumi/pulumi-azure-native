@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the import pipeline.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetImportPipelineResult> InvokeAsync(GetImportPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the import pipeline.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetImportPipelineResult> Invoke(GetImportPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImportPipelineResult>("azure-native:containerregistry:getImportPipeline", args ?? new GetImportPipelineInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

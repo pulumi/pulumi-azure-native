@@ -206,7 +206,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthResult:
     """
     Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.
@@ -241,7 +241,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
     """
     Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the P2SVpnGateway.

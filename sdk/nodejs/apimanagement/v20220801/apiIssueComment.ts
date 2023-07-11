@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Issue Comment Contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueComment to guarantee forwards compatibility.
  */
 export class ApiIssueComment extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ApiIssueComment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiIssueComment {
-        pulumi.log.warn("ApiIssueComment is deprecated: azure-native:apimanagement/v20220801:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueComment to guarantee forwards compatibility.")
         return new ApiIssueComment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueComment to guarantee forwards compatibility. */
     constructor(name: string, args: ApiIssueCommentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiIssueComment is deprecated: azure-native:apimanagement/v20220801:ApiIssueComment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueComment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -107,7 +102,7 @@ export class ApiIssueComment extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueComment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueComment" }, { type: "azure-native:apimanagement/v20211201preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20220401preview:ApiIssueComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueComment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueComment" }, { type: "azure-native:apimanagement/v20211201preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20220401preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20220901preview:ApiIssueComment" }, { type: "azure-native:apimanagement/v20230301preview:ApiIssueComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssueComment.__pulumiType, name, resourceInputs, opts);
     }

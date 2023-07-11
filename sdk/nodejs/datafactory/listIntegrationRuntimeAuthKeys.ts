@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the authentication keys for an integration runtime.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function listIntegrationRuntimeAuthKeys(args: ListIntegrationRuntimeAuthKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIntegrationRuntimeAuthKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListIntegrationRuntimeAuthKeysResult {
 }
 /**
  * Retrieves the authentication keys for an integration runtime.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function listIntegrationRuntimeAuthKeysOutput(args: ListIntegrationRuntimeAuthKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIntegrationRuntimeAuthKeysResult> {
     return pulumi.output(args).apply((a: any) => listIntegrationRuntimeAuthKeys(a, opts))

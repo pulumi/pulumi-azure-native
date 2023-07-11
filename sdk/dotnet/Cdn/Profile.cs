@@ -10,17 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
-    /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-    /// API Version: 2020-09-01.
+    /// A profile is a logical grouping of endpoints that share the same settings.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Profile")]
     public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Key-Value pair representing additional properties for profiles.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>> ExtendedProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The Id of the frontdoor.
         /// </summary>
-        [Output("frontdoorId")]
-        public Output<string> FrontdoorId { get; private set; } = null!;
+        [Output("frontDoorId")]
+        public Output<string> FrontDoorId { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities).
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
+        /// </summary>
+        [Output("kind")]
+        public Output<string> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -35,6 +53,12 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        /// </summary>
+        [Output("originResponseTimeoutSeconds")]
+        public Output<int?> OriginResponseTimeoutSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning status of the profile.
         /// </summary>
         [Output("provisioningState")]
@@ -47,7 +71,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
-        /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        /// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
@@ -110,6 +134,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Profile"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Profile"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Profile"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Profile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,13 +159,25 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Managed service identity (system assigned and/or user assigned identities).
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        /// </summary>
+        [Input("originResponseTimeoutSeconds")]
+        public Input<int>? OriginResponseTimeoutSeconds { get; set; }
+
+        /// <summary>
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName")]
         public Input<string>? ProfileName { get; set; }
@@ -152,7 +189,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
+        /// The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;

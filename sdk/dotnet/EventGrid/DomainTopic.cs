@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Domain Topic.
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:DomainTopic")]
     public partial class DomainTopic : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:DomainTopic"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:DomainTopic"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:DomainTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:DomainTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

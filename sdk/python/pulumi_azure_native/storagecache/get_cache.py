@@ -20,9 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetCacheResult:
     """
-    A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, system_data=None, tags=None, type=None, upgrade_status=None):
+    def __init__(__self__, cache_size_gb=None, directory_services_settings=None, encryption_settings=None, health=None, id=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, priming_jobs=None, provisioning_state=None, security_settings=None, sku=None, space_allocation=None, subnet=None, system_data=None, tags=None, type=None, upgrade_settings=None, upgrade_status=None, zones=None):
         if cache_size_gb and not isinstance(cache_size_gb, int):
             raise TypeError("Expected argument 'cache_size_gb' to be a int")
         pulumi.set(__self__, "cache_size_gb", cache_size_gb)
@@ -53,6 +53,9 @@ class GetCacheResult:
         if network_settings and not isinstance(network_settings, dict):
             raise TypeError("Expected argument 'network_settings' to be a dict")
         pulumi.set(__self__, "network_settings", network_settings)
+        if priming_jobs and not isinstance(priming_jobs, list):
+            raise TypeError("Expected argument 'priming_jobs' to be a list")
+        pulumi.set(__self__, "priming_jobs", priming_jobs)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -62,6 +65,9 @@ class GetCacheResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if space_allocation and not isinstance(space_allocation, list):
+            raise TypeError("Expected argument 'space_allocation' to be a list")
+        pulumi.set(__self__, "space_allocation", space_allocation)
         if subnet and not isinstance(subnet, str):
             raise TypeError("Expected argument 'subnet' to be a str")
         pulumi.set(__self__, "subnet", subnet)
@@ -74,9 +80,15 @@ class GetCacheResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upgrade_settings and not isinstance(upgrade_settings, dict):
+            raise TypeError("Expected argument 'upgrade_settings' to be a dict")
+        pulumi.set(__self__, "upgrade_settings", upgrade_settings)
         if upgrade_status and not isinstance(upgrade_status, dict):
             raise TypeError("Expected argument 'upgrade_status' to be a dict")
         pulumi.set(__self__, "upgrade_status", upgrade_status)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="cacheSizeGB")
@@ -106,7 +118,7 @@ class GetCacheResult:
     @pulumi.getter
     def health(self) -> 'outputs.CacheHealthResponse':
         """
-        Health of the Cache.
+        Health of the cache.
         """
         return pulumi.get(self, "health")
 
@@ -114,7 +126,7 @@ class GetCacheResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID of the Cache.
+        Resource ID of the cache.
         """
         return pulumi.get(self, "id")
 
@@ -138,7 +150,7 @@ class GetCacheResult:
     @pulumi.getter(name="mountAddresses")
     def mount_addresses(self) -> Sequence[str]:
         """
-        Array of IP addresses that can be used by clients mounting this Cache.
+        Array of IPv4 addresses that can be used by clients mounting this cache.
         """
         return pulumi.get(self, "mount_addresses")
 
@@ -146,7 +158,7 @@ class GetCacheResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of Cache.
+        Name of cache.
         """
         return pulumi.get(self, "name")
 
@@ -159,8 +171,16 @@ class GetCacheResult:
         return pulumi.get(self, "network_settings")
 
     @property
+    @pulumi.getter(name="primingJobs")
+    def priming_jobs(self) -> Sequence['outputs.PrimingJobResponse']:
+        """
+        Specifies the priming jobs defined in the cache.
+        """
+        return pulumi.get(self, "priming_jobs")
+
+    @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[str]:
+    def provisioning_state(self) -> str:
         """
         ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         """
@@ -178,15 +198,23 @@ class GetCacheResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.CacheResponseSku']:
         """
-        SKU for the Cache.
+        SKU for the cache.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="spaceAllocation")
+    def space_allocation(self) -> Sequence['outputs.StorageTargetSpaceAllocationResponse']:
+        """
+        Specifies the space allocation percentage for each storage target in the cache.
+        """
+        return pulumi.get(self, "space_allocation")
 
     @property
     @pulumi.getter
     def subnet(self) -> Optional[str]:
         """
-        Subnet used for the Cache.
+        Subnet used for the cache.
         """
         return pulumi.get(self, "subnet")
 
@@ -210,17 +238,33 @@ class GetCacheResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the Cache; Microsoft.StorageCache/Cache
+        Type of the cache; Microsoft.StorageCache/Cache
         """
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="upgradeStatus")
-    def upgrade_status(self) -> Optional['outputs.CacheUpgradeStatusResponse']:
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional['outputs.CacheUpgradeSettingsResponse']:
         """
-        Upgrade status of the Cache.
+        Upgrade settings of the cache.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+    @property
+    @pulumi.getter(name="upgradeStatus")
+    def upgrade_status(self) -> 'outputs.CacheUpgradeStatusResponse':
+        """
+        Upgrade status of the cache.
         """
         return pulumi.get(self, "upgrade_status")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        Availability zones for resources. This field should only contain a single element in the array.
+        """
+        return pulumi.get(self, "zones")
 
 
 class AwaitableGetCacheResult(GetCacheResult):
@@ -239,26 +283,30 @@ class AwaitableGetCacheResult(GetCacheResult):
             mount_addresses=self.mount_addresses,
             name=self.name,
             network_settings=self.network_settings,
+            priming_jobs=self.priming_jobs,
             provisioning_state=self.provisioning_state,
             security_settings=self.security_settings,
             sku=self.sku,
+            space_allocation=self.space_allocation,
             subnet=self.subnet,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            upgrade_status=self.upgrade_status)
+            upgrade_settings=self.upgrade_settings,
+            upgrade_status=self.upgrade_status,
+            zones=self.zones)
 
 
 def get_cache(cache_name: Optional[str] = None,
               resource_group_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCacheResult:
     """
-    Returns a Cache.
-    API Version: 2021-03-01.
+    Returns a cache.
+    Azure REST API version: 2023-05-01.
 
 
-    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-    :param str resource_group_name: Target resource group.
+    :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['cacheName'] = cache_name
@@ -277,14 +325,18 @@ def get_cache(cache_name: Optional[str] = None,
         mount_addresses=__ret__.mount_addresses,
         name=__ret__.name,
         network_settings=__ret__.network_settings,
+        priming_jobs=__ret__.priming_jobs,
         provisioning_state=__ret__.provisioning_state,
         security_settings=__ret__.security_settings,
         sku=__ret__.sku,
+        space_allocation=__ret__.space_allocation,
         subnet=__ret__.subnet,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
-        upgrade_status=__ret__.upgrade_status)
+        upgrade_settings=__ret__.upgrade_settings,
+        upgrade_status=__ret__.upgrade_status,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(get_cache)
@@ -292,11 +344,11 @@ def get_cache_output(cache_name: Optional[pulumi.Input[str]] = None,
                      resource_group_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCacheResult]:
     """
-    Returns a Cache.
-    API Version: 2021-03-01.
+    Returns a cache.
+    Azure REST API version: 2023-05-01.
 
 
-    :param str cache_name: Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-    :param str resource_group_name: Target resource group.
+    :param str cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

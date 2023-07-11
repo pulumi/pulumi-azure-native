@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the alert rule.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFusionAlertRuleResult> {
 
@@ -20,7 +23,7 @@ export function getFusionAlertRule(args: GetFusionAlertRuleArgs, opts?: pulumi.I
 
 export interface GetFusionAlertRuleArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -58,7 +61,7 @@ export interface GetFusionAlertRuleResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -71,7 +74,7 @@ export interface GetFusionAlertRuleResult {
      */
     readonly lastModifiedUtc: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -79,17 +82,25 @@ export interface GetFusionAlertRuleResult {
      */
     readonly severity: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
      * The tactics of the alert rule
      */
     readonly tactics: string[];
     /**
-     * Azure resource type
+     * The techniques of the alert rule
+     */
+    readonly techniques: string[];
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the alert rule.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFusionAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getFusionAlertRule(a, opts))
@@ -97,7 +108,7 @@ export function getFusionAlertRuleOutput(args: GetFusionAlertRuleOutputArgs, opt
 
 export interface GetFusionAlertRuleOutputArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -5,46 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { AdministratorArgs } from "./administrator";
-export type Administrator = import("./administrator").Administrator;
-export const Administrator: typeof import("./administrator").Administrator = null as any;
-utilities.lazyLoad(exports, ["Administrator"], () => require("./administrator"));
-
-export { ConfigurationArgs } from "./configuration";
-export type Configuration = import("./configuration").Configuration;
-export const Configuration: typeof import("./configuration").Configuration = null as any;
-utilities.lazyLoad(exports, ["Configuration"], () => require("./configuration"));
-
-export { DatabaseArgs } from "./database";
-export type Database = import("./database").Database;
-export const Database: typeof import("./database").Database = null as any;
-utilities.lazyLoad(exports, ["Database"], () => require("./database"));
-
-export { FirewallRuleArgs } from "./firewallRule";
-export type FirewallRule = import("./firewallRule").FirewallRule;
-export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
-utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
-
-export { GetAdministratorArgs, GetAdministratorResult, GetAdministratorOutputArgs } from "./getAdministrator";
-export const getAdministrator: typeof import("./getAdministrator").getAdministrator = null as any;
-export const getAdministratorOutput: typeof import("./getAdministrator").getAdministratorOutput = null as any;
-utilities.lazyLoad(exports, ["getAdministrator","getAdministratorOutput"], () => require("./getAdministrator"));
-
-export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
-export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
-export const getConfigurationOutput: typeof import("./getConfiguration").getConfigurationOutput = null as any;
-utilities.lazyLoad(exports, ["getConfiguration","getConfigurationOutput"], () => require("./getConfiguration"));
-
-export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
-export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
-export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
-
-export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
-export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
-export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
-
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
@@ -63,14 +23,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:dbforpostgresql/v20220308preview:Administrator":
-                return new Administrator(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql/v20220308preview:Configuration":
-                return new Configuration(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql/v20220308preview:Database":
-                return new Database(name, <any>undefined, { urn })
-            case "azure-native:dbforpostgresql/v20220308preview:FirewallRule":
-                return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20220308preview:Server":
                 return new Server(name, <any>undefined, { urn })
             default:

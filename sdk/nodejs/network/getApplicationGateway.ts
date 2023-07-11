@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified application gateway.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getApplicationGateway(args: GetApplicationGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGatewayResult> {
 
@@ -52,9 +52,17 @@ export interface GetApplicationGatewayResult {
      */
     readonly backendHttpSettingsCollection?: outputs.network.ApplicationGatewayBackendHttpSettingsResponse[];
     /**
+     * Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly backendSettingsCollection?: outputs.network.ApplicationGatewayBackendSettingsResponse[];
+    /**
      * Custom error configurations of the application gateway resource.
      */
     readonly customErrorConfigurations?: outputs.network.ApplicationGatewayCustomErrorResponse[];
+    /**
+     * The default predefined SSL Policy applied on the application gateway resource.
+     */
+    readonly defaultPredefinedSslPolicy: string;
     /**
      * Whether FIPS is enabled on the application gateway resource.
      */
@@ -88,6 +96,10 @@ export interface GetApplicationGatewayResult {
      */
     readonly gatewayIPConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
     /**
+     * Global Configuration.
+     */
+    readonly globalConfiguration?: outputs.network.ApplicationGatewayGlobalConfigurationResponse;
+    /**
      * Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
      */
     readonly httpListeners?: outputs.network.ApplicationGatewayHttpListenerResponse[];
@@ -99,6 +111,14 @@ export interface GetApplicationGatewayResult {
      * The identity of the application gateway, if configured.
      */
     readonly identity?: outputs.network.ManagedServiceIdentityResponse;
+    /**
+     * Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+     */
+    readonly listeners?: outputs.network.ApplicationGatewayListenerResponse[];
+    /**
+     * Load distribution policies of the application gateway resource.
+     */
+    readonly loadDistributionPolicies?: outputs.network.ApplicationGatewayLoadDistributionPolicyResponse[];
     /**
      * Resource location.
      */
@@ -143,6 +163,10 @@ export interface GetApplicationGatewayResult {
      * Rewrite rules for the application gateway resource.
      */
     readonly rewriteRuleSets?: outputs.network.ApplicationGatewayRewriteRuleSetResponse[];
+    /**
+     * Routing rules of the application gateway resource.
+     */
+    readonly routingRules?: outputs.network.ApplicationGatewayRoutingRuleResponse[];
     /**
      * SKU of the application gateway resource.
      */
@@ -190,7 +214,7 @@ export interface GetApplicationGatewayResult {
 }
 /**
  * Gets the specified application gateway.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getApplicationGatewayOutput(args: GetApplicationGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationGatewayResult> {
     return pulumi.output(args).apply((a: any) => getApplicationGateway(a, opts))

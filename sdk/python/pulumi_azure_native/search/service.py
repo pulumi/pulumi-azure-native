@@ -18,6 +18,9 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 auth_options: Optional[pulumi.Input['DataPlaneAuthOptionsArgs']] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 encryption_with_cmk: Optional[pulumi.Input['EncryptionWithCmkArgs']] = None,
                  hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -31,6 +34,9 @@ class ServiceArgs:
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input['DataPlaneAuthOptionsArgs'] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        :param pulumi.Input[bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        :param pulumi.Input['EncryptionWithCmkArgs'] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -43,6 +49,12 @@ class ServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auth_options is not None:
+            pulumi.set(__self__, "auth_options", auth_options)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if encryption_with_cmk is not None:
+            pulumi.set(__self__, "encryption_with_cmk", encryption_with_cmk)
         if hosting_mode is None:
             hosting_mode = 'default'
         if hosting_mode is not None:
@@ -83,6 +95,42 @@ class ServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authOptions")
+    def auth_options(self) -> Optional[pulumi.Input['DataPlaneAuthOptionsArgs']]:
+        """
+        Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        """
+        return pulumi.get(self, "auth_options")
+
+    @auth_options.setter
+    def auth_options(self, value: Optional[pulumi.Input['DataPlaneAuthOptionsArgs']]):
+        pulumi.set(self, "auth_options", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter(name="encryptionWithCmk")
+    def encryption_with_cmk(self) -> Optional[pulumi.Input['EncryptionWithCmkArgs']]:
+        """
+        Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        """
+        return pulumi.get(self, "encryption_with_cmk")
+
+    @encryption_with_cmk.setter
+    def encryption_with_cmk(self, value: Optional[pulumi.Input['EncryptionWithCmkArgs']]):
+        pulumi.set(self, "encryption_with_cmk", value)
 
     @property
     @pulumi.getter(name="hostingMode")
@@ -210,6 +258,9 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_options: Optional[pulumi.Input[pulumi.InputType['DataPlaneAuthOptionsArgs']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 encryption_with_cmk: Optional[pulumi.Input[pulumi.InputType['EncryptionWithCmkArgs']]] = None,
                  hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -224,10 +275,13 @@ class Service(pulumi.CustomResource):
                  __props__=None):
         """
         Describes an Azure Cognitive Search service and its current state.
-        API Version: 2020-08-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['DataPlaneAuthOptionsArgs']] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        :param pulumi.Input[bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        :param pulumi.Input[pulumi.InputType['EncryptionWithCmkArgs']] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -248,7 +302,7 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an Azure Cognitive Search service and its current state.
-        API Version: 2020-08-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -265,6 +319,9 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_options: Optional[pulumi.Input[pulumi.InputType['DataPlaneAuthOptionsArgs']]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 encryption_with_cmk: Optional[pulumi.Input[pulumi.InputType['EncryptionWithCmkArgs']]] = None,
                  hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -285,6 +342,9 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            __props__.__dict__["auth_options"] = auth_options
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
+            __props__.__dict__["encryption_with_cmk"] = encryption_with_cmk
             if hosting_mode is None:
                 hosting_mode = 'default'
             __props__.__dict__["hosting_mode"] = hosting_mode
@@ -337,6 +397,9 @@ class Service(pulumi.CustomResource):
 
         __props__ = ServiceArgs.__new__(ServiceArgs)
 
+        __props__.__dict__["auth_options"] = None
+        __props__.__dict__["disable_local_auth"] = None
+        __props__.__dict__["encryption_with_cmk"] = None
         __props__.__dict__["hosting_mode"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -354,6 +417,30 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="authOptions")
+    def auth_options(self) -> pulumi.Output[Optional['outputs.DataPlaneAuthOptionsResponse']]:
+        """
+        Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        """
+        return pulumi.get(self, "auth_options")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
+    @pulumi.getter(name="encryptionWithCmk")
+    def encryption_with_cmk(self) -> pulumi.Output[Optional['outputs.EncryptionWithCmkResponse']]:
+        """
+        Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        """
+        return pulumi.get(self, "encryption_with_cmk")
 
     @property
     @pulumi.getter(name="hostingMode")

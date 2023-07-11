@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The representation of a single video in a Video Analyzer account.
- * API Version: 2021-05-01-preview.
+ * Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
  */
 export class Video extends pulumi.CustomResource {
     /**
@@ -39,6 +39,14 @@ export class Video extends pulumi.CustomResource {
     }
 
     /**
+     * Video archival properties.
+     */
+    public readonly archival!: pulumi.Output<outputs.videoanalyzer.VideoArchivalResponse | undefined>;
+    /**
+     * Set of URLs to the video content.
+     */
+    public /*out*/ readonly contentUrls!: pulumi.Output<outputs.videoanalyzer.VideoContentUrlsResponse>;
+    /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -49,17 +57,13 @@ export class Video extends pulumi.CustomResource {
     /**
      * Contains information about the video and audio content.
      */
-    public /*out*/ readonly mediaInfo!: pulumi.Output<outputs.videoanalyzer.VideoMediaInfoResponse>;
+    public readonly mediaInfo!: pulumi.Output<outputs.videoanalyzer.VideoMediaInfoResponse | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Video streaming holds information about video streaming URLs.
-     */
-    public /*out*/ readonly streaming!: pulumi.Output<outputs.videoanalyzer.VideoStreamingResponse>;
-    /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
@@ -89,22 +93,24 @@ export class Video extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["archival"] = args ? args.archival : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["mediaInfo"] = args ? args.mediaInfo : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["title"] = args ? args.title : undefined;
             resourceInputs["videoName"] = args ? args.videoName : undefined;
+            resourceInputs["contentUrls"] = undefined /*out*/;
             resourceInputs["flags"] = undefined /*out*/;
-            resourceInputs["mediaInfo"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["streaming"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["archival"] = undefined /*out*/;
+            resourceInputs["contentUrls"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["flags"] = undefined /*out*/;
             resourceInputs["mediaInfo"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["streaming"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["title"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -125,9 +131,17 @@ export interface VideoArgs {
      */
     accountName: pulumi.Input<string>;
     /**
+     * Video archival properties.
+     */
+    archival?: pulumi.Input<inputs.videoanalyzer.VideoArchivalArgs>;
+    /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Contains information about the video and audio content.
+     */
+    mediaInfo?: pulumi.Input<inputs.videoanalyzer.VideoMediaInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,7 +151,7 @@ export interface VideoArgs {
      */
     title?: pulumi.Input<string>;
     /**
-     * The name of the video to create or update.
+     * The Video name.
      */
     videoName?: pulumi.Input<string>;
 }

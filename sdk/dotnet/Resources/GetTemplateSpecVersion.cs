@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Resources
     {
         /// <summary>
         /// Gets a Template Spec version from a specific Template Spec.
-        /// API Version: 2022-02-01.
+        /// Azure REST API version: 2022-02-01.
         /// </summary>
         public static Task<GetTemplateSpecVersionResult> InvokeAsync(GetTemplateSpecVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTemplateSpecVersionResult>("azure-native:resources:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Template Spec version from a specific Template Spec.
-        /// API Version: 2022-02-01.
+        /// Azure REST API version: 2022-02-01.
         /// </summary>
         public static Output<GetTemplateSpecVersionResult> Invoke(GetTemplateSpecVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateSpecVersionResult>("azure-native:resources:getTemplateSpecVersion", args ?? new GetTemplateSpecVersionInvokeArgs(), options.WithDefaults());

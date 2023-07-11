@@ -205,12 +205,7 @@ class TopicArgs:
         pulumi.set(self, "topic_name", value)
 
 
-warnings.warn("""azure-native:eventgrid/v20220615:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Topic to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Topic(pulumi.CustomResource):
-    warnings.warn("""azure-native:eventgrid/v20220615:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Topic to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -281,7 +276,6 @@ class Topic(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Topic is deprecated: azure-native:eventgrid/v20220615:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:Topic to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -316,7 +310,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:Topic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170615preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20170915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180501preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20180915preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190101:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190201preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20190601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200101preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20200601:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:Topic"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:Topic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Topic, __self__).__init__(
             'azure-native:eventgrid/v20220615:Topic',

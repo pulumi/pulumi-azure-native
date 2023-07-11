@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read only following database.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly attachedDatabaseConfigurationName!: pulumi.Output<string>;
     /**
+     * The origin of the following setup.
+     */
+    public /*out*/ readonly databaseShareOrigin!: pulumi.Output<string>;
+    /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
     public readonly hotCachePeriod!: pulumi.Output<string | undefined>;
@@ -64,6 +68,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The original database name, before databaseNameOverride or databaseNamePrefix where applied.
+     */
+    public /*out*/ readonly originalDatabaseName!: pulumi.Output<string>;
+    /**
      * The principals modification kind of the database
      */
     public /*out*/ readonly principalsModificationKind!: pulumi.Output<string>;
@@ -79,6 +87,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
      * The statistics of the database.
      */
     public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
+    /**
+     * Table level sharing specifications
+     */
+    public /*out*/ readonly tableLevelSharingProperties!: pulumi.Output<outputs.kusto.TableLevelSharingPropertiesResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -104,6 +116,7 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["callerRole"] = args ? args.callerRole : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
@@ -111,28 +124,34 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
+            resourceInputs["databaseShareOrigin"] = undefined /*out*/;
             resourceInputs["leaderClusterResourceId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originalDatabaseName"] = undefined /*out*/;
             resourceInputs["principalsModificationKind"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["attachedDatabaseConfigurationName"] = undefined /*out*/;
+            resourceInputs["databaseShareOrigin"] = undefined /*out*/;
             resourceInputs["hotCachePeriod"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["leaderClusterResourceId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originalDatabaseName"] = undefined /*out*/;
             resourceInputs["principalsModificationKind"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["softDeletePeriod"] = undefined /*out*/;
             resourceInputs["statistics"] = undefined /*out*/;
+            resourceInputs["tableLevelSharingProperties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221111:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190121:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190515:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20190907:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20191109:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200215:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200614:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20200918:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210101:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20210827:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220201:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20220707:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221111:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20221229:ReadOnlyFollowingDatabase" }, { type: "azure-native:kusto/v20230502:ReadOnlyFollowingDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadOnlyFollowingDatabase.__pulumiType, name, resourceInputs, opts);
     }
@@ -142,6 +161,10 @@ export class ReadOnlyFollowingDatabase extends pulumi.CustomResource {
  * The set of arguments for constructing a ReadOnlyFollowingDatabase resource.
  */
 export interface ReadOnlyFollowingDatabaseArgs {
+    /**
+     * By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
+     */
+    callerRole?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */

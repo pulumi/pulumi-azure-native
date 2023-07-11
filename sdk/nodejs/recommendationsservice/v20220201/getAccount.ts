@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns RecommendationsService Account resource for a given name.
  */
-/** @deprecated azure-native:recommendationsservice/v20220201:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Account to guarantee forwards compatibility. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: azure-native:recommendationsservice/v20220201:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Account to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recommendationsservice/v20220201:getAccount", {
@@ -68,7 +66,6 @@ export interface GetAccountResult {
 /**
  * Returns RecommendationsService Account resource for a given name.
  */
-/** @deprecated azure-native:recommendationsservice/v20220201:Account is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:Account to guarantee forwards compatibility. */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
 }

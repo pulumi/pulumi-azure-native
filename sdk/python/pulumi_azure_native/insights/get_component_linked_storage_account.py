@@ -86,7 +86,7 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentLinkedStorageAccountResult:
     """
     Returns the current linked storage settings for an Application Insights component.
-    API Version: 2020-03-01-preview.
+    Azure REST API version: 2020-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -114,7 +114,7 @@ def get_component_linked_storage_account_output(resource_group_name: Optional[pu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentLinkedStorageAccountResult]:
     """
     Returns the current linked storage settings for an Application Insights component.
-    API Version: 2020-03-01-preview.
+    Azure REST API version: 2020-03-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

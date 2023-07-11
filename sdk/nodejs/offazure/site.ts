@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2020-07-07. Prior API version in Azure Native 1.x: 2020-01-01
  */
 export class Site extends pulumi.CustomResource {
     /**
@@ -54,6 +54,10 @@ export class Site extends pulumi.CustomResource {
      * Nested properties of VMWare site.
      */
     public readonly properties!: pulumi.Output<outputs.offazure.SitePropertiesResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.offazure.SystemDataResponse>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of resource. Type = Microsoft.OffAzure/VMWareSites.
@@ -81,12 +85,14 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["siteName"] = args ? args.siteName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

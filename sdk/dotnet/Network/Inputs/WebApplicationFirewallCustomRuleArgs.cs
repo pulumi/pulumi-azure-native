@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("action", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Network.WebApplicationFirewallAction> Action { get; set; } = null!;
 
+        [Input("groupByUserSession")]
+        private InputList<Inputs.GroupByUserSessionArgs>? _groupByUserSession;
+
+        /// <summary>
+        /// List of user session identifier group by clauses.
+        /// </summary>
+        public InputList<Inputs.GroupByUserSessionArgs> GroupByUserSession
+        {
+            get => _groupByUserSession ?? (_groupByUserSession = new InputList<Inputs.GroupByUserSessionArgs>());
+            set => _groupByUserSession = value;
+        }
+
         [Input("matchConditions", required: true)]
         private InputList<Inputs.MatchConditionArgs>? _matchConditions;
 
@@ -46,10 +58,28 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
+        /// Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule.
+        /// </summary>
+        [Input("rateLimitDuration")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ApplicationGatewayFirewallRateLimitDuration>? RateLimitDuration { get; set; }
+
+        /// <summary>
+        /// Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1
+        /// </summary>
+        [Input("rateLimitThreshold")]
+        public Input<int>? RateLimitThreshold { get; set; }
+
+        /// <summary>
         /// The rule type.
         /// </summary>
         [Input("ruleType", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Network.WebApplicationFirewallRuleType> RuleType { get; set; } = null!;
+
+        /// <summary>
+        /// Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.Network.WebApplicationFirewallState>? State { get; set; }
 
         public WebApplicationFirewallCustomRuleArgs()
         {

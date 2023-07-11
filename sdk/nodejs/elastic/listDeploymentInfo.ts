@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function listDeploymentInfo(args: ListDeploymentInfoArgs, opts?: pulumi.InvokeOptions): Promise<ListDeploymentInfoResult> {
 
@@ -33,9 +36,17 @@ export interface ListDeploymentInfoArgs {
  */
 export interface ListDeploymentInfoResult {
     /**
+     * Deployment URL of the elasticsearch in Elastic cloud deployment.
+     */
+    readonly deploymentUrl: string;
+    /**
      * Disk capacity of the elasticsearch in Elastic cloud deployment.
      */
     readonly diskCapacity: string;
+    /**
+     * Marketplace SaaS Info of the resource.
+     */
+    readonly marketplaceSaasInfo: outputs.elastic.MarketplaceSaaSInfoResponse;
     /**
      * RAM capacity of the elasticsearch in Elastic cloud deployment.
      */
@@ -51,7 +62,7 @@ export interface ListDeploymentInfoResult {
 }
 /**
  * The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function listDeploymentInfoOutput(args: ListDeploymentInfoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDeploymentInfoResult> {
     return pulumi.output(args).apply((a: any) => listDeploymentInfo(a, opts))

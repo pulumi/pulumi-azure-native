@@ -64,7 +64,7 @@ def list_build_step_build_arguments(build_task_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBuildStepBuildArgumentsResult:
     """
     List the build arguments for a step including the secret arguments.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_task_name: The name of the container registry build task.
@@ -93,7 +93,7 @@ def list_build_step_build_arguments_output(build_task_name: Optional[pulumi.Inpu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBuildStepBuildArgumentsResult]:
     """
     List the build arguments for a step including the secret arguments.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_task_name: The name of the container registry build task.

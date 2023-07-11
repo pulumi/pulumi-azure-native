@@ -169,39 +169,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220308Preview
     }
 
     /// <summary>
-    /// The principal type used to represent the type of Active Directory Administrator.
-    /// </summary>
-    [EnumType]
-    public readonly struct PrincipalType : IEquatable<PrincipalType>
-    {
-        private readonly string _value;
-
-        private PrincipalType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static PrincipalType Unknown { get; } = new PrincipalType("Unknown");
-        public static PrincipalType User { get; } = new PrincipalType("User");
-        public static PrincipalType Group { get; } = new PrincipalType("Group");
-        public static PrincipalType ServicePrincipal { get; } = new PrincipalType("ServicePrincipal");
-
-        public static bool operator ==(PrincipalType left, PrincipalType right) => left.Equals(right);
-        public static bool operator !=(PrincipalType left, PrincipalType right) => !left.Equals(right);
-
-        public static explicit operator string(PrincipalType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrincipalType other && Equals(other);
-        public bool Equals(PrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Replication role of the server
     /// </summary>
     [EnumType]

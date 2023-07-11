@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
 
@@ -41,7 +41,7 @@ export interface GetEventHubDataConnectionArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -84,6 +84,10 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly location?: string;
     /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+     */
+    readonly managedIdentityResourceId?: string;
+    /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
     readonly mappingRuleName?: string;
@@ -110,7 +114,7 @@ export interface GetEventHubDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))
@@ -134,7 +138,7 @@ export interface GetEventHubDataConnectionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

@@ -9,12 +9,13 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a Shared Image Gallery.
- * API Version: 2020-09-30.
+ * Azure REST API version: 2022-03-03.
  */
 export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:compute:getGallery", {
+        "expand": args.expand,
         "galleryName": args.galleryName,
         "resourceGroupName": args.resourceGroupName,
         "select": args.select,
@@ -22,6 +23,10 @@ export function getGallery(args: GetGalleryArgs, opts?: pulumi.InvokeOptions): P
 }
 
 export interface GetGalleryArgs {
+    /**
+     * The expand query option to apply on the operation.
+     */
+    expand?: string;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -69,6 +74,14 @@ export interface GetGalleryResult {
      */
     readonly sharingProfile?: outputs.compute.SharingProfileResponse;
     /**
+     * Sharing status of current gallery.
+     */
+    readonly sharingStatus: outputs.compute.SharingStatusResponse;
+    /**
+     * Contains information about the soft deletion policy of the gallery.
+     */
+    readonly softDeletePolicy?: outputs.compute.SoftDeletePolicyResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -79,13 +92,17 @@ export interface GetGalleryResult {
 }
 /**
  * Retrieves information about a Shared Image Gallery.
- * API Version: 2020-09-30.
+ * Azure REST API version: 2022-03-03.
  */
 export function getGalleryOutput(args: GetGalleryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGalleryResult> {
     return pulumi.output(args).apply((a: any) => getGallery(a, opts))
 }
 
 export interface GetGalleryOutputArgs {
+    /**
+     * The expand query option to apply on the operation.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */

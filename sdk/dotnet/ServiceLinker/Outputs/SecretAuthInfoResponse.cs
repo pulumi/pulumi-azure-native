@@ -26,9 +26,9 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Password or account key for secret auth.
+        /// Password or key vault secret for secret auth.
         /// </summary>
-        public readonly string? Secret;
+        public readonly object? SecretInfo;
 
         [OutputConstructor]
         private SecretAuthInfoResponse(
@@ -36,11 +36,11 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
             string? name,
 
-            string? secret)
+            object? secretInfo)
         {
             AuthType = authType;
             Name = name;
-            Secret = secret;
+            SecretInfo = secretInfo;
         }
     }
 }

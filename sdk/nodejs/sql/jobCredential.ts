@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A stored credential that can be used by a job to connect to target databases.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class JobCredential extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class JobCredential extends pulumi.CustomResource {
             resourceInputs["username"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobCredential" }, { type: "azure-native:sql/v20200202preview:JobCredential" }, { type: "azure-native:sql/v20200801preview:JobCredential" }, { type: "azure-native:sql/v20201101preview:JobCredential" }, { type: "azure-native:sql/v20210201preview:JobCredential" }, { type: "azure-native:sql/v20210501preview:JobCredential" }, { type: "azure-native:sql/v20210801preview:JobCredential" }, { type: "azure-native:sql/v20211101:JobCredential" }, { type: "azure-native:sql/v20211101preview:JobCredential" }, { type: "azure-native:sql/v20220201preview:JobCredential" }, { type: "azure-native:sql/v20220501preview:JobCredential" }, { type: "azure-native:sql/v20220801preview:JobCredential" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:JobCredential" }, { type: "azure-native:sql/v20200202preview:JobCredential" }, { type: "azure-native:sql/v20200801preview:JobCredential" }, { type: "azure-native:sql/v20201101preview:JobCredential" }, { type: "azure-native:sql/v20210201preview:JobCredential" }, { type: "azure-native:sql/v20210501preview:JobCredential" }, { type: "azure-native:sql/v20210801preview:JobCredential" }, { type: "azure-native:sql/v20211101:JobCredential" }, { type: "azure-native:sql/v20211101preview:JobCredential" }, { type: "azure-native:sql/v20220201preview:JobCredential" }, { type: "azure-native:sql/v20220501preview:JobCredential" }, { type: "azure-native:sql/v20220801preview:JobCredential" }, { type: "azure-native:sql/v20221101preview:JobCredential" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobCredential.__pulumiType, name, resourceInputs, opts);
     }

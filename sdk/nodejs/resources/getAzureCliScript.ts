@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a deployment script with a given name.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2020-10-01.
  */
 export function getAzureCliScript(args: GetAzureCliScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureCliScriptResult> {
 
@@ -131,7 +131,7 @@ export interface GetAzureCliScriptResult {
 }
 /**
  * Gets a deployment script with a given name.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2020-10-01.
  */
 export function getAzureCliScriptOutput(args: GetAzureCliScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureCliScriptResult> {
     return pulumi.output(args).apply((a: any) => getAzureCliScript(a, opts))

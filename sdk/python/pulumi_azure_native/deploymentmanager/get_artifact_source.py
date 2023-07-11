@@ -134,7 +134,7 @@ def get_artifact_source(artifact_source_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetArtifactSourceResult:
     """
     The resource that defines the source location where the artifacts are located.
-    API Version: 2019-11-01-preview.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str artifact_source_name: The name of the artifact source.
@@ -163,7 +163,7 @@ def get_artifact_source_output(artifact_source_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArtifactSourceResult]:
     """
     The resource that defines the source location where the artifacts are located.
-    API Version: 2019-11-01-preview.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str artifact_source_name: The name of the artifact source.

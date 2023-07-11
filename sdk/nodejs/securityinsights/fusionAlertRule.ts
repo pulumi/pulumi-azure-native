@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Represents Fusion alert rule.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
  */
 export class FusionAlertRule extends pulumi.CustomResource {
     /**
@@ -65,7 +68,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -73,11 +76,19 @@ export class FusionAlertRule extends pulumi.CustomResource {
      */
     public /*out*/ readonly severity!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
      * The tactics of the alert rule
      */
     public /*out*/ readonly tactics!: pulumi.Output<string[]>;
     /**
-     * Azure resource type
+     * The techniques of the alert rule
+     */
+    public /*out*/ readonly techniques!: pulumi.Output<string[]>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -119,7 +130,9 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["techniques"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["alertRuleTemplateName"] = undefined /*out*/;
@@ -131,11 +144,13 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["severity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tactics"] = undefined /*out*/;
+            resourceInputs["techniques"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20200101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220801:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230201:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:FusionAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20200101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220701preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220801:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220801preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221101:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20221201preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230201:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230201preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230401preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230501preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20230601preview:FusionAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FusionAlertRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -159,7 +174,7 @@ export interface FusionAlertRuleArgs {
      */
     kind: pulumi.Input<"Fusion">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

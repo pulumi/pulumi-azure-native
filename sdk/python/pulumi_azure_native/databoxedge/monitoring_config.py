@@ -93,7 +93,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  __props__=None):
         """
         The metric setting details for the role
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class MonitoringConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The metric setting details for the role
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param MonitoringConfigArgs args: The arguments to use to populate this resource's properties.
@@ -153,6 +153,7 @@ class MonitoringConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databoxedge/v20200901:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20200901preview:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20201201:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20210201:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20210201preview:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20210601:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20210601preview:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20220301:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20220401preview:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20221201preview:MonitoringConfig"), pulumi.Alias(type_="azure-native:databoxedge/v20230101preview:MonitoringConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -180,6 +181,7 @@ class MonitoringConfig(pulumi.CustomResource):
 
         __props__.__dict__["metric_configurations"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return MonitoringConfig(resource_name, opts=opts, __props__=__props__)
 
@@ -198,6 +200,14 @@ class MonitoringConfig(pulumi.CustomResource):
         The object name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of MonitoringConfiguration
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

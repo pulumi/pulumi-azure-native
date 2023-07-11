@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'DatabaseIdentityResponse',
+    'DatabaseUserIdentityResponse',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemResponse',
     'ElasticPoolPerDatabaseSettingsResponse',
     'FailoverGroupReadOnlyEndpointResponse',
@@ -41,9 +43,11 @@ __all__ = [
     'RecommendedActionResponse',
     'RecommendedActionStateInfoResponse',
     'ResourceIdentityResponse',
+    'ScheduleItemResponse',
     'ServerExternalAdministratorResponse',
     'ServerInfoResponse',
     'ServerPrivateEndpointConnectionResponse',
+    'ServicePrincipalResponse',
     'SkuResponse',
     'SyncGroupSchemaResponse',
     'SyncGroupSchemaTableColumnResponse',
@@ -52,6 +56,123 @@ __all__ = [
     'UserIdentityResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
 ]
+
+@pulumi.output_type
+class DatabaseIdentityResponse(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.DatabaseUserIdentityResponse']] = None):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str tenant_id: The Azure Active Directory tenant id.
+        :param str type: The identity type
+        :param Mapping[str, 'DatabaseUserIdentityResponse'] user_assigned_identities: The resource ids of the user assigned identities to use
+        """
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The identity type
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.DatabaseUserIdentityResponse']]:
+        """
+        The resource ids of the user assigned identities to use
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class DatabaseUserIdentityResponse(dict):
+    """
+    Azure Active Directory identity configuration for a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseUserIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseUserIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseUserIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        Azure Active Directory identity configuration for a resource.
+        :param str client_id: The Azure Active Directory client id.
+        :param str principal_id: The Azure Active Directory principal id.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Azure Active Directory client id.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory principal id.
+        """
+        return pulumi.get(self, "principal_id")
+
 
 @pulumi.output_type
 class DatabaseVulnerabilityAssessmentRuleBaselineItemResponse(dict):
@@ -1280,7 +1401,9 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "provisioningState":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
@@ -1299,20 +1422,31 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Sequence[str],
                  provisioning_state: str,
                  private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
         """
         Properties of a private endpoint connection.
+        :param Sequence[str] group_ids: Group IDs.
         :param str provisioning_state: State of the private endpoint connection.
         :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
         :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
         """
+        pulumi.set(__self__, "group_ids", group_ids)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        Group IDs.
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -2194,6 +2328,84 @@ class ResourceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class ScheduleItemResponse(dict):
+    """
+    Schedule info describing when the server should be started or stopped.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startDay":
+            suggest = "start_day"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "stopDay":
+            suggest = "stop_day"
+        elif key == "stopTime":
+            suggest = "stop_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 start_day: str,
+                 start_time: str,
+                 stop_day: str,
+                 stop_time: str):
+        """
+        Schedule info describing when the server should be started or stopped.
+        :param str start_day: Start day.
+        :param str start_time: Start time.
+        :param str stop_day: Stop day.
+        :param str stop_time: Stop time.
+        """
+        pulumi.set(__self__, "start_day", start_day)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "stop_day", stop_day)
+        pulumi.set(__self__, "stop_time", stop_time)
+
+    @property
+    @pulumi.getter(name="startDay")
+    def start_day(self) -> str:
+        """
+        Start day.
+        """
+        return pulumi.get(self, "start_day")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="stopDay")
+    def stop_day(self) -> str:
+        """
+        Stop day.
+        """
+        return pulumi.get(self, "stop_day")
+
+    @property
+    @pulumi.getter(name="stopTime")
+    def stop_time(self) -> str:
+        """
+        Stop time.
+        """
+        return pulumi.get(self, "stop_time")
+
+
+@pulumi.output_type
 class ServerExternalAdministratorResponse(dict):
     """
     Properties of a active directory administrator.
@@ -2369,6 +2581,83 @@ class ServerPrivateEndpointConnectionResponse(dict):
         Private endpoint connection properties
         """
         return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class ServicePrincipalResponse(dict):
+    """
+    The managed instance's service principal configuration for a resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServicePrincipalResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServicePrincipalResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServicePrincipalResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None):
+        """
+        The managed instance's service principal configuration for a resource.
+        :param str client_id: The Azure Active Directory application client id.
+        :param str principal_id: The Azure Active Directory application object id.
+        :param str tenant_id: The Azure Active Directory tenant id.
+        :param str type: Service principal type.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The Azure Active Directory application client id.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The Azure Active Directory application object id.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The Azure Active Directory tenant id.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Service principal type.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -145,7 +145,7 @@ def get_registration(registration_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationResult:
     """
     Returns the properties of an Azure Stack registration.
-    API Version: 2017-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str registration_name: Name of the Azure Stack registration.
@@ -175,7 +175,7 @@ def get_registration_output(registration_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationResult]:
     """
     Returns the properties of an Azure Stack registration.
-    API Version: 2017-06-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str registration_name: Name of the Azure Stack registration.

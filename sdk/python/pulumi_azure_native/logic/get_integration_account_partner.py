@@ -159,7 +159,7 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountPartnerResult:
     """
     Gets an integration account partner.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.
@@ -193,7 +193,7 @@ def get_integration_account_partner_output(integration_account_name: Optional[pu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountPartnerResult]:
     """
     Gets an integration account partner.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.

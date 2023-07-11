@@ -23,6 +23,8 @@ class AttachedDatabaseConfigurationArgs:
                  default_principals_modification_kind: pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']],
                  resource_group_name: pulumi.Input[str],
                  attached_database_configuration_name: Optional[pulumi.Input[str]] = None,
+                 database_name_override: Optional[pulumi.Input[str]] = None,
+                 database_name_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  table_level_sharing_properties: Optional[pulumi.Input['TableLevelSharingPropertiesArgs']] = None):
         """
@@ -33,6 +35,8 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
+        :param pulumi.Input[str] database_name_override: Overrides the original database name. Relevant only when attaching to a specific database.
+        :param pulumi.Input[str] database_name_prefix: Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
         """
@@ -43,6 +47,10 @@ class AttachedDatabaseConfigurationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if attached_database_configuration_name is not None:
             pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
+        if database_name_override is not None:
+            pulumi.set(__self__, "database_name_override", database_name_override)
+        if database_name_prefix is not None:
+            pulumi.set(__self__, "database_name_prefix", database_name_prefix)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if table_level_sharing_properties is not None:
@@ -121,6 +129,30 @@ class AttachedDatabaseConfigurationArgs:
         pulumi.set(self, "attached_database_configuration_name", value)
 
     @property
+    @pulumi.getter(name="databaseNameOverride")
+    def database_name_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Overrides the original database name. Relevant only when attaching to a specific database.
+        """
+        return pulumi.get(self, "database_name_override")
+
+    @database_name_override.setter
+    def database_name_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name_override", value)
+
+    @property
+    @pulumi.getter(name="databaseNamePrefix")
+    def database_name_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        """
+        return pulumi.get(self, "database_name_prefix")
+
+    @database_name_prefix.setter
+    def database_name_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name_prefix", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -154,6 +186,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_name_override: Optional[pulumi.Input[str]] = None,
+                 database_name_prefix: Optional[pulumi.Input[str]] = None,
                  default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -161,7 +195,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an attached database configuration.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,6 +203,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        :param pulumi.Input[str] database_name_override: Overrides the original database name. Relevant only when attaching to a specific database.
+        :param pulumi.Input[str] database_name_prefix: Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
         :param pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
@@ -182,7 +218,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an attached database configuration.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +239,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  cluster_name: Optional[pulumi.Input[str]] = None,
                  cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_name_override: Optional[pulumi.Input[str]] = None,
+                 database_name_prefix: Optional[pulumi.Input[str]] = None,
                  default_principals_modification_kind: Optional[pulumi.Input[Union[str, 'DefaultPrincipalsModificationKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -226,6 +264,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["database_name_override"] = database_name_override
+            __props__.__dict__["database_name_prefix"] = database_name_prefix
             if default_principals_modification_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'default_principals_modification_kind'")
             __props__.__dict__["default_principals_modification_kind"] = default_principals_modification_kind
@@ -238,7 +278,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210101:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210827:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20220201:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20220707:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20221111:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20221229:AttachedDatabaseConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190907:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20191109:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200215:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200614:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20200918:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210101:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20210827:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20220201:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20220707:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20221111:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20221229:AttachedDatabaseConfiguration"), pulumi.Alias(type_="azure-native:kusto/v20230502:AttachedDatabaseConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedDatabaseConfiguration, __self__).__init__(
             'azure-native:kusto:AttachedDatabaseConfiguration',
@@ -265,6 +305,8 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         __props__.__dict__["attached_database_names"] = None
         __props__.__dict__["cluster_resource_id"] = None
         __props__.__dict__["database_name"] = None
+        __props__.__dict__["database_name_override"] = None
+        __props__.__dict__["database_name_prefix"] = None
         __props__.__dict__["default_principals_modification_kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -296,6 +338,22 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="databaseNameOverride")
+    def database_name_override(self) -> pulumi.Output[Optional[str]]:
+        """
+        Overrides the original database name. Relevant only when attaching to a specific database.
+        """
+        return pulumi.get(self, "database_name_override")
+
+    @property
+    @pulumi.getter(name="databaseNamePrefix")
+    def database_name_prefix(self) -> pulumi.Output[Optional[str]]:
+        """
+        Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        """
+        return pulumi.get(self, "database_name_prefix")
 
     @property
     @pulumi.getter(name="defaultPrincipalsModificationKind")

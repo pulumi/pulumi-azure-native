@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.StreamAnalytics.Inputs
     public sealed class BlobOutputDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication Mode.
+        /// </summary>
+        [Input("authenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.AuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
+        /// Blob path prefix.
+        /// </summary>
+        [Input("blobPathPrefix")]
+        public Input<string>? BlobPathPrefix { get; set; }
+
+        /// <summary>
         /// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("container")]

@@ -110,12 +110,12 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     resource_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Gets the details of the private endpoint connection by managed cluster and resource group.
-    API Version: 2021-03-01.
+    To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
+    Azure REST API version: 2023-04-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
     __args__ = dict()
@@ -140,12 +140,12 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            resource_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Gets the details of the private endpoint connection by managed cluster and resource group.
-    API Version: 2021-03-01.
+    To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
+    Azure REST API version: 2023-04-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
     ...

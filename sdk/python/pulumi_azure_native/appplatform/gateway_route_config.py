@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['GatewayRouteConfigArgs', 'GatewayRouteConfig']
@@ -111,7 +112,7 @@ class GatewayRouteConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Spring Cloud Gateway route config resource
-        API Version: 2022-01-01-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +130,7 @@ class GatewayRouteConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Spring Cloud Gateway route config resource
-        API Version: 2022-01-01-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param GatewayRouteConfigArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +175,7 @@ class GatewayRouteConfig(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20221201:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:GatewayRouteConfig")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20221201:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:GatewayRouteConfig"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:GatewayRouteConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayRouteConfig, __self__).__init__(
             'azure-native:appplatform:GatewayRouteConfig',

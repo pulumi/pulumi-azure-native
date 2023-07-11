@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents a connected registry for a container registry.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ConnectedRegistry extends pulumi.CustomResource {
     /**
@@ -71,6 +71,10 @@ export class ConnectedRegistry extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The list of notifications subscription information for the connected registry.
+     */
+    public readonly notificationsList!: pulumi.Output<string[] | undefined>;
+    /**
      * The parent of the connected registry.
      */
     public readonly parent!: pulumi.Output<outputs.containerregistry.ParentPropertiesResponse>;
@@ -122,6 +126,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
             resourceInputs["connectedRegistryName"] = args ? args.connectedRegistryName : undefined;
             resourceInputs["logging"] = args ? (args.logging ? pulumi.output(args.logging).apply(inputs.containerregistry.loggingPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["notificationsList"] = args ? args.notificationsList : undefined;
             resourceInputs["parent"] = args ? args.parent : undefined;
             resourceInputs["registryName"] = args ? args.registryName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -144,6 +149,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
             resourceInputs["loginServer"] = undefined /*out*/;
             resourceInputs["mode"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["notificationsList"] = undefined /*out*/;
             resourceInputs["parent"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statusDetails"] = undefined /*out*/;
@@ -179,6 +185,10 @@ export interface ConnectedRegistryArgs {
      */
     mode: pulumi.Input<string | enums.containerregistry.ConnectedRegistryMode>;
     /**
+     * The list of notifications subscription information for the connected registry.
+     */
+    notificationsList?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The parent of the connected registry.
      */
     parent: pulumi.Input<inputs.containerregistry.ParentPropertiesArgs>;
@@ -187,7 +197,7 @@ export interface ConnectedRegistryArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

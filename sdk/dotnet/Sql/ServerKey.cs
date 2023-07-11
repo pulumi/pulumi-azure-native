@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A server key.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerKey"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerKey"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ServerKey"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerKey"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +150,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+        /// The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

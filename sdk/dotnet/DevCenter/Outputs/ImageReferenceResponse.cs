@@ -24,36 +24,15 @@ namespace Pulumi.AzureNative.DevCenter.Outputs
         /// Image ID, or Image version ID. When Image ID is provided, its latest version will be used.
         /// </summary>
         public readonly string? Id;
-        /// <summary>
-        /// The image offer.
-        /// </summary>
-        public readonly string? Offer;
-        /// <summary>
-        /// The image publisher.
-        /// </summary>
-        public readonly string? Publisher;
-        /// <summary>
-        /// The image sku.
-        /// </summary>
-        public readonly string? Sku;
 
         [OutputConstructor]
         private ImageReferenceResponse(
             string exactVersion,
 
-            string? id,
-
-            string? offer,
-
-            string? publisher,
-
-            string? sku)
+            string? id)
         {
             ExactVersion = exactVersion;
             Id = id;
-            Offer = offer;
-            Publisher = publisher;
-            Sku = sku;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// Peering Service
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeeringService")]
     public partial class PeeringService : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The Log Analytics Workspace Properties
+        /// </summary>
+        [Output("logAnalyticsWorkspaceProperties")]
+        public Output<Outputs.LogAnalyticsWorkspacePropertiesResponse?> LogAnalyticsWorkspaceProperties { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.

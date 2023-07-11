@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
     'ExtendedLocationResponse',
     'GuestAgentProfileResponse',
@@ -26,64 +27,131 @@ __all__ = [
     'NicIPAddressSettingsResponse',
     'NicIPSettingsResponse',
     'OsProfileResponse',
+    'OsProfileResponseLinuxConfiguration',
+    'OsProfileResponseWindowsConfiguration',
     'PlacementProfileResponse',
     'ResourceStatusResponse',
+    'SecurityProfileResponse',
     'StorageProfileResponse',
     'SystemDataResponse',
+    'UefiSettingsResponse',
     'VICredentialResponse',
     'VirtualDiskResponse',
     'VirtualSCSIControllerResponse',
 ]
 
 @pulumi.output_type
-class ErrorDetailResponse(dict):
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
     def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
                  code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
                  message: str,
-                 details: Optional[Sequence['outputs.ErrorDetailResponse']] = None,
-                 target: Optional[str] = None):
+                 target: str):
         """
-        :param str code: The error's code.
-        :param str message: A human readable error message.
-        :param Sequence['ErrorDetailResponse'] details: Additional error details.
-        :param str target: Indicates which property in the request is responsible for the error.
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
         """
+        pulumi.set(__self__, "additional_info", additional_info)
         pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
         pulumi.set(__self__, "message", message)
-        if details is not None:
-            pulumi.set(__self__, "details", details)
-        if target is not None:
-            pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
 
     @property
     @pulumi.getter
     def code(self) -> str:
         """
-        The error's code.
+        The error code.
         """
         return pulumi.get(self, "code")
 
     @property
     @pulumi.getter
-    def message(self) -> str:
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
         """
-        A human readable error message.
-        """
-        return pulumi.get(self, "message")
-
-    @property
-    @pulumi.getter
-    def details(self) -> Optional[Sequence['outputs.ErrorDetailResponse']]:
-        """
-        Additional error details.
+        The error details.
         """
         return pulumi.get(self, "details")
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[str]:
+    def message(self) -> str:
         """
-        Indicates which property in the request is responsible for the error.
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
         """
         return pulumi.get(self, "target")
 
@@ -126,7 +194,7 @@ class ExtendedLocationResponse(dict):
 @pulumi.output_type
 class GuestAgentProfileResponse(dict):
     """
-    Defines the resource properties.
+    Specifies the guest agent settings for the virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -137,8 +205,12 @@ class GuestAgentProfileResponse(dict):
             suggest = "error_details"
         elif key == "lastStatusChange":
             suggest = "last_status_change"
+        elif key == "mssqlDiscovered":
+            suggest = "mssql_discovered"
         elif key == "vmUuid":
             suggest = "vm_uuid"
+        elif key == "clientPublicKey":
+            suggest = "client_public_key"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GuestAgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -155,21 +227,28 @@ class GuestAgentProfileResponse(dict):
                  agent_version: str,
                  error_details: Sequence['outputs.ErrorDetailResponse'],
                  last_status_change: str,
+                 mssql_discovered: str,
                  status: str,
-                 vm_uuid: str):
+                 vm_uuid: str,
+                 client_public_key: Optional[str] = None):
         """
-        Defines the resource properties.
+        Specifies the guest agent settings for the virtual machine.
         :param str agent_version: The hybrid machine agent full version.
         :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
         :param str last_status_change: The time of the last status change.
+        :param str mssql_discovered: Specifies whether any MS SQL instance is discovered on the machine.
         :param str status: The status of the hybrid machine agent.
         :param str vm_uuid: Specifies the VM's unique SMBIOS ID.
+        :param str client_public_key: Gets or sets the Public Key provided by the client for enabling guest management.
         """
         pulumi.set(__self__, "agent_version", agent_version)
         pulumi.set(__self__, "error_details", error_details)
         pulumi.set(__self__, "last_status_change", last_status_change)
+        pulumi.set(__self__, "mssql_discovered", mssql_discovered)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "vm_uuid", vm_uuid)
+        if client_public_key is not None:
+            pulumi.set(__self__, "client_public_key", client_public_key)
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -196,6 +275,14 @@ class GuestAgentProfileResponse(dict):
         return pulumi.get(self, "last_status_change")
 
     @property
+    @pulumi.getter(name="mssqlDiscovered")
+    def mssql_discovered(self) -> str:
+        """
+        Specifies whether any MS SQL instance is discovered on the machine.
+        """
+        return pulumi.get(self, "mssql_discovered")
+
+    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -210,6 +297,14 @@ class GuestAgentProfileResponse(dict):
         Specifies the VM's unique SMBIOS ID.
         """
         return pulumi.get(self, "vm_uuid")
+
+    @property
+    @pulumi.getter(name="clientPublicKey")
+    def client_public_key(self) -> Optional[str]:
+        """
+        Gets or sets the Public Key provided by the client for enabling guest management.
+        """
+        return pulumi.get(self, "client_public_key")
 
 
 @pulumi.output_type
@@ -238,7 +333,7 @@ class GuestCredentialResponse(dict):
 @pulumi.output_type
 class HardwareProfileResponse(dict):
     """
-    Defines the resource properties.
+    Specifies the hardware settings for the virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -275,7 +370,7 @@ class HardwareProfileResponse(dict):
                  num_cpus: Optional[int] = None,
                  num_cores_per_socket: Optional[int] = None):
         """
-        Defines the resource properties.
+        Specifies the hardware settings for the virtual machine.
         :param bool cpu_hot_add_enabled: Gets or sets a value indicating whether virtual processors can be added while this virtual machine is running.
         :param bool cpu_hot_remove_enabled: Gets or sets a value indicating whether virtual processors can be removed while this virtual machine is running.
         :param bool memory_hot_add_enabled: Gets or sets a value indicating whether memory can be added while this virtual machine is running.
@@ -777,7 +872,7 @@ class NetworkInterfaceResponse(dict):
 @pulumi.output_type
 class NetworkProfileResponse(dict):
     """
-    Defines the resource properties.
+    Specifies the network interfaces of the virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -799,7 +894,7 @@ class NetworkProfileResponse(dict):
     def __init__(__self__, *,
                  network_interfaces: Optional[Sequence['outputs.NetworkInterfaceResponse']] = None):
         """
-        Defines the resource properties.
+        Specifies the network interfaces of the virtual machine.
         :param Sequence['NetworkInterfaceResponse'] network_interfaces: Gets or sets the list of network interfaces associated with the virtual machine.
         """
         if network_interfaces is not None:
@@ -1015,12 +1110,14 @@ class NicIPSettingsResponse(dict):
 @pulumi.output_type
 class OsProfileResponse(dict):
     """
-    Defines the resource properties.
+    Specifies the operating system settings for the virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "osName":
+        if key == "allowExtensionOperations":
+            suggest = "allow_extension_operations"
+        elif key == "osName":
             suggest = "os_name"
         elif key == "toolsRunningStatus":
             suggest = "tools_running_status"
@@ -1032,8 +1129,14 @@ class OsProfileResponse(dict):
             suggest = "admin_username"
         elif key == "computerName":
             suggest = "computer_name"
+        elif key == "guestId":
+            suggest = "guest_id"
+        elif key == "linuxConfiguration":
+            suggest = "linux_configuration"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "windowsConfiguration":
+            suggest = "windows_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OsProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1047,23 +1150,32 @@ class OsProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allow_extension_operations: bool,
                  os_name: str,
                  tools_running_status: str,
                  tools_version: str,
                  tools_version_status: str,
                  admin_username: Optional[str] = None,
                  computer_name: Optional[str] = None,
-                 os_type: Optional[str] = None):
+                 guest_id: Optional[str] = None,
+                 linux_configuration: Optional['outputs.OsProfileResponseLinuxConfiguration'] = None,
+                 os_type: Optional[str] = None,
+                 windows_configuration: Optional['outputs.OsProfileResponseWindowsConfiguration'] = None):
         """
-        Defines the resource properties.
+        Specifies the operating system settings for the virtual machine.
+        :param bool allow_extension_operations: Gets or sets a value indicating whether the VM is ready for extension operations.
         :param str os_name: Gets or sets os name.
         :param str tools_running_status: Gets or sets the current running status of VMware Tools running in the guest operating system.
         :param str tools_version: Gets or sets the current version of VMware Tools.
         :param str tools_version_status: Gets or sets the current version status of VMware Tools installed in the guest operating system.
         :param str admin_username: Gets or sets administrator username.
         :param str computer_name: Gets or sets computer name.
+        :param str guest_id: Gets or sets the guestId.
+        :param 'OsProfileResponseLinuxConfiguration' linux_configuration: Specifies the linux configuration for update management.
         :param str os_type: Gets or sets the type of the os.
+        :param 'OsProfileResponseWindowsConfiguration' windows_configuration: Specifies the windows configuration for update management.
         """
+        pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
         pulumi.set(__self__, "os_name", os_name)
         pulumi.set(__self__, "tools_running_status", tools_running_status)
         pulumi.set(__self__, "tools_version", tools_version)
@@ -1072,8 +1184,22 @@ class OsProfileResponse(dict):
             pulumi.set(__self__, "admin_username", admin_username)
         if computer_name is not None:
             pulumi.set(__self__, "computer_name", computer_name)
+        if guest_id is not None:
+            pulumi.set(__self__, "guest_id", guest_id)
+        if linux_configuration is not None:
+            pulumi.set(__self__, "linux_configuration", linux_configuration)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
+
+    @property
+    @pulumi.getter(name="allowExtensionOperations")
+    def allow_extension_operations(self) -> bool:
+        """
+        Gets or sets a value indicating whether the VM is ready for extension operations.
+        """
+        return pulumi.get(self, "allow_extension_operations")
 
     @property
     @pulumi.getter(name="osName")
@@ -1124,6 +1250,22 @@ class OsProfileResponse(dict):
         return pulumi.get(self, "computer_name")
 
     @property
+    @pulumi.getter(name="guestId")
+    def guest_id(self) -> Optional[str]:
+        """
+        Gets or sets the guestId.
+        """
+        return pulumi.get(self, "guest_id")
+
+    @property
+    @pulumi.getter(name="linuxConfiguration")
+    def linux_configuration(self) -> Optional['outputs.OsProfileResponseLinuxConfiguration']:
+        """
+        Specifies the linux configuration for update management.
+        """
+        return pulumi.get(self, "linux_configuration")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> Optional[str]:
         """
@@ -1131,11 +1273,127 @@ class OsProfileResponse(dict):
         """
         return pulumi.get(self, "os_type")
 
+    @property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> Optional['outputs.OsProfileResponseWindowsConfiguration']:
+        """
+        Specifies the windows configuration for update management.
+        """
+        return pulumi.get(self, "windows_configuration")
+
+
+@pulumi.output_type
+class OsProfileResponseLinuxConfiguration(dict):
+    """
+    Specifies the linux configuration for update management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentMode":
+            suggest = "assessment_mode"
+        elif key == "patchMode":
+            suggest = "patch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileResponseLinuxConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsProfileResponseLinuxConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsProfileResponseLinuxConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_mode: Optional[str] = None,
+                 patch_mode: Optional[str] = None):
+        """
+        Specifies the linux configuration for update management.
+        :param str assessment_mode: Specifies the assessment mode.
+        :param str patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[str]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[str]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+
+@pulumi.output_type
+class OsProfileResponseWindowsConfiguration(dict):
+    """
+    Specifies the windows configuration for update management.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentMode":
+            suggest = "assessment_mode"
+        elif key == "patchMode":
+            suggest = "patch_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileResponseWindowsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsProfileResponseWindowsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsProfileResponseWindowsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_mode: Optional[str] = None,
+                 patch_mode: Optional[str] = None):
+        """
+        Specifies the windows configuration for update management.
+        :param str assessment_mode: Specifies the assessment mode.
+        :param str patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[str]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[str]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
 
 @pulumi.output_type
 class PlacementProfileResponse(dict):
     """
-    Defines the resource properties.
+    Specifies the compute and storage placement settings for the virtual machine.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1166,7 +1424,7 @@ class PlacementProfileResponse(dict):
                  host_id: Optional[str] = None,
                  resource_pool_id: Optional[str] = None):
         """
-        Defines the resource properties.
+        Specifies the compute and storage placement settings for the virtual machine.
         :param str cluster_id: Gets or sets the ARM Id of the cluster resource on which this virtual machine will deploy.
         :param str datastore_id: Gets or sets the ARM Id of the datastore resource on which the data for the virtual machine will be kept.
         :param str host_id: Gets or sets the ARM Id of the host resource on which this virtual machine will deploy.
@@ -1309,9 +1567,49 @@ class ResourceStatusResponse(dict):
 
 
 @pulumi.output_type
+class SecurityProfileResponse(dict):
+    """
+    Specifies the Security profile settings for the virtual machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "uefiSettings":
+            suggest = "uefi_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 uefi_settings: Optional['outputs.UefiSettingsResponse'] = None):
+        """
+        Specifies the Security profile settings for the virtual machine.
+        :param 'UefiSettingsResponse' uefi_settings: Specifies the security settings like secure boot used while creating the virtual machine.
+        """
+        if uefi_settings is not None:
+            pulumi.set(__self__, "uefi_settings", uefi_settings)
+
+    @property
+    @pulumi.getter(name="uefiSettings")
+    def uefi_settings(self) -> Optional['outputs.UefiSettingsResponse']:
+        """
+        Specifies the security settings like secure boot used while creating the virtual machine.
+        """
+        return pulumi.get(self, "uefi_settings")
+
+
+@pulumi.output_type
 class StorageProfileResponse(dict):
     """
-    Defines the resource properties.
+    Specifies the storage settings for the virtual machine disks.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1334,7 +1632,7 @@ class StorageProfileResponse(dict):
                  scsi_controllers: Sequence['outputs.VirtualSCSIControllerResponse'],
                  disks: Optional[Sequence['outputs.VirtualDiskResponse']] = None):
         """
-        Defines the resource properties.
+        Specifies the storage settings for the virtual machine disks.
         :param Sequence['VirtualSCSIControllerResponse'] scsi_controllers: Gets or sets the list of virtual SCSI controllers associated with the virtual machine.
         :param Sequence['VirtualDiskResponse'] disks: Gets or sets the list of virtual disks associated with the virtual machine.
         """
@@ -1467,6 +1765,46 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UefiSettingsResponse(dict):
+    """
+    Specifies the security settings like secure boot used while creating the virtual machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secureBootEnabled":
+            suggest = "secure_boot_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UefiSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UefiSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UefiSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secure_boot_enabled: Optional[bool] = None):
+        """
+        Specifies the security settings like secure boot used while creating the virtual machine.
+        :param bool secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
+        """
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+
+    @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
 
 
 @pulumi.output_type

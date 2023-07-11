@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
     /// Represents a Database.
-    /// API Version: 2017-12-01.
+    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2017-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -65,8 +71,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20171201preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221201:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

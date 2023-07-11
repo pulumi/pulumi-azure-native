@@ -24,7 +24,7 @@ export class StoragecontainerRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:StoragecontainerRetrieve';
 
     /**
      * Returns true if the given object is an instance of StoragecontainerRetrieve.  This is designed to work even
@@ -123,6 +123,8 @@ export class StoragecontainerRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve" }, { type: "azure-native:azurestackhci:StoragecontainerRetrieve" }, { type: "azure-native:azurestackhci:storagecontainerRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:StoragecontainerRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:storagecontainerRetrieve" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StoragecontainerRetrieve.__pulumiType, name, resourceInputs, opts);
     }
 }

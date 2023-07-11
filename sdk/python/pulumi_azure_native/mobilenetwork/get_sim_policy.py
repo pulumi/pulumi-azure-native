@@ -22,31 +22,13 @@ class GetSimPolicyResult:
     """
     SIM policy resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, default_slice=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, slice_configurations=None, system_data=None, tags=None, type=None, ue_ambr=None):
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
+    def __init__(__self__, default_slice=None, id=None, location=None, name=None, provisioning_state=None, registration_timer=None, rfsp_index=None, site_provisioning_state=None, slice_configurations=None, system_data=None, tags=None, type=None, ue_ambr=None):
         if default_slice and not isinstance(default_slice, dict):
             raise TypeError("Expected argument 'default_slice' to be a dict")
         pulumi.set(__self__, "default_slice", default_slice)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -62,6 +44,9 @@ class GetSimPolicyResult:
         if rfsp_index and not isinstance(rfsp_index, int):
             raise TypeError("Expected argument 'rfsp_index' to be a int")
         pulumi.set(__self__, "rfsp_index", rfsp_index)
+        if site_provisioning_state and not isinstance(site_provisioning_state, dict):
+            raise TypeError("Expected argument 'site_provisioning_state' to be a dict")
+        pulumi.set(__self__, "site_provisioning_state", site_provisioning_state)
         if slice_configurations and not isinstance(slice_configurations, list):
             raise TypeError("Expected argument 'slice_configurations' to be a list")
         pulumi.set(__self__, "slice_configurations", slice_configurations)
@@ -79,34 +64,10 @@ class GetSimPolicyResult:
         pulumi.set(__self__, "ue_ambr", ue_ambr)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @property
     @pulumi.getter(name="defaultSlice")
     def default_slice(self) -> 'outputs.SliceResourceIdResponse':
         """
-        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "default_slice")
 
@@ -114,33 +75,9 @@ class GetSimPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
 
     @property
     @pulumi.getter
@@ -170,7 +107,7 @@ class GetSimPolicyResult:
     @pulumi.getter(name="registrationTimer")
     def registration_timer(self) -> Optional[int]:
         """
-        Interval for the UE periodic registration update procedure, in seconds.
+        UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         """
         return pulumi.get(self, "registration_timer")
 
@@ -181,6 +118,14 @@ class GetSimPolicyResult:
         RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         """
         return pulumi.get(self, "rfsp_index")
+
+    @property
+    @pulumi.getter(name="siteProvisioningState")
+    def site_provisioning_state(self) -> Mapping[str, str]:
+        """
+        A dictionary of sites to the provisioning state of this SIM policy on that site.
+        """
+        return pulumi.get(self, "site_provisioning_state")
 
     @property
     @pulumi.getter(name="sliceConfigurations")
@@ -229,19 +174,14 @@ class AwaitableGetSimPolicyResult(GetSimPolicyResult):
         if False:
             yield self
         return GetSimPolicyResult(
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
             default_slice=self.default_slice,
             id=self.id,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             registration_timer=self.registration_timer,
             rfsp_index=self.rfsp_index,
+            site_provisioning_state=self.site_provisioning_state,
             slice_configurations=self.slice_configurations,
             system_data=self.system_data,
             tags=self.tags,
@@ -255,7 +195,7 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSimPolicyResult:
     """
     Gets information about the specified SIM policy.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.
@@ -270,19 +210,14 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSimPolicy', __args__, opts=opts, typ=GetSimPolicyResult).value
 
     return AwaitableGetSimPolicyResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
         default_slice=__ret__.default_slice,
         id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         registration_timer=__ret__.registration_timer,
         rfsp_index=__ret__.rfsp_index,
+        site_provisioning_state=__ret__.site_provisioning_state,
         slice_configurations=__ret__.slice_configurations,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -297,7 +232,7 @@ def get_sim_policy_output(mobile_network_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimPolicyResult]:
     """
     Gets information about the specified SIM policy.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2023-06-01.
 
 
     :param str mobile_network_name: The name of the mobile network.

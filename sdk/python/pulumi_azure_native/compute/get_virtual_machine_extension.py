@@ -22,7 +22,7 @@ class GetVirtualMachineExtensionResult:
     """
     Describes a Virtual Machine Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, tags=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, protected_settings_from_key_vault=None, provision_after_extensions=None, provisioning_state=None, publisher=None, settings=None, suppress_failures=None, tags=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -47,6 +47,12 @@ class GetVirtualMachineExtensionResult:
         if protected_settings and not isinstance(protected_settings, dict):
             raise TypeError("Expected argument 'protected_settings' to be a dict")
         pulumi.set(__self__, "protected_settings", protected_settings)
+        if protected_settings_from_key_vault and not isinstance(protected_settings_from_key_vault, dict):
+            raise TypeError("Expected argument 'protected_settings_from_key_vault' to be a dict")
+        pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+        if provision_after_extensions and not isinstance(provision_after_extensions, list):
+            raise TypeError("Expected argument 'provision_after_extensions' to be a list")
+        pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -56,6 +62,9 @@ class GetVirtualMachineExtensionResult:
         if settings and not isinstance(settings, dict):
             raise TypeError("Expected argument 'settings' to be a dict")
         pulumi.set(__self__, "settings", settings)
+        if suppress_failures and not isinstance(suppress_failures, bool):
+            raise TypeError("Expected argument 'suppress_failures' to be a bool")
+        pulumi.set(__self__, "suppress_failures", suppress_failures)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -108,7 +117,7 @@ class GetVirtualMachineExtensionResult:
 
     @property
     @pulumi.getter
-    def location(self) -> str:
+    def location(self) -> Optional[str]:
         """
         Resource location
         """
@@ -129,6 +138,22 @@ class GetVirtualMachineExtensionResult:
         The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         """
         return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter(name="protectedSettingsFromKeyVault")
+    def protected_settings_from_key_vault(self) -> Optional['outputs.KeyVaultSecretReferenceResponse']:
+        """
+        The extensions protected settings that are passed by reference, and consumed from key vault
+        """
+        return pulumi.get(self, "protected_settings_from_key_vault")
+
+    @property
+    @pulumi.getter(name="provisionAfterExtensions")
+    def provision_after_extensions(self) -> Optional[Sequence[str]]:
+        """
+        Collection of extension names after which this extension needs to be provisioned.
+        """
+        return pulumi.get(self, "provision_after_extensions")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -153,6 +178,14 @@ class GetVirtualMachineExtensionResult:
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter(name="suppressFailures")
+    def suppress_failures(self) -> Optional[bool]:
+        """
+        Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        """
+        return pulumi.get(self, "suppress_failures")
 
     @property
     @pulumi.getter
@@ -193,9 +226,12 @@ class AwaitableGetVirtualMachineExtensionResult(GetVirtualMachineExtensionResult
             location=self.location,
             name=self.name,
             protected_settings=self.protected_settings,
+            protected_settings_from_key_vault=self.protected_settings_from_key_vault,
+            provision_after_extensions=self.provision_after_extensions,
             provisioning_state=self.provisioning_state,
             publisher=self.publisher,
             settings=self.settings,
+            suppress_failures=self.suppress_failures,
             tags=self.tags,
             type=self.type,
             type_handler_version=self.type_handler_version)
@@ -208,7 +244,7 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineExtensionResult:
     """
     The operation to get the extension.
-    API Version: 2021-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.
@@ -233,9 +269,12 @@ def get_virtual_machine_extension(expand: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         protected_settings=__ret__.protected_settings,
+        protected_settings_from_key_vault=__ret__.protected_settings_from_key_vault,
+        provision_after_extensions=__ret__.provision_after_extensions,
         provisioning_state=__ret__.provisioning_state,
         publisher=__ret__.publisher,
         settings=__ret__.settings,
+        suppress_failures=__ret__.suppress_failures,
         tags=__ret__.tags,
         type=__ret__.type,
         type_handler_version=__ret__.type_handler_version)
@@ -249,7 +288,7 @@ def get_virtual_machine_extension_output(expand: Optional[pulumi.Input[Optional[
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineExtensionResult]:
     """
     The operation to get the extension.
-    API Version: 2021-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation.

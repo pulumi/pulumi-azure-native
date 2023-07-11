@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy fragment contract details.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
  */
 export class PolicyFragment extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class PolicyFragment extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20211201preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220401preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220801:PolicyFragment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20211201preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220401preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20220801:PolicyFragment" }, { type: "azure-native:apimanagement/v20220901preview:PolicyFragment" }, { type: "azure-native:apimanagement/v20230301preview:PolicyFragment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PolicyFragment.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,7 +118,7 @@ export interface PolicyFragmentArgs {
      */
     id?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

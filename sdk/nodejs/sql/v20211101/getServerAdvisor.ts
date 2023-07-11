@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a server advisor.
  */
-/** @deprecated azure-native:sql/v20211101:ServerAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerAdvisor to guarantee forwards compatibility. */
 export function getServerAdvisor(args: GetServerAdvisorArgs, opts?: pulumi.InvokeOptions): Promise<GetServerAdvisorResult> {
-    pulumi.log.warn("getServerAdvisor is deprecated: azure-native:sql/v20211101:ServerAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerAdvisor to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sql/v20211101:getServerAdvisor", {
@@ -89,7 +87,6 @@ export interface GetServerAdvisorResult {
 /**
  * Gets a server advisor.
  */
-/** @deprecated azure-native:sql/v20211101:ServerAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerAdvisor to guarantee forwards compatibility. */
 export function getServerAdvisorOutput(args: GetServerAdvisorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerAdvisorResult> {
     return pulumi.output(args).apply((a: any) => getServerAdvisor(a, opts))
 }

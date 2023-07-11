@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets information about a database in a RedisEnterprise cluster.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a database in a RedisEnterprise cluster.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:cache:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string? EvictionPolicy;
         /// <summary>
+        /// Optional set of properties to configure geo replication for this database.
+        /// </summary>
+        public readonly Outputs.DatabasePropertiesResponseGeoReplication? GeoReplication;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -124,6 +128,10 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -135,6 +143,8 @@ namespace Pulumi.AzureNative.Cache
             string? clusteringPolicy,
 
             string? evictionPolicy,
+
+            Outputs.DatabasePropertiesResponseGeoReplication? geoReplication,
 
             string id,
 
@@ -150,11 +160,14 @@ namespace Pulumi.AzureNative.Cache
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ClientProtocol = clientProtocol;
             ClusteringPolicy = clusteringPolicy;
             EvictionPolicy = evictionPolicy;
+            GeoReplication = geoReplication;
             Id = id;
             Modules = modules;
             Name = name;
@@ -162,6 +175,7 @@ namespace Pulumi.AzureNative.Cache
             Port = port;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
+            SystemData = systemData;
             Type = type;
         }
     }

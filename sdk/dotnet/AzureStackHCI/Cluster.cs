@@ -11,22 +11,34 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// Cluster details.
-    /// API Version: 2020-10-01.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Object id of cluster AAD identity.
+        /// </summary>
+        [Output("aadApplicationObjectId")]
+        public Output<string?> AadApplicationObjectId { get; private set; } = null!;
+
+        /// <summary>
         /// App id of cluster AAD identity.
         /// </summary>
         [Output("aadClientId")]
-        public Output<string> AadClientId { get; private set; } = null!;
+        public Output<string?> AadClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Id of cluster identity service principal.
+        /// </summary>
+        [Output("aadServicePrincipalObjectId")]
+        public Output<string?> AadServicePrincipalObjectId { get; private set; } = null!;
 
         /// <summary>
         /// Tenant id of cluster AAD identity.
         /// </summary>
         [Output("aadTenantId")]
-        public Output<string> AadTenantId { get; private set; } = null!;
+        public Output<string?> AadTenantId { get; private set; } = null!;
 
         /// <summary>
         /// Type of billing applied to the resource.
@@ -41,46 +53,22 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> CloudId { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Endpoint configured for management from the Azure portal.
         /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
+        [Output("cloudManagementEndpoint")]
+        public Output<string?> CloudManagementEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The identity that created the resource.
+        /// Desired properties of the cluster.
         /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
+        [Output("desiredProperties")]
+        public Output<Outputs.ClusterDesiredPropertiesResponse?> DesiredProperties { get; private set; } = null!;
 
         /// <summary>
         /// Most recent billing meter timestamp.
         /// </summary>
         [Output("lastBillingTimestamp")]
         public Output<string> LastBillingTimestamp { get; private set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
 
         /// <summary>
         /// Most recent cluster sync timestamp.
@@ -101,6 +89,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        /// </summary>
+        [Output("principalId")]
+        public Output<string> PrincipalId { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state.
         /// </summary>
         [Output("provisioningState")]
@@ -116,7 +110,25 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// Properties reported by cluster agent.
         /// </summary>
         [Output("reportedProperties")]
-        public Output<Outputs.ClusterReportedPropertiesResponse?> ReportedProperties { get; private set; } = null!;
+        public Output<Outputs.ClusterReportedPropertiesResponse> ReportedProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Object id of RP Service Principal
+        /// </summary>
+        [Output("resourceProviderObjectId")]
+        public Output<string> ResourceProviderObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Region specific DataPath Endpoint of the cluster.
+        /// </summary>
+        [Output("serviceEndpoint")]
+        public Output<string> ServiceEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Software Assurance properties of the cluster.
+        /// </summary>
+        [Output("softwareAssuranceProperties")]
+        public Output<Outputs.SoftwareAssurancePropertiesResponse?> SoftwareAssuranceProperties { get; private set; } = null!;
 
         /// <summary>
         /// Status of the cluster agent.
@@ -125,10 +137,22 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Number of days remaining in the trial period.
@@ -141,6 +165,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        /// </summary>
+        [Output("userAssignedIdentities")]
+        public Output<ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>?> UserAssignedIdentities { get; private set; } = null!;
 
 
         /// <summary>
@@ -178,7 +208,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220901:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221001:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -203,16 +235,34 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Object id of cluster AAD identity.
+        /// </summary>
+        [Input("aadApplicationObjectId")]
+        public Input<string>? AadApplicationObjectId { get; set; }
+
+        /// <summary>
         /// App id of cluster AAD identity.
         /// </summary>
-        [Input("aadClientId", required: true)]
-        public Input<string> AadClientId { get; set; } = null!;
+        [Input("aadClientId")]
+        public Input<string>? AadClientId { get; set; }
+
+        /// <summary>
+        /// Id of cluster identity service principal.
+        /// </summary>
+        [Input("aadServicePrincipalObjectId")]
+        public Input<string>? AadServicePrincipalObjectId { get; set; }
 
         /// <summary>
         /// Tenant id of cluster AAD identity.
         /// </summary>
-        [Input("aadTenantId", required: true)]
-        public Input<string> AadTenantId { get; set; } = null!;
+        [Input("aadTenantId")]
+        public Input<string>? AadTenantId { get; set; }
+
+        /// <summary>
+        /// Endpoint configured for management from the Azure portal.
+        /// </summary>
+        [Input("cloudManagementEndpoint")]
+        public Input<string>? CloudManagementEndpoint { get; set; }
 
         /// <summary>
         /// The name of the cluster.
@@ -221,40 +271,10 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Desired properties of the cluster.
         /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? LastModifiedByType { get; set; }
+        [Input("desiredProperties")]
+        public Input<Inputs.ClusterDesiredPropertiesArgs>? DesiredProperties { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -268,6 +288,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Software Assurance properties of the cluster.
+        /// </summary>
+        [Input("softwareAssuranceProperties")]
+        public Input<Inputs.SoftwareAssurancePropertiesArgs>? SoftwareAssuranceProperties { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -278,6 +304,24 @@ namespace Pulumi.AzureNative.AzureStackHCI
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        /// </summary>
+        [Input("type", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.ManagedServiceIdentityType> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
         }
 
         public ClusterArgs()

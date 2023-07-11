@@ -16,40 +16,47 @@ __all__ = ['AdminRuleCollectionArgs', 'AdminRuleCollection']
 @pulumi.input_type
 class AdminRuleCollectionArgs:
     def __init__(__self__, *,
+                 applies_to_groups: pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]],
                  configuration_name: pulumi.Input[str],
                  network_manager_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AdminRuleCollection resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]] applies_to_groups: Groups for configuration
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]] applies_to_groups: Groups for configuration
-        :param pulumi.Input[str] description: A description of the rule collection.
-        :param pulumi.Input[str] display_name: A display name of the rule collection.
+        :param pulumi.Input[str] description: A description of the admin rule collection.
         :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
         """
+        pulumi.set(__self__, "applies_to_groups", applies_to_groups)
         pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if applies_to_groups is not None:
-            pulumi.set(__self__, "applies_to_groups", applies_to_groups)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
         if rule_collection_name is not None:
             pulumi.set(__self__, "rule_collection_name", rule_collection_name)
+
+    @property
+    @pulumi.getter(name="appliesToGroups")
+    def applies_to_groups(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]]:
+        """
+        Groups for configuration
+        """
+        return pulumi.get(self, "applies_to_groups")
+
+    @applies_to_groups.setter
+    def applies_to_groups(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]]):
+        pulumi.set(self, "applies_to_groups", value)
 
     @property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[str]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -82,40 +89,16 @@ class AdminRuleCollectionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]]]:
-        """
-        Groups for configuration
-        """
-        return pulumi.get(self, "applies_to_groups")
-
-    @applies_to_groups.setter
-    def applies_to_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerSecurityGroupItemArgs']]]]):
-        pulumi.set(self, "applies_to_groups", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the rule collection.
+        A description of the admin rule collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A display name of the rule collection.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
 
     @property
     @pulumi.getter(name="ruleCollectionName")
@@ -138,21 +121,19 @@ class AdminRuleCollection(pulumi.CustomResource):
                  applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Defines the rule collection.
-        API Version: 2021-02-01-preview.
+        Defines the admin rule collection.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]] applies_to_groups: Groups for configuration
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
-        :param pulumi.Input[str] description: A description of the rule collection.
-        :param pulumi.Input[str] display_name: A display name of the rule collection.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
+        :param pulumi.Input[str] description: A description of the admin rule collection.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] rule_collection_name: The name of the network manager security Configuration rule collection.
@@ -164,8 +145,8 @@ class AdminRuleCollection(pulumi.CustomResource):
                  args: AdminRuleCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Defines the rule collection.
-        API Version: 2021-02-01-preview.
+        Defines the admin rule collection.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param AdminRuleCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +166,6 @@ class AdminRuleCollection(pulumi.CustomResource):
                  applies_to_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  rule_collection_name: Optional[pulumi.Input[str]] = None,
@@ -198,12 +178,13 @@ class AdminRuleCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AdminRuleCollectionArgs.__new__(AdminRuleCollectionArgs)
 
+            if applies_to_groups is None and not opts.urn:
+                raise TypeError("Missing required property 'applies_to_groups'")
             __props__.__dict__["applies_to_groups"] = applies_to_groups
             if configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["description"] = description
-            __props__.__dict__["display_name"] = display_name
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
@@ -214,9 +195,10 @@ class AdminRuleCollection(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20210501preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220101:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220201preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220401preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220501:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220701:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220901:AdminRuleCollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20210501preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220101:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220201preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220401preview:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220501:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220701:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20220901:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20221101:AdminRuleCollection"), pulumi.Alias(type_="azure-native:network/v20230201:AdminRuleCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AdminRuleCollection, __self__).__init__(
             'azure-native:network:AdminRuleCollection',
@@ -242,17 +224,17 @@ class AdminRuleCollection(pulumi.CustomResource):
 
         __props__.__dict__["applies_to_groups"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AdminRuleCollection(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]]:
+    def applies_to_groups(self) -> pulumi.Output[Sequence['outputs.NetworkManagerSecurityGroupItemResponse']]:
         """
         Groups for configuration
         """
@@ -262,17 +244,9 @@ class AdminRuleCollection(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the rule collection.
+        A description of the admin rule collection.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A display name of the rule collection.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -297,6 +271,14 @@ class AdminRuleCollection(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="systemData")

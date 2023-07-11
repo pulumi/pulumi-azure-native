@@ -159,7 +159,7 @@ def get_pipeline_job(account_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineJobResult:
     """
     Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.
@@ -193,7 +193,7 @@ def get_pipeline_job_output(account_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineJobResult]:
     """
     Retrieves a specific pipeline job by name. If a pipeline job with that name has been previously created, the call will return the JSON representation of that instance.
-    API Version: 2021-11-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Azure Video Analyzer account name.

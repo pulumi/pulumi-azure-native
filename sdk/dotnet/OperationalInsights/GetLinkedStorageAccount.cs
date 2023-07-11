@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets all linked storage account of a specific data source type associated with the specified workspace.
-        /// API Version: 2020-08-01.
+        /// Azure REST API version: 2020-08-01.
         /// </summary>
         public static Task<GetLinkedStorageAccountResult> InvokeAsync(GetLinkedStorageAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkedStorageAccountResult>("azure-native:operationalinsights:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets all linked storage account of a specific data source type associated with the specified workspace.
-        /// API Version: 2020-08-01.
+        /// Azure REST API version: 2020-08-01.
         /// </summary>
         public static Output<GetLinkedStorageAccountResult> Invoke(GetLinkedStorageAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkedStorageAccountResult>("azure-native:operationalinsights:getLinkedStorageAccount", args ?? new GetLinkedStorageAccountInvokeArgs(), options.WithDefaults());

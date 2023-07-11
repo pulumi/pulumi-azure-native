@@ -111,7 +111,7 @@ def get_sql_resource_sql_role_definition(account_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlResourceSqlRoleDefinitionResult:
     """
     Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -141,7 +141,7 @@ def get_sql_resource_sql_role_definition_output(account_name: Optional[pulumi.In
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlResourceSqlRoleDefinitionResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB SQL Role Definition with the given Id.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

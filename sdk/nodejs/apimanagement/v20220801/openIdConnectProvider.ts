@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenId Connect Provider details.
- *
- * @deprecated azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenIdConnectProvider {
-        pulumi.log.warn("OpenIdConnectProvider is deprecated: azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.")
         return new OpenIdConnectProvider(name, undefined as any, { ...opts, id: id });
     }
 
@@ -81,9 +78,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility. */
     constructor(name: string, args: OpenIdConnectProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OpenIdConnectProvider is deprecated: azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -126,7 +121,7 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
             resourceInputs["useInTestConsole"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20201201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210801:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20220401preview:OpenIdConnectProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20160707:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20161010:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20170301:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20180601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20190101:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20191201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20200601preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20201201:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210101preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20210801:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20220401preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20220901preview:OpenIdConnectProvider" }, { type: "azure-native:apimanagement/v20230301preview:OpenIdConnectProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenIdConnectProvider.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided rack.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getRack(args: GetRackArgs, opts?: pulumi.InvokeOptions): Promise<GetRackResult> {
 
@@ -53,7 +53,7 @@ export interface GetRackResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -95,7 +95,7 @@ export interface GetRackResult {
 }
 /**
  * Get properties of the provided rack.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getRackOutput(args: GetRackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRackResult> {
     return pulumi.output(args).apply((a: any) => getRack(a, opts))

@@ -21,9 +21,17 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly double CoreCount;
         /// <summary>
+        /// Edge Hardware Center Resource Id
+        /// </summary>
+        public readonly string EhcResourceId;
+        /// <summary>
         /// Id of the node in the cluster.
         /// </summary>
         public readonly double Id;
+        /// <summary>
+        /// Most recent licensing timestamp.
+        /// </summary>
+        public readonly string LastLicensingTimestamp;
         /// <summary>
         /// Manufacturer of the cluster node hardware.
         /// </summary>
@@ -41,6 +49,14 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Type of the cluster node hardware.
+        /// </summary>
+        public readonly string NodeType;
+        /// <summary>
+        /// Display version of the operating system running on the cluster node.
+        /// </summary>
+        public readonly string OsDisplayVersion;
+        /// <summary>
         /// Operating system running on the cluster node.
         /// </summary>
         public readonly string OsName;
@@ -52,12 +68,20 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
         /// Immutable id of the cluster node.
         /// </summary>
         public readonly string SerialNumber;
+        /// <summary>
+        /// State of Windows Server Subscription.
+        /// </summary>
+        public readonly string WindowsServerSubscription;
 
         [OutputConstructor]
         private ClusterNodeResponse(
             double coreCount,
 
+            string ehcResourceId,
+
             double id,
+
+            string lastLicensingTimestamp,
 
             string manufacturer,
 
@@ -67,21 +91,32 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 
             string name,
 
+            string nodeType,
+
+            string osDisplayVersion,
+
             string osName,
 
             string osVersion,
 
-            string serialNumber)
+            string serialNumber,
+
+            string windowsServerSubscription)
         {
             CoreCount = coreCount;
+            EhcResourceId = ehcResourceId;
             Id = id;
+            LastLicensingTimestamp = lastLicensingTimestamp;
             Manufacturer = manufacturer;
             MemoryInGiB = memoryInGiB;
             Model = model;
             Name = name;
+            NodeType = nodeType;
+            OsDisplayVersion = osDisplayVersion;
             OsName = osName;
             OsVersion = osVersion;
             SerialNumber = serialNumber;
+            WindowsServerSubscription = windowsServerSubscription;
         }
     }
 }

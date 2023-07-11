@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Application Insights workbook definition.
- * API Version: 2020-10-20.
+ * A workbook definition.
+ * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2020-10-20
  */
 export class Workbook extends pulumi.CustomResource {
     /**
@@ -43,29 +43,37 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly category!: pulumi.Output<string>;
     /**
+     * The description of the workbook.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * The user-defined name (display name) of the workbook.
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
      * Resource etag
      */
-    public /*out*/ readonly etag!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Identity used for BYOS
      */
-    public readonly identity!: pulumi.Output<outputs.insights.WorkbookManagedIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.insights.WorkbookResourceResponseIdentity | undefined>;
     /**
-     * The kind of workbook. Choices are user and shared.
+     * The kind of workbook. Only valid value is shared.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public readonly location!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The unique revision id for this workbook definition
+     */
+    public /*out*/ readonly revision!: pulumi.Output<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
@@ -75,11 +83,15 @@ export class Workbook extends pulumi.CustomResource {
      */
     public readonly sourceId!: pulumi.Output<string | undefined>;
     /**
-     * BYOS Storage Account URI
+     * The resourceId to the storage account when bring your own storage is used
      */
     public readonly storageUri!: pulumi.Output<string | undefined>;
     /**
-     * Resource tags
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -87,15 +99,15 @@ export class Workbook extends pulumi.CustomResource {
      */
     public /*out*/ readonly timeModified!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
     /**
      * Unique user id of the specific user that owns this workbook.
      */
     public /*out*/ readonly userId!: pulumi.Output<string>;
     /**
-     * Workbook version
+     * Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
      */
     public readonly version!: pulumi.Output<string | undefined>;
 
@@ -123,34 +135,39 @@ export class Workbook extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serializedData'");
             }
             resourceInputs["category"] = args ? args.category : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["serializedData"] = args ? args.serializedData : undefined;
             resourceInputs["sourceId"] = args ? args.sourceId : undefined;
             resourceInputs["storageUri"] = args ? args.storageUri : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;
         } else {
             resourceInputs["category"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
             resourceInputs["serializedData"] = undefined /*out*/;
             resourceInputs["sourceId"] = undefined /*out*/;
             resourceInputs["storageUri"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -173,35 +190,31 @@ export interface WorkbookArgs {
      */
     category: pulumi.Input<string>;
     /**
+     * The description of the workbook.
+     */
+    description?: pulumi.Input<string>;
+    /**
      * The user-defined name (display name) of the workbook.
      */
     displayName: pulumi.Input<string>;
     /**
-     * Azure resource Id
-     */
-    id?: pulumi.Input<string>;
-    /**
      * Identity used for BYOS
      */
-    identity?: pulumi.Input<inputs.insights.WorkbookManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.insights.WorkbookResourceIdentityArgs>;
     /**
-     * The kind of workbook. Choices are user and shared.
+     * The kind of workbook. Only valid value is shared.
      */
-    kind?: pulumi.Input<string | enums.insights.Kind>;
+    kind?: pulumi.Input<string | enums.insights.WorkbookSharedTypeKind>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * Azure resource name
-     */
-    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the Application Insights component resource.
+     * The name of the resource.
      */
     resourceName?: pulumi.Input<string>;
     /**
@@ -213,19 +226,15 @@ export interface WorkbookArgs {
      */
     sourceId?: pulumi.Input<string>;
     /**
-     * BYOS Storage Account URI
+     * The resourceId to the storage account when bring your own storage is used
      */
     storageUri?: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Azure resource type
-     */
-    type?: pulumi.Input<string>;
-    /**
-     * Workbook version
+     * Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
      */
     version?: pulumi.Input<string>;
 }

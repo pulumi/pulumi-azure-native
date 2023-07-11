@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A DDoS custom policy in a resource group.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DdosCustomPolicy")]
     public partial class DdosCustomPolicy : global::Pulumi.CustomResource
@@ -35,22 +35,10 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The protocol-specific DDoS policy customization parameters.
-        /// </summary>
-        [Output("protocolCustomSettings")]
-        public Output<ImmutableArray<Outputs.ProtocolCustomSettingsFormatResponse>> ProtocolCustomSettings { get; private set; } = null!;
-
-        /// <summary>
         /// The provisioning state of the DDoS custom policy resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-        /// </summary>
-        [Output("publicIPAddresses")]
-        public Output<ImmutableArray<Outputs.SubResourceResponse>> PublicIPAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
@@ -120,6 +108,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:DdosCustomPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DdosCustomPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:DdosCustomPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:DdosCustomPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:DdosCustomPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -160,18 +150,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        [Input("protocolCustomSettings")]
-        private InputList<Inputs.ProtocolCustomSettingsFormatArgs>? _protocolCustomSettings;
-
-        /// <summary>
-        /// The protocol-specific DDoS policy customization parameters.
-        /// </summary>
-        public InputList<Inputs.ProtocolCustomSettingsFormatArgs> ProtocolCustomSettings
-        {
-            get => _protocolCustomSettings ?? (_protocolCustomSettings = new InputList<Inputs.ProtocolCustomSettingsFormatArgs>());
-            set => _protocolCustomSettings = value;
-        }
 
         /// <summary>
         /// The name of the resource group.

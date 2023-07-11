@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiVersionSetResult:
     """
-    Api Version Set Contract details.
+    API Version Set Contract details.
     """
     def __init__(__self__, description=None, display_name=None, id=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
         if description and not isinstance(description, str):
@@ -67,7 +67,7 @@ class GetApiVersionSetResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -75,7 +75,7 @@ class GetApiVersionSetResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -83,7 +83,7 @@ class GetApiVersionSetResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -134,10 +134,10 @@ def get_api_version_set(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiVersionSetResult:
     """
     Gets the details of the Api Version Set specified by its identifier.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
     """
@@ -166,10 +166,10 @@ def get_api_version_set_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiVersionSetResult]:
     """
     Gets the details of the Api Version Set specified by its identifier.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str version_set_id: Api Version Set identifier. Must be unique in the current API Management service instance.
     """

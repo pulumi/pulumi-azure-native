@@ -23,7 +23,7 @@ class WorkspaceSqlAadAdminArgs:
         """
         The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] administrator_type: Workspace active directory administrator type
         :param pulumi.Input[str] login: Login of the workspace active directory administrator
         :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
@@ -56,7 +56,7 @@ class WorkspaceSqlAadAdminArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -127,7 +127,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  __props__=None):
         """
         Workspace active directory administrator
-        API Version: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 
@@ -138,7 +138,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sid: Object ID of the workspace active directory administrator
         :param pulumi.Input[str] tenant_id: Tenant ID of the workspace active directory administrator
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -148,7 +148,7 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
-        API Version: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 

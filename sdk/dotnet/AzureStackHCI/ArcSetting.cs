@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
 {
     /// <summary>
     /// ArcSetting details.
-    /// API Version: 2021-01-01-preview.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:ArcSetting")]
     public partial class ArcSetting : global::Pulumi.CustomResource
@@ -23,46 +23,46 @@ namespace Pulumi.AzureNative.AzureStackHCI
         public Output<string> AggregateState { get; private set; } = null!;
 
         /// <summary>
+        /// App id of arc AAD identity.
+        /// </summary>
+        [Output("arcApplicationClientId")]
+        public Output<string?> ArcApplicationClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Object id of arc AAD identity.
+        /// </summary>
+        [Output("arcApplicationObjectId")]
+        public Output<string?> ArcApplicationObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Tenant id of arc AAD identity.
+        /// </summary>
+        [Output("arcApplicationTenantId")]
+        public Output<string?> ArcApplicationTenantId { get; private set; } = null!;
+
+        /// <summary>
         /// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
         /// </summary>
         [Output("arcInstanceResourceGroup")]
-        public Output<string> ArcInstanceResourceGroup { get; private set; } = null!;
+        public Output<string?> ArcInstanceResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Object id of arc AAD service principal.
         /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
+        [Output("arcServicePrincipalObjectId")]
+        public Output<string?> ArcServicePrincipalObjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The identity that created the resource.
+        /// contains connectivity related configuration for ARC resources
         /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
+        [Output("connectivityProperties")]
+        public Output<ImmutableArray<Outputs.ArcConnectivityPropertiesResponse>> ConnectivityProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The type of identity that created the resource.
+        /// Properties for each of the default extensions category
         /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
+        [Output("defaultExtensions")]
+        public Output<ImmutableArray<Outputs.DefaultExtensionDetailsResponse>> DefaultExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -81,6 +81,12 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -122,7 +128,9 @@ namespace Pulumi.AzureNative.AzureStackHCI
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20220901:ArcSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221001:ArcSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221201:ArcSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:ArcSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230201:ArcSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20230301:ArcSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -147,6 +155,36 @@ namespace Pulumi.AzureNative.AzureStackHCI
     public sealed class ArcSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// App id of arc AAD identity.
+        /// </summary>
+        [Input("arcApplicationClientId")]
+        public Input<string>? ArcApplicationClientId { get; set; }
+
+        /// <summary>
+        /// Object id of arc AAD identity.
+        /// </summary>
+        [Input("arcApplicationObjectId")]
+        public Input<string>? ArcApplicationObjectId { get; set; }
+
+        /// <summary>
+        /// Tenant id of arc AAD identity.
+        /// </summary>
+        [Input("arcApplicationTenantId")]
+        public Input<string>? ArcApplicationTenantId { get; set; }
+
+        /// <summary>
+        /// The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
+        /// </summary>
+        [Input("arcInstanceResourceGroup")]
+        public Input<string>? ArcInstanceResourceGroup { get; set; }
+
+        /// <summary>
+        /// Object id of arc AAD service principal.
+        /// </summary>
+        [Input("arcServicePrincipalObjectId")]
+        public Input<string>? ArcServicePrincipalObjectId { get; set; }
+
+        /// <summary>
         /// The name of the proxy resource holding details of HCI ArcSetting information.
         /// </summary>
         [Input("arcSettingName")]
@@ -158,41 +196,17 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
-        /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
+        [Input("connectivityProperties")]
+        private InputList<Inputs.ArcConnectivityPropertiesArgs>? _connectivityProperties;
 
         /// <summary>
-        /// The identity that created the resource.
+        /// contains connectivity related configuration for ARC resources
         /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.AzureStackHCI.CreatedByType>? LastModifiedByType { get; set; }
+        public InputList<Inputs.ArcConnectivityPropertiesArgs> ConnectivityProperties
+        {
+            get => _connectivityProperties ?? (_connectivityProperties = new InputList<Inputs.ArcConnectivityPropertiesArgs>());
+            set => _connectivityProperties = value;
+        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

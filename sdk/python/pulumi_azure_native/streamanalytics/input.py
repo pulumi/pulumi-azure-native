@@ -25,7 +25,7 @@ class InputInitArgs:
         """
         The set of arguments for constructing a Input resource.
         :param pulumi.Input[str] job_name: The name of the streaming job.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] input_name: The name of the input.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
@@ -55,7 +55,7 @@ class InputInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -113,7 +113,7 @@ class Input(pulumi.CustomResource):
                  __props__=None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-        API Version: 2016-03-01.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class Input(pulumi.CustomResource):
         :param pulumi.Input[str] job_name: The name of the streaming job.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union[pulumi.InputType['ReferenceInputPropertiesArgs'], pulumi.InputType['StreamInputPropertiesArgs']]] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class Input(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
-        API Version: 2016-03-01.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2016-03-01
 
         :param str resource_name: The name of the resource.
         :param InputInitArgs args: The arguments to use to populate this resource's properties.

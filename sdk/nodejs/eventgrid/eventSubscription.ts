@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Subscription
- * API Version: 2020-06-01.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class EventSubscription extends pulumi.CustomResource {
     /**
@@ -39,11 +39,23 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * The DeadLetter destination of the event subscription.
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    public readonly deadLetterWithResourceIdentity!: pulumi.Output<outputs.eventgrid.DeadLetterWithResourceIdentityResponse | undefined>;
+    /**
      * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    public readonly deliveryWithResourceIdentity!: pulumi.Output<outputs.eventgrid.DeliveryWithResourceIdentityResponse | undefined>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
@@ -102,6 +114,8 @@ export class EventSubscription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'scope'");
             }
             resourceInputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
+            resourceInputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
+            resourceInputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
             resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
@@ -117,6 +131,8 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["deadLetterDestination"] = undefined /*out*/;
+            resourceInputs["deadLetterWithResourceIdentity"] = undefined /*out*/;
+            resourceInputs["deliveryWithResourceIdentity"] = undefined /*out*/;
             resourceInputs["destination"] = undefined /*out*/;
             resourceInputs["eventDeliverySchema"] = undefined /*out*/;
             resourceInputs["expirationTimeUtc"] = undefined /*out*/;
@@ -130,7 +146,7 @@ export class EventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211201:EventSubscription" }, { type: "azure-native:eventgrid/v20220615:EventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20170615preview:EventSubscription" }, { type: "azure-native:eventgrid/v20170915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180101:EventSubscription" }, { type: "azure-native:eventgrid/v20180501preview:EventSubscription" }, { type: "azure-native:eventgrid/v20180915preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190101:EventSubscription" }, { type: "azure-native:eventgrid/v20190201preview:EventSubscription" }, { type: "azure-native:eventgrid/v20190601:EventSubscription" }, { type: "azure-native:eventgrid/v20200101preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:EventSubscription" }, { type: "azure-native:eventgrid/v20200601:EventSubscription" }, { type: "azure-native:eventgrid/v20201015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:EventSubscription" }, { type: "azure-native:eventgrid/v20211201:EventSubscription" }, { type: "azure-native:eventgrid/v20220615:EventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:EventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventSubscription.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,11 +157,23 @@ export class EventSubscription extends pulumi.CustomResource {
  */
 export interface EventSubscriptionArgs {
     /**
-     * The DeadLetter destination of the event subscription.
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     deadLetterDestination?: pulumi.Input<inputs.eventgrid.StorageBlobDeadLetterDestinationArgs>;
     /**
+     * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeadLetterWithResourceIdentityArgs>;
+    /**
      * Information about the destination where events have to be delivered for the event subscription.
+     * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
+     */
+    deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeliveryWithResourceIdentityArgs>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
     destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
     /**

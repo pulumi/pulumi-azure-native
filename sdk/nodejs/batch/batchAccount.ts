@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Contains information about an Azure Batch account.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**
@@ -44,6 +44,10 @@ export class BatchAccount extends pulumi.CustomResource {
     public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
     public /*out*/ readonly activeJobAndJobScheduleQuota!: pulumi.Output<number>;
     /**
+     * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+     */
+    public readonly allowedAuthenticationModes!: pulumi.Output<string[]>;
+    /**
      * Contains information about the auto-storage account associated with a Batch account.
      */
     public readonly autoStorage!: pulumi.Output<outputs.batch.AutoStoragePropertiesResponse>;
@@ -56,7 +60,7 @@ export class BatchAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly dedicatedCoreQuotaPerVMFamily!: pulumi.Output<outputs.batch.VirtualMachineFamilyCoreQuotaResponse[]>;
     /**
-     * Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+     * If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
      */
     public /*out*/ readonly dedicatedCoreQuotaPerVMFamilyEnforced!: pulumi.Output<boolean>;
     /**
@@ -84,6 +88,14 @@ export class BatchAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The network profile only takes effect when publicNetworkAccess is enabled.
+     */
+    public readonly networkProfile!: pulumi.Output<outputs.batch.NetworkProfileResponse | undefined>;
+    /**
+     * The endpoint used by compute node to connect to the Batch node management service.
+     */
+    public /*out*/ readonly nodeManagementEndpoint!: pulumi.Output<string>;
+    /**
      * The allocation mode for creating pools in the Batch account.
      */
     public readonly poolAllocationMode!: pulumi.Output<string>;
@@ -99,7 +111,7 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * If not specified, the default value is 'enabled'.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string>;
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
@@ -124,11 +136,13 @@ export class BatchAccount extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["autoStorage"] = args ? args.autoStorage : undefined;
+            resourceInputs["allowedAuthenticationModes"] = args ? args.allowedAuthenticationModes : undefined;
+            resourceInputs["autoStorage"] = args ? (args.autoStorage ? pulumi.output(args.autoStorage).apply(inputs.batch.autoStorageBasePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -140,6 +154,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["dedicatedCoreQuotaPerVMFamilyEnforced"] = undefined /*out*/;
             resourceInputs["lowPriorityCoreQuota"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["nodeManagementEndpoint"] = undefined /*out*/;
             resourceInputs["poolQuota"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -147,6 +162,7 @@ export class BatchAccount extends pulumi.CustomResource {
         } else {
             resourceInputs["accountEndpoint"] = undefined /*out*/;
             resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
+            resourceInputs["allowedAuthenticationModes"] = undefined /*out*/;
             resourceInputs["autoStorage"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuota"] = undefined /*out*/;
             resourceInputs["dedicatedCoreQuotaPerVMFamily"] = undefined /*out*/;
@@ -157,6 +173,8 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["lowPriorityCoreQuota"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkProfile"] = undefined /*out*/;
+            resourceInputs["nodeManagementEndpoint"] = undefined /*out*/;
             resourceInputs["poolAllocationMode"] = undefined /*out*/;
             resourceInputs["poolQuota"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
@@ -166,7 +184,7 @@ export class BatchAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20151201:BatchAccount" }, { type: "azure-native:batch/v20170101:BatchAccount" }, { type: "azure-native:batch/v20170501:BatchAccount" }, { type: "azure-native:batch/v20170901:BatchAccount" }, { type: "azure-native:batch/v20181201:BatchAccount" }, { type: "azure-native:batch/v20190401:BatchAccount" }, { type: "azure-native:batch/v20190801:BatchAccount" }, { type: "azure-native:batch/v20200301:BatchAccount" }, { type: "azure-native:batch/v20200501:BatchAccount" }, { type: "azure-native:batch/v20200901:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20210601:BatchAccount" }, { type: "azure-native:batch/v20220101:BatchAccount" }, { type: "azure-native:batch/v20220601:BatchAccount" }, { type: "azure-native:batch/v20221001:BatchAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch/v20151201:BatchAccount" }, { type: "azure-native:batch/v20170101:BatchAccount" }, { type: "azure-native:batch/v20170501:BatchAccount" }, { type: "azure-native:batch/v20170901:BatchAccount" }, { type: "azure-native:batch/v20181201:BatchAccount" }, { type: "azure-native:batch/v20190401:BatchAccount" }, { type: "azure-native:batch/v20190801:BatchAccount" }, { type: "azure-native:batch/v20200301:BatchAccount" }, { type: "azure-native:batch/v20200501:BatchAccount" }, { type: "azure-native:batch/v20200901:BatchAccount" }, { type: "azure-native:batch/v20210101:BatchAccount" }, { type: "azure-native:batch/v20210601:BatchAccount" }, { type: "azure-native:batch/v20220101:BatchAccount" }, { type: "azure-native:batch/v20220601:BatchAccount" }, { type: "azure-native:batch/v20221001:BatchAccount" }, { type: "azure-native:batch/v20230501:BatchAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BatchAccount.__pulumiType, name, resourceInputs, opts);
     }
@@ -180,6 +198,10 @@ export interface BatchAccountArgs {
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
     accountName?: pulumi.Input<string>;
+    /**
+     * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
+     */
+    allowedAuthenticationModes?: pulumi.Input<pulumi.Input<enums.batch.AuthenticationMode>[]>;
     /**
      * The properties related to the auto-storage account.
      */
@@ -200,6 +222,10 @@ export interface BatchAccountArgs {
      * The region in which to create the account.
      */
     location?: pulumi.Input<string>;
+    /**
+     * The network profile only takes effect when publicNetworkAccess is enabled.
+     */
+    networkProfile?: pulumi.Input<inputs.batch.NetworkProfileArgs>;
     /**
      * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
      */

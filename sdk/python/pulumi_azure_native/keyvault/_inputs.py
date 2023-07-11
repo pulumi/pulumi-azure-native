@@ -12,9 +12,14 @@ from ._enums import *
 
 __all__ = [
     'AccessPolicyEntryArgs',
+    'ActionArgs',
     'IPRuleArgs',
     'KeyAttributesArgs',
     'KeyPropertiesArgs',
+    'KeyReleasePolicyArgs',
+    'KeyRotationPolicyAttributesArgs',
+    'LifetimeActionArgs',
+    'MHSMGeoReplicatedRegionArgs',
     'MHSMIPRuleArgs',
     'MHSMNetworkRuleSetArgs',
     'MHSMPrivateLinkServiceConnectionStateArgs',
@@ -24,9 +29,11 @@ __all__ = [
     'NetworkRuleSetArgs',
     'PermissionsArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RotationPolicyArgs',
     'SecretAttributesArgs',
     'SecretPropertiesArgs',
     'SkuArgs',
+    'TriggerArgs',
     'VaultPropertiesArgs',
     'VirtualNetworkRuleArgs',
 ]
@@ -101,6 +108,29 @@ class AccessPolicyEntryArgs:
 
 
 @pulumi.input_type
+class ActionArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['KeyRotationPolicyActionType']] = None):
+        """
+        :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of action.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['KeyRotationPolicyActionType']]:
+        """
+        The type of action.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['KeyRotationPolicyActionType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class IPRuleArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
@@ -128,17 +158,23 @@ class KeyAttributesArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  expires: Optional[pulumi.Input[float]] = None,
+                 exportable: Optional[pulumi.Input[bool]] = None,
                  not_before: Optional[pulumi.Input[float]] = None):
         """
-        The attributes of the key.
+        The object attributes managed by the Azure Key Vault service.
         :param pulumi.Input[bool] enabled: Determines whether or not the object is enabled.
         :param pulumi.Input[float] expires: Expiry date in seconds since 1970-01-01T00:00:00Z.
+        :param pulumi.Input[bool] exportable: Indicates if the private key can be exported.
         :param pulumi.Input[float] not_before: Not before date in seconds since 1970-01-01T00:00:00Z.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if expires is not None:
             pulumi.set(__self__, "expires", expires)
+        if exportable is None:
+            exportable = False
+        if exportable is not None:
+            pulumi.set(__self__, "exportable", exportable)
         if not_before is not None:
             pulumi.set(__self__, "not_before", not_before)
 
@@ -167,6 +203,18 @@ class KeyAttributesArgs:
         pulumi.set(self, "expires", value)
 
     @property
+    @pulumi.getter
+    def exportable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the private key can be exported.
+        """
+        return pulumi.get(self, "exportable")
+
+    @exportable.setter
+    def exportable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exportable", value)
+
+    @property
     @pulumi.getter(name="notBefore")
     def not_before(self) -> Optional[pulumi.Input[float]]:
         """
@@ -186,13 +234,17 @@ class KeyPropertiesArgs:
                  curve_name: Optional[pulumi.Input[Union[str, 'JsonWebKeyCurveName']]] = None,
                  key_ops: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'JsonWebKeyOperation']]]]] = None,
                  key_size: Optional[pulumi.Input[int]] = None,
-                 kty: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]] = None):
+                 kty: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]] = None,
+                 release_policy: Optional[pulumi.Input['KeyReleasePolicyArgs']] = None,
+                 rotation_policy: Optional[pulumi.Input['RotationPolicyArgs']] = None):
         """
         The properties of the key.
         :param pulumi.Input['KeyAttributesArgs'] attributes: The attributes of the key.
         :param pulumi.Input[Union[str, 'JsonWebKeyCurveName']] curve_name: The elliptic curve name. For valid values, see JsonWebKeyCurveName.
         :param pulumi.Input[int] key_size: The key size in bits. For example: 2048, 3072, or 4096 for RSA.
         :param pulumi.Input[Union[str, 'JsonWebKeyType']] kty: The type of the key. For valid values, see JsonWebKeyType.
+        :param pulumi.Input['KeyReleasePolicyArgs'] release_policy: Key release policy in response. It will be used for both output and input. Omitted if empty
+        :param pulumi.Input['RotationPolicyArgs'] rotation_policy: Key rotation policy in response. It will be used for both output and input. Omitted if empty
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -204,6 +256,10 @@ class KeyPropertiesArgs:
             pulumi.set(__self__, "key_size", key_size)
         if kty is not None:
             pulumi.set(__self__, "kty", kty)
+        if release_policy is not None:
+            pulumi.set(__self__, "release_policy", release_policy)
+        if rotation_policy is not None:
+            pulumi.set(__self__, "rotation_policy", rotation_policy)
 
     @property
     @pulumi.getter
@@ -262,13 +318,180 @@ class KeyPropertiesArgs:
     def kty(self, value: Optional[pulumi.Input[Union[str, 'JsonWebKeyType']]]):
         pulumi.set(self, "kty", value)
 
+    @property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> Optional[pulumi.Input['KeyReleasePolicyArgs']]:
+        """
+        Key release policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "release_policy")
+
+    @release_policy.setter
+    def release_policy(self, value: Optional[pulumi.Input['KeyReleasePolicyArgs']]):
+        pulumi.set(self, "release_policy", value)
+
+    @property
+    @pulumi.getter(name="rotationPolicy")
+    def rotation_policy(self) -> Optional[pulumi.Input['RotationPolicyArgs']]:
+        """
+        Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        """
+        return pulumi.get(self, "rotation_policy")
+
+    @rotation_policy.setter
+    def rotation_policy(self, value: Optional[pulumi.Input['RotationPolicyArgs']]):
+        pulumi.set(self, "rotation_policy", value)
+
+
+@pulumi.input_type
+class KeyReleasePolicyArgs:
+    def __init__(__self__, *,
+                 content_type: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] content_type: Content type and version of key release policy
+        :param pulumi.Input[str] data: Blob encoding the policy rules under which the key can be released.
+        """
+        if content_type is None:
+            content_type = 'application/json; charset=utf-8'
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Content type and version of key release policy
+        """
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        Blob encoding the policy rules under which the key can be released.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
+
+
+@pulumi.input_type
+class KeyRotationPolicyAttributesArgs:
+    def __init__(__self__, *,
+                 expiry_time: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] expiry_time: The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        if expiry_time is not None:
+            pulumi.set(__self__, "expiry_time", expiry_time)
+
+    @property
+    @pulumi.getter(name="expiryTime")
+    def expiry_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The expiration time for the new key version. It should be in ISO8601 format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "expiry_time")
+
+    @expiry_time.setter
+    def expiry_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiry_time", value)
+
+
+@pulumi.input_type
+class LifetimeActionArgs:
+    def __init__(__self__, *,
+                 action: Optional[pulumi.Input['ActionArgs']] = None,
+                 trigger: Optional[pulumi.Input['TriggerArgs']] = None):
+        """
+        :param pulumi.Input['ActionArgs'] action: The action of key rotation policy lifetimeAction.
+        :param pulumi.Input['TriggerArgs'] trigger: The trigger of key rotation policy lifetimeAction.
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if trigger is not None:
+            pulumi.set(__self__, "trigger", trigger)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['ActionArgs']]:
+        """
+        The action of key rotation policy lifetimeAction.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['ActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def trigger(self) -> Optional[pulumi.Input['TriggerArgs']]:
+        """
+        The trigger of key rotation policy lifetimeAction.
+        """
+        return pulumi.get(self, "trigger")
+
+    @trigger.setter
+    def trigger(self, value: Optional[pulumi.Input['TriggerArgs']]):
+        pulumi.set(self, "trigger", value)
+
+
+@pulumi.input_type
+class MHSMGeoReplicatedRegionArgs:
+    def __init__(__self__, *,
+                 is_primary: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        A region that this managed HSM Pool has been extended to.
+        :param pulumi.Input[bool] is_primary: A boolean value that indicates whether the region is the primary region or a secondary region.
+        :param pulumi.Input[str] name: Name of the geo replicated region.
+        """
+        if is_primary is not None:
+            pulumi.set(__self__, "is_primary", is_primary)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value that indicates whether the region is the primary region or a secondary region.
+        """
+        return pulumi.get(self, "is_primary")
+
+    @is_primary.setter
+    def is_primary(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_primary", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the geo replicated region.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 @pulumi.input_type
 class MHSMIPRuleArgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
         """
-        A rule governing the accessibility of a managed hsm pool from a specific ip address or ip range.
+        A rule governing the accessibility of a managed HSM pool from a specific IP address or IP range.
         :param pulumi.Input[str] value: An IPv4 address range in CIDR notation, such as '124.56.78.91' (simple IP address) or '124.56.78.0/24' (all addresses that start with 124.56.78).
         """
         pulumi.set(__self__, "value", value)
@@ -300,12 +523,8 @@ class MHSMNetworkRuleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MHSMIPRuleArgs']]] ip_rules: The list of IP address rules.
         :param pulumi.Input[Sequence[pulumi.Input['MHSMVirtualNetworkRuleArgs']]] virtual_network_rules: The list of virtual network rules.
         """
-        if bypass is None:
-            bypass = 'AzureServices'
         if bypass is not None:
             pulumi.set(__self__, "bypass", bypass)
-        if default_action is None:
-            default_action = 'Allow'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -450,6 +669,7 @@ class ManagedHsmPropertiesArgs:
                  initial_admin_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_acls: Optional[pulumi.Input['MHSMNetworkRuleSetArgs']] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]] = None,
                  soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         """
@@ -460,6 +680,7 @@ class ManagedHsmPropertiesArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] initial_admin_object_ids: Array of initial administrators object ids for this managed hsm pool.
         :param pulumi.Input['MHSMNetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission to the managed HSM from public networks.
+        :param pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]] regions: List of all regions associated with the managed hsm pool.
         :param pulumi.Input[int] soft_delete_retention_in_days: Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         :param pulumi.Input[str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.
         """
@@ -481,6 +702,8 @@ class ManagedHsmPropertiesArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -559,6 +782,18 @@ class ManagedHsmPropertiesArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]]:
+        """
+        List of all regions associated with the managed hsm pool.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MHSMGeoReplicatedRegionArgs']]]]):
+        pulumi.set(self, "regions", value)
 
     @property
     @pulumi.getter(name="softDeleteRetentionInDays")
@@ -770,12 +1005,12 @@ class PermissionsArgs:
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[str]] = None,
+                 actions_required: Optional[pulumi.Input[Union[str, 'ActionsRequired']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         An object that represents the approval state of the private link connection.
-        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param pulumi.Input[Union[str, 'ActionsRequired']] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
         :param pulumi.Input[str] description: The reason for approval or rejection.
         :param pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']] status: Indicates whether the connection has been approved, rejected or removed by the key vault owner.
         """
@@ -788,14 +1023,14 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[str]]:
+    def actions_required(self) -> Optional[pulumi.Input[Union[str, 'ActionsRequired']]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[str]]):
+    def actions_required(self, value: Optional[pulumi.Input[Union[str, 'ActionsRequired']]]):
         pulumi.set(self, "actions_required", value)
 
     @property
@@ -821,6 +1056,45 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RotationPolicyArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']] = None,
+                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]] = None):
+        """
+        :param pulumi.Input['KeyRotationPolicyAttributesArgs'] attributes: The attributes of key rotation policy.
+        :param pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]] lifetime_actions: The lifetimeActions for key rotation action.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if lifetime_actions is not None:
+            pulumi.set(__self__, "lifetime_actions", lifetime_actions)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']]:
+        """
+        The attributes of key rotation policy.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input['KeyRotationPolicyAttributesArgs']]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter(name="lifetimeActions")
+    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]:
+        """
+        The lifetimeActions for key rotation action.
+        """
+        return pulumi.get(self, "lifetime_actions")
+
+    @lifetime_actions.setter
+    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifetimeActionArgs']]]]):
+        pulumi.set(self, "lifetime_actions", value)
 
 
 @pulumi.input_type
@@ -974,6 +1248,45 @@ class SkuArgs:
 
 
 @pulumi.input_type
+class TriggerArgs:
+    def __init__(__self__, *,
+                 time_after_create: Optional[pulumi.Input[str]] = None,
+                 time_before_expiry: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] time_after_create: The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        :param pulumi.Input[str] time_before_expiry: The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        """
+        if time_after_create is not None:
+            pulumi.set(__self__, "time_after_create", time_after_create)
+        if time_before_expiry is not None:
+            pulumi.set(__self__, "time_before_expiry", time_before_expiry)
+
+    @property
+    @pulumi.getter(name="timeAfterCreate")
+    def time_after_create(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time duration after key creation to rotate the key. It only applies to rotate. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "time_after_create")
+
+    @time_after_create.setter
+    def time_after_create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_after_create", value)
+
+    @property
+    @pulumi.getter(name="timeBeforeExpiry")
+    def time_before_expiry(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time duration before key expiring to rotate or notify. It will be in ISO 8601 duration format. Eg: 'P90D', 'P1Y'.
+        """
+        return pulumi.get(self, "time_before_expiry")
+
+    @time_before_expiry.setter
+    def time_before_expiry(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_before_expiry", value)
+
+
+@pulumi.input_type
 class VaultPropertiesArgs:
     def __init__(__self__, *,
                  sku: pulumi.Input['SkuArgs'],
@@ -988,6 +1301,7 @@ class VaultPropertiesArgs:
                  enabled_for_template_deployment: Optional[pulumi.Input[bool]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'VaultProvisioningState']]] = None,
+                 public_network_access: Optional[pulumi.Input[str]] = None,
                  soft_delete_retention_in_days: Optional[pulumi.Input[int]] = None,
                  vault_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1004,8 +1318,9 @@ class VaultPropertiesArgs:
         :param pulumi.Input[bool] enabled_for_template_deployment: Property to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: Rules governing the accessibility of the key vault from specific network locations.
         :param pulumi.Input[Union[str, 'VaultProvisioningState']] provisioning_state: Provisioning state of the vault.
+        :param pulumi.Input[str] public_network_access: Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
         :param pulumi.Input[int] soft_delete_retention_in_days: softDelete data retention days. It accepts >=7 and <=90.
-        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets. This property is readonly
+        :param pulumi.Input[str] vault_uri: The URI of the vault for performing operations on keys and secrets.
         """
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -1033,6 +1348,10 @@ class VaultPropertiesArgs:
             pulumi.set(__self__, "network_acls", network_acls)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access is None:
+            public_network_access = 'enabled'
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if soft_delete_retention_in_days is None:
             soft_delete_retention_in_days = 90
         if soft_delete_retention_in_days is not None:
@@ -1185,6 +1504,18 @@ class VaultPropertiesArgs:
         pulumi.set(self, "provisioning_state", value)
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[str]]:
+        """
+        Property to specify whether the vault will accept traffic from public internet. If set to 'disabled' all traffic except private endpoint traffic and that that originates from trusted services will be blocked. This will override the set firewall rules, meaning that even if the firewall rules are present we will not honor the rules.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
     @pulumi.getter(name="softDeleteRetentionInDays")
     def soft_delete_retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
@@ -1200,7 +1531,7 @@ class VaultPropertiesArgs:
     @pulumi.getter(name="vaultUri")
     def vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of the vault for performing operations on keys and secrets. This property is readonly
+        The URI of the vault for performing operations on keys and secrets.
         """
         return pulumi.get(self, "vault_uri")
 

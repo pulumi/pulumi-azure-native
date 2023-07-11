@@ -322,8 +322,8 @@ def get_web_app_site_extension(name: Optional[str] = None,
                                site_extension_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSiteExtensionResult:
     """
-    Get site extension information by its ID for a web site, or a deployment slot.
-    API Version: 2020-12-01.
+    Description for Get site extension information by its ID for a web site, or a deployment slot.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Site name.
@@ -370,8 +370,8 @@ def get_web_app_site_extension_output(name: Optional[pulumi.Input[str]] = None,
                                       site_extension_id: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSiteExtensionResult]:
     """
-    Get site extension information by its ID for a web site, or a deployment slot.
-    API Version: 2020-12-01.
+    Description for Get site extension information by its ID for a web site, or a deployment slot.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Site name.

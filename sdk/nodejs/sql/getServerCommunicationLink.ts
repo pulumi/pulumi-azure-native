@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a server communication link.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01.
  */
 export function getServerCommunicationLink(args: GetServerCommunicationLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCommunicationLinkResult> {
 
@@ -68,7 +68,7 @@ export interface GetServerCommunicationLinkResult {
 }
 /**
  * Returns a server communication link.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01.
  */
 export function getServerCommunicationLinkOutput(args: GetServerCommunicationLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCommunicationLinkResult> {
     return pulumi.output(args).apply((a: any) => getServerCommunicationLink(a, opts))

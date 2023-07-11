@@ -7,11 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .agent_pool import *
+from .get_agent_pool import *
 from .get_hybrid_identity_metadatum import *
 from .get_provisioned_cluster import *
-from .getagent_pool import *
-from .getstorage_space_retrieve import *
-from .getvirtual_network_retrieve import *
+from .get_storage_space_retrieve import *
+from .get_virtual_network_retrieve import *
 from .hybrid_identity_metadatum import *
 from .provisioned_cluster import *
 from .storage_space_retrieve import *
@@ -23,6 +23,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.hybridcontainerservice.v20220501preview as __v20220501preview
     v20220501preview = __v20220501preview
+    import pulumi_azure_native.hybridcontainerservice.v20220901preview as __v20220901preview
+    v20220901preview = __v20220901preview
 else:
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice.v20220501preview')
+    v20220901preview = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice.v20220901preview')
 

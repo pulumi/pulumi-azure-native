@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Get the ProactiveDetection configuration for this configuration id.
-        /// API Version: 2015-05-01.
+        /// Azure REST API version: 2018-05-01-preview.
         /// </summary>
         public static Task<GetProactiveDetectionConfigurationResult> InvokeAsync(GetProactiveDetectionConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProactiveDetectionConfigurationResult>("azure-native:insights:getProactiveDetectionConfiguration", args ?? new GetProactiveDetectionConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the ProactiveDetection configuration for this configuration id.
-        /// API Version: 2015-05-01.
+        /// Azure REST API version: 2018-05-01-preview.
         /// </summary>
         public static Output<GetProactiveDetectionConfigurationResult> Invoke(GetProactiveDetectionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProactiveDetectionConfigurationResult>("azure-native:insights:getProactiveDetectionConfiguration", args ?? new GetProactiveDetectionConfigurationInvokeArgs(), options.WithDefaults());
@@ -92,21 +92,33 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
+        /// Azure resource Id
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The last time this rule was updated
         /// </summary>
-        public readonly string? LastUpdatedTime;
+        public readonly string LastUpdatedTime;
+        /// <summary>
+        /// Resource location
+        /// </summary>
+        public readonly string? Location;
         /// <summary>
         /// The rule name
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
         /// <summary>
         /// Static definitions of the ProactiveDetection configuration rule (same values for all components).
         /// </summary>
-        public readonly Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions? RuleDefinitions;
+        public readonly Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions? RuleDefinitions;
         /// <summary>
         /// A flag that indicated whether notifications on this rule should be sent to subscription owners
         /// </summary>
         public readonly bool? SendEmailsToSubscriptionOwners;
+        /// <summary>
+        /// Azure resource type
+        /// </summary>
+        public readonly string Type;
 
         [OutputConstructor]
         private GetProactiveDetectionConfigurationResult(
@@ -114,20 +126,29 @@ namespace Pulumi.AzureNative.Insights
 
             bool? enabled,
 
-            string? lastUpdatedTime,
+            string id,
 
-            string? name,
+            string lastUpdatedTime,
 
-            Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions? ruleDefinitions,
+            string? location,
 
-            bool? sendEmailsToSubscriptionOwners)
+            string name,
+
+            Outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions? ruleDefinitions,
+
+            bool? sendEmailsToSubscriptionOwners,
+
+            string type)
         {
             CustomEmails = customEmails;
             Enabled = enabled;
+            Id = id;
             LastUpdatedTime = lastUpdatedTime;
+            Location = location;
             Name = name;
             RuleDefinitions = ruleDefinitions;
             SendEmailsToSubscriptionOwners = sendEmailsToSubscriptionOwners;
+            Type = type;
         }
     }
 }

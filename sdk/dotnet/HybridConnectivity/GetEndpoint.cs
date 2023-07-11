@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// Gets the endpoint to the resource.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2023-03-15.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the endpoint to the resource.
-        /// API Version: 2022-05-01-preview.
+        /// Azure REST API version: 2023-03-15.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -104,13 +104,13 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource provisioning state.
+        /// The endpoint properties.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Outputs.EndpointPropertiesResponse Properties;
         /// <summary>
-        /// The resource Id of the connectivity endpoint (optional).
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? ResourceId;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -134,9 +134,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
 
             string name,
 
-            string provisioningState,
+            Outputs.EndpointPropertiesResponse properties,
 
-            string? resourceId,
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
             LastModifiedBy = lastModifiedBy;
             LastModifiedByType = lastModifiedByType;
             Name = name;
-            ProvisioningState = provisioningState;
-            ResourceId = resourceId;
+            Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

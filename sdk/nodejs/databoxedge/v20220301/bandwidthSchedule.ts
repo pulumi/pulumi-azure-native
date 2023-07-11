@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth schedule details.
- *
- * @deprecated azure-native:databoxedge/v20220301:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility.
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BandwidthSchedule {
-        pulumi.log.warn("BandwidthSchedule is deprecated: azure-native:databoxedge/v20220301:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility.")
         return new BandwidthSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +73,7 @@ export class BandwidthSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:databoxedge/v20220301:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility. */
     constructor(name: string, args: BandwidthScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BandwidthSchedule is deprecated: azure-native:databoxedge/v20220301:BandwidthSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:BandwidthSchedule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

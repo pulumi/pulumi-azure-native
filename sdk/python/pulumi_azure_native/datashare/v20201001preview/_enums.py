@@ -7,13 +7,6 @@ from enum import Enum
 __all__ = [
     'DataSetKind',
     'DataSetMappingKind',
-    'OutputType',
-    'RecurrenceInterval',
-    'ShareKind',
-    'SynchronizationMode',
-    'SynchronizationSettingKind',
-    'TriggerKind',
-    'Type',
 ]
 
 
@@ -55,56 +48,3 @@ class DataSetMappingKind(str, Enum):
     SQL_DW_TABLE = "SqlDWTable"
     SYNAPSE_WORKSPACE_SQL_POOL_TABLE = "SynapseWorkspaceSqlPoolTable"
     BLOB_STORAGE_ACCOUNT = "BlobStorageAccount"
-
-
-class OutputType(str, Enum):
-    """
-    File output type
-    """
-    CSV = "Csv"
-    PARQUET = "Parquet"
-
-
-class RecurrenceInterval(str, Enum):
-    """
-    Recurrence Interval
-    """
-    HOUR = "Hour"
-    DAY = "Day"
-
-
-class ShareKind(str, Enum):
-    """
-    Share kind.
-    """
-    COPY_BASED = "CopyBased"
-    IN_PLACE = "InPlace"
-
-
-class SynchronizationMode(str, Enum):
-    """
-    Synchronization mode
-    """
-    INCREMENTAL = "Incremental"
-    FULL_SYNC = "FullSync"
-
-
-class SynchronizationSettingKind(str, Enum):
-    """
-    Kind of synchronization setting.
-    """
-    SCHEDULE_BASED = "ScheduleBased"
-
-
-class TriggerKind(str, Enum):
-    """
-    Kind of synchronization on trigger.
-    """
-    SCHEDULE_BASED = "ScheduleBased"
-
-
-class Type(str, Enum):
-    """
-    Identity Type
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"

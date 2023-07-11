@@ -16,8 +16,6 @@ __all__ = [
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
     'OptimizedAutoscaleArgs',
-    'PrivateLinkServiceConnectionStatePropertyArgs',
-    'TableLevelSharingPropertiesArgs',
     'TrustedExternalTenantArgs',
     'VirtualNetworkConfigurationArgs',
 ]
@@ -104,11 +102,11 @@ class AzureSkuArgs:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'IdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -128,14 +126,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -277,150 +275,6 @@ class OptimizedAutoscaleArgs:
     @version.setter
     def version(self, value: pulumi.Input[int]):
         pulumi.set(self, "version", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStatePropertyArgs:
-    def __init__(__self__, *,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[str]] = None):
-        """
-        Connection State of the Private Endpoint Connection.
-        :param pulumi.Input[str] description: The private link service connection description.
-        :param pulumi.Input[str] status: The private link service connection status.
-        """
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection description.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        The private link service connection status.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-
-@pulumi.input_type
-class TableLevelSharingPropertiesArgs:
-    def __init__(__self__, *,
-                 external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        Tables that will be included and excluded in the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_exclude: List of external tables exclude from the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_include: List of external tables to include in the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_exclude: List of materialized views exclude from the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_include: List of materialized views to include in the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_exclude: List of tables to exclude from the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_include: List of tables to include in the follower database
-        """
-        if external_tables_to_exclude is not None:
-            pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
-        if external_tables_to_include is not None:
-            pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
-        if materialized_views_to_exclude is not None:
-            pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
-        if materialized_views_to_include is not None:
-            pulumi.set(__self__, "materialized_views_to_include", materialized_views_to_include)
-        if tables_to_exclude is not None:
-            pulumi.set(__self__, "tables_to_exclude", tables_to_exclude)
-        if tables_to_include is not None:
-            pulumi.set(__self__, "tables_to_include", tables_to_include)
-
-    @property
-    @pulumi.getter(name="externalTablesToExclude")
-    def external_tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of external tables exclude from the follower database
-        """
-        return pulumi.get(self, "external_tables_to_exclude")
-
-    @external_tables_to_exclude.setter
-    def external_tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "external_tables_to_exclude", value)
-
-    @property
-    @pulumi.getter(name="externalTablesToInclude")
-    def external_tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of external tables to include in the follower database
-        """
-        return pulumi.get(self, "external_tables_to_include")
-
-    @external_tables_to_include.setter
-    def external_tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "external_tables_to_include", value)
-
-    @property
-    @pulumi.getter(name="materializedViewsToExclude")
-    def materialized_views_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of materialized views exclude from the follower database
-        """
-        return pulumi.get(self, "materialized_views_to_exclude")
-
-    @materialized_views_to_exclude.setter
-    def materialized_views_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "materialized_views_to_exclude", value)
-
-    @property
-    @pulumi.getter(name="materializedViewsToInclude")
-    def materialized_views_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of materialized views to include in the follower database
-        """
-        return pulumi.get(self, "materialized_views_to_include")
-
-    @materialized_views_to_include.setter
-    def materialized_views_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "materialized_views_to_include", value)
-
-    @property
-    @pulumi.getter(name="tablesToExclude")
-    def tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of tables to exclude from the follower database
-        """
-        return pulumi.get(self, "tables_to_exclude")
-
-    @tables_to_exclude.setter
-    def tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "tables_to_exclude", value)
-
-    @property
-    @pulumi.getter(name="tablesToInclude")
-    def tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of tables to include in the follower database
-        """
-        return pulumi.get(self, "tables_to_include")
-
-    @tables_to_include.setter
-    def tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "tables_to_include", value)
 
 
 @pulumi.input_type

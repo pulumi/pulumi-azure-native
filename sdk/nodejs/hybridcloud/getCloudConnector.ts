@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified cloud connector in a specified resource group.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getCloudConnector(args: GetCloudConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetCloudConnectorResult> {
 
@@ -78,7 +78,7 @@ export interface GetCloudConnectorResult {
 }
 /**
  * Gets the specified cloud connector in a specified resource group.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getCloudConnectorOutput(args: GetCloudConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCloudConnectorResult> {
     return pulumi.output(args).apply((a: any) => getCloudConnector(a, opts))

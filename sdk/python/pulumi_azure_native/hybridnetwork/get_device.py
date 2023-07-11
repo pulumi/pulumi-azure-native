@@ -22,7 +22,7 @@ class GetDeviceResult:
     """
     Device resource.
     """
-    def __init__(__self__, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, tags=None, type=None):
+    def __init__(__self__, device_type=None, id=None, location=None, name=None, network_functions=None, provisioning_state=None, status=None, system_data=None, tags=None, type=None):
         if device_type and not isinstance(device_type, str):
             raise TypeError("Expected argument 'device_type' to be a str")
         pulumi.set(__self__, "device_type", device_type)
@@ -44,6 +44,9 @@ class GetDeviceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -108,6 +111,14 @@ class GetDeviceResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -137,6 +148,7 @@ class AwaitableGetDeviceResult(GetDeviceResult):
             network_functions=self.network_functions,
             provisioning_state=self.provisioning_state,
             status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -146,7 +158,7 @@ def get_device(device_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceResult:
     """
     Gets information about the specified device.
-    API Version: 2020-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str device_name: The name of the device resource.
@@ -166,6 +178,7 @@ def get_device(device_name: Optional[str] = None,
         network_functions=__ret__.network_functions,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -176,7 +189,7 @@ def get_device_output(device_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceResult]:
     """
     Gets information about the specified device.
-    API Version: 2020-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str device_name: The name of the device resource.

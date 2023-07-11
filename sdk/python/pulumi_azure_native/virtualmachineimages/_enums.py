@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ResourceIdentityType',
     'SharedImageStorageAccountType',
+    'VMBootOptimizationState',
 ]
 
 
@@ -20,7 +21,16 @@ class ResourceIdentityType(str, Enum):
 
 class SharedImageStorageAccountType(str, Enum):
     """
-    Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+    Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
     """
     STANDARD_LRS = "Standard_LRS"
     STANDARD_ZRS = "Standard_ZRS"
+    PREMIUM_LRS = "Premium_LRS"
+
+
+class VMBootOptimizationState(str, Enum):
+    """
+    Enabling this field will improve VM boot time by optimizing the final customized image output.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

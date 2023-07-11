@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Education
 {
     /// <summary>
     /// Student details.
-    /// API Version: 2021-12-01-preview.
+    /// Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-12-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:education:Student")]
     public partial class Student : global::Pulumi.CustomResource

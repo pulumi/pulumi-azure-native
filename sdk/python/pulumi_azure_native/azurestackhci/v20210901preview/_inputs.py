@@ -11,12 +11,9 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ClusterDesiredPropertiesArgs',
     'ExtendedLocationArgs',
     'GalleryImageIdentifierArgs',
     'GalleryImageVersionArgs',
-    'GuestCredentialArgs',
-    'HttpProxyConfigurationArgs',
     'IPPoolArgs',
     'IdentityArgs',
     'InterfaceDNSSettingsArgs',
@@ -46,46 +43,6 @@ __all__ = [
     'VirtualnetworksPropertiesRoutesArgs',
     'VirtualnetworksPropertiesSubnetsArgs',
 ]
-
-@pulumi.input_type
-class ClusterDesiredPropertiesArgs:
-    def __init__(__self__, *,
-                 diagnostic_level: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]] = None,
-                 windows_server_subscription: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]] = None):
-        """
-        Desired properties of the cluster.
-        :param pulumi.Input[Union[str, 'DiagnosticLevel']] diagnostic_level: Desired level of diagnostic data emitted by the cluster.
-        :param pulumi.Input[Union[str, 'WindowsServerSubscription']] windows_server_subscription: Desired state of Windows Server Subscription.
-        """
-        if diagnostic_level is not None:
-            pulumi.set(__self__, "diagnostic_level", diagnostic_level)
-        if windows_server_subscription is not None:
-            pulumi.set(__self__, "windows_server_subscription", windows_server_subscription)
-
-    @property
-    @pulumi.getter(name="diagnosticLevel")
-    def diagnostic_level(self) -> Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]]:
-        """
-        Desired level of diagnostic data emitted by the cluster.
-        """
-        return pulumi.get(self, "diagnostic_level")
-
-    @diagnostic_level.setter
-    def diagnostic_level(self, value: Optional[pulumi.Input[Union[str, 'DiagnosticLevel']]]):
-        pulumi.set(self, "diagnostic_level", value)
-
-    @property
-    @pulumi.getter(name="windowsServerSubscription")
-    def windows_server_subscription(self) -> Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]]:
-        """
-        Desired state of Windows Server Subscription.
-        """
-        return pulumi.get(self, "windows_server_subscription")
-
-    @windows_server_subscription.setter
-    def windows_server_subscription(self, value: Optional[pulumi.Input[Union[str, 'WindowsServerSubscription']]]):
-        pulumi.set(self, "windows_server_subscription", value)
-
 
 @pulumi.input_type
 class ExtendedLocationArgs:
@@ -202,70 +159,6 @@ class GalleryImageVersionArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class GuestCredentialArgs:
-    def __init__(__self__, *,
-                 password: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
-        """
-        Username / Password Credentials to connect to guest.
-        :param pulumi.Input[str] password: The password to connect with the guest.
-        :param pulumi.Input[str] username: The username to connect with the guest.
-        """
-        if password is not None:
-            pulumi.set(__self__, "password", password)
-        if username is not None:
-            pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[str]]:
-        """
-        The password to connect with the guest.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> Optional[pulumi.Input[str]]:
-        """
-        The username to connect with the guest.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "username", value)
-
-
-@pulumi.input_type
-class HttpProxyConfigurationArgs:
-    def __init__(__self__, *,
-                 https_proxy: Optional[pulumi.Input[str]] = None):
-        """
-        HTTP Proxy configuration for the VM.
-        :param pulumi.Input[str] https_proxy: The httpsProxy url.
-        """
-        if https_proxy is not None:
-            pulumi.set(__self__, "https_proxy", https_proxy)
-
-    @property
-    @pulumi.getter(name="httpsProxy")
-    def https_proxy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The httpsProxy url.
-        """
-        return pulumi.get(self, "https_proxy")
-
-    @https_proxy.setter
-    def https_proxy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "https_proxy", value)
 
 
 @pulumi.input_type
@@ -621,6 +514,8 @@ class VirtualmachinesPropertiesHardwareProfileArgs:
             pulumi.set(__self__, "memory_gb", memory_gb)
         if processors is not None:
             pulumi.set(__self__, "processors", processors)
+        if vm_size is None:
+            vm_size = 'Default'
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
 
@@ -1008,6 +903,8 @@ class VirtualmachinesPropertiesSecurityProfileArgs:
         """
         SecurityProfile - Specifies the security settings for the virtual machine.
         """
+        if enable_tpm is None:
+            enable_tpm = False
         if enable_tpm is not None:
             pulumi.set(__self__, "enable_tpm", enable_tpm)
         if uefi_settings is not None:
@@ -1159,6 +1056,8 @@ class VirtualmachinesPropertiesUefiSettingsArgs:
         """
         :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine.
         """
+        if secure_boot_enabled is None:
+            secure_boot_enabled = False
         if secure_boot_enabled is not None:
             pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
 

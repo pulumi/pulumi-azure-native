@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network manager security admin configuration rule collection.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAdminRuleCollection(args: GetAdminRuleCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetAdminRuleCollectionResult> {
 
@@ -24,7 +24,7 @@ export function getAdminRuleCollection(args: GetAdminRuleCollectionArgs, opts?: 
 
 export interface GetAdminRuleCollectionArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -42,21 +42,17 @@ export interface GetAdminRuleCollectionArgs {
 }
 
 /**
- * Defines the rule collection.
+ * Defines the admin rule collection.
  */
 export interface GetAdminRuleCollectionResult {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: outputs.network.NetworkManagerSecurityGroupItemResponse[];
+    readonly appliesToGroups: outputs.network.NetworkManagerSecurityGroupItemResponse[];
     /**
-     * A description of the rule collection.
+     * A description of the admin rule collection.
      */
     readonly description?: string;
-    /**
-     * A display name of the rule collection.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -74,6 +70,10 @@ export interface GetAdminRuleCollectionResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -84,7 +84,7 @@ export interface GetAdminRuleCollectionResult {
 }
 /**
  * Gets a network manager security admin configuration rule collection.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAdminRuleCollectionResult> {
     return pulumi.output(args).apply((a: any) => getAdminRuleCollection(a, opts))
@@ -92,7 +92,7 @@ export function getAdminRuleCollectionOutput(args: GetAdminRuleCollectionOutputA
 
 export interface GetAdminRuleCollectionOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

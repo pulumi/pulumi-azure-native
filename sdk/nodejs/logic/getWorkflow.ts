@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workflow.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
 
@@ -114,7 +114,7 @@ export interface GetWorkflowResult {
 }
 /**
  * Gets a workflow.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))

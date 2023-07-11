@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM group.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimGroup(args: GetSimGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSimGroupResult> {
 
@@ -36,23 +36,11 @@ export interface GetSimGroupArgs {
  */
 export interface GetSimGroupResult {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
      * A key to encrypt the SIM data that belongs to this SIM group.
      */
     readonly encryptionKey?: outputs.mobilenetwork.KeyVaultKeyResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -60,23 +48,11 @@ export interface GetSimGroupResult {
      */
     readonly identity?: outputs.mobilenetwork.ManagedServiceIdentityResponse;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
-    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Mobile network that this SIM belongs to
+     * Mobile network that this SIM group belongs to. The mobile network must be in the same location as the SIM group.
      */
     readonly mobileNetwork?: outputs.mobilenetwork.MobileNetworkResourceIdResponse;
     /**
@@ -102,7 +78,7 @@ export interface GetSimGroupResult {
 }
 /**
  * Gets information about the specified SIM group.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimGroupOutput(args: GetSimGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimGroupResult> {
     return pulumi.output(args).apply((a: any) => getSimGroup(a, opts))

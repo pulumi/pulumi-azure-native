@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Gets the sensitivity label of a given column
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Task<GetSqlPoolSensitivityLabelResult> InvokeAsync(GetSqlPoolSensitivityLabelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlPoolSensitivityLabelResult>("azure-native:synapse:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the sensitivity label of a given column
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Output<GetSqlPoolSensitivityLabelResult> Invoke(GetSqlPoolSensitivityLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlPoolSensitivityLabelResult>("azure-native:synapse:getSqlPoolSensitivityLabel", args ?? new GetSqlPoolSensitivityLabelInvokeArgs(), options.WithDefaults());
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Synapse
         public string TableName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

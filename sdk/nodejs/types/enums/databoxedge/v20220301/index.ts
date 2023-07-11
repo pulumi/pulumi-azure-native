@@ -108,41 +108,6 @@ export const MsiIdentityType = {
  */
 export type MsiIdentityType = (typeof MsiIdentityType)[keyof typeof MsiIdentityType];
 
-export const PlatformType = {
-    Windows: "Windows",
-    Linux: "Linux",
-} as const;
-
-/**
- * Host OS supported by the Kubernetes role.
- */
-export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
-
-export const RoleStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * Role status.
- */
-export type RoleStatus = (typeof RoleStatus)[keyof typeof RoleStatus];
-
-export const RoleTypes = {
-    IOT: "IOT",
-    ASA: "ASA",
-    Functions: "Functions",
-    Cognitive: "Cognitive",
-    MEC: "MEC",
-    CloudEdgeManagement: "CloudEdgeManagement",
-    Kubernetes: "Kubernetes",
-} as const;
-
-/**
- * Role type.
- */
-export type RoleTypes = (typeof RoleTypes)[keyof typeof RoleTypes];
-
 export const SSLStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -256,16 +221,6 @@ export const StorageAccountStatus = {
  * Current status of the storage account
  */
 export type StorageAccountStatus = (typeof StorageAccountStatus)[keyof typeof StorageAccountStatus];
-
-export const TriggerEventType = {
-    FileEvent: "FileEvent",
-    PeriodicTimerEvent: "PeriodicTimerEvent",
-} as const;
-
-/**
- * Trigger Kind.
- */
-export type TriggerEventType = (typeof TriggerEventType)[keyof typeof TriggerEventType];
 
 export const UserType = {
     Share: "Share",

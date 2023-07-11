@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a host pool.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Task<GetHostPoolResult> InvokeAsync(GetHostPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a host pool.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Output<GetHostPoolResult> Invoke(GetHostPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostPoolResult>("azure-native:desktopvirtualization:getHostPool", args ?? new GetHostPoolInvokeArgs(), options.WithDefaults());
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     [OutputType]
     public sealed class GetHostPoolResult
     {
+        /// <summary>
+        /// The session host configuration for updating agent, monitoring agent, and stack component.
+        /// </summary>
+        public readonly Outputs.AgentUpdatePropertiesResponse? AgentUpdate;
         /// <summary>
         /// List of applicationGroup links.
         /// </summary>
@@ -125,10 +129,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly int? MaxSessionLimit;
         /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        public readonly Outputs.MigrationRequestPropertiesResponse? MigrationRequest;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -175,6 +175,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly bool? StartVMOnConnect;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -193,6 +197,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
         [OutputConstructor]
         private GetHostPoolResult(
+            Outputs.AgentUpdatePropertiesResponse? agentUpdate,
+
             ImmutableArray<string> applicationGroupReferences,
 
             bool cloudPcResource,
@@ -221,8 +227,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             int? maxSessionLimit,
 
-            Outputs.MigrationRequestPropertiesResponse? migrationRequest,
-
             string name,
 
             string objectId,
@@ -249,6 +253,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             bool? startVMOnConnect,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -257,6 +263,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string? vmTemplate)
         {
+            AgentUpdate = agentUpdate;
             ApplicationGroupReferences = applicationGroupReferences;
             CloudPcResource = cloudPcResource;
             CustomRdpProperty = customRdpProperty;
@@ -271,7 +278,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Location = location;
             ManagedBy = managedBy;
             MaxSessionLimit = maxSessionLimit;
-            MigrationRequest = migrationRequest;
             Name = name;
             ObjectId = objectId;
             PersonalDesktopAssignmentType = personalDesktopAssignmentType;
@@ -285,6 +291,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             SsoSecretType = ssoSecretType;
             SsoadfsAuthority = ssoadfsAuthority;
             StartVMOnConnect = startVMOnConnect;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             ValidationEnvironment = validationEnvironment;

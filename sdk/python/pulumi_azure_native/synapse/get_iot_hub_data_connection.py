@@ -210,14 +210,14 @@ def get_iot_hub_data_connection(data_connection_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubDataConnectionResult:
     """
     Returns a data connection.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['dataConnectionName'] = data_connection_name
@@ -254,13 +254,13 @@ def get_iot_hub_data_connection_output(data_connection_name: Optional[pulumi.Inp
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubDataConnectionResult]:
     """
     Returns a data connection.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

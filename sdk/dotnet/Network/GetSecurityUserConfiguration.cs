@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves a network manager security user configuration.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetSecurityUserConfigurationResult> InvokeAsync(GetSecurityUserConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityUserConfigurationResult>("azure-native:network:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves a network manager security user configuration.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetSecurityUserConfigurationResult> Invoke(GetSecurityUserConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityUserConfigurationResult>("azure-native:network:getSecurityUserConfiguration", args ?? new GetSecurityUserConfigurationInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityUserConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSecurityUserConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -88,13 +88,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? DeleteExistingNSGs;
         /// <summary>
-        /// A description of the security configuration.
+        /// A description of the security user configuration.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// A display name of the security configuration.
-        /// </summary>
-        public readonly string? DisplayName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -112,10 +108,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Security Type.
-        /// </summary>
-        public readonly string? SecurityType;
-        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -130,8 +122,6 @@ namespace Pulumi.AzureNative.Network
 
             string? description,
 
-            string? displayName,
-
             string etag,
 
             string id,
@@ -140,20 +130,16 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
-            string? securityType,
-
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             DeleteExistingNSGs = deleteExistingNSGs;
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
-            SecurityType = securityType;
             SystemData = systemData;
             Type = type;
         }

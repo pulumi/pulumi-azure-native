@@ -20,12 +20,18 @@ __all__ = [
 @pulumi.output_type
 class GetSignalRResult:
     """
-    A class represent a SignalR service resource.
+    A class represent a resource.
     """
-    def __init__(__self__, cors=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, id=None, kind=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_port=None, server_port=None, sku=None, tags=None, type=None, upstream=None, version=None):
+    def __init__(__self__, cors=None, disable_aad_auth=None, disable_local_auth=None, external_ip=None, features=None, host_name=None, host_name_prefix=None, id=None, identity=None, kind=None, live_trace_configuration=None, location=None, name=None, network_acls=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, public_port=None, resource_log_configuration=None, server_port=None, serverless=None, shared_private_link_resources=None, sku=None, system_data=None, tags=None, tls=None, type=None, upstream=None, version=None):
         if cors and not isinstance(cors, dict):
             raise TypeError("Expected argument 'cors' to be a dict")
         pulumi.set(__self__, "cors", cors)
+        if disable_aad_auth and not isinstance(disable_aad_auth, bool):
+            raise TypeError("Expected argument 'disable_aad_auth' to be a bool")
+        pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if external_ip and not isinstance(external_ip, str):
             raise TypeError("Expected argument 'external_ip' to be a str")
         pulumi.set(__self__, "external_ip", external_ip)
@@ -41,9 +47,15 @@ class GetSignalRResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         pulumi.set(__self__, "kind", kind)
+        if live_trace_configuration and not isinstance(live_trace_configuration, dict):
+            raise TypeError("Expected argument 'live_trace_configuration' to be a dict")
+        pulumi.set(__self__, "live_trace_configuration", live_trace_configuration)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -59,18 +71,36 @@ class GetSignalRResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if public_port and not isinstance(public_port, int):
             raise TypeError("Expected argument 'public_port' to be a int")
         pulumi.set(__self__, "public_port", public_port)
+        if resource_log_configuration and not isinstance(resource_log_configuration, dict):
+            raise TypeError("Expected argument 'resource_log_configuration' to be a dict")
+        pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
         if server_port and not isinstance(server_port, int):
             raise TypeError("Expected argument 'server_port' to be a int")
         pulumi.set(__self__, "server_port", server_port)
+        if serverless and not isinstance(serverless, dict):
+            raise TypeError("Expected argument 'serverless' to be a dict")
+        pulumi.set(__self__, "serverless", serverless)
+        if shared_private_link_resources and not isinstance(shared_private_link_resources, list):
+            raise TypeError("Expected argument 'shared_private_link_resources' to be a list")
+        pulumi.set(__self__, "shared_private_link_resources", shared_private_link_resources)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tls and not isinstance(tls, dict):
+            raise TypeError("Expected argument 'tls' to be a dict")
+        pulumi.set(__self__, "tls", tls)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -90,10 +120,30 @@ class GetSignalRResult:
         return pulumi.get(self, "cors")
 
     @property
+    @pulumi.getter(name="disableAadAuth")
+    def disable_aad_auth(self) -> Optional[bool]:
+        """
+        DisableLocalAuth
+        Enable or disable aad auth
+        When set as true, connection with AuthType=aad won't work.
+        """
+        return pulumi.get(self, "disable_aad_auth")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        DisableLocalAuth
+        Enable or disable local auth with AccessKey
+        When set as true, connection with AccessKey=xxx won't work.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
     @pulumi.getter(name="externalIP")
     def external_ip(self) -> str:
         """
-        The publicly accessible IP of the SignalR service.
+        The publicly accessible IP of the resource.
         """
         return pulumi.get(self, "external_ip")
 
@@ -101,11 +151,11 @@ class GetSignalRResult:
     @pulumi.getter
     def features(self) -> Optional[Sequence['outputs.SignalRFeatureResponse']]:
         """
-        List of SignalR featureFlags. e.g. ServiceMode.
+        List of the featureFlags.
         
         FeatureFlags that are not included in the parameters for the update operation will not be modified.
         And the response will only include featureFlags that are explicitly set. 
-        When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+        When a featureFlag is not explicitly set, its globally default value will be used
         But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
         """
         return pulumi.get(self, "features")
@@ -114,7 +164,7 @@ class GetSignalRResult:
     @pulumi.getter(name="hostName")
     def host_name(self) -> str:
         """
-        FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+        FQDN of the service instance.
         """
         return pulumi.get(self, "host_name")
 
@@ -122,8 +172,7 @@ class GetSignalRResult:
     @pulumi.getter(name="hostNamePrefix")
     def host_name_prefix(self) -> str:
         """
-        Prefix for the hostName of the SignalR service. Retained for future use.
-        The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+        Deprecated.
         """
         return pulumi.get(self, "host_name_prefix")
 
@@ -137,17 +186,33 @@ class GetSignalRResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+        """
+        A class represent managed identities used for request and response
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def kind(self) -> Optional[str]:
         """
-        The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+        The kind of the service, it can be SignalR or RawWebSockets
         """
         return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="liveTraceConfiguration")
+    def live_trace_configuration(self) -> Optional['outputs.LiveTraceConfigurationResponse']:
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "live_trace_configuration")
 
     @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+        The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
         """
         return pulumi.get(self, "location")
 
@@ -163,7 +228,7 @@ class GetSignalRResult:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional['outputs.SignalRNetworkACLsResponse']:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -171,7 +236,7 @@ class GetSignalRResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        Private endpoint connections to the SignalR resource.
+        Private endpoint connections to the resource.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -184,28 +249,70 @@ class GetSignalRResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Enable or disable public network access. Default to "Enabled".
+        When it's Enabled, network ACLs still apply.
+        When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="publicPort")
     def public_port(self) -> int:
         """
-        The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+        The publicly accessible port of the resource which is designed for browser/client side usage.
         """
         return pulumi.get(self, "public_port")
+
+    @property
+    @pulumi.getter(name="resourceLogConfiguration")
+    def resource_log_configuration(self) -> Optional['outputs.ResourceLogConfigurationResponse']:
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "resource_log_configuration")
 
     @property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> int:
         """
-        The publicly accessible port of the SignalR service which is designed for customer server side usage.
+        The publicly accessible port of the resource which is designed for customer server side usage.
         """
         return pulumi.get(self, "server_port")
 
     @property
     @pulumi.getter
+    def serverless(self) -> Optional['outputs.ServerlessSettingsResponse']:
+        """
+        Serverless settings.
+        """
+        return pulumi.get(self, "serverless")
+
+    @property
+    @pulumi.getter(name="sharedPrivateLinkResources")
+    def shared_private_link_resources(self) -> Sequence['outputs.SharedPrivateLinkResourceResponse']:
+        """
+        The list of shared private link resources.
+        """
+        return pulumi.get(self, "shared_private_link_resources")
+
+    @property
+    @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceSkuResponse']:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -214,6 +321,14 @@ class GetSignalRResult:
         Tags of the service which is a list of key value pairs that describe the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def tls(self) -> Optional['outputs.SignalRTlsSettingsResponse']:
+        """
+        TLS settings for the resource
+        """
+        return pulumi.get(self, "tls")
 
     @property
     @pulumi.getter
@@ -227,7 +342,7 @@ class GetSignalRResult:
     @pulumi.getter
     def upstream(self) -> Optional['outputs.ServerlessUpstreamSettingsResponse']:
         """
-        Upstream settings when the Azure SignalR is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         """
         return pulumi.get(self, "upstream")
 
@@ -235,7 +350,7 @@ class GetSignalRResult:
     @pulumi.getter
     def version(self) -> str:
         """
-        Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+        Version of the resource. Probably you need the same or higher version of client SDKs.
         """
         return pulumi.get(self, "version")
 
@@ -247,21 +362,31 @@ class AwaitableGetSignalRResult(GetSignalRResult):
             yield self
         return GetSignalRResult(
             cors=self.cors,
+            disable_aad_auth=self.disable_aad_auth,
+            disable_local_auth=self.disable_local_auth,
             external_ip=self.external_ip,
             features=self.features,
             host_name=self.host_name,
             host_name_prefix=self.host_name_prefix,
             id=self.id,
+            identity=self.identity,
             kind=self.kind,
+            live_trace_configuration=self.live_trace_configuration,
             location=self.location,
             name=self.name,
             network_acls=self.network_acls,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             public_port=self.public_port,
+            resource_log_configuration=self.resource_log_configuration,
             server_port=self.server_port,
+            serverless=self.serverless,
+            shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
+            tls=self.tls,
             type=self.type,
             upstream=self.upstream,
             version=self.version)
@@ -271,12 +396,12 @@ def get_signal_r(resource_group_name: Optional[str] = None,
                  resource_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSignalRResult:
     """
-    Get the SignalR service and its properties.
-    API Version: 2020-05-01.
+    Get the resource and its properties.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str resource_name: The name of the SignalR resource.
+    :param str resource_name: The name of the resource.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -286,21 +411,31 @@ def get_signal_r(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSignalRResult(
         cors=__ret__.cors,
+        disable_aad_auth=__ret__.disable_aad_auth,
+        disable_local_auth=__ret__.disable_local_auth,
         external_ip=__ret__.external_ip,
         features=__ret__.features,
         host_name=__ret__.host_name,
         host_name_prefix=__ret__.host_name_prefix,
         id=__ret__.id,
+        identity=__ret__.identity,
         kind=__ret__.kind,
+        live_trace_configuration=__ret__.live_trace_configuration,
         location=__ret__.location,
         name=__ret__.name,
         network_acls=__ret__.network_acls,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         public_port=__ret__.public_port,
+        resource_log_configuration=__ret__.resource_log_configuration,
         server_port=__ret__.server_port,
+        serverless=__ret__.serverless,
+        shared_private_link_resources=__ret__.shared_private_link_resources,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
+        tls=__ret__.tls,
         type=__ret__.type,
         upstream=__ret__.upstream,
         version=__ret__.version)
@@ -311,11 +446,11 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         resource_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalRResult]:
     """
-    Get the SignalR service and its properties.
-    API Version: 2020-05-01.
+    Get the resource and its properties.
+    Azure REST API version: 2023-02-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param str resource_name: The name of the SignalR resource.
+    :param str resource_name: The name of the resource.
     """
     ...

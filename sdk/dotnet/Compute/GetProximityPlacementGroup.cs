@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a proximity placement group .
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetProximityPlacementGroupResult> InvokeAsync(GetProximityPlacementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a proximity placement group .
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetProximityPlacementGroupResult> Invoke(GetProximityPlacementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProximityPlacementGroupResult>("azure-native:compute:getProximityPlacementGroup", args ?? new GetProximityPlacementGroupInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Specifies the user intent of the proximity placement group.
+        /// </summary>
+        public readonly Outputs.ProximityPlacementGroupPropertiesResponseIntent? Intent;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -104,7 +108,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
+        /// Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         /// </summary>
         public readonly string? ProximityPlacementGroupType;
         /// <summary>
@@ -123,6 +127,10 @@ namespace Pulumi.AzureNative.Compute
         /// A list of references to all virtual machines in the proximity placement group.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> VirtualMachines;
+        /// <summary>
+        /// Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetProximityPlacementGroupResult(
@@ -131,6 +139,8 @@ namespace Pulumi.AzureNative.Compute
             Outputs.InstanceViewStatusResponse? colocationStatus,
 
             string id,
+
+            Outputs.ProximityPlacementGroupPropertiesResponseIntent? intent,
 
             string location,
 
@@ -144,11 +154,14 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> virtualMachineScaleSets,
 
-            ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> virtualMachines)
+            ImmutableArray<Outputs.SubResourceWithColocationStatusResponse> virtualMachines,
+
+            ImmutableArray<string> zones)
         {
             AvailabilitySets = availabilitySets;
             ColocationStatus = colocationStatus;
             Id = id;
+            Intent = intent;
             Location = location;
             Name = name;
             ProximityPlacementGroupType = proximityPlacementGroupType;
@@ -156,6 +169,7 @@ namespace Pulumi.AzureNative.Compute
             Type = type;
             VirtualMachineScaleSets = virtualMachineScaleSets;
             VirtualMachines = virtualMachines;
+            Zones = zones;
         }
     }
 }

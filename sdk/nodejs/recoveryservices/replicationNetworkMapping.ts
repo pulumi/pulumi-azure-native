@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
- * API Version: 2018-07-10.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**
@@ -72,6 +72,9 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
             if ((!args || args.networkName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkName'");
             }
+            if ((!args || args.properties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'properties'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -94,7 +97,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210210:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210301:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210401:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210601:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20211101:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20211201:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220101:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220201:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220301:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220401:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220501:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220801:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220910:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20221001:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20230101:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20230201:ReplicationNetworkMapping" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:recoveryservices/v20160810:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180110:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20180710:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210210:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210301:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210401:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210601:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210701:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20210801:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20211001:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20211101:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20211201:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220101:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220201:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220301:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220401:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220501:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220801:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20220910:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20221001:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20230101:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20230201:ReplicationNetworkMapping" }, { type: "azure-native:recoveryservices/v20230401:ReplicationNetworkMapping" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReplicationNetworkMapping.__pulumiType, name, resourceInputs, opts);
     }
@@ -119,7 +122,7 @@ export interface ReplicationNetworkMappingArgs {
     /**
      * Input properties for creating network mapping.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.CreateNetworkMappingInputPropertiesArgs>;
+    properties: pulumi.Input<inputs.recoveryservices.CreateNetworkMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

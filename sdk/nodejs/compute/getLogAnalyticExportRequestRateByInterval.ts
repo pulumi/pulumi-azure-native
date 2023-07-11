@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getLogAnalyticExportRequestRateByInterval(args: GetLogAnalyticExportRequestRateByIntervalArgs, opts?: pulumi.InvokeOptions): Promise<GetLogAnalyticExportRequestRateByIntervalResult> {
 
@@ -82,7 +82,7 @@ export interface GetLogAnalyticExportRequestRateByIntervalResult {
 }
 /**
  * Export logs that show Api requests made by this subscription in the given time window to show throttling activities.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getLogAnalyticExportRequestRateByIntervalOutput(args: GetLogAnalyticExportRequestRateByIntervalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogAnalyticExportRequestRateByIntervalResult> {
     return pulumi.output(args).apply((a: any) => getLogAnalyticExportRequestRateByInterval(a, opts))

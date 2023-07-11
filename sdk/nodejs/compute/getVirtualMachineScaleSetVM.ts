@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a virtual machine from a VM scale set.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVM(args: GetVirtualMachineScaleSetVMArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMResult> {
 
@@ -50,11 +50,11 @@ export interface GetVirtualMachineScaleSetVMResult {
      */
     readonly additionalCapabilities?: outputs.compute.AdditionalCapabilitiesResponse;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
     readonly availabilitySet?: outputs.compute.SubResourceResponse;
     /**
-     * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+     * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     readonly diagnosticsProfile?: outputs.compute.DiagnosticsProfileResponse;
     /**
@@ -65,6 +65,10 @@ export interface GetVirtualMachineScaleSetVMResult {
      * Resource Id
      */
     readonly id: string;
+    /**
+     * The identity of the virtual machine, if configured.
+     */
+    readonly identity?: outputs.compute.VirtualMachineIdentityResponse;
     /**
      * The virtual machine instance ID.
      */
@@ -156,7 +160,7 @@ export interface GetVirtualMachineScaleSetVMResult {
 }
 /**
  * Gets a virtual machine from a VM scale set.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMOutput(args: GetVirtualMachineScaleSetVMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVM(a, opts))

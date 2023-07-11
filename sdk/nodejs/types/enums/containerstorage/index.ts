@@ -9,7 +9,13 @@ export {
 };
 
 export const ReclaimPolicy = {
+    /**
+     * Delete resource
+     */
     Delete: "Delete",
+    /**
+     * Retain resource
+     */
     Retain: "Retain",
 } as const;
 
@@ -19,7 +25,13 @@ export const ReclaimPolicy = {
 export type ReclaimPolicy = (typeof ReclaimPolicy)[keyof typeof ReclaimPolicy];
 
 export const VolumeMode = {
+    /**
+     * FileSystem volume mode
+     */
     Filesystem: "Filesystem",
+    /**
+     * Raw volume mode
+     */
     Raw: "Raw",
 } as const;
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * ExpressRoutePort resource definition.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class ExpressRoutePort extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class ExpressRoutePort extends pulumi.CustomResource {
      * Bandwidth of procured ports in Gbps.
      */
     public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    /**
+     * The billing type of the ExpressRoutePort resource.
+     */
+    public readonly billingType!: pulumi.Output<string | undefined>;
     /**
      * Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
      */
@@ -122,6 +126,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
+            resourceInputs["billingType"] = args ? args.billingType : undefined;
             resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
             resourceInputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
@@ -144,6 +149,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         } else {
             resourceInputs["allocationDate"] = undefined /*out*/;
             resourceInputs["bandwidthInGbps"] = undefined /*out*/;
+            resourceInputs["billingType"] = undefined /*out*/;
             resourceInputs["circuits"] = undefined /*out*/;
             resourceInputs["encapsulation"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -161,7 +167,7 @@ export class ExpressRoutePort extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180801:ExpressRoutePort" }, { type: "azure-native:network/v20181001:ExpressRoutePort" }, { type: "azure-native:network/v20181101:ExpressRoutePort" }, { type: "azure-native:network/v20181201:ExpressRoutePort" }, { type: "azure-native:network/v20190201:ExpressRoutePort" }, { type: "azure-native:network/v20190401:ExpressRoutePort" }, { type: "azure-native:network/v20190601:ExpressRoutePort" }, { type: "azure-native:network/v20190701:ExpressRoutePort" }, { type: "azure-native:network/v20190801:ExpressRoutePort" }, { type: "azure-native:network/v20190901:ExpressRoutePort" }, { type: "azure-native:network/v20191101:ExpressRoutePort" }, { type: "azure-native:network/v20191201:ExpressRoutePort" }, { type: "azure-native:network/v20200301:ExpressRoutePort" }, { type: "azure-native:network/v20200401:ExpressRoutePort" }, { type: "azure-native:network/v20200501:ExpressRoutePort" }, { type: "azure-native:network/v20200601:ExpressRoutePort" }, { type: "azure-native:network/v20200701:ExpressRoutePort" }, { type: "azure-native:network/v20200801:ExpressRoutePort" }, { type: "azure-native:network/v20201101:ExpressRoutePort" }, { type: "azure-native:network/v20210201:ExpressRoutePort" }, { type: "azure-native:network/v20210301:ExpressRoutePort" }, { type: "azure-native:network/v20210501:ExpressRoutePort" }, { type: "azure-native:network/v20210801:ExpressRoutePort" }, { type: "azure-native:network/v20220101:ExpressRoutePort" }, { type: "azure-native:network/v20220501:ExpressRoutePort" }, { type: "azure-native:network/v20220701:ExpressRoutePort" }, { type: "azure-native:network/v20220901:ExpressRoutePort" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180801:ExpressRoutePort" }, { type: "azure-native:network/v20181001:ExpressRoutePort" }, { type: "azure-native:network/v20181101:ExpressRoutePort" }, { type: "azure-native:network/v20181201:ExpressRoutePort" }, { type: "azure-native:network/v20190201:ExpressRoutePort" }, { type: "azure-native:network/v20190401:ExpressRoutePort" }, { type: "azure-native:network/v20190601:ExpressRoutePort" }, { type: "azure-native:network/v20190701:ExpressRoutePort" }, { type: "azure-native:network/v20190801:ExpressRoutePort" }, { type: "azure-native:network/v20190901:ExpressRoutePort" }, { type: "azure-native:network/v20191101:ExpressRoutePort" }, { type: "azure-native:network/v20191201:ExpressRoutePort" }, { type: "azure-native:network/v20200301:ExpressRoutePort" }, { type: "azure-native:network/v20200401:ExpressRoutePort" }, { type: "azure-native:network/v20200501:ExpressRoutePort" }, { type: "azure-native:network/v20200601:ExpressRoutePort" }, { type: "azure-native:network/v20200701:ExpressRoutePort" }, { type: "azure-native:network/v20200801:ExpressRoutePort" }, { type: "azure-native:network/v20201101:ExpressRoutePort" }, { type: "azure-native:network/v20210201:ExpressRoutePort" }, { type: "azure-native:network/v20210301:ExpressRoutePort" }, { type: "azure-native:network/v20210501:ExpressRoutePort" }, { type: "azure-native:network/v20210801:ExpressRoutePort" }, { type: "azure-native:network/v20220101:ExpressRoutePort" }, { type: "azure-native:network/v20220501:ExpressRoutePort" }, { type: "azure-native:network/v20220701:ExpressRoutePort" }, { type: "azure-native:network/v20220901:ExpressRoutePort" }, { type: "azure-native:network/v20221101:ExpressRoutePort" }, { type: "azure-native:network/v20230201:ExpressRoutePort" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExpressRoutePort.__pulumiType, name, resourceInputs, opts);
     }
@@ -175,6 +181,10 @@ export interface ExpressRoutePortArgs {
      * Bandwidth of procured ports in Gbps.
      */
     bandwidthInGbps?: pulumi.Input<number>;
+    /**
+     * The billing type of the ExpressRoutePort resource.
+     */
+    billingType?: pulumi.Input<string | enums.network.ExpressRoutePortsBillingType>;
     /**
      * Encapsulation method on physical ports.
      */

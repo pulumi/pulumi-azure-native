@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about an EnterprisePolicy
- * API Version: 2020-10-30-preview.
+ * Azure REST API version: 2020-10-30-preview.
  */
 export function getEnterprisePolicy(args: GetEnterprisePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterprisePolicyResult> {
 
@@ -90,7 +90,7 @@ export interface GetEnterprisePolicyResult {
 }
 /**
  * Get information about an EnterprisePolicy
- * API Version: 2020-10-30-preview.
+ * Azure REST API version: 2020-10-30-preview.
  */
 export function getEnterprisePolicyOutput(args: GetEnterprisePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterprisePolicyResult> {
     return pulumi.output(args).apply((a: any) => getEnterprisePolicy(a, opts))

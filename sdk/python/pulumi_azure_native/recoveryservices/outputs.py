@@ -12,12 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'A2ACrossClusterMigrationReplicationDetailsResponse',
+    'A2AExtendedLocationDetailsResponse',
+    'A2AFabricSpecificLocationDetailsResponse',
     'A2APolicyDetailsResponse',
     'A2AProtectedDiskDetailsResponse',
     'A2AProtectedManagedDiskDetailsResponse',
     'A2AProtectionContainerMappingDetailsResponse',
     'A2AReplicationDetailsResponse',
     'A2AUnprotectedDiskDetailsResponse',
+    'A2AZoneDetailsResponse',
     'AgentDetailsResponse',
     'AgentDiskDetailsResponse',
     'AzureBackupServerContainerResponse',
@@ -33,6 +37,7 @@ __all__ = [
     'AzureIaaSVMProtectedItemExtendedInfoResponse',
     'AzureIaaSVMProtectedItemResponse',
     'AzureIaaSVMProtectionPolicyResponse',
+    'AzureMonitorAlertSettingsResponse',
     'AzureRecoveryServiceVaultProtectionIntentResponse',
     'AzureResourceProtectionIntentResponse',
     'AzureSQLAGWorkloadContainerProtectionContainerResponse',
@@ -49,15 +54,20 @@ __all__ = [
     'AzureVmWorkloadProtectedItemResponse',
     'AzureVmWorkloadProtectionPolicyResponse',
     'AzureVmWorkloadSAPAseDatabaseProtectedItemResponse',
+    'AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse',
     'AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse',
     'AzureVmWorkloadSQLDatabaseProtectedItemResponse',
     'AzureWorkloadAutoProtectionIntentResponse',
+    'AzureWorkloadContainerAutoProtectionIntentResponse',
     'AzureWorkloadContainerExtendedInfoResponse',
     'AzureWorkloadContainerResponse',
     'AzureWorkloadSQLAutoProtectionIntentResponse',
+    'ClassicAlertSettingsResponse',
     'CmkKekIdentityResponse',
     'CmkKeyVaultPropertiesResponse',
     'ContainerIdentityInfoResponse',
+    'CriticalJobHistoryDetailsResponse',
+    'CrossSubscriptionRestoreSettingsResponse',
     'CurrentJobDetailsResponse',
     'CurrentScenarioDetailsResponse',
     'DPMContainerExtendedInfoResponse',
@@ -65,6 +75,7 @@ __all__ = [
     'DPMProtectedItemResponse',
     'DailyRetentionFormatResponse',
     'DailyRetentionScheduleResponse',
+    'DailyScheduleResponse',
     'DataStoreResponse',
     'DayResponse',
     'DiskDetailsResponse',
@@ -74,6 +85,7 @@ __all__ = [
     'DraDetailsResponse',
     'EncryptionDetailsResponse',
     'ErrorDetailResponse',
+    'ExtendedLocationResponse',
     'ExtendedPropertiesResponse',
     'FabricPropertiesResponse',
     'GenericContainerExtendedInfoResponse',
@@ -81,6 +93,9 @@ __all__ = [
     'GenericProtectedItemResponse',
     'GenericProtectionPolicyResponse',
     'HealthErrorResponse',
+    'HourlyScheduleResponse',
+    'HyperVHostDetailsResponse',
+    'HyperVReplicaAzureManagedDiskDetailsResponse',
     'HyperVReplicaAzurePolicyDetailsResponse',
     'HyperVReplicaAzureReplicationDetailsResponse',
     'HyperVReplicaBasePolicyDetailsResponse',
@@ -90,26 +105,40 @@ __all__ = [
     'HyperVReplicaPolicyDetailsResponse',
     'HyperVReplicaReplicationDetailsResponse',
     'HyperVSiteDetailsResponse',
-    'IPConfigResponse',
+    'IPConfigDetailsResponse',
     'IaaSVMContainerResponse',
     'IdentityDataResponse',
     'IdentityProviderDetailsResponse',
+    'ImmutabilitySettingsResponse',
     'InMageAgentDetailsResponse',
     'InMageAzureV2ManagedDiskDetailsResponse',
     'InMageAzureV2PolicyDetailsResponse',
     'InMageAzureV2ProtectedDiskDetailsResponse',
     'InMageAzureV2ReplicationDetailsResponse',
+    'InMageAzureV2SwitchProviderBlockingErrorDetailsResponse',
+    'InMageAzureV2SwitchProviderDetailsResponse',
     'InMageBasePolicyDetailsResponse',
+    'InMageFabricSwitchProviderBlockingErrorDetailsResponse',
     'InMagePolicyDetailsResponse',
     'InMageProtectedDiskDetailsResponse',
     'InMageRcmAgentUpgradeBlockingErrorDetailsResponse',
+    'InMageRcmDiscoveredProtectedVmDetailsResponse',
     'InMageRcmFabricSpecificDetailsResponse',
+    'InMageRcmFailbackDiscoveredProtectedVmDetailsResponse',
+    'InMageRcmFailbackMobilityAgentDetailsResponse',
+    'InMageRcmFailbackNicDetailsResponse',
+    'InMageRcmFailbackPolicyDetailsResponse',
+    'InMageRcmFailbackProtectedDiskDetailsResponse',
+    'InMageRcmFailbackReplicationDetailsResponse',
+    'InMageRcmFailbackSyncDetailsResponse',
     'InMageRcmLastAgentUpgradeErrorDetailsResponse',
     'InMageRcmMobilityAgentDetailsResponse',
     'InMageRcmNicDetailsResponse',
     'InMageRcmPolicyDetailsResponse',
     'InMageRcmProtectedDiskDetailsResponse',
+    'InMageRcmProtectionContainerMappingDetailsResponse',
     'InMageRcmReplicationDetailsResponse',
+    'InMageRcmSyncDetailsResponse',
     'InMageReplicationDetailsResponse',
     'InitialReplicationDetailsResponse',
     'InnerHealthErrorResponse',
@@ -127,9 +156,11 @@ __all__ = [
     'MabFileFolderProtectedItemExtendedInfoResponse',
     'MabFileFolderProtectedItemResponse',
     'MabProtectionPolicyResponse',
+    'MarsAgentDetailsResponse',
     'MasterTargetServerResponse',
     'MigrationItemPropertiesResponse',
     'MobilityServiceUpdateResponse',
+    'MonitoringSettingsResponse',
     'MonthlyRetentionScheduleResponse',
     'NetworkMappingPropertiesResponse',
     'OSDetailsResponse',
@@ -143,7 +174,6 @@ __all__ = [
     'ProcessServerResponse',
     'ProtectionContainerMappingPropertiesResponse',
     'PushInstallerDetailsResponse',
-    'RcmAzureMigrationPolicyDetailsResponse',
     'RcmProxyDetailsResponse',
     'RecoveryPlanA2ADetailsResponse',
     'RecoveryPlanActionResponse',
@@ -160,16 +190,21 @@ __all__ = [
     'ResourceGuardOperationDetailResponse',
     'ResourceGuardProxyBaseResponse',
     'ResourceHealthDetailsResponse',
+    'RestoreSettingsResponse',
     'RetentionDurationResponse',
     'RetentionVolumeResponse',
     'RunAsAccountResponse',
+    'SecuritySettingsResponse',
     'SettingsResponse',
     'SimpleRetentionPolicyResponse',
     'SimpleSchedulePolicyResponse',
+    'SimpleSchedulePolicyV2Response',
     'SkuResponse',
+    'SoftDeleteSettingsResponse',
     'StorageClassificationMappingPropertiesResponse',
     'SubProtectionPolicyResponse',
     'SystemDataResponse',
+    'TieringPolicyResponse',
     'UpgradeDetailsResponse',
     'UserIdentityResponse',
     'VCenterPropertiesResponse',
@@ -178,12 +213,15 @@ __all__ = [
     'VMwareCbtNicDetailsResponse',
     'VMwareCbtProtectedDiskDetailsResponse',
     'VMwareCbtProtectionContainerMappingDetailsResponse',
+    'VMwareCbtSecurityProfilePropertiesResponse',
     'VMwareDetailsResponse',
     'VMwareV2FabricSpecificDetailsResponse',
     'VaultPrivateEndpointConnectionResponse',
     'VaultPrivateLinkServiceConnectionStateResponse',
     'VaultPropertiesResponse',
     'VaultPropertiesResponseEncryption',
+    'VaultPropertiesResponseMoveDetails',
+    'VaultPropertiesResponseRedundancySettings',
     'VersionDetailsResponse',
     'VmmDetailsResponse',
     'VmmToAzureNetworkMappingSettingsResponse',
@@ -191,10 +229,384 @@ __all__ = [
     'VmwareCbtPolicyDetailsResponse',
     'WeeklyRetentionFormatResponse',
     'WeeklyRetentionScheduleResponse',
+    'WeeklyScheduleResponse',
     'WorkloadCrrAccessTokenResponse',
     'WorkloadInquiryDetailsResponse',
     'YearlyRetentionScheduleResponse',
 ]
+
+@pulumi.output_type
+class A2ACrossClusterMigrationReplicationDetailsResponse(dict):
+    """
+    A2A provider specific settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
+        elif key == "lifecycleId":
+            suggest = "lifecycle_id"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "primaryFabricLocation":
+            suggest = "primary_fabric_location"
+        elif key == "vmProtectionState":
+            suggest = "vm_protection_state"
+        elif key == "vmProtectionStateDescription":
+            suggest = "vm_protection_state_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in A2ACrossClusterMigrationReplicationDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        A2ACrossClusterMigrationReplicationDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        A2ACrossClusterMigrationReplicationDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: str,
+                 fabric_object_id: Optional[str] = None,
+                 lifecycle_id: Optional[str] = None,
+                 os_type: Optional[str] = None,
+                 primary_fabric_location: Optional[str] = None,
+                 vm_protection_state: Optional[str] = None,
+                 vm_protection_state_description: Optional[str] = None):
+        """
+        A2A provider specific settings.
+        :param str instance_type: Gets the Instance type.
+               Expected value is 'A2ACrossClusterMigration'.
+        :param str fabric_object_id: The fabric specific object Id of the virtual machine.
+        :param str lifecycle_id: An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
+        :param str os_type: The type of operating system.
+        :param str primary_fabric_location: Primary fabric location.
+        :param str vm_protection_state: The protection state for the vm.
+        :param str vm_protection_state_description: The protection state description for the vm.
+        """
+        pulumi.set(__self__, "instance_type", 'A2ACrossClusterMigration')
+        if fabric_object_id is not None:
+            pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        if lifecycle_id is not None:
+            pulumi.set(__self__, "lifecycle_id", lifecycle_id)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+        if primary_fabric_location is not None:
+            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+        if vm_protection_state is not None:
+            pulumi.set(__self__, "vm_protection_state", vm_protection_state)
+        if vm_protection_state_description is not None:
+            pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the Instance type.
+        Expected value is 'A2ACrossClusterMigration'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> Optional[str]:
+        """
+        The fabric specific object Id of the virtual machine.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter(name="lifecycleId")
+    def lifecycle_id(self) -> Optional[str]:
+        """
+        An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the "same" protected item even though other internal Ids/ARM Id might be changing.
+        """
+        return pulumi.get(self, "lifecycle_id")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        The type of operating system.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="primaryFabricLocation")
+    def primary_fabric_location(self) -> Optional[str]:
+        """
+        Primary fabric location.
+        """
+        return pulumi.get(self, "primary_fabric_location")
+
+    @property
+    @pulumi.getter(name="vmProtectionState")
+    def vm_protection_state(self) -> Optional[str]:
+        """
+        The protection state for the vm.
+        """
+        return pulumi.get(self, "vm_protection_state")
+
+    @property
+    @pulumi.getter(name="vmProtectionStateDescription")
+    def vm_protection_state_description(self) -> Optional[str]:
+        """
+        The protection state description for the vm.
+        """
+        return pulumi.get(self, "vm_protection_state_description")
+
+
+@pulumi.output_type
+class A2AExtendedLocationDetailsResponse(dict):
+    """
+    ExtendedLocation details data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primaryExtendedLocation":
+            suggest = "primary_extended_location"
+        elif key == "recoveryExtendedLocation":
+            suggest = "recovery_extended_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in A2AExtendedLocationDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        A2AExtendedLocationDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        A2AExtendedLocationDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None):
+        """
+        ExtendedLocation details data.
+        :param 'ExtendedLocationResponse' primary_extended_location: The primary ExtendedLocation.
+        :param 'ExtendedLocationResponse' recovery_extended_location: The recovery ExtendedLocation.
+        """
+        if primary_extended_location is not None:
+            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+        if recovery_extended_location is not None:
+            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+
+    @property
+    @pulumi.getter(name="primaryExtendedLocation")
+    def primary_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The primary ExtendedLocation.
+        """
+        return pulumi.get(self, "primary_extended_location")
+
+    @property
+    @pulumi.getter(name="recoveryExtendedLocation")
+    def recovery_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The recovery ExtendedLocation.
+        """
+        return pulumi.get(self, "recovery_extended_location")
+
+
+@pulumi.output_type
+class A2AFabricSpecificLocationDetailsResponse(dict):
+    """
+    ExtendedLocation details data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialPrimaryExtendedLocation":
+            suggest = "initial_primary_extended_location"
+        elif key == "initialPrimaryFabricLocation":
+            suggest = "initial_primary_fabric_location"
+        elif key == "initialPrimaryZone":
+            suggest = "initial_primary_zone"
+        elif key == "initialRecoveryExtendedLocation":
+            suggest = "initial_recovery_extended_location"
+        elif key == "initialRecoveryFabricLocation":
+            suggest = "initial_recovery_fabric_location"
+        elif key == "initialRecoveryZone":
+            suggest = "initial_recovery_zone"
+        elif key == "primaryExtendedLocation":
+            suggest = "primary_extended_location"
+        elif key == "primaryFabricLocation":
+            suggest = "primary_fabric_location"
+        elif key == "primaryZone":
+            suggest = "primary_zone"
+        elif key == "recoveryExtendedLocation":
+            suggest = "recovery_extended_location"
+        elif key == "recoveryFabricLocation":
+            suggest = "recovery_fabric_location"
+        elif key == "recoveryZone":
+            suggest = "recovery_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in A2AFabricSpecificLocationDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        A2AFabricSpecificLocationDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        A2AFabricSpecificLocationDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 initial_primary_fabric_location: Optional[str] = None,
+                 initial_primary_zone: Optional[str] = None,
+                 initial_recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 initial_recovery_fabric_location: Optional[str] = None,
+                 initial_recovery_zone: Optional[str] = None,
+                 primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 primary_fabric_location: Optional[str] = None,
+                 primary_zone: Optional[str] = None,
+                 recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 recovery_fabric_location: Optional[str] = None,
+                 recovery_zone: Optional[str] = None):
+        """
+        ExtendedLocation details data.
+        :param 'ExtendedLocationResponse' initial_primary_extended_location: The initial primary ExtendedLocation.
+        :param str initial_primary_fabric_location: Initial primary fabric location info.
+        :param str initial_primary_zone: The initial source zone info.
+        :param 'ExtendedLocationResponse' initial_recovery_extended_location: The initial recovery ExtendedLocation.
+        :param str initial_recovery_fabric_location: The initial recovery fabric location info.
+        :param str initial_recovery_zone: The initial target zone info.
+        :param 'ExtendedLocationResponse' primary_extended_location: The primary ExtendedLocation.
+        :param str primary_fabric_location: Primary fabric location info.
+        :param str primary_zone: Source zone info.
+        :param 'ExtendedLocationResponse' recovery_extended_location: The recovery ExtendedLocation.
+        :param str recovery_fabric_location: The recovery fabric location info.
+        :param str recovery_zone: The target zone info.
+        """
+        if initial_primary_extended_location is not None:
+            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+        if initial_primary_fabric_location is not None:
+            pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
+        if initial_primary_zone is not None:
+            pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
+        if initial_recovery_extended_location is not None:
+            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+        if initial_recovery_fabric_location is not None:
+            pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
+        if initial_recovery_zone is not None:
+            pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
+        if primary_extended_location is not None:
+            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
+        if primary_fabric_location is not None:
+            pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
+        if primary_zone is not None:
+            pulumi.set(__self__, "primary_zone", primary_zone)
+        if recovery_extended_location is not None:
+            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
+        if recovery_fabric_location is not None:
+            pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
+        if recovery_zone is not None:
+            pulumi.set(__self__, "recovery_zone", recovery_zone)
+
+    @property
+    @pulumi.getter(name="initialPrimaryExtendedLocation")
+    def initial_primary_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The initial primary ExtendedLocation.
+        """
+        return pulumi.get(self, "initial_primary_extended_location")
+
+    @property
+    @pulumi.getter(name="initialPrimaryFabricLocation")
+    def initial_primary_fabric_location(self) -> Optional[str]:
+        """
+        Initial primary fabric location info.
+        """
+        return pulumi.get(self, "initial_primary_fabric_location")
+
+    @property
+    @pulumi.getter(name="initialPrimaryZone")
+    def initial_primary_zone(self) -> Optional[str]:
+        """
+        The initial source zone info.
+        """
+        return pulumi.get(self, "initial_primary_zone")
+
+    @property
+    @pulumi.getter(name="initialRecoveryExtendedLocation")
+    def initial_recovery_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The initial recovery ExtendedLocation.
+        """
+        return pulumi.get(self, "initial_recovery_extended_location")
+
+    @property
+    @pulumi.getter(name="initialRecoveryFabricLocation")
+    def initial_recovery_fabric_location(self) -> Optional[str]:
+        """
+        The initial recovery fabric location info.
+        """
+        return pulumi.get(self, "initial_recovery_fabric_location")
+
+    @property
+    @pulumi.getter(name="initialRecoveryZone")
+    def initial_recovery_zone(self) -> Optional[str]:
+        """
+        The initial target zone info.
+        """
+        return pulumi.get(self, "initial_recovery_zone")
+
+    @property
+    @pulumi.getter(name="primaryExtendedLocation")
+    def primary_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The primary ExtendedLocation.
+        """
+        return pulumi.get(self, "primary_extended_location")
+
+    @property
+    @pulumi.getter(name="primaryFabricLocation")
+    def primary_fabric_location(self) -> Optional[str]:
+        """
+        Primary fabric location info.
+        """
+        return pulumi.get(self, "primary_fabric_location")
+
+    @property
+    @pulumi.getter(name="primaryZone")
+    def primary_zone(self) -> Optional[str]:
+        """
+        Source zone info.
+        """
+        return pulumi.get(self, "primary_zone")
+
+    @property
+    @pulumi.getter(name="recoveryExtendedLocation")
+    def recovery_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The recovery ExtendedLocation.
+        """
+        return pulumi.get(self, "recovery_extended_location")
+
+    @property
+    @pulumi.getter(name="recoveryFabricLocation")
+    def recovery_fabric_location(self) -> Optional[str]:
+        """
+        The recovery fabric location info.
+        """
+        return pulumi.get(self, "recovery_fabric_location")
+
+    @property
+    @pulumi.getter(name="recoveryZone")
+    def recovery_zone(self) -> Optional[str]:
+        """
+        The target zone info.
+        """
+        return pulumi.get(self, "recovery_zone")
+
 
 @pulumi.output_type
 class A2APolicyDetailsResponse(dict):
@@ -333,6 +745,8 @@ class A2AProtectedDiskDetailsResponse(dict):
             suggest = "disk_type"
         elif key == "diskUri":
             suggest = "disk_uri"
+        elif key == "failoverDiskName":
+            suggest = "failover_disk_name"
         elif key == "isDiskEncrypted":
             suggest = "is_disk_encrypted"
         elif key == "isDiskKeyEncrypted":
@@ -357,6 +771,8 @@ class A2AProtectedDiskDetailsResponse(dict):
             suggest = "resync_required"
         elif key == "secretIdentifier":
             suggest = "secret_identifier"
+        elif key == "tfoDiskName":
+            suggest = "tfo_disk_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in A2AProtectedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -379,6 +795,7 @@ class A2AProtectedDiskDetailsResponse(dict):
                  disk_state: Optional[str] = None,
                  disk_type: Optional[str] = None,
                  disk_uri: Optional[str] = None,
+                 failover_disk_name: Optional[str] = None,
                  is_disk_encrypted: Optional[bool] = None,
                  is_disk_key_encrypted: Optional[bool] = None,
                  kek_key_vault_arm_id: Optional[str] = None,
@@ -390,7 +807,8 @@ class A2AProtectedDiskDetailsResponse(dict):
                  recovery_azure_storage_account_id: Optional[str] = None,
                  recovery_disk_uri: Optional[str] = None,
                  resync_required: Optional[bool] = None,
-                 secret_identifier: Optional[str] = None):
+                 secret_identifier: Optional[str] = None,
+                 tfo_disk_name: Optional[str] = None):
         """
         A2A protected disk details.
         :param Sequence[str] allowed_disk_level_operation: The disk level operations list.
@@ -402,6 +820,7 @@ class A2AProtectedDiskDetailsResponse(dict):
         :param str disk_state: The disk state.
         :param str disk_type: The type of disk.
         :param str disk_uri: The disk uri.
+        :param str failover_disk_name: The failover name for the managed disk.
         :param bool is_disk_encrypted: A value indicating whether vm has encrypted os disk or not.
         :param bool is_disk_key_encrypted: A value indicating whether disk key got encrypted or not.
         :param str kek_key_vault_arm_id: The KeyVault resource id for key (KEK).
@@ -414,6 +833,7 @@ class A2AProtectedDiskDetailsResponse(dict):
         :param str recovery_disk_uri: Recovery disk uri.
         :param bool resync_required: A value indicating whether resync is required for this disk.
         :param str secret_identifier: The secret URL / identifier (BEK).
+        :param str tfo_disk_name: The test failover name for the managed disk.
         """
         if allowed_disk_level_operation is not None:
             pulumi.set(__self__, "allowed_disk_level_operation", allowed_disk_level_operation)
@@ -433,6 +853,8 @@ class A2AProtectedDiskDetailsResponse(dict):
             pulumi.set(__self__, "disk_type", disk_type)
         if disk_uri is not None:
             pulumi.set(__self__, "disk_uri", disk_uri)
+        if failover_disk_name is not None:
+            pulumi.set(__self__, "failover_disk_name", failover_disk_name)
         if is_disk_encrypted is not None:
             pulumi.set(__self__, "is_disk_encrypted", is_disk_encrypted)
         if is_disk_key_encrypted is not None:
@@ -457,6 +879,8 @@ class A2AProtectedDiskDetailsResponse(dict):
             pulumi.set(__self__, "resync_required", resync_required)
         if secret_identifier is not None:
             pulumi.set(__self__, "secret_identifier", secret_identifier)
+        if tfo_disk_name is not None:
+            pulumi.set(__self__, "tfo_disk_name", tfo_disk_name)
 
     @property
     @pulumi.getter(name="allowedDiskLevelOperation")
@@ -529,6 +953,14 @@ class A2AProtectedDiskDetailsResponse(dict):
         The disk uri.
         """
         return pulumi.get(self, "disk_uri")
+
+    @property
+    @pulumi.getter(name="failoverDiskName")
+    def failover_disk_name(self) -> Optional[str]:
+        """
+        The failover name for the managed disk.
+        """
+        return pulumi.get(self, "failover_disk_name")
 
     @property
     @pulumi.getter(name="isDiskEncrypted")
@@ -626,6 +1058,14 @@ class A2AProtectedDiskDetailsResponse(dict):
         """
         return pulumi.get(self, "secret_identifier")
 
+    @property
+    @pulumi.getter(name="tfoDiskName")
+    def tfo_disk_name(self) -> Optional[str]:
+        """
+        The test failover name for the managed disk.
+        """
+        return pulumi.get(self, "tfo_disk_name")
+
 
 @pulumi.output_type
 class A2AProtectedManagedDiskDetailsResponse(dict):
@@ -667,10 +1107,14 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
             suggest = "monitoring_job_type"
         elif key == "monitoringPercentageCompletion":
             suggest = "monitoring_percentage_completion"
+        elif key == "primaryDiskEncryptionSetId":
+            suggest = "primary_disk_encryption_set_id"
         elif key == "primaryStagingAzureStorageAccountId":
             suggest = "primary_staging_azure_storage_account_id"
         elif key == "recoveryDiskEncryptionSetId":
             suggest = "recovery_disk_encryption_set_id"
+        elif key == "recoveryOrignalTargetDiskId":
+            suggest = "recovery_orignal_target_disk_id"
         elif key == "recoveryReplicaDiskAccountType":
             suggest = "recovery_replica_disk_account_type"
         elif key == "recoveryReplicaDiskId":
@@ -716,8 +1160,10 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
                  key_identifier: Optional[str] = None,
                  monitoring_job_type: Optional[str] = None,
                  monitoring_percentage_completion: Optional[int] = None,
+                 primary_disk_encryption_set_id: Optional[str] = None,
                  primary_staging_azure_storage_account_id: Optional[str] = None,
                  recovery_disk_encryption_set_id: Optional[str] = None,
+                 recovery_orignal_target_disk_id: Optional[str] = None,
                  recovery_replica_disk_account_type: Optional[str] = None,
                  recovery_replica_disk_id: Optional[str] = None,
                  recovery_resource_group_id: Optional[str] = None,
@@ -744,8 +1190,10 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         :param str key_identifier: The key URL / identifier (KEK).
         :param str monitoring_job_type: The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.
         :param int monitoring_percentage_completion: The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.
+        :param str primary_disk_encryption_set_id: The primary disk encryption set Id.
         :param str primary_staging_azure_storage_account_id: The primary staging storage account.
         :param str recovery_disk_encryption_set_id: The recovery disk encryption set Id.
+        :param str recovery_orignal_target_disk_id: Recovery original target disk Arm Id.
         :param str recovery_replica_disk_account_type: The replica disk type. Its an optional value and will be same as source disk type if not user provided.
         :param str recovery_replica_disk_id: Recovery replica disk Arm Id.
         :param str recovery_resource_group_id: The recovery disk resource group Arm Id.
@@ -787,10 +1235,14 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
             pulumi.set(__self__, "monitoring_job_type", monitoring_job_type)
         if monitoring_percentage_completion is not None:
             pulumi.set(__self__, "monitoring_percentage_completion", monitoring_percentage_completion)
+        if primary_disk_encryption_set_id is not None:
+            pulumi.set(__self__, "primary_disk_encryption_set_id", primary_disk_encryption_set_id)
         if primary_staging_azure_storage_account_id is not None:
             pulumi.set(__self__, "primary_staging_azure_storage_account_id", primary_staging_azure_storage_account_id)
         if recovery_disk_encryption_set_id is not None:
             pulumi.set(__self__, "recovery_disk_encryption_set_id", recovery_disk_encryption_set_id)
+        if recovery_orignal_target_disk_id is not None:
+            pulumi.set(__self__, "recovery_orignal_target_disk_id", recovery_orignal_target_disk_id)
         if recovery_replica_disk_account_type is not None:
             pulumi.set(__self__, "recovery_replica_disk_account_type", recovery_replica_disk_account_type)
         if recovery_replica_disk_id is not None:
@@ -937,6 +1389,14 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         return pulumi.get(self, "monitoring_percentage_completion")
 
     @property
+    @pulumi.getter(name="primaryDiskEncryptionSetId")
+    def primary_disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The primary disk encryption set Id.
+        """
+        return pulumi.get(self, "primary_disk_encryption_set_id")
+
+    @property
     @pulumi.getter(name="primaryStagingAzureStorageAccountId")
     def primary_staging_azure_storage_account_id(self) -> Optional[str]:
         """
@@ -951,6 +1411,14 @@ class A2AProtectedManagedDiskDetailsResponse(dict):
         The recovery disk encryption set Id.
         """
         return pulumi.get(self, "recovery_disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="recoveryOrignalTargetDiskId")
+    def recovery_orignal_target_disk_id(self) -> Optional[str]:
+        """
+        Recovery original target disk Arm Id.
+        """
+        return pulumi.get(self, "recovery_orignal_target_disk_id")
 
     @property
     @pulumi.getter(name="recoveryReplicaDiskAccountType")
@@ -1031,6 +1499,8 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
             suggest = "agent_auto_update_status"
         elif key == "automationAccountArmId":
             suggest = "automation_account_arm_id"
+        elif key == "automationAccountAuthenticationType":
+            suggest = "automation_account_authentication_type"
         elif key == "jobScheduleName":
             suggest = "job_schedule_name"
         elif key == "scheduleName":
@@ -1051,6 +1521,7 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
                  instance_type: str,
                  agent_auto_update_status: Optional[str] = None,
                  automation_account_arm_id: Optional[str] = None,
+                 automation_account_authentication_type: Optional[str] = None,
                  job_schedule_name: Optional[str] = None,
                  schedule_name: Optional[str] = None):
         """
@@ -1059,6 +1530,7 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
                Expected value is 'A2A'.
         :param str agent_auto_update_status: A value indicating whether the auto update is enabled.
         :param str automation_account_arm_id: The automation account arm id.
+        :param str automation_account_authentication_type: A value indicating the type authentication to use for automation Account.
         :param str job_schedule_name: The job schedule arm name.
         :param str schedule_name: The schedule arm name.
         """
@@ -1067,6 +1539,10 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
             pulumi.set(__self__, "agent_auto_update_status", agent_auto_update_status)
         if automation_account_arm_id is not None:
             pulumi.set(__self__, "automation_account_arm_id", automation_account_arm_id)
+        if automation_account_authentication_type is None:
+            automation_account_authentication_type = 'RunAsAccount'
+        if automation_account_authentication_type is not None:
+            pulumi.set(__self__, "automation_account_authentication_type", automation_account_authentication_type)
         if job_schedule_name is not None:
             pulumi.set(__self__, "job_schedule_name", job_schedule_name)
         if schedule_name is not None:
@@ -1098,6 +1574,14 @@ class A2AProtectionContainerMappingDetailsResponse(dict):
         return pulumi.get(self, "automation_account_arm_id")
 
     @property
+    @pulumi.getter(name="automationAccountAuthenticationType")
+    def automation_account_authentication_type(self) -> Optional[str]:
+        """
+        A value indicating the type authentication to use for automation Account.
+        """
+        return pulumi.get(self, "automation_account_authentication_type")
+
+    @property
     @pulumi.getter(name="jobScheduleName")
     def job_schedule_name(self) -> Optional[str]:
         """
@@ -1122,7 +1606,9 @@ class A2AReplicationDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "initialPrimaryFabricLocation":
+        if key == "agentCertificateExpiryDate":
+            suggest = "agent_certificate_expiry_date"
+        elif key == "initialPrimaryFabricLocation":
             suggest = "initial_primary_fabric_location"
         elif key == "initialPrimaryZone":
             suggest = "initial_primary_zone"
@@ -1132,12 +1618,24 @@ class A2AReplicationDetailsResponse(dict):
             suggest = "initial_recovery_zone"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "recoveryAzureGeneration":
+            suggest = "recovery_azure_generation"
         elif key == "vmEncryptionType":
             suggest = "vm_encryption_type"
+        elif key == "agentExpiryDate":
+            suggest = "agent_expiry_date"
         elif key == "agentVersion":
             suggest = "agent_version"
+        elif key == "autoProtectionOfDataDisk":
+            suggest = "auto_protection_of_data_disk"
         elif key == "fabricObjectId":
             suggest = "fabric_object_id"
+        elif key == "initialPrimaryExtendedLocation":
+            suggest = "initial_primary_extended_location"
+        elif key == "initialRecoveryExtendedLocation":
+            suggest = "initial_recovery_extended_location"
+        elif key == "isReplicationAgentCertificateUpdateRequired":
+            suggest = "is_replication_agent_certificate_update_required"
         elif key == "isReplicationAgentUpdateRequired":
             suggest = "is_replication_agent_update_required"
         elif key == "lastHeartbeat":
@@ -1160,6 +1658,10 @@ class A2AReplicationDetailsResponse(dict):
             suggest = "multi_vm_group_name"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "primaryAvailabilityZone":
+            suggest = "primary_availability_zone"
+        elif key == "primaryExtendedLocation":
+            suggest = "primary_extended_location"
         elif key == "primaryFabricLocation":
             suggest = "primary_fabric_location"
         elif key == "protectedDisks":
@@ -1178,14 +1680,20 @@ class A2AReplicationDetailsResponse(dict):
             suggest = "recovery_azure_vm_size"
         elif key == "recoveryBootDiagStorageAccountId":
             suggest = "recovery_boot_diag_storage_account_id"
+        elif key == "recoveryCapacityReservationGroupId":
+            suggest = "recovery_capacity_reservation_group_id"
         elif key == "recoveryCloudService":
             suggest = "recovery_cloud_service"
+        elif key == "recoveryExtendedLocation":
+            suggest = "recovery_extended_location"
         elif key == "recoveryFabricLocation":
             suggest = "recovery_fabric_location"
         elif key == "recoveryFabricObjectId":
             suggest = "recovery_fabric_object_id"
         elif key == "recoveryProximityPlacementGroupId":
             suggest = "recovery_proximity_placement_group_id"
+        elif key == "recoveryVirtualMachineScaleSetId":
+            suggest = "recovery_virtual_machine_scale_set_id"
         elif key == "rpoInSeconds":
             suggest = "rpo_in_seconds"
         elif key == "selectedRecoveryAzureNetworkId":
@@ -1219,14 +1727,21 @@ class A2AReplicationDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 agent_certificate_expiry_date: str,
                  initial_primary_fabric_location: str,
                  initial_primary_zone: str,
                  initial_recovery_fabric_location: str,
                  initial_recovery_zone: str,
                  instance_type: str,
+                 recovery_azure_generation: str,
                  vm_encryption_type: str,
+                 agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
+                 auto_protection_of_data_disk: Optional[str] = None,
                  fabric_object_id: Optional[str] = None,
+                 initial_primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 initial_recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 is_replication_agent_certificate_update_required: Optional[bool] = None,
                  is_replication_agent_update_required: Optional[bool] = None,
                  last_heartbeat: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
@@ -1238,6 +1753,8 @@ class A2AReplicationDetailsResponse(dict):
                  multi_vm_group_id: Optional[str] = None,
                  multi_vm_group_name: Optional[str] = None,
                  os_type: Optional[str] = None,
+                 primary_availability_zone: Optional[str] = None,
+                 primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  primary_fabric_location: Optional[str] = None,
                  protected_disks: Optional[Sequence['outputs.A2AProtectedDiskDetailsResponse']] = None,
                  protected_managed_disks: Optional[Sequence['outputs.A2AProtectedManagedDiskDetailsResponse']] = None,
@@ -1247,10 +1764,13 @@ class A2AReplicationDetailsResponse(dict):
                  recovery_azure_vm_name: Optional[str] = None,
                  recovery_azure_vm_size: Optional[str] = None,
                  recovery_boot_diag_storage_account_id: Optional[str] = None,
+                 recovery_capacity_reservation_group_id: Optional[str] = None,
                  recovery_cloud_service: Optional[str] = None,
+                 recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  recovery_fabric_location: Optional[str] = None,
                  recovery_fabric_object_id: Optional[str] = None,
                  recovery_proximity_placement_group_id: Optional[str] = None,
+                 recovery_virtual_machine_scale_set_id: Optional[str] = None,
                  rpo_in_seconds: Optional[float] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_tfo_azure_network_id: Optional[str] = None,
@@ -1263,15 +1783,22 @@ class A2AReplicationDetailsResponse(dict):
                  vm_synced_config_details: Optional['outputs.AzureToAzureVmSyncedConfigDetailsResponse'] = None):
         """
         A2A provider specific settings.
+        :param str agent_certificate_expiry_date: Agent certificate expiry date.
         :param str initial_primary_fabric_location: The initial primary fabric location.
         :param str initial_primary_zone: The initial primary availability zone.
         :param str initial_recovery_fabric_location: The initial recovery fabric location.
         :param str initial_recovery_zone: The initial recovery availability zone.
         :param str instance_type: Gets the Instance type.
                Expected value is 'A2A'.
+        :param str recovery_azure_generation: The recovery azure generation.
         :param str vm_encryption_type: The encryption type of the VM.
+        :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent version.
+        :param str auto_protection_of_data_disk: A value indicating whether the auto protection is enabled.
         :param str fabric_object_id: The fabric specific object Id of the virtual machine.
+        :param 'ExtendedLocationResponse' initial_primary_extended_location: The initial primary extended location.
+        :param 'ExtendedLocationResponse' initial_recovery_extended_location: The initial recovery extended location.
+        :param bool is_replication_agent_certificate_update_required: A value indicating whether agent certificate update is required.
         :param bool is_replication_agent_update_required: A value indicating whether replication agent update is required.
         :param str last_heartbeat: The last heartbeat received from the source server.
         :param str last_rpo_calculated_time: The time (in UTC) when the last RPO value was calculated by Protection Service.
@@ -1283,6 +1810,8 @@ class A2AReplicationDetailsResponse(dict):
         :param str multi_vm_group_id: The multi vm group Id.
         :param str multi_vm_group_name: The multi vm group name.
         :param str os_type: The type of operating system.
+        :param str primary_availability_zone: The primary availability zone.
+        :param 'ExtendedLocationResponse' primary_extended_location: The primary Extended Location.
         :param str primary_fabric_location: Primary fabric location.
         :param Sequence['A2AProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param Sequence['A2AProtectedManagedDiskDetailsResponse'] protected_managed_disks: The list of protected managed disks.
@@ -1292,31 +1821,46 @@ class A2AReplicationDetailsResponse(dict):
         :param str recovery_azure_vm_name: The name of recovery virtual machine.
         :param str recovery_azure_vm_size: The size of recovery virtual machine.
         :param str recovery_boot_diag_storage_account_id: The recovery boot diagnostic storage account Arm Id.
+        :param str recovery_capacity_reservation_group_id: The recovery capacity reservation group Id.
         :param str recovery_cloud_service: The recovery cloud service.
+        :param 'ExtendedLocationResponse' recovery_extended_location: The recovery Extended Location.
         :param str recovery_fabric_location: The recovery fabric location.
         :param str recovery_fabric_object_id: The recovery fabric object Id.
         :param str recovery_proximity_placement_group_id: The recovery proximity placement group Id.
+        :param str recovery_virtual_machine_scale_set_id: The recovery virtual machine scale set id.
         :param float rpo_in_seconds: The last RPO value in seconds.
         :param str selected_recovery_azure_network_id: The recovery virtual network.
         :param str selected_tfo_azure_network_id: The test failover virtual network.
         :param str test_failover_recovery_fabric_object_id: The test failover fabric object Id.
-        :param str tfo_azure_vm_name: The test failover VM name.
+        :param str tfo_azure_vm_name: The test failover vm name.
         :param Sequence['A2AUnprotectedDiskDetailsResponse'] unprotected_disks: The list of unprotected disks.
         :param Sequence['VMNicDetailsResponse'] vm_nics: The virtual machine nic details.
         :param str vm_protection_state: The protection state for the vm.
         :param str vm_protection_state_description: The protection state description for the vm.
         :param 'AzureToAzureVmSyncedConfigDetailsResponse' vm_synced_config_details: The synced configuration details.
         """
+        pulumi.set(__self__, "agent_certificate_expiry_date", agent_certificate_expiry_date)
         pulumi.set(__self__, "initial_primary_fabric_location", initial_primary_fabric_location)
         pulumi.set(__self__, "initial_primary_zone", initial_primary_zone)
         pulumi.set(__self__, "initial_recovery_fabric_location", initial_recovery_fabric_location)
         pulumi.set(__self__, "initial_recovery_zone", initial_recovery_zone)
         pulumi.set(__self__, "instance_type", 'A2A')
+        pulumi.set(__self__, "recovery_azure_generation", recovery_azure_generation)
         pulumi.set(__self__, "vm_encryption_type", vm_encryption_type)
+        if agent_expiry_date is not None:
+            pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
+        if auto_protection_of_data_disk is not None:
+            pulumi.set(__self__, "auto_protection_of_data_disk", auto_protection_of_data_disk)
         if fabric_object_id is not None:
             pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        if initial_primary_extended_location is not None:
+            pulumi.set(__self__, "initial_primary_extended_location", initial_primary_extended_location)
+        if initial_recovery_extended_location is not None:
+            pulumi.set(__self__, "initial_recovery_extended_location", initial_recovery_extended_location)
+        if is_replication_agent_certificate_update_required is not None:
+            pulumi.set(__self__, "is_replication_agent_certificate_update_required", is_replication_agent_certificate_update_required)
         if is_replication_agent_update_required is not None:
             pulumi.set(__self__, "is_replication_agent_update_required", is_replication_agent_update_required)
         if last_heartbeat is not None:
@@ -1339,6 +1883,10 @@ class A2AReplicationDetailsResponse(dict):
             pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if primary_availability_zone is not None:
+            pulumi.set(__self__, "primary_availability_zone", primary_availability_zone)
+        if primary_extended_location is not None:
+            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
         if primary_fabric_location is not None:
             pulumi.set(__self__, "primary_fabric_location", primary_fabric_location)
         if protected_disks is not None:
@@ -1357,14 +1905,20 @@ class A2AReplicationDetailsResponse(dict):
             pulumi.set(__self__, "recovery_azure_vm_size", recovery_azure_vm_size)
         if recovery_boot_diag_storage_account_id is not None:
             pulumi.set(__self__, "recovery_boot_diag_storage_account_id", recovery_boot_diag_storage_account_id)
+        if recovery_capacity_reservation_group_id is not None:
+            pulumi.set(__self__, "recovery_capacity_reservation_group_id", recovery_capacity_reservation_group_id)
         if recovery_cloud_service is not None:
             pulumi.set(__self__, "recovery_cloud_service", recovery_cloud_service)
+        if recovery_extended_location is not None:
+            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
         if recovery_fabric_location is not None:
             pulumi.set(__self__, "recovery_fabric_location", recovery_fabric_location)
         if recovery_fabric_object_id is not None:
             pulumi.set(__self__, "recovery_fabric_object_id", recovery_fabric_object_id)
         if recovery_proximity_placement_group_id is not None:
             pulumi.set(__self__, "recovery_proximity_placement_group_id", recovery_proximity_placement_group_id)
+        if recovery_virtual_machine_scale_set_id is not None:
+            pulumi.set(__self__, "recovery_virtual_machine_scale_set_id", recovery_virtual_machine_scale_set_id)
         if rpo_in_seconds is not None:
             pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
         if selected_recovery_azure_network_id is not None:
@@ -1385,6 +1939,14 @@ class A2AReplicationDetailsResponse(dict):
             pulumi.set(__self__, "vm_protection_state_description", vm_protection_state_description)
         if vm_synced_config_details is not None:
             pulumi.set(__self__, "vm_synced_config_details", vm_synced_config_details)
+
+    @property
+    @pulumi.getter(name="agentCertificateExpiryDate")
+    def agent_certificate_expiry_date(self) -> str:
+        """
+        Agent certificate expiry date.
+        """
+        return pulumi.get(self, "agent_certificate_expiry_date")
 
     @property
     @pulumi.getter(name="initialPrimaryFabricLocation")
@@ -1428,12 +1990,28 @@ class A2AReplicationDetailsResponse(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="recoveryAzureGeneration")
+    def recovery_azure_generation(self) -> str:
+        """
+        The recovery azure generation.
+        """
+        return pulumi.get(self, "recovery_azure_generation")
+
+    @property
     @pulumi.getter(name="vmEncryptionType")
     def vm_encryption_type(self) -> str:
         """
         The encryption type of the VM.
         """
         return pulumi.get(self, "vm_encryption_type")
+
+    @property
+    @pulumi.getter(name="agentExpiryDate")
+    def agent_expiry_date(self) -> Optional[str]:
+        """
+        Agent expiry date.
+        """
+        return pulumi.get(self, "agent_expiry_date")
 
     @property
     @pulumi.getter(name="agentVersion")
@@ -1444,12 +2022,44 @@ class A2AReplicationDetailsResponse(dict):
         return pulumi.get(self, "agent_version")
 
     @property
+    @pulumi.getter(name="autoProtectionOfDataDisk")
+    def auto_protection_of_data_disk(self) -> Optional[str]:
+        """
+        A value indicating whether the auto protection is enabled.
+        """
+        return pulumi.get(self, "auto_protection_of_data_disk")
+
+    @property
     @pulumi.getter(name="fabricObjectId")
     def fabric_object_id(self) -> Optional[str]:
         """
         The fabric specific object Id of the virtual machine.
         """
         return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter(name="initialPrimaryExtendedLocation")
+    def initial_primary_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The initial primary extended location.
+        """
+        return pulumi.get(self, "initial_primary_extended_location")
+
+    @property
+    @pulumi.getter(name="initialRecoveryExtendedLocation")
+    def initial_recovery_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The initial recovery extended location.
+        """
+        return pulumi.get(self, "initial_recovery_extended_location")
+
+    @property
+    @pulumi.getter(name="isReplicationAgentCertificateUpdateRequired")
+    def is_replication_agent_certificate_update_required(self) -> Optional[bool]:
+        """
+        A value indicating whether agent certificate update is required.
+        """
+        return pulumi.get(self, "is_replication_agent_certificate_update_required")
 
     @property
     @pulumi.getter(name="isReplicationAgentUpdateRequired")
@@ -1540,6 +2150,22 @@ class A2AReplicationDetailsResponse(dict):
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="primaryAvailabilityZone")
+    def primary_availability_zone(self) -> Optional[str]:
+        """
+        The primary availability zone.
+        """
+        return pulumi.get(self, "primary_availability_zone")
+
+    @property
+    @pulumi.getter(name="primaryExtendedLocation")
+    def primary_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The primary Extended Location.
+        """
+        return pulumi.get(self, "primary_extended_location")
+
+    @property
     @pulumi.getter(name="primaryFabricLocation")
     def primary_fabric_location(self) -> Optional[str]:
         """
@@ -1612,12 +2238,28 @@ class A2AReplicationDetailsResponse(dict):
         return pulumi.get(self, "recovery_boot_diag_storage_account_id")
 
     @property
+    @pulumi.getter(name="recoveryCapacityReservationGroupId")
+    def recovery_capacity_reservation_group_id(self) -> Optional[str]:
+        """
+        The recovery capacity reservation group Id.
+        """
+        return pulumi.get(self, "recovery_capacity_reservation_group_id")
+
+    @property
     @pulumi.getter(name="recoveryCloudService")
     def recovery_cloud_service(self) -> Optional[str]:
         """
         The recovery cloud service.
         """
         return pulumi.get(self, "recovery_cloud_service")
+
+    @property
+    @pulumi.getter(name="recoveryExtendedLocation")
+    def recovery_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The recovery Extended Location.
+        """
+        return pulumi.get(self, "recovery_extended_location")
 
     @property
     @pulumi.getter(name="recoveryFabricLocation")
@@ -1642,6 +2284,14 @@ class A2AReplicationDetailsResponse(dict):
         The recovery proximity placement group Id.
         """
         return pulumi.get(self, "recovery_proximity_placement_group_id")
+
+    @property
+    @pulumi.getter(name="recoveryVirtualMachineScaleSetId")
+    def recovery_virtual_machine_scale_set_id(self) -> Optional[str]:
+        """
+        The recovery virtual machine scale set id.
+        """
+        return pulumi.get(self, "recovery_virtual_machine_scale_set_id")
 
     @property
     @pulumi.getter(name="rpoInSeconds")
@@ -1679,7 +2329,7 @@ class A2AReplicationDetailsResponse(dict):
     @pulumi.getter(name="tfoAzureVMName")
     def tfo_azure_vm_name(self) -> Optional[str]:
         """
-        The test failover VM name.
+        The test failover vm name.
         """
         return pulumi.get(self, "tfo_azure_vm_name")
 
@@ -1732,7 +2382,9 @@ class A2AUnprotectedDiskDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "diskLunId":
+        if key == "diskAutoProtectionStatus":
+            suggest = "disk_auto_protection_status"
+        elif key == "diskLunId":
             suggest = "disk_lun_id"
 
         if suggest:
@@ -1747,13 +2399,25 @@ class A2AUnprotectedDiskDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 disk_auto_protection_status: Optional[str] = None,
                  disk_lun_id: Optional[int] = None):
         """
         A2A unprotected disk details.
+        :param str disk_auto_protection_status: A value indicating whether the disk auto protection is enabled.
         :param int disk_lun_id: The source lun Id for the data disk.
         """
+        if disk_auto_protection_status is not None:
+            pulumi.set(__self__, "disk_auto_protection_status", disk_auto_protection_status)
         if disk_lun_id is not None:
             pulumi.set(__self__, "disk_lun_id", disk_lun_id)
+
+    @property
+    @pulumi.getter(name="diskAutoProtectionStatus")
+    def disk_auto_protection_status(self) -> Optional[str]:
+        """
+        A value indicating whether the disk auto protection is enabled.
+        """
+        return pulumi.get(self, "disk_auto_protection_status")
 
     @property
     @pulumi.getter(name="diskLunId")
@@ -1762,6 +2426,41 @@ class A2AUnprotectedDiskDetailsResponse(dict):
         The source lun Id for the data disk.
         """
         return pulumi.get(self, "disk_lun_id")
+
+
+@pulumi.output_type
+class A2AZoneDetailsResponse(dict):
+    """
+    Zone details data.
+    """
+    def __init__(__self__, *,
+                 source: Optional[str] = None,
+                 target: Optional[str] = None):
+        """
+        Zone details data.
+        :param str source: Source zone info.
+        :param str target: The target zone info.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        Source zone info.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        The target zone info.
+        """
+        return pulumi.get(self, "target")
 
 
 @pulumi.output_type
@@ -1800,7 +2499,7 @@ class AgentDetailsResponse(dict):
         Agent details.
         :param str agent_id: The Id of the agent running on the server.
         :param str bios_id: The machine BIOS Id.
-        :param Sequence['AgentDiskDetailsResponse'] disks: The details of agent disks.
+        :param Sequence['AgentDiskDetailsResponse'] disks: The disks.
         :param str fqdn: The machine FQDN.
         :param str machine_id: The Id of the machine to which the agent is registered.
         """
@@ -1830,7 +2529,7 @@ class AgentDetailsResponse(dict):
     @pulumi.getter
     def disks(self) -> Sequence['outputs.AgentDiskDetailsResponse']:
         """
-        The details of agent disks.
+        The disks.
         """
         return pulumi.get(self, "disks")
 
@@ -1968,6 +2667,8 @@ class AzureBackupServerContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "protectionStatus":
@@ -1998,6 +2699,7 @@ class AzureBackupServerContainerResponse(dict):
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
@@ -2017,6 +2719,7 @@ class AzureBackupServerContainerResponse(dict):
         :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -2039,6 +2742,8 @@ class AzureBackupServerContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if protection_status is not None:
@@ -2125,6 +2830,14 @@ class AzureBackupServerContainerResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="protectedItemCount")
     def protected_item_count(self) -> Optional[float]:
         """
@@ -2169,6 +2882,10 @@ class AzureFabricSpecificDetailsResponse(dict):
             suggest = "instance_type"
         elif key == "containerIds":
             suggest = "container_ids"
+        elif key == "extendedLocations":
+            suggest = "extended_locations"
+        elif key == "locationDetails":
+            suggest = "location_details"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFabricSpecificDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2184,19 +2901,31 @@ class AzureFabricSpecificDetailsResponse(dict):
     def __init__(__self__, *,
                  instance_type: str,
                  container_ids: Optional[Sequence[str]] = None,
-                 location: Optional[str] = None):
+                 extended_locations: Optional[Sequence['outputs.A2AExtendedLocationDetailsResponse']] = None,
+                 location: Optional[str] = None,
+                 location_details: Optional[Sequence['outputs.A2AFabricSpecificLocationDetailsResponse']] = None,
+                 zones: Optional[Sequence['outputs.A2AZoneDetailsResponse']] = None):
         """
         Azure Fabric Specific Details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'Azure'.
         :param Sequence[str] container_ids: The container Ids for the Azure fabric.
+        :param Sequence['A2AExtendedLocationDetailsResponse'] extended_locations: The ExtendedLocations.
         :param str location: The Location for the Azure fabric.
+        :param Sequence['A2AFabricSpecificLocationDetailsResponse'] location_details: The location details.
+        :param Sequence['A2AZoneDetailsResponse'] zones: The zones.
         """
         pulumi.set(__self__, "instance_type", 'Azure')
         if container_ids is not None:
             pulumi.set(__self__, "container_ids", container_ids)
+        if extended_locations is not None:
+            pulumi.set(__self__, "extended_locations", extended_locations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if location_details is not None:
+            pulumi.set(__self__, "location_details", location_details)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -2216,12 +2945,36 @@ class AzureFabricSpecificDetailsResponse(dict):
         return pulumi.get(self, "container_ids")
 
     @property
+    @pulumi.getter(name="extendedLocations")
+    def extended_locations(self) -> Optional[Sequence['outputs.A2AExtendedLocationDetailsResponse']]:
+        """
+        The ExtendedLocations.
+        """
+        return pulumi.get(self, "extended_locations")
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
         The Location for the Azure fabric.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="locationDetails")
+    def location_details(self) -> Optional[Sequence['outputs.A2AFabricSpecificLocationDetailsResponse']]:
+        """
+        The location details.
+        """
+        return pulumi.get(self, "location_details")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence['outputs.A2AZoneDetailsResponse']]:
+        """
+        The zones.
+        """
+        return pulumi.get(self, "zones")
 
 
 @pulumi.output_type
@@ -2236,6 +2989,8 @@ class AzureFileShareProtectionPolicyResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemsCount":
             suggest = "protected_items_count"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
         elif key == "schedulePolicy":
@@ -2259,6 +3014,7 @@ class AzureFileShareProtectionPolicyResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_items_count: Optional[int] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None,
                  time_zone: Optional[str] = None,
@@ -2268,14 +3024,17 @@ class AzureFileShareProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureStorage'.
         :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         :param str work_load_type: Type of workload for the backup management
         """
         pulumi.set(__self__, "backup_management_type", 'AzureStorage')
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
@@ -2301,6 +3060,14 @@ class AzureFileShareProtectionPolicyResponse(dict):
         Number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter(name="retentionPolicy")
@@ -2437,10 +3204,12 @@ class AzureFileshareProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -2455,6 +3224,8 @@ class AzureFileshareProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -2471,14 +3242,18 @@ class AzureFileshareProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureFileshareProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2492,8 +3267,9 @@ class AzureFileshareProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
@@ -2501,6 +3277,7 @@ class AzureFileshareProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureFileshareProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -2509,15 +3286,18 @@ class AzureFileshareProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Azure File Share workload-specific backup item.
+        :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureFileShareProtectedItem'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -2525,6 +3305,7 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureFileshareProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of the fileshare represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -2533,14 +3314,16 @@ class AzureFileshareProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'AzureFileShareProtectedItem')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -2555,6 +3338,8 @@ class AzureFileshareProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -2571,14 +3356,26 @@ class AzureFileshareProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
             pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -2590,12 +3387,12 @@ class AzureFileshareProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Type of workload this item represents.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -2652,6 +3449,14 @@ class AzureFileshareProtectedItemResponse(dict):
         Friendly name of the fileshare represented by this backup item.
         """
         return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -2718,6 +3523,14 @@ class AzureFileshareProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
     @pulumi.getter(name="protectionState")
     def protection_state(self) -> Optional[str]:
         """
@@ -2734,20 +3547,28 @@ class AzureFileshareProtectedItemResponse(dict):
         return pulumi.get(self, "protection_status")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -2766,6 +3587,8 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "resourceGroup":
@@ -2791,6 +3614,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None,
@@ -2805,6 +3629,7 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
@@ -2817,6 +3642,8 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if resource_group is not None:
@@ -2861,6 +3688,14 @@ class AzureIaaSClassicComputeVMContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -2903,10 +3738,22 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -2921,12 +3768,10 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "extendedProperties":
             suggest = "extended_properties"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
         elif key == "healthDetails":
             suggest = "health_details"
-        elif key == "healthStatus":
-            suggest = "health_status"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -2937,24 +3782,22 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             suggest = "kpis_healths"
         elif key == "lastBackupStatus":
             suggest = "last_backup_status"
-        elif key == "lastBackupTime":
-            suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
-        elif key == "protectedItemDataId":
-            suggest = "protected_item_data_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "virtualMachineId":
-            suggest = "virtual_machine_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureIaaSClassicComputeVMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2968,8 +3811,14 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
+                 health_status: str,
+                 last_backup_time: str,
+                 protected_item_data_id: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 virtual_machine_id: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
@@ -2977,28 +3826,32 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureIaaSVMProtectedItemExtendedInfoResponse'] = None,
                  extended_properties: Optional['outputs.ExtendedPropertiesResponse'] = None,
-                 friendly_name: Optional[str] = None,
                  health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
-                 health_status: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  kpis_healths: Optional[Mapping[str, 'outputs.KPIResourceHealthDetailsResponse']] = None,
                  last_backup_status: Optional[str] = None,
-                 last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
-                 protected_item_data_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 virtual_machine_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         IaaS VM workload-specific backup item representing the Classic Compute VM.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the VM represented by this backup item.
+        :param str health_status: Health status of protected item.
+        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -3006,27 +3859,30 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
-        :param str friendly_name: Friendly name of the VM represented by this backup item.
         :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
-        :param str health_status: Health status of protected item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
-        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
-        :param str protected_item_data_id: Data ID of the protected item.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        pulumi.set(__self__, "health_status", health_status)
+        pulumi.set(__self__, "last_backup_time", last_backup_time)
+        pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         pulumi.set(__self__, "protected_item_type", 'Microsoft.ClassicCompute/virtualMachines')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -3041,12 +3897,10 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if extended_properties is not None:
             pulumi.set(__self__, "extended_properties", extended_properties)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
         if health_details is not None:
             pulumi.set(__self__, "health_details", health_details)
-        if health_status is not None:
-            pulumi.set(__self__, "health_status", health_status)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -3057,24 +3911,62 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "kpis_healths", kpis_healths)
         if last_backup_status is not None:
             pulumi.set(__self__, "last_backup_status", last_backup_status)
-        if last_backup_time is not None:
-            pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protected_item_data_id is not None:
-            pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
             pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the VM represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> str:
+        """
+        Health status of protected item.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> str:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter(name="protectedItemDataId")
+    def protected_item_data_id(self) -> str:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_id")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -3086,12 +3978,20 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Fully qualified ARM ID of the virtual machine represented by this item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -3150,14 +4050,6 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "extended_properties")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
-        """
-        Friendly name of the VM represented by this backup item.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @property
     @pulumi.getter(name="healthDetails")
     def health_details(self) -> Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']]:
         """
@@ -3166,12 +4058,12 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "health_details")
 
     @property
-    @pulumi.getter(name="healthStatus")
-    def health_status(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Health status of protected item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "health_status")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -3214,14 +4106,6 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "last_backup_status")
 
     @property
-    @pulumi.getter(name="lastBackupTime")
-    def last_backup_time(self) -> Optional[str]:
-        """
-        Timestamp of the last backup operation on this backup item.
-        """
-        return pulumi.get(self, "last_backup_time")
-
-    @property
     @pulumi.getter(name="lastRecoveryPoint")
     def last_recovery_point(self) -> Optional[str]:
         """
@@ -3238,12 +4122,12 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
-    @pulumi.getter(name="protectedItemDataId")
-    def protected_item_data_id(self) -> Optional[str]:
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
         """
-        Data ID of the protected item.
+        Name of the policy used for protection
         """
-        return pulumi.get(self, "protected_item_data_id")
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectionState")
@@ -3262,28 +4146,28 @@ class AzureIaaSClassicComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "protection_status")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[str]:
-        """
-        Fully qualified ARM ID of the virtual machine represented by this item.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -3302,6 +4186,8 @@ class AzureIaaSComputeVMContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "resourceGroup":
@@ -3327,6 +4213,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None,
@@ -3341,6 +4228,7 @@ class AzureIaaSComputeVMContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
@@ -3353,6 +4241,8 @@ class AzureIaaSComputeVMContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if resource_group is not None:
@@ -3399,6 +4289,14 @@ class AzureIaaSComputeVMContainerResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="registrationStatus")
     def registration_status(self) -> Optional[str]:
         """
@@ -3439,10 +4337,22 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -3457,12 +4367,10 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "extendedProperties":
             suggest = "extended_properties"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
         elif key == "healthDetails":
             suggest = "health_details"
-        elif key == "healthStatus":
-            suggest = "health_status"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -3473,24 +4381,22 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             suggest = "kpis_healths"
         elif key == "lastBackupStatus":
             suggest = "last_backup_status"
-        elif key == "lastBackupTime":
-            suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
-        elif key == "protectedItemDataId":
-            suggest = "protected_item_data_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "virtualMachineId":
-            suggest = "virtual_machine_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureIaaSComputeVMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3504,8 +4410,14 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
+                 health_status: str,
+                 last_backup_time: str,
+                 protected_item_data_id: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 virtual_machine_id: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
@@ -3513,28 +4425,32 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureIaaSVMProtectedItemExtendedInfoResponse'] = None,
                  extended_properties: Optional['outputs.ExtendedPropertiesResponse'] = None,
-                 friendly_name: Optional[str] = None,
                  health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
-                 health_status: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  kpis_healths: Optional[Mapping[str, 'outputs.KPIResourceHealthDetailsResponse']] = None,
                  last_backup_status: Optional[str] = None,
-                 last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
-                 protected_item_data_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 virtual_machine_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         IaaS VM workload-specific backup item representing the Azure Resource Manager VM.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the VM represented by this backup item.
+        :param str health_status: Health status of protected item.
+        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'Microsoft.Compute/virtualMachines'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -3542,27 +4458,30 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
-        :param str friendly_name: Friendly name of the VM represented by this backup item.
         :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
-        :param str health_status: Health status of protected item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
-        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
-        :param str protected_item_data_id: Data ID of the protected item.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        pulumi.set(__self__, "health_status", health_status)
+        pulumi.set(__self__, "last_backup_time", last_backup_time)
+        pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Compute/virtualMachines')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -3577,12 +4496,10 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if extended_properties is not None:
             pulumi.set(__self__, "extended_properties", extended_properties)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
         if health_details is not None:
             pulumi.set(__self__, "health_details", health_details)
-        if health_status is not None:
-            pulumi.set(__self__, "health_status", health_status)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -3593,24 +4510,62 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
             pulumi.set(__self__, "kpis_healths", kpis_healths)
         if last_backup_status is not None:
             pulumi.set(__self__, "last_backup_status", last_backup_status)
-        if last_backup_time is not None:
-            pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protected_item_data_id is not None:
-            pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
             pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the VM represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> str:
+        """
+        Health status of protected item.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> str:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter(name="protectedItemDataId")
+    def protected_item_data_id(self) -> str:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_id")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -3622,12 +4577,20 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Fully qualified ARM ID of the virtual machine represented by this item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -3686,14 +4649,6 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "extended_properties")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
-        """
-        Friendly name of the VM represented by this backup item.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @property
     @pulumi.getter(name="healthDetails")
     def health_details(self) -> Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']]:
         """
@@ -3702,12 +4657,12 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "health_details")
 
     @property
-    @pulumi.getter(name="healthStatus")
-    def health_status(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Health status of protected item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "health_status")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -3750,14 +4705,6 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "last_backup_status")
 
     @property
-    @pulumi.getter(name="lastBackupTime")
-    def last_backup_time(self) -> Optional[str]:
-        """
-        Timestamp of the last backup operation on this backup item.
-        """
-        return pulumi.get(self, "last_backup_time")
-
-    @property
     @pulumi.getter(name="lastRecoveryPoint")
     def last_recovery_point(self) -> Optional[str]:
         """
@@ -3774,12 +4721,12 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
-    @pulumi.getter(name="protectedItemDataId")
-    def protected_item_data_id(self) -> Optional[str]:
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
         """
-        Data ID of the protected item.
+        Name of the policy used for protection
         """
-        return pulumi.get(self, "protected_item_data_id")
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectionState")
@@ -3798,28 +4745,28 @@ class AzureIaaSComputeVMProtectedItemResponse(dict):
         return pulumi.get(self, "protection_status")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[str]:
-        """
-        Fully qualified ARM ID of the virtual machine represented by this item.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -3885,8 +4832,14 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "oldestRecoveryPoint":
+        if key == "newestRecoveryPointInArchive":
+            suggest = "newest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPoint":
             suggest = "oldest_recovery_point"
+        elif key == "oldestRecoveryPointInArchive":
+            suggest = "oldest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPointInVault":
+            suggest = "oldest_recovery_point_in_vault"
         elif key == "policyInconsistent":
             suggest = "policy_inconsistent"
         elif key == "recoveryPointCount":
@@ -3904,29 +4857,65 @@ class AzureIaaSVMProtectedItemExtendedInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 newest_recovery_point_in_archive: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
+                 oldest_recovery_point_in_archive: Optional[str] = None,
+                 oldest_recovery_point_in_vault: Optional[str] = None,
                  policy_inconsistent: Optional[bool] = None,
                  recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure IaaS VM specific backup item.
-        :param str oldest_recovery_point: The oldest backup copy available for this backup item.
+        :param str newest_recovery_point_in_archive: The latest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point: The oldest backup copy available for this backup item across all tiers.
+        :param str oldest_recovery_point_in_archive: The oldest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point_in_vault: The oldest backup copy available for this backup item in vault tier
         :param bool policy_inconsistent: Specifies if backup policy associated with the backup item is inconsistent.
         :param int recovery_point_count: Number of backup copies available for this backup item.
         """
+        if newest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "newest_recovery_point_in_archive", newest_recovery_point_in_archive)
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if oldest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_archive", oldest_recovery_point_in_archive)
+        if oldest_recovery_point_in_vault is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_vault", oldest_recovery_point_in_vault)
         if policy_inconsistent is not None:
             pulumi.set(__self__, "policy_inconsistent", policy_inconsistent)
         if recovery_point_count is not None:
             pulumi.set(__self__, "recovery_point_count", recovery_point_count)
 
     @property
+    @pulumi.getter(name="newestRecoveryPointInArchive")
+    def newest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The latest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "newest_recovery_point_in_archive")
+
+    @property
     @pulumi.getter(name="oldestRecoveryPoint")
     def oldest_recovery_point(self) -> Optional[str]:
         """
-        The oldest backup copy available for this backup item.
+        The oldest backup copy available for this backup item across all tiers.
         """
         return pulumi.get(self, "oldest_recovery_point")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInArchive")
+    def oldest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_archive")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInVault")
+    def oldest_recovery_point_in_vault(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in vault tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_vault")
 
     @property
     @pulumi.getter(name="policyInconsistent")
@@ -3953,10 +4942,22 @@ class AzureIaaSVMProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "healthStatus":
+            suggest = "health_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "protectedItemDataId":
+            suggest = "protected_item_data_id"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "virtualMachineId":
+            suggest = "virtual_machine_id"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -3971,12 +4972,10 @@ class AzureIaaSVMProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "extendedProperties":
             suggest = "extended_properties"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
         elif key == "healthDetails":
             suggest = "health_details"
-        elif key == "healthStatus":
-            suggest = "health_status"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -3987,24 +4986,22 @@ class AzureIaaSVMProtectedItemResponse(dict):
             suggest = "kpis_healths"
         elif key == "lastBackupStatus":
             suggest = "last_backup_status"
-        elif key == "lastBackupTime":
-            suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
-        elif key == "protectedItemDataId":
-            suggest = "protected_item_data_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
         elif key == "protectionStatus":
             suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "virtualMachineId":
-            suggest = "virtual_machine_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureIaaSVMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -4018,8 +5015,14 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
+                 health_status: str,
+                 last_backup_time: str,
+                 protected_item_data_id: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 virtual_machine_id: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
@@ -4027,28 +5030,32 @@ class AzureIaaSVMProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureIaaSVMProtectedItemExtendedInfoResponse'] = None,
                  extended_properties: Optional['outputs.ExtendedPropertiesResponse'] = None,
-                 friendly_name: Optional[str] = None,
                  health_details: Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']] = None,
-                 health_status: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  kpis_healths: Optional[Mapping[str, 'outputs.KPIResourceHealthDetailsResponse']] = None,
                  last_backup_status: Optional[str] = None,
-                 last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
-                 protected_item_data_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
                  protection_status: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 virtual_machine_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         IaaS VM workload-specific backup item.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the VM represented by this backup item.
+        :param str health_status: Health status of protected item.
+        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param str protected_item_data_id: Data ID of the protected item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureIaaSVMProtectedItem'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -4056,27 +5063,30 @@ class AzureIaaSVMProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureIaaSVMProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
         :param 'ExtendedPropertiesResponse' extended_properties: Extended Properties for Azure IaasVM Backup.
-        :param str friendly_name: Friendly name of the VM represented by this backup item.
         :param Sequence['AzureIaaSVMHealthDetailsResponse'] health_details: Health details on this backup item.
-        :param str health_status: Health status of protected item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
         :param str last_backup_status: Last backup operation status.
-        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
-        :param str protected_item_data_id: Data ID of the protected item.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Backup state of this backup item.
         :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str virtual_machine_id: Fully qualified ARM ID of the virtual machine represented by this item.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        pulumi.set(__self__, "health_status", health_status)
+        pulumi.set(__self__, "last_backup_time", last_backup_time)
+        pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         pulumi.set(__self__, "protected_item_type", 'AzureIaaSVMProtectedItem')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -4091,12 +5101,10 @@ class AzureIaaSVMProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if extended_properties is not None:
             pulumi.set(__self__, "extended_properties", extended_properties)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
         if health_details is not None:
             pulumi.set(__self__, "health_details", health_details)
-        if health_status is not None:
-            pulumi.set(__self__, "health_status", health_status)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -4107,24 +5115,62 @@ class AzureIaaSVMProtectedItemResponse(dict):
             pulumi.set(__self__, "kpis_healths", kpis_healths)
         if last_backup_status is not None:
             pulumi.set(__self__, "last_backup_status", last_backup_status)
-        if last_backup_time is not None:
-            pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
-        if protected_item_data_id is not None:
-            pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
         if protection_status is not None:
             pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the VM represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> str:
+        """
+        Health status of protected item.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> str:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter(name="protectedItemDataId")
+    def protected_item_data_id(self) -> str:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_id")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -4136,12 +5182,20 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Fully qualified ARM ID of the virtual machine represented by this item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -4200,14 +5254,6 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "extended_properties")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
-        """
-        Friendly name of the VM represented by this backup item.
-        """
-        return pulumi.get(self, "friendly_name")
-
-    @property
     @pulumi.getter(name="healthDetails")
     def health_details(self) -> Optional[Sequence['outputs.AzureIaaSVMHealthDetailsResponse']]:
         """
@@ -4216,12 +5262,12 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "health_details")
 
     @property
-    @pulumi.getter(name="healthStatus")
-    def health_status(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Health status of protected item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "health_status")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -4264,14 +5310,6 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "last_backup_status")
 
     @property
-    @pulumi.getter(name="lastBackupTime")
-    def last_backup_time(self) -> Optional[str]:
-        """
-        Timestamp of the last backup operation on this backup item.
-        """
-        return pulumi.get(self, "last_backup_time")
-
-    @property
     @pulumi.getter(name="lastRecoveryPoint")
     def last_recovery_point(self) -> Optional[str]:
         """
@@ -4288,12 +5326,12 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
-    @pulumi.getter(name="protectedItemDataId")
-    def protected_item_data_id(self) -> Optional[str]:
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
         """
-        Data ID of the protected item.
+        Name of the policy used for protection
         """
-        return pulumi.get(self, "protected_item_data_id")
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectionState")
@@ -4312,28 +5350,28 @@ class AzureIaaSVMProtectedItemResponse(dict):
         return pulumi.get(self, "protection_status")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> Optional[str]:
-        """
-        Fully qualified ARM ID of the virtual machine represented by this item.
-        """
-        return pulumi.get(self, "virtual_machine_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -4350,12 +5388,18 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
             suggest = "instant_rp_details"
         elif key == "instantRpRetentionRangeInDays":
             suggest = "instant_rp_retention_range_in_days"
+        elif key == "policyType":
+            suggest = "policy_type"
         elif key == "protectedItemsCount":
             suggest = "protected_items_count"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
         elif key == "schedulePolicy":
             suggest = "schedule_policy"
+        elif key == "tieringPolicy":
+            suggest = "tiering_policy"
         elif key == "timeZone":
             suggest = "time_zone"
 
@@ -4374,9 +5418,12 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
                  backup_management_type: str,
                  instant_rp_details: Optional['outputs.InstantRPAdditionalDetailsResponse'] = None,
                  instant_rp_retention_range_in_days: Optional[int] = None,
+                 policy_type: Optional[str] = None,
                  protected_items_count: Optional[int] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None,
+                 tiering_policy: Optional[Mapping[str, 'outputs.TieringPolicyResponse']] = None,
                  time_zone: Optional[str] = None):
         """
         IaaS VM workload-specific backup policy.
@@ -4384,8 +5431,12 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
                Expected value is 'AzureIaasVM'.
         :param int instant_rp_retention_range_in_days: Instant RP retention policy range in days
         :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Mapping[str, 'TieringPolicyResponse'] tiering_policy: Tiering policy to automatically move RPs to another tier
+               Key is Target Tier, defined in RecoveryPointTierType enum.
+               Tiering policy specifies the criteria to move RP to the target tier.
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         pulumi.set(__self__, "backup_management_type", 'AzureIaasVM')
@@ -4393,12 +5444,18 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
             pulumi.set(__self__, "instant_rp_details", instant_rp_details)
         if instant_rp_retention_range_in_days is not None:
             pulumi.set(__self__, "instant_rp_retention_range_in_days", instant_rp_retention_range_in_days)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
 
@@ -4425,12 +5482,25 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
         return pulumi.get(self, "instant_rp_retention_range_in_days")
 
     @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        return pulumi.get(self, "policy_type")
+
+    @property
     @pulumi.getter(name="protectedItemsCount")
     def protected_items_count(self) -> Optional[int]:
         """
         Number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter(name="retentionPolicy")
@@ -4449,12 +5519,58 @@ class AzureIaaSVMProtectionPolicyResponse(dict):
         return pulumi.get(self, "schedule_policy")
 
     @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[Mapping[str, 'outputs.TieringPolicyResponse']]:
+        """
+        Tiering policy to automatically move RPs to another tier
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[str]:
         """
         TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
         return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class AzureMonitorAlertSettingsResponse(dict):
+    """
+    Settings for Azure Monitor based alerts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertsForAllJobFailures":
+            suggest = "alerts_for_all_job_failures"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorAlertSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorAlertSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorAlertSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts_for_all_job_failures: Optional[str] = None):
+        """
+        Settings for Azure Monitor based alerts
+        """
+        if alerts_for_all_job_failures is not None:
+            pulumi.set(__self__, "alerts_for_all_job_failures", alerts_for_all_job_failures)
+
+    @property
+    @pulumi.getter(name="alertsForAllJobFailures")
+    def alerts_for_all_job_failures(self) -> Optional[str]:
+        return pulumi.get(self, "alerts_for_all_job_failures")
 
 
 @pulumi.output_type
@@ -4715,6 +5831,8 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
             suggest = "last_updated_time"
         elif key == "operationType":
             suggest = "operation_type"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "sourceResourceId":
@@ -4741,6 +5859,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
                  health_status: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  operation_type: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  workload_type: Optional[str] = None):
@@ -4757,6 +5876,7 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
         :param str operation_type: Re-Do Operation
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
@@ -4774,6 +5894,8 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if operation_type is not None:
             pulumi.set(__self__, "operation_type", operation_type)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if source_resource_id is not None:
@@ -4842,6 +5964,14 @@ class AzureSQLAGWorkloadContainerProtectionContainerResponse(dict):
         return pulumi.get(self, "operation_type")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="registrationStatus")
     def registration_status(self) -> Optional[str]:
         """
@@ -4882,6 +6012,8 @@ class AzureSqlContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
 
@@ -4901,6 +6033,7 @@ class AzureSqlContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None):
         """
         Azure Sql workload-specific container.
@@ -4912,6 +6045,7 @@ class AzureSqlContainerResponse(dict):
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         pulumi.set(__self__, "container_type", 'AzureSqlContainer')
@@ -4921,6 +6055,8 @@ class AzureSqlContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
 
@@ -4959,6 +6095,14 @@ class AzureSqlContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -5045,10 +6189,12 @@ class AzureSqlProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -5061,6 +6207,8 @@ class AzureSqlProtectedItemResponse(dict):
             suggest = "deferred_delete_time_remaining"
         elif key == "extendedInfo":
             suggest = "extended_info"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -5071,14 +6219,18 @@ class AzureSqlProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataId":
             suggest = "protected_item_data_id"
         elif key == "protectionState":
             suggest = "protection_state"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureSqlProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -5092,47 +6244,55 @@ class AzureSqlProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureSqlProtectedItemExtendedInfoResponse'] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_id: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Azure SQL workload-specific backup item.
+        :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'Microsoft.Sql/servers/databases'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureSqlProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_id: Internal ID of a backup item. Used by Azure SQL Backup engine to contact Recovery Services.
         :param str protection_state: Backup state of the backed up item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'Microsoft.Sql/servers/databases')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -5145,6 +6305,8 @@ class AzureSqlProtectedItemResponse(dict):
             pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -5155,14 +6317,26 @@ class AzureSqlProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_id is not None:
             pulumi.set(__self__, "protected_item_data_id", protected_item_data_id)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -5174,12 +6348,12 @@ class AzureSqlProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Type of workload this item represents.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -5230,6 +6404,14 @@ class AzureSqlProtectedItemResponse(dict):
         return pulumi.get(self, "extended_info")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -5270,6 +6452,14 @@ class AzureSqlProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
     @pulumi.getter(name="protectedItemDataId")
     def protected_item_data_id(self) -> Optional[str]:
         """
@@ -5286,20 +6476,28 @@ class AzureSqlProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -5314,6 +6512,8 @@ class AzureSqlProtectionPolicyResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemsCount":
             suggest = "protected_items_count"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
 
@@ -5331,17 +6531,21 @@ class AzureSqlProtectionPolicyResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_items_count: Optional[int] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  retention_policy: Optional[Any] = None):
         """
         Azure SQL workload-specific backup policy.
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'AzureSql'.
         :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy details.
         """
         pulumi.set(__self__, "backup_management_type", 'AzureSql')
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
 
@@ -5363,6 +6567,14 @@ class AzureSqlProtectionPolicyResponse(dict):
         return pulumi.get(self, "protected_items_count")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[Any]:
         """
@@ -5381,12 +6593,16 @@ class AzureStorageContainerResponse(dict):
         suggest = None
         if key == "containerType":
             suggest = "container_type"
+        elif key == "acquireStorageAccountLock":
+            suggest = "acquire_storage_account_lock"
         elif key == "backupManagementType":
             suggest = "backup_management_type"
         elif key == "friendlyName":
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "registrationStatus":
@@ -5411,9 +6627,11 @@ class AzureStorageContainerResponse(dict):
 
     def __init__(__self__, *,
                  container_type: str,
+                 acquire_storage_account_lock: Optional[str] = None,
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
@@ -5426,9 +6644,11 @@ class AzureStorageContainerResponse(dict):
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
                Expected value is 'StorageContainer'.
+        :param str acquire_storage_account_lock: Whether storage account lock is to be acquired for this container or not.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
@@ -5436,12 +6656,16 @@ class AzureStorageContainerResponse(dict):
         :param str storage_account_version: Storage account version.
         """
         pulumi.set(__self__, "container_type", 'StorageContainer')
+        if acquire_storage_account_lock is not None:
+            pulumi.set(__self__, "acquire_storage_account_lock", acquire_storage_account_lock)
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if registration_status is not None:
@@ -5466,6 +6690,14 @@ class AzureStorageContainerResponse(dict):
         return pulumi.get(self, "container_type")
 
     @property
+    @pulumi.getter(name="acquireStorageAccountLock")
+    def acquire_storage_account_lock(self) -> Optional[str]:
+        """
+        Whether storage account lock is to be acquired for this container or not.
+        """
+        return pulumi.get(self, "acquire_storage_account_lock")
+
+    @property
     @pulumi.getter(name="backupManagementType")
     def backup_management_type(self) -> Optional[str]:
         """
@@ -5488,6 +6720,14 @@ class AzureStorageContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -5673,6 +6913,8 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
             suggest = "last_updated_time"
         elif key == "operationType":
             suggest = "operation_type"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "sourceResourceId":
@@ -5699,6 +6941,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
                  health_status: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  operation_type: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  workload_type: Optional[str] = None):
@@ -5715,6 +6958,7 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
         :param str operation_type: Re-Do Operation
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
@@ -5732,6 +6976,8 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if operation_type is not None:
             pulumi.set(__self__, "operation_type", operation_type)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if source_resource_id is not None:
@@ -5800,6 +7046,14 @@ class AzureVMAppContainerProtectionContainerResponse(dict):
         return pulumi.get(self, "operation_type")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="registrationStatus")
     def registration_status(self) -> Optional[str]:
         """
@@ -5832,7 +7086,9 @@ class AzureVmDiskDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "diskEncryptionSetId":
+        if key == "customTargetDiskName":
+            suggest = "custom_target_disk_name"
+        elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
         elif key == "diskId":
             suggest = "disk_id"
@@ -5863,6 +7119,7 @@ class AzureVmDiskDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 custom_target_disk_name: Optional[str] = None,
                  disk_encryption_set_id: Optional[str] = None,
                  disk_id: Optional[str] = None,
                  lun_id: Optional[str] = None,
@@ -5874,6 +7131,7 @@ class AzureVmDiskDetailsResponse(dict):
                  vhd_type: Optional[str] = None):
         """
         Disk details for E2A provider.
+        :param str custom_target_disk_name: The custom target Azure disk name.
         :param str disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param str disk_id: The disk resource id.
         :param str lun_id: Ordinal\\LunId of the disk for the Azure VM.
@@ -5884,6 +7142,8 @@ class AzureVmDiskDetailsResponse(dict):
         :param str vhd_name: VHD name.
         :param str vhd_type: VHD type.
         """
+        if custom_target_disk_name is not None:
+            pulumi.set(__self__, "custom_target_disk_name", custom_target_disk_name)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
@@ -5902,6 +7162,14 @@ class AzureVmDiskDetailsResponse(dict):
             pulumi.set(__self__, "vhd_name", vhd_name)
         if vhd_type is not None:
             pulumi.set(__self__, "vhd_type", vhd_type)
+
+    @property
+    @pulumi.getter(name="customTargetDiskName")
+    def custom_target_disk_name(self) -> Optional[str]:
+        """
+        The custom target Azure disk name.
+        """
+        return pulumi.get(self, "custom_target_disk_name")
 
     @property
     @pulumi.getter(name="diskEncryptionSetId")
@@ -5984,10 +7252,18 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "oldestRecoveryPoint":
+        if key == "newestRecoveryPointInArchive":
+            suggest = "newest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPoint":
             suggest = "oldest_recovery_point"
+        elif key == "oldestRecoveryPointInArchive":
+            suggest = "oldest_recovery_point_in_archive"
+        elif key == "oldestRecoveryPointInVault":
+            suggest = "oldest_recovery_point_in_vault"
         elif key == "policyState":
             suggest = "policy_state"
+        elif key == "recoveryModel":
+            suggest = "recovery_model"
         elif key == "recoveryPointCount":
             suggest = "recovery_point_count"
 
@@ -6003,29 +7279,69 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 newest_recovery_point_in_archive: Optional[str] = None,
                  oldest_recovery_point: Optional[str] = None,
+                 oldest_recovery_point_in_archive: Optional[str] = None,
+                 oldest_recovery_point_in_vault: Optional[str] = None,
                  policy_state: Optional[str] = None,
+                 recovery_model: Optional[str] = None,
                  recovery_point_count: Optional[int] = None):
         """
         Additional information on Azure Workload for SQL specific backup item.
-        :param str oldest_recovery_point: The oldest backup copy available for this backup item.
+        :param str newest_recovery_point_in_archive: The latest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point: The oldest backup copy available for this backup item across all tiers.
+        :param str oldest_recovery_point_in_archive: The oldest backup copy available for this backup item in archive tier
+        :param str oldest_recovery_point_in_vault: The oldest backup copy available for this backup item in vault tier
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
+        :param str recovery_model: Indicates consistency of policy object and policy applied to this backup item.
         :param int recovery_point_count: Number of backup copies available for this backup item.
         """
+        if newest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "newest_recovery_point_in_archive", newest_recovery_point_in_archive)
         if oldest_recovery_point is not None:
             pulumi.set(__self__, "oldest_recovery_point", oldest_recovery_point)
+        if oldest_recovery_point_in_archive is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_archive", oldest_recovery_point_in_archive)
+        if oldest_recovery_point_in_vault is not None:
+            pulumi.set(__self__, "oldest_recovery_point_in_vault", oldest_recovery_point_in_vault)
         if policy_state is not None:
             pulumi.set(__self__, "policy_state", policy_state)
+        if recovery_model is not None:
+            pulumi.set(__self__, "recovery_model", recovery_model)
         if recovery_point_count is not None:
             pulumi.set(__self__, "recovery_point_count", recovery_point_count)
+
+    @property
+    @pulumi.getter(name="newestRecoveryPointInArchive")
+    def newest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The latest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "newest_recovery_point_in_archive")
 
     @property
     @pulumi.getter(name="oldestRecoveryPoint")
     def oldest_recovery_point(self) -> Optional[str]:
         """
-        The oldest backup copy available for this backup item.
+        The oldest backup copy available for this backup item across all tiers.
         """
         return pulumi.get(self, "oldest_recovery_point")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInArchive")
+    def oldest_recovery_point_in_archive(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in archive tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_archive")
+
+    @property
+    @pulumi.getter(name="oldestRecoveryPointInVault")
+    def oldest_recovery_point_in_vault(self) -> Optional[str]:
+        """
+        The oldest backup copy available for this backup item in vault tier
+        """
+        return pulumi.get(self, "oldest_recovery_point_in_vault")
 
     @property
     @pulumi.getter(name="policyState")
@@ -6034,6 +7350,14 @@ class AzureVmWorkloadProtectedItemExtendedInfoResponse(dict):
         Indicates consistency of policy object and policy applied to this backup item.
         """
         return pulumi.get(self, "policy_state")
+
+    @property
+    @pulumi.getter(name="recoveryModel")
+    def recovery_model(self) -> Optional[str]:
+        """
+        Indicates consistency of policy object and policy applied to this backup item.
+        """
+        return pulumi.get(self, "recovery_model")
 
     @property
     @pulumi.getter(name="recoveryPointCount")
@@ -6052,10 +7376,16 @@ class AzureVmWorkloadProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -6068,8 +7398,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             suggest = "deferred_delete_time_remaining"
         elif key == "extendedInfo":
             suggest = "extended_info"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -6086,26 +7416,30 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
+        elif key == "nodesList":
+            suggest = "nodes_list"
         elif key == "parentName":
             suggest = "parent_name"
         elif key == "parentType":
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
             suggest = "protected_item_health_status"
         elif key == "protectionState":
             suggest = "protection_state"
-        elif key == "protectionStatus":
-            suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "serverName":
             suggest = "server_name"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6119,15 +7453,18 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 protection_status: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
-                 friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -6136,28 +7473,33 @@ class AzureVmWorkloadProtectedItemResponse(dict):
                  last_backup_status: Optional[str] = None,
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None,
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 protection_status: Optional[str] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  server_name: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Azure VM workload-specific protected item.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadProtectedItem'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str protection_status: Backup status of this backup item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
-        :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -6166,20 +7508,24 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
-        :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param str server_name: Host/Cluster Name for instance or AG
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadProtectedItem')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -6192,8 +7538,8 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -6210,26 +7556,46 @@ class AzureVmWorkloadProtectedItemResponse(dict):
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
-        if protection_status is not None:
-            pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -6241,12 +7607,20 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Backup status of this backup item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -6297,12 +7671,12 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return pulumi.get(self, "extended_info")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Friendly name of the DB represented by this backup item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "friendly_name")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -6369,6 +7743,14 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return pulumi.get(self, "last_recovery_point")
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[str]:
         """
@@ -6391,6 +7773,14 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -6417,12 +7807,12 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
-    @pulumi.getter(name="protectionStatus")
-    def protection_status(self) -> Optional[str]:
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
         """
-        Backup status of this backup item.
+        ResourceGuardOperationRequests on which LAC check will be performed
         """
-        return pulumi.get(self, "protection_status")
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter(name="serverName")
@@ -6433,20 +7823,20 @@ class AzureVmWorkloadProtectedItemResponse(dict):
         return pulumi.get(self, "server_name")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -6463,6 +7853,8 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
             suggest = "make_policy_consistent"
         elif key == "protectedItemsCount":
             suggest = "protected_items_count"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "subProtectionPolicy":
             suggest = "sub_protection_policy"
         elif key == "workLoadType":
@@ -6483,6 +7875,7 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
                  backup_management_type: str,
                  make_policy_consistent: Optional[bool] = None,
                  protected_items_count: Optional[int] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  settings: Optional['outputs.SettingsResponse'] = None,
                  sub_protection_policy: Optional[Sequence['outputs.SubProtectionPolicyResponse']] = None,
                  work_load_type: Optional[str] = None):
@@ -6492,6 +7885,7 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
                Expected value is 'AzureWorkload'.
         :param bool make_policy_consistent: Fix the policy inconsistency
         :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param 'SettingsResponse' settings: Common settings for the backup management
         :param Sequence['SubProtectionPolicyResponse'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
         :param str work_load_type: Type of workload for the backup management
@@ -6501,6 +7895,8 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
             pulumi.set(__self__, "make_policy_consistent", make_policy_consistent)
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if settings is not None:
             pulumi.set(__self__, "settings", settings)
         if sub_protection_policy is not None:
@@ -6532,6 +7928,14 @@ class AzureVmWorkloadProtectionPolicyResponse(dict):
         Number of items associated with this policy.
         """
         return pulumi.get(self, "protected_items_count")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter
@@ -6566,10 +7970,16 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -6582,8 +7992,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             suggest = "deferred_delete_time_remaining"
         elif key == "extendedInfo":
             suggest = "extended_info"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -6600,26 +8010,30 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
+        elif key == "nodesList":
+            suggest = "nodes_list"
         elif key == "parentName":
             suggest = "parent_name"
         elif key == "parentType":
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
             suggest = "protected_item_health_status"
         elif key == "protectionState":
             suggest = "protection_state"
-        elif key == "protectionStatus":
-            suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "serverName":
             suggest = "server_name"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSAPAseDatabaseProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -6633,15 +8047,18 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 protection_status: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
-                 friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -6650,28 +8067,33 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
                  last_backup_status: Optional[str] = None,
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None,
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 protection_status: Optional[str] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  server_name: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Azure VM workload-specific protected item representing SAP ASE Database.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSAPAseDatabase'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str protection_status: Backup status of this backup item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
-        :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -6680,20 +8102,24 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
-        :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param str server_name: Host/Cluster Name for instance or AG
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPAseDatabase')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -6706,8 +8132,8 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -6724,26 +8150,46 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
-        if protection_status is not None:
-            pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -6755,12 +8201,20 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Backup status of this backup item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -6811,12 +8265,12 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "extended_info")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Friendly name of the DB represented by this backup item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "friendly_name")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -6883,6 +8337,14 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "last_recovery_point")
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[str]:
         """
@@ -6905,6 +8367,14 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -6931,12 +8401,12 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
-    @pulumi.getter(name="protectionStatus")
-    def protection_status(self) -> Optional[str]:
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
         """
-        Backup status of this backup item.
+        ResourceGuardOperationRequests on which LAC check will be performed
         """
-        return pulumi.get(self, "protection_status")
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter(name="serverName")
@@ -6947,6 +8417,14 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "server_name")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
@@ -6954,27 +8432,25 @@ class AzureVmWorkloadSAPAseDatabaseProtectedItemResponse(dict):
         """
         return pulumi.get(self, "source_resource_id")
 
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
-
 
 @pulumi.output_type
-class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
+class AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse(dict):
     """
-    Azure VM workload-specific protected item representing SAP HANA Database.
+    Azure VM workload-specific protected item representing SAP HANA DBInstance.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -6987,8 +8463,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             suggest = "deferred_delete_time_remaining"
         elif key == "extendedInfo":
             suggest = "extended_info"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -7005,26 +8481,501 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
+        elif key == "nodesList":
+            suggest = "nodes_list"
         elif key == "parentName":
             suggest = "parent_name"
         elif key == "parentType":
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
             suggest = "protected_item_health_status"
         elif key == "protectionState":
             suggest = "protection_state"
-        elif key == "protectionStatus":
-            suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "serverName":
             suggest = "server_name"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
+                 protected_item_type: str,
+                 protection_status: str,
+                 workload_type: str,
+                 backup_set_name: Optional[str] = None,
+                 container_name: Optional[str] = None,
+                 create_mode: Optional[str] = None,
+                 deferred_delete_time_in_utc: Optional[str] = None,
+                 deferred_delete_time_remaining: Optional[str] = None,
+                 extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
+                 is_archive_enabled: Optional[bool] = None,
+                 is_deferred_delete_schedule_upcoming: Optional[bool] = None,
+                 is_rehydrate: Optional[bool] = None,
+                 is_scheduled_for_deferred_delete: Optional[bool] = None,
+                 kpis_healths: Optional[Mapping[str, 'outputs.KPIResourceHealthDetailsResponse']] = None,
+                 last_backup_error_detail: Optional['outputs.ErrorDetailResponse'] = None,
+                 last_backup_status: Optional[str] = None,
+                 last_backup_time: Optional[str] = None,
+                 last_recovery_point: Optional[str] = None,
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None,
+                 parent_name: Optional[str] = None,
+                 parent_type: Optional[str] = None,
+                 policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
+                 protected_item_data_source_id: Optional[str] = None,
+                 protected_item_health_status: Optional[str] = None,
+                 protection_state: Optional[str] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 server_name: Optional[str] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
+        """
+        Azure VM workload-specific protected item representing SAP HANA DBInstance.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param str protected_item_type: backup item type.
+               Expected value is 'AzureVmWorkloadSAPHanaDBInstance'.
+        :param str protection_status: Backup status of this backup item.
+        :param str workload_type: Type of workload this item represents.
+        :param str backup_set_name: Name of the backup set the backup item belongs to
+        :param str container_name: Unique name of container
+        :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
+        :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
+        :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
+        :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
+        :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
+        :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
+        :param Mapping[str, 'KPIResourceHealthDetailsResponse'] kpis_healths: Health details of different KPIs
+        :param 'ErrorDetailResponse' last_backup_error_detail: Error details in last backup
+        :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
+        :param str last_backup_time: Timestamp of the last backup operation on this backup item.
+        :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
+        :param str parent_name: Parent name of the DB such as Instance or Availability Group.
+        :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
+        :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
+        :param str protected_item_data_source_id: Data ID of the protected item.
+        :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
+        :param str protection_state: Backup state of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param str server_name: Host/Cluster Name for instance or AG
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
+        :param str source_resource_id: ARM ID of the resource to be backed up.
+        """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
+        pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDBInstance')
+        pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "workload_type", workload_type)
+        if backup_set_name is not None:
+            pulumi.set(__self__, "backup_set_name", backup_set_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if create_mode is not None:
+            pulumi.set(__self__, "create_mode", create_mode)
+        if deferred_delete_time_in_utc is not None:
+            pulumi.set(__self__, "deferred_delete_time_in_utc", deferred_delete_time_in_utc)
+        if deferred_delete_time_remaining is not None:
+            pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
+        if extended_info is not None:
+            pulumi.set(__self__, "extended_info", extended_info)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
+        if is_deferred_delete_schedule_upcoming is not None:
+            pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
+        if is_rehydrate is not None:
+            pulumi.set(__self__, "is_rehydrate", is_rehydrate)
+        if is_scheduled_for_deferred_delete is not None:
+            pulumi.set(__self__, "is_scheduled_for_deferred_delete", is_scheduled_for_deferred_delete)
+        if kpis_healths is not None:
+            pulumi.set(__self__, "kpis_healths", kpis_healths)
+        if last_backup_error_detail is not None:
+            pulumi.set(__self__, "last_backup_error_detail", last_backup_error_detail)
+        if last_backup_status is not None:
+            pulumi.set(__self__, "last_backup_status", last_backup_status)
+        if last_backup_time is not None:
+            pulumi.set(__self__, "last_backup_time", last_backup_time)
+        if last_recovery_point is not None:
+            pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
+        if parent_name is not None:
+            pulumi.set(__self__, "parent_name", parent_name)
+        if parent_type is not None:
+            pulumi.set(__self__, "parent_type", parent_type)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if protected_item_data_source_id is not None:
+            pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
+        if protected_item_health_status is not None:
+            pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
+
+    @property
+    @pulumi.getter(name="protectedItemType")
+    def protected_item_type(self) -> str:
+        """
+        backup item type.
+        Expected value is 'AzureVmWorkloadSAPHanaDBInstance'.
+        """
+        return pulumi.get(self, "protected_item_type")
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> str:
+        """
+        Backup status of this backup item.
+        """
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @property
+    @pulumi.getter(name="backupSetName")
+    def backup_set_name(self) -> Optional[str]:
+        """
+        Name of the backup set the backup item belongs to
+        """
+        return pulumi.get(self, "backup_set_name")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[str]:
+        """
+        Unique name of container
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="createMode")
+    def create_mode(self) -> Optional[str]:
+        """
+        Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+        """
+        return pulumi.get(self, "create_mode")
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeInUTC")
+    def deferred_delete_time_in_utc(self) -> Optional[str]:
+        """
+        Time for deferred deletion in UTC
+        """
+        return pulumi.get(self, "deferred_delete_time_in_utc")
+
+    @property
+    @pulumi.getter(name="deferredDeleteTimeRemaining")
+    def deferred_delete_time_remaining(self) -> Optional[str]:
+        """
+        Time remaining before the DS marked for deferred delete is permanently deleted
+        """
+        return pulumi.get(self, "deferred_delete_time_remaining")
+
+    @property
+    @pulumi.getter(name="extendedInfo")
+    def extended_info(self) -> Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse']:
+        """
+        Additional information for this backup item.
+        """
+        return pulumi.get(self, "extended_info")
+
+    @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
+    @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
+    def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
+        """
+        Flag to identify whether the deferred deleted DS is to be purged soon
+        """
+        return pulumi.get(self, "is_deferred_delete_schedule_upcoming")
+
+    @property
+    @pulumi.getter(name="isRehydrate")
+    def is_rehydrate(self) -> Optional[bool]:
+        """
+        Flag to identify that deferred deleted DS is to be moved into Pause state
+        """
+        return pulumi.get(self, "is_rehydrate")
+
+    @property
+    @pulumi.getter(name="isScheduledForDeferredDelete")
+    def is_scheduled_for_deferred_delete(self) -> Optional[bool]:
+        """
+        Flag to identify whether the DS is scheduled for deferred delete
+        """
+        return pulumi.get(self, "is_scheduled_for_deferred_delete")
+
+    @property
+    @pulumi.getter(name="kpisHealths")
+    def kpis_healths(self) -> Optional[Mapping[str, 'outputs.KPIResourceHealthDetailsResponse']]:
+        """
+        Health details of different KPIs
+        """
+        return pulumi.get(self, "kpis_healths")
+
+    @property
+    @pulumi.getter(name="lastBackupErrorDetail")
+    def last_backup_error_detail(self) -> Optional['outputs.ErrorDetailResponse']:
+        """
+        Error details in last backup
+        """
+        return pulumi.get(self, "last_backup_error_detail")
+
+    @property
+    @pulumi.getter(name="lastBackupStatus")
+    def last_backup_status(self) -> Optional[str]:
+        """
+        Last backup operation status. Possible values: Healthy, Unhealthy.
+        """
+        return pulumi.get(self, "last_backup_status")
+
+    @property
+    @pulumi.getter(name="lastBackupTime")
+    def last_backup_time(self) -> Optional[str]:
+        """
+        Timestamp of the last backup operation on this backup item.
+        """
+        return pulumi.get(self, "last_backup_time")
+
+    @property
+    @pulumi.getter(name="lastRecoveryPoint")
+    def last_recovery_point(self) -> Optional[str]:
+        """
+        Timestamp when the last (latest) backup copy was created for this backup item.
+        """
+        return pulumi.get(self, "last_recovery_point")
+
+    @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @property
+    @pulumi.getter(name="parentName")
+    def parent_name(self) -> Optional[str]:
+        """
+        Parent name of the DB such as Instance or Availability Group.
+        """
+        return pulumi.get(self, "parent_name")
+
+    @property
+    @pulumi.getter(name="parentType")
+    def parent_type(self) -> Optional[str]:
+        """
+        Parent type of protected item, example: for a DB, standalone server or distributed
+        """
+        return pulumi.get(self, "parent_type")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[str]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter(name="protectedItemDataSourceId")
+    def protected_item_data_source_id(self) -> Optional[str]:
+        """
+        Data ID of the protected item.
+        """
+        return pulumi.get(self, "protected_item_data_source_id")
+
+    @property
+    @pulumi.getter(name="protectedItemHealthStatus")
+    def protected_item_health_status(self) -> Optional[str]:
+        """
+        Health status of the backup item, evaluated based on last heartbeat received
+        """
+        return pulumi.get(self, "protected_item_health_status")
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[str]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> Optional[str]:
+        """
+        Host/Cluster Name for instance or AG
+        """
+        return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+
+@pulumi.output_type
+class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
+    """
+    Azure VM workload-specific protected item representing SAP HANA Database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
         elif key == "workloadType":
             suggest = "workload_type"
+        elif key == "backupSetName":
+            suggest = "backup_set_name"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "createMode":
+            suggest = "create_mode"
+        elif key == "deferredDeleteTimeInUTC":
+            suggest = "deferred_delete_time_in_utc"
+        elif key == "deferredDeleteTimeRemaining":
+            suggest = "deferred_delete_time_remaining"
+        elif key == "extendedInfo":
+            suggest = "extended_info"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
+        elif key == "isDeferredDeleteScheduleUpcoming":
+            suggest = "is_deferred_delete_schedule_upcoming"
+        elif key == "isRehydrate":
+            suggest = "is_rehydrate"
+        elif key == "isScheduledForDeferredDelete":
+            suggest = "is_scheduled_for_deferred_delete"
+        elif key == "kpisHealths":
+            suggest = "kpis_healths"
+        elif key == "lastBackupErrorDetail":
+            suggest = "last_backup_error_detail"
+        elif key == "lastBackupStatus":
+            suggest = "last_backup_status"
+        elif key == "lastBackupTime":
+            suggest = "last_backup_time"
+        elif key == "lastRecoveryPoint":
+            suggest = "last_recovery_point"
+        elif key == "nodesList":
+            suggest = "nodes_list"
+        elif key == "parentName":
+            suggest = "parent_name"
+        elif key == "parentType":
+            suggest = "parent_type"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "protectedItemDataSourceId":
+            suggest = "protected_item_data_source_id"
+        elif key == "protectedItemHealthStatus":
+            suggest = "protected_item_health_status"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -7038,15 +8989,18 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 protection_status: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
-                 friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -7055,28 +9009,33 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
                  last_backup_status: Optional[str] = None,
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None,
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 protection_status: Optional[str] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  server_name: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Azure VM workload-specific protected item representing SAP HANA Database.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSAPHanaDatabase'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str protection_status: Backup status of this backup item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
-        :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -7085,20 +9044,24 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
-        :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param str server_name: Host/Cluster Name for instance or AG
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSAPHanaDatabase')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -7111,8 +9074,8 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -7129,26 +9092,46 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
-        if protection_status is not None:
-            pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -7160,12 +9143,20 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Backup status of this backup item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -7216,12 +9207,12 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "extended_info")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Friendly name of the DB represented by this backup item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "friendly_name")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -7288,6 +9279,14 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "last_recovery_point")
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[str]:
         """
@@ -7310,6 +9309,14 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -7336,12 +9343,12 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
-    @pulumi.getter(name="protectionStatus")
-    def protection_status(self) -> Optional[str]:
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
         """
-        Backup status of this backup item.
+        ResourceGuardOperationRequests on which LAC check will be performed
         """
-        return pulumi.get(self, "protection_status")
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter(name="serverName")
@@ -7352,20 +9359,20 @@ class AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "server_name")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -7376,10 +9383,16 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "friendlyName":
+            suggest = "friendly_name"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "protectionStatus":
+            suggest = "protection_status"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -7392,8 +9405,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             suggest = "deferred_delete_time_remaining"
         elif key == "extendedInfo":
             suggest = "extended_info"
-        elif key == "friendlyName":
-            suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -7410,26 +9423,30 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             suggest = "last_backup_time"
         elif key == "lastRecoveryPoint":
             suggest = "last_recovery_point"
+        elif key == "nodesList":
+            suggest = "nodes_list"
         elif key == "parentName":
             suggest = "parent_name"
         elif key == "parentType":
             suggest = "parent_type"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectedItemDataSourceId":
             suggest = "protected_item_data_source_id"
         elif key == "protectedItemHealthStatus":
             suggest = "protected_item_health_status"
         elif key == "protectionState":
             suggest = "protection_state"
-        elif key == "protectionStatus":
-            suggest = "protection_status"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "serverName":
             suggest = "server_name"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AzureVmWorkloadSQLDatabaseProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -7443,15 +9460,18 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
+                 friendly_name: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 protection_status: str,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
                  deferred_delete_time_in_utc: Optional[str] = None,
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.AzureVmWorkloadProtectedItemExtendedInfoResponse'] = None,
-                 friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -7460,28 +9480,33 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
                  last_backup_status: Optional[str] = None,
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
+                 nodes_list: Optional[Sequence['outputs.DistributedNodesInfoResponse']] = None,
                  parent_name: Optional[str] = None,
                  parent_type: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protected_item_data_source_id: Optional[str] = None,
                  protected_item_health_status: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 protection_status: Optional[str] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  server_name: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Azure VM workload-specific protected item representing SQL Database.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str friendly_name: Friendly name of the DB represented by this backup item.
         :param str protected_item_type: backup item type.
                Expected value is 'AzureVmWorkloadSQLDatabase'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str protection_status: Backup status of this backup item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
         :param str deferred_delete_time_in_utc: Time for deferred deletion in UTC
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'AzureVmWorkloadProtectedItemExtendedInfoResponse' extended_info: Additional information for this backup item.
-        :param str friendly_name: Friendly name of the DB represented by this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -7490,20 +9515,24 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         :param str last_backup_status: Last backup operation status. Possible values: Healthy, Unhealthy.
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
+        :param Sequence['DistributedNodesInfoResponse'] nodes_list: List of the nodes in case of distributed container.
         :param str parent_name: Parent name of the DB such as Instance or Availability Group.
         :param str parent_type: Parent type of protected item, example: for a DB, standalone server or distributed
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protected_item_data_source_id: Data ID of the protected item.
         :param str protected_item_health_status: Health status of the backup item, evaluated based on last heartbeat received
         :param str protection_state: Backup state of this backup item.
-        :param str protection_status: Backup status of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
         :param str server_name: Host/Cluster Name for instance or AG
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "friendly_name", friendly_name)
         pulumi.set(__self__, "protected_item_type", 'AzureVmWorkloadSQLDatabase')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "protection_status", protection_status)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -7516,8 +9545,8 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "deferred_delete_time_remaining", deferred_delete_time_remaining)
         if extended_info is not None:
             pulumi.set(__self__, "extended_info", extended_info)
-        if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -7534,26 +9563,46 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
             pulumi.set(__self__, "last_backup_time", last_backup_time)
         if last_recovery_point is not None:
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
+        if nodes_list is not None:
+            pulumi.set(__self__, "nodes_list", nodes_list)
         if parent_name is not None:
             pulumi.set(__self__, "parent_name", parent_name)
         if parent_type is not None:
             pulumi.set(__self__, "parent_type", parent_type)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protected_item_data_source_id is not None:
             pulumi.set(__self__, "protected_item_data_source_id", protected_item_data_source_id)
         if protected_item_health_status is not None:
             pulumi.set(__self__, "protected_item_health_status", protected_item_health_status)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
-        if protection_status is not None:
-            pulumi.set(__self__, "protection_status", protection_status)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="friendlyName")
+    def friendly_name(self) -> str:
+        """
+        Friendly name of the DB represented by this backup item.
+        """
+        return pulumi.get(self, "friendly_name")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -7565,12 +9614,20 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Backup status of this backup item.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -7621,12 +9678,12 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "extended_info")
 
     @property
-    @pulumi.getter(name="friendlyName")
-    def friendly_name(self) -> Optional[str]:
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
         """
-        Friendly name of the DB represented by this backup item.
+        Flag to identify whether datasource is protected in archive
         """
-        return pulumi.get(self, "friendly_name")
+        return pulumi.get(self, "is_archive_enabled")
 
     @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
@@ -7693,6 +9750,14 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "last_recovery_point")
 
     @property
+    @pulumi.getter(name="nodesList")
+    def nodes_list(self) -> Optional[Sequence['outputs.DistributedNodesInfoResponse']]:
+        """
+        List of the nodes in case of distributed container.
+        """
+        return pulumi.get(self, "nodes_list")
+
+    @property
     @pulumi.getter(name="parentName")
     def parent_name(self) -> Optional[str]:
         """
@@ -7715,6 +9780,14 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         ID of the backup policy with which this item is backed up.
         """
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
 
     @property
     @pulumi.getter(name="protectedItemDataSourceId")
@@ -7741,12 +9814,12 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
-    @pulumi.getter(name="protectionStatus")
-    def protection_status(self) -> Optional[str]:
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
         """
-        Backup status of this backup item.
+        ResourceGuardOperationRequests on which LAC check will be performed
         """
-        return pulumi.get(self, "protection_status")
+        return pulumi.get(self, "resource_guard_operation_requests")
 
     @property
     @pulumi.getter(name="serverName")
@@ -7757,20 +9830,20 @@ class AzureVmWorkloadSQLDatabaseProtectedItemResponse(dict):
         return pulumi.get(self, "server_name")
 
     @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -7840,6 +9913,117 @@ class AzureWorkloadAutoProtectionIntentResponse(dict):
         """
         backup protectionIntent type.
         Expected value is 'AzureWorkloadAutoProtectionIntent'.
+        """
+        return pulumi.get(self, "protection_intent_item_type")
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> Optional[str]:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
+
+    @property
+    @pulumi.getter(name="itemId")
+    def item_id(self) -> Optional[str]:
+        """
+        ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        """
+        return pulumi.get(self, "item_id")
+
+    @property
+    @pulumi.getter(name="policyId")
+    def policy_id(self) -> Optional[str]:
+        """
+        ID of the backup policy with which this item is backed up.
+        """
+        return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="protectionState")
+    def protection_state(self) -> Optional[str]:
+        """
+        Backup state of this backup item.
+        """
+        return pulumi.get(self, "protection_state")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        ARM ID of the resource to be backed up.
+        """
+        return pulumi.get(self, "source_resource_id")
+
+
+@pulumi.output_type
+class AzureWorkloadContainerAutoProtectionIntentResponse(dict):
+    """
+    Azure workload specific protection intent item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "protectionIntentItemType":
+            suggest = "protection_intent_item_type"
+        elif key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "itemId":
+            suggest = "item_id"
+        elif key == "policyId":
+            suggest = "policy_id"
+        elif key == "protectionState":
+            suggest = "protection_state"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureWorkloadContainerAutoProtectionIntentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureWorkloadContainerAutoProtectionIntentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureWorkloadContainerAutoProtectionIntentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 protection_intent_item_type: str,
+                 backup_management_type: Optional[str] = None,
+                 item_id: Optional[str] = None,
+                 policy_id: Optional[str] = None,
+                 protection_state: Optional[str] = None,
+                 source_resource_id: Optional[str] = None):
+        """
+        Azure workload specific protection intent item.
+        :param str protection_intent_item_type: backup protectionIntent type.
+               Expected value is 'AzureWorkloadContainerAutoProtectionIntent'.
+        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str item_id: ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId
+        :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str protection_state: Backup state of this backup item.
+        :param str source_resource_id: ARM ID of the resource to be backed up.
+        """
+        pulumi.set(__self__, "protection_intent_item_type", 'AzureWorkloadContainerAutoProtectionIntent')
+        if backup_management_type is not None:
+            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        if item_id is not None:
+            pulumi.set(__self__, "item_id", item_id)
+        if policy_id is not None:
+            pulumi.set(__self__, "policy_id", policy_id)
+        if protection_state is not None:
+            pulumi.set(__self__, "protection_state", protection_state)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
+
+    @property
+    @pulumi.getter(name="protectionIntentItemType")
+    def protection_intent_item_type(self) -> str:
+        """
+        backup protectionIntent type.
+        Expected value is 'AzureWorkloadContainerAutoProtectionIntent'.
         """
         return pulumi.get(self, "protection_intent_item_type")
 
@@ -7974,6 +10158,8 @@ class AzureWorkloadContainerResponse(dict):
             suggest = "last_updated_time"
         elif key == "operationType":
             suggest = "operation_type"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "sourceResourceId":
@@ -8000,6 +10186,7 @@ class AzureWorkloadContainerResponse(dict):
                  health_status: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  operation_type: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  source_resource_id: Optional[str] = None,
                  workload_type: Optional[str] = None):
@@ -8016,6 +10203,7 @@ class AzureWorkloadContainerResponse(dict):
         :param str health_status: Status of health of the container.
         :param str last_updated_time: Time stamp when this container was updated.
         :param str operation_type: Re-Do Operation
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str source_resource_id: ARM ID of the virtual machine represented by this Azure Workload Container
         :param str workload_type: Workload type for which registration was sent.
@@ -8033,6 +10221,8 @@ class AzureWorkloadContainerResponse(dict):
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if operation_type is not None:
             pulumi.set(__self__, "operation_type", operation_type)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if source_resource_id is not None:
@@ -8099,6 +10289,14 @@ class AzureWorkloadContainerResponse(dict):
         Re-Do Operation
         """
         return pulumi.get(self, "operation_type")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -8248,6 +10446,42 @@ class AzureWorkloadSQLAutoProtectionIntentResponse(dict):
         Workload item type of the item for which intent is to be set
         """
         return pulumi.get(self, "workload_item_type")
+
+
+@pulumi.output_type
+class ClassicAlertSettingsResponse(dict):
+    """
+    Settings for classic alerts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alertsForCriticalOperations":
+            suggest = "alerts_for_critical_operations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClassicAlertSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClassicAlertSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClassicAlertSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alerts_for_critical_operations: Optional[str] = None):
+        """
+        Settings for classic alerts
+        """
+        if alerts_for_critical_operations is not None:
+            pulumi.set(__self__, "alerts_for_critical_operations", alerts_for_critical_operations)
+
+    @property
+    @pulumi.getter(name="alertsForCriticalOperations")
+    def alerts_for_critical_operations(self) -> Optional[str]:
+        return pulumi.get(self, "alerts_for_critical_operations")
 
 
 @pulumi.output_type
@@ -8425,6 +10659,120 @@ class ContainerIdentityInfoResponse(dict):
 
 
 @pulumi.output_type
+class CriticalJobHistoryDetailsResponse(dict):
+    """
+    Critical past job details of the migration item.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "jobId":
+            suggest = "job_id"
+        elif key == "jobName":
+            suggest = "job_name"
+        elif key == "jobStatus":
+            suggest = "job_status"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CriticalJobHistoryDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CriticalJobHistoryDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CriticalJobHistoryDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 job_id: str,
+                 job_name: str,
+                 job_status: str,
+                 start_time: str):
+        """
+        Critical past job details of the migration item.
+        :param str job_id: The ARM Id of the job being executed.
+        :param str job_name: The job name.
+        :param str job_status: The job state.
+        :param str start_time: The start time of the job.
+        """
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "job_name", job_name)
+        pulumi.set(__self__, "job_status", job_status)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="jobId")
+    def job_id(self) -> str:
+        """
+        The ARM Id of the job being executed.
+        """
+        return pulumi.get(self, "job_id")
+
+    @property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> str:
+        """
+        The job name.
+        """
+        return pulumi.get(self, "job_name")
+
+    @property
+    @pulumi.getter(name="jobStatus")
+    def job_status(self) -> str:
+        """
+        The job state.
+        """
+        return pulumi.get(self, "job_status")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time of the job.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class CrossSubscriptionRestoreSettingsResponse(dict):
+    """
+    Settings for Cross Subscription Restore Settings
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossSubscriptionRestoreState":
+            suggest = "cross_subscription_restore_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CrossSubscriptionRestoreSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CrossSubscriptionRestoreSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CrossSubscriptionRestoreSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_subscription_restore_state: Optional[str] = None):
+        """
+        Settings for Cross Subscription Restore Settings
+        """
+        if cross_subscription_restore_state is not None:
+            pulumi.set(__self__, "cross_subscription_restore_state", cross_subscription_restore_state)
+
+    @property
+    @pulumi.getter(name="crossSubscriptionRestoreState")
+    def cross_subscription_restore_state(self) -> Optional[str]:
+        return pulumi.get(self, "cross_subscription_restore_state")
+
+
+@pulumi.output_type
 class CurrentJobDetailsResponse(dict):
     """
     Current job details of the migration item.
@@ -8451,25 +10799,22 @@ class CurrentJobDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 job_id: Optional[str] = None,
-                 job_name: Optional[str] = None,
-                 start_time: Optional[str] = None):
+                 job_id: str,
+                 job_name: str,
+                 start_time: str):
         """
         Current job details of the migration item.
         :param str job_id: The ARM Id of the job being executed.
         :param str job_name: The job name.
         :param str start_time: The start time of the job.
         """
-        if job_id is not None:
-            pulumi.set(__self__, "job_id", job_id)
-        if job_name is not None:
-            pulumi.set(__self__, "job_name", job_name)
-        if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "job_id", job_id)
+        pulumi.set(__self__, "job_name", job_name)
+        pulumi.set(__self__, "start_time", start_time)
 
     @property
     @pulumi.getter(name="jobId")
-    def job_id(self) -> Optional[str]:
+    def job_id(self) -> str:
         """
         The ARM Id of the job being executed.
         """
@@ -8477,7 +10822,7 @@ class CurrentJobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="jobName")
-    def job_name(self) -> Optional[str]:
+    def job_name(self) -> str:
         """
         The job name.
         """
@@ -8485,7 +10830,7 @@ class CurrentJobDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[str]:
+    def start_time(self) -> str:
         """
         The start time of the job.
         """
@@ -8828,12 +11173,14 @@ class DPMProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
+        if key == "backupManagementType":
+            suggest = "backup_management_type"
+        elif key == "protectedItemType":
             suggest = "protected_item_type"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupEngineName":
             suggest = "backup_engine_name"
-        elif key == "backupManagementType":
-            suggest = "backup_management_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -8848,6 +11195,8 @@ class DPMProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -8858,12 +11207,16 @@ class DPMProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DPMProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -8877,9 +11230,10 @@ class DPMProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
                  protected_item_type: str,
+                 workload_type: str,
                  backup_engine_name: Optional[str] = None,
-                 backup_management_type: Optional[str] = None,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
@@ -8887,20 +11241,24 @@ class DPMProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.DPMProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         Additional information on Backup engine specific backup item.
+        :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'DPMProtectedItem'.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_engine_name: Backup Management server protecting this backup item
-        :param str backup_management_type: Type of backup management for the backed up item.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -8908,20 +11266,23 @@ class DPMProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'DPMProtectedItemExtendedInfoResponse' extended_info: Extended info of the backup item.
         :param str friendly_name: Friendly name of the managed item
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Protection state of the backup engine
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'DPMProtectedItem')
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_engine_name is not None:
             pulumi.set(__self__, "backup_engine_name", backup_engine_name)
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -8936,6 +11297,8 @@ class DPMProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -8946,12 +11309,24 @@ class DPMProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -8963,20 +11338,20 @@ class DPMProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
+        """
+        Type of workload this item represents.
+        """
+        return pulumi.get(self, "workload_type")
+
+    @property
     @pulumi.getter(name="backupEngineName")
     def backup_engine_name(self) -> Optional[str]:
         """
         Backup Management server protecting this backup item
         """
         return pulumi.get(self, "backup_engine_name")
-
-    @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
-        """
-        Type of backup management for the backed up item.
-        """
-        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -9035,6 +11410,14 @@ class DPMProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -9075,6 +11458,14 @@ class DPMProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
     @pulumi.getter(name="protectionState")
     def protection_state(self) -> Optional[str]:
         """
@@ -9083,20 +11474,28 @@ class DPMProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -9194,9 +11593,45 @@ class DailyRetentionScheduleResponse(dict):
 
 
 @pulumi.output_type
+class DailyScheduleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleRunTimes":
+            suggest = "schedule_run_times"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DailyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DailyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DailyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_run_times: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] schedule_run_times: List of times of day this schedule has to be run.
+        """
+        if schedule_run_times is not None:
+            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+
+    @property
+    @pulumi.getter(name="scheduleRunTimes")
+    def schedule_run_times(self) -> Optional[Sequence[str]]:
+        """
+        List of times of day this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_run_times")
+
+
+@pulumi.output_type
 class DataStoreResponse(dict):
     """
-    The data store details of the MT.
+    The datastore details of the MT.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -9224,7 +11659,7 @@ class DataStoreResponse(dict):
                  type: Optional[str] = None,
                  uuid: Optional[str] = None):
         """
-        The data store details of the MT.
+        The datastore details of the MT.
         :param str capacity: The capacity of data store in GBs.
         :param str free_space: The free space of data store in GBs.
         :param str symbolic_name: The symbolic name of data store.
@@ -9338,7 +11773,7 @@ class DayResponse(dict):
 @pulumi.output_type
 class DiskDetailsResponse(dict):
     """
-    On-prem disk details data.
+    Onprem disk details data.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -9369,7 +11804,7 @@ class DiskDetailsResponse(dict):
                  vhd_name: Optional[str] = None,
                  vhd_type: Optional[str] = None):
         """
-        On-prem disk details data.
+        Onprem disk details data.
         :param float max_size_mb: The hard disk max size in MB.
         :param str vhd_id: The VHD Id.
         :param str vhd_name: The VHD name.
@@ -9479,6 +11914,8 @@ class DistributedNodesInfoResponse(dict):
             suggest = "error_detail"
         elif key == "nodeName":
             suggest = "node_name"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DistributedNodesInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -9494,11 +11931,13 @@ class DistributedNodesInfoResponse(dict):
     def __init__(__self__, *,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
                  node_name: Optional[str] = None,
+                 source_resource_id: Optional[str] = None,
                  status: Optional[str] = None):
         """
         This is used to represent the various nodes of the distributed container.
         :param 'ErrorDetailResponse' error_detail: Error Details if the Status is non-success.
         :param str node_name: Name of the node under a distributed container.
+        :param str source_resource_id: ARM resource id of the node
         :param str status: Status of this Node.
                Failed | Succeeded
         """
@@ -9506,6 +11945,8 @@ class DistributedNodesInfoResponse(dict):
             pulumi.set(__self__, "error_detail", error_detail)
         if node_name is not None:
             pulumi.set(__self__, "node_name", node_name)
+        if source_resource_id is not None:
+            pulumi.set(__self__, "source_resource_id", source_resource_id)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
@@ -9524,6 +11965,14 @@ class DistributedNodesInfoResponse(dict):
         Name of the node under a distributed container.
         """
         return pulumi.get(self, "node_name")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> Optional[str]:
+        """
+        ARM resource id of the node
+        """
+        return pulumi.get(self, "source_resource_id")
 
     @property
     @pulumi.getter
@@ -9561,6 +12010,8 @@ class DpmContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "protectionStatus":
@@ -9591,6 +12042,7 @@ class DpmContainerResponse(dict):
                  extended_info: Optional['outputs.DPMContainerExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  protection_status: Optional[str] = None,
                  registration_status: Optional[str] = None,
@@ -9610,6 +12062,7 @@ class DpmContainerResponse(dict):
         :param 'DPMContainerExtendedInfoResponse' extended_info: Extended Info of the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of protected items in the BackupEngine
         :param str protection_status: Protection status of the container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
@@ -9632,6 +12085,8 @@ class DpmContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if protection_status is not None:
@@ -9718,6 +12173,14 @@ class DpmContainerResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="protectedItemCount")
     def protected_item_count(self) -> Optional[float]:
         """
@@ -9758,10 +12221,16 @@ class DraDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "healthErrors":
+        if key == "biosId":
+            suggest = "bios_id"
+        elif key == "forwardProtectedItemCount":
+            suggest = "forward_protected_item_count"
+        elif key == "healthErrors":
             suggest = "health_errors"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
+        elif key == "reverseProtectedItemCount":
+            suggest = "reverse_protected_item_count"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DraDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -9775,33 +12244,58 @@ class DraDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bios_id: str,
+                 forward_protected_item_count: int,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
                  id: str,
                  last_heartbeat_utc: str,
                  name: str,
+                 reverse_protected_item_count: int,
                  version: str):
         """
         DRA details.
-        :param str health: The health of the DRA.
+        :param str bios_id: The DRA Bios Id.
+        :param int forward_protected_item_count: The count of protected items which are protected in forward direction.
+        :param str health: The health.
         :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The DRA Id.
         :param str last_heartbeat_utc: The last heartbeat received from the DRA.
         :param str name: The DRA name.
-        :param str version: The DRA version.
+        :param int reverse_protected_item_count: The count of protected items which are protected in reverse direction.
+        :param str version: The version.
         """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "forward_protected_item_count", forward_protected_item_count)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "reverse_protected_item_count", reverse_protected_item_count)
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The DRA Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="forwardProtectedItemCount")
+    def forward_protected_item_count(self) -> int:
+        """
+        The count of protected items which are protected in forward direction.
+        """
+        return pulumi.get(self, "forward_protected_item_count")
 
     @property
     @pulumi.getter
     def health(self) -> str:
         """
-        The health of the DRA.
+        The health.
         """
         return pulumi.get(self, "health")
 
@@ -9838,10 +12332,18 @@ class DraDetailsResponse(dict):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="reverseProtectedItemCount")
+    def reverse_protected_item_count(self) -> int:
+        """
+        The count of protected items which are protected in reverse direction.
+        """
+        return pulumi.get(self, "reverse_protected_item_count")
+
+    @property
     @pulumi.getter
     def version(self) -> str:
         """
-        The DRA version.
+        The version.
         """
         return pulumi.get(self, "version")
 
@@ -9959,6 +12461,39 @@ class ErrorDetailResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Extended location of the resource.
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 type: str):
+        """
+        Extended location of the resource.
+        :param str name: The name of the extended location.
+        :param str type: The extended location type.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The extended location type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class ExtendedPropertiesResponse(dict):
     """
     Extended Properties for Azure IaasVM Backup.
@@ -9968,6 +12503,8 @@ class ExtendedPropertiesResponse(dict):
         suggest = None
         if key == "diskExclusionProperties":
             suggest = "disk_exclusion_properties"
+        elif key == "linuxVmApplicationName":
+            suggest = "linux_vm_application_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ExtendedPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -9981,13 +12518,17 @@ class ExtendedPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None):
+                 disk_exclusion_properties: Optional['outputs.DiskExclusionPropertiesResponse'] = None,
+                 linux_vm_application_name: Optional[str] = None):
         """
         Extended Properties for Azure IaasVM Backup.
         :param 'DiskExclusionPropertiesResponse' disk_exclusion_properties: Extended Properties for Disk Exclusion.
+        :param str linux_vm_application_name: Linux VM name
         """
         if disk_exclusion_properties is not None:
             pulumi.set(__self__, "disk_exclusion_properties", disk_exclusion_properties)
+        if linux_vm_application_name is not None:
+            pulumi.set(__self__, "linux_vm_application_name", linux_vm_application_name)
 
     @property
     @pulumi.getter(name="diskExclusionProperties")
@@ -9996,6 +12537,14 @@ class ExtendedPropertiesResponse(dict):
         Extended Properties for Disk Exclusion.
         """
         return pulumi.get(self, "disk_exclusion_properties")
+
+    @property
+    @pulumi.getter(name="linuxVmApplicationName")
+    def linux_vm_application_name(self) -> Optional[str]:
+        """
+        Linux VM name
+        """
+        return pulumi.get(self, "linux_vm_application_name")
 
 
 @pulumi.output_type
@@ -10222,6 +12771,8 @@ class GenericContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
 
@@ -10243,6 +12794,7 @@ class GenericContainerResponse(dict):
                  fabric_name: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None):
         """
         Base class for generic container of backup items
@@ -10256,6 +12808,7 @@ class GenericContainerResponse(dict):
         :param str fabric_name: Name of the container's fabric
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
         pulumi.set(__self__, "container_type", 'GenericContainer')
@@ -10269,6 +12822,8 @@ class GenericContainerResponse(dict):
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
 
@@ -10325,6 +12880,14 @@ class GenericContainerResponse(dict):
         return pulumi.get(self, "health_status")
 
     @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
+
+    @property
     @pulumi.getter(name="registrationStatus")
     def registration_status(self) -> Optional[str]:
         """
@@ -10341,10 +12904,12 @@ class GenericProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "containerName":
@@ -10359,6 +12924,8 @@ class GenericProtectedItemResponse(dict):
             suggest = "fabric_name"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -10369,18 +12936,22 @@ class GenericProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "policyState":
             suggest = "policy_state"
         elif key == "protectedItemId":
             suggest = "protected_item_id"
         elif key == "protectionState":
             suggest = "protection_state"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceAssociations":
             suggest = "source_associations"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GenericProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -10394,8 +12965,9 @@ class GenericProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  container_name: Optional[str] = None,
                  create_mode: Optional[str] = None,
@@ -10403,22 +12975,26 @@ class GenericProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  fabric_name: Optional[str] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  policy_state: Optional[str] = None,
                  protected_item_id: Optional[float] = None,
                  protection_state: Optional[str] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
                  source_associations: Optional[Mapping[str, str]] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 source_resource_id: Optional[str] = None):
         """
         Base class for backup items.
+        :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'GenericProtectedItem'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str container_name: Unique name of container
         :param str create_mode: Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
@@ -10426,21 +13002,24 @@ class GenericProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param str fabric_name: Name of this backup item's fabric.
         :param str friendly_name: Friendly name of the container.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str policy_state: Indicates consistency of policy object and policy applied to this backup item.
         :param float protected_item_id: Data Plane Service ID of the protected item.
         :param str protection_state: Backup state of this backup item.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param Mapping[str, str] source_associations: Loosely coupled (type, value) associations (example - parent of a protected item)
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'GenericProtectedItem')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if container_name is not None:
@@ -10455,6 +13034,8 @@ class GenericProtectedItemResponse(dict):
             pulumi.set(__self__, "fabric_name", fabric_name)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -10465,18 +13046,30 @@ class GenericProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if policy_state is not None:
             pulumi.set(__self__, "policy_state", policy_state)
         if protected_item_id is not None:
             pulumi.set(__self__, "protected_item_id", protected_item_id)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_associations is not None:
             pulumi.set(__self__, "source_associations", source_associations)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -10488,12 +13081,12 @@ class GenericProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Type of workload this item represents.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -10552,6 +13145,14 @@ class GenericProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -10592,6 +13193,14 @@ class GenericProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
     @pulumi.getter(name="policyState")
     def policy_state(self) -> Optional[str]:
         """
@@ -10616,6 +13225,22 @@ class GenericProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceAssociations")
     def source_associations(self) -> Optional[Mapping[str, str]]:
         """
@@ -10630,14 +13255,6 @@ class GenericProtectedItemResponse(dict):
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -10654,6 +13271,8 @@ class GenericProtectionPolicyResponse(dict):
             suggest = "fabric_name"
         elif key == "protectedItemsCount":
             suggest = "protected_items_count"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "subProtectionPolicy":
             suggest = "sub_protection_policy"
         elif key == "timeZone":
@@ -10674,6 +13293,7 @@ class GenericProtectionPolicyResponse(dict):
                  backup_management_type: str,
                  fabric_name: Optional[str] = None,
                  protected_items_count: Optional[int] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  sub_protection_policy: Optional[Sequence['outputs.SubProtectionPolicyResponse']] = None,
                  time_zone: Optional[str] = None):
         """
@@ -10682,6 +13302,7 @@ class GenericProtectionPolicyResponse(dict):
                Expected value is 'GenericProtectionPolicy'.
         :param str fabric_name: Name of this policy's fabric.
         :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param Sequence['SubProtectionPolicyResponse'] sub_protection_policy: List of sub-protection policies which includes schedule and retention
         :param str time_zone: TimeZone optional input as string. For example: TimeZone = "Pacific Standard Time".
         """
@@ -10690,6 +13311,8 @@ class GenericProtectionPolicyResponse(dict):
             pulumi.set(__self__, "fabric_name", fabric_name)
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if sub_protection_policy is not None:
             pulumi.set(__self__, "sub_protection_policy", sub_protection_policy)
         if time_zone is not None:
@@ -10721,6 +13344,14 @@ class GenericProtectionPolicyResponse(dict):
         return pulumi.get(self, "protected_items_count")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
     @pulumi.getter(name="subProtectionPolicy")
     def sub_protection_policy(self) -> Optional[Sequence['outputs.SubProtectionPolicyResponse']]:
         """
@@ -10740,7 +13371,7 @@ class GenericProtectionPolicyResponse(dict):
 @pulumi.output_type
 class HealthErrorResponse(dict):
     """
-    Health Error
+    Health Error.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -10804,8 +13435,8 @@ class HealthErrorResponse(dict):
                  recovery_provider_error_message: Optional[str] = None,
                  summary_message: Optional[str] = None):
         """
-        Health Error
-        :param str creation_time_utc: Error creation time (UTC)
+        Health Error.
+        :param str creation_time_utc: Error creation time (UTC).
         :param str customer_resolvability: Value indicating whether the health error is customer resolvable.
         :param str entity_id: ID of the entity.
         :param str error_category: Category of error.
@@ -10856,7 +13487,7 @@ class HealthErrorResponse(dict):
     @pulumi.getter(name="creationTimeUtc")
     def creation_time_utc(self) -> Optional[str]:
         """
-        Error creation time (UTC)
+        Error creation time (UTC).
         """
         return pulumi.get(self, "creation_time_utc")
 
@@ -10971,6 +13602,213 @@ class HealthErrorResponse(dict):
         Summary message of the entity.
         """
         return pulumi.get(self, "summary_message")
+
+
+@pulumi.output_type
+class HourlyScheduleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleWindowDuration":
+            suggest = "schedule_window_duration"
+        elif key == "scheduleWindowStartTime":
+            suggest = "schedule_window_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HourlyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HourlyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HourlyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: Optional[int] = None,
+                 schedule_window_duration: Optional[int] = None,
+                 schedule_window_start_time: Optional[str] = None):
+        """
+        :param int interval: Interval at which backup needs to be triggered. For hourly the value
+                can be 4/6/8/12
+        :param int schedule_window_duration: To specify duration of the backup window
+        :param str schedule_window_start_time: To specify start time of the backup window
+        """
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if schedule_window_duration is not None:
+            pulumi.set(__self__, "schedule_window_duration", schedule_window_duration)
+        if schedule_window_start_time is not None:
+            pulumi.set(__self__, "schedule_window_start_time", schedule_window_start_time)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Interval at which backup needs to be triggered. For hourly the value
+         can be 4/6/8/12
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="scheduleWindowDuration")
+    def schedule_window_duration(self) -> Optional[int]:
+        """
+        To specify duration of the backup window
+        """
+        return pulumi.get(self, "schedule_window_duration")
+
+    @property
+    @pulumi.getter(name="scheduleWindowStartTime")
+    def schedule_window_start_time(self) -> Optional[str]:
+        """
+        To specify start time of the backup window
+        """
+        return pulumi.get(self, "schedule_window_start_time")
+
+
+@pulumi.output_type
+class HyperVHostDetailsResponse(dict):
+    """
+    Hyper-V host details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marsAgentVersion":
+            suggest = "mars_agent_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperVHostDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperVHostDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperVHostDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 mars_agent_version: str,
+                 name: str):
+        """
+        Hyper-V host details.
+        :param str id: The Hyper-V host Id.
+        :param str mars_agent_version: The Mars agent version.
+        :param str name: The Hyper-V host name.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "mars_agent_version", mars_agent_version)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The Hyper-V host Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="marsAgentVersion")
+    def mars_agent_version(self) -> str:
+        """
+        The Mars agent version.
+        """
+        return pulumi.get(self, "mars_agent_version")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Hyper-V host name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HyperVReplicaAzureManagedDiskDetailsResponse(dict):
+    """
+    Hyper-V Managed disk details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskId":
+            suggest = "disk_id"
+        elif key == "replicaDiskType":
+            suggest = "replica_disk_type"
+        elif key == "seedManagedDiskId":
+            suggest = "seed_managed_disk_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HyperVReplicaAzureManagedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HyperVReplicaAzureManagedDiskDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HyperVReplicaAzureManagedDiskDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[str] = None,
+                 disk_id: Optional[str] = None,
+                 replica_disk_type: Optional[str] = None,
+                 seed_managed_disk_id: Optional[str] = None):
+        """
+        Hyper-V Managed disk details.
+        :param str disk_encryption_set_id: The disk encryption set ARM Id.
+        :param str disk_id: The disk Id.
+        :param str replica_disk_type: The replica disk type.
+        :param str seed_managed_disk_id: Seed managed disk Id.
+        """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_id is not None:
+            pulumi.set(__self__, "disk_id", disk_id)
+        if replica_disk_type is not None:
+            pulumi.set(__self__, "replica_disk_type", replica_disk_type)
+        if seed_managed_disk_id is not None:
+            pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The disk encryption set ARM Id.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> Optional[str]:
+        """
+        The disk Id.
+        """
+        return pulumi.get(self, "disk_id")
+
+    @property
+    @pulumi.getter(name="replicaDiskType")
+    def replica_disk_type(self) -> Optional[str]:
+        """
+        The replica disk type.
+        """
+        return pulumi.get(self, "replica_disk_type")
+
+    @property
+    @pulumi.getter(name="seedManagedDiskId")
+    def seed_managed_disk_id(self) -> Optional[str]:
+        """
+        Seed managed disk Id.
+        """
+        return pulumi.get(self, "seed_managed_disk_id")
 
 
 @pulumi.output_type
@@ -11106,6 +13944,8 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "lastRecoveryPointReceived":
+            suggest = "last_recovery_point_received"
         elif key == "azureVmDiskDetails":
             suggest = "azure_vm_disk_details"
         elif key == "enableRdpOnTargetOption":
@@ -11120,6 +13960,8 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
             suggest = "license_type"
         elif key == "oSDetails":
             suggest = "o_s_details"
+        elif key == "protectedManagedDisks":
+            suggest = "protected_managed_disks"
         elif key == "recoveryAvailabilitySetId":
             suggest = "recovery_availability_set_id"
         elif key == "recoveryAzureLogStorageAccountId":
@@ -11134,6 +13976,8 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
             suggest = "recovery_azure_vm_name"
         elif key == "rpoInSeconds":
             suggest = "rpo_in_seconds"
+        elif key == "seedManagedDiskTags":
+            suggest = "seed_managed_disk_tags"
         elif key == "selectedRecoveryAzureNetworkId":
             suggest = "selected_recovery_azure_network_id"
         elif key == "selectedSourceNicId":
@@ -11142,10 +13986,18 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
             suggest = "source_vm_cpu_count"
         elif key == "sourceVmRamSizeInMB":
             suggest = "source_vm_ram_size_in_mb"
+        elif key == "sqlServerLicenseType":
+            suggest = "sql_server_license_type"
         elif key == "targetAvailabilityZone":
             suggest = "target_availability_zone"
+        elif key == "targetManagedDiskTags":
+            suggest = "target_managed_disk_tags"
+        elif key == "targetNicTags":
+            suggest = "target_nic_tags"
         elif key == "targetProximityPlacementGroupId":
             suggest = "target_proximity_placement_group_id"
+        elif key == "targetVmTags":
+            suggest = "target_vm_tags"
         elif key == "useManagedDisks":
             suggest = "use_managed_disks"
         elif key == "vmId":
@@ -11170,6 +14022,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
 
     def __init__(__self__, *,
                  instance_type: str,
+                 last_recovery_point_received: str,
                  azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
                  enable_rdp_on_target_option: Optional[str] = None,
                  encryption: Optional[str] = None,
@@ -11178,6 +14031,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
                  last_rpo_calculated_time: Optional[str] = None,
                  license_type: Optional[str] = None,
                  o_s_details: Optional['outputs.OSDetailsResponse'] = None,
+                 protected_managed_disks: Optional[Sequence['outputs.HyperVReplicaAzureManagedDiskDetailsResponse']] = None,
                  recovery_availability_set_id: Optional[str] = None,
                  recovery_azure_log_storage_account_id: Optional[str] = None,
                  recovery_azure_resource_group_id: Optional[str] = None,
@@ -11185,12 +14039,17 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
                  recovery_azure_vm_size: Optional[str] = None,
                  recovery_azure_vm_name: Optional[str] = None,
                  rpo_in_seconds: Optional[float] = None,
+                 seed_managed_disk_tags: Optional[Mapping[str, str]] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_source_nic_id: Optional[str] = None,
                  source_vm_cpu_count: Optional[int] = None,
                  source_vm_ram_size_in_mb: Optional[int] = None,
+                 sql_server_license_type: Optional[str] = None,
                  target_availability_zone: Optional[str] = None,
+                 target_managed_disk_tags: Optional[Mapping[str, str]] = None,
+                 target_nic_tags: Optional[Mapping[str, str]] = None,
                  target_proximity_placement_group_id: Optional[str] = None,
+                 target_vm_tags: Optional[Mapping[str, str]] = None,
                  use_managed_disks: Optional[str] = None,
                  vm_id: Optional[str] = None,
                  vm_nics: Optional[Sequence['outputs.VMNicDetailsResponse']] = None,
@@ -11200,14 +14059,16 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         Hyper V Replica Azure provider specific settings.
         :param str instance_type: Gets the Instance type.
                Expected value is 'HyperVReplicaAzure'.
+        :param str last_recovery_point_received: The last recovery point received time.
         :param Sequence['AzureVmDiskDetailsResponse'] azure_vm_disk_details: Azure VM Disk details.
-        :param str enable_rdp_on_target_option: The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+        :param str enable_rdp_on_target_option: The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         :param str encryption: The encryption info.
         :param 'InitialReplicationDetailsResponse' initial_replication_details: Initial replication details.
         :param str last_replicated_time: The Last replication time.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str license_type: License Type of the VM to be used.
         :param 'OSDetailsResponse' o_s_details: The operating system info.
+        :param Sequence['HyperVReplicaAzureManagedDiskDetailsResponse'] protected_managed_disks: The list of protected managed disks.
         :param str recovery_availability_set_id: The recovery availability set Id.
         :param str recovery_azure_log_storage_account_id: The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.
         :param str recovery_azure_resource_group_id: The target resource group Id.
@@ -11215,12 +14076,17 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str recovery_azure_vm_size: The Recovery Azure VM size.
         :param str recovery_azure_vm_name: Recovery Azure given name.
         :param float rpo_in_seconds: Last RPO value.
+        :param Mapping[str, str] seed_managed_disk_tags: The tags for the seed managed disks.
         :param str selected_recovery_azure_network_id: The selected recovery azure network Id.
         :param str selected_source_nic_id: The selected source nic Id which will be used as the primary nic during failover.
         :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
+        :param str sql_server_license_type: The SQL Server license type.
         :param str target_availability_zone: The target availability zone.
+        :param Mapping[str, str] target_managed_disk_tags: The tags for the target managed disks.
+        :param Mapping[str, str] target_nic_tags: The tags for the target NICs.
         :param str target_proximity_placement_group_id: The target proximity placement group Id.
+        :param Mapping[str, str] target_vm_tags: The target VM tags.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str vm_id: The virtual machine Id.
         :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
@@ -11228,6 +14094,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         :param str vm_protection_state_description: The protection state description for the vm.
         """
         pulumi.set(__self__, "instance_type", 'HyperVReplicaAzure')
+        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
         if azure_vm_disk_details is not None:
             pulumi.set(__self__, "azure_vm_disk_details", azure_vm_disk_details)
         if enable_rdp_on_target_option is not None:
@@ -11244,6 +14111,8 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
             pulumi.set(__self__, "license_type", license_type)
         if o_s_details is not None:
             pulumi.set(__self__, "o_s_details", o_s_details)
+        if protected_managed_disks is not None:
+            pulumi.set(__self__, "protected_managed_disks", protected_managed_disks)
         if recovery_availability_set_id is not None:
             pulumi.set(__self__, "recovery_availability_set_id", recovery_availability_set_id)
         if recovery_azure_log_storage_account_id is not None:
@@ -11258,6 +14127,8 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
             pulumi.set(__self__, "recovery_azure_vm_name", recovery_azure_vm_name)
         if rpo_in_seconds is not None:
             pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+        if seed_managed_disk_tags is not None:
+            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
         if selected_recovery_azure_network_id is not None:
             pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_source_nic_id is not None:
@@ -11266,10 +14137,18 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
             pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
             pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+        if sql_server_license_type is not None:
+            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        if target_managed_disk_tags is not None:
+            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+        if target_nic_tags is not None:
+            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+        if target_vm_tags is not None:
+            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
         if use_managed_disks is not None:
             pulumi.set(__self__, "use_managed_disks", use_managed_disks)
         if vm_id is not None:
@@ -11291,6 +14170,14 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lastRecoveryPointReceived")
+    def last_recovery_point_received(self) -> str:
+        """
+        The last recovery point received time.
+        """
+        return pulumi.get(self, "last_recovery_point_received")
+
+    @property
     @pulumi.getter(name="azureVmDiskDetails")
     def azure_vm_disk_details(self) -> Optional[Sequence['outputs.AzureVmDiskDetailsResponse']]:
         """
@@ -11302,7 +14189,7 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
     @pulumi.getter(name="enableRdpOnTargetOption")
     def enable_rdp_on_target_option(self) -> Optional[str]:
         """
-        The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+        The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         """
         return pulumi.get(self, "enable_rdp_on_target_option")
 
@@ -11353,6 +14240,14 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         The operating system info.
         """
         return pulumi.get(self, "o_s_details")
+
+    @property
+    @pulumi.getter(name="protectedManagedDisks")
+    def protected_managed_disks(self) -> Optional[Sequence['outputs.HyperVReplicaAzureManagedDiskDetailsResponse']]:
+        """
+        The list of protected managed disks.
+        """
+        return pulumi.get(self, "protected_managed_disks")
 
     @property
     @pulumi.getter(name="recoveryAvailabilitySetId")
@@ -11411,6 +14306,14 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         return pulumi.get(self, "rpo_in_seconds")
 
     @property
+    @pulumi.getter(name="seedManagedDiskTags")
+    def seed_managed_disk_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the seed managed disks.
+        """
+        return pulumi.get(self, "seed_managed_disk_tags")
+
+    @property
     @pulumi.getter(name="selectedRecoveryAzureNetworkId")
     def selected_recovery_azure_network_id(self) -> Optional[str]:
         """
@@ -11443,6 +14346,14 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         return pulumi.get(self, "source_vm_ram_size_in_mb")
 
     @property
+    @pulumi.getter(name="sqlServerLicenseType")
+    def sql_server_license_type(self) -> Optional[str]:
+        """
+        The SQL Server license type.
+        """
+        return pulumi.get(self, "sql_server_license_type")
+
+    @property
     @pulumi.getter(name="targetAvailabilityZone")
     def target_availability_zone(self) -> Optional[str]:
         """
@@ -11451,12 +14362,36 @@ class HyperVReplicaAzureReplicationDetailsResponse(dict):
         return pulumi.get(self, "target_availability_zone")
 
     @property
+    @pulumi.getter(name="targetManagedDiskTags")
+    def target_managed_disk_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target managed disks.
+        """
+        return pulumi.get(self, "target_managed_disk_tags")
+
+    @property
+    @pulumi.getter(name="targetNicTags")
+    def target_nic_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target NICs.
+        """
+        return pulumi.get(self, "target_nic_tags")
+
+    @property
     @pulumi.getter(name="targetProximityPlacementGroupId")
     def target_proximity_placement_group_id(self) -> Optional[str]:
         """
         The target proximity placement group Id.
         """
         return pulumi.get(self, "target_proximity_placement_group_id")
+
+    @property
+    @pulumi.getter(name="targetVmTags")
+    def target_vm_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The target VM tags.
+        """
+        return pulumi.get(self, "target_vm_tags")
 
     @property
     @pulumi.getter(name="useManagedDisks")
@@ -11563,7 +14498,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
         :param str offline_replication_import_path: A value indicating the offline IR import path.
         :param str online_replication_start_time: A value indicating the online IR start time.
         :param int recovery_points: A value indicating the number of recovery points.
-        :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
+        :param str replica_deletion_option: A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud.
         :param int replication_port: A value indicating the recovery HTTPS port.
         """
         pulumi.set(__self__, "instance_type", 'HyperVReplicaBasePolicyDetails')
@@ -11665,7 +14600,7 @@ class HyperVReplicaBasePolicyDetailsResponse(dict):
     @pulumi.getter(name="replicaDeletionOption")
     def replica_deletion_option(self) -> Optional[str]:
         """
-        A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud
+        A value indicating whether the VM has to be auto deleted. Supported Values: String.Empty, None, OnRecoveryCloud.
         """
         return pulumi.get(self, "replica_deletion_option")
 
@@ -12477,6 +15412,8 @@ class HyperVSiteDetailsResponse(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "hyperVHosts":
+            suggest = "hyper_v_hosts"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in HyperVSiteDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -12490,13 +15427,17 @@ class HyperVSiteDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_type: str):
+                 instance_type: str,
+                 hyper_v_hosts: Optional[Sequence['outputs.HyperVHostDetailsResponse']] = None):
         """
         HyperVSite fabric specific details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'HyperVSite'.
+        :param Sequence['HyperVHostDetailsResponse'] hyper_v_hosts: The list of Hyper-V hosts associated with the fabric.
         """
         pulumi.set(__self__, "instance_type", 'HyperVSite')
+        if hyper_v_hosts is not None:
+            pulumi.set(__self__, "hyper_v_hosts", hyper_v_hosts)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -12507,73 +15448,181 @@ class HyperVSiteDetailsResponse(dict):
         """
         return pulumi.get(self, "instance_type")
 
+    @property
+    @pulumi.getter(name="hyperVHosts")
+    def hyper_v_hosts(self) -> Optional[Sequence['outputs.HyperVHostDetailsResponse']]:
+        """
+        The list of Hyper-V hosts associated with the fabric.
+        """
+        return pulumi.get(self, "hyper_v_hosts")
+
 
 @pulumi.output_type
-class IPConfigResponse(dict):
-    """
-    IP configuration details.
-    """
+class IPConfigDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "lBBackendAddressPoolIds":
-            suggest = "l_b_backend_address_pool_ids"
-        elif key == "publicIpAddressId":
-            suggest = "public_ip_address_id"
+        if key == "ipAddressType":
+            suggest = "ip_address_type"
+        elif key == "isPrimary":
+            suggest = "is_primary"
+        elif key == "isSeletedForFailover":
+            suggest = "is_seleted_for_failover"
+        elif key == "recoveryIPAddressType":
+            suggest = "recovery_ip_address_type"
+        elif key == "recoveryLBBackendAddressPoolIds":
+            suggest = "recovery_lb_backend_address_pool_ids"
+        elif key == "recoveryPublicIPAddressId":
+            suggest = "recovery_public_ip_address_id"
+        elif key == "recoveryStaticIPAddress":
+            suggest = "recovery_static_ip_address"
+        elif key == "recoverySubnetName":
+            suggest = "recovery_subnet_name"
         elif key == "staticIPAddress":
             suggest = "static_ip_address"
+        elif key == "subnetName":
+            suggest = "subnet_name"
+        elif key == "tfoLBBackendAddressPoolIds":
+            suggest = "tfo_lb_backend_address_pool_ids"
+        elif key == "tfoPublicIPAddressId":
+            suggest = "tfo_public_ip_address_id"
+        elif key == "tfoStaticIPAddress":
+            suggest = "tfo_static_ip_address"
+        elif key == "tfoSubnetName":
+            suggest = "tfo_subnet_name"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IPConfigResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigDetailsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        IPConfigResponse.__key_warning(key)
+        IPConfigDetailsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        IPConfigResponse.__key_warning(key)
+        IPConfigDetailsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 l_b_backend_address_pool_ids: Optional[Sequence[str]] = None,
-                 public_ip_address_id: Optional[str] = None,
-                 static_ip_address: Optional[str] = None):
-        """
-        IP configuration details.
-        :param Sequence[str] l_b_backend_address_pool_ids: The backend address pools associated with the IP configuration.
-        :param str public_ip_address_id: The Id of the public IP address associated with the IP configuration.
-        :param str static_ip_address: The static IP address of the IP configuration.
-        """
-        if l_b_backend_address_pool_ids is not None:
-            pulumi.set(__self__, "l_b_backend_address_pool_ids", l_b_backend_address_pool_ids)
-        if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+                 ip_address_type: Optional[str] = None,
+                 is_primary: Optional[bool] = None,
+                 is_seleted_for_failover: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 recovery_ip_address_type: Optional[str] = None,
+                 recovery_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 recovery_public_ip_address_id: Optional[str] = None,
+                 recovery_static_ip_address: Optional[str] = None,
+                 recovery_subnet_name: Optional[str] = None,
+                 static_ip_address: Optional[str] = None,
+                 subnet_name: Optional[str] = None,
+                 tfo_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
+                 tfo_public_ip_address_id: Optional[str] = None,
+                 tfo_static_ip_address: Optional[str] = None,
+                 tfo_subnet_name: Optional[str] = None):
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if is_primary is not None:
+            pulumi.set(__self__, "is_primary", is_primary)
+        if is_seleted_for_failover is not None:
+            pulumi.set(__self__, "is_seleted_for_failover", is_seleted_for_failover)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if recovery_ip_address_type is not None:
+            pulumi.set(__self__, "recovery_ip_address_type", recovery_ip_address_type)
+        if recovery_lb_backend_address_pool_ids is not None:
+            pulumi.set(__self__, "recovery_lb_backend_address_pool_ids", recovery_lb_backend_address_pool_ids)
+        if recovery_public_ip_address_id is not None:
+            pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
+        if recovery_static_ip_address is not None:
+            pulumi.set(__self__, "recovery_static_ip_address", recovery_static_ip_address)
+        if recovery_subnet_name is not None:
+            pulumi.set(__self__, "recovery_subnet_name", recovery_subnet_name)
         if static_ip_address is not None:
             pulumi.set(__self__, "static_ip_address", static_ip_address)
+        if subnet_name is not None:
+            pulumi.set(__self__, "subnet_name", subnet_name)
+        if tfo_lb_backend_address_pool_ids is not None:
+            pulumi.set(__self__, "tfo_lb_backend_address_pool_ids", tfo_lb_backend_address_pool_ids)
+        if tfo_public_ip_address_id is not None:
+            pulumi.set(__self__, "tfo_public_ip_address_id", tfo_public_ip_address_id)
+        if tfo_static_ip_address is not None:
+            pulumi.set(__self__, "tfo_static_ip_address", tfo_static_ip_address)
+        if tfo_subnet_name is not None:
+            pulumi.set(__self__, "tfo_subnet_name", tfo_subnet_name)
 
     @property
-    @pulumi.getter(name="lBBackendAddressPoolIds")
-    def l_b_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
-        """
-        The backend address pools associated with the IP configuration.
-        """
-        return pulumi.get(self, "l_b_backend_address_pool_ids")
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[str]:
+        return pulumi.get(self, "ip_address_type")
 
     @property
-    @pulumi.getter(name="publicIpAddressId")
-    def public_ip_address_id(self) -> Optional[str]:
-        """
-        The Id of the public IP address associated with the IP configuration.
-        """
-        return pulumi.get(self, "public_ip_address_id")
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> Optional[bool]:
+        return pulumi.get(self, "is_primary")
+
+    @property
+    @pulumi.getter(name="isSeletedForFailover")
+    def is_seleted_for_failover(self) -> Optional[bool]:
+        return pulumi.get(self, "is_seleted_for_failover")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="recoveryIPAddressType")
+    def recovery_ip_address_type(self) -> Optional[str]:
+        return pulumi.get(self, "recovery_ip_address_type")
+
+    @property
+    @pulumi.getter(name="recoveryLBBackendAddressPoolIds")
+    def recovery_lb_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "recovery_lb_backend_address_pool_ids")
+
+    @property
+    @pulumi.getter(name="recoveryPublicIPAddressId")
+    def recovery_public_ip_address_id(self) -> Optional[str]:
+        return pulumi.get(self, "recovery_public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="recoveryStaticIPAddress")
+    def recovery_static_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "recovery_static_ip_address")
+
+    @property
+    @pulumi.getter(name="recoverySubnetName")
+    def recovery_subnet_name(self) -> Optional[str]:
+        return pulumi.get(self, "recovery_subnet_name")
 
     @property
     @pulumi.getter(name="staticIPAddress")
     def static_ip_address(self) -> Optional[str]:
-        """
-        The static IP address of the IP configuration.
-        """
         return pulumi.get(self, "static_ip_address")
+
+    @property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> Optional[str]:
+        return pulumi.get(self, "subnet_name")
+
+    @property
+    @pulumi.getter(name="tfoLBBackendAddressPoolIds")
+    def tfo_lb_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "tfo_lb_backend_address_pool_ids")
+
+    @property
+    @pulumi.getter(name="tfoPublicIPAddressId")
+    def tfo_public_ip_address_id(self) -> Optional[str]:
+        return pulumi.get(self, "tfo_public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="tfoStaticIPAddress")
+    def tfo_static_ip_address(self) -> Optional[str]:
+        return pulumi.get(self, "tfo_static_ip_address")
+
+    @property
+    @pulumi.getter(name="tfoSubnetName")
+    def tfo_subnet_name(self) -> Optional[str]:
+        return pulumi.get(self, "tfo_subnet_name")
 
 
 @pulumi.output_type
@@ -12592,6 +15641,8 @@ class IaaSVMContainerResponse(dict):
             suggest = "friendly_name"
         elif key == "healthStatus":
             suggest = "health_status"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "registrationStatus":
             suggest = "registration_status"
         elif key == "resourceGroup":
@@ -12617,6 +15668,7 @@ class IaaSVMContainerResponse(dict):
                  backup_management_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
+                 protectable_object_type: Optional[str] = None,
                  registration_status: Optional[str] = None,
                  resource_group: Optional[str] = None,
                  virtual_machine_id: Optional[str] = None,
@@ -12627,22 +15679,25 @@ class IaaSVMContainerResponse(dict):
                Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
                Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
                Backup is VMAppContainer
-               Expected value is 'IaaSVMContainer'.
+               Expected value is 'IaasVMContainer'.
         :param str backup_management_type: Type of backup management for the container.
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         :param str resource_group: Resource group name of Recovery Services Vault.
         :param str virtual_machine_id: Fully qualified ARM url of the virtual machine represented by this Azure IaaS VM container.
         :param str virtual_machine_version: Specifies whether the container represents a Classic or an Azure Resource Manager VM.
         """
-        pulumi.set(__self__, "container_type", 'IaaSVMContainer')
+        pulumi.set(__self__, "container_type", 'IaasVMContainer')
         if backup_management_type is not None:
             pulumi.set(__self__, "backup_management_type", backup_management_type)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if registration_status is not None:
             pulumi.set(__self__, "registration_status", registration_status)
         if resource_group is not None:
@@ -12660,7 +15715,7 @@ class IaaSVMContainerResponse(dict):
         Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
         Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
         Backup is VMAppContainer
-        Expected value is 'IaaSVMContainer'.
+        Expected value is 'IaasVMContainer'.
         """
         return pulumi.get(self, "container_type")
 
@@ -12687,6 +15742,14 @@ class IaaSVMContainerResponse(dict):
         Status of health of the container.
         """
         return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="registrationStatus")
@@ -12893,6 +15956,25 @@ class IdentityProviderDetailsResponse(dict):
 
 
 @pulumi.output_type
+class ImmutabilitySettingsResponse(dict):
+    """
+    Immutability Settings of vault
+    """
+    def __init__(__self__, *,
+                 state: Optional[str] = None):
+        """
+        Immutability Settings of vault
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class InMageAgentDetailsResponse(dict):
     """
     The details of the InMage agent.
@@ -12982,12 +16064,16 @@ class InMageAzureV2ManagedDiskDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "diskId":
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskId":
             suggest = "disk_id"
         elif key == "replicaDiskType":
             suggest = "replica_disk_type"
         elif key == "seedManagedDiskId":
             suggest = "seed_managed_disk_id"
+        elif key == "targetDiskName":
+            suggest = "target_disk_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InMageAzureV2ManagedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -13001,21 +16087,37 @@ class InMageAzureV2ManagedDiskDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[str] = None,
                  disk_id: Optional[str] = None,
                  replica_disk_type: Optional[str] = None,
-                 seed_managed_disk_id: Optional[str] = None):
+                 seed_managed_disk_id: Optional[str] = None,
+                 target_disk_name: Optional[str] = None):
         """
         InMageAzureV2 Managed disk details.
+        :param str disk_encryption_set_id: The DiskEncryptionSet ARM ID.
         :param str disk_id: The disk id.
         :param str replica_disk_type: The replica disk type.
         :param str seed_managed_disk_id: Seed managed disk Id.
+        :param str target_disk_name: The target disk name.
         """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_id is not None:
             pulumi.set(__self__, "disk_id", disk_id)
         if replica_disk_type is not None:
             pulumi.set(__self__, "replica_disk_type", replica_disk_type)
         if seed_managed_disk_id is not None:
             pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+        if target_disk_name is not None:
+            pulumi.set(__self__, "target_disk_name", target_disk_name)
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The DiskEncryptionSet ARM ID.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter(name="diskId")
@@ -13040,6 +16142,14 @@ class InMageAzureV2ManagedDiskDetailsResponse(dict):
         Seed managed disk Id.
         """
         return pulumi.get(self, "seed_managed_disk_id")
+
+    @property
+    @pulumi.getter(name="targetDiskName")
+    def target_disk_name(self) -> Optional[str]:
+        """
+        The target disk name.
+        """
+        return pulumi.get(self, "target_disk_name")
 
 
 @pulumi.output_type
@@ -13175,18 +16285,34 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
             suggest = "health_error_code"
         elif key == "lastRpoCalculatedTime":
             suggest = "last_rpo_calculated_time"
+        elif key == "progressHealth":
+            suggest = "progress_health"
+        elif key == "progressStatus":
+            suggest = "progress_status"
         elif key == "protectionStage":
             suggest = "protection_stage"
         elif key == "psDataInMegaBytes":
             suggest = "ps_data_in_mega_bytes"
         elif key == "resyncDurationInSeconds":
             suggest = "resync_duration_in_seconds"
+        elif key == "resyncLast15MinutesTransferredBytes":
+            suggest = "resync_last15_minutes_transferred_bytes"
+        elif key == "resyncLastDataTransferTimeUTC":
+            suggest = "resync_last_data_transfer_time_utc"
+        elif key == "resyncProcessedBytes":
+            suggest = "resync_processed_bytes"
         elif key == "resyncProgressPercentage":
             suggest = "resync_progress_percentage"
         elif key == "resyncRequired":
             suggest = "resync_required"
+        elif key == "resyncStartTime":
+            suggest = "resync_start_time"
+        elif key == "resyncTotalTransferredBytes":
+            suggest = "resync_total_transferred_bytes"
         elif key == "rpoInSeconds":
             suggest = "rpo_in_seconds"
+        elif key == "secondsToTakeSwitchProvider":
+            suggest = "seconds_to_take_switch_provider"
         elif key == "sourceDataInMegaBytes":
             suggest = "source_data_in_mega_bytes"
         elif key == "targetDataInMegaBytes":
@@ -13211,12 +16337,20 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
                  file_system_capacity_in_bytes: Optional[float] = None,
                  health_error_code: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
+                 progress_health: Optional[str] = None,
+                 progress_status: Optional[str] = None,
                  protection_stage: Optional[str] = None,
                  ps_data_in_mega_bytes: Optional[float] = None,
                  resync_duration_in_seconds: Optional[float] = None,
+                 resync_last15_minutes_transferred_bytes: Optional[float] = None,
+                 resync_last_data_transfer_time_utc: Optional[str] = None,
+                 resync_processed_bytes: Optional[float] = None,
                  resync_progress_percentage: Optional[int] = None,
                  resync_required: Optional[str] = None,
+                 resync_start_time: Optional[str] = None,
+                 resync_total_transferred_bytes: Optional[float] = None,
                  rpo_in_seconds: Optional[float] = None,
+                 seconds_to_take_switch_provider: Optional[float] = None,
                  source_data_in_mega_bytes: Optional[float] = None,
                  target_data_in_mega_bytes: Optional[float] = None):
         """
@@ -13228,12 +16362,20 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
         :param float file_system_capacity_in_bytes: The disk file system capacity in bytes.
         :param str health_error_code: The health error code for the disk.
         :param str last_rpo_calculated_time: The last RPO calculated time.
+        :param str progress_health: The Progress Health.
+        :param str progress_status: The Progress Status.
         :param str protection_stage: The protection stage.
         :param float ps_data_in_mega_bytes: The PS data transit in MB.
         :param float resync_duration_in_seconds: The resync duration in seconds.
+        :param float resync_last15_minutes_transferred_bytes: The resync last 15 minutes transferred bytes.
+        :param str resync_last_data_transfer_time_utc: The last data transfer time in UTC.
+        :param float resync_processed_bytes: The resync processed bytes.
         :param int resync_progress_percentage: The resync progress percentage.
         :param str resync_required: A value indicating whether resync is required for this disk.
+        :param str resync_start_time: The resync start time.
+        :param float resync_total_transferred_bytes: The resync total transferred bytes.
         :param float rpo_in_seconds: The RPO in seconds.
+        :param float seconds_to_take_switch_provider: The seconds to take for switch provider.
         :param float source_data_in_mega_bytes: The source data transit in MB.
         :param float target_data_in_mega_bytes: The target data transit in MB.
         """
@@ -13251,18 +16393,34 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
             pulumi.set(__self__, "health_error_code", health_error_code)
         if last_rpo_calculated_time is not None:
             pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+        if progress_health is not None:
+            pulumi.set(__self__, "progress_health", progress_health)
+        if progress_status is not None:
+            pulumi.set(__self__, "progress_status", progress_status)
         if protection_stage is not None:
             pulumi.set(__self__, "protection_stage", protection_stage)
         if ps_data_in_mega_bytes is not None:
             pulumi.set(__self__, "ps_data_in_mega_bytes", ps_data_in_mega_bytes)
         if resync_duration_in_seconds is not None:
             pulumi.set(__self__, "resync_duration_in_seconds", resync_duration_in_seconds)
+        if resync_last15_minutes_transferred_bytes is not None:
+            pulumi.set(__self__, "resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
+        if resync_last_data_transfer_time_utc is not None:
+            pulumi.set(__self__, "resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
+        if resync_processed_bytes is not None:
+            pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
         if resync_progress_percentage is not None:
             pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
         if resync_required is not None:
             pulumi.set(__self__, "resync_required", resync_required)
+        if resync_start_time is not None:
+            pulumi.set(__self__, "resync_start_time", resync_start_time)
+        if resync_total_transferred_bytes is not None:
+            pulumi.set(__self__, "resync_total_transferred_bytes", resync_total_transferred_bytes)
         if rpo_in_seconds is not None:
             pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+        if seconds_to_take_switch_provider is not None:
+            pulumi.set(__self__, "seconds_to_take_switch_provider", seconds_to_take_switch_provider)
         if source_data_in_mega_bytes is not None:
             pulumi.set(__self__, "source_data_in_mega_bytes", source_data_in_mega_bytes)
         if target_data_in_mega_bytes is not None:
@@ -13325,6 +16483,22 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "last_rpo_calculated_time")
 
     @property
+    @pulumi.getter(name="progressHealth")
+    def progress_health(self) -> Optional[str]:
+        """
+        The Progress Health.
+        """
+        return pulumi.get(self, "progress_health")
+
+    @property
+    @pulumi.getter(name="progressStatus")
+    def progress_status(self) -> Optional[str]:
+        """
+        The Progress Status.
+        """
+        return pulumi.get(self, "progress_status")
+
+    @property
     @pulumi.getter(name="protectionStage")
     def protection_stage(self) -> Optional[str]:
         """
@@ -13349,6 +16523,30 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "resync_duration_in_seconds")
 
     @property
+    @pulumi.getter(name="resyncLast15MinutesTransferredBytes")
+    def resync_last15_minutes_transferred_bytes(self) -> Optional[float]:
+        """
+        The resync last 15 minutes transferred bytes.
+        """
+        return pulumi.get(self, "resync_last15_minutes_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="resyncLastDataTransferTimeUTC")
+    def resync_last_data_transfer_time_utc(self) -> Optional[str]:
+        """
+        The last data transfer time in UTC.
+        """
+        return pulumi.get(self, "resync_last_data_transfer_time_utc")
+
+    @property
+    @pulumi.getter(name="resyncProcessedBytes")
+    def resync_processed_bytes(self) -> Optional[float]:
+        """
+        The resync processed bytes.
+        """
+        return pulumi.get(self, "resync_processed_bytes")
+
+    @property
     @pulumi.getter(name="resyncProgressPercentage")
     def resync_progress_percentage(self) -> Optional[int]:
         """
@@ -13365,12 +16563,36 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "resync_required")
 
     @property
+    @pulumi.getter(name="resyncStartTime")
+    def resync_start_time(self) -> Optional[str]:
+        """
+        The resync start time.
+        """
+        return pulumi.get(self, "resync_start_time")
+
+    @property
+    @pulumi.getter(name="resyncTotalTransferredBytes")
+    def resync_total_transferred_bytes(self) -> Optional[float]:
+        """
+        The resync total transferred bytes.
+        """
+        return pulumi.get(self, "resync_total_transferred_bytes")
+
+    @property
     @pulumi.getter(name="rpoInSeconds")
     def rpo_in_seconds(self) -> Optional[float]:
         """
         The RPO in seconds.
         """
         return pulumi.get(self, "rpo_in_seconds")
+
+    @property
+    @pulumi.getter(name="secondsToTakeSwitchProvider")
+    def seconds_to_take_switch_provider(self) -> Optional[float]:
+        """
+        The seconds to take for switch provider.
+        """
+        return pulumi.get(self, "seconds_to_take_switch_provider")
 
     @property
     @pulumi.getter(name="sourceDataInMegaBytes")
@@ -13392,21 +16614,23 @@ class InMageAzureV2ProtectedDiskDetailsResponse(dict):
 @pulumi.output_type
 class InMageAzureV2ReplicationDetailsResponse(dict):
     """
-    InMageAzureV2 provider specific settings
+    InMageAzureV2 provider specific settings.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
-        elif key == "processServerName":
-            suggest = "process_server_name"
+        elif key == "lastRecoveryPointReceived":
+            suggest = "last_recovery_point_received"
         elif key == "agentExpiryDate":
             suggest = "agent_expiry_date"
         elif key == "agentVersion":
             suggest = "agent_version"
         elif key == "azureVMDiskDetails":
             suggest = "azure_vm_disk_details"
+        elif key == "azureVmGeneration":
+            suggest = "azure_vm_generation"
         elif key == "compressedDataRateInMB":
             suggest = "compressed_data_rate_in_mb"
         elif key == "discoveryType":
@@ -13415,10 +16639,14 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             suggest = "disk_resized"
         elif key == "enableRdpOnTargetOption":
             suggest = "enable_rdp_on_target_option"
+        elif key == "firmwareType":
+            suggest = "firmware_type"
         elif key == "infrastructureVmId":
             suggest = "infrastructure_vm_id"
         elif key == "ipAddress":
             suggest = "ip_address"
+        elif key == "isAdditionalStatsAvailable":
+            suggest = "is_additional_stats_available"
         elif key == "isAgentUpdateRequired":
             suggest = "is_agent_update_required"
         elif key == "isRebootAfterUpdateRequired":
@@ -13447,6 +16675,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             suggest = "os_version"
         elif key == "processServerId":
             suggest = "process_server_id"
+        elif key == "processServerName":
+            suggest = "process_server_name"
         elif key == "protectedDisks":
             suggest = "protected_disks"
         elif key == "protectedManagedDisks":
@@ -13471,6 +16701,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             suggest = "resync_progress_percentage"
         elif key == "rpoInSeconds":
             suggest = "rpo_in_seconds"
+        elif key == "seedManagedDiskTags":
+            suggest = "seed_managed_disk_tags"
         elif key == "selectedRecoveryAzureNetworkId":
             suggest = "selected_recovery_azure_network_id"
         elif key == "selectedSourceNicId":
@@ -13481,12 +16713,28 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             suggest = "source_vm_cpu_count"
         elif key == "sourceVmRamSizeInMB":
             suggest = "source_vm_ram_size_in_mb"
+        elif key == "sqlServerLicenseType":
+            suggest = "sql_server_license_type"
+        elif key == "switchProviderBlockingErrorDetails":
+            suggest = "switch_provider_blocking_error_details"
+        elif key == "switchProviderDetails":
+            suggest = "switch_provider_details"
         elif key == "targetAvailabilityZone":
             suggest = "target_availability_zone"
+        elif key == "targetManagedDiskTags":
+            suggest = "target_managed_disk_tags"
+        elif key == "targetNicTags":
+            suggest = "target_nic_tags"
         elif key == "targetProximityPlacementGroupId":
             suggest = "target_proximity_placement_group_id"
         elif key == "targetVmId":
             suggest = "target_vm_id"
+        elif key == "targetVmTags":
+            suggest = "target_vm_tags"
+        elif key == "totalDataTransferred":
+            suggest = "total_data_transferred"
+        elif key == "totalProgressHealth":
+            suggest = "total_progress_health"
         elif key == "uncompressedDataRateInMB":
             suggest = "uncompressed_data_rate_in_mb"
         elif key == "useManagedDisks":
@@ -13519,17 +16767,20 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
 
     def __init__(__self__, *,
                  instance_type: str,
-                 process_server_name: str,
+                 last_recovery_point_received: str,
                  agent_expiry_date: Optional[str] = None,
                  agent_version: Optional[str] = None,
                  azure_vm_disk_details: Optional[Sequence['outputs.AzureVmDiskDetailsResponse']] = None,
+                 azure_vm_generation: Optional[str] = None,
                  compressed_data_rate_in_mb: Optional[float] = None,
                  datastores: Optional[Sequence[str]] = None,
                  discovery_type: Optional[str] = None,
                  disk_resized: Optional[str] = None,
                  enable_rdp_on_target_option: Optional[str] = None,
+                 firmware_type: Optional[str] = None,
                  infrastructure_vm_id: Optional[str] = None,
                  ip_address: Optional[str] = None,
+                 is_additional_stats_available: Optional[bool] = None,
                  is_agent_update_required: Optional[str] = None,
                  is_reboot_after_update_required: Optional[str] = None,
                  last_heartbeat: Optional[str] = None,
@@ -13544,6 +16795,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  os_type: Optional[str] = None,
                  os_version: Optional[str] = None,
                  process_server_id: Optional[str] = None,
+                 process_server_name: Optional[str] = None,
                  protected_disks: Optional[Sequence['outputs.InMageAzureV2ProtectedDiskDetailsResponse']] = None,
                  protected_managed_disks: Optional[Sequence['outputs.InMageAzureV2ManagedDiskDetailsResponse']] = None,
                  protection_stage: Optional[str] = None,
@@ -13556,14 +16808,23 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  replica_id: Optional[str] = None,
                  resync_progress_percentage: Optional[int] = None,
                  rpo_in_seconds: Optional[float] = None,
+                 seed_managed_disk_tags: Optional[Mapping[str, str]] = None,
                  selected_recovery_azure_network_id: Optional[str] = None,
                  selected_source_nic_id: Optional[str] = None,
                  selected_tfo_azure_network_id: Optional[str] = None,
                  source_vm_cpu_count: Optional[int] = None,
                  source_vm_ram_size_in_mb: Optional[int] = None,
+                 sql_server_license_type: Optional[str] = None,
+                 switch_provider_blocking_error_details: Optional[Sequence['outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse']] = None,
+                 switch_provider_details: Optional['outputs.InMageAzureV2SwitchProviderDetailsResponse'] = None,
                  target_availability_zone: Optional[str] = None,
+                 target_managed_disk_tags: Optional[Mapping[str, str]] = None,
+                 target_nic_tags: Optional[Mapping[str, str]] = None,
                  target_proximity_placement_group_id: Optional[str] = None,
                  target_vm_id: Optional[str] = None,
+                 target_vm_tags: Optional[Mapping[str, str]] = None,
+                 total_data_transferred: Optional[float] = None,
+                 total_progress_health: Optional[str] = None,
                  uncompressed_data_rate_in_mb: Optional[float] = None,
                  use_managed_disks: Optional[str] = None,
                  v_center_infrastructure_id: Optional[str] = None,
@@ -13574,20 +16835,23 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
-        InMageAzureV2 provider specific settings
+        InMageAzureV2 provider specific settings.
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMageAzureV2'.
-        :param str process_server_name: The process server name.
+        :param str last_recovery_point_received: The last recovery point received time.
         :param str agent_expiry_date: Agent expiry date.
         :param str agent_version: The agent version.
         :param Sequence['AzureVmDiskDetailsResponse'] azure_vm_disk_details: Azure VM Disk details.
+        :param str azure_vm_generation: The target generation for this protected item.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
-        :param Sequence[str] datastores: The data stores of the on-premise machine. Value can be list of strings that contain data store names.
+        :param Sequence[str] datastores: The datastores of the on-premise machine. Value can be list of strings that contain datastore names.
         :param str discovery_type: A value indicating the discovery type of the machine. Value can be vCenter or physical.
         :param str disk_resized: A value indicating whether any disk is resized for this VM.
-        :param str enable_rdp_on_target_option: The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+        :param str enable_rdp_on_target_option: The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
+        :param str firmware_type: The firmware type of this protected item.
         :param str infrastructure_vm_id: The infrastructure VM Id.
         :param str ip_address: The source IP address.
+        :param bool is_additional_stats_available: A value indicating whether additional IR stats are available or not.
         :param str is_agent_update_required: A value indicating whether installed agent needs to be updated.
         :param str is_reboot_after_update_required: A value indicating whether the source server requires a restart after update.
         :param str last_heartbeat: The last heartbeat received from the source server.
@@ -13602,6 +16866,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str os_type: The type of the OS on the VM.
         :param str os_version: The OS Version of the protected item.
         :param str process_server_id: The process server Id.
+        :param str process_server_name: The process server name.
         :param Sequence['InMageAzureV2ProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param Sequence['InMageAzureV2ManagedDiskDetailsResponse'] protected_managed_disks: The list of protected managed disks.
         :param str protection_stage: The protection stage.
@@ -13614,14 +16879,23 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str replica_id: The replica id of the protected item.
         :param int resync_progress_percentage: The resync progress percentage.
         :param float rpo_in_seconds: The RPO in seconds.
+        :param Mapping[str, str] seed_managed_disk_tags: The tags for the seed managed disks.
         :param str selected_recovery_azure_network_id: The selected recovery azure network Id.
         :param str selected_source_nic_id: The selected source nic Id which will be used as the primary nic during failover.
         :param str selected_tfo_azure_network_id: The test failover virtual network.
         :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
+        :param str sql_server_license_type: The SQL Server license type.
+        :param Sequence['InMageAzureV2SwitchProviderBlockingErrorDetailsResponse'] switch_provider_blocking_error_details: The switch provider blocking error information.
+        :param 'InMageAzureV2SwitchProviderDetailsResponse' switch_provider_details: The switch provider blocking error information.
         :param str target_availability_zone: The target availability zone.
+        :param Mapping[str, str] target_managed_disk_tags: The tags for the target managed disks.
+        :param Mapping[str, str] target_nic_tags: The tags for the target NICs.
         :param str target_proximity_placement_group_id: The target proximity placement group Id.
         :param str target_vm_id: The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
+        :param Mapping[str, str] target_vm_tags: The target VM tags.
+        :param float total_data_transferred: The total transferred data in bytes.
+        :param str total_progress_health: The progress health.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str use_managed_disks: A value indicating whether managed disks should be used during failover.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
@@ -13633,13 +16907,15 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         :param str vm_protection_state_description: The protection state description for the vm.
         """
         pulumi.set(__self__, "instance_type", 'InMageAzureV2')
-        pulumi.set(__self__, "process_server_name", process_server_name)
+        pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
         if agent_expiry_date is not None:
             pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
         if azure_vm_disk_details is not None:
             pulumi.set(__self__, "azure_vm_disk_details", azure_vm_disk_details)
+        if azure_vm_generation is not None:
+            pulumi.set(__self__, "azure_vm_generation", azure_vm_generation)
         if compressed_data_rate_in_mb is not None:
             pulumi.set(__self__, "compressed_data_rate_in_mb", compressed_data_rate_in_mb)
         if datastores is not None:
@@ -13650,10 +16926,14 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             pulumi.set(__self__, "disk_resized", disk_resized)
         if enable_rdp_on_target_option is not None:
             pulumi.set(__self__, "enable_rdp_on_target_option", enable_rdp_on_target_option)
+        if firmware_type is not None:
+            pulumi.set(__self__, "firmware_type", firmware_type)
         if infrastructure_vm_id is not None:
             pulumi.set(__self__, "infrastructure_vm_id", infrastructure_vm_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if is_additional_stats_available is not None:
+            pulumi.set(__self__, "is_additional_stats_available", is_additional_stats_available)
         if is_agent_update_required is not None:
             pulumi.set(__self__, "is_agent_update_required", is_agent_update_required)
         if is_reboot_after_update_required is not None:
@@ -13682,6 +16962,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             pulumi.set(__self__, "os_version", os_version)
         if process_server_id is not None:
             pulumi.set(__self__, "process_server_id", process_server_id)
+        if process_server_name is not None:
+            pulumi.set(__self__, "process_server_name", process_server_name)
         if protected_disks is not None:
             pulumi.set(__self__, "protected_disks", protected_disks)
         if protected_managed_disks is not None:
@@ -13706,6 +16988,8 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
         if rpo_in_seconds is not None:
             pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
+        if seed_managed_disk_tags is not None:
+            pulumi.set(__self__, "seed_managed_disk_tags", seed_managed_disk_tags)
         if selected_recovery_azure_network_id is not None:
             pulumi.set(__self__, "selected_recovery_azure_network_id", selected_recovery_azure_network_id)
         if selected_source_nic_id is not None:
@@ -13716,12 +17000,28 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
             pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
             pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+        if sql_server_license_type is not None:
+            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+        if switch_provider_blocking_error_details is not None:
+            pulumi.set(__self__, "switch_provider_blocking_error_details", switch_provider_blocking_error_details)
+        if switch_provider_details is not None:
+            pulumi.set(__self__, "switch_provider_details", switch_provider_details)
         if target_availability_zone is not None:
             pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        if target_managed_disk_tags is not None:
+            pulumi.set(__self__, "target_managed_disk_tags", target_managed_disk_tags)
+        if target_nic_tags is not None:
+            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
         if target_proximity_placement_group_id is not None:
             pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_vm_id is not None:
             pulumi.set(__self__, "target_vm_id", target_vm_id)
+        if target_vm_tags is not None:
+            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+        if total_data_transferred is not None:
+            pulumi.set(__self__, "total_data_transferred", total_data_transferred)
+        if total_progress_health is not None:
+            pulumi.set(__self__, "total_progress_health", total_progress_health)
         if uncompressed_data_rate_in_mb is not None:
             pulumi.set(__self__, "uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
         if use_managed_disks is not None:
@@ -13751,12 +17051,12 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         return pulumi.get(self, "instance_type")
 
     @property
-    @pulumi.getter(name="processServerName")
-    def process_server_name(self) -> str:
+    @pulumi.getter(name="lastRecoveryPointReceived")
+    def last_recovery_point_received(self) -> str:
         """
-        The process server name.
+        The last recovery point received time.
         """
-        return pulumi.get(self, "process_server_name")
+        return pulumi.get(self, "last_recovery_point_received")
 
     @property
     @pulumi.getter(name="agentExpiryDate")
@@ -13783,6 +17083,14 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         return pulumi.get(self, "azure_vm_disk_details")
 
     @property
+    @pulumi.getter(name="azureVmGeneration")
+    def azure_vm_generation(self) -> Optional[str]:
+        """
+        The target generation for this protected item.
+        """
+        return pulumi.get(self, "azure_vm_generation")
+
+    @property
     @pulumi.getter(name="compressedDataRateInMB")
     def compressed_data_rate_in_mb(self) -> Optional[float]:
         """
@@ -13794,7 +17102,7 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
     @pulumi.getter
     def datastores(self) -> Optional[Sequence[str]]:
         """
-        The data stores of the on-premise machine. Value can be list of strings that contain data store names.
+        The datastores of the on-premise machine. Value can be list of strings that contain datastore names.
         """
         return pulumi.get(self, "datastores")
 
@@ -13818,9 +17126,17 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
     @pulumi.getter(name="enableRdpOnTargetOption")
     def enable_rdp_on_target_option(self) -> Optional[str]:
         """
-        The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.
+        The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.
         """
         return pulumi.get(self, "enable_rdp_on_target_option")
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> Optional[str]:
+        """
+        The firmware type of this protected item.
+        """
+        return pulumi.get(self, "firmware_type")
 
     @property
     @pulumi.getter(name="infrastructureVmId")
@@ -13837,6 +17153,14 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         The source IP address.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="isAdditionalStatsAvailable")
+    def is_additional_stats_available(self) -> Optional[bool]:
+        """
+        A value indicating whether additional IR stats are available or not.
+        """
+        return pulumi.get(self, "is_additional_stats_available")
 
     @property
     @pulumi.getter(name="isAgentUpdateRequired")
@@ -13951,6 +17275,14 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         return pulumi.get(self, "process_server_id")
 
     @property
+    @pulumi.getter(name="processServerName")
+    def process_server_name(self) -> Optional[str]:
+        """
+        The process server name.
+        """
+        return pulumi.get(self, "process_server_name")
+
+    @property
     @pulumi.getter(name="protectedDisks")
     def protected_disks(self) -> Optional[Sequence['outputs.InMageAzureV2ProtectedDiskDetailsResponse']]:
         """
@@ -14047,6 +17379,14 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         return pulumi.get(self, "rpo_in_seconds")
 
     @property
+    @pulumi.getter(name="seedManagedDiskTags")
+    def seed_managed_disk_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the seed managed disks.
+        """
+        return pulumi.get(self, "seed_managed_disk_tags")
+
+    @property
     @pulumi.getter(name="selectedRecoveryAzureNetworkId")
     def selected_recovery_azure_network_id(self) -> Optional[str]:
         """
@@ -14087,12 +17427,52 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         return pulumi.get(self, "source_vm_ram_size_in_mb")
 
     @property
+    @pulumi.getter(name="sqlServerLicenseType")
+    def sql_server_license_type(self) -> Optional[str]:
+        """
+        The SQL Server license type.
+        """
+        return pulumi.get(self, "sql_server_license_type")
+
+    @property
+    @pulumi.getter(name="switchProviderBlockingErrorDetails")
+    def switch_provider_blocking_error_details(self) -> Optional[Sequence['outputs.InMageAzureV2SwitchProviderBlockingErrorDetailsResponse']]:
+        """
+        The switch provider blocking error information.
+        """
+        return pulumi.get(self, "switch_provider_blocking_error_details")
+
+    @property
+    @pulumi.getter(name="switchProviderDetails")
+    def switch_provider_details(self) -> Optional['outputs.InMageAzureV2SwitchProviderDetailsResponse']:
+        """
+        The switch provider blocking error information.
+        """
+        return pulumi.get(self, "switch_provider_details")
+
+    @property
     @pulumi.getter(name="targetAvailabilityZone")
     def target_availability_zone(self) -> Optional[str]:
         """
         The target availability zone.
         """
         return pulumi.get(self, "target_availability_zone")
+
+    @property
+    @pulumi.getter(name="targetManagedDiskTags")
+    def target_managed_disk_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target managed disks.
+        """
+        return pulumi.get(self, "target_managed_disk_tags")
+
+    @property
+    @pulumi.getter(name="targetNicTags")
+    def target_nic_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target NICs.
+        """
+        return pulumi.get(self, "target_nic_tags")
 
     @property
     @pulumi.getter(name="targetProximityPlacementGroupId")
@@ -14109,6 +17489,30 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.
         """
         return pulumi.get(self, "target_vm_id")
+
+    @property
+    @pulumi.getter(name="targetVmTags")
+    def target_vm_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The target VM tags.
+        """
+        return pulumi.get(self, "target_vm_tags")
+
+    @property
+    @pulumi.getter(name="totalDataTransferred")
+    def total_data_transferred(self) -> Optional[float]:
+        """
+        The total transferred data in bytes.
+        """
+        return pulumi.get(self, "total_data_transferred")
+
+    @property
+    @pulumi.getter(name="totalProgressHealth")
+    def total_progress_health(self) -> Optional[str]:
+        """
+        The progress health.
+        """
+        return pulumi.get(self, "total_progress_health")
 
     @property
     @pulumi.getter(name="uncompressedDataRateInMB")
@@ -14181,6 +17585,188 @@ class InMageAzureV2ReplicationDetailsResponse(dict):
         The protection state description for the vm.
         """
         return pulumi.get(self, "vm_protection_state_description")
+
+
+@pulumi.output_type
+class InMageAzureV2SwitchProviderBlockingErrorDetailsResponse(dict):
+    """
+    InMageAzureV2 switch provider blocking error details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "errorMessageParameters":
+            suggest = "error_message_parameters"
+        elif key == "errorTags":
+            suggest = "error_tags"
+        elif key == "possibleCauses":
+            suggest = "possible_causes"
+        elif key == "recommendedAction":
+            suggest = "recommended_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageAzureV2SwitchProviderBlockingErrorDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageAzureV2SwitchProviderBlockingErrorDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageAzureV2SwitchProviderBlockingErrorDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 error_message_parameters: Mapping[str, str],
+                 error_tags: Mapping[str, str],
+                 possible_causes: str,
+                 recommended_action: str):
+        """
+        InMageAzureV2 switch provider blocking error details.
+        :param str error_code: The error code.
+        :param str error_message: The error message.
+        :param Mapping[str, str] error_message_parameters: The error message parameters.
+        :param Mapping[str, str] error_tags: The error tags.
+        :param str possible_causes: The possible causes.
+        :param str recommended_action: The recommended action.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
+        pulumi.set(__self__, "error_tags", error_tags)
+        pulumi.set(__self__, "possible_causes", possible_causes)
+        pulumi.set(__self__, "recommended_action", recommended_action)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="errorMessageParameters")
+    def error_message_parameters(self) -> Mapping[str, str]:
+        """
+        The error message parameters.
+        """
+        return pulumi.get(self, "error_message_parameters")
+
+    @property
+    @pulumi.getter(name="errorTags")
+    def error_tags(self) -> Mapping[str, str]:
+        """
+        The error tags.
+        """
+        return pulumi.get(self, "error_tags")
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> str:
+        """
+        The possible causes.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> str:
+        """
+        The recommended action.
+        """
+        return pulumi.get(self, "recommended_action")
+
+
+@pulumi.output_type
+class InMageAzureV2SwitchProviderDetailsResponse(dict):
+    """
+    InMageAzureV2 switch provider details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetApplianceId":
+            suggest = "target_appliance_id"
+        elif key == "targetFabricId":
+            suggest = "target_fabric_id"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "targetVaultId":
+            suggest = "target_vault_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageAzureV2SwitchProviderDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageAzureV2SwitchProviderDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageAzureV2SwitchProviderDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_appliance_id: str,
+                 target_fabric_id: str,
+                 target_resource_id: str,
+                 target_vault_id: str):
+        """
+        InMageAzureV2 switch provider details.
+        :param str target_appliance_id: The target appliance Id.
+        :param str target_fabric_id: The target fabric Id.
+        :param str target_resource_id: The target resource Id.
+        :param str target_vault_id: The target vault Id.
+        """
+        pulumi.set(__self__, "target_appliance_id", target_appliance_id)
+        pulumi.set(__self__, "target_fabric_id", target_fabric_id)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        pulumi.set(__self__, "target_vault_id", target_vault_id)
+
+    @property
+    @pulumi.getter(name="targetApplianceId")
+    def target_appliance_id(self) -> str:
+        """
+        The target appliance Id.
+        """
+        return pulumi.get(self, "target_appliance_id")
+
+    @property
+    @pulumi.getter(name="targetFabricId")
+    def target_fabric_id(self) -> str:
+        """
+        The target fabric Id.
+        """
+        return pulumi.get(self, "target_fabric_id")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
+        """
+        The target resource Id.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter(name="targetVaultId")
+    def target_vault_id(self) -> str:
+        """
+        The target vault Id.
+        """
+        return pulumi.get(self, "target_vault_id")
 
 
 @pulumi.output_type
@@ -14278,6 +17864,110 @@ class InMageBasePolicyDetailsResponse(dict):
         The recovery point threshold in minutes.
         """
         return pulumi.get(self, "recovery_point_threshold_in_minutes")
+
+
+@pulumi.output_type
+class InMageFabricSwitchProviderBlockingErrorDetailsResponse(dict):
+    """
+    InMageFabric switch provider blocking error details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "errorMessageParameters":
+            suggest = "error_message_parameters"
+        elif key == "errorTags":
+            suggest = "error_tags"
+        elif key == "possibleCauses":
+            suggest = "possible_causes"
+        elif key == "recommendedAction":
+            suggest = "recommended_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageFabricSwitchProviderBlockingErrorDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageFabricSwitchProviderBlockingErrorDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageFabricSwitchProviderBlockingErrorDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 error_message_parameters: Mapping[str, str],
+                 error_tags: Mapping[str, str],
+                 possible_causes: str,
+                 recommended_action: str):
+        """
+        InMageFabric switch provider blocking error details.
+        :param str error_code: The error code.
+        :param str error_message: The error message.
+        :param Mapping[str, str] error_message_parameters: The error message parameters.
+        :param Mapping[str, str] error_tags: The error tags.
+        :param str possible_causes: The possible causes.
+        :param str recommended_action: The recommended action.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "error_message_parameters", error_message_parameters)
+        pulumi.set(__self__, "error_tags", error_tags)
+        pulumi.set(__self__, "possible_causes", possible_causes)
+        pulumi.set(__self__, "recommended_action", recommended_action)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="errorMessageParameters")
+    def error_message_parameters(self) -> Mapping[str, str]:
+        """
+        The error message parameters.
+        """
+        return pulumi.get(self, "error_message_parameters")
+
+    @property
+    @pulumi.getter(name="errorTags")
+    def error_tags(self) -> Mapping[str, str]:
+        """
+        The error tags.
+        """
+        return pulumi.get(self, "error_tags")
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> str:
+        """
+        The possible causes.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> str:
+        """
+        The recommended action.
+        """
+        return pulumi.get(self, "recommended_action")
 
 
 @pulumi.output_type
@@ -14399,16 +18089,30 @@ class InMageProtectedDiskDetailsResponse(dict):
             suggest = "health_error_code"
         elif key == "lastRpoCalculatedTime":
             suggest = "last_rpo_calculated_time"
+        elif key == "progressHealth":
+            suggest = "progress_health"
+        elif key == "progressStatus":
+            suggest = "progress_status"
         elif key == "protectionStage":
             suggest = "protection_stage"
         elif key == "psDataInMB":
             suggest = "ps_data_in_mb"
         elif key == "resyncDurationInSeconds":
             suggest = "resync_duration_in_seconds"
+        elif key == "resyncLast15MinutesTransferredBytes":
+            suggest = "resync_last15_minutes_transferred_bytes"
+        elif key == "resyncLastDataTransferTimeUTC":
+            suggest = "resync_last_data_transfer_time_utc"
+        elif key == "resyncProcessedBytes":
+            suggest = "resync_processed_bytes"
         elif key == "resyncProgressPercentage":
             suggest = "resync_progress_percentage"
         elif key == "resyncRequired":
             suggest = "resync_required"
+        elif key == "resyncStartTime":
+            suggest = "resync_start_time"
+        elif key == "resyncTotalTransferredBytes":
+            suggest = "resync_total_transferred_bytes"
         elif key == "rpoInSeconds":
             suggest = "rpo_in_seconds"
         elif key == "sourceDataInMB":
@@ -14435,11 +18139,18 @@ class InMageProtectedDiskDetailsResponse(dict):
                  file_system_capacity_in_bytes: Optional[float] = None,
                  health_error_code: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
+                 progress_health: Optional[str] = None,
+                 progress_status: Optional[str] = None,
                  protection_stage: Optional[str] = None,
                  ps_data_in_mb: Optional[float] = None,
                  resync_duration_in_seconds: Optional[float] = None,
+                 resync_last15_minutes_transferred_bytes: Optional[float] = None,
+                 resync_last_data_transfer_time_utc: Optional[str] = None,
+                 resync_processed_bytes: Optional[float] = None,
                  resync_progress_percentage: Optional[int] = None,
                  resync_required: Optional[str] = None,
+                 resync_start_time: Optional[str] = None,
+                 resync_total_transferred_bytes: Optional[float] = None,
                  rpo_in_seconds: Optional[float] = None,
                  source_data_in_mb: Optional[float] = None,
                  target_data_in_mb: Optional[float] = None):
@@ -14452,11 +18163,18 @@ class InMageProtectedDiskDetailsResponse(dict):
         :param float file_system_capacity_in_bytes: The file system capacity in bytes.
         :param str health_error_code: The health error code for the disk.
         :param str last_rpo_calculated_time: The last RPO calculated time.
+        :param str progress_health: The Progress Health.
+        :param str progress_status: The Progress Status.
         :param str protection_stage: The protection stage.
         :param float ps_data_in_mb: The PS data transit in MB.
         :param float resync_duration_in_seconds: The resync duration in seconds.
+        :param float resync_last15_minutes_transferred_bytes: The resync last 15 minutes transferred bytes.
+        :param str resync_last_data_transfer_time_utc: The last data transfer time in UTC.
+        :param float resync_processed_bytes: The resync processed bytes.
         :param int resync_progress_percentage: The resync progress percentage.
         :param str resync_required: A value indicating whether resync is required for this disk.
+        :param str resync_start_time: The resync start time.
+        :param float resync_total_transferred_bytes: The resync total transferred bytes.
         :param float rpo_in_seconds: The RPO in seconds.
         :param float source_data_in_mb: The source data transit in MB.
         :param float target_data_in_mb: The target data transit in MB.
@@ -14475,16 +18193,30 @@ class InMageProtectedDiskDetailsResponse(dict):
             pulumi.set(__self__, "health_error_code", health_error_code)
         if last_rpo_calculated_time is not None:
             pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
+        if progress_health is not None:
+            pulumi.set(__self__, "progress_health", progress_health)
+        if progress_status is not None:
+            pulumi.set(__self__, "progress_status", progress_status)
         if protection_stage is not None:
             pulumi.set(__self__, "protection_stage", protection_stage)
         if ps_data_in_mb is not None:
             pulumi.set(__self__, "ps_data_in_mb", ps_data_in_mb)
         if resync_duration_in_seconds is not None:
             pulumi.set(__self__, "resync_duration_in_seconds", resync_duration_in_seconds)
+        if resync_last15_minutes_transferred_bytes is not None:
+            pulumi.set(__self__, "resync_last15_minutes_transferred_bytes", resync_last15_minutes_transferred_bytes)
+        if resync_last_data_transfer_time_utc is not None:
+            pulumi.set(__self__, "resync_last_data_transfer_time_utc", resync_last_data_transfer_time_utc)
+        if resync_processed_bytes is not None:
+            pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
         if resync_progress_percentage is not None:
             pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
         if resync_required is not None:
             pulumi.set(__self__, "resync_required", resync_required)
+        if resync_start_time is not None:
+            pulumi.set(__self__, "resync_start_time", resync_start_time)
+        if resync_total_transferred_bytes is not None:
+            pulumi.set(__self__, "resync_total_transferred_bytes", resync_total_transferred_bytes)
         if rpo_in_seconds is not None:
             pulumi.set(__self__, "rpo_in_seconds", rpo_in_seconds)
         if source_data_in_mb is not None:
@@ -14549,6 +18281,22 @@ class InMageProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "last_rpo_calculated_time")
 
     @property
+    @pulumi.getter(name="progressHealth")
+    def progress_health(self) -> Optional[str]:
+        """
+        The Progress Health.
+        """
+        return pulumi.get(self, "progress_health")
+
+    @property
+    @pulumi.getter(name="progressStatus")
+    def progress_status(self) -> Optional[str]:
+        """
+        The Progress Status.
+        """
+        return pulumi.get(self, "progress_status")
+
+    @property
     @pulumi.getter(name="protectionStage")
     def protection_stage(self) -> Optional[str]:
         """
@@ -14573,6 +18321,30 @@ class InMageProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "resync_duration_in_seconds")
 
     @property
+    @pulumi.getter(name="resyncLast15MinutesTransferredBytes")
+    def resync_last15_minutes_transferred_bytes(self) -> Optional[float]:
+        """
+        The resync last 15 minutes transferred bytes.
+        """
+        return pulumi.get(self, "resync_last15_minutes_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="resyncLastDataTransferTimeUTC")
+    def resync_last_data_transfer_time_utc(self) -> Optional[str]:
+        """
+        The last data transfer time in UTC.
+        """
+        return pulumi.get(self, "resync_last_data_transfer_time_utc")
+
+    @property
+    @pulumi.getter(name="resyncProcessedBytes")
+    def resync_processed_bytes(self) -> Optional[float]:
+        """
+        The resync processed bytes.
+        """
+        return pulumi.get(self, "resync_processed_bytes")
+
+    @property
     @pulumi.getter(name="resyncProgressPercentage")
     def resync_progress_percentage(self) -> Optional[int]:
         """
@@ -14587,6 +18359,22 @@ class InMageProtectedDiskDetailsResponse(dict):
         A value indicating whether resync is required for this disk.
         """
         return pulumi.get(self, "resync_required")
+
+    @property
+    @pulumi.getter(name="resyncStartTime")
+    def resync_start_time(self) -> Optional[str]:
+        """
+        The resync start time.
+        """
+        return pulumi.get(self, "resync_start_time")
+
+    @property
+    @pulumi.getter(name="resyncTotalTransferredBytes")
+    def resync_total_transferred_bytes(self) -> Optional[float]:
+        """
+        The resync total transferred bytes.
+        """
+        return pulumi.get(self, "resync_total_transferred_bytes")
 
     @property
     @pulumi.getter(name="rpoInSeconds")
@@ -14718,6 +18506,186 @@ class InMageRcmAgentUpgradeBlockingErrorDetailsResponse(dict):
 
 
 @pulumi.output_type
+class InMageRcmDiscoveredProtectedVmDetailsResponse(dict):
+    """
+    InMageRcm discovered protected VM details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "isDeleted":
+            suggest = "is_deleted"
+        elif key == "lastDiscoveryTimeInUtc":
+            suggest = "last_discovery_time_in_utc"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "powerStatus":
+            suggest = "power_status"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+        elif key == "vCenterFqdn":
+            suggest = "v_center_fqdn"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+        elif key == "vmFqdn":
+            suggest = "vm_fqdn"
+        elif key == "vmwareToolsStatus":
+            suggest = "vmware_tools_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmDiscoveredProtectedVmDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmDiscoveredProtectedVmDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmDiscoveredProtectedVmDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_timestamp: str,
+                 datastores: Sequence[str],
+                 ip_addresses: Sequence[str],
+                 is_deleted: bool,
+                 last_discovery_time_in_utc: str,
+                 os_name: str,
+                 power_status: str,
+                 updated_timestamp: str,
+                 v_center_fqdn: str,
+                 v_center_id: str,
+                 vm_fqdn: str,
+                 vmware_tools_status: str):
+        """
+        InMageRcm discovered protected VM details.
+        :param str created_timestamp: The SDS created timestamp.
+        :param Sequence[str] datastores: The list of datastores.
+        :param Sequence[str] ip_addresses: The list of IP addresses.
+        :param bool is_deleted: A value indicating whether the VM is deleted.
+        :param str last_discovery_time_in_utc: The last time when SDS information discovered in SRS.
+        :param str os_name: The VM's OS name.
+        :param str power_status: The VM power status.
+        :param str updated_timestamp: The SDS updated timestamp.
+        :param str v_center_fqdn: The VCenter fqdn.
+        :param str v_center_id: The VCenter Id.
+        :param str vm_fqdn: The VM fqdn.
+        :param str vmware_tools_status: The VMware tools status.
+        """
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        pulumi.set(__self__, "datastores", datastores)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "is_deleted", is_deleted)
+        pulumi.set(__self__, "last_discovery_time_in_utc", last_discovery_time_in_utc)
+        pulumi.set(__self__, "os_name", os_name)
+        pulumi.set(__self__, "power_status", power_status)
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        pulumi.set(__self__, "v_center_fqdn", v_center_fqdn)
+        pulumi.set(__self__, "v_center_id", v_center_id)
+        pulumi.set(__self__, "vm_fqdn", vm_fqdn)
+        pulumi.set(__self__, "vmware_tools_status", vmware_tools_status)
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        The SDS created timestamp.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter
+    def datastores(self) -> Sequence[str]:
+        """
+        The list of datastores.
+        """
+        return pulumi.get(self, "datastores")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        """
+        The list of IP addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="isDeleted")
+    def is_deleted(self) -> bool:
+        """
+        A value indicating whether the VM is deleted.
+        """
+        return pulumi.get(self, "is_deleted")
+
+    @property
+    @pulumi.getter(name="lastDiscoveryTimeInUtc")
+    def last_discovery_time_in_utc(self) -> str:
+        """
+        The last time when SDS information discovered in SRS.
+        """
+        return pulumi.get(self, "last_discovery_time_in_utc")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
+        """
+        The VM's OS name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="powerStatus")
+    def power_status(self) -> str:
+        """
+        The VM power status.
+        """
+        return pulumi.get(self, "power_status")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        The SDS updated timestamp.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
+    @property
+    @pulumi.getter(name="vCenterFqdn")
+    def v_center_fqdn(self) -> str:
+        """
+        The VCenter fqdn.
+        """
+        return pulumi.get(self, "v_center_fqdn")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> str:
+        """
+        The VCenter Id.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @property
+    @pulumi.getter(name="vmFqdn")
+    def vm_fqdn(self) -> str:
+        """
+        The VM fqdn.
+        """
+        return pulumi.get(self, "vm_fqdn")
+
+    @property
+    @pulumi.getter(name="vmwareToolsStatus")
+    def vmware_tools_status(self) -> str:
+        """
+        The VMware tools status.
+        """
+        return pulumi.get(self, "vmware_tools_status")
+
+
+@pulumi.output_type
 class InMageRcmFabricSpecificDetailsResponse(dict):
     """
     InMageRcm fabric specific details.
@@ -14733,6 +18701,8 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
             suggest = "data_plane_uri"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "marsAgents":
+            suggest = "mars_agents"
         elif key == "physicalSiteId":
             suggest = "physical_site_id"
         elif key == "processServers":
@@ -14753,6 +18723,8 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
             suggest = "service_resource_id"
         elif key == "vmwareSiteId":
             suggest = "vmware_site_id"
+        elif key == "sourceAgentIdentityDetails":
+            suggest = "source_agent_identity_details"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InMageRcmFabricSpecificDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -14771,6 +18743,7 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
                  data_plane_uri: str,
                  dras: Sequence['outputs.DraDetailsResponse'],
                  instance_type: str,
+                 mars_agents: Sequence['outputs.MarsAgentDetailsResponse'],
                  physical_site_id: str,
                  process_servers: Sequence['outputs.ProcessServerDetailsResponse'],
                  push_installers: Sequence['outputs.PushInstallerDetailsResponse'],
@@ -14780,7 +18753,8 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
                  service_container_id: str,
                  service_endpoint: str,
                  service_resource_id: str,
-                 vmware_site_id: str):
+                 vmware_site_id: str,
+                 source_agent_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None):
         """
         InMageRcm fabric specific details.
         :param Sequence['AgentDetailsResponse'] agent_details: The list of agent details.
@@ -14789,6 +18763,7 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         :param Sequence['DraDetailsResponse'] dras: The list of DRAs.
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'InMageRcm'.
+        :param Sequence['MarsAgentDetailsResponse'] mars_agents: The list of Mars agents.
         :param str physical_site_id: The ARM Id of the physical site.
         :param Sequence['ProcessServerDetailsResponse'] process_servers: The list of process servers.
         :param Sequence['PushInstallerDetailsResponse'] push_installers: The list of push installers.
@@ -14799,12 +18774,14 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         :param str service_endpoint: The service endpoint.
         :param str service_resource_id: The service resource Id.
         :param str vmware_site_id: The ARM Id of the VMware site.
+        :param 'IdentityProviderDetailsResponse' source_agent_identity_details: The source agent identity details.
         """
         pulumi.set(__self__, "agent_details", agent_details)
         pulumi.set(__self__, "control_plane_uri", control_plane_uri)
         pulumi.set(__self__, "data_plane_uri", data_plane_uri)
         pulumi.set(__self__, "dras", dras)
         pulumi.set(__self__, "instance_type", 'InMageRcm')
+        pulumi.set(__self__, "mars_agents", mars_agents)
         pulumi.set(__self__, "physical_site_id", physical_site_id)
         pulumi.set(__self__, "process_servers", process_servers)
         pulumi.set(__self__, "push_installers", push_installers)
@@ -14815,6 +18792,8 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         pulumi.set(__self__, "service_endpoint", service_endpoint)
         pulumi.set(__self__, "service_resource_id", service_resource_id)
         pulumi.set(__self__, "vmware_site_id", vmware_site_id)
+        if source_agent_identity_details is not None:
+            pulumi.set(__self__, "source_agent_identity_details", source_agent_identity_details)
 
     @property
     @pulumi.getter(name="agentDetails")
@@ -14856,6 +18835,14 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         Expected value is 'InMageRcm'.
         """
         return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="marsAgents")
+    def mars_agents(self) -> Sequence['outputs.MarsAgentDetailsResponse']:
+        """
+        The list of Mars agents.
+        """
+        return pulumi.get(self, "mars_agents")
 
     @property
     @pulumi.getter(name="physicalSiteId")
@@ -14936,6 +18923,1205 @@ class InMageRcmFabricSpecificDetailsResponse(dict):
         The ARM Id of the VMware site.
         """
         return pulumi.get(self, "vmware_site_id")
+
+    @property
+    @pulumi.getter(name="sourceAgentIdentityDetails")
+    def source_agent_identity_details(self) -> Optional['outputs.IdentityProviderDetailsResponse']:
+        """
+        The source agent identity details.
+        """
+        return pulumi.get(self, "source_agent_identity_details")
+
+
+@pulumi.output_type
+class InMageRcmFailbackDiscoveredProtectedVmDetailsResponse(dict):
+    """
+    InMageRcmFailback discovered VM details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdTimestamp":
+            suggest = "created_timestamp"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "isDeleted":
+            suggest = "is_deleted"
+        elif key == "lastDiscoveryTimeInUtc":
+            suggest = "last_discovery_time_in_utc"
+        elif key == "osName":
+            suggest = "os_name"
+        elif key == "powerStatus":
+            suggest = "power_status"
+        elif key == "updatedTimestamp":
+            suggest = "updated_timestamp"
+        elif key == "vCenterFqdn":
+            suggest = "v_center_fqdn"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+        elif key == "vmFqdn":
+            suggest = "vm_fqdn"
+        elif key == "vmwareToolsStatus":
+            suggest = "vmware_tools_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackDiscoveredProtectedVmDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackDiscoveredProtectedVmDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackDiscoveredProtectedVmDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_timestamp: str,
+                 datastores: Sequence[str],
+                 ip_addresses: Sequence[str],
+                 is_deleted: bool,
+                 last_discovery_time_in_utc: str,
+                 os_name: str,
+                 power_status: str,
+                 updated_timestamp: str,
+                 v_center_fqdn: str,
+                 v_center_id: str,
+                 vm_fqdn: str,
+                 vmware_tools_status: str):
+        """
+        InMageRcmFailback discovered VM details.
+        :param str created_timestamp: The SDS created timestamp.
+        :param Sequence[str] datastores: The list of datastores.
+        :param Sequence[str] ip_addresses: The list of IP addresses.
+        :param bool is_deleted: A value indicating whether the VM is deleted.
+        :param str last_discovery_time_in_utc: The last time when SDS information discovered in SRS.
+        :param str os_name: The VM's OS name.
+        :param str power_status: The VM power status.
+        :param str updated_timestamp: The SDS updated timestamp.
+        :param str v_center_fqdn: The VCenter fqdn.
+        :param str v_center_id: The VCenter Id.
+        :param str vm_fqdn: The VM fqdn.
+        :param str vmware_tools_status: The VMware tools status.
+        """
+        pulumi.set(__self__, "created_timestamp", created_timestamp)
+        pulumi.set(__self__, "datastores", datastores)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
+        pulumi.set(__self__, "is_deleted", is_deleted)
+        pulumi.set(__self__, "last_discovery_time_in_utc", last_discovery_time_in_utc)
+        pulumi.set(__self__, "os_name", os_name)
+        pulumi.set(__self__, "power_status", power_status)
+        pulumi.set(__self__, "updated_timestamp", updated_timestamp)
+        pulumi.set(__self__, "v_center_fqdn", v_center_fqdn)
+        pulumi.set(__self__, "v_center_id", v_center_id)
+        pulumi.set(__self__, "vm_fqdn", vm_fqdn)
+        pulumi.set(__self__, "vmware_tools_status", vmware_tools_status)
+
+    @property
+    @pulumi.getter(name="createdTimestamp")
+    def created_timestamp(self) -> str:
+        """
+        The SDS created timestamp.
+        """
+        return pulumi.get(self, "created_timestamp")
+
+    @property
+    @pulumi.getter
+    def datastores(self) -> Sequence[str]:
+        """
+        The list of datastores.
+        """
+        return pulumi.get(self, "datastores")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        """
+        The list of IP addresses.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="isDeleted")
+    def is_deleted(self) -> bool:
+        """
+        A value indicating whether the VM is deleted.
+        """
+        return pulumi.get(self, "is_deleted")
+
+    @property
+    @pulumi.getter(name="lastDiscoveryTimeInUtc")
+    def last_discovery_time_in_utc(self) -> str:
+        """
+        The last time when SDS information discovered in SRS.
+        """
+        return pulumi.get(self, "last_discovery_time_in_utc")
+
+    @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
+        """
+        The VM's OS name.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
+    @pulumi.getter(name="powerStatus")
+    def power_status(self) -> str:
+        """
+        The VM power status.
+        """
+        return pulumi.get(self, "power_status")
+
+    @property
+    @pulumi.getter(name="updatedTimestamp")
+    def updated_timestamp(self) -> str:
+        """
+        The SDS updated timestamp.
+        """
+        return pulumi.get(self, "updated_timestamp")
+
+    @property
+    @pulumi.getter(name="vCenterFqdn")
+    def v_center_fqdn(self) -> str:
+        """
+        The VCenter fqdn.
+        """
+        return pulumi.get(self, "v_center_fqdn")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> str:
+        """
+        The VCenter Id.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @property
+    @pulumi.getter(name="vmFqdn")
+    def vm_fqdn(self) -> str:
+        """
+        The VM fqdn.
+        """
+        return pulumi.get(self, "vm_fqdn")
+
+    @property
+    @pulumi.getter(name="vmwareToolsStatus")
+    def vmware_tools_status(self) -> str:
+        """
+        The VMware tools status.
+        """
+        return pulumi.get(self, "vmware_tools_status")
+
+
+@pulumi.output_type
+class InMageRcmFailbackMobilityAgentDetailsResponse(dict):
+    """
+    InMageRcmFailback mobility agent details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentVersionExpiryDate":
+            suggest = "agent_version_expiry_date"
+        elif key == "driverVersion":
+            suggest = "driver_version"
+        elif key == "driverVersionExpiryDate":
+            suggest = "driver_version_expiry_date"
+        elif key == "isUpgradeable":
+            suggest = "is_upgradeable"
+        elif key == "lastHeartbeatUtc":
+            suggest = "last_heartbeat_utc"
+        elif key == "latestUpgradableVersionWithoutReboot":
+            suggest = "latest_upgradable_version_without_reboot"
+        elif key == "latestVersion":
+            suggest = "latest_version"
+        elif key == "reasonsBlockingUpgrade":
+            suggest = "reasons_blocking_upgrade"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackMobilityAgentDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackMobilityAgentDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackMobilityAgentDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_version_expiry_date: str,
+                 driver_version: str,
+                 driver_version_expiry_date: str,
+                 is_upgradeable: str,
+                 last_heartbeat_utc: str,
+                 latest_upgradable_version_without_reboot: str,
+                 latest_version: str,
+                 reasons_blocking_upgrade: Sequence[str],
+                 version: str):
+        """
+        InMageRcmFailback mobility agent details.
+        :param str agent_version_expiry_date: The agent version expiry date.
+        :param str driver_version: The driver version.
+        :param str driver_version_expiry_date: The driver version expiry date.
+        :param str is_upgradeable: A value indicating whether agent is upgradeable or not.
+        :param str last_heartbeat_utc: The time of the last heartbeat received from the agent.
+        :param str latest_upgradable_version_without_reboot: The latest upgradeable version available without reboot.
+        :param str latest_version: The latest agent version available.
+        :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
+        :param str version: The agent version.
+        """
+        pulumi.set(__self__, "agent_version_expiry_date", agent_version_expiry_date)
+        pulumi.set(__self__, "driver_version", driver_version)
+        pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
+        pulumi.set(__self__, "is_upgradeable", is_upgradeable)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
+        pulumi.set(__self__, "latest_version", latest_version)
+        pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="agentVersionExpiryDate")
+    def agent_version_expiry_date(self) -> str:
+        """
+        The agent version expiry date.
+        """
+        return pulumi.get(self, "agent_version_expiry_date")
+
+    @property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> str:
+        """
+        The driver version.
+        """
+        return pulumi.get(self, "driver_version")
+
+    @property
+    @pulumi.getter(name="driverVersionExpiryDate")
+    def driver_version_expiry_date(self) -> str:
+        """
+        The driver version expiry date.
+        """
+        return pulumi.get(self, "driver_version_expiry_date")
+
+    @property
+    @pulumi.getter(name="isUpgradeable")
+    def is_upgradeable(self) -> str:
+        """
+        A value indicating whether agent is upgradeable or not.
+        """
+        return pulumi.get(self, "is_upgradeable")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The time of the last heartbeat received from the agent.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter(name="latestUpgradableVersionWithoutReboot")
+    def latest_upgradable_version_without_reboot(self) -> str:
+        """
+        The latest upgradeable version available without reboot.
+        """
+        return pulumi.get(self, "latest_upgradable_version_without_reboot")
+
+    @property
+    @pulumi.getter(name="latestVersion")
+    def latest_version(self) -> str:
+        """
+        The latest agent version available.
+        """
+        return pulumi.get(self, "latest_version")
+
+    @property
+    @pulumi.getter(name="reasonsBlockingUpgrade")
+    def reasons_blocking_upgrade(self) -> Sequence[str]:
+        """
+        The whether update is possible or not.
+        """
+        return pulumi.get(self, "reasons_blocking_upgrade")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The agent version.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class InMageRcmFailbackNicDetailsResponse(dict):
+    """
+    InMageRcmFailback NIC details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adapterType":
+            suggest = "adapter_type"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "networkName":
+            suggest = "network_name"
+        elif key == "sourceIpAddress":
+            suggest = "source_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackNicDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackNicDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackNicDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 adapter_type: str,
+                 mac_address: str,
+                 network_name: str,
+                 source_ip_address: str):
+        """
+        InMageRcmFailback NIC details.
+        :param str adapter_type: The adapter type.
+        :param str mac_address: The mac address.
+        :param str network_name: The network name.
+        :param str source_ip_address: The IP address.
+        """
+        pulumi.set(__self__, "adapter_type", adapter_type)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "source_ip_address", source_ip_address)
+
+    @property
+    @pulumi.getter(name="adapterType")
+    def adapter_type(self) -> str:
+        """
+        The adapter type.
+        """
+        return pulumi.get(self, "adapter_type")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> str:
+        """
+        The mac address.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter(name="networkName")
+    def network_name(self) -> str:
+        """
+        The network name.
+        """
+        return pulumi.get(self, "network_name")
+
+    @property
+    @pulumi.getter(name="sourceIpAddress")
+    def source_ip_address(self) -> str:
+        """
+        The IP address.
+        """
+        return pulumi.get(self, "source_ip_address")
+
+
+@pulumi.output_type
+class InMageRcmFailbackPolicyDetailsResponse(dict):
+    """
+    InMageRcm failback specific policy details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "appConsistentFrequencyInMinutes":
+            suggest = "app_consistent_frequency_in_minutes"
+        elif key == "crashConsistentFrequencyInMinutes":
+            suggest = "crash_consistent_frequency_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackPolicyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackPolicyDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackPolicyDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: str,
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
+                 crash_consistent_frequency_in_minutes: Optional[int] = None):
+        """
+        InMageRcm failback specific policy details.
+        :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'InMageRcmFailback'.
+        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
+        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
+        """
+        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
+        if app_consistent_frequency_in_minutes is not None:
+            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        if crash_consistent_frequency_in_minutes is not None:
+            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the class type. Overridden in derived classes.
+        Expected value is 'InMageRcmFailback'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="appConsistentFrequencyInMinutes")
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
+        """
+        The app consistent snapshot frequency in minutes.
+        """
+        return pulumi.get(self, "app_consistent_frequency_in_minutes")
+
+    @property
+    @pulumi.getter(name="crashConsistentFrequencyInMinutes")
+    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
+        """
+        The crash consistent snapshot frequency in minutes.
+        """
+        return pulumi.get(self, "crash_consistent_frequency_in_minutes")
+
+
+@pulumi.output_type
+class InMageRcmFailbackProtectedDiskDetailsResponse(dict):
+    """
+    InMageRcmFailback protected disk details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityInBytes":
+            suggest = "capacity_in_bytes"
+        elif key == "dataPendingAtSourceAgentInMB":
+            suggest = "data_pending_at_source_agent_in_mb"
+        elif key == "dataPendingInLogDataStoreInMB":
+            suggest = "data_pending_in_log_data_store_in_mb"
+        elif key == "diskId":
+            suggest = "disk_id"
+        elif key == "diskName":
+            suggest = "disk_name"
+        elif key == "diskUuid":
+            suggest = "disk_uuid"
+        elif key == "isInitialReplicationComplete":
+            suggest = "is_initial_replication_complete"
+        elif key == "isOSDisk":
+            suggest = "is_os_disk"
+        elif key == "lastSyncTime":
+            suggest = "last_sync_time"
+        elif key == "irDetails":
+            suggest = "ir_details"
+        elif key == "resyncDetails":
+            suggest = "resync_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackProtectedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackProtectedDiskDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackProtectedDiskDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_in_bytes: float,
+                 data_pending_at_source_agent_in_mb: float,
+                 data_pending_in_log_data_store_in_mb: float,
+                 disk_id: str,
+                 disk_name: str,
+                 disk_uuid: str,
+                 is_initial_replication_complete: str,
+                 is_os_disk: str,
+                 last_sync_time: str,
+                 ir_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None,
+                 resync_details: Optional['outputs.InMageRcmFailbackSyncDetailsResponse'] = None):
+        """
+        InMageRcmFailback protected disk details.
+        :param float capacity_in_bytes: The disk capacity in bytes.
+        :param float data_pending_at_source_agent_in_mb: The data pending at source agent in MB.
+        :param float data_pending_in_log_data_store_in_mb: The data pending in log data store in MB.
+        :param str disk_id: The disk Id (reported by source agent).
+        :param str disk_name: The disk name.
+        :param str disk_uuid: The disk Uuid (reported by vCenter).
+        :param str is_initial_replication_complete: A value indicating whether initial replication is complete or not.
+        :param str is_os_disk: A value indicating whether the disk is the OS disk.
+        :param str last_sync_time: The last sync time.
+        :param 'InMageRcmFailbackSyncDetailsResponse' ir_details: The initial replication details.
+        :param 'InMageRcmFailbackSyncDetailsResponse' resync_details: The resync details.
+        """
+        pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+        pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        pulumi.set(__self__, "data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
+        pulumi.set(__self__, "disk_id", disk_id)
+        pulumi.set(__self__, "disk_name", disk_name)
+        pulumi.set(__self__, "disk_uuid", disk_uuid)
+        pulumi.set(__self__, "is_initial_replication_complete", is_initial_replication_complete)
+        pulumi.set(__self__, "is_os_disk", is_os_disk)
+        pulumi.set(__self__, "last_sync_time", last_sync_time)
+        if ir_details is not None:
+            pulumi.set(__self__, "ir_details", ir_details)
+        if resync_details is not None:
+            pulumi.set(__self__, "resync_details", resync_details)
+
+    @property
+    @pulumi.getter(name="capacityInBytes")
+    def capacity_in_bytes(self) -> float:
+        """
+        The disk capacity in bytes.
+        """
+        return pulumi.get(self, "capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="dataPendingAtSourceAgentInMB")
+    def data_pending_at_source_agent_in_mb(self) -> float:
+        """
+        The data pending at source agent in MB.
+        """
+        return pulumi.get(self, "data_pending_at_source_agent_in_mb")
+
+    @property
+    @pulumi.getter(name="dataPendingInLogDataStoreInMB")
+    def data_pending_in_log_data_store_in_mb(self) -> float:
+        """
+        The data pending in log data store in MB.
+        """
+        return pulumi.get(self, "data_pending_in_log_data_store_in_mb")
+
+    @property
+    @pulumi.getter(name="diskId")
+    def disk_id(self) -> str:
+        """
+        The disk Id (reported by source agent).
+        """
+        return pulumi.get(self, "disk_id")
+
+    @property
+    @pulumi.getter(name="diskName")
+    def disk_name(self) -> str:
+        """
+        The disk name.
+        """
+        return pulumi.get(self, "disk_name")
+
+    @property
+    @pulumi.getter(name="diskUuid")
+    def disk_uuid(self) -> str:
+        """
+        The disk Uuid (reported by vCenter).
+        """
+        return pulumi.get(self, "disk_uuid")
+
+    @property
+    @pulumi.getter(name="isInitialReplicationComplete")
+    def is_initial_replication_complete(self) -> str:
+        """
+        A value indicating whether initial replication is complete or not.
+        """
+        return pulumi.get(self, "is_initial_replication_complete")
+
+    @property
+    @pulumi.getter(name="isOSDisk")
+    def is_os_disk(self) -> str:
+        """
+        A value indicating whether the disk is the OS disk.
+        """
+        return pulumi.get(self, "is_os_disk")
+
+    @property
+    @pulumi.getter(name="lastSyncTime")
+    def last_sync_time(self) -> str:
+        """
+        The last sync time.
+        """
+        return pulumi.get(self, "last_sync_time")
+
+    @property
+    @pulumi.getter(name="irDetails")
+    def ir_details(self) -> Optional['outputs.InMageRcmFailbackSyncDetailsResponse']:
+        """
+        The initial replication details.
+        """
+        return pulumi.get(self, "ir_details")
+
+    @property
+    @pulumi.getter(name="resyncDetails")
+    def resync_details(self) -> Optional['outputs.InMageRcmFailbackSyncDetailsResponse']:
+        """
+        The resync details.
+        """
+        return pulumi.get(self, "resync_details")
+
+
+@pulumi.output_type
+class InMageRcmFailbackReplicationDetailsResponse(dict):
+    """
+    InMageRcmFailback provider specific details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureVirtualMachineId":
+            suggest = "azure_virtual_machine_id"
+        elif key == "initialReplicationProcessedBytes":
+            suggest = "initial_replication_processed_bytes"
+        elif key == "initialReplicationProgressHealth":
+            suggest = "initial_replication_progress_health"
+        elif key == "initialReplicationProgressPercentage":
+            suggest = "initial_replication_progress_percentage"
+        elif key == "initialReplicationTransferredBytes":
+            suggest = "initial_replication_transferred_bytes"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "internalIdentifier":
+            suggest = "internal_identifier"
+        elif key == "isAgentRegistrationSuccessfulAfterFailover":
+            suggest = "is_agent_registration_successful_after_failover"
+        elif key == "lastPlannedFailoverStartTime":
+            suggest = "last_planned_failover_start_time"
+        elif key == "lastPlannedFailoverStatus":
+            suggest = "last_planned_failover_status"
+        elif key == "lastUsedPolicyFriendlyName":
+            suggest = "last_used_policy_friendly_name"
+        elif key == "lastUsedPolicyId":
+            suggest = "last_used_policy_id"
+        elif key == "logStorageAccountId":
+            suggest = "log_storage_account_id"
+        elif key == "multiVmGroupName":
+            suggest = "multi_vm_group_name"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "reprotectAgentId":
+            suggest = "reprotect_agent_id"
+        elif key == "reprotectAgentName":
+            suggest = "reprotect_agent_name"
+        elif key == "resyncProcessedBytes":
+            suggest = "resync_processed_bytes"
+        elif key == "resyncProgressHealth":
+            suggest = "resync_progress_health"
+        elif key == "resyncProgressPercentage":
+            suggest = "resync_progress_percentage"
+        elif key == "resyncRequired":
+            suggest = "resync_required"
+        elif key == "resyncState":
+            suggest = "resync_state"
+        elif key == "resyncTransferredBytes":
+            suggest = "resync_transferred_bytes"
+        elif key == "targetDataStoreName":
+            suggest = "target_data_store_name"
+        elif key == "targetVmName":
+            suggest = "target_vm_name"
+        elif key == "targetvCenterId":
+            suggest = "targetv_center_id"
+        elif key == "discoveredVmDetails":
+            suggest = "discovered_vm_details"
+        elif key == "mobilityAgentDetails":
+            suggest = "mobility_agent_details"
+        elif key == "protectedDisks":
+            suggest = "protected_disks"
+        elif key == "vmNics":
+            suggest = "vm_nics"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackReplicationDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackReplicationDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackReplicationDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_virtual_machine_id: str,
+                 initial_replication_processed_bytes: float,
+                 initial_replication_progress_health: str,
+                 initial_replication_progress_percentage: int,
+                 initial_replication_transferred_bytes: float,
+                 instance_type: str,
+                 internal_identifier: str,
+                 is_agent_registration_successful_after_failover: bool,
+                 last_planned_failover_start_time: str,
+                 last_planned_failover_status: str,
+                 last_used_policy_friendly_name: str,
+                 last_used_policy_id: str,
+                 log_storage_account_id: str,
+                 multi_vm_group_name: str,
+                 os_type: str,
+                 reprotect_agent_id: str,
+                 reprotect_agent_name: str,
+                 resync_processed_bytes: float,
+                 resync_progress_health: str,
+                 resync_progress_percentage: int,
+                 resync_required: str,
+                 resync_state: str,
+                 resync_transferred_bytes: float,
+                 target_data_store_name: str,
+                 target_vm_name: str,
+                 targetv_center_id: str,
+                 discovered_vm_details: Optional['outputs.InMageRcmFailbackDiscoveredProtectedVmDetailsResponse'] = None,
+                 mobility_agent_details: Optional['outputs.InMageRcmFailbackMobilityAgentDetailsResponse'] = None,
+                 protected_disks: Optional[Sequence['outputs.InMageRcmFailbackProtectedDiskDetailsResponse']] = None,
+                 vm_nics: Optional[Sequence['outputs.InMageRcmFailbackNicDetailsResponse']] = None):
+        """
+        InMageRcmFailback provider specific details.
+        :param str azure_virtual_machine_id: The ARM Id of the azure VM.
+        :param float initial_replication_processed_bytes: The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param str initial_replication_progress_health: The initial replication progress health.
+        :param int initial_replication_progress_percentage: The initial replication progress percentage.
+        :param float initial_replication_transferred_bytes: The initial replication transferred bytes from source VM to target for all selected disks on source VM.
+        :param str instance_type: Gets the Instance type.
+               Expected value is 'InMageRcmFailback'.
+        :param str internal_identifier: The virtual machine internal identifier.
+        :param bool is_agent_registration_successful_after_failover: A value indicating whether agent registration was successful after failover.
+        :param str last_planned_failover_start_time: The last planned failover start time.
+        :param str last_planned_failover_status: The last planned failover status.
+        :param str last_used_policy_friendly_name: The policy friendly name used by the forward replication.
+        :param str last_used_policy_id: The policy Id used by the forward replication.
+        :param str log_storage_account_id: The log storage account ARM Id.
+        :param str multi_vm_group_name: The multi VM group name.
+        :param str os_type: The type of the OS on the VM.
+        :param str reprotect_agent_id: The reprotect agent Id.
+        :param str reprotect_agent_name: The reprotect agent name.
+        :param float resync_processed_bytes: The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param str resync_progress_health: The resync progress health.
+        :param int resync_progress_percentage: The resync progress percentage.
+        :param str resync_required: A value indicating whether resync is required.
+        :param str resync_state: The resync state.
+        :param float resync_transferred_bytes: The resync transferred bytes from source VM to target for all selected disks on source VM.
+        :param str target_data_store_name: The target datastore name.
+        :param str target_vm_name: The target VM name.
+        :param str targetv_center_id: The target vCenter Id.
+        :param 'InMageRcmFailbackDiscoveredProtectedVmDetailsResponse' discovered_vm_details: The discovered VM information.
+        :param 'InMageRcmFailbackMobilityAgentDetailsResponse' mobility_agent_details: The mobility agent information.
+        :param Sequence['InMageRcmFailbackProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
+        :param Sequence['InMageRcmFailbackNicDetailsResponse'] vm_nics: The network details.
+        """
+        pulumi.set(__self__, "azure_virtual_machine_id", azure_virtual_machine_id)
+        pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
+        pulumi.set(__self__, "initial_replication_progress_health", initial_replication_progress_health)
+        pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
+        pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
+        pulumi.set(__self__, "instance_type", 'InMageRcmFailback')
+        pulumi.set(__self__, "internal_identifier", internal_identifier)
+        pulumi.set(__self__, "is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
+        pulumi.set(__self__, "last_planned_failover_start_time", last_planned_failover_start_time)
+        pulumi.set(__self__, "last_planned_failover_status", last_planned_failover_status)
+        pulumi.set(__self__, "last_used_policy_friendly_name", last_used_policy_friendly_name)
+        pulumi.set(__self__, "last_used_policy_id", last_used_policy_id)
+        pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "reprotect_agent_id", reprotect_agent_id)
+        pulumi.set(__self__, "reprotect_agent_name", reprotect_agent_name)
+        pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+        pulumi.set(__self__, "resync_progress_health", resync_progress_health)
+        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+        pulumi.set(__self__, "resync_required", resync_required)
+        pulumi.set(__self__, "resync_state", resync_state)
+        pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
+        pulumi.set(__self__, "target_data_store_name", target_data_store_name)
+        pulumi.set(__self__, "target_vm_name", target_vm_name)
+        pulumi.set(__self__, "targetv_center_id", targetv_center_id)
+        if discovered_vm_details is not None:
+            pulumi.set(__self__, "discovered_vm_details", discovered_vm_details)
+        if mobility_agent_details is not None:
+            pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+        if protected_disks is not None:
+            pulumi.set(__self__, "protected_disks", protected_disks)
+        if vm_nics is not None:
+            pulumi.set(__self__, "vm_nics", vm_nics)
+
+    @property
+    @pulumi.getter(name="azureVirtualMachineId")
+    def azure_virtual_machine_id(self) -> str:
+        """
+        The ARM Id of the azure VM.
+        """
+        return pulumi.get(self, "azure_virtual_machine_id")
+
+    @property
+    @pulumi.getter(name="initialReplicationProcessedBytes")
+    def initial_replication_processed_bytes(self) -> float:
+        """
+        The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        """
+        return pulumi.get(self, "initial_replication_processed_bytes")
+
+    @property
+    @pulumi.getter(name="initialReplicationProgressHealth")
+    def initial_replication_progress_health(self) -> str:
+        """
+        The initial replication progress health.
+        """
+        return pulumi.get(self, "initial_replication_progress_health")
+
+    @property
+    @pulumi.getter(name="initialReplicationProgressPercentage")
+    def initial_replication_progress_percentage(self) -> int:
+        """
+        The initial replication progress percentage.
+        """
+        return pulumi.get(self, "initial_replication_progress_percentage")
+
+    @property
+    @pulumi.getter(name="initialReplicationTransferredBytes")
+    def initial_replication_transferred_bytes(self) -> float:
+        """
+        The initial replication transferred bytes from source VM to target for all selected disks on source VM.
+        """
+        return pulumi.get(self, "initial_replication_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the Instance type.
+        Expected value is 'InMageRcmFailback'.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @property
+    @pulumi.getter(name="internalIdentifier")
+    def internal_identifier(self) -> str:
+        """
+        The virtual machine internal identifier.
+        """
+        return pulumi.get(self, "internal_identifier")
+
+    @property
+    @pulumi.getter(name="isAgentRegistrationSuccessfulAfterFailover")
+    def is_agent_registration_successful_after_failover(self) -> bool:
+        """
+        A value indicating whether agent registration was successful after failover.
+        """
+        return pulumi.get(self, "is_agent_registration_successful_after_failover")
+
+    @property
+    @pulumi.getter(name="lastPlannedFailoverStartTime")
+    def last_planned_failover_start_time(self) -> str:
+        """
+        The last planned failover start time.
+        """
+        return pulumi.get(self, "last_planned_failover_start_time")
+
+    @property
+    @pulumi.getter(name="lastPlannedFailoverStatus")
+    def last_planned_failover_status(self) -> str:
+        """
+        The last planned failover status.
+        """
+        return pulumi.get(self, "last_planned_failover_status")
+
+    @property
+    @pulumi.getter(name="lastUsedPolicyFriendlyName")
+    def last_used_policy_friendly_name(self) -> str:
+        """
+        The policy friendly name used by the forward replication.
+        """
+        return pulumi.get(self, "last_used_policy_friendly_name")
+
+    @property
+    @pulumi.getter(name="lastUsedPolicyId")
+    def last_used_policy_id(self) -> str:
+        """
+        The policy Id used by the forward replication.
+        """
+        return pulumi.get(self, "last_used_policy_id")
+
+    @property
+    @pulumi.getter(name="logStorageAccountId")
+    def log_storage_account_id(self) -> str:
+        """
+        The log storage account ARM Id.
+        """
+        return pulumi.get(self, "log_storage_account_id")
+
+    @property
+    @pulumi.getter(name="multiVmGroupName")
+    def multi_vm_group_name(self) -> str:
+        """
+        The multi VM group name.
+        """
+        return pulumi.get(self, "multi_vm_group_name")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        The type of the OS on the VM.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="reprotectAgentId")
+    def reprotect_agent_id(self) -> str:
+        """
+        The reprotect agent Id.
+        """
+        return pulumi.get(self, "reprotect_agent_id")
+
+    @property
+    @pulumi.getter(name="reprotectAgentName")
+    def reprotect_agent_name(self) -> str:
+        """
+        The reprotect agent name.
+        """
+        return pulumi.get(self, "reprotect_agent_name")
+
+    @property
+    @pulumi.getter(name="resyncProcessedBytes")
+    def resync_processed_bytes(self) -> float:
+        """
+        The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        """
+        return pulumi.get(self, "resync_processed_bytes")
+
+    @property
+    @pulumi.getter(name="resyncProgressHealth")
+    def resync_progress_health(self) -> str:
+        """
+        The resync progress health.
+        """
+        return pulumi.get(self, "resync_progress_health")
+
+    @property
+    @pulumi.getter(name="resyncProgressPercentage")
+    def resync_progress_percentage(self) -> int:
+        """
+        The resync progress percentage.
+        """
+        return pulumi.get(self, "resync_progress_percentage")
+
+    @property
+    @pulumi.getter(name="resyncRequired")
+    def resync_required(self) -> str:
+        """
+        A value indicating whether resync is required.
+        """
+        return pulumi.get(self, "resync_required")
+
+    @property
+    @pulumi.getter(name="resyncState")
+    def resync_state(self) -> str:
+        """
+        The resync state.
+        """
+        return pulumi.get(self, "resync_state")
+
+    @property
+    @pulumi.getter(name="resyncTransferredBytes")
+    def resync_transferred_bytes(self) -> float:
+        """
+        The resync transferred bytes from source VM to target for all selected disks on source VM.
+        """
+        return pulumi.get(self, "resync_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="targetDataStoreName")
+    def target_data_store_name(self) -> str:
+        """
+        The target datastore name.
+        """
+        return pulumi.get(self, "target_data_store_name")
+
+    @property
+    @pulumi.getter(name="targetVmName")
+    def target_vm_name(self) -> str:
+        """
+        The target VM name.
+        """
+        return pulumi.get(self, "target_vm_name")
+
+    @property
+    @pulumi.getter(name="targetvCenterId")
+    def targetv_center_id(self) -> str:
+        """
+        The target vCenter Id.
+        """
+        return pulumi.get(self, "targetv_center_id")
+
+    @property
+    @pulumi.getter(name="discoveredVmDetails")
+    def discovered_vm_details(self) -> Optional['outputs.InMageRcmFailbackDiscoveredProtectedVmDetailsResponse']:
+        """
+        The discovered VM information.
+        """
+        return pulumi.get(self, "discovered_vm_details")
+
+    @property
+    @pulumi.getter(name="mobilityAgentDetails")
+    def mobility_agent_details(self) -> Optional['outputs.InMageRcmFailbackMobilityAgentDetailsResponse']:
+        """
+        The mobility agent information.
+        """
+        return pulumi.get(self, "mobility_agent_details")
+
+    @property
+    @pulumi.getter(name="protectedDisks")
+    def protected_disks(self) -> Optional[Sequence['outputs.InMageRcmFailbackProtectedDiskDetailsResponse']]:
+        """
+        The list of protected disks.
+        """
+        return pulumi.get(self, "protected_disks")
+
+    @property
+    @pulumi.getter(name="vmNics")
+    def vm_nics(self) -> Optional[Sequence['outputs.InMageRcmFailbackNicDetailsResponse']]:
+        """
+        The network details.
+        """
+        return pulumi.get(self, "vm_nics")
+
+
+@pulumi.output_type
+class InMageRcmFailbackSyncDetailsResponse(dict):
+    """
+    InMageRcmFailback disk level sync details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "last15MinutesTransferredBytes":
+            suggest = "last15_minutes_transferred_bytes"
+        elif key == "lastDataTransferTimeUtc":
+            suggest = "last_data_transfer_time_utc"
+        elif key == "lastRefreshTime":
+            suggest = "last_refresh_time"
+        elif key == "processedBytes":
+            suggest = "processed_bytes"
+        elif key == "progressHealth":
+            suggest = "progress_health"
+        elif key == "progressPercentage":
+            suggest = "progress_percentage"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "transferredBytes":
+            suggest = "transferred_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmFailbackSyncDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmFailbackSyncDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmFailbackSyncDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last15_minutes_transferred_bytes: float,
+                 last_data_transfer_time_utc: str,
+                 last_refresh_time: str,
+                 processed_bytes: float,
+                 progress_health: str,
+                 progress_percentage: int,
+                 start_time: str,
+                 transferred_bytes: float):
+        """
+        InMageRcmFailback disk level sync details.
+        :param float last15_minutes_transferred_bytes: The bytes transferred in last 15 minutes from source VM to target.
+        :param str last_data_transfer_time_utc: The time of the last data transfer from source VM to target.
+        :param str last_refresh_time: The last refresh time.
+        :param float processed_bytes: The total processed bytes. This includes bytes that are transferred from source VM to target and matched bytes.
+        :param str progress_health: The progress health.
+        :param int progress_percentage: Progress in percentage. Progress percentage is calculated based on processed bytes.
+        :param str start_time: The start time.
+        :param float transferred_bytes: The transferred bytes from source VM to azure for the disk.
+        """
+        pulumi.set(__self__, "last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
+        pulumi.set(__self__, "last_data_transfer_time_utc", last_data_transfer_time_utc)
+        pulumi.set(__self__, "last_refresh_time", last_refresh_time)
+        pulumi.set(__self__, "processed_bytes", processed_bytes)
+        pulumi.set(__self__, "progress_health", progress_health)
+        pulumi.set(__self__, "progress_percentage", progress_percentage)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "transferred_bytes", transferred_bytes)
+
+    @property
+    @pulumi.getter(name="last15MinutesTransferredBytes")
+    def last15_minutes_transferred_bytes(self) -> float:
+        """
+        The bytes transferred in last 15 minutes from source VM to target.
+        """
+        return pulumi.get(self, "last15_minutes_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="lastDataTransferTimeUtc")
+    def last_data_transfer_time_utc(self) -> str:
+        """
+        The time of the last data transfer from source VM to target.
+        """
+        return pulumi.get(self, "last_data_transfer_time_utc")
+
+    @property
+    @pulumi.getter(name="lastRefreshTime")
+    def last_refresh_time(self) -> str:
+        """
+        The last refresh time.
+        """
+        return pulumi.get(self, "last_refresh_time")
+
+    @property
+    @pulumi.getter(name="processedBytes")
+    def processed_bytes(self) -> float:
+        """
+        The total processed bytes. This includes bytes that are transferred from source VM to target and matched bytes.
+        """
+        return pulumi.get(self, "processed_bytes")
+
+    @property
+    @pulumi.getter(name="progressHealth")
+    def progress_health(self) -> str:
+        """
+        The progress health.
+        """
+        return pulumi.get(self, "progress_health")
+
+    @property
+    @pulumi.getter(name="progressPercentage")
+    def progress_percentage(self) -> int:
+        """
+        Progress in percentage. Progress percentage is calculated based on processed bytes.
+        """
+        return pulumi.get(self, "progress_percentage")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="transferredBytes")
+    def transferred_bytes(self) -> float:
+        """
+        The transferred bytes from source VM to azure for the disk.
+        """
+        return pulumi.get(self, "transferred_bytes")
 
 
 @pulumi.output_type
@@ -15060,6 +20246,8 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
             suggest = "is_upgradeable"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
+        elif key == "latestAgentReleaseDate":
+            suggest = "latest_agent_release_date"
         elif key == "latestUpgradableVersionWithoutReboot":
             suggest = "latest_upgradable_version_without_reboot"
         elif key == "latestVersion":
@@ -15084,6 +20272,7 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
                  driver_version_expiry_date: str,
                  is_upgradeable: str,
                  last_heartbeat_utc: str,
+                 latest_agent_release_date: str,
                  latest_upgradable_version_without_reboot: str,
                  latest_version: str,
                  reasons_blocking_upgrade: Sequence[str],
@@ -15095,6 +20284,7 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
         :param str driver_version_expiry_date: The driver version expiry date.
         :param str is_upgradeable: A value indicating whether agent is upgradeable or not.
         :param str last_heartbeat_utc: The time of the last heartbeat received from the agent.
+        :param str latest_agent_release_date: The latest agent version release date.
         :param str latest_upgradable_version_without_reboot: The latest upgradeable version available without reboot.
         :param str latest_version: The latest agent version available.
         :param Sequence[str] reasons_blocking_upgrade: The whether update is possible or not.
@@ -15105,6 +20295,7 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
         pulumi.set(__self__, "driver_version_expiry_date", driver_version_expiry_date)
         pulumi.set(__self__, "is_upgradeable", is_upgradeable)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "latest_agent_release_date", latest_agent_release_date)
         pulumi.set(__self__, "latest_upgradable_version_without_reboot", latest_upgradable_version_without_reboot)
         pulumi.set(__self__, "latest_version", latest_version)
         pulumi.set(__self__, "reasons_blocking_upgrade", reasons_blocking_upgrade)
@@ -15151,6 +20342,14 @@ class InMageRcmMobilityAgentDetailsResponse(dict):
         return pulumi.get(self, "last_heartbeat_utc")
 
     @property
+    @pulumi.getter(name="latestAgentReleaseDate")
+    def latest_agent_release_date(self) -> str:
+        """
+        The latest agent version release date.
+        """
+        return pulumi.get(self, "latest_agent_release_date")
+
+    @property
     @pulumi.getter(name="latestUpgradableVersionWithoutReboot")
     def latest_upgradable_version_without_reboot(self) -> str:
         """
@@ -15191,11 +20390,7 @@ class InMageRcmNicDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "isPrimaryNic":
-            suggest = "is_primary_nic"
-        elif key == "isSelectedForFailover":
-            suggest = "is_selected_for_failover"
-        elif key == "nicId":
+        if key == "nicId":
             suggest = "nic_id"
         elif key == "sourceIPAddress":
             suggest = "source_ip_address"
@@ -15205,6 +20400,10 @@ class InMageRcmNicDetailsResponse(dict):
             suggest = "source_network_id"
         elif key == "sourceSubnetName":
             suggest = "source_subnet_name"
+        elif key == "isPrimaryNic":
+            suggest = "is_primary_nic"
+        elif key == "isSelectedForFailover":
+            suggest = "is_selected_for_failover"
         elif key == "targetIPAddress":
             suggest = "target_ip_address"
         elif key == "targetIPAddressType":
@@ -15230,28 +20429,28 @@ class InMageRcmNicDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 is_primary_nic: str,
-                 is_selected_for_failover: str,
                  nic_id: str,
                  source_ip_address: str,
                  source_ip_address_type: str,
                  source_network_id: str,
                  source_subnet_name: str,
-                 target_ip_address: str,
-                 target_ip_address_type: str,
-                 target_subnet_name: str,
-                 test_ip_address: str,
-                 test_ip_address_type: str,
-                 test_subnet_name: str):
+                 is_primary_nic: Optional[str] = None,
+                 is_selected_for_failover: Optional[str] = None,
+                 target_ip_address: Optional[str] = None,
+                 target_ip_address_type: Optional[str] = None,
+                 target_subnet_name: Optional[str] = None,
+                 test_ip_address: Optional[str] = None,
+                 test_ip_address_type: Optional[str] = None,
+                 test_subnet_name: Optional[str] = None):
         """
         InMageRcm NIC details.
-        :param str is_primary_nic: A value indicating whether this is the primary NIC.
-        :param str is_selected_for_failover: A value indicating whether this NIC is selected for failover.
         :param str nic_id: The NIC Id.
         :param str source_ip_address: The source IP address.
         :param str source_ip_address_type: The source IP address type.
         :param str source_network_id: Source network Id.
         :param str source_subnet_name: Source subnet name.
+        :param str is_primary_nic: A value indicating whether this is the primary NIC.
+        :param str is_selected_for_failover: A value indicating whether this NIC is selected for failover.
         :param str target_ip_address: The target IP address.
         :param str target_ip_address_type: The target IP address type.
         :param str target_subnet_name: Target subnet name.
@@ -15259,35 +20458,27 @@ class InMageRcmNicDetailsResponse(dict):
         :param str test_ip_address_type: The test IP address type.
         :param str test_subnet_name: Test subnet name.
         """
-        pulumi.set(__self__, "is_primary_nic", is_primary_nic)
-        pulumi.set(__self__, "is_selected_for_failover", is_selected_for_failover)
         pulumi.set(__self__, "nic_id", nic_id)
         pulumi.set(__self__, "source_ip_address", source_ip_address)
         pulumi.set(__self__, "source_ip_address_type", source_ip_address_type)
         pulumi.set(__self__, "source_network_id", source_network_id)
         pulumi.set(__self__, "source_subnet_name", source_subnet_name)
-        pulumi.set(__self__, "target_ip_address", target_ip_address)
-        pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
-        pulumi.set(__self__, "target_subnet_name", target_subnet_name)
-        pulumi.set(__self__, "test_ip_address", test_ip_address)
-        pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
-        pulumi.set(__self__, "test_subnet_name", test_subnet_name)
-
-    @property
-    @pulumi.getter(name="isPrimaryNic")
-    def is_primary_nic(self) -> str:
-        """
-        A value indicating whether this is the primary NIC.
-        """
-        return pulumi.get(self, "is_primary_nic")
-
-    @property
-    @pulumi.getter(name="isSelectedForFailover")
-    def is_selected_for_failover(self) -> str:
-        """
-        A value indicating whether this NIC is selected for failover.
-        """
-        return pulumi.get(self, "is_selected_for_failover")
+        if is_primary_nic is not None:
+            pulumi.set(__self__, "is_primary_nic", is_primary_nic)
+        if is_selected_for_failover is not None:
+            pulumi.set(__self__, "is_selected_for_failover", is_selected_for_failover)
+        if target_ip_address is not None:
+            pulumi.set(__self__, "target_ip_address", target_ip_address)
+        if target_ip_address_type is not None:
+            pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+        if target_subnet_name is not None:
+            pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+        if test_ip_address is not None:
+            pulumi.set(__self__, "test_ip_address", test_ip_address)
+        if test_ip_address_type is not None:
+            pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+        if test_subnet_name is not None:
+            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="nicId")
@@ -15330,8 +20521,24 @@ class InMageRcmNicDetailsResponse(dict):
         return pulumi.get(self, "source_subnet_name")
 
     @property
+    @pulumi.getter(name="isPrimaryNic")
+    def is_primary_nic(self) -> Optional[str]:
+        """
+        A value indicating whether this is the primary NIC.
+        """
+        return pulumi.get(self, "is_primary_nic")
+
+    @property
+    @pulumi.getter(name="isSelectedForFailover")
+    def is_selected_for_failover(self) -> Optional[str]:
+        """
+        A value indicating whether this NIC is selected for failover.
+        """
+        return pulumi.get(self, "is_selected_for_failover")
+
+    @property
     @pulumi.getter(name="targetIPAddress")
-    def target_ip_address(self) -> str:
+    def target_ip_address(self) -> Optional[str]:
         """
         The target IP address.
         """
@@ -15339,7 +20546,7 @@ class InMageRcmNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetIPAddressType")
-    def target_ip_address_type(self) -> str:
+    def target_ip_address_type(self) -> Optional[str]:
         """
         The target IP address type.
         """
@@ -15347,7 +20554,7 @@ class InMageRcmNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetSubnetName")
-    def target_subnet_name(self) -> str:
+    def target_subnet_name(self) -> Optional[str]:
         """
         Target subnet name.
         """
@@ -15355,7 +20562,7 @@ class InMageRcmNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="testIPAddress")
-    def test_ip_address(self) -> str:
+    def test_ip_address(self) -> Optional[str]:
         """
         The test IP address.
         """
@@ -15363,7 +20570,7 @@ class InMageRcmNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="testIPAddressType")
-    def test_ip_address_type(self) -> str:
+    def test_ip_address_type(self) -> Optional[str]:
         """
         The test IP address type.
         """
@@ -15371,7 +20578,7 @@ class InMageRcmNicDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="testSubnetName")
-    def test_subnet_name(self) -> str:
+    def test_subnet_name(self) -> Optional[str]:
         """
         Test subnet name.
         """
@@ -15386,14 +20593,14 @@ class InMageRcmPolicyDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "appConsistentFrequencyInMinutes":
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "appConsistentFrequencyInMinutes":
             suggest = "app_consistent_frequency_in_minutes"
         elif key == "crashConsistentFrequencyInMinutes":
             suggest = "crash_consistent_frequency_in_minutes"
         elif key == "enableMultiVmSync":
             suggest = "enable_multi_vm_sync"
-        elif key == "instanceType":
-            suggest = "instance_type"
         elif key == "recoveryPointHistoryInMinutes":
             suggest = "recovery_point_history_in_minutes"
 
@@ -15409,49 +20616,29 @@ class InMageRcmPolicyDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 app_consistent_frequency_in_minutes: int,
-                 crash_consistent_frequency_in_minutes: int,
-                 enable_multi_vm_sync: str,
                  instance_type: str,
-                 recovery_point_history_in_minutes: int):
+                 app_consistent_frequency_in_minutes: Optional[int] = None,
+                 crash_consistent_frequency_in_minutes: Optional[int] = None,
+                 enable_multi_vm_sync: Optional[str] = None,
+                 recovery_point_history_in_minutes: Optional[int] = None):
         """
         InMageRcm specific policy details.
+        :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'InMageRcm'.
         :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
         :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
         :param str enable_multi_vm_sync: A value indicating whether multi-VM sync has to be enabled.
-        :param str instance_type: Gets the class type. Overridden in derived classes.
-               Expected value is 'InMageRcm'.
         :param int recovery_point_history_in_minutes: The duration in minutes until which the recovery points need to be stored.
         """
-        pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
-        pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
         pulumi.set(__self__, "instance_type", 'InMageRcm')
-        pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
-
-    @property
-    @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> int:
-        """
-        The app consistent snapshot frequency in minutes.
-        """
-        return pulumi.get(self, "app_consistent_frequency_in_minutes")
-
-    @property
-    @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> int:
-        """
-        The crash consistent snapshot frequency in minutes.
-        """
-        return pulumi.get(self, "crash_consistent_frequency_in_minutes")
-
-    @property
-    @pulumi.getter(name="enableMultiVmSync")
-    def enable_multi_vm_sync(self) -> str:
-        """
-        A value indicating whether multi-VM sync has to be enabled.
-        """
-        return pulumi.get(self, "enable_multi_vm_sync")
+        if app_consistent_frequency_in_minutes is not None:
+            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
+        if crash_consistent_frequency_in_minutes is not None:
+            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
+        if enable_multi_vm_sync is not None:
+            pulumi.set(__self__, "enable_multi_vm_sync", enable_multi_vm_sync)
+        if recovery_point_history_in_minutes is not None:
+            pulumi.set(__self__, "recovery_point_history_in_minutes", recovery_point_history_in_minutes)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -15463,8 +20650,32 @@ class InMageRcmPolicyDetailsResponse(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="appConsistentFrequencyInMinutes")
+    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
+        """
+        The app consistent snapshot frequency in minutes.
+        """
+        return pulumi.get(self, "app_consistent_frequency_in_minutes")
+
+    @property
+    @pulumi.getter(name="crashConsistentFrequencyInMinutes")
+    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
+        """
+        The crash consistent snapshot frequency in minutes.
+        """
+        return pulumi.get(self, "crash_consistent_frequency_in_minutes")
+
+    @property
+    @pulumi.getter(name="enableMultiVmSync")
+    def enable_multi_vm_sync(self) -> Optional[str]:
+        """
+        A value indicating whether multi-VM sync has to be enabled.
+        """
+        return pulumi.get(self, "enable_multi_vm_sync")
+
+    @property
     @pulumi.getter(name="recoveryPointHistoryInMinutes")
-    def recovery_point_history_in_minutes(self) -> int:
+    def recovery_point_history_in_minutes(self) -> Optional[int]:
         """
         The duration in minutes until which the recovery points need to be stored.
         """
@@ -15481,22 +20692,34 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         suggest = None
         if key == "capacityInBytes":
             suggest = "capacity_in_bytes"
+        elif key == "dataPendingAtSourceAgentInMB":
+            suggest = "data_pending_at_source_agent_in_mb"
+        elif key == "dataPendingInLogDataStoreInMB":
+            suggest = "data_pending_in_log_data_store_in_mb"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
         elif key == "diskId":
             suggest = "disk_id"
         elif key == "diskName":
             suggest = "disk_name"
-        elif key == "diskType":
-            suggest = "disk_type"
+        elif key == "isInitialReplicationComplete":
+            suggest = "is_initial_replication_complete"
         elif key == "isOSDisk":
             suggest = "is_os_disk"
         elif key == "logStorageAccountId":
             suggest = "log_storage_account_id"
+        elif key == "seedBlobUri":
+            suggest = "seed_blob_uri"
         elif key == "seedManagedDiskId":
             suggest = "seed_managed_disk_id"
         elif key == "targetManagedDiskId":
             suggest = "target_managed_disk_id"
+        elif key == "diskType":
+            suggest = "disk_type"
+        elif key == "irDetails":
+            suggest = "ir_details"
+        elif key == "resyncDetails":
+            suggest = "resync_details"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InMageRcmProtectedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -15511,35 +20734,56 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
 
     def __init__(__self__, *,
                  capacity_in_bytes: float,
+                 data_pending_at_source_agent_in_mb: float,
+                 data_pending_in_log_data_store_in_mb: float,
                  disk_encryption_set_id: str,
                  disk_id: str,
                  disk_name: str,
-                 disk_type: str,
+                 is_initial_replication_complete: str,
                  is_os_disk: str,
                  log_storage_account_id: str,
+                 seed_blob_uri: str,
                  seed_managed_disk_id: str,
-                 target_managed_disk_id: str):
+                 target_managed_disk_id: str,
+                 disk_type: Optional[str] = None,
+                 ir_details: Optional['outputs.InMageRcmSyncDetailsResponse'] = None,
+                 resync_details: Optional['outputs.InMageRcmSyncDetailsResponse'] = None):
         """
         InMageRcm protected disk details.
         :param float capacity_in_bytes: The disk capacity in bytes.
-        :param str disk_encryption_set_id: The disk encryption set ARM Id.
+        :param float data_pending_at_source_agent_in_mb: The data pending at source agent in MB.
+        :param float data_pending_in_log_data_store_in_mb: The data pending in log data store in MB.
+        :param str disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         :param str disk_id: The disk Id.
         :param str disk_name: The disk name.
-        :param str disk_type: The disk type.
+        :param str is_initial_replication_complete: A value indicating whether initial replication is complete or not.
         :param str is_os_disk: A value indicating whether the disk is the OS disk.
         :param str log_storage_account_id: The log storage account ARM Id.
+        :param str seed_blob_uri: The uri of the seed blob.
         :param str seed_managed_disk_id: The ARM Id of the seed managed disk.
         :param str target_managed_disk_id: The ARM Id of the target managed disk.
+        :param str disk_type: The disk type.
+        :param 'InMageRcmSyncDetailsResponse' ir_details: The initial replication details.
+        :param 'InMageRcmSyncDetailsResponse' resync_details: The resync details.
         """
         pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+        pulumi.set(__self__, "data_pending_at_source_agent_in_mb", data_pending_at_source_agent_in_mb)
+        pulumi.set(__self__, "data_pending_in_log_data_store_in_mb", data_pending_in_log_data_store_in_mb)
         pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "disk_name", disk_name)
-        pulumi.set(__self__, "disk_type", disk_type)
+        pulumi.set(__self__, "is_initial_replication_complete", is_initial_replication_complete)
         pulumi.set(__self__, "is_os_disk", is_os_disk)
         pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
+        pulumi.set(__self__, "seed_blob_uri", seed_blob_uri)
         pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
         pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
+        if disk_type is not None:
+            pulumi.set(__self__, "disk_type", disk_type)
+        if ir_details is not None:
+            pulumi.set(__self__, "ir_details", ir_details)
+        if resync_details is not None:
+            pulumi.set(__self__, "resync_details", resync_details)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -15550,10 +20794,26 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "capacity_in_bytes")
 
     @property
+    @pulumi.getter(name="dataPendingAtSourceAgentInMB")
+    def data_pending_at_source_agent_in_mb(self) -> float:
+        """
+        The data pending at source agent in MB.
+        """
+        return pulumi.get(self, "data_pending_at_source_agent_in_mb")
+
+    @property
+    @pulumi.getter(name="dataPendingInLogDataStoreInMB")
+    def data_pending_in_log_data_store_in_mb(self) -> float:
+        """
+        The data pending in log data store in MB.
+        """
+        return pulumi.get(self, "data_pending_in_log_data_store_in_mb")
+
+    @property
     @pulumi.getter(name="diskEncryptionSetId")
     def disk_encryption_set_id(self) -> str:
         """
-        The disk encryption set ARM Id.
+        The DiskEncryptionSet ARM Id.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -15574,12 +20834,12 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "disk_name")
 
     @property
-    @pulumi.getter(name="diskType")
-    def disk_type(self) -> str:
+    @pulumi.getter(name="isInitialReplicationComplete")
+    def is_initial_replication_complete(self) -> str:
         """
-        The disk type.
+        A value indicating whether initial replication is complete or not.
         """
-        return pulumi.get(self, "disk_type")
+        return pulumi.get(self, "is_initial_replication_complete")
 
     @property
     @pulumi.getter(name="isOSDisk")
@@ -15598,6 +20858,14 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "log_storage_account_id")
 
     @property
+    @pulumi.getter(name="seedBlobUri")
+    def seed_blob_uri(self) -> str:
+        """
+        The uri of the seed blob.
+        """
+        return pulumi.get(self, "seed_blob_uri")
+
+    @property
     @pulumi.getter(name="seedManagedDiskId")
     def seed_managed_disk_id(self) -> str:
         """
@@ -15613,6 +20881,84 @@ class InMageRcmProtectedDiskDetailsResponse(dict):
         """
         return pulumi.get(self, "target_managed_disk_id")
 
+    @property
+    @pulumi.getter(name="diskType")
+    def disk_type(self) -> Optional[str]:
+        """
+        The disk type.
+        """
+        return pulumi.get(self, "disk_type")
+
+    @property
+    @pulumi.getter(name="irDetails")
+    def ir_details(self) -> Optional['outputs.InMageRcmSyncDetailsResponse']:
+        """
+        The initial replication details.
+        """
+        return pulumi.get(self, "ir_details")
+
+    @property
+    @pulumi.getter(name="resyncDetails")
+    def resync_details(self) -> Optional['outputs.InMageRcmSyncDetailsResponse']:
+        """
+        The resync details.
+        """
+        return pulumi.get(self, "resync_details")
+
+
+@pulumi.output_type
+class InMageRcmProtectionContainerMappingDetailsResponse(dict):
+    """
+    InMageRcm provider specific container mapping details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableAgentAutoUpgrade":
+            suggest = "enable_agent_auto_upgrade"
+        elif key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmProtectionContainerMappingDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmProtectionContainerMappingDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmProtectionContainerMappingDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_agent_auto_upgrade: str,
+                 instance_type: str):
+        """
+        InMageRcm provider specific container mapping details.
+        :param str enable_agent_auto_upgrade: A value indicating whether the flag for enable agent auto upgrade.
+        :param str instance_type: Gets the class type. Overridden in derived classes.
+               Expected value is 'InMageRcm'.
+        """
+        pulumi.set(__self__, "enable_agent_auto_upgrade", enable_agent_auto_upgrade)
+        pulumi.set(__self__, "instance_type", 'InMageRcm')
+
+    @property
+    @pulumi.getter(name="enableAgentAutoUpgrade")
+    def enable_agent_auto_upgrade(self) -> str:
+        """
+        A value indicating whether the flag for enable agent auto upgrade.
+        """
+        return pulumi.get(self, "enable_agent_auto_upgrade")
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> str:
+        """
+        Gets the class type. Overridden in derived classes.
+        Expected value is 'InMageRcm'.
+        """
+        return pulumi.get(self, "instance_type")
+
 
 @pulumi.output_type
 class InMageRcmReplicationDetailsResponse(dict):
@@ -15622,8 +20968,10 @@ class InMageRcmReplicationDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "agentUpgradeBlockingErrorDetails":
-            suggest = "agent_upgrade_blocking_error_details"
+        if key == "agentUpgradeAttemptToVersion":
+            suggest = "agent_upgrade_attempt_to_version"
+        elif key == "agentUpgradeJobId":
+            suggest = "agent_upgrade_job_id"
         elif key == "agentUpgradeState":
             suggest = "agent_upgrade_state"
         elif key == "allocatedMemoryInMB":
@@ -15638,6 +20986,8 @@ class InMageRcmReplicationDetailsResponse(dict):
             suggest = "firmware_type"
         elif key == "initialReplicationProcessedBytes":
             suggest = "initial_replication_processed_bytes"
+        elif key == "initialReplicationProgressHealth":
+            suggest = "initial_replication_progress_health"
         elif key == "initialReplicationProgressPercentage":
             suggest = "initial_replication_progress_percentage"
         elif key == "initialReplicationTransferredBytes":
@@ -15646,12 +20996,10 @@ class InMageRcmReplicationDetailsResponse(dict):
             suggest = "instance_type"
         elif key == "internalIdentifier":
             suggest = "internal_identifier"
+        elif key == "isAgentRegistrationSuccessfulAfterFailover":
+            suggest = "is_agent_registration_successful_after_failover"
         elif key == "isLastUpgradeSuccessful":
             suggest = "is_last_upgrade_successful"
-        elif key == "lastAgentUpgradeErrorDetails":
-            suggest = "last_agent_upgrade_error_details"
-        elif key == "lastAgentUpgradeFailedJobId":
-            suggest = "last_agent_upgrade_failed_job_id"
         elif key == "lastAgentUpgradeType":
             suggest = "last_agent_upgrade_type"
         elif key == "lastRecoveryPointId":
@@ -15662,24 +21010,22 @@ class InMageRcmReplicationDetailsResponse(dict):
             suggest = "last_rpo_calculated_time"
         elif key == "lastRpoInSeconds":
             suggest = "last_rpo_in_seconds"
-        elif key == "licenseType":
-            suggest = "license_type"
-        elif key == "mobilityAgentDetails":
-            suggest = "mobility_agent_details"
         elif key == "multiVmGroupName":
             suggest = "multi_vm_group_name"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "primaryNicIpAddress":
+            suggest = "primary_nic_ip_address"
         elif key == "processServerId":
             suggest = "process_server_id"
         elif key == "processServerName":
             suggest = "process_server_name"
         elif key == "processorCoreCount":
             suggest = "processor_core_count"
-        elif key == "protectedDisks":
-            suggest = "protected_disks"
         elif key == "resyncProcessedBytes":
             suggest = "resync_processed_bytes"
+        elif key == "resyncProgressHealth":
+            suggest = "resync_progress_health"
         elif key == "resyncProgressPercentage":
             suggest = "resync_progress_percentage"
         elif key == "resyncRequired":
@@ -15690,14 +21036,30 @@ class InMageRcmReplicationDetailsResponse(dict):
             suggest = "resync_transferred_bytes"
         elif key == "runAsAccountId":
             suggest = "run_as_account_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "targetGeneration":
+            suggest = "target_generation"
+        elif key == "agentUpgradeBlockingErrorDetails":
+            suggest = "agent_upgrade_blocking_error_details"
+        elif key == "discoveredVmDetails":
+            suggest = "discovered_vm_details"
+        elif key == "lastAgentUpgradeErrorDetails":
+            suggest = "last_agent_upgrade_error_details"
+        elif key == "licenseType":
+            suggest = "license_type"
+        elif key == "mobilityAgentDetails":
+            suggest = "mobility_agent_details"
+        elif key == "protectedDisks":
+            suggest = "protected_disks"
         elif key == "targetAvailabilitySetId":
             suggest = "target_availability_set_id"
         elif key == "targetAvailabilityZone":
             suggest = "target_availability_zone"
         elif key == "targetBootDiagnosticsStorageAccountId":
             suggest = "target_boot_diagnostics_storage_account_id"
-        elif key == "targetGeneration":
-            suggest = "target_generation"
+        elif key == "targetLocation":
+            suggest = "target_location"
         elif key == "targetNetworkId":
             suggest = "target_network_id"
         elif key == "targetProximityPlacementGroupId":
@@ -15725,7 +21087,8 @@ class InMageRcmReplicationDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 agent_upgrade_blocking_error_details: Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse'],
+                 agent_upgrade_attempt_to_version: str,
+                 agent_upgrade_job_id: str,
                  agent_upgrade_state: str,
                  allocated_memory_in_mb: float,
                  discovery_type: str,
@@ -15733,46 +21096,54 @@ class InMageRcmReplicationDetailsResponse(dict):
                  failover_recovery_point_id: str,
                  firmware_type: str,
                  initial_replication_processed_bytes: float,
+                 initial_replication_progress_health: str,
                  initial_replication_progress_percentage: int,
                  initial_replication_transferred_bytes: float,
                  instance_type: str,
                  internal_identifier: str,
+                 is_agent_registration_successful_after_failover: bool,
                  is_last_upgrade_successful: str,
-                 last_agent_upgrade_error_details: Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse'],
-                 last_agent_upgrade_failed_job_id: str,
                  last_agent_upgrade_type: str,
                  last_recovery_point_id: str,
                  last_recovery_point_received: str,
                  last_rpo_calculated_time: str,
                  last_rpo_in_seconds: float,
-                 license_type: str,
-                 mobility_agent_details: 'outputs.InMageRcmMobilityAgentDetailsResponse',
                  multi_vm_group_name: str,
                  os_type: str,
+                 primary_nic_ip_address: str,
                  process_server_id: str,
                  process_server_name: str,
                  processor_core_count: int,
-                 protected_disks: Sequence['outputs.InMageRcmProtectedDiskDetailsResponse'],
                  resync_processed_bytes: float,
+                 resync_progress_health: str,
                  resync_progress_percentage: int,
                  resync_required: str,
                  resync_state: str,
                  resync_transferred_bytes: float,
                  run_as_account_id: str,
-                 target_availability_set_id: str,
-                 target_availability_zone: str,
-                 target_boot_diagnostics_storage_account_id: str,
+                 storage_account_id: str,
                  target_generation: str,
-                 target_network_id: str,
-                 target_proximity_placement_group_id: str,
-                 target_resource_group_id: str,
-                 target_vm_name: str,
-                 target_vm_size: str,
-                 test_network_id: str,
-                 vm_nics: Sequence['outputs.InMageRcmNicDetailsResponse']):
+                 agent_upgrade_blocking_error_details: Optional[Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse']] = None,
+                 discovered_vm_details: Optional['outputs.InMageRcmDiscoveredProtectedVmDetailsResponse'] = None,
+                 last_agent_upgrade_error_details: Optional[Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse']] = None,
+                 license_type: Optional[str] = None,
+                 mobility_agent_details: Optional['outputs.InMageRcmMobilityAgentDetailsResponse'] = None,
+                 protected_disks: Optional[Sequence['outputs.InMageRcmProtectedDiskDetailsResponse']] = None,
+                 target_availability_set_id: Optional[str] = None,
+                 target_availability_zone: Optional[str] = None,
+                 target_boot_diagnostics_storage_account_id: Optional[str] = None,
+                 target_location: Optional[str] = None,
+                 target_network_id: Optional[str] = None,
+                 target_proximity_placement_group_id: Optional[str] = None,
+                 target_resource_group_id: Optional[str] = None,
+                 target_vm_name: Optional[str] = None,
+                 target_vm_size: Optional[str] = None,
+                 test_network_id: Optional[str] = None,
+                 vm_nics: Optional[Sequence['outputs.InMageRcmNicDetailsResponse']] = None):
         """
         InMageRcm provider specific details.
-        :param Sequence['InMageRcmAgentUpgradeBlockingErrorDetailsResponse'] agent_upgrade_blocking_error_details: The agent upgrade blocking error information.
+        :param str agent_upgrade_attempt_to_version: The agent version to which last agent upgrade was attempted.
+        :param str agent_upgrade_job_id: The agent upgrade job Id.
         :param str agent_upgrade_state: The agent auto upgrade state.
         :param float allocated_memory_in_mb: The allocated memory in MB.
         :param str discovery_type: The type of the discovered VM.
@@ -15780,37 +21151,44 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str failover_recovery_point_id: The recovery point Id to which the VM was failed over.
         :param str firmware_type: The firmware type.
         :param float initial_replication_processed_bytes: The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param str initial_replication_progress_health: The initial replication progress health.
         :param int initial_replication_progress_percentage: The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         :param float initial_replication_transferred_bytes: The initial replication transferred bytes from source VM to azure for all selected disks on source VM.
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMageRcm'.
         :param str internal_identifier: The virtual machine internal identifier.
+        :param bool is_agent_registration_successful_after_failover: A value indicating whether agent registration was successful after failover.
         :param str is_last_upgrade_successful: A value indicating whether last agent upgrade was successful or not.
-        :param Sequence['InMageRcmLastAgentUpgradeErrorDetailsResponse'] last_agent_upgrade_error_details: The last agent upgrade error information.
-        :param str last_agent_upgrade_failed_job_id: The last agent upgrade failed or cancelled job Id.
         :param str last_agent_upgrade_type: The last agent upgrade type.
         :param str last_recovery_point_id: The last recovery point Id.
         :param str last_recovery_point_received: The last recovery point received time.
         :param str last_rpo_calculated_time: The last recovery point objective calculated time.
         :param float last_rpo_in_seconds: The last recovery point objective value.
-        :param str license_type: License Type of the VM to be used.
-        :param 'InMageRcmMobilityAgentDetailsResponse' mobility_agent_details: The mobility agent information.
         :param str multi_vm_group_name: The multi VM group name.
         :param str os_type: The type of the OS on the VM.
+        :param str primary_nic_ip_address: The IP address of the primary network interface.
         :param str process_server_id: The process server Id.
         :param str process_server_name: The process server name.
         :param int processor_core_count: The processor core count.
-        :param Sequence['InMageRcmProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param float resync_processed_bytes: The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
+        :param str resync_progress_health: The resync progress health.
         :param int resync_progress_percentage: The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.
         :param str resync_required: A value indicating whether resync is required.
         :param str resync_state: The resync state.
         :param float resync_transferred_bytes: The resync transferred bytes from source VM to azure for all selected disks on source VM.
         :param str run_as_account_id: The run-as account Id.
+        :param str storage_account_id: The replication storage account ARM Id. This is applicable only for the blob based replication test hook.
+        :param str target_generation: The target generation.
+        :param Sequence['InMageRcmAgentUpgradeBlockingErrorDetailsResponse'] agent_upgrade_blocking_error_details: The agent upgrade blocking error information.
+        :param 'InMageRcmDiscoveredProtectedVmDetailsResponse' discovered_vm_details: The discovered VM details.
+        :param Sequence['InMageRcmLastAgentUpgradeErrorDetailsResponse'] last_agent_upgrade_error_details: The last agent upgrade error information.
+        :param str license_type: License Type of the VM to be used.
+        :param 'InMageRcmMobilityAgentDetailsResponse' mobility_agent_details: The mobility agent information.
+        :param Sequence['InMageRcmProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
         :param str target_availability_set_id: The target availability set Id.
         :param str target_availability_zone: The target availability zone.
         :param str target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
-        :param str target_generation: The target generation.
+        :param str target_location: The target location.
         :param str target_network_id: The target network Id.
         :param str target_proximity_placement_group_id: The target proximity placement group Id.
         :param str target_resource_group_id: The target resource group Id.
@@ -15819,7 +21197,8 @@ class InMageRcmReplicationDetailsResponse(dict):
         :param str test_network_id: The test network Id.
         :param Sequence['InMageRcmNicDetailsResponse'] vm_nics: The network details.
         """
-        pulumi.set(__self__, "agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
+        pulumi.set(__self__, "agent_upgrade_attempt_to_version", agent_upgrade_attempt_to_version)
+        pulumi.set(__self__, "agent_upgrade_job_id", agent_upgrade_job_id)
         pulumi.set(__self__, "agent_upgrade_state", agent_upgrade_state)
         pulumi.set(__self__, "allocated_memory_in_mb", allocated_memory_in_mb)
         pulumi.set(__self__, "discovery_type", discovery_type)
@@ -15827,51 +21206,83 @@ class InMageRcmReplicationDetailsResponse(dict):
         pulumi.set(__self__, "failover_recovery_point_id", failover_recovery_point_id)
         pulumi.set(__self__, "firmware_type", firmware_type)
         pulumi.set(__self__, "initial_replication_processed_bytes", initial_replication_processed_bytes)
+        pulumi.set(__self__, "initial_replication_progress_health", initial_replication_progress_health)
         pulumi.set(__self__, "initial_replication_progress_percentage", initial_replication_progress_percentage)
         pulumi.set(__self__, "initial_replication_transferred_bytes", initial_replication_transferred_bytes)
         pulumi.set(__self__, "instance_type", 'InMageRcm')
         pulumi.set(__self__, "internal_identifier", internal_identifier)
+        pulumi.set(__self__, "is_agent_registration_successful_after_failover", is_agent_registration_successful_after_failover)
         pulumi.set(__self__, "is_last_upgrade_successful", is_last_upgrade_successful)
-        pulumi.set(__self__, "last_agent_upgrade_error_details", last_agent_upgrade_error_details)
-        pulumi.set(__self__, "last_agent_upgrade_failed_job_id", last_agent_upgrade_failed_job_id)
         pulumi.set(__self__, "last_agent_upgrade_type", last_agent_upgrade_type)
         pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
         pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
         pulumi.set(__self__, "last_rpo_calculated_time", last_rpo_calculated_time)
         pulumi.set(__self__, "last_rpo_in_seconds", last_rpo_in_seconds)
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
         pulumi.set(__self__, "multi_vm_group_name", multi_vm_group_name)
         pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "primary_nic_ip_address", primary_nic_ip_address)
         pulumi.set(__self__, "process_server_id", process_server_id)
         pulumi.set(__self__, "process_server_name", process_server_name)
         pulumi.set(__self__, "processor_core_count", processor_core_count)
-        pulumi.set(__self__, "protected_disks", protected_disks)
         pulumi.set(__self__, "resync_processed_bytes", resync_processed_bytes)
+        pulumi.set(__self__, "resync_progress_health", resync_progress_health)
         pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
         pulumi.set(__self__, "resync_required", resync_required)
         pulumi.set(__self__, "resync_state", resync_state)
         pulumi.set(__self__, "resync_transferred_bytes", resync_transferred_bytes)
         pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-        pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
-        pulumi.set(__self__, "target_availability_zone", target_availability_zone)
-        pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
         pulumi.set(__self__, "target_generation", target_generation)
-        pulumi.set(__self__, "target_network_id", target_network_id)
-        pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
-        pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
-        pulumi.set(__self__, "target_vm_name", target_vm_name)
-        pulumi.set(__self__, "target_vm_size", target_vm_size)
-        pulumi.set(__self__, "test_network_id", test_network_id)
-        pulumi.set(__self__, "vm_nics", vm_nics)
+        if agent_upgrade_blocking_error_details is not None:
+            pulumi.set(__self__, "agent_upgrade_blocking_error_details", agent_upgrade_blocking_error_details)
+        if discovered_vm_details is not None:
+            pulumi.set(__self__, "discovered_vm_details", discovered_vm_details)
+        if last_agent_upgrade_error_details is not None:
+            pulumi.set(__self__, "last_agent_upgrade_error_details", last_agent_upgrade_error_details)
+        if license_type is not None:
+            pulumi.set(__self__, "license_type", license_type)
+        if mobility_agent_details is not None:
+            pulumi.set(__self__, "mobility_agent_details", mobility_agent_details)
+        if protected_disks is not None:
+            pulumi.set(__self__, "protected_disks", protected_disks)
+        if target_availability_set_id is not None:
+            pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+        if target_availability_zone is not None:
+            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
+        if target_boot_diagnostics_storage_account_id is not None:
+            pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+        if target_location is not None:
+            pulumi.set(__self__, "target_location", target_location)
+        if target_network_id is not None:
+            pulumi.set(__self__, "target_network_id", target_network_id)
+        if target_proximity_placement_group_id is not None:
+            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
+        if target_resource_group_id is not None:
+            pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        if target_vm_name is not None:
+            pulumi.set(__self__, "target_vm_name", target_vm_name)
+        if target_vm_size is not None:
+            pulumi.set(__self__, "target_vm_size", target_vm_size)
+        if test_network_id is not None:
+            pulumi.set(__self__, "test_network_id", test_network_id)
+        if vm_nics is not None:
+            pulumi.set(__self__, "vm_nics", vm_nics)
 
     @property
-    @pulumi.getter(name="agentUpgradeBlockingErrorDetails")
-    def agent_upgrade_blocking_error_details(self) -> Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse']:
+    @pulumi.getter(name="agentUpgradeAttemptToVersion")
+    def agent_upgrade_attempt_to_version(self) -> str:
         """
-        The agent upgrade blocking error information.
+        The agent version to which last agent upgrade was attempted.
         """
-        return pulumi.get(self, "agent_upgrade_blocking_error_details")
+        return pulumi.get(self, "agent_upgrade_attempt_to_version")
+
+    @property
+    @pulumi.getter(name="agentUpgradeJobId")
+    def agent_upgrade_job_id(self) -> str:
+        """
+        The agent upgrade job Id.
+        """
+        return pulumi.get(self, "agent_upgrade_job_id")
 
     @property
     @pulumi.getter(name="agentUpgradeState")
@@ -15930,6 +21341,14 @@ class InMageRcmReplicationDetailsResponse(dict):
         return pulumi.get(self, "initial_replication_processed_bytes")
 
     @property
+    @pulumi.getter(name="initialReplicationProgressHealth")
+    def initial_replication_progress_health(self) -> str:
+        """
+        The initial replication progress health.
+        """
+        return pulumi.get(self, "initial_replication_progress_health")
+
+    @property
     @pulumi.getter(name="initialReplicationProgressPercentage")
     def initial_replication_progress_percentage(self) -> int:
         """
@@ -15963,28 +21382,20 @@ class InMageRcmReplicationDetailsResponse(dict):
         return pulumi.get(self, "internal_identifier")
 
     @property
+    @pulumi.getter(name="isAgentRegistrationSuccessfulAfterFailover")
+    def is_agent_registration_successful_after_failover(self) -> bool:
+        """
+        A value indicating whether agent registration was successful after failover.
+        """
+        return pulumi.get(self, "is_agent_registration_successful_after_failover")
+
+    @property
     @pulumi.getter(name="isLastUpgradeSuccessful")
     def is_last_upgrade_successful(self) -> str:
         """
         A value indicating whether last agent upgrade was successful or not.
         """
         return pulumi.get(self, "is_last_upgrade_successful")
-
-    @property
-    @pulumi.getter(name="lastAgentUpgradeErrorDetails")
-    def last_agent_upgrade_error_details(self) -> Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse']:
-        """
-        The last agent upgrade error information.
-        """
-        return pulumi.get(self, "last_agent_upgrade_error_details")
-
-    @property
-    @pulumi.getter(name="lastAgentUpgradeFailedJobId")
-    def last_agent_upgrade_failed_job_id(self) -> str:
-        """
-        The last agent upgrade failed or cancelled job Id.
-        """
-        return pulumi.get(self, "last_agent_upgrade_failed_job_id")
 
     @property
     @pulumi.getter(name="lastAgentUpgradeType")
@@ -16027,22 +21438,6 @@ class InMageRcmReplicationDetailsResponse(dict):
         return pulumi.get(self, "last_rpo_in_seconds")
 
     @property
-    @pulumi.getter(name="licenseType")
-    def license_type(self) -> str:
-        """
-        License Type of the VM to be used.
-        """
-        return pulumi.get(self, "license_type")
-
-    @property
-    @pulumi.getter(name="mobilityAgentDetails")
-    def mobility_agent_details(self) -> 'outputs.InMageRcmMobilityAgentDetailsResponse':
-        """
-        The mobility agent information.
-        """
-        return pulumi.get(self, "mobility_agent_details")
-
-    @property
     @pulumi.getter(name="multiVmGroupName")
     def multi_vm_group_name(self) -> str:
         """
@@ -16057,6 +21452,14 @@ class InMageRcmReplicationDetailsResponse(dict):
         The type of the OS on the VM.
         """
         return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="primaryNicIpAddress")
+    def primary_nic_ip_address(self) -> str:
+        """
+        The IP address of the primary network interface.
+        """
+        return pulumi.get(self, "primary_nic_ip_address")
 
     @property
     @pulumi.getter(name="processServerId")
@@ -16083,20 +21486,20 @@ class InMageRcmReplicationDetailsResponse(dict):
         return pulumi.get(self, "processor_core_count")
 
     @property
-    @pulumi.getter(name="protectedDisks")
-    def protected_disks(self) -> Sequence['outputs.InMageRcmProtectedDiskDetailsResponse']:
-        """
-        The list of protected disks.
-        """
-        return pulumi.get(self, "protected_disks")
-
-    @property
     @pulumi.getter(name="resyncProcessedBytes")
     def resync_processed_bytes(self) -> float:
         """
         The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.
         """
         return pulumi.get(self, "resync_processed_bytes")
+
+    @property
+    @pulumi.getter(name="resyncProgressHealth")
+    def resync_progress_health(self) -> str:
+        """
+        The resync progress health.
+        """
+        return pulumi.get(self, "resync_progress_health")
 
     @property
     @pulumi.getter(name="resyncProgressPercentage")
@@ -16139,28 +21542,12 @@ class InMageRcmReplicationDetailsResponse(dict):
         return pulumi.get(self, "run_as_account_id")
 
     @property
-    @pulumi.getter(name="targetAvailabilitySetId")
-    def target_availability_set_id(self) -> str:
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
         """
-        The target availability set Id.
+        The replication storage account ARM Id. This is applicable only for the blob based replication test hook.
         """
-        return pulumi.get(self, "target_availability_set_id")
-
-    @property
-    @pulumi.getter(name="targetAvailabilityZone")
-    def target_availability_zone(self) -> str:
-        """
-        The target availability zone.
-        """
-        return pulumi.get(self, "target_availability_zone")
-
-    @property
-    @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
-    def target_boot_diagnostics_storage_account_id(self) -> str:
-        """
-        The target boot diagnostics storage account ARM Id.
-        """
-        return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
+        return pulumi.get(self, "storage_account_id")
 
     @property
     @pulumi.getter(name="targetGeneration")
@@ -16171,8 +21558,88 @@ class InMageRcmReplicationDetailsResponse(dict):
         return pulumi.get(self, "target_generation")
 
     @property
+    @pulumi.getter(name="agentUpgradeBlockingErrorDetails")
+    def agent_upgrade_blocking_error_details(self) -> Optional[Sequence['outputs.InMageRcmAgentUpgradeBlockingErrorDetailsResponse']]:
+        """
+        The agent upgrade blocking error information.
+        """
+        return pulumi.get(self, "agent_upgrade_blocking_error_details")
+
+    @property
+    @pulumi.getter(name="discoveredVmDetails")
+    def discovered_vm_details(self) -> Optional['outputs.InMageRcmDiscoveredProtectedVmDetailsResponse']:
+        """
+        The discovered VM details.
+        """
+        return pulumi.get(self, "discovered_vm_details")
+
+    @property
+    @pulumi.getter(name="lastAgentUpgradeErrorDetails")
+    def last_agent_upgrade_error_details(self) -> Optional[Sequence['outputs.InMageRcmLastAgentUpgradeErrorDetailsResponse']]:
+        """
+        The last agent upgrade error information.
+        """
+        return pulumi.get(self, "last_agent_upgrade_error_details")
+
+    @property
+    @pulumi.getter(name="licenseType")
+    def license_type(self) -> Optional[str]:
+        """
+        License Type of the VM to be used.
+        """
+        return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="mobilityAgentDetails")
+    def mobility_agent_details(self) -> Optional['outputs.InMageRcmMobilityAgentDetailsResponse']:
+        """
+        The mobility agent information.
+        """
+        return pulumi.get(self, "mobility_agent_details")
+
+    @property
+    @pulumi.getter(name="protectedDisks")
+    def protected_disks(self) -> Optional[Sequence['outputs.InMageRcmProtectedDiskDetailsResponse']]:
+        """
+        The list of protected disks.
+        """
+        return pulumi.get(self, "protected_disks")
+
+    @property
+    @pulumi.getter(name="targetAvailabilitySetId")
+    def target_availability_set_id(self) -> Optional[str]:
+        """
+        The target availability set Id.
+        """
+        return pulumi.get(self, "target_availability_set_id")
+
+    @property
+    @pulumi.getter(name="targetAvailabilityZone")
+    def target_availability_zone(self) -> Optional[str]:
+        """
+        The target availability zone.
+        """
+        return pulumi.get(self, "target_availability_zone")
+
+    @property
+    @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
+    def target_boot_diagnostics_storage_account_id(self) -> Optional[str]:
+        """
+        The target boot diagnostics storage account ARM Id.
+        """
+        return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
+
+    @property
+    @pulumi.getter(name="targetLocation")
+    def target_location(self) -> Optional[str]:
+        """
+        The target location.
+        """
+        return pulumi.get(self, "target_location")
+
+    @property
     @pulumi.getter(name="targetNetworkId")
-    def target_network_id(self) -> str:
+    def target_network_id(self) -> Optional[str]:
         """
         The target network Id.
         """
@@ -16180,7 +21647,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetProximityPlacementGroupId")
-    def target_proximity_placement_group_id(self) -> str:
+    def target_proximity_placement_group_id(self) -> Optional[str]:
         """
         The target proximity placement group Id.
         """
@@ -16188,7 +21655,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetResourceGroupId")
-    def target_resource_group_id(self) -> str:
+    def target_resource_group_id(self) -> Optional[str]:
         """
         The target resource group Id.
         """
@@ -16196,7 +21663,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetVmName")
-    def target_vm_name(self) -> str:
+    def target_vm_name(self) -> Optional[str]:
         """
         Target VM name.
         """
@@ -16204,7 +21671,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="targetVmSize")
-    def target_vm_size(self) -> str:
+    def target_vm_size(self) -> Optional[str]:
         """
         The target VM size.
         """
@@ -16212,7 +21679,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="testNetworkId")
-    def test_network_id(self) -> str:
+    def test_network_id(self) -> Optional[str]:
         """
         The test network Id.
         """
@@ -16220,7 +21687,7 @@ class InMageRcmReplicationDetailsResponse(dict):
 
     @property
     @pulumi.getter(name="vmNics")
-    def vm_nics(self) -> Sequence['outputs.InMageRcmNicDetailsResponse']:
+    def vm_nics(self) -> Optional[Sequence['outputs.InMageRcmNicDetailsResponse']]:
         """
         The network details.
         """
@@ -16228,9 +21695,139 @@ class InMageRcmReplicationDetailsResponse(dict):
 
 
 @pulumi.output_type
+class InMageRcmSyncDetailsResponse(dict):
+    """
+    InMageRcm disk level sync details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "last15MinutesTransferredBytes":
+            suggest = "last15_minutes_transferred_bytes"
+        elif key == "lastDataTransferTimeUtc":
+            suggest = "last_data_transfer_time_utc"
+        elif key == "lastRefreshTime":
+            suggest = "last_refresh_time"
+        elif key == "processedBytes":
+            suggest = "processed_bytes"
+        elif key == "progressHealth":
+            suggest = "progress_health"
+        elif key == "progressPercentage":
+            suggest = "progress_percentage"
+        elif key == "startTime":
+            suggest = "start_time"
+        elif key == "transferredBytes":
+            suggest = "transferred_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InMageRcmSyncDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InMageRcmSyncDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InMageRcmSyncDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last15_minutes_transferred_bytes: float,
+                 last_data_transfer_time_utc: str,
+                 last_refresh_time: str,
+                 processed_bytes: float,
+                 progress_health: str,
+                 progress_percentage: int,
+                 start_time: str,
+                 transferred_bytes: float):
+        """
+        InMageRcm disk level sync details.
+        :param float last15_minutes_transferred_bytes: The bytes transferred in last 15 minutes from source VM to azure.
+        :param str last_data_transfer_time_utc: The time of the last data transfer from source VM to azure.
+        :param str last_refresh_time: The last refresh time.
+        :param float processed_bytes: The total processed bytes. This includes bytes that are transferred from source VM to azure and matched bytes.
+        :param str progress_health: The progress health.
+        :param int progress_percentage: Progress in percentage. Progress percentage is calculated based on processed bytes.
+        :param str start_time: The start time.
+        :param float transferred_bytes: The transferred bytes from source VM to azure for the disk.
+        """
+        pulumi.set(__self__, "last15_minutes_transferred_bytes", last15_minutes_transferred_bytes)
+        pulumi.set(__self__, "last_data_transfer_time_utc", last_data_transfer_time_utc)
+        pulumi.set(__self__, "last_refresh_time", last_refresh_time)
+        pulumi.set(__self__, "processed_bytes", processed_bytes)
+        pulumi.set(__self__, "progress_health", progress_health)
+        pulumi.set(__self__, "progress_percentage", progress_percentage)
+        pulumi.set(__self__, "start_time", start_time)
+        pulumi.set(__self__, "transferred_bytes", transferred_bytes)
+
+    @property
+    @pulumi.getter(name="last15MinutesTransferredBytes")
+    def last15_minutes_transferred_bytes(self) -> float:
+        """
+        The bytes transferred in last 15 minutes from source VM to azure.
+        """
+        return pulumi.get(self, "last15_minutes_transferred_bytes")
+
+    @property
+    @pulumi.getter(name="lastDataTransferTimeUtc")
+    def last_data_transfer_time_utc(self) -> str:
+        """
+        The time of the last data transfer from source VM to azure.
+        """
+        return pulumi.get(self, "last_data_transfer_time_utc")
+
+    @property
+    @pulumi.getter(name="lastRefreshTime")
+    def last_refresh_time(self) -> str:
+        """
+        The last refresh time.
+        """
+        return pulumi.get(self, "last_refresh_time")
+
+    @property
+    @pulumi.getter(name="processedBytes")
+    def processed_bytes(self) -> float:
+        """
+        The total processed bytes. This includes bytes that are transferred from source VM to azure and matched bytes.
+        """
+        return pulumi.get(self, "processed_bytes")
+
+    @property
+    @pulumi.getter(name="progressHealth")
+    def progress_health(self) -> str:
+        """
+        The progress health.
+        """
+        return pulumi.get(self, "progress_health")
+
+    @property
+    @pulumi.getter(name="progressPercentage")
+    def progress_percentage(self) -> int:
+        """
+        Progress in percentage. Progress percentage is calculated based on processed bytes.
+        """
+        return pulumi.get(self, "progress_percentage")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        The start time.
+        """
+        return pulumi.get(self, "start_time")
+
+    @property
+    @pulumi.getter(name="transferredBytes")
+    def transferred_bytes(self) -> float:
+        """
+        The transferred bytes from source VM to azure for the disk.
+        """
+        return pulumi.get(self, "transferred_bytes")
+
+
+@pulumi.output_type
 class InMageReplicationDetailsResponse(dict):
     """
-    InMage provider specific settings
+    InMage provider specific settings.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -16255,6 +21852,8 @@ class InMageReplicationDetailsResponse(dict):
             suggest = "infrastructure_vm_id"
         elif key == "ipAddress":
             suggest = "ip_address"
+        elif key == "isAdditionalStatsAvailable":
+            suggest = "is_additional_stats_available"
         elif key == "lastHeartbeat":
             suggest = "last_heartbeat"
         elif key == "lastRpoCalculatedTime":
@@ -16295,6 +21894,10 @@ class InMageReplicationDetailsResponse(dict):
             suggest = "source_vm_cpu_count"
         elif key == "sourceVmRamSizeInMB":
             suggest = "source_vm_ram_size_in_mb"
+        elif key == "totalDataTransferred":
+            suggest = "total_data_transferred"
+        elif key == "totalProgressHealth":
+            suggest = "total_progress_health"
         elif key == "uncompressedDataRateInMB":
             suggest = "uncompressed_data_rate_in_mb"
         elif key == "vCenterInfrastructureId":
@@ -16333,6 +21936,7 @@ class InMageReplicationDetailsResponse(dict):
                  disk_resized: Optional[str] = None,
                  infrastructure_vm_id: Optional[str] = None,
                  ip_address: Optional[str] = None,
+                 is_additional_stats_available: Optional[bool] = None,
                  last_heartbeat: Optional[str] = None,
                  last_rpo_calculated_time: Optional[str] = None,
                  last_update_received_time: Optional[str] = None,
@@ -16353,6 +21957,8 @@ class InMageReplicationDetailsResponse(dict):
                  rpo_in_seconds: Optional[float] = None,
                  source_vm_cpu_count: Optional[int] = None,
                  source_vm_ram_size_in_mb: Optional[int] = None,
+                 total_data_transferred: Optional[float] = None,
+                 total_progress_health: Optional[str] = None,
                  uncompressed_data_rate_in_mb: Optional[float] = None,
                  v_center_infrastructure_id: Optional[str] = None,
                  validation_errors: Optional[Sequence['outputs.HealthErrorResponse']] = None,
@@ -16361,7 +21967,7 @@ class InMageReplicationDetailsResponse(dict):
                  vm_protection_state: Optional[str] = None,
                  vm_protection_state_description: Optional[str] = None):
         """
-        InMage provider specific settings
+        InMage provider specific settings.
         :param str instance_type: Gets the Instance type.
                Expected value is 'InMage'.
         :param str active_site_type: The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.
@@ -16369,11 +21975,12 @@ class InMageReplicationDetailsResponse(dict):
         :param str azure_storage_account_id: A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.
         :param float compressed_data_rate_in_mb: The compressed data change rate in MB.
         :param Mapping[str, str] consistency_points: The collection of Consistency points.
-        :param Sequence[str] datastores: The data stores of the on-premise machine Value can be list of strings that contain data store names
+        :param Sequence[str] datastores: The datastores of the on-premise machine Value can be list of strings that contain datastore names.
         :param str discovery_type: A value indicating the discovery type of the machine.
         :param str disk_resized: A value indicating whether any disk is resized for this VM.
         :param str infrastructure_vm_id: The infrastructure VM Id.
         :param str ip_address: The source IP address.
+        :param bool is_additional_stats_available: A value indicating whether additional IR stats are available or not.
         :param str last_heartbeat: The last heartbeat received from the source server.
         :param str last_rpo_calculated_time: The last RPO calculated time.
         :param str last_update_received_time: The last update time received from on-prem components.
@@ -16388,15 +21995,17 @@ class InMageReplicationDetailsResponse(dict):
         :param str protection_stage: The protection stage.
         :param str reboot_after_update_status: A value indicating whether the source server requires a restart after update.
         :param str replica_id: The replica id of the protected item.
-        :param 'InitialReplicationDetailsResponse' resync_details: The resync details of the machine
+        :param 'InitialReplicationDetailsResponse' resync_details: The resync details of the machine.
         :param str retention_window_end: The retention window end time.
         :param str retention_window_start: The retention window start time.
         :param float rpo_in_seconds: The RPO in seconds.
         :param int source_vm_cpu_count: The CPU count of the VM on the primary side.
         :param int source_vm_ram_size_in_mb: The RAM size of the VM on the primary side.
+        :param float total_data_transferred: The total transferred data in bytes.
+        :param str total_progress_health: The progress health.
         :param float uncompressed_data_rate_in_mb: The uncompressed data change rate in MB.
         :param str v_center_infrastructure_id: The vCenter infrastructure Id.
-        :param Sequence['HealthErrorResponse'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors
+        :param Sequence['HealthErrorResponse'] validation_errors: The validation errors of the on-premise machine Value can be list of validation errors.
         :param str vm_id: The virtual machine Id.
         :param Sequence['VMNicDetailsResponse'] vm_nics: The PE Network details.
         :param str vm_protection_state: The protection state for the vm.
@@ -16423,6 +22032,8 @@ class InMageReplicationDetailsResponse(dict):
             pulumi.set(__self__, "infrastructure_vm_id", infrastructure_vm_id)
         if ip_address is not None:
             pulumi.set(__self__, "ip_address", ip_address)
+        if is_additional_stats_available is not None:
+            pulumi.set(__self__, "is_additional_stats_available", is_additional_stats_available)
         if last_heartbeat is not None:
             pulumi.set(__self__, "last_heartbeat", last_heartbeat)
         if last_rpo_calculated_time is not None:
@@ -16463,6 +22074,10 @@ class InMageReplicationDetailsResponse(dict):
             pulumi.set(__self__, "source_vm_cpu_count", source_vm_cpu_count)
         if source_vm_ram_size_in_mb is not None:
             pulumi.set(__self__, "source_vm_ram_size_in_mb", source_vm_ram_size_in_mb)
+        if total_data_transferred is not None:
+            pulumi.set(__self__, "total_data_transferred", total_data_transferred)
+        if total_progress_health is not None:
+            pulumi.set(__self__, "total_progress_health", total_progress_health)
         if uncompressed_data_rate_in_mb is not None:
             pulumi.set(__self__, "uncompressed_data_rate_in_mb", uncompressed_data_rate_in_mb)
         if v_center_infrastructure_id is not None:
@@ -16531,7 +22146,7 @@ class InMageReplicationDetailsResponse(dict):
     @pulumi.getter
     def datastores(self) -> Optional[Sequence[str]]:
         """
-        The data stores of the on-premise machine Value can be list of strings that contain data store names
+        The datastores of the on-premise machine Value can be list of strings that contain datastore names.
         """
         return pulumi.get(self, "datastores")
 
@@ -16566,6 +22181,14 @@ class InMageReplicationDetailsResponse(dict):
         The source IP address.
         """
         return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="isAdditionalStatsAvailable")
+    def is_additional_stats_available(self) -> Optional[bool]:
+        """
+        A value indicating whether additional IR stats are available or not.
+        """
+        return pulumi.get(self, "is_additional_stats_available")
 
     @property
     @pulumi.getter(name="lastHeartbeat")
@@ -16683,7 +22306,7 @@ class InMageReplicationDetailsResponse(dict):
     @pulumi.getter(name="resyncDetails")
     def resync_details(self) -> Optional['outputs.InitialReplicationDetailsResponse']:
         """
-        The resync details of the machine
+        The resync details of the machine.
         """
         return pulumi.get(self, "resync_details")
 
@@ -16728,6 +22351,22 @@ class InMageReplicationDetailsResponse(dict):
         return pulumi.get(self, "source_vm_ram_size_in_mb")
 
     @property
+    @pulumi.getter(name="totalDataTransferred")
+    def total_data_transferred(self) -> Optional[float]:
+        """
+        The total transferred data in bytes.
+        """
+        return pulumi.get(self, "total_data_transferred")
+
+    @property
+    @pulumi.getter(name="totalProgressHealth")
+    def total_progress_health(self) -> Optional[str]:
+        """
+        The progress health.
+        """
+        return pulumi.get(self, "total_progress_health")
+
+    @property
     @pulumi.getter(name="uncompressedDataRateInMB")
     def uncompressed_data_rate_in_mb(self) -> Optional[float]:
         """
@@ -16747,7 +22386,7 @@ class InMageReplicationDetailsResponse(dict):
     @pulumi.getter(name="validationErrors")
     def validation_errors(self) -> Optional[Sequence['outputs.HealthErrorResponse']]:
         """
-        The validation errors of the on-premise machine Value can be list of validation errors
+        The validation errors of the on-premise machine Value can be list of validation errors.
         """
         return pulumi.get(self, "validation_errors")
 
@@ -16848,12 +22487,16 @@ class InnerHealthErrorResponse(dict):
         suggest = None
         if key == "creationTimeUtc":
             suggest = "creation_time_utc"
+        elif key == "customerResolvability":
+            suggest = "customer_resolvability"
         elif key == "entityId":
             suggest = "entity_id"
         elif key == "errorCategory":
             suggest = "error_category"
         elif key == "errorCode":
             suggest = "error_code"
+        elif key == "errorId":
+            suggest = "error_id"
         elif key == "errorLevel":
             suggest = "error_level"
         elif key == "errorMessage":
@@ -16884,9 +22527,11 @@ class InnerHealthErrorResponse(dict):
 
     def __init__(__self__, *,
                  creation_time_utc: Optional[str] = None,
+                 customer_resolvability: Optional[str] = None,
                  entity_id: Optional[str] = None,
                  error_category: Optional[str] = None,
                  error_code: Optional[str] = None,
+                 error_id: Optional[str] = None,
                  error_level: Optional[str] = None,
                  error_message: Optional[str] = None,
                  error_source: Optional[str] = None,
@@ -16897,10 +22542,12 @@ class InnerHealthErrorResponse(dict):
                  summary_message: Optional[str] = None):
         """
         Implements InnerHealthError class. HealthError object has a list of InnerHealthErrors as child errors. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -&gt; InnerException.
-        :param str creation_time_utc: Error creation time (UTC)
+        :param str creation_time_utc: Error creation time (UTC).
+        :param str customer_resolvability: Value indicating whether the health error is customer resolvable.
         :param str entity_id: ID of the entity.
         :param str error_category: Category of error.
         :param str error_code: Error code.
+        :param str error_id: The health error unique id.
         :param str error_level: Level of error.
         :param str error_message: Error message.
         :param str error_source: Source of error.
@@ -16912,12 +22559,16 @@ class InnerHealthErrorResponse(dict):
         """
         if creation_time_utc is not None:
             pulumi.set(__self__, "creation_time_utc", creation_time_utc)
+        if customer_resolvability is not None:
+            pulumi.set(__self__, "customer_resolvability", customer_resolvability)
         if entity_id is not None:
             pulumi.set(__self__, "entity_id", entity_id)
         if error_category is not None:
             pulumi.set(__self__, "error_category", error_category)
         if error_code is not None:
             pulumi.set(__self__, "error_code", error_code)
+        if error_id is not None:
+            pulumi.set(__self__, "error_id", error_id)
         if error_level is not None:
             pulumi.set(__self__, "error_level", error_level)
         if error_message is not None:
@@ -16939,9 +22590,17 @@ class InnerHealthErrorResponse(dict):
     @pulumi.getter(name="creationTimeUtc")
     def creation_time_utc(self) -> Optional[str]:
         """
-        Error creation time (UTC)
+        Error creation time (UTC).
         """
         return pulumi.get(self, "creation_time_utc")
+
+    @property
+    @pulumi.getter(name="customerResolvability")
+    def customer_resolvability(self) -> Optional[str]:
+        """
+        Value indicating whether the health error is customer resolvable.
+        """
+        return pulumi.get(self, "customer_resolvability")
 
     @property
     @pulumi.getter(name="entityId")
@@ -16966,6 +22625,14 @@ class InnerHealthErrorResponse(dict):
         Error code.
         """
         return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorId")
+    def error_id(self) -> Optional[str]:
+        """
+        The health error unique id.
+        """
+        return pulumi.get(self, "error_id")
 
     @property
     @pulumi.getter(name="errorLevel")
@@ -17034,9 +22701,6 @@ class InnerHealthErrorResponse(dict):
 
 @pulumi.output_type
 class InputEndpointResponse(dict):
-    """
-    Azure VM input endpoint details.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17063,13 +22727,6 @@ class InputEndpointResponse(dict):
                  private_port: Optional[int] = None,
                  protocol: Optional[str] = None,
                  public_port: Optional[int] = None):
-        """
-        Azure VM input endpoint details.
-        :param str endpoint_name: The input endpoint name.
-        :param int private_port: The input endpoint private port.
-        :param str protocol: The input endpoint protocol.
-        :param int public_port: The input endpoint public port.
-        """
         if endpoint_name is not None:
             pulumi.set(__self__, "endpoint_name", endpoint_name)
         if private_port is not None:
@@ -17082,33 +22739,21 @@ class InputEndpointResponse(dict):
     @property
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[str]:
-        """
-        The input endpoint name.
-        """
         return pulumi.get(self, "endpoint_name")
 
     @property
     @pulumi.getter(name="privatePort")
     def private_port(self) -> Optional[int]:
-        """
-        The input endpoint private port.
-        """
         return pulumi.get(self, "private_port")
 
     @property
     @pulumi.getter
     def protocol(self) -> Optional[str]:
-        """
-        The input endpoint protocol.
-        """
         return pulumi.get(self, "protocol")
 
     @property
     @pulumi.getter(name="publicPort")
     def public_port(self) -> Optional[int]:
-        """
-        The input endpoint public port.
-        """
         return pulumi.get(self, "public_port")
 
 
@@ -17192,6 +22837,8 @@ class InquiryValidationResponse(dict):
         suggest = None
         if key == "additionalDetail":
             suggest = "additional_detail"
+        elif key == "protectableItemCount":
+            suggest = "protectable_item_count"
         elif key == "errorDetail":
             suggest = "error_detail"
 
@@ -17208,15 +22855,18 @@ class InquiryValidationResponse(dict):
 
     def __init__(__self__, *,
                  additional_detail: str,
+                 protectable_item_count: Any,
                  error_detail: Optional['outputs.ErrorDetailResponse'] = None,
                  status: Optional[str] = None):
         """
         Validation for inquired protectable items under a given container.
         :param str additional_detail: Error Additional Detail in case the status is non-success.
+        :param Any protectable_item_count: Dictionary to store the count of ProtectableItems with key POType.
         :param 'ErrorDetailResponse' error_detail: Error Detail in case the status is non-success.
         :param str status: Status for the Inquiry Validation.
         """
         pulumi.set(__self__, "additional_detail", additional_detail)
+        pulumi.set(__self__, "protectable_item_count", protectable_item_count)
         if error_detail is not None:
             pulumi.set(__self__, "error_detail", error_detail)
         if status is not None:
@@ -17229,6 +22879,14 @@ class InquiryValidationResponse(dict):
         Error Additional Detail in case the status is non-success.
         """
         return pulumi.get(self, "additional_detail")
+
+    @property
+    @pulumi.getter(name="protectableItemCount")
+    def protectable_item_count(self) -> Any:
+        """
+        Dictionary to store the count of ProtectableItems with key POType.
+        """
+        return pulumi.get(self, "protectable_item_count")
 
     @property
     @pulumi.getter(name="errorDetail")
@@ -17717,6 +23375,8 @@ class MabContainerResponse(dict):
             suggest = "health_status"
         elif key == "mabContainerHealthDetails":
             suggest = "mab_container_health_details"
+        elif key == "protectableObjectType":
+            suggest = "protectable_object_type"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "registrationStatus":
@@ -17744,6 +23404,7 @@ class MabContainerResponse(dict):
                  friendly_name: Optional[str] = None,
                  health_status: Optional[str] = None,
                  mab_container_health_details: Optional[Sequence['outputs.MABContainerHealthDetailsResponse']] = None,
+                 protectable_object_type: Optional[str] = None,
                  protected_item_count: Optional[float] = None,
                  registration_status: Optional[str] = None):
         """
@@ -17762,6 +23423,7 @@ class MabContainerResponse(dict):
         :param str friendly_name: Friendly name of the container.
         :param str health_status: Status of health of the container.
         :param Sequence['MABContainerHealthDetailsResponse'] mab_container_health_details: Health details on this mab container.
+        :param str protectable_object_type: Type of the protectable object associated with this container
         :param float protected_item_count: Number of items backed up in this container.
         :param str registration_status: Status of registration of the container with the Recovery Services Vault.
         """
@@ -17784,6 +23446,8 @@ class MabContainerResponse(dict):
             pulumi.set(__self__, "health_status", health_status)
         if mab_container_health_details is not None:
             pulumi.set(__self__, "mab_container_health_details", mab_container_health_details)
+        if protectable_object_type is not None:
+            pulumi.set(__self__, "protectable_object_type", protectable_object_type)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if registration_status is not None:
@@ -17872,6 +23536,14 @@ class MabContainerResponse(dict):
         Health details on this mab container.
         """
         return pulumi.get(self, "mab_container_health_details")
+
+    @property
+    @pulumi.getter(name="protectableObjectType")
+    def protectable_object_type(self) -> Optional[str]:
+        """
+        Type of the protectable object associated with this container
+        """
+        return pulumi.get(self, "protectable_object_type")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -17966,10 +23638,12 @@ class MabFileFolderProtectedItemResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "protectedItemType":
-            suggest = "protected_item_type"
-        elif key == "backupManagementType":
+        if key == "backupManagementType":
             suggest = "backup_management_type"
+        elif key == "protectedItemType":
+            suggest = "protected_item_type"
+        elif key == "workloadType":
+            suggest = "workload_type"
         elif key == "backupSetName":
             suggest = "backup_set_name"
         elif key == "computerName":
@@ -17988,6 +23662,8 @@ class MabFileFolderProtectedItemResponse(dict):
             suggest = "extended_info"
         elif key == "friendlyName":
             suggest = "friendly_name"
+        elif key == "isArchiveEnabled":
+            suggest = "is_archive_enabled"
         elif key == "isDeferredDeleteScheduleUpcoming":
             suggest = "is_deferred_delete_schedule_upcoming"
         elif key == "isRehydrate":
@@ -18002,12 +23678,16 @@ class MabFileFolderProtectedItemResponse(dict):
             suggest = "last_recovery_point"
         elif key == "policyId":
             suggest = "policy_id"
+        elif key == "policyName":
+            suggest = "policy_name"
         elif key == "protectionState":
             suggest = "protection_state"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
+        elif key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
         elif key == "sourceResourceId":
             suggest = "source_resource_id"
-        elif key == "workloadType":
-            suggest = "workload_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MabFileFolderProtectedItemResponse. Access the value via the '{suggest}' property getter instead.")
@@ -18021,8 +23701,9 @@ class MabFileFolderProtectedItemResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_management_type: str,
                  protected_item_type: str,
-                 backup_management_type: Optional[str] = None,
+                 workload_type: str,
                  backup_set_name: Optional[str] = None,
                  computer_name: Optional[str] = None,
                  container_name: Optional[str] = None,
@@ -18032,6 +23713,7 @@ class MabFileFolderProtectedItemResponse(dict):
                  deferred_delete_time_remaining: Optional[str] = None,
                  extended_info: Optional['outputs.MabFileFolderProtectedItemExtendedInfoResponse'] = None,
                  friendly_name: Optional[str] = None,
+                 is_archive_enabled: Optional[bool] = None,
                  is_deferred_delete_schedule_upcoming: Optional[bool] = None,
                  is_rehydrate: Optional[bool] = None,
                  is_scheduled_for_deferred_delete: Optional[bool] = None,
@@ -18039,14 +23721,17 @@ class MabFileFolderProtectedItemResponse(dict):
                  last_backup_time: Optional[str] = None,
                  last_recovery_point: Optional[str] = None,
                  policy_id: Optional[str] = None,
+                 policy_name: Optional[str] = None,
                  protection_state: Optional[str] = None,
-                 source_resource_id: Optional[str] = None,
-                 workload_type: Optional[str] = None):
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 source_resource_id: Optional[str] = None):
         """
         MAB workload-specific backup item.
+        :param str backup_management_type: Type of backup management for the backed up item.
         :param str protected_item_type: backup item type.
                Expected value is 'MabFileFolderProtectedItem'.
-        :param str backup_management_type: Type of backup management for the backed up item.
+        :param str workload_type: Type of workload this item represents.
         :param str backup_set_name: Name of the backup set the backup item belongs to
         :param str computer_name: Name of the computer associated with this backup item.
         :param str container_name: Unique name of container
@@ -18056,6 +23741,7 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str deferred_delete_time_remaining: Time remaining before the DS marked for deferred delete is permanently deleted
         :param 'MabFileFolderProtectedItemExtendedInfoResponse' extended_info: Additional information with this backup item.
         :param str friendly_name: Friendly name of this backup item.
+        :param bool is_archive_enabled: Flag to identify whether datasource is protected in archive
         :param bool is_deferred_delete_schedule_upcoming: Flag to identify whether the deferred deleted DS is to be purged soon
         :param bool is_rehydrate: Flag to identify that deferred deleted DS is to be moved into Pause state
         :param bool is_scheduled_for_deferred_delete: Flag to identify whether the DS is scheduled for deferred delete
@@ -18063,13 +23749,15 @@ class MabFileFolderProtectedItemResponse(dict):
         :param str last_backup_time: Timestamp of the last backup operation on this backup item.
         :param str last_recovery_point: Timestamp when the last (latest) backup copy was created for this backup item.
         :param str policy_id: ID of the backup policy with which this item is backed up.
+        :param str policy_name: Name of the policy used for protection
         :param str protection_state: Protected, ProtectionStopped, IRPending or ProtectionError
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuardOperationRequests on which LAC check will be performed
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
         :param str source_resource_id: ARM ID of the resource to be backed up.
-        :param str workload_type: Type of workload this item represents.
         """
+        pulumi.set(__self__, "backup_management_type", backup_management_type)
         pulumi.set(__self__, "protected_item_type", 'MabFileFolderProtectedItem')
-        if backup_management_type is not None:
-            pulumi.set(__self__, "backup_management_type", backup_management_type)
+        pulumi.set(__self__, "workload_type", workload_type)
         if backup_set_name is not None:
             pulumi.set(__self__, "backup_set_name", backup_set_name)
         if computer_name is not None:
@@ -18088,6 +23776,8 @@ class MabFileFolderProtectedItemResponse(dict):
             pulumi.set(__self__, "extended_info", extended_info)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if is_archive_enabled is not None:
+            pulumi.set(__self__, "is_archive_enabled", is_archive_enabled)
         if is_deferred_delete_schedule_upcoming is not None:
             pulumi.set(__self__, "is_deferred_delete_schedule_upcoming", is_deferred_delete_schedule_upcoming)
         if is_rehydrate is not None:
@@ -18102,12 +23792,24 @@ class MabFileFolderProtectedItemResponse(dict):
             pulumi.set(__self__, "last_recovery_point", last_recovery_point)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if protection_state is not None:
             pulumi.set(__self__, "protection_state", protection_state)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
-        if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="backupManagementType")
+    def backup_management_type(self) -> str:
+        """
+        Type of backup management for the backed up item.
+        """
+        return pulumi.get(self, "backup_management_type")
 
     @property
     @pulumi.getter(name="protectedItemType")
@@ -18119,12 +23821,12 @@ class MabFileFolderProtectedItemResponse(dict):
         return pulumi.get(self, "protected_item_type")
 
     @property
-    @pulumi.getter(name="backupManagementType")
-    def backup_management_type(self) -> Optional[str]:
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> str:
         """
-        Type of backup management for the backed up item.
+        Type of workload this item represents.
         """
-        return pulumi.get(self, "backup_management_type")
+        return pulumi.get(self, "workload_type")
 
     @property
     @pulumi.getter(name="backupSetName")
@@ -18199,6 +23901,14 @@ class MabFileFolderProtectedItemResponse(dict):
         return pulumi.get(self, "friendly_name")
 
     @property
+    @pulumi.getter(name="isArchiveEnabled")
+    def is_archive_enabled(self) -> Optional[bool]:
+        """
+        Flag to identify whether datasource is protected in archive
+        """
+        return pulumi.get(self, "is_archive_enabled")
+
+    @property
     @pulumi.getter(name="isDeferredDeleteScheduleUpcoming")
     def is_deferred_delete_schedule_upcoming(self) -> Optional[bool]:
         """
@@ -18255,6 +23965,14 @@ class MabFileFolderProtectedItemResponse(dict):
         return pulumi.get(self, "policy_id")
 
     @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of the policy used for protection
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
     @pulumi.getter(name="protectionState")
     def protection_state(self) -> Optional[str]:
         """
@@ -18263,20 +23981,28 @@ class MabFileFolderProtectedItemResponse(dict):
         return pulumi.get(self, "protection_state")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuardOperationRequests on which LAC check will be performed
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> Optional[str]:
         """
         ARM ID of the resource to be backed up.
         """
         return pulumi.get(self, "source_resource_id")
-
-    @property
-    @pulumi.getter(name="workloadType")
-    def workload_type(self) -> Optional[str]:
-        """
-        Type of workload this item represents.
-        """
-        return pulumi.get(self, "workload_type")
 
 
 @pulumi.output_type
@@ -18291,6 +24017,8 @@ class MabProtectionPolicyResponse(dict):
             suggest = "backup_management_type"
         elif key == "protectedItemsCount":
             suggest = "protected_items_count"
+        elif key == "resourceGuardOperationRequests":
+            suggest = "resource_guard_operation_requests"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
         elif key == "schedulePolicy":
@@ -18310,6 +24038,7 @@ class MabProtectionPolicyResponse(dict):
     def __init__(__self__, *,
                  backup_management_type: str,
                  protected_items_count: Optional[int] = None,
+                 resource_guard_operation_requests: Optional[Sequence[str]] = None,
                  retention_policy: Optional[Any] = None,
                  schedule_policy: Optional[Any] = None):
         """
@@ -18317,12 +24046,15 @@ class MabProtectionPolicyResponse(dict):
         :param str backup_management_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'MAB'.
         :param int protected_items_count: Number of items associated with this policy.
+        :param Sequence[str] resource_guard_operation_requests: ResourceGuard Operation Requests
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy details.
-        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule of backup policy.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule of backup policy.
         """
         pulumi.set(__self__, "backup_management_type", 'MAB')
         if protected_items_count is not None:
             pulumi.set(__self__, "protected_items_count", protected_items_count)
+        if resource_guard_operation_requests is not None:
+            pulumi.set(__self__, "resource_guard_operation_requests", resource_guard_operation_requests)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
@@ -18346,6 +24078,14 @@ class MabProtectionPolicyResponse(dict):
         return pulumi.get(self, "protected_items_count")
 
     @property
+    @pulumi.getter(name="resourceGuardOperationRequests")
+    def resource_guard_operation_requests(self) -> Optional[Sequence[str]]:
+        """
+        ResourceGuard Operation Requests
+        """
+        return pulumi.get(self, "resource_guard_operation_requests")
+
+    @property
     @pulumi.getter(name="retentionPolicy")
     def retention_policy(self) -> Optional[Any]:
         """
@@ -18360,6 +24100,139 @@ class MabProtectionPolicyResponse(dict):
         Backup schedule of backup policy.
         """
         return pulumi.get(self, "schedule_policy")
+
+
+@pulumi.output_type
+class MarsAgentDetailsResponse(dict):
+    """
+    Mars agent details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "biosId":
+            suggest = "bios_id"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
+        elif key == "healthErrors":
+            suggest = "health_errors"
+        elif key == "lastHeartbeatUtc":
+            suggest = "last_heartbeat_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MarsAgentDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MarsAgentDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MarsAgentDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bios_id: str,
+                 fabric_object_id: str,
+                 fqdn: str,
+                 health: str,
+                 health_errors: Sequence['outputs.HealthErrorResponse'],
+                 id: str,
+                 last_heartbeat_utc: str,
+                 name: str,
+                 version: str):
+        """
+        Mars agent details.
+        :param str bios_id: The Mars agent Bios Id.
+        :param str fabric_object_id: The fabric object Id.
+        :param str fqdn: The Mars agent Fqdn.
+        :param str health: The health of the Mars agent.
+        :param Sequence['HealthErrorResponse'] health_errors: The health errors.
+        :param str id: The Mars agent Id.
+        :param str last_heartbeat_utc: The last heartbeat received from the Mars agent.
+        :param str name: The Mars agent name.
+        :param str version: The version.
+        """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "health", health)
+        pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The Mars agent Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> str:
+        """
+        The fabric object Id.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The Mars agent Fqdn.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter
+    def health(self) -> str:
+        """
+        The health of the Mars agent.
+        """
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter(name="healthErrors")
+    def health_errors(self) -> Sequence['outputs.HealthErrorResponse']:
+        """
+        The health errors.
+        """
+        return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The Mars agent Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="lastHeartbeatUtc")
+    def last_heartbeat_utc(self) -> str:
+        """
+        The last heartbeat received from the Mars agent.
+        """
+        return pulumi.get(self, "last_heartbeat_utc")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Mars agent name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -18452,7 +24325,7 @@ class MasterTargetServerResponse(dict):
         :param str os_version: OS Version of the master target.
         :param Sequence['RetentionVolumeResponse'] retention_volumes: The retention volumes of Master target Server.
         :param Sequence['HealthErrorResponse'] validation_errors: Validation errors.
-        :param str version_status: Version status
+        :param str version_status: Version status.
         """
         if agent_expiry_date is not None:
             pulumi.set(__self__, "agent_expiry_date", agent_expiry_date)
@@ -18631,7 +24504,7 @@ class MasterTargetServerResponse(dict):
     @pulumi.getter(name="versionStatus")
     def version_status(self) -> Optional[str]:
         """
-        Version status
+        Version status.
         """
         return pulumi.get(self, "version_status")
 
@@ -18646,10 +24519,22 @@ class MigrationItemPropertiesResponse(dict):
         suggest = None
         if key == "allowedOperations":
             suggest = "allowed_operations"
+        elif key == "criticalJobHistory":
+            suggest = "critical_job_history"
         elif key == "currentJob":
             suggest = "current_job"
+        elif key == "eventCorrelationId":
+            suggest = "event_correlation_id"
         elif key == "healthErrors":
             suggest = "health_errors"
+        elif key == "lastMigrationStatus":
+            suggest = "last_migration_status"
+        elif key == "lastMigrationTime":
+            suggest = "last_migration_time"
+        elif key == "lastTestMigrationStatus":
+            suggest = "last_test_migration_status"
+        elif key == "lastTestMigrationTime":
+            suggest = "last_test_migration_time"
         elif key == "machineName":
             suggest = "machine_name"
         elif key == "migrationState":
@@ -18662,6 +24547,8 @@ class MigrationItemPropertiesResponse(dict):
             suggest = "policy_id"
         elif key == "recoveryServicesProviderId":
             suggest = "recovery_services_provider_id"
+        elif key == "replicationStatus":
+            suggest = "replication_status"
         elif key == "testMigrateState":
             suggest = "test_migrate_state"
         elif key == "testMigrateStateDescription":
@@ -18682,44 +24569,65 @@ class MigrationItemPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  allowed_operations: Sequence[str],
+                 critical_job_history: Sequence['outputs.CriticalJobHistoryDetailsResponse'],
                  current_job: 'outputs.CurrentJobDetailsResponse',
+                 event_correlation_id: str,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
+                 last_migration_status: str,
+                 last_migration_time: str,
+                 last_test_migration_status: str,
+                 last_test_migration_time: str,
                  machine_name: str,
                  migration_state: str,
                  migration_state_description: str,
                  policy_friendly_name: str,
                  policy_id: str,
                  recovery_services_provider_id: str,
+                 replication_status: str,
                  test_migrate_state: str,
                  test_migrate_state_description: str,
                  provider_specific_details: Optional['outputs.VMwareCbtMigrationDetailsResponse'] = None):
         """
         Migration item properties.
-        :param Sequence[str] allowed_operations: The allowed operations on the migration item, based on the current migration state of the item.
+        :param Sequence[str] allowed_operations: The allowed operations on the migration item based on the current migration state of the item.
+        :param Sequence['CriticalJobHistoryDetailsResponse'] critical_job_history: The critical past job details.
         :param 'CurrentJobDetailsResponse' current_job: The current job details.
+        :param str event_correlation_id: The correlation Id for events associated with this migration item.
         :param str health: The consolidated health.
         :param Sequence['HealthErrorResponse'] health_errors: The list of health errors.
+        :param str last_migration_status: The status of the last migration.
+        :param str last_migration_time: The last migration time.
+        :param str last_test_migration_status: The status of the last test migration.
+        :param str last_test_migration_time: The last test migration time.
         :param str machine_name: The on-premise virtual machine name.
         :param str migration_state: The migration status.
         :param str migration_state_description: The migration state description.
         :param str policy_friendly_name: The name of policy governing this item.
         :param str policy_id: The ARM Id of policy governing this item.
         :param str recovery_services_provider_id: The recovery services provider ARM Id.
+        :param str replication_status: The replication status.
         :param str test_migrate_state: The test migrate state.
         :param str test_migrate_state_description: The test migrate state description.
         :param 'VMwareCbtMigrationDetailsResponse' provider_specific_details: The migration provider custom settings.
         """
         pulumi.set(__self__, "allowed_operations", allowed_operations)
+        pulumi.set(__self__, "critical_job_history", critical_job_history)
         pulumi.set(__self__, "current_job", current_job)
+        pulumi.set(__self__, "event_correlation_id", event_correlation_id)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
+        pulumi.set(__self__, "last_migration_status", last_migration_status)
+        pulumi.set(__self__, "last_migration_time", last_migration_time)
+        pulumi.set(__self__, "last_test_migration_status", last_test_migration_status)
+        pulumi.set(__self__, "last_test_migration_time", last_test_migration_time)
         pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "migration_state", migration_state)
         pulumi.set(__self__, "migration_state_description", migration_state_description)
         pulumi.set(__self__, "policy_friendly_name", policy_friendly_name)
         pulumi.set(__self__, "policy_id", policy_id)
         pulumi.set(__self__, "recovery_services_provider_id", recovery_services_provider_id)
+        pulumi.set(__self__, "replication_status", replication_status)
         pulumi.set(__self__, "test_migrate_state", test_migrate_state)
         pulumi.set(__self__, "test_migrate_state_description", test_migrate_state_description)
         if provider_specific_details is not None:
@@ -18729,9 +24637,17 @@ class MigrationItemPropertiesResponse(dict):
     @pulumi.getter(name="allowedOperations")
     def allowed_operations(self) -> Sequence[str]:
         """
-        The allowed operations on the migration item, based on the current migration state of the item.
+        The allowed operations on the migration item based on the current migration state of the item.
         """
         return pulumi.get(self, "allowed_operations")
+
+    @property
+    @pulumi.getter(name="criticalJobHistory")
+    def critical_job_history(self) -> Sequence['outputs.CriticalJobHistoryDetailsResponse']:
+        """
+        The critical past job details.
+        """
+        return pulumi.get(self, "critical_job_history")
 
     @property
     @pulumi.getter(name="currentJob")
@@ -18740,6 +24656,14 @@ class MigrationItemPropertiesResponse(dict):
         The current job details.
         """
         return pulumi.get(self, "current_job")
+
+    @property
+    @pulumi.getter(name="eventCorrelationId")
+    def event_correlation_id(self) -> str:
+        """
+        The correlation Id for events associated with this migration item.
+        """
+        return pulumi.get(self, "event_correlation_id")
 
     @property
     @pulumi.getter
@@ -18756,6 +24680,38 @@ class MigrationItemPropertiesResponse(dict):
         The list of health errors.
         """
         return pulumi.get(self, "health_errors")
+
+    @property
+    @pulumi.getter(name="lastMigrationStatus")
+    def last_migration_status(self) -> str:
+        """
+        The status of the last migration.
+        """
+        return pulumi.get(self, "last_migration_status")
+
+    @property
+    @pulumi.getter(name="lastMigrationTime")
+    def last_migration_time(self) -> str:
+        """
+        The last migration time.
+        """
+        return pulumi.get(self, "last_migration_time")
+
+    @property
+    @pulumi.getter(name="lastTestMigrationStatus")
+    def last_test_migration_status(self) -> str:
+        """
+        The status of the last test migration.
+        """
+        return pulumi.get(self, "last_test_migration_status")
+
+    @property
+    @pulumi.getter(name="lastTestMigrationTime")
+    def last_test_migration_time(self) -> str:
+        """
+        The last test migration time.
+        """
+        return pulumi.get(self, "last_test_migration_time")
 
     @property
     @pulumi.getter(name="machineName")
@@ -18804,6 +24760,14 @@ class MigrationItemPropertiesResponse(dict):
         The recovery services provider ARM Id.
         """
         return pulumi.get(self, "recovery_services_provider_id")
+
+    @property
+    @pulumi.getter(name="replicationStatus")
+    def replication_status(self) -> str:
+        """
+        The replication status.
+        """
+        return pulumi.get(self, "replication_status")
 
     @property
     @pulumi.getter(name="testMigrateState")
@@ -18894,6 +24858,60 @@ class MobilityServiceUpdateResponse(dict):
         The version of the latest update.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class MonitoringSettingsResponse(dict):
+    """
+    Monitoring Settings of the vault
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureMonitorAlertSettings":
+            suggest = "azure_monitor_alert_settings"
+        elif key == "classicAlertSettings":
+            suggest = "classic_alert_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_monitor_alert_settings: Optional['outputs.AzureMonitorAlertSettingsResponse'] = None,
+                 classic_alert_settings: Optional['outputs.ClassicAlertSettingsResponse'] = None):
+        """
+        Monitoring Settings of the vault
+        :param 'AzureMonitorAlertSettingsResponse' azure_monitor_alert_settings: Settings for Azure Monitor based alerts
+        :param 'ClassicAlertSettingsResponse' classic_alert_settings: Settings for classic alerts
+        """
+        if azure_monitor_alert_settings is not None:
+            pulumi.set(__self__, "azure_monitor_alert_settings", azure_monitor_alert_settings)
+        if classic_alert_settings is not None:
+            pulumi.set(__self__, "classic_alert_settings", classic_alert_settings)
+
+    @property
+    @pulumi.getter(name="azureMonitorAlertSettings")
+    def azure_monitor_alert_settings(self) -> Optional['outputs.AzureMonitorAlertSettingsResponse']:
+        """
+        Settings for Azure Monitor based alerts
+        """
+        return pulumi.get(self, "azure_monitor_alert_settings")
+
+    @property
+    @pulumi.getter(name="classicAlertSettings")
+    def classic_alert_settings(self) -> Optional['outputs.ClassicAlertSettingsResponse']:
+        """
+        Settings for classic alerts
+        """
+        return pulumi.get(self, "classic_alert_settings")
 
 
 @pulumi.output_type
@@ -19350,7 +25368,7 @@ class PolicyPropertiesResponse(dict):
         """
         Protection profile custom data details.
         :param str friendly_name: The FriendlyName.
-        :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'InMageRcmPolicyDetailsResponse', 'RcmAzureMigrationPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
+        :param Union['A2APolicyDetailsResponse', 'HyperVReplicaAzurePolicyDetailsResponse', 'HyperVReplicaBasePolicyDetailsResponse', 'HyperVReplicaBluePolicyDetailsResponse', 'HyperVReplicaPolicyDetailsResponse', 'InMageAzureV2PolicyDetailsResponse', 'InMageBasePolicyDetailsResponse', 'InMagePolicyDetailsResponse', 'InMageRcmFailbackPolicyDetailsResponse', 'InMageRcmPolicyDetailsResponse', 'VmwareCbtPolicyDetailsResponse'] provider_specific_details: The ReplicationChannelSetting.
         """
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
@@ -19382,7 +25400,9 @@ class PrivateEndpointConnectionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateEndpoint":
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
             suggest = "private_endpoint"
         elif key == "privateLinkServiceConnectionState":
             suggest = "private_link_service_connection_state"
@@ -19401,21 +25421,33 @@ class PrivateEndpointConnectionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 group_ids: Optional[Sequence[str]] = None,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
                  private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
                  provisioning_state: Optional[str] = None):
         """
         Private Endpoint Connection Response Properties
+        :param Sequence[str] group_ids: Group Ids for the Private Endpoint
         :param 'PrivateEndpointResponse' private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection
         """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Group Ids for the Private Endpoint
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -19449,14 +25481,23 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
     """
     def __init__(__self__, *,
                  id: str,
-                 properties: 'outputs.VaultPrivateEndpointConnectionResponse'):
+                 location: str,
+                 name: str,
+                 properties: 'outputs.VaultPrivateEndpointConnectionResponse',
+                 type: str):
         """
         Information to be stored in Vault properties as an element of privateEndpointConnections List.
         :param str id: Format of id subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.[Service]/{resource}/{resourceName}/privateEndpointConnections/{connectionName}.
+        :param str location: The location of the private Endpoint connection
+        :param str name: The name of the private Endpoint Connection
         :param 'VaultPrivateEndpointConnectionResponse' properties: Private Endpoint Connection Response Properties.
+        :param str type: The type, which will be of the format, Microsoft.RecoveryServices/vaults/privateEndpointConnections
         """
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -19468,11 +25509,35 @@ class PrivateEndpointConnectionVaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter
+    def location(self) -> str:
+        """
+        The location of the private Endpoint connection
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the private Endpoint Connection
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
     def properties(self) -> 'outputs.VaultPrivateEndpointConnectionResponse':
         """
         Private Endpoint Connection Response Properties.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type, which will be of the format, Microsoft.RecoveryServices/vaults/privateEndpointConnections
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -19505,8 +25570,8 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "actionRequired":
-            suggest = "action_required"
+        if key == "actionsRequired":
+            suggest = "actions_required"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
@@ -19520,29 +25585,29 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_required: Optional[str] = None,
+                 actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
         """
         Private Link Service Connection State
-        :param str action_required: Gets or sets actions required
+        :param str actions_required: Gets or sets actions required
         :param str description: Gets or sets description
         :param str status: Gets or sets the status
         """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if status is not None:
             pulumi.set(__self__, "status", status)
 
     @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[str]:
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
         """
         Gets or sets actions required
         """
-        return pulumi.get(self, "action_required")
+        return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter
@@ -19573,20 +25638,40 @@ class ProcessServerDetailsResponse(dict):
             suggest = "available_memory_in_bytes"
         elif key == "availableSpaceInBytes":
             suggest = "available_space_in_bytes"
+        elif key == "biosId":
+            suggest = "bios_id"
+        elif key == "diskUsageStatus":
+            suggest = "disk_usage_status"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
         elif key == "freeSpacePercentage":
             suggest = "free_space_percentage"
         elif key == "healthErrors":
             suggest = "health_errors"
         elif key == "historicHealth":
             suggest = "historic_health"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
         elif key == "memoryUsagePercentage":
             suggest = "memory_usage_percentage"
+        elif key == "memoryUsageStatus":
+            suggest = "memory_usage_status"
         elif key == "processorUsagePercentage":
             suggest = "processor_usage_percentage"
+        elif key == "processorUsageStatus":
+            suggest = "processor_usage_status"
+        elif key == "protectedItemCount":
+            suggest = "protected_item_count"
+        elif key == "systemLoad":
+            suggest = "system_load"
+        elif key == "systemLoadStatus":
+            suggest = "system_load_status"
         elif key == "throughputInBytes":
             suggest = "throughput_in_bytes"
+        elif key == "throughputStatus":
+            suggest = "throughput_status"
         elif key == "throughputUploadPendingDataInBytes":
             suggest = "throughput_upload_pending_data_in_bytes"
         elif key == "totalMemoryInBytes":
@@ -19612,16 +25697,27 @@ class ProcessServerDetailsResponse(dict):
     def __init__(__self__, *,
                  available_memory_in_bytes: float,
                  available_space_in_bytes: float,
+                 bios_id: str,
+                 disk_usage_status: str,
+                 fabric_object_id: str,
+                 fqdn: str,
                  free_space_percentage: float,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
                  historic_health: str,
                  id: str,
+                 ip_addresses: Sequence[str],
                  last_heartbeat_utc: str,
                  memory_usage_percentage: float,
+                 memory_usage_status: str,
                  name: str,
                  processor_usage_percentage: float,
+                 processor_usage_status: str,
+                 protected_item_count: int,
+                 system_load: float,
+                 system_load_status: str,
                  throughput_in_bytes: float,
+                 throughput_status: str,
                  throughput_upload_pending_data_in_bytes: float,
                  total_memory_in_bytes: float,
                  total_space_in_bytes: float,
@@ -19632,35 +25728,57 @@ class ProcessServerDetailsResponse(dict):
         Process server details.
         :param float available_memory_in_bytes: The available memory.
         :param float available_space_in_bytes: The available disk space.
+        :param str bios_id: The process server Bios Id.
+        :param str disk_usage_status: The disk usage status.
+        :param str fabric_object_id: The fabric object Id.
+        :param str fqdn: The process server Fqdn.
         :param float free_space_percentage: The free disk space percentage.
         :param str health: The health of the process server.
         :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str historic_health: The historic health of the process server based on the health in last 24 hours.
         :param str id: The process server Id.
+        :param Sequence[str] ip_addresses: The list of IP addresses for communicating with the RCM component.
         :param str last_heartbeat_utc: The last heartbeat received from the process server.
         :param float memory_usage_percentage: The memory usage percentage.
+        :param str memory_usage_status: The memory usage status.
         :param str name: The process server name.
         :param float processor_usage_percentage: The processor usage percentage.
+        :param str processor_usage_status: The processor usage status.
+        :param int protected_item_count: The protected item count.
+        :param float system_load: The system load.
+        :param str system_load_status: The system load status.
         :param float throughput_in_bytes: The throughput in bytes.
+        :param str throughput_status: The throughput status.
         :param float throughput_upload_pending_data_in_bytes: The uploading pending data in bytes.
         :param float total_memory_in_bytes: The total memory.
         :param float total_space_in_bytes: The total disk space.
         :param float used_memory_in_bytes: The used memory.
         :param float used_space_in_bytes: The used disk space.
-        :param str version: The process server version.
+        :param str version: The version.
         """
         pulumi.set(__self__, "available_memory_in_bytes", available_memory_in_bytes)
         pulumi.set(__self__, "available_space_in_bytes", available_space_in_bytes)
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "disk_usage_status", disk_usage_status)
+        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "free_space_percentage", free_space_percentage)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
         pulumi.set(__self__, "historic_health", historic_health)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ip_addresses", ip_addresses)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
         pulumi.set(__self__, "memory_usage_percentage", memory_usage_percentage)
+        pulumi.set(__self__, "memory_usage_status", memory_usage_status)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "processor_usage_percentage", processor_usage_percentage)
+        pulumi.set(__self__, "processor_usage_status", processor_usage_status)
+        pulumi.set(__self__, "protected_item_count", protected_item_count)
+        pulumi.set(__self__, "system_load", system_load)
+        pulumi.set(__self__, "system_load_status", system_load_status)
         pulumi.set(__self__, "throughput_in_bytes", throughput_in_bytes)
+        pulumi.set(__self__, "throughput_status", throughput_status)
         pulumi.set(__self__, "throughput_upload_pending_data_in_bytes", throughput_upload_pending_data_in_bytes)
         pulumi.set(__self__, "total_memory_in_bytes", total_memory_in_bytes)
         pulumi.set(__self__, "total_space_in_bytes", total_space_in_bytes)
@@ -19683,6 +25801,38 @@ class ProcessServerDetailsResponse(dict):
         The available disk space.
         """
         return pulumi.get(self, "available_space_in_bytes")
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The process server Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="diskUsageStatus")
+    def disk_usage_status(self) -> str:
+        """
+        The disk usage status.
+        """
+        return pulumi.get(self, "disk_usage_status")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> str:
+        """
+        The fabric object Id.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The process server Fqdn.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter(name="freeSpacePercentage")
@@ -19725,6 +25875,14 @@ class ProcessServerDetailsResponse(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Sequence[str]:
+        """
+        The list of IP addresses for communicating with the RCM component.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
     @pulumi.getter(name="lastHeartbeatUtc")
     def last_heartbeat_utc(self) -> str:
         """
@@ -19739,6 +25897,14 @@ class ProcessServerDetailsResponse(dict):
         The memory usage percentage.
         """
         return pulumi.get(self, "memory_usage_percentage")
+
+    @property
+    @pulumi.getter(name="memoryUsageStatus")
+    def memory_usage_status(self) -> str:
+        """
+        The memory usage status.
+        """
+        return pulumi.get(self, "memory_usage_status")
 
     @property
     @pulumi.getter
@@ -19757,12 +25923,52 @@ class ProcessServerDetailsResponse(dict):
         return pulumi.get(self, "processor_usage_percentage")
 
     @property
+    @pulumi.getter(name="processorUsageStatus")
+    def processor_usage_status(self) -> str:
+        """
+        The processor usage status.
+        """
+        return pulumi.get(self, "processor_usage_status")
+
+    @property
+    @pulumi.getter(name="protectedItemCount")
+    def protected_item_count(self) -> int:
+        """
+        The protected item count.
+        """
+        return pulumi.get(self, "protected_item_count")
+
+    @property
+    @pulumi.getter(name="systemLoad")
+    def system_load(self) -> float:
+        """
+        The system load.
+        """
+        return pulumi.get(self, "system_load")
+
+    @property
+    @pulumi.getter(name="systemLoadStatus")
+    def system_load_status(self) -> str:
+        """
+        The system load status.
+        """
+        return pulumi.get(self, "system_load_status")
+
+    @property
     @pulumi.getter(name="throughputInBytes")
     def throughput_in_bytes(self) -> float:
         """
         The throughput in bytes.
         """
         return pulumi.get(self, "throughput_in_bytes")
+
+    @property
+    @pulumi.getter(name="throughputStatus")
+    def throughput_status(self) -> str:
+        """
+        The throughput status.
+        """
+        return pulumi.get(self, "throughput_status")
 
     @property
     @pulumi.getter(name="throughputUploadPendingDataInBytes")
@@ -19808,7 +26014,7 @@ class ProcessServerDetailsResponse(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The process server version.
+        The version.
         """
         return pulumi.get(self, "version")
 
@@ -19975,7 +26181,7 @@ class ProcessServerResponse(dict):
         :param str system_load_status: The system load status.
         :param float total_memory_in_bytes: The total memory.
         :param float total_space_in_bytes: The total space.
-        :param str version_status: Version status
+        :param str version_status: Version status.
         """
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "mars_communication_status", mars_communication_status)
@@ -20326,7 +26532,7 @@ class ProcessServerResponse(dict):
     @pulumi.getter(name="versionStatus")
     def version_status(self) -> Optional[str]:
         """
-        Version status
+        Version status.
         """
         return pulumi.get(self, "version_status")
 
@@ -20387,10 +26593,10 @@ class ProtectionContainerMappingPropertiesResponse(dict):
         :param Sequence['HealthErrorResponse'] health_error_details: Health error.
         :param str policy_friendly_name: Friendly name of replication policy.
         :param str policy_id: Policy ARM Id.
-        :param Union['A2AProtectionContainerMappingDetailsResponse', 'VMwareCbtProtectionContainerMappingDetailsResponse'] provider_specific_details: Provider specific provider details.
+        :param Union['A2AProtectionContainerMappingDetailsResponse', 'InMageRcmProtectionContainerMappingDetailsResponse', 'VMwareCbtProtectionContainerMappingDetailsResponse'] provider_specific_details: Provider specific provider details.
         :param str source_fabric_friendly_name: Friendly name of source fabric.
         :param str source_protection_container_friendly_name: Friendly name of source protection container.
-        :param str state: Association Status
+        :param str state: Association Status.
         :param str target_fabric_friendly_name: Friendly name of target fabric.
         :param str target_protection_container_friendly_name: Friendly name of paired container.
         :param str target_protection_container_id: Paired protection container ARM ID.
@@ -20478,7 +26684,7 @@ class ProtectionContainerMappingPropertiesResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        Association Status
+        Association Status.
         """
         return pulumi.get(self, "state")
 
@@ -20515,7 +26721,11 @@ class PushInstallerDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "healthErrors":
+        if key == "biosId":
+            suggest = "bios_id"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
+        elif key == "healthErrors":
             suggest = "health_errors"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
@@ -20532,6 +26742,9 @@ class PushInstallerDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bios_id: str,
+                 fabric_object_id: str,
+                 fqdn: str,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
                  id: str,
@@ -20540,19 +26753,49 @@ class PushInstallerDetailsResponse(dict):
                  version: str):
         """
         Push installer details.
+        :param str bios_id: The push installer Bios Id.
+        :param str fabric_object_id: The fabric object Id.
+        :param str fqdn: The push installer Fqdn.
         :param str health: The health of the push installer.
         :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The push installer Id.
         :param str last_heartbeat_utc: The last heartbeat received from the push installer.
         :param str name: The push installer name.
-        :param str version: The push installer version.
+        :param str version: The version.
         """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The push installer Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> str:
+        """
+        The fabric object Id.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The push installer Fqdn.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
@@ -20598,120 +26841,9 @@ class PushInstallerDetailsResponse(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The push installer version.
+        The version.
         """
         return pulumi.get(self, "version")
-
-
-@pulumi.output_type
-class RcmAzureMigrationPolicyDetailsResponse(dict):
-    """
-    RCM based Azure migration specific policy details.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "instanceType":
-            suggest = "instance_type"
-        elif key == "appConsistentFrequencyInMinutes":
-            suggest = "app_consistent_frequency_in_minutes"
-        elif key == "crashConsistentFrequencyInMinutes":
-            suggest = "crash_consistent_frequency_in_minutes"
-        elif key == "multiVmSyncStatus":
-            suggest = "multi_vm_sync_status"
-        elif key == "recoveryPointHistory":
-            suggest = "recovery_point_history"
-        elif key == "recoveryPointThresholdInMinutes":
-            suggest = "recovery_point_threshold_in_minutes"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RcmAzureMigrationPolicyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RcmAzureMigrationPolicyDetailsResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RcmAzureMigrationPolicyDetailsResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 instance_type: str,
-                 app_consistent_frequency_in_minutes: Optional[int] = None,
-                 crash_consistent_frequency_in_minutes: Optional[int] = None,
-                 multi_vm_sync_status: Optional[str] = None,
-                 recovery_point_history: Optional[int] = None,
-                 recovery_point_threshold_in_minutes: Optional[int] = None):
-        """
-        RCM based Azure migration specific policy details.
-        :param str instance_type: Gets the class type. Overridden in derived classes.
-               Expected value is 'RcmAzureMigration'.
-        :param int app_consistent_frequency_in_minutes: The app consistent snapshot frequency in minutes.
-        :param int crash_consistent_frequency_in_minutes: The crash consistent snapshot frequency in minutes.
-        :param str multi_vm_sync_status: A value indicating whether multi-VM sync has to be enabled.
-        :param int recovery_point_history: The duration in minutes until which the recovery points need to be stored.
-        :param int recovery_point_threshold_in_minutes: The recovery point threshold in minutes.
-        """
-        pulumi.set(__self__, "instance_type", 'RcmAzureMigration')
-        if app_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "app_consistent_frequency_in_minutes", app_consistent_frequency_in_minutes)
-        if crash_consistent_frequency_in_minutes is not None:
-            pulumi.set(__self__, "crash_consistent_frequency_in_minutes", crash_consistent_frequency_in_minutes)
-        if multi_vm_sync_status is not None:
-            pulumi.set(__self__, "multi_vm_sync_status", multi_vm_sync_status)
-        if recovery_point_history is not None:
-            pulumi.set(__self__, "recovery_point_history", recovery_point_history)
-        if recovery_point_threshold_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_threshold_in_minutes", recovery_point_threshold_in_minutes)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> str:
-        """
-        Gets the class type. Overridden in derived classes.
-        Expected value is 'RcmAzureMigration'.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @property
-    @pulumi.getter(name="appConsistentFrequencyInMinutes")
-    def app_consistent_frequency_in_minutes(self) -> Optional[int]:
-        """
-        The app consistent snapshot frequency in minutes.
-        """
-        return pulumi.get(self, "app_consistent_frequency_in_minutes")
-
-    @property
-    @pulumi.getter(name="crashConsistentFrequencyInMinutes")
-    def crash_consistent_frequency_in_minutes(self) -> Optional[int]:
-        """
-        The crash consistent snapshot frequency in minutes.
-        """
-        return pulumi.get(self, "crash_consistent_frequency_in_minutes")
-
-    @property
-    @pulumi.getter(name="multiVmSyncStatus")
-    def multi_vm_sync_status(self) -> Optional[str]:
-        """
-        A value indicating whether multi-VM sync has to be enabled.
-        """
-        return pulumi.get(self, "multi_vm_sync_status")
-
-    @property
-    @pulumi.getter(name="recoveryPointHistory")
-    def recovery_point_history(self) -> Optional[int]:
-        """
-        The duration in minutes until which the recovery points need to be stored.
-        """
-        return pulumi.get(self, "recovery_point_history")
-
-    @property
-    @pulumi.getter(name="recoveryPointThresholdInMinutes")
-    def recovery_point_threshold_in_minutes(self) -> Optional[int]:
-        """
-        The recovery point threshold in minutes.
-        """
-        return pulumi.get(self, "recovery_point_threshold_in_minutes")
 
 
 @pulumi.output_type
@@ -20722,7 +26854,13 @@ class RcmProxyDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "healthErrors":
+        if key == "biosId":
+            suggest = "bios_id"
+        elif key == "clientAuthenticationType":
+            suggest = "client_authentication_type"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
+        elif key == "healthErrors":
             suggest = "health_errors"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
@@ -20739,6 +26877,10 @@ class RcmProxyDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bios_id: str,
+                 client_authentication_type: str,
+                 fabric_object_id: str,
+                 fqdn: str,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
                  id: str,
@@ -20747,19 +26889,59 @@ class RcmProxyDetailsResponse(dict):
                  version: str):
         """
         RCM proxy details.
+        :param str bios_id: The RCM proxy Bios Id.
+        :param str client_authentication_type: The client authentication type.
+        :param str fabric_object_id: The fabric object Id.
+        :param str fqdn: The RCM proxy Fqdn.
         :param str health: The health of the RCM proxy.
         :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The RCM proxy Id.
         :param str last_heartbeat_utc: The last heartbeat received from the RCM proxy.
         :param str name: The RCM proxy name.
-        :param str version: The RCM proxy version.
+        :param str version: The version.
         """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "client_authentication_type", client_authentication_type)
+        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The RCM proxy Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="clientAuthenticationType")
+    def client_authentication_type(self) -> str:
+        """
+        The client authentication type.
+        """
+        return pulumi.get(self, "client_authentication_type")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> str:
+        """
+        The fabric object Id.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The RCM proxy Fqdn.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
@@ -20805,7 +26987,7 @@ class RcmProxyDetailsResponse(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The RCM proxy version.
+        The version.
         """
         return pulumi.get(self, "version")
 
@@ -20820,8 +27002,12 @@ class RecoveryPlanA2ADetailsResponse(dict):
         suggest = None
         if key == "instanceType":
             suggest = "instance_type"
+        elif key == "primaryExtendedLocation":
+            suggest = "primary_extended_location"
         elif key == "primaryZone":
             suggest = "primary_zone"
+        elif key == "recoveryExtendedLocation":
+            suggest = "recovery_extended_location"
         elif key == "recoveryZone":
             suggest = "recovery_zone"
 
@@ -20838,18 +27024,26 @@ class RecoveryPlanA2ADetailsResponse(dict):
 
     def __init__(__self__, *,
                  instance_type: str,
+                 primary_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  primary_zone: Optional[str] = None,
+                 recovery_extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  recovery_zone: Optional[str] = None):
         """
         Recovery plan A2A specific details.
         :param str instance_type: Gets the Instance type.
                Expected value is 'A2A'.
+        :param 'ExtendedLocationResponse' primary_extended_location: The primary extended location.
         :param str primary_zone: The primary zone.
+        :param 'ExtendedLocationResponse' recovery_extended_location: The recovery extended location.
         :param str recovery_zone: The recovery zone.
         """
         pulumi.set(__self__, "instance_type", 'A2A')
+        if primary_extended_location is not None:
+            pulumi.set(__self__, "primary_extended_location", primary_extended_location)
         if primary_zone is not None:
             pulumi.set(__self__, "primary_zone", primary_zone)
+        if recovery_extended_location is not None:
+            pulumi.set(__self__, "recovery_extended_location", recovery_extended_location)
         if recovery_zone is not None:
             pulumi.set(__self__, "recovery_zone", recovery_zone)
 
@@ -20863,12 +27057,28 @@ class RecoveryPlanA2ADetailsResponse(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="primaryExtendedLocation")
+    def primary_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The primary extended location.
+        """
+        return pulumi.get(self, "primary_extended_location")
+
+    @property
     @pulumi.getter(name="primaryZone")
     def primary_zone(self) -> Optional[str]:
         """
         The primary zone.
         """
         return pulumi.get(self, "primary_zone")
+
+    @property
+    @pulumi.getter(name="recoveryExtendedLocation")
+    def recovery_extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The recovery extended location.
+        """
+        return pulumi.get(self, "recovery_extended_location")
 
     @property
     @pulumi.getter(name="recoveryZone")
@@ -21174,14 +27384,12 @@ class RecoveryPlanManualActionDetailsResponse(dict):
 @pulumi.output_type
 class RecoveryPlanPropertiesResponse(dict):
     """
-    Recovery plan custom details.
+    Recovery plan properties.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "providerSpecificDetails":
-            suggest = "provider_specific_details"
-        elif key == "allowedOperations":
+        if key == "allowedOperations":
             suggest = "allowed_operations"
         elif key == "currentScenario":
             suggest = "current_scenario"
@@ -21203,6 +27411,8 @@ class RecoveryPlanPropertiesResponse(dict):
             suggest = "primary_fabric_friendly_name"
         elif key == "primaryFabricId":
             suggest = "primary_fabric_id"
+        elif key == "providerSpecificDetails":
+            suggest = "provider_specific_details"
         elif key == "recoveryFabricFriendlyName":
             suggest = "recovery_fabric_friendly_name"
         elif key == "recoveryFabricId":
@@ -21222,7 +27432,6 @@ class RecoveryPlanPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 provider_specific_details: Sequence['outputs.RecoveryPlanA2ADetailsResponse'],
                  allowed_operations: Optional[Sequence[str]] = None,
                  current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
                  current_scenario_status: Optional[str] = None,
@@ -21235,12 +27444,12 @@ class RecoveryPlanPropertiesResponse(dict):
                  last_unplanned_failover_time: Optional[str] = None,
                  primary_fabric_friendly_name: Optional[str] = None,
                  primary_fabric_id: Optional[str] = None,
+                 provider_specific_details: Optional[Sequence['outputs.RecoveryPlanA2ADetailsResponse']] = None,
                  recovery_fabric_friendly_name: Optional[str] = None,
                  recovery_fabric_id: Optional[str] = None,
                  replication_providers: Optional[Sequence[str]] = None):
         """
-        Recovery plan custom details.
-        :param Sequence['RecoveryPlanA2ADetailsResponse'] provider_specific_details: The provider id and provider specific details.
+        Recovery plan properties.
         :param Sequence[str] allowed_operations: The list of allowed operations.
         :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario details.
         :param str current_scenario_status: The recovery plan status.
@@ -21253,11 +27462,11 @@ class RecoveryPlanPropertiesResponse(dict):
         :param str last_unplanned_failover_time: The start time of the last unplanned failover.
         :param str primary_fabric_friendly_name: The primary fabric friendly name.
         :param str primary_fabric_id: The primary fabric Id.
+        :param Sequence['RecoveryPlanA2ADetailsResponse'] provider_specific_details: The provider id and provider specific details.
         :param str recovery_fabric_friendly_name: The recovery fabric friendly name.
         :param str recovery_fabric_id: The recovery fabric Id.
         :param Sequence[str] replication_providers: The list of replication providers.
         """
-        pulumi.set(__self__, "provider_specific_details", provider_specific_details)
         if allowed_operations is not None:
             pulumi.set(__self__, "allowed_operations", allowed_operations)
         if current_scenario is not None:
@@ -21282,20 +27491,14 @@ class RecoveryPlanPropertiesResponse(dict):
             pulumi.set(__self__, "primary_fabric_friendly_name", primary_fabric_friendly_name)
         if primary_fabric_id is not None:
             pulumi.set(__self__, "primary_fabric_id", primary_fabric_id)
+        if provider_specific_details is not None:
+            pulumi.set(__self__, "provider_specific_details", provider_specific_details)
         if recovery_fabric_friendly_name is not None:
             pulumi.set(__self__, "recovery_fabric_friendly_name", recovery_fabric_friendly_name)
         if recovery_fabric_id is not None:
             pulumi.set(__self__, "recovery_fabric_id", recovery_fabric_id)
         if replication_providers is not None:
             pulumi.set(__self__, "replication_providers", replication_providers)
-
-    @property
-    @pulumi.getter(name="providerSpecificDetails")
-    def provider_specific_details(self) -> Sequence['outputs.RecoveryPlanA2ADetailsResponse']:
-        """
-        The provider id and provider specific details.
-        """
-        return pulumi.get(self, "provider_specific_details")
 
     @property
     @pulumi.getter(name="allowedOperations")
@@ -21392,6 +27595,14 @@ class RecoveryPlanPropertiesResponse(dict):
         The primary fabric Id.
         """
         return pulumi.get(self, "primary_fabric_id")
+
+    @property
+    @pulumi.getter(name="providerSpecificDetails")
+    def provider_specific_details(self) -> Optional[Sequence['outputs.RecoveryPlanA2ADetailsResponse']]:
+        """
+        The provider id and provider specific details.
+        """
+        return pulumi.get(self, "provider_specific_details")
 
     @property
     @pulumi.getter(name="recoveryFabricFriendlyName")
@@ -21559,8 +27770,12 @@ class RecoveryServicesProviderPropertiesResponse(dict):
             suggest = "allowed_scenarios"
         elif key == "authenticationIdentityDetails":
             suggest = "authentication_identity_details"
+        elif key == "biosId":
+            suggest = "bios_id"
         elif key == "connectionStatus":
             suggest = "connection_status"
+        elif key == "dataPlaneAuthenticationIdentityDetails":
+            suggest = "data_plane_authentication_identity_details"
         elif key == "draIdentifier":
             suggest = "dra_identifier"
         elif key == "fabricFriendlyName":
@@ -21573,6 +27788,10 @@ class RecoveryServicesProviderPropertiesResponse(dict):
             suggest = "health_error_details"
         elif key == "lastHeartBeat":
             suggest = "last_heart_beat"
+        elif key == "machineId":
+            suggest = "machine_id"
+        elif key == "machineName":
+            suggest = "machine_name"
         elif key == "protectedItemCount":
             suggest = "protected_item_count"
         elif key == "providerVersion":
@@ -21602,13 +27821,17 @@ class RecoveryServicesProviderPropertiesResponse(dict):
     def __init__(__self__, *,
                  allowed_scenarios: Optional[Sequence[str]] = None,
                  authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
+                 bios_id: Optional[str] = None,
                  connection_status: Optional[str] = None,
+                 data_plane_authentication_identity_details: Optional['outputs.IdentityProviderDetailsResponse'] = None,
                  dra_identifier: Optional[str] = None,
                  fabric_friendly_name: Optional[str] = None,
                  fabric_type: Optional[str] = None,
                  friendly_name: Optional[str] = None,
                  health_error_details: Optional[Sequence['outputs.HealthErrorResponse']] = None,
                  last_heart_beat: Optional[str] = None,
+                 machine_id: Optional[str] = None,
+                 machine_name: Optional[str] = None,
                  protected_item_count: Optional[int] = None,
                  provider_version: Optional[str] = None,
                  provider_version_details: Optional['outputs.VersionDetailsResponse'] = None,
@@ -21620,13 +27843,17 @@ class RecoveryServicesProviderPropertiesResponse(dict):
         Recovery services provider properties.
         :param Sequence[str] allowed_scenarios: The scenarios allowed on this provider.
         :param 'IdentityProviderDetailsResponse' authentication_identity_details: The authentication identity details.
+        :param str bios_id: The Bios Id.
         :param str connection_status: A value indicating whether DRA is responsive.
+        :param 'IdentityProviderDetailsResponse' data_plane_authentication_identity_details: The data plane authentication identity details.
         :param str dra_identifier: The DRA Id.
         :param str fabric_friendly_name: The fabric friendly name.
         :param str fabric_type: Type of the site.
         :param str friendly_name: Friendly name of the DRA.
         :param Sequence['HealthErrorResponse'] health_error_details: The recovery services provider health error details.
         :param str last_heart_beat: Time when last heartbeat was sent by the DRA.
+        :param str machine_id: The machine Id.
+        :param str machine_name: The machine name.
         :param int protected_item_count: Number of protected VMs currently managed by the DRA.
         :param str provider_version: The provider version.
         :param 'VersionDetailsResponse' provider_version_details: The provider version details.
@@ -21639,8 +27866,12 @@ class RecoveryServicesProviderPropertiesResponse(dict):
             pulumi.set(__self__, "allowed_scenarios", allowed_scenarios)
         if authentication_identity_details is not None:
             pulumi.set(__self__, "authentication_identity_details", authentication_identity_details)
+        if bios_id is not None:
+            pulumi.set(__self__, "bios_id", bios_id)
         if connection_status is not None:
             pulumi.set(__self__, "connection_status", connection_status)
+        if data_plane_authentication_identity_details is not None:
+            pulumi.set(__self__, "data_plane_authentication_identity_details", data_plane_authentication_identity_details)
         if dra_identifier is not None:
             pulumi.set(__self__, "dra_identifier", dra_identifier)
         if fabric_friendly_name is not None:
@@ -21653,6 +27884,10 @@ class RecoveryServicesProviderPropertiesResponse(dict):
             pulumi.set(__self__, "health_error_details", health_error_details)
         if last_heart_beat is not None:
             pulumi.set(__self__, "last_heart_beat", last_heart_beat)
+        if machine_id is not None:
+            pulumi.set(__self__, "machine_id", machine_id)
+        if machine_name is not None:
+            pulumi.set(__self__, "machine_name", machine_name)
         if protected_item_count is not None:
             pulumi.set(__self__, "protected_item_count", protected_item_count)
         if provider_version is not None:
@@ -21685,12 +27920,28 @@ class RecoveryServicesProviderPropertiesResponse(dict):
         return pulumi.get(self, "authentication_identity_details")
 
     @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> Optional[str]:
+        """
+        The Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
     @pulumi.getter(name="connectionStatus")
     def connection_status(self) -> Optional[str]:
         """
         A value indicating whether DRA is responsive.
         """
         return pulumi.get(self, "connection_status")
+
+    @property
+    @pulumi.getter(name="dataPlaneAuthenticationIdentityDetails")
+    def data_plane_authentication_identity_details(self) -> Optional['outputs.IdentityProviderDetailsResponse']:
+        """
+        The data plane authentication identity details.
+        """
+        return pulumi.get(self, "data_plane_authentication_identity_details")
 
     @property
     @pulumi.getter(name="draIdentifier")
@@ -21739,6 +27990,22 @@ class RecoveryServicesProviderPropertiesResponse(dict):
         Time when last heartbeat was sent by the DRA.
         """
         return pulumi.get(self, "last_heart_beat")
+
+    @property
+    @pulumi.getter(name="machineId")
+    def machine_id(self) -> Optional[str]:
+        """
+        The machine Id.
+        """
+        return pulumi.get(self, "machine_id")
+
+    @property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> Optional[str]:
+        """
+        The machine name.
+        """
+        return pulumi.get(self, "machine_name")
 
     @property
     @pulumi.getter(name="protectedItemCount")
@@ -21805,7 +28072,11 @@ class ReplicationAgentDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "healthErrors":
+        if key == "biosId":
+            suggest = "bios_id"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
+        elif key == "healthErrors":
             suggest = "health_errors"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
@@ -21822,6 +28093,9 @@ class ReplicationAgentDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bios_id: str,
+                 fabric_object_id: str,
+                 fqdn: str,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
                  id: str,
@@ -21830,19 +28104,49 @@ class ReplicationAgentDetailsResponse(dict):
                  version: str):
         """
         Replication agent details.
+        :param str bios_id: The replication agent Bios Id.
+        :param str fabric_object_id: The fabric object Id.
+        :param str fqdn: The replication agent Fqdn.
         :param str health: The health of the replication agent.
         :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The replication agent Id.
         :param str last_heartbeat_utc: The last heartbeat received from the replication agent.
         :param str name: The replication agent name.
-        :param str version: The replication agent version.
+        :param str version: The version.
         """
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The replication agent Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> str:
+        """
+        The fabric object Id.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The replication agent Fqdn.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
@@ -21888,7 +28192,7 @@ class ReplicationAgentDetailsResponse(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        The replication agent version.
+        The version.
         """
         return pulumi.get(self, "version")
 
@@ -21907,6 +28211,8 @@ class ReplicationProtectedItemPropertiesResponse(dict):
             suggest = "allowed_operations"
         elif key == "currentScenario":
             suggest = "current_scenario"
+        elif key == "eventCorrelationId":
+            suggest = "event_correlation_id"
         elif key == "failoverHealth":
             suggest = "failover_health"
         elif key == "failoverRecoveryPointId":
@@ -21951,6 +28257,10 @@ class ReplicationProtectedItemPropertiesResponse(dict):
             suggest = "recovery_services_provider_id"
         elif key == "replicationHealth":
             suggest = "replication_health"
+        elif key == "switchProviderState":
+            suggest = "switch_provider_state"
+        elif key == "switchProviderStateDescription":
+            suggest = "switch_provider_state_description"
         elif key == "testFailoverState":
             suggest = "test_failover_state"
         elif key == "testFailoverStateDescription":
@@ -21971,6 +28281,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
                  active_location: Optional[str] = None,
                  allowed_operations: Optional[Sequence[str]] = None,
                  current_scenario: Optional['outputs.CurrentScenarioDetailsResponse'] = None,
+                 event_correlation_id: Optional[str] = None,
                  failover_health: Optional[str] = None,
                  failover_recovery_point_id: Optional[str] = None,
                  friendly_name: Optional[str] = None,
@@ -21993,6 +28304,8 @@ class ReplicationProtectedItemPropertiesResponse(dict):
                  recovery_protection_container_friendly_name: Optional[str] = None,
                  recovery_services_provider_id: Optional[str] = None,
                  replication_health: Optional[str] = None,
+                 switch_provider_state: Optional[str] = None,
+                 switch_provider_state_description: Optional[str] = None,
                  test_failover_state: Optional[str] = None,
                  test_failover_state_description: Optional[str] = None):
         """
@@ -22000,6 +28313,7 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str active_location: The Current active location of the PE.
         :param Sequence[str] allowed_operations: The allowed operations on the Replication protected item.
         :param 'CurrentScenarioDetailsResponse' current_scenario: The current scenario.
+        :param str event_correlation_id: The correlation Id for events associated with this protected item.
         :param str failover_health: The consolidated failover health for the VM.
         :param str failover_recovery_point_id: The recovery point ARM Id to which the Vm was failed over.
         :param str friendly_name: The name.
@@ -22015,13 +28329,15 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         :param str protected_item_type: The type of protected item type.
         :param str protection_state: The protection status.
         :param str protection_state_description: The protection state description.
-        :param Union['A2AReplicationDetailsResponse', 'HyperVReplicaAzureReplicationDetailsResponse', 'HyperVReplicaBaseReplicationDetailsResponse', 'HyperVReplicaBlueReplicationDetailsResponse', 'HyperVReplicaReplicationDetailsResponse', 'InMageAzureV2ReplicationDetailsResponse', 'InMageRcmReplicationDetailsResponse', 'InMageReplicationDetailsResponse'] provider_specific_details: The Replication provider custom settings.
+        :param Union['A2ACrossClusterMigrationReplicationDetailsResponse', 'A2AReplicationDetailsResponse', 'HyperVReplicaAzureReplicationDetailsResponse', 'HyperVReplicaBaseReplicationDetailsResponse', 'HyperVReplicaBlueReplicationDetailsResponse', 'HyperVReplicaReplicationDetailsResponse', 'InMageAzureV2ReplicationDetailsResponse', 'InMageRcmFailbackReplicationDetailsResponse', 'InMageRcmReplicationDetailsResponse', 'InMageReplicationDetailsResponse'] provider_specific_details: The Replication provider custom settings.
         :param str recovery_container_id: The recovery container Id.
         :param str recovery_fabric_friendly_name: The friendly name of recovery fabric.
         :param str recovery_fabric_id: The Arm Id of recovery fabric.
         :param str recovery_protection_container_friendly_name: The name of recovery container friendly name.
         :param str recovery_services_provider_id: The recovery provider ARM Id.
         :param str replication_health: The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration.
+        :param str switch_provider_state: The switch provider state.
+        :param str switch_provider_state_description: The switch provider state description.
         :param str test_failover_state: The Test failover state.
         :param str test_failover_state_description: The Test failover state description.
         """
@@ -22031,6 +28347,8 @@ class ReplicationProtectedItemPropertiesResponse(dict):
             pulumi.set(__self__, "allowed_operations", allowed_operations)
         if current_scenario is not None:
             pulumi.set(__self__, "current_scenario", current_scenario)
+        if event_correlation_id is not None:
+            pulumi.set(__self__, "event_correlation_id", event_correlation_id)
         if failover_health is not None:
             pulumi.set(__self__, "failover_health", failover_health)
         if failover_recovery_point_id is not None:
@@ -22075,6 +28393,10 @@ class ReplicationProtectedItemPropertiesResponse(dict):
             pulumi.set(__self__, "recovery_services_provider_id", recovery_services_provider_id)
         if replication_health is not None:
             pulumi.set(__self__, "replication_health", replication_health)
+        if switch_provider_state is not None:
+            pulumi.set(__self__, "switch_provider_state", switch_provider_state)
+        if switch_provider_state_description is not None:
+            pulumi.set(__self__, "switch_provider_state_description", switch_provider_state_description)
         if test_failover_state is not None:
             pulumi.set(__self__, "test_failover_state", test_failover_state)
         if test_failover_state_description is not None:
@@ -22103,6 +28425,14 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         The current scenario.
         """
         return pulumi.get(self, "current_scenario")
+
+    @property
+    @pulumi.getter(name="eventCorrelationId")
+    def event_correlation_id(self) -> Optional[str]:
+        """
+        The correlation Id for events associated with this protected item.
+        """
+        return pulumi.get(self, "event_correlation_id")
 
     @property
     @pulumi.getter(name="failoverHealth")
@@ -22281,6 +28611,22 @@ class ReplicationProtectedItemPropertiesResponse(dict):
         return pulumi.get(self, "replication_health")
 
     @property
+    @pulumi.getter(name="switchProviderState")
+    def switch_provider_state(self) -> Optional[str]:
+        """
+        The switch provider state.
+        """
+        return pulumi.get(self, "switch_provider_state")
+
+    @property
+    @pulumi.getter(name="switchProviderStateDescription")
+    def switch_provider_state_description(self) -> Optional[str]:
+        """
+        The switch provider state description.
+        """
+        return pulumi.get(self, "switch_provider_state_description")
+
+    @property
     @pulumi.getter(name="testFailoverState")
     def test_failover_state(self) -> Optional[str]:
         """
@@ -22305,10 +28651,22 @@ class ReprotectAgentDetailsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "healthErrors":
+        if key == "accessibleDatastores":
+            suggest = "accessible_datastores"
+        elif key == "biosId":
+            suggest = "bios_id"
+        elif key == "fabricObjectId":
+            suggest = "fabric_object_id"
+        elif key == "healthErrors":
             suggest = "health_errors"
+        elif key == "lastDiscoveryInUtc":
+            suggest = "last_discovery_in_utc"
         elif key == "lastHeartbeatUtc":
             suggest = "last_heartbeat_utc"
+        elif key == "protectedItemCount":
+            suggest = "protected_item_count"
+        elif key == "vcenterId":
+            suggest = "vcenter_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ReprotectAgentDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -22322,27 +28680,80 @@ class ReprotectAgentDetailsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 accessible_datastores: Sequence[str],
+                 bios_id: str,
+                 fabric_object_id: str,
+                 fqdn: str,
                  health: str,
                  health_errors: Sequence['outputs.HealthErrorResponse'],
                  id: str,
+                 last_discovery_in_utc: str,
                  last_heartbeat_utc: str,
                  name: str,
+                 protected_item_count: int,
+                 vcenter_id: str,
                  version: str):
         """
         Reprotect agent details.
+        :param Sequence[str] accessible_datastores: The list of accessible datastores fetched from discovery.
+        :param str bios_id: The reprotect agent Bios Id.
+        :param str fabric_object_id: The fabric object Id.
+        :param str fqdn: The reprotect agent Fqdn.
         :param str health: The health of the reprotect agent.
         :param Sequence['HealthErrorResponse'] health_errors: The health errors.
         :param str id: The reprotect agent Id.
+        :param str last_discovery_in_utc: The last time when SDS information discovered in SRS.
         :param str last_heartbeat_utc: The last heartbeat received from the reprotect agent.
         :param str name: The reprotect agent name.
+        :param int protected_item_count: The protected item count.
+        :param str vcenter_id: The Vcenter Id.
         :param str version: The version.
         """
+        pulumi.set(__self__, "accessible_datastores", accessible_datastores)
+        pulumi.set(__self__, "bios_id", bios_id)
+        pulumi.set(__self__, "fabric_object_id", fabric_object_id)
+        pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "health", health)
         pulumi.set(__self__, "health_errors", health_errors)
         pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "last_discovery_in_utc", last_discovery_in_utc)
         pulumi.set(__self__, "last_heartbeat_utc", last_heartbeat_utc)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protected_item_count", protected_item_count)
+        pulumi.set(__self__, "vcenter_id", vcenter_id)
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="accessibleDatastores")
+    def accessible_datastores(self) -> Sequence[str]:
+        """
+        The list of accessible datastores fetched from discovery.
+        """
+        return pulumi.get(self, "accessible_datastores")
+
+    @property
+    @pulumi.getter(name="biosId")
+    def bios_id(self) -> str:
+        """
+        The reprotect agent Bios Id.
+        """
+        return pulumi.get(self, "bios_id")
+
+    @property
+    @pulumi.getter(name="fabricObjectId")
+    def fabric_object_id(self) -> str:
+        """
+        The fabric object Id.
+        """
+        return pulumi.get(self, "fabric_object_id")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> str:
+        """
+        The reprotect agent Fqdn.
+        """
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
@@ -22369,6 +28780,14 @@ class ReprotectAgentDetailsResponse(dict):
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="lastDiscoveryInUtc")
+    def last_discovery_in_utc(self) -> str:
+        """
+        The last time when SDS information discovered in SRS.
+        """
+        return pulumi.get(self, "last_discovery_in_utc")
+
+    @property
     @pulumi.getter(name="lastHeartbeatUtc")
     def last_heartbeat_utc(self) -> str:
         """
@@ -22383,6 +28802,22 @@ class ReprotectAgentDetailsResponse(dict):
         The reprotect agent name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="protectedItemCount")
+    def protected_item_count(self) -> int:
+        """
+        The protected item count.
+        """
+        return pulumi.get(self, "protected_item_count")
+
+    @property
+    @pulumi.getter(name="vcenterId")
+    def vcenter_id(self) -> str:
+        """
+        The Vcenter Id.
+        """
+        return pulumi.get(self, "vcenter_id")
 
     @property
     @pulumi.getter
@@ -22457,15 +28892,23 @@ class ResourceGuardProxyBaseResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 description: Optional[str] = None,
                  last_updated_time: Optional[str] = None,
                  resource_guard_operation_details: Optional[Sequence['outputs.ResourceGuardOperationDetailResponse']] = None,
                  resource_guard_resource_id: Optional[str] = None):
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if last_updated_time is not None:
             pulumi.set(__self__, "last_updated_time", last_updated_time)
         if resource_guard_operation_details is not None:
             pulumi.set(__self__, "resource_guard_operation_details", resource_guard_operation_details)
         if resource_guard_resource_id is not None:
             pulumi.set(__self__, "resource_guard_resource_id", resource_guard_resource_id)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
@@ -22536,6 +28979,46 @@ class ResourceHealthDetailsResponse(dict):
         Health Title
         """
         return pulumi.get(self, "title")
+
+
+@pulumi.output_type
+class RestoreSettingsResponse(dict):
+    """
+    Restore Settings  of the vault
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossSubscriptionRestoreSettings":
+            suggest = "cross_subscription_restore_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RestoreSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RestoreSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RestoreSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_subscription_restore_settings: Optional['outputs.CrossSubscriptionRestoreSettingsResponse'] = None):
+        """
+        Restore Settings  of the vault
+        :param 'CrossSubscriptionRestoreSettingsResponse' cross_subscription_restore_settings: Settings for CrossSubscriptionRestore
+        """
+        if cross_subscription_restore_settings is not None:
+            pulumi.set(__self__, "cross_subscription_restore_settings", cross_subscription_restore_settings)
+
+    @property
+    @pulumi.getter(name="crossSubscriptionRestoreSettings")
+    def cross_subscription_restore_settings(self) -> Optional['outputs.CrossSubscriptionRestoreSettingsResponse']:
+        """
+        Settings for CrossSubscriptionRestore
+        """
+        return pulumi.get(self, "cross_subscription_restore_settings")
 
 
 @pulumi.output_type
@@ -22729,6 +29212,73 @@ class RunAsAccountResponse(dict):
 
 
 @pulumi.output_type
+class SecuritySettingsResponse(dict):
+    """
+    Security Settings of the vault
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multiUserAuthorization":
+            suggest = "multi_user_authorization"
+        elif key == "immutabilitySettings":
+            suggest = "immutability_settings"
+        elif key == "softDeleteSettings":
+            suggest = "soft_delete_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecuritySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecuritySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecuritySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multi_user_authorization: str,
+                 immutability_settings: Optional['outputs.ImmutabilitySettingsResponse'] = None,
+                 soft_delete_settings: Optional['outputs.SoftDeleteSettingsResponse'] = None):
+        """
+        Security Settings of the vault
+        :param str multi_user_authorization: MUA Settings of a vault
+        :param 'ImmutabilitySettingsResponse' immutability_settings: Immutability Settings of a vault
+        :param 'SoftDeleteSettingsResponse' soft_delete_settings: Soft delete Settings of a vault
+        """
+        pulumi.set(__self__, "multi_user_authorization", multi_user_authorization)
+        if immutability_settings is not None:
+            pulumi.set(__self__, "immutability_settings", immutability_settings)
+        if soft_delete_settings is not None:
+            pulumi.set(__self__, "soft_delete_settings", soft_delete_settings)
+
+    @property
+    @pulumi.getter(name="multiUserAuthorization")
+    def multi_user_authorization(self) -> str:
+        """
+        MUA Settings of a vault
+        """
+        return pulumi.get(self, "multi_user_authorization")
+
+    @property
+    @pulumi.getter(name="immutabilitySettings")
+    def immutability_settings(self) -> Optional['outputs.ImmutabilitySettingsResponse']:
+        """
+        Immutability Settings of a vault
+        """
+        return pulumi.get(self, "immutability_settings")
+
+    @property
+    @pulumi.getter(name="softDeleteSettings")
+    def soft_delete_settings(self) -> Optional['outputs.SoftDeleteSettingsResponse']:
+        """
+        Soft delete Settings of a vault
+        """
+        return pulumi.get(self, "soft_delete_settings")
+
+
+@pulumi.output_type
 class SettingsResponse(dict):
     """
     Common settings field for backup management
@@ -22861,6 +29411,8 @@ class SimpleSchedulePolicyResponse(dict):
         suggest = None
         if key == "schedulePolicyType":
             suggest = "schedule_policy_type"
+        elif key == "hourlySchedule":
+            suggest = "hourly_schedule"
         elif key == "scheduleRunDays":
             suggest = "schedule_run_days"
         elif key == "scheduleRunFrequency":
@@ -22883,6 +29435,7 @@ class SimpleSchedulePolicyResponse(dict):
 
     def __init__(__self__, *,
                  schedule_policy_type: str,
+                 hourly_schedule: Optional['outputs.HourlyScheduleResponse'] = None,
                  schedule_run_days: Optional[Sequence[str]] = None,
                  schedule_run_frequency: Optional[str] = None,
                  schedule_run_times: Optional[Sequence[str]] = None,
@@ -22891,12 +29444,15 @@ class SimpleSchedulePolicyResponse(dict):
         Simple policy schedule.
         :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
                Expected value is 'SimpleSchedulePolicy'.
+        :param 'HourlyScheduleResponse' hourly_schedule: Hourly Schedule of this Policy
         :param Sequence[str] schedule_run_days: List of days of week this schedule has to be run.
         :param str schedule_run_frequency: Frequency of the schedule operation of this policy.
         :param Sequence[str] schedule_run_times: List of times of day this schedule has to be run.
         :param int schedule_weekly_frequency: At every number weeks this schedule has to be run.
         """
         pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicy')
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
         if schedule_run_days is not None:
             pulumi.set(__self__, "schedule_run_days", schedule_run_days)
         if schedule_run_frequency is not None:
@@ -22914,6 +29470,14 @@ class SimpleSchedulePolicyResponse(dict):
         Expected value is 'SimpleSchedulePolicy'.
         """
         return pulumi.get(self, "schedule_policy_type")
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
+        """
+        Hourly Schedule of this Policy
+        """
+        return pulumi.get(self, "hourly_schedule")
 
     @property
     @pulumi.getter(name="scheduleRunDays")
@@ -22949,19 +29513,128 @@ class SimpleSchedulePolicyResponse(dict):
 
 
 @pulumi.output_type
+class SimpleSchedulePolicyV2Response(dict):
+    """
+    The V2 policy schedule for IaaS that supports hourly backups.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "schedulePolicyType":
+            suggest = "schedule_policy_type"
+        elif key == "dailySchedule":
+            suggest = "daily_schedule"
+        elif key == "hourlySchedule":
+            suggest = "hourly_schedule"
+        elif key == "scheduleRunFrequency":
+            suggest = "schedule_run_frequency"
+        elif key == "weeklySchedule":
+            suggest = "weekly_schedule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SimpleSchedulePolicyV2Response. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SimpleSchedulePolicyV2Response.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SimpleSchedulePolicyV2Response.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_policy_type: str,
+                 daily_schedule: Optional['outputs.DailyScheduleResponse'] = None,
+                 hourly_schedule: Optional['outputs.HourlyScheduleResponse'] = None,
+                 schedule_run_frequency: Optional[str] = None,
+                 weekly_schedule: Optional['outputs.WeeklyScheduleResponse'] = None):
+        """
+        The V2 policy schedule for IaaS that supports hourly backups.
+        :param str schedule_policy_type: This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+               Expected value is 'SimpleSchedulePolicyV2'.
+        :param 'DailyScheduleResponse' daily_schedule: Daily schedule of this policy
+        :param 'HourlyScheduleResponse' hourly_schedule: hourly schedule of this policy
+        :param str schedule_run_frequency: Frequency of the schedule operation of this policy.
+        :param 'WeeklyScheduleResponse' weekly_schedule: Weekly schedule of this policy
+        """
+        pulumi.set(__self__, "schedule_policy_type", 'SimpleSchedulePolicyV2')
+        if daily_schedule is not None:
+            pulumi.set(__self__, "daily_schedule", daily_schedule)
+        if hourly_schedule is not None:
+            pulumi.set(__self__, "hourly_schedule", hourly_schedule)
+        if schedule_run_frequency is not None:
+            pulumi.set(__self__, "schedule_run_frequency", schedule_run_frequency)
+        if weekly_schedule is not None:
+            pulumi.set(__self__, "weekly_schedule", weekly_schedule)
+
+    @property
+    @pulumi.getter(name="schedulePolicyType")
+    def schedule_policy_type(self) -> str:
+        """
+        This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types.
+        Expected value is 'SimpleSchedulePolicyV2'.
+        """
+        return pulumi.get(self, "schedule_policy_type")
+
+    @property
+    @pulumi.getter(name="dailySchedule")
+    def daily_schedule(self) -> Optional['outputs.DailyScheduleResponse']:
+        """
+        Daily schedule of this policy
+        """
+        return pulumi.get(self, "daily_schedule")
+
+    @property
+    @pulumi.getter(name="hourlySchedule")
+    def hourly_schedule(self) -> Optional['outputs.HourlyScheduleResponse']:
+        """
+        hourly schedule of this policy
+        """
+        return pulumi.get(self, "hourly_schedule")
+
+    @property
+    @pulumi.getter(name="scheduleRunFrequency")
+    def schedule_run_frequency(self) -> Optional[str]:
+        """
+        Frequency of the schedule operation of this policy.
+        """
+        return pulumi.get(self, "schedule_run_frequency")
+
+    @property
+    @pulumi.getter(name="weeklySchedule")
+    def weekly_schedule(self) -> Optional['outputs.WeeklyScheduleResponse']:
+        """
+        Weekly schedule of this policy
+        """
+        return pulumi.get(self, "weekly_schedule")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     Identifies the unique system identifier for each Azure resource.
     """
     def __init__(__self__, *,
                  name: str,
+                 capacity: Optional[str] = None,
+                 family: Optional[str] = None,
+                 size: Optional[str] = None,
                  tier: Optional[str] = None):
         """
         Identifies the unique system identifier for each Azure resource.
-        :param str name: The Sku name.
+        :param str name: Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
+        :param str capacity: The sku capacity
+        :param str family: The sku family
+        :param str size: The sku size
         :param str tier: The Sku tier.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
         if tier is not None:
             pulumi.set(__self__, "tier", tier)
 
@@ -22969,9 +29642,33 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Sku name.
+        Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[str]:
+        """
+        The sku capacity
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        The sku family
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        The sku size
+        """
+        return pulumi.get(self, "size")
 
     @property
     @pulumi.getter
@@ -22980,6 +29677,56 @@ class SkuResponse(dict):
         The Sku tier.
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SoftDeleteSettingsResponse(dict):
+    """
+    Soft delete Settings of vault
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "softDeleteRetentionPeriodInDays":
+            suggest = "soft_delete_retention_period_in_days"
+        elif key == "softDeleteState":
+            suggest = "soft_delete_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SoftDeleteSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SoftDeleteSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SoftDeleteSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 soft_delete_retention_period_in_days: Optional[int] = None,
+                 soft_delete_state: Optional[str] = None):
+        """
+        Soft delete Settings of vault
+        :param int soft_delete_retention_period_in_days: Soft delete retention period in days
+        """
+        if soft_delete_retention_period_in_days is not None:
+            pulumi.set(__self__, "soft_delete_retention_period_in_days", soft_delete_retention_period_in_days)
+        if soft_delete_state is not None:
+            pulumi.set(__self__, "soft_delete_state", soft_delete_state)
+
+    @property
+    @pulumi.getter(name="softDeleteRetentionPeriodInDays")
+    def soft_delete_retention_period_in_days(self) -> Optional[int]:
+        """
+        Soft delete retention period in days
+        """
+        return pulumi.get(self, "soft_delete_retention_period_in_days")
+
+    @property
+    @pulumi.getter(name="softDeleteState")
+    def soft_delete_state(self) -> Optional[str]:
+        return pulumi.get(self, "soft_delete_state")
 
 
 @pulumi.output_type
@@ -23036,6 +29783,8 @@ class SubProtectionPolicyResponse(dict):
             suggest = "retention_policy"
         elif key == "schedulePolicy":
             suggest = "schedule_policy"
+        elif key == "tieringPolicy":
+            suggest = "tiering_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SubProtectionPolicyResponse. Access the value via the '{suggest}' property getter instead.")
@@ -23051,12 +29800,16 @@ class SubProtectionPolicyResponse(dict):
     def __init__(__self__, *,
                  policy_type: Optional[str] = None,
                  retention_policy: Optional[Any] = None,
-                 schedule_policy: Optional[Any] = None):
+                 schedule_policy: Optional[Any] = None,
+                 tiering_policy: Optional[Mapping[str, 'outputs.TieringPolicyResponse']] = None):
         """
         Sub-protection policy which includes schedule and retention
         :param str policy_type: Type of backup policy type
         :param Union['LongTermRetentionPolicyResponse', 'SimpleRetentionPolicyResponse'] retention_policy: Retention policy with the details on backup copy retention ranges.
-        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Union['LogSchedulePolicyResponse', 'LongTermSchedulePolicyResponse', 'SimpleSchedulePolicyResponse', 'SimpleSchedulePolicyV2Response'] schedule_policy: Backup schedule specified as part of backup policy.
+        :param Mapping[str, 'TieringPolicyResponse'] tiering_policy: Tiering policy to automatically move RPs to another tier.
+               Key is Target Tier, defined in RecoveryPointTierType enum.
+               Tiering policy specifies the criteria to move RP to the target tier.
         """
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
@@ -23064,6 +29817,8 @@ class SubProtectionPolicyResponse(dict):
             pulumi.set(__self__, "retention_policy", retention_policy)
         if schedule_policy is not None:
             pulumi.set(__self__, "schedule_policy", schedule_policy)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
 
     @property
     @pulumi.getter(name="policyType")
@@ -23088,6 +29843,16 @@ class SubProtectionPolicyResponse(dict):
         Backup schedule specified as part of backup policy.
         """
         return pulumi.get(self, "schedule_policy")
+
+    @property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> Optional[Mapping[str, 'outputs.TieringPolicyResponse']]:
+        """
+        Tiering policy to automatically move RPs to another tier.
+        Key is Target Tier, defined in RecoveryPointTierType enum.
+        Tiering policy specifies the criteria to move RP to the target tier.
+        """
+        return pulumi.get(self, "tiering_policy")
 
 
 @pulumi.output_type
@@ -23198,6 +29963,84 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TieringPolicyResponse(dict):
+    """
+    Tiering Policy for a target tier.
+    If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "durationType":
+            suggest = "duration_type"
+        elif key == "tieringMode":
+            suggest = "tiering_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TieringPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TieringPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TieringPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 duration: Optional[int] = None,
+                 duration_type: Optional[str] = None,
+                 tiering_mode: Optional[str] = None):
+        """
+        Tiering Policy for a target tier.
+        If the policy is not specified for a given target tier, service retains the existing configured tiering policy for that tier
+        :param int duration: Number of days/weeks/months/years to retain backups in current tier before tiering.
+               Used only if TieringMode is set to TierAfter
+        :param str duration_type: Retention duration type: days/weeks/months/years
+               Used only if TieringMode is set to TierAfter
+        :param str tiering_mode: Tiering Mode to control automatic tiering of recovery points. Supported values are:
+               1. TierRecommended: Tier all recovery points recommended to be tiered
+               2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+               3. DoNotTier: Do not tier any recovery points
+        """
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if duration_type is not None:
+            pulumi.set(__self__, "duration_type", duration_type)
+        if tiering_mode is not None:
+            pulumi.set(__self__, "tiering_mode", tiering_mode)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> Optional[int]:
+        """
+        Number of days/weeks/months/years to retain backups in current tier before tiering.
+        Used only if TieringMode is set to TierAfter
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="durationType")
+    def duration_type(self) -> Optional[str]:
+        """
+        Retention duration type: days/weeks/months/years
+        Used only if TieringMode is set to TierAfter
+        """
+        return pulumi.get(self, "duration_type")
+
+    @property
+    @pulumi.getter(name="tieringMode")
+    def tiering_mode(self) -> Optional[str]:
+        """
+        Tiering Mode to control automatic tiering of recovery points. Supported values are:
+        1. TierRecommended: Tier all recovery points recommended to be tiered
+        2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+        3. DoNotTier: Do not tier any recovery points
+        """
+        return pulumi.get(self, "tiering_mode")
 
 
 @pulumi.output_type
@@ -23581,40 +30424,28 @@ class VMNicDetailsResponse(dict):
             suggest = "enable_accelerated_networking_on_recovery"
         elif key == "enableAcceleratedNetworkingOnTfo":
             suggest = "enable_accelerated_networking_on_tfo"
-        elif key == "ipAddressType":
-            suggest = "ip_address_type"
+        elif key == "ipConfigs":
+            suggest = "ip_configs"
         elif key == "nicId":
             suggest = "nic_id"
-        elif key == "primaryNicStaticIPAddress":
-            suggest = "primary_nic_static_ip_address"
-        elif key == "recoveryLBBackendAddressPoolIds":
-            suggest = "recovery_lb_backend_address_pool_ids"
         elif key == "recoveryNetworkSecurityGroupId":
             suggest = "recovery_network_security_group_id"
-        elif key == "recoveryNicIpAddressType":
-            suggest = "recovery_nic_ip_address_type"
         elif key == "recoveryNicName":
             suggest = "recovery_nic_name"
         elif key == "recoveryNicResourceGroupName":
             suggest = "recovery_nic_resource_group_name"
-        elif key == "recoveryPublicIpAddressId":
-            suggest = "recovery_public_ip_address_id"
         elif key == "recoveryVMNetworkId":
             suggest = "recovery_vm_network_id"
-        elif key == "recoveryVMSubnetName":
-            suggest = "recovery_vm_subnet_name"
         elif key == "replicaNicId":
             suggest = "replica_nic_id"
-        elif key == "replicaNicStaticIPAddress":
-            suggest = "replica_nic_static_ip_address"
         elif key == "reuseExistingNic":
             suggest = "reuse_existing_nic"
         elif key == "selectionType":
             suggest = "selection_type"
         elif key == "sourceNicArmId":
             suggest = "source_nic_arm_id"
-        elif key == "tfoIPConfigs":
-            suggest = "tfo_ip_configs"
+        elif key == "targetNicName":
+            suggest = "target_nic_name"
         elif key == "tfoNetworkSecurityGroupId":
             suggest = "tfo_network_security_group_id"
         elif key == "tfoRecoveryNicName":
@@ -23625,12 +30456,8 @@ class VMNicDetailsResponse(dict):
             suggest = "tfo_reuse_existing_nic"
         elif key == "tfoVMNetworkId":
             suggest = "tfo_vm_network_id"
-        elif key == "tfoVMSubnetName":
-            suggest = "tfo_vm_subnet_name"
         elif key == "vMNetworkName":
             suggest = "v_m_network_name"
-        elif key == "vMSubnetName":
-            suggest = "v_m_subnet_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VMNicDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -23646,91 +30473,63 @@ class VMNicDetailsResponse(dict):
     def __init__(__self__, *,
                  enable_accelerated_networking_on_recovery: Optional[bool] = None,
                  enable_accelerated_networking_on_tfo: Optional[bool] = None,
-                 ip_address_type: Optional[str] = None,
+                 ip_configs: Optional[Sequence['outputs.IPConfigDetailsResponse']] = None,
                  nic_id: Optional[str] = None,
-                 primary_nic_static_ip_address: Optional[str] = None,
-                 recovery_lb_backend_address_pool_ids: Optional[Sequence[str]] = None,
                  recovery_network_security_group_id: Optional[str] = None,
-                 recovery_nic_ip_address_type: Optional[str] = None,
                  recovery_nic_name: Optional[str] = None,
                  recovery_nic_resource_group_name: Optional[str] = None,
-                 recovery_public_ip_address_id: Optional[str] = None,
                  recovery_vm_network_id: Optional[str] = None,
-                 recovery_vm_subnet_name: Optional[str] = None,
                  replica_nic_id: Optional[str] = None,
-                 replica_nic_static_ip_address: Optional[str] = None,
                  reuse_existing_nic: Optional[bool] = None,
                  selection_type: Optional[str] = None,
                  source_nic_arm_id: Optional[str] = None,
-                 tfo_ip_configs: Optional[Sequence['outputs.IPConfigResponse']] = None,
+                 target_nic_name: Optional[str] = None,
                  tfo_network_security_group_id: Optional[str] = None,
                  tfo_recovery_nic_name: Optional[str] = None,
                  tfo_recovery_nic_resource_group_name: Optional[str] = None,
                  tfo_reuse_existing_nic: Optional[bool] = None,
                  tfo_vm_network_id: Optional[str] = None,
-                 tfo_vm_subnet_name: Optional[str] = None,
-                 v_m_network_name: Optional[str] = None,
-                 v_m_subnet_name: Optional[str] = None):
+                 v_m_network_name: Optional[str] = None):
         """
         Hyper V VM network details.
         :param bool enable_accelerated_networking_on_recovery: A value indicating whether the NIC has accelerated networking enabled.
-        :param bool enable_accelerated_networking_on_tfo: Whether the test failover NIC has accelerated networking enabled.
-        :param str ip_address_type: Ip address type.
+        :param bool enable_accelerated_networking_on_tfo: Whether the TFO NIC has accelerated networking enabled.
+        :param Sequence['IPConfigDetailsResponse'] ip_configs: The IP configurations of the NIC.
         :param str nic_id: The nic Id.
-        :param str primary_nic_static_ip_address: Primary nic static IP address.
-        :param Sequence[str] recovery_lb_backend_address_pool_ids: The target backend address pools for the NIC.
         :param str recovery_network_security_group_id: The id of the NSG associated with the NIC.
-        :param str recovery_nic_ip_address_type: IP allocation type for recovery VM.
         :param str recovery_nic_name: The name of the NIC to be used when creating target NICs.
         :param str recovery_nic_resource_group_name: The resource group of the NIC to be used when creating target NICs.
-        :param str recovery_public_ip_address_id: The id of the public IP address resource associated with the NIC.
         :param str recovery_vm_network_id: Recovery VM network Id.
-        :param str recovery_vm_subnet_name: Recovery VM subnet name.
         :param str replica_nic_id: The replica nic Id.
-        :param str replica_nic_static_ip_address: Replica nic static IP address.
         :param bool reuse_existing_nic: A value indicating whether an existing NIC is allowed to be reused during failover subject to availability.
         :param str selection_type: Selection type for failover.
         :param str source_nic_arm_id: The source nic ARM Id.
-        :param Sequence['IPConfigResponse'] tfo_ip_configs: The IP configurations to be used by NIC during test failover.
+        :param str target_nic_name: Target NIC name.
         :param str tfo_network_security_group_id: The NSG to be used by NIC during test failover.
         :param str tfo_recovery_nic_name: The name of the NIC to be used when creating target NICs in TFO.
         :param str tfo_recovery_nic_resource_group_name: The resource group of the NIC to be used when creating target NICs in TFO.
         :param bool tfo_reuse_existing_nic: A value indicating whether an existing NIC is allowed to be reused during test failover subject to availability.
         :param str tfo_vm_network_id: The network to be used by NIC during test failover.
-        :param str tfo_vm_subnet_name: The subnet to be used by NIC during test failover.
         :param str v_m_network_name: VM network name.
-        :param str v_m_subnet_name: VM subnet name.
         """
         if enable_accelerated_networking_on_recovery is not None:
             pulumi.set(__self__, "enable_accelerated_networking_on_recovery", enable_accelerated_networking_on_recovery)
         if enable_accelerated_networking_on_tfo is not None:
             pulumi.set(__self__, "enable_accelerated_networking_on_tfo", enable_accelerated_networking_on_tfo)
-        if ip_address_type is not None:
-            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ip_configs is not None:
+            pulumi.set(__self__, "ip_configs", ip_configs)
         if nic_id is not None:
             pulumi.set(__self__, "nic_id", nic_id)
-        if primary_nic_static_ip_address is not None:
-            pulumi.set(__self__, "primary_nic_static_ip_address", primary_nic_static_ip_address)
-        if recovery_lb_backend_address_pool_ids is not None:
-            pulumi.set(__self__, "recovery_lb_backend_address_pool_ids", recovery_lb_backend_address_pool_ids)
         if recovery_network_security_group_id is not None:
             pulumi.set(__self__, "recovery_network_security_group_id", recovery_network_security_group_id)
-        if recovery_nic_ip_address_type is not None:
-            pulumi.set(__self__, "recovery_nic_ip_address_type", recovery_nic_ip_address_type)
         if recovery_nic_name is not None:
             pulumi.set(__self__, "recovery_nic_name", recovery_nic_name)
         if recovery_nic_resource_group_name is not None:
             pulumi.set(__self__, "recovery_nic_resource_group_name", recovery_nic_resource_group_name)
-        if recovery_public_ip_address_id is not None:
-            pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
         if recovery_vm_network_id is not None:
             pulumi.set(__self__, "recovery_vm_network_id", recovery_vm_network_id)
-        if recovery_vm_subnet_name is not None:
-            pulumi.set(__self__, "recovery_vm_subnet_name", recovery_vm_subnet_name)
         if replica_nic_id is not None:
             pulumi.set(__self__, "replica_nic_id", replica_nic_id)
-        if replica_nic_static_ip_address is not None:
-            pulumi.set(__self__, "replica_nic_static_ip_address", replica_nic_static_ip_address)
         if reuse_existing_nic is None:
             reuse_existing_nic = False
         if reuse_existing_nic is not None:
@@ -23739,8 +30538,8 @@ class VMNicDetailsResponse(dict):
             pulumi.set(__self__, "selection_type", selection_type)
         if source_nic_arm_id is not None:
             pulumi.set(__self__, "source_nic_arm_id", source_nic_arm_id)
-        if tfo_ip_configs is not None:
-            pulumi.set(__self__, "tfo_ip_configs", tfo_ip_configs)
+        if target_nic_name is not None:
+            pulumi.set(__self__, "target_nic_name", target_nic_name)
         if tfo_network_security_group_id is not None:
             pulumi.set(__self__, "tfo_network_security_group_id", tfo_network_security_group_id)
         if tfo_recovery_nic_name is not None:
@@ -23753,12 +30552,8 @@ class VMNicDetailsResponse(dict):
             pulumi.set(__self__, "tfo_reuse_existing_nic", tfo_reuse_existing_nic)
         if tfo_vm_network_id is not None:
             pulumi.set(__self__, "tfo_vm_network_id", tfo_vm_network_id)
-        if tfo_vm_subnet_name is not None:
-            pulumi.set(__self__, "tfo_vm_subnet_name", tfo_vm_subnet_name)
         if v_m_network_name is not None:
             pulumi.set(__self__, "v_m_network_name", v_m_network_name)
-        if v_m_subnet_name is not None:
-            pulumi.set(__self__, "v_m_subnet_name", v_m_subnet_name)
 
     @property
     @pulumi.getter(name="enableAcceleratedNetworkingOnRecovery")
@@ -23772,17 +30567,17 @@ class VMNicDetailsResponse(dict):
     @pulumi.getter(name="enableAcceleratedNetworkingOnTfo")
     def enable_accelerated_networking_on_tfo(self) -> Optional[bool]:
         """
-        Whether the test failover NIC has accelerated networking enabled.
+        Whether the TFO NIC has accelerated networking enabled.
         """
         return pulumi.get(self, "enable_accelerated_networking_on_tfo")
 
     @property
-    @pulumi.getter(name="ipAddressType")
-    def ip_address_type(self) -> Optional[str]:
+    @pulumi.getter(name="ipConfigs")
+    def ip_configs(self) -> Optional[Sequence['outputs.IPConfigDetailsResponse']]:
         """
-        Ip address type.
+        The IP configurations of the NIC.
         """
-        return pulumi.get(self, "ip_address_type")
+        return pulumi.get(self, "ip_configs")
 
     @property
     @pulumi.getter(name="nicId")
@@ -23793,36 +30588,12 @@ class VMNicDetailsResponse(dict):
         return pulumi.get(self, "nic_id")
 
     @property
-    @pulumi.getter(name="primaryNicStaticIPAddress")
-    def primary_nic_static_ip_address(self) -> Optional[str]:
-        """
-        Primary nic static IP address.
-        """
-        return pulumi.get(self, "primary_nic_static_ip_address")
-
-    @property
-    @pulumi.getter(name="recoveryLBBackendAddressPoolIds")
-    def recovery_lb_backend_address_pool_ids(self) -> Optional[Sequence[str]]:
-        """
-        The target backend address pools for the NIC.
-        """
-        return pulumi.get(self, "recovery_lb_backend_address_pool_ids")
-
-    @property
     @pulumi.getter(name="recoveryNetworkSecurityGroupId")
     def recovery_network_security_group_id(self) -> Optional[str]:
         """
         The id of the NSG associated with the NIC.
         """
         return pulumi.get(self, "recovery_network_security_group_id")
-
-    @property
-    @pulumi.getter(name="recoveryNicIpAddressType")
-    def recovery_nic_ip_address_type(self) -> Optional[str]:
-        """
-        IP allocation type for recovery VM.
-        """
-        return pulumi.get(self, "recovery_nic_ip_address_type")
 
     @property
     @pulumi.getter(name="recoveryNicName")
@@ -23841,14 +30612,6 @@ class VMNicDetailsResponse(dict):
         return pulumi.get(self, "recovery_nic_resource_group_name")
 
     @property
-    @pulumi.getter(name="recoveryPublicIpAddressId")
-    def recovery_public_ip_address_id(self) -> Optional[str]:
-        """
-        The id of the public IP address resource associated with the NIC.
-        """
-        return pulumi.get(self, "recovery_public_ip_address_id")
-
-    @property
     @pulumi.getter(name="recoveryVMNetworkId")
     def recovery_vm_network_id(self) -> Optional[str]:
         """
@@ -23857,28 +30620,12 @@ class VMNicDetailsResponse(dict):
         return pulumi.get(self, "recovery_vm_network_id")
 
     @property
-    @pulumi.getter(name="recoveryVMSubnetName")
-    def recovery_vm_subnet_name(self) -> Optional[str]:
-        """
-        Recovery VM subnet name.
-        """
-        return pulumi.get(self, "recovery_vm_subnet_name")
-
-    @property
     @pulumi.getter(name="replicaNicId")
     def replica_nic_id(self) -> Optional[str]:
         """
         The replica nic Id.
         """
         return pulumi.get(self, "replica_nic_id")
-
-    @property
-    @pulumi.getter(name="replicaNicStaticIPAddress")
-    def replica_nic_static_ip_address(self) -> Optional[str]:
-        """
-        Replica nic static IP address.
-        """
-        return pulumi.get(self, "replica_nic_static_ip_address")
 
     @property
     @pulumi.getter(name="reuseExistingNic")
@@ -23905,12 +30652,12 @@ class VMNicDetailsResponse(dict):
         return pulumi.get(self, "source_nic_arm_id")
 
     @property
-    @pulumi.getter(name="tfoIPConfigs")
-    def tfo_ip_configs(self) -> Optional[Sequence['outputs.IPConfigResponse']]:
+    @pulumi.getter(name="targetNicName")
+    def target_nic_name(self) -> Optional[str]:
         """
-        The IP configurations to be used by NIC during test failover.
+        Target NIC name.
         """
-        return pulumi.get(self, "tfo_ip_configs")
+        return pulumi.get(self, "target_nic_name")
 
     @property
     @pulumi.getter(name="tfoNetworkSecurityGroupId")
@@ -23953,14 +30700,6 @@ class VMNicDetailsResponse(dict):
         return pulumi.get(self, "tfo_vm_network_id")
 
     @property
-    @pulumi.getter(name="tfoVMSubnetName")
-    def tfo_vm_subnet_name(self) -> Optional[str]:
-        """
-        The subnet to be used by NIC during test failover.
-        """
-        return pulumi.get(self, "tfo_vm_subnet_name")
-
-    @property
     @pulumi.getter(name="vMNetworkName")
     def v_m_network_name(self) -> Optional[str]:
         """
@@ -23968,55 +30707,99 @@ class VMNicDetailsResponse(dict):
         """
         return pulumi.get(self, "v_m_network_name")
 
-    @property
-    @pulumi.getter(name="vMSubnetName")
-    def v_m_subnet_name(self) -> Optional[str]:
-        """
-        VM subnet name.
-        """
-        return pulumi.get(self, "v_m_subnet_name")
-
 
 @pulumi.output_type
 class VMwareCbtMigrationDetailsResponse(dict):
     """
-    VMwareCbt provider specific settings
+    VMwareCbt provider specific settings.
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "dataMoverRunAsAccountId":
             suggest = "data_mover_run_as_account_id"
+        elif key == "firmwareType":
+            suggest = "firmware_type"
+        elif key == "initialSeedingProgressPercentage":
+            suggest = "initial_seeding_progress_percentage"
+        elif key == "initialSeedingRetryCount":
+            suggest = "initial_seeding_retry_count"
         elif key == "instanceType":
             suggest = "instance_type"
+        elif key == "lastRecoveryPointId":
+            suggest = "last_recovery_point_id"
         elif key == "lastRecoveryPointReceived":
             suggest = "last_recovery_point_received"
+        elif key == "migrationProgressPercentage":
+            suggest = "migration_progress_percentage"
         elif key == "migrationRecoveryPointId":
             suggest = "migration_recovery_point_id"
+        elif key == "osName":
+            suggest = "os_name"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "resumeProgressPercentage":
+            suggest = "resume_progress_percentage"
+        elif key == "resumeRetryCount":
+            suggest = "resume_retry_count"
+        elif key == "resyncProgressPercentage":
+            suggest = "resync_progress_percentage"
+        elif key == "resyncRequired":
+            suggest = "resync_required"
+        elif key == "resyncRetryCount":
+            suggest = "resync_retry_count"
+        elif key == "resyncState":
+            suggest = "resync_state"
         elif key == "snapshotRunAsAccountId":
             suggest = "snapshot_run_as_account_id"
+        elif key == "storageAccountId":
+            suggest = "storage_account_id"
+        elif key == "targetGeneration":
+            suggest = "target_generation"
         elif key == "targetLocation":
             suggest = "target_location"
         elif key == "vmwareMachineId":
             suggest = "vmware_machine_id"
+        elif key == "confidentialVmKeyVaultId":
+            suggest = "confidential_vm_key_vault_id"
         elif key == "licenseType":
             suggest = "license_type"
+        elif key == "performAutoResync":
+            suggest = "perform_auto_resync"
         elif key == "protectedDisks":
             suggest = "protected_disks"
+        elif key == "seedDiskTags":
+            suggest = "seed_disk_tags"
+        elif key == "sqlServerLicenseType":
+            suggest = "sql_server_license_type"
+        elif key == "supportedOSVersions":
+            suggest = "supported_os_versions"
         elif key == "targetAvailabilitySetId":
             suggest = "target_availability_set_id"
+        elif key == "targetAvailabilityZone":
+            suggest = "target_availability_zone"
         elif key == "targetBootDiagnosticsStorageAccountId":
             suggest = "target_boot_diagnostics_storage_account_id"
+        elif key == "targetDiskTags":
+            suggest = "target_disk_tags"
         elif key == "targetNetworkId":
             suggest = "target_network_id"
+        elif key == "targetNicTags":
+            suggest = "target_nic_tags"
+        elif key == "targetProximityPlacementGroupId":
+            suggest = "target_proximity_placement_group_id"
         elif key == "targetResourceGroupId":
             suggest = "target_resource_group_id"
         elif key == "targetVmName":
             suggest = "target_vm_name"
+        elif key == "targetVmSecurityProfile":
+            suggest = "target_vm_security_profile"
         elif key == "targetVmSize":
             suggest = "target_vm_size"
+        elif key == "targetVmTags":
+            suggest = "target_vm_tags"
+        elif key == "testNetworkId":
+            suggest = "test_network_id"
         elif key == "vmNics":
             suggest = "vm_nics"
 
@@ -24033,67 +30816,157 @@ class VMwareCbtMigrationDetailsResponse(dict):
 
     def __init__(__self__, *,
                  data_mover_run_as_account_id: str,
+                 firmware_type: str,
+                 initial_seeding_progress_percentage: int,
+                 initial_seeding_retry_count: float,
                  instance_type: str,
+                 last_recovery_point_id: str,
                  last_recovery_point_received: str,
+                 migration_progress_percentage: int,
                  migration_recovery_point_id: str,
+                 os_name: str,
                  os_type: str,
+                 resume_progress_percentage: int,
+                 resume_retry_count: float,
+                 resync_progress_percentage: int,
+                 resync_required: str,
+                 resync_retry_count: float,
+                 resync_state: str,
                  snapshot_run_as_account_id: str,
+                 storage_account_id: str,
+                 target_generation: str,
                  target_location: str,
                  vmware_machine_id: str,
+                 confidential_vm_key_vault_id: Optional[str] = None,
                  license_type: Optional[str] = None,
+                 perform_auto_resync: Optional[str] = None,
                  protected_disks: Optional[Sequence['outputs.VMwareCbtProtectedDiskDetailsResponse']] = None,
+                 seed_disk_tags: Optional[Mapping[str, str]] = None,
+                 sql_server_license_type: Optional[str] = None,
+                 supported_os_versions: Optional[Sequence[str]] = None,
                  target_availability_set_id: Optional[str] = None,
+                 target_availability_zone: Optional[str] = None,
                  target_boot_diagnostics_storage_account_id: Optional[str] = None,
+                 target_disk_tags: Optional[Mapping[str, str]] = None,
                  target_network_id: Optional[str] = None,
+                 target_nic_tags: Optional[Mapping[str, str]] = None,
+                 target_proximity_placement_group_id: Optional[str] = None,
                  target_resource_group_id: Optional[str] = None,
                  target_vm_name: Optional[str] = None,
+                 target_vm_security_profile: Optional['outputs.VMwareCbtSecurityProfilePropertiesResponse'] = None,
                  target_vm_size: Optional[str] = None,
+                 target_vm_tags: Optional[Mapping[str, str]] = None,
+                 test_network_id: Optional[str] = None,
                  vm_nics: Optional[Sequence['outputs.VMwareCbtNicDetailsResponse']] = None):
         """
-        VMwareCbt provider specific settings
-        :param str data_mover_run_as_account_id: The data mover RunAs account Id.
+        VMwareCbt provider specific settings.
+        :param str data_mover_run_as_account_id: The data mover run as account Id.
+        :param str firmware_type: The firmware type.
+        :param int initial_seeding_progress_percentage: The initial seeding progress percentage.
+        :param float initial_seeding_retry_count: The initial seeding retry count.
         :param str instance_type: Gets the instance type.
                Expected value is 'VMwareCbt'.
+        :param str last_recovery_point_id: The last recovery point Id.
         :param str last_recovery_point_received: The last recovery point received time.
+        :param int migration_progress_percentage: The migration progress percentage.
         :param str migration_recovery_point_id: The recovery point Id to which the VM was migrated.
+        :param str os_name: The name of the OS on the VM.
         :param str os_type: The type of the OS on the VM.
-        :param str snapshot_run_as_account_id: The snapshot RunAs account Id.
+        :param int resume_progress_percentage: The resume progress percentage.
+        :param float resume_retry_count: The resume retry count.
+        :param int resync_progress_percentage: The resync progress percentage.
+        :param str resync_required: A value indicating whether resync is required.
+        :param float resync_retry_count: The resync retry count.
+        :param str resync_state: The resync state.
+        :param str snapshot_run_as_account_id: The snapshot run as account Id.
+        :param str storage_account_id: The replication storage account ARM Id. This is applicable only for the blob based replication test hook.
+        :param str target_generation: The target generation.
         :param str target_location: The target location.
         :param str vmware_machine_id: The ARM Id of the VM discovered in VMware.
+        :param str confidential_vm_key_vault_id: The confidential VM key vault Id for ADE installation.
         :param str license_type: License Type of the VM to be used.
+        :param str perform_auto_resync: A value indicating whether auto resync is to be done.
         :param Sequence['VMwareCbtProtectedDiskDetailsResponse'] protected_disks: The list of protected disks.
+        :param Mapping[str, str] seed_disk_tags: The tags for the seed disks.
+        :param str sql_server_license_type: The SQL Server license type.
+        :param Sequence[str] supported_os_versions: List of supported inplace OS Upgrade versions.
         :param str target_availability_set_id: The target availability set Id.
+        :param str target_availability_zone: The target availability zone.
         :param str target_boot_diagnostics_storage_account_id: The target boot diagnostics storage account ARM Id.
+        :param Mapping[str, str] target_disk_tags: The tags for the target disks.
         :param str target_network_id: The target network Id.
+        :param Mapping[str, str] target_nic_tags: The tags for the target NICs.
+        :param str target_proximity_placement_group_id: The target proximity placement group Id.
         :param str target_resource_group_id: The target resource group Id.
         :param str target_vm_name: Target VM name.
+        :param 'VMwareCbtSecurityProfilePropertiesResponse' target_vm_security_profile: The target VM security profile.
         :param str target_vm_size: The target VM size.
+        :param Mapping[str, str] target_vm_tags: The target VM tags.
+        :param str test_network_id: The test network Id.
         :param Sequence['VMwareCbtNicDetailsResponse'] vm_nics: The network details.
         """
         pulumi.set(__self__, "data_mover_run_as_account_id", data_mover_run_as_account_id)
+        pulumi.set(__self__, "firmware_type", firmware_type)
+        pulumi.set(__self__, "initial_seeding_progress_percentage", initial_seeding_progress_percentage)
+        pulumi.set(__self__, "initial_seeding_retry_count", initial_seeding_retry_count)
         pulumi.set(__self__, "instance_type", 'VMwareCbt')
+        pulumi.set(__self__, "last_recovery_point_id", last_recovery_point_id)
         pulumi.set(__self__, "last_recovery_point_received", last_recovery_point_received)
+        pulumi.set(__self__, "migration_progress_percentage", migration_progress_percentage)
         pulumi.set(__self__, "migration_recovery_point_id", migration_recovery_point_id)
+        pulumi.set(__self__, "os_name", os_name)
         pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "resume_progress_percentage", resume_progress_percentage)
+        pulumi.set(__self__, "resume_retry_count", resume_retry_count)
+        pulumi.set(__self__, "resync_progress_percentage", resync_progress_percentage)
+        pulumi.set(__self__, "resync_required", resync_required)
+        pulumi.set(__self__, "resync_retry_count", resync_retry_count)
+        pulumi.set(__self__, "resync_state", resync_state)
         pulumi.set(__self__, "snapshot_run_as_account_id", snapshot_run_as_account_id)
+        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        pulumi.set(__self__, "target_generation", target_generation)
         pulumi.set(__self__, "target_location", target_location)
         pulumi.set(__self__, "vmware_machine_id", vmware_machine_id)
+        if confidential_vm_key_vault_id is not None:
+            pulumi.set(__self__, "confidential_vm_key_vault_id", confidential_vm_key_vault_id)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
+        if perform_auto_resync is not None:
+            pulumi.set(__self__, "perform_auto_resync", perform_auto_resync)
         if protected_disks is not None:
             pulumi.set(__self__, "protected_disks", protected_disks)
+        if seed_disk_tags is not None:
+            pulumi.set(__self__, "seed_disk_tags", seed_disk_tags)
+        if sql_server_license_type is not None:
+            pulumi.set(__self__, "sql_server_license_type", sql_server_license_type)
+        if supported_os_versions is not None:
+            pulumi.set(__self__, "supported_os_versions", supported_os_versions)
         if target_availability_set_id is not None:
             pulumi.set(__self__, "target_availability_set_id", target_availability_set_id)
+        if target_availability_zone is not None:
+            pulumi.set(__self__, "target_availability_zone", target_availability_zone)
         if target_boot_diagnostics_storage_account_id is not None:
             pulumi.set(__self__, "target_boot_diagnostics_storage_account_id", target_boot_diagnostics_storage_account_id)
+        if target_disk_tags is not None:
+            pulumi.set(__self__, "target_disk_tags", target_disk_tags)
         if target_network_id is not None:
             pulumi.set(__self__, "target_network_id", target_network_id)
+        if target_nic_tags is not None:
+            pulumi.set(__self__, "target_nic_tags", target_nic_tags)
+        if target_proximity_placement_group_id is not None:
+            pulumi.set(__self__, "target_proximity_placement_group_id", target_proximity_placement_group_id)
         if target_resource_group_id is not None:
             pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
         if target_vm_name is not None:
             pulumi.set(__self__, "target_vm_name", target_vm_name)
+        if target_vm_security_profile is not None:
+            pulumi.set(__self__, "target_vm_security_profile", target_vm_security_profile)
         if target_vm_size is not None:
             pulumi.set(__self__, "target_vm_size", target_vm_size)
+        if target_vm_tags is not None:
+            pulumi.set(__self__, "target_vm_tags", target_vm_tags)
+        if test_network_id is not None:
+            pulumi.set(__self__, "test_network_id", test_network_id)
         if vm_nics is not None:
             pulumi.set(__self__, "vm_nics", vm_nics)
 
@@ -24101,9 +30974,33 @@ class VMwareCbtMigrationDetailsResponse(dict):
     @pulumi.getter(name="dataMoverRunAsAccountId")
     def data_mover_run_as_account_id(self) -> str:
         """
-        The data mover RunAs account Id.
+        The data mover run as account Id.
         """
         return pulumi.get(self, "data_mover_run_as_account_id")
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> str:
+        """
+        The firmware type.
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @property
+    @pulumi.getter(name="initialSeedingProgressPercentage")
+    def initial_seeding_progress_percentage(self) -> int:
+        """
+        The initial seeding progress percentage.
+        """
+        return pulumi.get(self, "initial_seeding_progress_percentage")
+
+    @property
+    @pulumi.getter(name="initialSeedingRetryCount")
+    def initial_seeding_retry_count(self) -> float:
+        """
+        The initial seeding retry count.
+        """
+        return pulumi.get(self, "initial_seeding_retry_count")
 
     @property
     @pulumi.getter(name="instanceType")
@@ -24115,12 +31012,28 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="lastRecoveryPointId")
+    def last_recovery_point_id(self) -> str:
+        """
+        The last recovery point Id.
+        """
+        return pulumi.get(self, "last_recovery_point_id")
+
+    @property
     @pulumi.getter(name="lastRecoveryPointReceived")
     def last_recovery_point_received(self) -> str:
         """
         The last recovery point received time.
         """
         return pulumi.get(self, "last_recovery_point_received")
+
+    @property
+    @pulumi.getter(name="migrationProgressPercentage")
+    def migration_progress_percentage(self) -> int:
+        """
+        The migration progress percentage.
+        """
+        return pulumi.get(self, "migration_progress_percentage")
 
     @property
     @pulumi.getter(name="migrationRecoveryPointId")
@@ -24131,6 +31044,14 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "migration_recovery_point_id")
 
     @property
+    @pulumi.getter(name="osName")
+    def os_name(self) -> str:
+        """
+        The name of the OS on the VM.
+        """
+        return pulumi.get(self, "os_name")
+
+    @property
     @pulumi.getter(name="osType")
     def os_type(self) -> str:
         """
@@ -24139,12 +31060,76 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "os_type")
 
     @property
+    @pulumi.getter(name="resumeProgressPercentage")
+    def resume_progress_percentage(self) -> int:
+        """
+        The resume progress percentage.
+        """
+        return pulumi.get(self, "resume_progress_percentage")
+
+    @property
+    @pulumi.getter(name="resumeRetryCount")
+    def resume_retry_count(self) -> float:
+        """
+        The resume retry count.
+        """
+        return pulumi.get(self, "resume_retry_count")
+
+    @property
+    @pulumi.getter(name="resyncProgressPercentage")
+    def resync_progress_percentage(self) -> int:
+        """
+        The resync progress percentage.
+        """
+        return pulumi.get(self, "resync_progress_percentage")
+
+    @property
+    @pulumi.getter(name="resyncRequired")
+    def resync_required(self) -> str:
+        """
+        A value indicating whether resync is required.
+        """
+        return pulumi.get(self, "resync_required")
+
+    @property
+    @pulumi.getter(name="resyncRetryCount")
+    def resync_retry_count(self) -> float:
+        """
+        The resync retry count.
+        """
+        return pulumi.get(self, "resync_retry_count")
+
+    @property
+    @pulumi.getter(name="resyncState")
+    def resync_state(self) -> str:
+        """
+        The resync state.
+        """
+        return pulumi.get(self, "resync_state")
+
+    @property
     @pulumi.getter(name="snapshotRunAsAccountId")
     def snapshot_run_as_account_id(self) -> str:
         """
-        The snapshot RunAs account Id.
+        The snapshot run as account Id.
         """
         return pulumi.get(self, "snapshot_run_as_account_id")
+
+    @property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> str:
+        """
+        The replication storage account ARM Id. This is applicable only for the blob based replication test hook.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="targetGeneration")
+    def target_generation(self) -> str:
+        """
+        The target generation.
+        """
+        return pulumi.get(self, "target_generation")
 
     @property
     @pulumi.getter(name="targetLocation")
@@ -24163,12 +31148,28 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "vmware_machine_id")
 
     @property
+    @pulumi.getter(name="confidentialVmKeyVaultId")
+    def confidential_vm_key_vault_id(self) -> Optional[str]:
+        """
+        The confidential VM key vault Id for ADE installation.
+        """
+        return pulumi.get(self, "confidential_vm_key_vault_id")
+
+    @property
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[str]:
         """
         License Type of the VM to be used.
         """
         return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="performAutoResync")
+    def perform_auto_resync(self) -> Optional[str]:
+        """
+        A value indicating whether auto resync is to be done.
+        """
+        return pulumi.get(self, "perform_auto_resync")
 
     @property
     @pulumi.getter(name="protectedDisks")
@@ -24179,12 +31180,44 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "protected_disks")
 
     @property
+    @pulumi.getter(name="seedDiskTags")
+    def seed_disk_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the seed disks.
+        """
+        return pulumi.get(self, "seed_disk_tags")
+
+    @property
+    @pulumi.getter(name="sqlServerLicenseType")
+    def sql_server_license_type(self) -> Optional[str]:
+        """
+        The SQL Server license type.
+        """
+        return pulumi.get(self, "sql_server_license_type")
+
+    @property
+    @pulumi.getter(name="supportedOSVersions")
+    def supported_os_versions(self) -> Optional[Sequence[str]]:
+        """
+        List of supported inplace OS Upgrade versions.
+        """
+        return pulumi.get(self, "supported_os_versions")
+
+    @property
     @pulumi.getter(name="targetAvailabilitySetId")
     def target_availability_set_id(self) -> Optional[str]:
         """
         The target availability set Id.
         """
         return pulumi.get(self, "target_availability_set_id")
+
+    @property
+    @pulumi.getter(name="targetAvailabilityZone")
+    def target_availability_zone(self) -> Optional[str]:
+        """
+        The target availability zone.
+        """
+        return pulumi.get(self, "target_availability_zone")
 
     @property
     @pulumi.getter(name="targetBootDiagnosticsStorageAccountId")
@@ -24195,12 +31228,36 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "target_boot_diagnostics_storage_account_id")
 
     @property
+    @pulumi.getter(name="targetDiskTags")
+    def target_disk_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target disks.
+        """
+        return pulumi.get(self, "target_disk_tags")
+
+    @property
     @pulumi.getter(name="targetNetworkId")
     def target_network_id(self) -> Optional[str]:
         """
         The target network Id.
         """
         return pulumi.get(self, "target_network_id")
+
+    @property
+    @pulumi.getter(name="targetNicTags")
+    def target_nic_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The tags for the target NICs.
+        """
+        return pulumi.get(self, "target_nic_tags")
+
+    @property
+    @pulumi.getter(name="targetProximityPlacementGroupId")
+    def target_proximity_placement_group_id(self) -> Optional[str]:
+        """
+        The target proximity placement group Id.
+        """
+        return pulumi.get(self, "target_proximity_placement_group_id")
 
     @property
     @pulumi.getter(name="targetResourceGroupId")
@@ -24219,12 +31276,36 @@ class VMwareCbtMigrationDetailsResponse(dict):
         return pulumi.get(self, "target_vm_name")
 
     @property
+    @pulumi.getter(name="targetVmSecurityProfile")
+    def target_vm_security_profile(self) -> Optional['outputs.VMwareCbtSecurityProfilePropertiesResponse']:
+        """
+        The target VM security profile.
+        """
+        return pulumi.get(self, "target_vm_security_profile")
+
+    @property
     @pulumi.getter(name="targetVmSize")
     def target_vm_size(self) -> Optional[str]:
         """
         The target VM size.
         """
         return pulumi.get(self, "target_vm_size")
+
+    @property
+    @pulumi.getter(name="targetVmTags")
+    def target_vm_tags(self) -> Optional[Mapping[str, str]]:
+        """
+        The target VM tags.
+        """
+        return pulumi.get(self, "target_vm_tags")
+
+    @property
+    @pulumi.getter(name="testNetworkId")
+    def test_network_id(self) -> Optional[str]:
+        """
+        The test network Id.
+        """
+        return pulumi.get(self, "test_network_id")
 
     @property
     @pulumi.getter(name="vmNics")
@@ -24259,8 +31340,18 @@ class VMwareCbtNicDetailsResponse(dict):
             suggest = "target_ip_address"
         elif key == "targetIPAddressType":
             suggest = "target_ip_address_type"
+        elif key == "targetNicName":
+            suggest = "target_nic_name"
         elif key == "targetSubnetName":
             suggest = "target_subnet_name"
+        elif key == "testIPAddress":
+            suggest = "test_ip_address"
+        elif key == "testIPAddressType":
+            suggest = "test_ip_address_type"
+        elif key == "testNetworkId":
+            suggest = "test_network_id"
+        elif key == "testSubnetName":
+            suggest = "test_subnet_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VMwareCbtNicDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -24282,7 +31373,12 @@ class VMwareCbtNicDetailsResponse(dict):
                  is_selected_for_migration: Optional[str] = None,
                  target_ip_address: Optional[str] = None,
                  target_ip_address_type: Optional[str] = None,
-                 target_subnet_name: Optional[str] = None):
+                 target_nic_name: Optional[str] = None,
+                 target_subnet_name: Optional[str] = None,
+                 test_ip_address: Optional[str] = None,
+                 test_ip_address_type: Optional[str] = None,
+                 test_network_id: Optional[str] = None,
+                 test_subnet_name: Optional[str] = None):
         """
         VMwareCbt NIC details.
         :param str nic_id: The NIC Id.
@@ -24293,7 +31389,12 @@ class VMwareCbtNicDetailsResponse(dict):
         :param str is_selected_for_migration: A value indicating whether this NIC is selected for migration.
         :param str target_ip_address: The target IP address.
         :param str target_ip_address_type: The target IP address type.
+        :param str target_nic_name: Target NIC name.
         :param str target_subnet_name: Target subnet name.
+        :param str test_ip_address: The test IP address.
+        :param str test_ip_address_type: The test IP address type.
+        :param str test_network_id: Source network Id.
+        :param str test_subnet_name: Test subnet name.
         """
         pulumi.set(__self__, "nic_id", nic_id)
         pulumi.set(__self__, "source_ip_address", source_ip_address)
@@ -24307,8 +31408,18 @@ class VMwareCbtNicDetailsResponse(dict):
             pulumi.set(__self__, "target_ip_address", target_ip_address)
         if target_ip_address_type is not None:
             pulumi.set(__self__, "target_ip_address_type", target_ip_address_type)
+        if target_nic_name is not None:
+            pulumi.set(__self__, "target_nic_name", target_nic_name)
         if target_subnet_name is not None:
             pulumi.set(__self__, "target_subnet_name", target_subnet_name)
+        if test_ip_address is not None:
+            pulumi.set(__self__, "test_ip_address", test_ip_address)
+        if test_ip_address_type is not None:
+            pulumi.set(__self__, "test_ip_address_type", test_ip_address_type)
+        if test_network_id is not None:
+            pulumi.set(__self__, "test_network_id", test_network_id)
+        if test_subnet_name is not None:
+            pulumi.set(__self__, "test_subnet_name", test_subnet_name)
 
     @property
     @pulumi.getter(name="nicId")
@@ -24375,12 +31486,52 @@ class VMwareCbtNicDetailsResponse(dict):
         return pulumi.get(self, "target_ip_address_type")
 
     @property
+    @pulumi.getter(name="targetNicName")
+    def target_nic_name(self) -> Optional[str]:
+        """
+        Target NIC name.
+        """
+        return pulumi.get(self, "target_nic_name")
+
+    @property
     @pulumi.getter(name="targetSubnetName")
     def target_subnet_name(self) -> Optional[str]:
         """
         Target subnet name.
         """
         return pulumi.get(self, "target_subnet_name")
+
+    @property
+    @pulumi.getter(name="testIPAddress")
+    def test_ip_address(self) -> Optional[str]:
+        """
+        The test IP address.
+        """
+        return pulumi.get(self, "test_ip_address")
+
+    @property
+    @pulumi.getter(name="testIPAddressType")
+    def test_ip_address_type(self) -> Optional[str]:
+        """
+        The test IP address type.
+        """
+        return pulumi.get(self, "test_ip_address_type")
+
+    @property
+    @pulumi.getter(name="testNetworkId")
+    def test_network_id(self) -> Optional[str]:
+        """
+        Source network Id.
+        """
+        return pulumi.get(self, "test_network_id")
+
+    @property
+    @pulumi.getter(name="testSubnetName")
+    def test_subnet_name(self) -> Optional[str]:
+        """
+        Test subnet name.
+        """
+        return pulumi.get(self, "test_subnet_name")
 
 
 @pulumi.output_type
@@ -24393,6 +31544,8 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
         suggest = None
         if key == "capacityInBytes":
             suggest = "capacity_in_bytes"
+        elif key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
         elif key == "diskId":
             suggest = "disk_id"
         elif key == "diskName":
@@ -24405,12 +31558,18 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
             suggest = "log_storage_account_id"
         elif key == "logStorageAccountSasSecretName":
             suggest = "log_storage_account_sas_secret_name"
+        elif key == "seedBlobUri":
+            suggest = "seed_blob_uri"
         elif key == "seedManagedDiskId":
             suggest = "seed_managed_disk_id"
+        elif key == "targetBlobUri":
+            suggest = "target_blob_uri"
         elif key == "targetManagedDiskId":
             suggest = "target_managed_disk_id"
         elif key == "diskType":
             suggest = "disk_type"
+        elif key == "targetDiskName":
+            suggest = "target_disk_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VMwareCbtProtectedDiskDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -24425,39 +31584,52 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
 
     def __init__(__self__, *,
                  capacity_in_bytes: float,
+                 disk_encryption_set_id: str,
                  disk_id: str,
                  disk_name: str,
                  disk_path: str,
                  is_os_disk: str,
                  log_storage_account_id: str,
                  log_storage_account_sas_secret_name: str,
+                 seed_blob_uri: str,
                  seed_managed_disk_id: str,
+                 target_blob_uri: str,
                  target_managed_disk_id: str,
-                 disk_type: Optional[str] = None):
+                 disk_type: Optional[str] = None,
+                 target_disk_name: Optional[str] = None):
         """
         VMwareCbt protected disk details.
         :param float capacity_in_bytes: The disk capacity in bytes.
+        :param str disk_encryption_set_id: The DiskEncryptionSet ARM Id.
         :param str disk_id: The disk id.
         :param str disk_name: The disk name.
         :param str disk_path: The disk path.
         :param str is_os_disk: A value indicating whether the disk is the OS disk.
         :param str log_storage_account_id: The log storage account ARM Id.
         :param str log_storage_account_sas_secret_name: The key vault secret name of the log storage account.
+        :param str seed_blob_uri: The uri of the seed blob.
         :param str seed_managed_disk_id: The ARM Id of the seed managed disk.
+        :param str target_blob_uri: The uri of the target blob.
         :param str target_managed_disk_id: The ARM Id of the target managed disk.
         :param str disk_type: The disk type.
+        :param str target_disk_name: The name for the target managed disk.
         """
         pulumi.set(__self__, "capacity_in_bytes", capacity_in_bytes)
+        pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         pulumi.set(__self__, "disk_id", disk_id)
         pulumi.set(__self__, "disk_name", disk_name)
         pulumi.set(__self__, "disk_path", disk_path)
         pulumi.set(__self__, "is_os_disk", is_os_disk)
         pulumi.set(__self__, "log_storage_account_id", log_storage_account_id)
         pulumi.set(__self__, "log_storage_account_sas_secret_name", log_storage_account_sas_secret_name)
+        pulumi.set(__self__, "seed_blob_uri", seed_blob_uri)
         pulumi.set(__self__, "seed_managed_disk_id", seed_managed_disk_id)
+        pulumi.set(__self__, "target_blob_uri", target_blob_uri)
         pulumi.set(__self__, "target_managed_disk_id", target_managed_disk_id)
         if disk_type is not None:
             pulumi.set(__self__, "disk_type", disk_type)
+        if target_disk_name is not None:
+            pulumi.set(__self__, "target_disk_name", target_disk_name)
 
     @property
     @pulumi.getter(name="capacityInBytes")
@@ -24466,6 +31638,14 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
         The disk capacity in bytes.
         """
         return pulumi.get(self, "capacity_in_bytes")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> str:
+        """
+        The DiskEncryptionSet ARM Id.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter(name="diskId")
@@ -24516,12 +31696,28 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
         return pulumi.get(self, "log_storage_account_sas_secret_name")
 
     @property
+    @pulumi.getter(name="seedBlobUri")
+    def seed_blob_uri(self) -> str:
+        """
+        The uri of the seed blob.
+        """
+        return pulumi.get(self, "seed_blob_uri")
+
+    @property
     @pulumi.getter(name="seedManagedDiskId")
     def seed_managed_disk_id(self) -> str:
         """
         The ARM Id of the seed managed disk.
         """
         return pulumi.get(self, "seed_managed_disk_id")
+
+    @property
+    @pulumi.getter(name="targetBlobUri")
+    def target_blob_uri(self) -> str:
+        """
+        The uri of the target blob.
+        """
+        return pulumi.get(self, "target_blob_uri")
 
     @property
     @pulumi.getter(name="targetManagedDiskId")
@@ -24539,6 +31735,14 @@ class VMwareCbtProtectedDiskDetailsResponse(dict):
         """
         return pulumi.get(self, "disk_type")
 
+    @property
+    @pulumi.getter(name="targetDiskName")
+    def target_disk_name(self) -> Optional[str]:
+        """
+        The name for the target managed disk.
+        """
+        return pulumi.get(self, "target_disk_name")
+
 
 @pulumi.output_type
 class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
@@ -24554,6 +31758,8 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
             suggest = "key_vault_id"
         elif key == "keyVaultUri":
             suggest = "key_vault_uri"
+        elif key == "roleSizeToNicCountMap":
+            suggest = "role_size_to_nic_count_map"
         elif key == "serviceBusConnectionStringSecretName":
             suggest = "service_bus_connection_string_secret_name"
         elif key == "storageAccountId":
@@ -24562,6 +31768,8 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
             suggest = "storage_account_sas_secret_name"
         elif key == "targetLocation":
             suggest = "target_location"
+        elif key == "excludedSkus":
+            suggest = "excluded_skus"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VMwareCbtProtectionContainerMappingDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -24578,28 +31786,35 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
                  instance_type: str,
                  key_vault_id: str,
                  key_vault_uri: str,
+                 role_size_to_nic_count_map: Mapping[str, int],
                  service_bus_connection_string_secret_name: str,
                  storage_account_id: str,
                  storage_account_sas_secret_name: str,
-                 target_location: str):
+                 target_location: str,
+                 excluded_skus: Optional[Sequence[str]] = None):
         """
         VMwareCbt provider specific container mapping details.
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMwareCbt'.
         :param str key_vault_id: The target key vault ARM Id.
         :param str key_vault_uri: The target key vault URI.
+        :param Mapping[str, int] role_size_to_nic_count_map: The role size to NIC count map.
         :param str service_bus_connection_string_secret_name: The secret name of the service bus connection string.
         :param str storage_account_id: The storage account ARM Id.
         :param str storage_account_sas_secret_name: The secret name of the storage account.
         :param str target_location: The target location.
+        :param Sequence[str] excluded_skus: The SKUs to be excluded.
         """
         pulumi.set(__self__, "instance_type", 'VMwareCbt')
         pulumi.set(__self__, "key_vault_id", key_vault_id)
         pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "role_size_to_nic_count_map", role_size_to_nic_count_map)
         pulumi.set(__self__, "service_bus_connection_string_secret_name", service_bus_connection_string_secret_name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
         pulumi.set(__self__, "storage_account_sas_secret_name", storage_account_sas_secret_name)
         pulumi.set(__self__, "target_location", target_location)
+        if excluded_skus is not None:
+            pulumi.set(__self__, "excluded_skus", excluded_skus)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -24625,6 +31840,14 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
         The target key vault URI.
         """
         return pulumi.get(self, "key_vault_uri")
+
+    @property
+    @pulumi.getter(name="roleSizeToNicCountMap")
+    def role_size_to_nic_count_map(self) -> Mapping[str, int]:
+        """
+        The role size to NIC count map.
+        """
+        return pulumi.get(self, "role_size_to_nic_count_map")
 
     @property
     @pulumi.getter(name="serviceBusConnectionStringSecretName")
@@ -24657,6 +31880,110 @@ class VMwareCbtProtectionContainerMappingDetailsResponse(dict):
         The target location.
         """
         return pulumi.get(self, "target_location")
+
+    @property
+    @pulumi.getter(name="excludedSkus")
+    def excluded_skus(self) -> Optional[Sequence[str]]:
+        """
+        The SKUs to be excluded.
+        """
+        return pulumi.get(self, "excluded_skus")
+
+
+@pulumi.output_type
+class VMwareCbtSecurityProfilePropertiesResponse(dict):
+    """
+    VMwareCbt security profile input.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isTargetVmConfidentialEncryptionEnabled":
+            suggest = "is_target_vm_confidential_encryption_enabled"
+        elif key == "isTargetVmIntegrityMonitoringEnabled":
+            suggest = "is_target_vm_integrity_monitoring_enabled"
+        elif key == "isTargetVmSecureBootEnabled":
+            suggest = "is_target_vm_secure_boot_enabled"
+        elif key == "isTargetVmTpmEnabled":
+            suggest = "is_target_vm_tpm_enabled"
+        elif key == "targetVmSecurityType":
+            suggest = "target_vm_security_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VMwareCbtSecurityProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VMwareCbtSecurityProfilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VMwareCbtSecurityProfilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_target_vm_confidential_encryption_enabled: Optional[str] = None,
+                 is_target_vm_integrity_monitoring_enabled: Optional[str] = None,
+                 is_target_vm_secure_boot_enabled: Optional[str] = None,
+                 is_target_vm_tpm_enabled: Optional[str] = None,
+                 target_vm_security_type: Optional[str] = None):
+        """
+        VMwareCbt security profile input.
+        :param str is_target_vm_confidential_encryption_enabled: A value indicating whether confidential compute encryption to be enabled.
+        :param str is_target_vm_integrity_monitoring_enabled: A value indicating whether integrity monitoring to be enabled.
+        :param str is_target_vm_secure_boot_enabled: A value indicating whether secure boot to be enabled.
+        :param str is_target_vm_tpm_enabled: A value indicating whether trusted platform module to be enabled.
+        :param str target_vm_security_type: The target VM security type.
+        """
+        if is_target_vm_confidential_encryption_enabled is not None:
+            pulumi.set(__self__, "is_target_vm_confidential_encryption_enabled", is_target_vm_confidential_encryption_enabled)
+        if is_target_vm_integrity_monitoring_enabled is not None:
+            pulumi.set(__self__, "is_target_vm_integrity_monitoring_enabled", is_target_vm_integrity_monitoring_enabled)
+        if is_target_vm_secure_boot_enabled is not None:
+            pulumi.set(__self__, "is_target_vm_secure_boot_enabled", is_target_vm_secure_boot_enabled)
+        if is_target_vm_tpm_enabled is not None:
+            pulumi.set(__self__, "is_target_vm_tpm_enabled", is_target_vm_tpm_enabled)
+        if target_vm_security_type is not None:
+            pulumi.set(__self__, "target_vm_security_type", target_vm_security_type)
+
+    @property
+    @pulumi.getter(name="isTargetVmConfidentialEncryptionEnabled")
+    def is_target_vm_confidential_encryption_enabled(self) -> Optional[str]:
+        """
+        A value indicating whether confidential compute encryption to be enabled.
+        """
+        return pulumi.get(self, "is_target_vm_confidential_encryption_enabled")
+
+    @property
+    @pulumi.getter(name="isTargetVmIntegrityMonitoringEnabled")
+    def is_target_vm_integrity_monitoring_enabled(self) -> Optional[str]:
+        """
+        A value indicating whether integrity monitoring to be enabled.
+        """
+        return pulumi.get(self, "is_target_vm_integrity_monitoring_enabled")
+
+    @property
+    @pulumi.getter(name="isTargetVmSecureBootEnabled")
+    def is_target_vm_secure_boot_enabled(self) -> Optional[str]:
+        """
+        A value indicating whether secure boot to be enabled.
+        """
+        return pulumi.get(self, "is_target_vm_secure_boot_enabled")
+
+    @property
+    @pulumi.getter(name="isTargetVmTpmEnabled")
+    def is_target_vm_tpm_enabled(self) -> Optional[str]:
+        """
+        A value indicating whether trusted platform module to be enabled.
+        """
+        return pulumi.get(self, "is_target_vm_tpm_enabled")
+
+    @property
+    @pulumi.getter(name="targetVmSecurityType")
+    def target_vm_security_type(self) -> Optional[str]:
+        """
+        The target VM security type.
+        """
+        return pulumi.get(self, "target_vm_security_type")
 
 
 @pulumi.output_type
@@ -24719,6 +32046,8 @@ class VMwareDetailsResponse(dict):
             suggest = "ssl_cert_expiry_date"
         elif key == "sslCertExpiryRemainingDays":
             suggest = "ssl_cert_expiry_remaining_days"
+        elif key == "switchProviderBlockingErrorDetails":
+            suggest = "switch_provider_blocking_error_details"
         elif key == "systemLoad":
             suggest = "system_load"
         elif key == "systemLoadStatus":
@@ -24772,6 +32101,7 @@ class VMwareDetailsResponse(dict):
                  space_usage_status: Optional[str] = None,
                  ssl_cert_expiry_date: Optional[str] = None,
                  ssl_cert_expiry_remaining_days: Optional[int] = None,
+                 switch_provider_blocking_error_details: Optional[Sequence['outputs.InMageFabricSwitchProviderBlockingErrorDetailsResponse']] = None,
                  system_load: Optional[str] = None,
                  system_load_status: Optional[str] = None,
                  total_memory_in_bytes: Optional[float] = None,
@@ -24808,11 +32138,12 @@ class VMwareDetailsResponse(dict):
         :param str space_usage_status: The space usage status.
         :param str ssl_cert_expiry_date: CS SSL cert expiry date.
         :param int ssl_cert_expiry_remaining_days: CS SSL cert expiry date.
+        :param Sequence['InMageFabricSwitchProviderBlockingErrorDetailsResponse'] switch_provider_blocking_error_details: The switch provider blocking error information.
         :param str system_load: The percentage of the system load.
         :param str system_load_status: The system load status.
         :param float total_memory_in_bytes: The total memory.
         :param float total_space_in_bytes: The total space.
-        :param str version_status: Version status
+        :param str version_status: Version status.
         :param str web_load: The web load.
         :param str web_load_status: The web load status.
         """
@@ -24867,6 +32198,8 @@ class VMwareDetailsResponse(dict):
             pulumi.set(__self__, "ssl_cert_expiry_date", ssl_cert_expiry_date)
         if ssl_cert_expiry_remaining_days is not None:
             pulumi.set(__self__, "ssl_cert_expiry_remaining_days", ssl_cert_expiry_remaining_days)
+        if switch_provider_blocking_error_details is not None:
+            pulumi.set(__self__, "switch_provider_blocking_error_details", switch_provider_blocking_error_details)
         if system_load is not None:
             pulumi.set(__self__, "system_load", system_load)
         if system_load_status is not None:
@@ -25092,6 +32425,14 @@ class VMwareDetailsResponse(dict):
         return pulumi.get(self, "ssl_cert_expiry_remaining_days")
 
     @property
+    @pulumi.getter(name="switchProviderBlockingErrorDetails")
+    def switch_provider_blocking_error_details(self) -> Optional[Sequence['outputs.InMageFabricSwitchProviderBlockingErrorDetailsResponse']]:
+        """
+        The switch provider blocking error information.
+        """
+        return pulumi.get(self, "switch_provider_blocking_error_details")
+
+    @property
     @pulumi.getter(name="systemLoad")
     def system_load(self) -> Optional[str]:
         """
@@ -25127,7 +32468,7 @@ class VMwareDetailsResponse(dict):
     @pulumi.getter(name="versionStatus")
     def version_status(self) -> Optional[str]:
         """
-        Version status
+        Version status.
         """
         return pulumi.get(self, "version_status")
 
@@ -25160,6 +32501,12 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
             suggest = "instance_type"
         elif key == "migrationSolutionId":
             suggest = "migration_solution_id"
+        elif key == "physicalSiteId":
+            suggest = "physical_site_id"
+        elif key == "processServers":
+            suggest = "process_servers"
+        elif key == "serviceContainerId":
+            suggest = "service_container_id"
         elif key == "serviceEndpoint":
             suggest = "service_endpoint"
         elif key == "serviceResourceId":
@@ -25181,6 +32528,9 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
     def __init__(__self__, *,
                  instance_type: str,
                  migration_solution_id: str,
+                 physical_site_id: str,
+                 process_servers: Sequence['outputs.ProcessServerDetailsResponse'],
+                 service_container_id: str,
                  service_endpoint: str,
                  service_resource_id: str,
                  vmware_site_id: str):
@@ -25189,12 +32539,18 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
         :param str instance_type: Gets the class type. Overridden in derived classes.
                Expected value is 'VMwareV2'.
         :param str migration_solution_id: The Migration solution ARM Id.
+        :param str physical_site_id: The ARM Id of the physical site.
+        :param Sequence['ProcessServerDetailsResponse'] process_servers: The list of process servers.
+        :param str service_container_id: The service container Id.
         :param str service_endpoint: The service endpoint.
         :param str service_resource_id: The service resource Id.
         :param str vmware_site_id: The ARM Id of the VMware site.
         """
         pulumi.set(__self__, "instance_type", 'VMwareV2')
         pulumi.set(__self__, "migration_solution_id", migration_solution_id)
+        pulumi.set(__self__, "physical_site_id", physical_site_id)
+        pulumi.set(__self__, "process_servers", process_servers)
+        pulumi.set(__self__, "service_container_id", service_container_id)
         pulumi.set(__self__, "service_endpoint", service_endpoint)
         pulumi.set(__self__, "service_resource_id", service_resource_id)
         pulumi.set(__self__, "vmware_site_id", vmware_site_id)
@@ -25215,6 +32571,30 @@ class VMwareV2FabricSpecificDetailsResponse(dict):
         The Migration solution ARM Id.
         """
         return pulumi.get(self, "migration_solution_id")
+
+    @property
+    @pulumi.getter(name="physicalSiteId")
+    def physical_site_id(self) -> str:
+        """
+        The ARM Id of the physical site.
+        """
+        return pulumi.get(self, "physical_site_id")
+
+    @property
+    @pulumi.getter(name="processServers")
+    def process_servers(self) -> Sequence['outputs.ProcessServerDetailsResponse']:
+        """
+        The list of process servers.
+        """
+        return pulumi.get(self, "process_servers")
+
+    @property
+    @pulumi.getter(name="serviceContainerId")
+    def service_container_id(self) -> str:
+        """
+        The service container Id.
+        """
+        return pulumi.get(self, "service_container_id")
 
     @property
     @pulumi.getter(name="serviceEndpoint")
@@ -25255,6 +32635,8 @@ class VaultPrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "groupIds":
+            suggest = "group_ids"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VaultPrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
@@ -25270,16 +32652,20 @@ class VaultPrivateEndpointConnectionResponse(dict):
     def __init__(__self__, *,
                  private_endpoint: 'outputs.PrivateEndpointResponse',
                  private_link_service_connection_state: 'outputs.VaultPrivateLinkServiceConnectionStateResponse',
-                 provisioning_state: str):
+                 provisioning_state: str,
+                 group_ids: Optional[Sequence[str]] = None):
         """
         Private Endpoint Connection Response Properties.
         :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint network resource that is linked to the Private Endpoint connection.
         :param 'VaultPrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: Gets or sets private link service connection state.
         :param str provisioning_state: Gets or sets provisioning state of the private endpoint connection.
+        :param Sequence[str] group_ids: Group Ids for the Private Endpoint
         """
         pulumi.set(__self__, "private_endpoint", private_endpoint)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
 
     @property
     @pulumi.getter(name="privateEndpoint")
@@ -25304,6 +32690,14 @@ class VaultPrivateEndpointConnectionResponse(dict):
         Gets or sets provisioning state of the private endpoint connection.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        Group Ids for the Private Endpoint
+        """
+        return pulumi.get(self, "group_ids")
 
 
 @pulumi.output_type
@@ -25375,7 +32769,11 @@ class VaultPropertiesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "privateEndpointConnections":
+        if key == "backupStorageVersion":
+            suggest = "backup_storage_version"
+        elif key == "moveState":
+            suggest = "move_state"
+        elif key == "privateEndpointConnections":
             suggest = "private_endpoint_connections"
         elif key == "privateEndpointStateForBackup":
             suggest = "private_endpoint_state_for_backup"
@@ -25383,6 +32781,20 @@ class VaultPropertiesResponse(dict):
             suggest = "private_endpoint_state_for_site_recovery"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "secureScore":
+            suggest = "secure_score"
+        elif key == "monitoringSettings":
+            suggest = "monitoring_settings"
+        elif key == "moveDetails":
+            suggest = "move_details"
+        elif key == "publicNetworkAccess":
+            suggest = "public_network_access"
+        elif key == "redundancySettings":
+            suggest = "redundancy_settings"
+        elif key == "restoreSettings":
+            suggest = "restore_settings"
+        elif key == "securitySettings":
+            suggest = "security_settings"
         elif key == "upgradeDetails":
             suggest = "upgrade_details"
 
@@ -25398,29 +32810,78 @@ class VaultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 backup_storage_version: str,
+                 move_state: str,
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionVaultPropertiesResponse'],
                  private_endpoint_state_for_backup: str,
                  private_endpoint_state_for_site_recovery: str,
                  provisioning_state: str,
+                 secure_score: str,
                  encryption: Optional['outputs.VaultPropertiesResponseEncryption'] = None,
+                 monitoring_settings: Optional['outputs.MonitoringSettingsResponse'] = None,
+                 move_details: Optional['outputs.VaultPropertiesResponseMoveDetails'] = None,
+                 public_network_access: Optional[str] = None,
+                 redundancy_settings: Optional['outputs.VaultPropertiesResponseRedundancySettings'] = None,
+                 restore_settings: Optional['outputs.RestoreSettingsResponse'] = None,
+                 security_settings: Optional['outputs.SecuritySettingsResponse'] = None,
                  upgrade_details: Optional['outputs.UpgradeDetailsResponse'] = None):
         """
         Properties of the vault.
+        :param str backup_storage_version: Backup storage version
+        :param str move_state: The State of the Resource after the move operation
         :param Sequence['PrivateEndpointConnectionVaultPropertiesResponse'] private_endpoint_connections: List of private endpoint connection.
         :param str private_endpoint_state_for_backup: Private endpoint state for backup.
         :param str private_endpoint_state_for_site_recovery: Private endpoint state for site recovery.
         :param str provisioning_state: Provisioning State.
+        :param str secure_score: Secure Score of Recovery Services Vault
         :param 'VaultPropertiesResponseEncryption' encryption: Customer Managed Key details of the resource.
+        :param 'MonitoringSettingsResponse' monitoring_settings: Monitoring Settings of the vault
+        :param 'VaultPropertiesResponseMoveDetails' move_details: The details of the latest move operation performed on the Azure Resource
+        :param str public_network_access: property to enable or disable resource provider inbound network traffic from public clients
+        :param 'VaultPropertiesResponseRedundancySettings' redundancy_settings: The redundancy Settings of a Vault
+        :param 'RestoreSettingsResponse' restore_settings: Restore Settings of the vault
+        :param 'SecuritySettingsResponse' security_settings: Security Settings of the vault
         :param 'UpgradeDetailsResponse' upgrade_details: Details for upgrading vault.
         """
+        pulumi.set(__self__, "backup_storage_version", backup_storage_version)
+        pulumi.set(__self__, "move_state", move_state)
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "private_endpoint_state_for_backup", private_endpoint_state_for_backup)
         pulumi.set(__self__, "private_endpoint_state_for_site_recovery", private_endpoint_state_for_site_recovery)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "secure_score", secure_score)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if monitoring_settings is not None:
+            pulumi.set(__self__, "monitoring_settings", monitoring_settings)
+        if move_details is not None:
+            pulumi.set(__self__, "move_details", move_details)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if redundancy_settings is not None:
+            pulumi.set(__self__, "redundancy_settings", redundancy_settings)
+        if restore_settings is not None:
+            pulumi.set(__self__, "restore_settings", restore_settings)
+        if security_settings is not None:
+            pulumi.set(__self__, "security_settings", security_settings)
         if upgrade_details is not None:
             pulumi.set(__self__, "upgrade_details", upgrade_details)
+
+    @property
+    @pulumi.getter(name="backupStorageVersion")
+    def backup_storage_version(self) -> str:
+        """
+        Backup storage version
+        """
+        return pulumi.get(self, "backup_storage_version")
+
+    @property
+    @pulumi.getter(name="moveState")
+    def move_state(self) -> str:
+        """
+        The State of the Resource after the move operation
+        """
+        return pulumi.get(self, "move_state")
 
     @property
     @pulumi.getter(name="privateEndpointConnections")
@@ -25455,12 +32916,68 @@ class VaultPropertiesResponse(dict):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="secureScore")
+    def secure_score(self) -> str:
+        """
+        Secure Score of Recovery Services Vault
+        """
+        return pulumi.get(self, "secure_score")
+
+    @property
     @pulumi.getter
     def encryption(self) -> Optional['outputs.VaultPropertiesResponseEncryption']:
         """
         Customer Managed Key details of the resource.
         """
         return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter(name="monitoringSettings")
+    def monitoring_settings(self) -> Optional['outputs.MonitoringSettingsResponse']:
+        """
+        Monitoring Settings of the vault
+        """
+        return pulumi.get(self, "monitoring_settings")
+
+    @property
+    @pulumi.getter(name="moveDetails")
+    def move_details(self) -> Optional['outputs.VaultPropertiesResponseMoveDetails']:
+        """
+        The details of the latest move operation performed on the Azure Resource
+        """
+        return pulumi.get(self, "move_details")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        property to enable or disable resource provider inbound network traffic from public clients
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="redundancySettings")
+    def redundancy_settings(self) -> Optional['outputs.VaultPropertiesResponseRedundancySettings']:
+        """
+        The redundancy Settings of a Vault
+        """
+        return pulumi.get(self, "redundancy_settings")
+
+    @property
+    @pulumi.getter(name="restoreSettings")
+    def restore_settings(self) -> Optional['outputs.RestoreSettingsResponse']:
+        """
+        Restore Settings of the vault
+        """
+        return pulumi.get(self, "restore_settings")
+
+    @property
+    @pulumi.getter(name="securitySettings")
+    def security_settings(self) -> Optional['outputs.SecuritySettingsResponse']:
+        """
+        Security Settings of the vault
+        """
+        return pulumi.get(self, "security_settings")
 
     @property
     @pulumi.getter(name="upgradeDetails")
@@ -25537,6 +33054,149 @@ class VaultPropertiesResponseEncryption(dict):
         The properties of the Key Vault which hosts CMK
         """
         return pulumi.get(self, "key_vault_properties")
+
+
+@pulumi.output_type
+class VaultPropertiesResponseMoveDetails(dict):
+    """
+    The details of the latest move operation performed on the Azure Resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "completionTimeUtc":
+            suggest = "completion_time_utc"
+        elif key == "operationId":
+            suggest = "operation_id"
+        elif key == "sourceResourceId":
+            suggest = "source_resource_id"
+        elif key == "startTimeUtc":
+            suggest = "start_time_utc"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultPropertiesResponseMoveDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultPropertiesResponseMoveDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultPropertiesResponseMoveDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 completion_time_utc: str,
+                 operation_id: str,
+                 source_resource_id: str,
+                 start_time_utc: str,
+                 target_resource_id: str):
+        """
+        The details of the latest move operation performed on the Azure Resource
+        :param str completion_time_utc: End Time of the Resource Move Operation
+        :param str operation_id: OperationId of the Resource Move Operation
+        :param str source_resource_id: Source Resource of the Resource Move Operation
+        :param str start_time_utc: Start Time of the Resource Move Operation
+        :param str target_resource_id: Target Resource of the Resource Move Operation
+        """
+        pulumi.set(__self__, "completion_time_utc", completion_time_utc)
+        pulumi.set(__self__, "operation_id", operation_id)
+        pulumi.set(__self__, "source_resource_id", source_resource_id)
+        pulumi.set(__self__, "start_time_utc", start_time_utc)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @property
+    @pulumi.getter(name="completionTimeUtc")
+    def completion_time_utc(self) -> str:
+        """
+        End Time of the Resource Move Operation
+        """
+        return pulumi.get(self, "completion_time_utc")
+
+    @property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> str:
+        """
+        OperationId of the Resource Move Operation
+        """
+        return pulumi.get(self, "operation_id")
+
+    @property
+    @pulumi.getter(name="sourceResourceId")
+    def source_resource_id(self) -> str:
+        """
+        Source Resource of the Resource Move Operation
+        """
+        return pulumi.get(self, "source_resource_id")
+
+    @property
+    @pulumi.getter(name="startTimeUtc")
+    def start_time_utc(self) -> str:
+        """
+        Start Time of the Resource Move Operation
+        """
+        return pulumi.get(self, "start_time_utc")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
+        """
+        Target Resource of the Resource Move Operation
+        """
+        return pulumi.get(self, "target_resource_id")
+
+
+@pulumi.output_type
+class VaultPropertiesResponseRedundancySettings(dict):
+    """
+    The redundancy Settings of a Vault
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "crossRegionRestore":
+            suggest = "cross_region_restore"
+        elif key == "standardTierStorageRedundancy":
+            suggest = "standard_tier_storage_redundancy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VaultPropertiesResponseRedundancySettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VaultPropertiesResponseRedundancySettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VaultPropertiesResponseRedundancySettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cross_region_restore: str,
+                 standard_tier_storage_redundancy: str):
+        """
+        The redundancy Settings of a Vault
+        :param str cross_region_restore: Flag to show if Cross Region Restore is enabled on the Vault or not
+        :param str standard_tier_storage_redundancy: The storage redundancy setting of a vault
+        """
+        pulumi.set(__self__, "cross_region_restore", cross_region_restore)
+        pulumi.set(__self__, "standard_tier_storage_redundancy", standard_tier_storage_redundancy)
+
+    @property
+    @pulumi.getter(name="crossRegionRestore")
+    def cross_region_restore(self) -> str:
+        """
+        Flag to show if Cross Region Restore is enabled on the Vault or not
+        """
+        return pulumi.get(self, "cross_region_restore")
+
+    @property
+    @pulumi.getter(name="standardTierStorageRedundancy")
+    def standard_tier_storage_redundancy(self) -> str:
+        """
+        The storage redundancy setting of a vault
+        """
+        return pulumi.get(self, "standard_tier_storage_redundancy")
 
 
 @pulumi.output_type
@@ -25929,6 +33589,52 @@ class WeeklyRetentionScheduleResponse(dict):
         Retention times of retention policy.
         """
         return pulumi.get(self, "retention_times")
+
+
+@pulumi.output_type
+class WeeklyScheduleResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduleRunDays":
+            suggest = "schedule_run_days"
+        elif key == "scheduleRunTimes":
+            suggest = "schedule_run_times"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WeeklyScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WeeklyScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WeeklyScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schedule_run_days: Optional[Sequence[str]] = None,
+                 schedule_run_times: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] schedule_run_times: List of times of day this schedule has to be run.
+        """
+        if schedule_run_days is not None:
+            pulumi.set(__self__, "schedule_run_days", schedule_run_days)
+        if schedule_run_times is not None:
+            pulumi.set(__self__, "schedule_run_times", schedule_run_times)
+
+    @property
+    @pulumi.getter(name="scheduleRunDays")
+    def schedule_run_days(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "schedule_run_days")
+
+    @property
+    @pulumi.getter(name="scheduleRunTimes")
+    def schedule_run_times(self) -> Optional[Sequence[str]]:
+        """
+        List of times of day this schedule has to be run.
+        """
+        return pulumi.get(self, "schedule_run_times")
 
 
 @pulumi.output_type

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Appliances definition.
- * API Version: 2021-10-31-preview.
+ * Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
  */
 export class Appliance extends pulumi.CustomResource {
     /**
@@ -63,7 +63,7 @@ export class Appliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Certificates pair used to download MSI certificate from HIS
+     * Certificates pair used to download MSI certificate from HIS. Can only be set once.
      */
     public readonly publicKey!: pulumi.Output<string | undefined>;
     /**
@@ -71,7 +71,7 @@ export class Appliance extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * Metadata pertaining to creation and last modification of the resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.resourceconnector.SystemDataResponse>;
     /**
@@ -85,7 +85,7 @@ export class Appliance extends pulumi.CustomResource {
     /**
      * Version of the Appliance
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Appliance resource with the given unique name, arguments, and options.
@@ -109,12 +109,12 @@ export class Appliance extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["version"] = undefined /*out*/;
         } else {
             resourceInputs["distro"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -157,7 +157,7 @@ export interface ApplianceArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Certificates pair used to download MSI certificate from HIS
+     * Certificates pair used to download MSI certificate from HIS. Can only be set once.
      */
     publicKey?: pulumi.Input<string>;
     /**
@@ -172,4 +172,8 @@ export interface ApplianceArgs {
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Version of the Appliance
+     */
+    version?: pulumi.Input<string>;
 }

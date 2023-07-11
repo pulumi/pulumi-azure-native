@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified express route circuit.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
 
@@ -39,6 +39,14 @@ export interface GetExpressRouteCircuitResult {
      * Allow classic operations.
      */
     readonly allowClassicOperations?: boolean;
+    /**
+     * The authorizationKey.
+     */
+    readonly authorizationKey?: string;
+    /**
+     * The authorization status of the Circuit.
+     */
+    readonly authorizationStatus: string;
     /**
      * The list of authorizations.
      */
@@ -122,7 +130,7 @@ export interface GetExpressRouteCircuitResult {
 }
 /**
  * Gets information about the specified express route circuit.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getExpressRouteCircuitOutput(args: GetExpressRouteCircuitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExpressRouteCircuitResult> {
     return pulumi.output(args).apply((a: any) => getExpressRouteCircuit(a, opts))

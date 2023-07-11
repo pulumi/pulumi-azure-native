@@ -24,7 +24,6 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// Describes if this is negate condition or not
         /// </summary>
         public readonly bool? NegateCondition;
-        public readonly string OdataType;
         /// <summary>
         /// Describes operator to be matched
         /// </summary>
@@ -37,6 +36,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// List of transforms
         /// </summary>
         public readonly ImmutableArray<string> Transforms;
+        public readonly string TypeName;
 
         [OutputConstructor]
         private PostArgsMatchConditionParametersResponse(
@@ -44,20 +44,20 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 
             bool? negateCondition,
 
-            string odataType,
-
             string @operator,
 
             string? selector,
 
-            ImmutableArray<string> transforms)
+            ImmutableArray<string> transforms,
+
+            string typeName)
         {
             MatchValues = matchValues;
             NegateCondition = negateCondition;
-            OdataType = odataType;
             Operator = @operator;
             Selector = selector;
             Transforms = transforms;
+            TypeName = typeName;
         }
     }
 }

@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// Defines the rule collection.
-    /// API Version: 2021-02-01-preview.
+    /// Defines the user rule collection.
+    /// Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:UserRuleCollection")]
     public partial class UserRuleCollection : global::Pulumi.CustomResource
@@ -23,16 +23,10 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse>> AppliesToGroups { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the rule collection.
+        /// A description of the user rule collection.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A display name of the rule collection.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -116,7 +110,7 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class UserRuleCollectionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("appliesToGroups")]
+        [Input("appliesToGroups", required: true)]
         private InputList<Inputs.NetworkManagerSecurityGroupItemArgs>? _appliesToGroups;
 
         /// <summary>
@@ -129,22 +123,16 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// A description of the rule collection.
+        /// A description of the user rule collection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A display name of the rule collection.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// The name of the network manager.

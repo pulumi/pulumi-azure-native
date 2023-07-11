@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the properties of an Azure Video Analyzer for Media account.
- * API Version: 2021-10-18-preview.
+ * Gets the properties of an Azure Video Indexer account.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -22,7 +22,7 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetAccountArgs {
     /**
-     * The name of the Azure Video Analyzer for Media account.
+     * The name of the Azure Video Indexer account.
      */
     accountName: string;
     /**
@@ -32,7 +32,7 @@ export interface GetAccountArgs {
 }
 
 /**
- * An Azure Video Analyzer for Media account.
+ * An Azure Video Indexer account.
  */
 export interface GetAccountResult {
     /**
@@ -80,13 +80,17 @@ export interface GetAccountResult {
      */
     readonly tenantId: string;
     /**
+     * An integer representing the total seconds that have been indexed on the account
+     */
+    readonly totalSecondsIndexed: number;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets the properties of an Azure Video Analyzer for Media account.
- * API Version: 2021-10-18-preview.
+ * Gets the properties of an Azure Video Indexer account.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))
@@ -94,7 +98,7 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
 
 export interface GetAccountOutputArgs {
     /**
-     * The name of the Azure Video Analyzer for Media account.
+     * The name of the Azure Video Indexer account.
      */
     accountName: pulumi.Input<string>;
     /**

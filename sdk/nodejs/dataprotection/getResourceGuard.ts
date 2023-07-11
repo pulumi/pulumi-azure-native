@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2023-01-01.
  */
 export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceGuardResult> {
 
@@ -21,7 +21,7 @@ export function getResourceGuard(args: GetResourceGuardArgs, opts?: pulumi.Invok
 
 export interface GetResourceGuardArgs {
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -39,10 +39,6 @@ export interface GetResourceGuardResult {
      * Resource Id represents the complete path to the resource.
      */
     readonly id: string;
-    /**
-     * Input Managed Identity Details
-     */
-    readonly identity?: outputs.dataprotection.DppIdentityDetailsResponse;
     /**
      * Resource location.
      */
@@ -69,7 +65,7 @@ export interface GetResourceGuardResult {
     readonly type: string;
 }
 /**
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2023-01-01.
  */
 export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceGuardResult> {
     return pulumi.output(args).apply((a: any) => getResourceGuard(a, opts))
@@ -77,7 +73,7 @@ export function getResourceGuardOutput(args: GetResourceGuardOutputArgs, opts?: 
 
 export interface GetResourceGuardOutputArgs {
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

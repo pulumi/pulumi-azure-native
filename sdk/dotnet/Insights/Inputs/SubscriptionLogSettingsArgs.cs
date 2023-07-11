@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<string>? Category { get; set; }
 
         /// <summary>
+        /// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+        /// </summary>
+        [Input("categoryGroup")]
+        public Input<string>? CategoryGroup { get; set; }
+
+        /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
         [Input("enabled", required: true)]

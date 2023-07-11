@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL Server availability group listener.
- *
- * @deprecated azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener to guarantee forwards compatibility.
  */
 export class AvailabilityGroupListener extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AvailabilityGroupListener {
-        pulumi.log.warn("AvailabilityGroupListener is deprecated: azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener to guarantee forwards compatibility.")
         return new AvailabilityGroupListener(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +85,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener to guarantee forwards compatibility. */
     constructor(name: string, args: AvailabilityGroupListenerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AvailabilityGroupListener is deprecated: azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -126,7 +121,7 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);
     }

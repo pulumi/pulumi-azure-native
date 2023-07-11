@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the Vault details.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetVaultResult> {
 
@@ -22,7 +22,7 @@ export function getVault(args: GetVaultArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetVaultArgs {
     /**
-     * The name of the resource group where the recovery services vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -78,7 +78,7 @@ export interface GetVaultResult {
 }
 /**
  * Get the Vault details.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
     return pulumi.output(args).apply((a: any) => getVault(a, opts))
@@ -86,7 +86,7 @@ export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOpt
 
 export interface GetVaultOutputArgs {
     /**
-     * The name of the resource group where the recovery services vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

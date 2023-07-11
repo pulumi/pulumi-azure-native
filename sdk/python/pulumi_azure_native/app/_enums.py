@@ -6,16 +6,24 @@ from enum import Enum
 
 __all__ = [
     'AccessMode',
+    'Action',
     'ActiveRevisionsMode',
     'AppProtocol',
     'BindingType',
     'ClientCredentialMethod',
     'CookieExpirationConvention',
+    'ExtendedLocationTypes',
     'ForwardProxyConvention',
+    'IngressClientCertificateMode',
     'IngressTransportMethod',
+    'LogLevel',
+    'ManagedCertificateDomainControlValidation',
+    'ManagedEnvironmentOutBoundType',
     'ManagedServiceIdentityType',
     'Scheme',
+    'SkuName',
     'StorageType',
+    'TriggerType',
     'Type',
     'UnauthenticatedClientActionV2',
 ]
@@ -27,6 +35,14 @@ class AccessMode(str, Enum):
     """
     READ_ONLY = "ReadOnly"
     READ_WRITE = "ReadWrite"
+
+
+class Action(str, Enum):
+    """
+    Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
 
 
 class ActiveRevisionsMode(str, Enum):
@@ -69,6 +85,13 @@ class CookieExpirationConvention(str, Enum):
     IDENTITY_PROVIDER_DERIVED = "IdentityProviderDerived"
 
 
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    CUSTOM_LOCATION = "CustomLocation"
+
+
 class ForwardProxyConvention(str, Enum):
     """
     The convention used to determine the url of the request made.
@@ -78,6 +101,15 @@ class ForwardProxyConvention(str, Enum):
     CUSTOM = "Custom"
 
 
+class IngressClientCertificateMode(str, Enum):
+    """
+    Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
+    """
+    IGNORE = "ignore"
+    ACCEPT = "accept"
+    REQUIRE = "require"
+
+
 class IngressTransportMethod(str, Enum):
     """
     Ingress transport protocol
@@ -85,6 +117,34 @@ class IngressTransportMethod(str, Enum):
     AUTO = "auto"
     HTTP = "http"
     HTTP2 = "http2"
+    TCP = "tcp"
+
+
+class LogLevel(str, Enum):
+    """
+    Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+    """
+    INFO = "info"
+    DEBUG = "debug"
+    WARN = "warn"
+    ERROR = "error"
+
+
+class ManagedCertificateDomainControlValidation(str, Enum):
+    """
+    Selected type of domain control validation for managed certificates.
+    """
+    CNAME = "CNAME"
+    HTTP = "HTTP"
+    TXT = "TXT"
+
+
+class ManagedEnvironmentOutBoundType(str, Enum):
+    """
+    Outbound type for the cluster
+    """
+    LOAD_BALANCER = "LoadBalancer"
+    USER_DEFINED_ROUTING = "UserDefinedRouting"
 
 
 class ManagedServiceIdentityType(str, Enum):
@@ -105,12 +165,36 @@ class Scheme(str, Enum):
     HTTPS = "HTTPS"
 
 
+class SkuName(str, Enum):
+    """
+    Name of the Sku.
+    """
+    CONSUMPTION = "Consumption"
+    """
+    Consumption SKU of Managed Environment.
+    """
+    PREMIUM = "Premium"
+    """
+    Premium SKU of Managed Environment.
+    """
+
+
 class StorageType(str, Enum):
     """
     Storage type for the volume. If not provided, use EmptyDir.
     """
     AZURE_FILE = "AzureFile"
     EMPTY_DIR = "EmptyDir"
+    SECRET = "Secret"
+
+
+class TriggerType(str, Enum):
+    """
+    Trigger type of the job
+    """
+    SCHEDULE = "Schedule"
+    EVENT = "Event"
+    MANUAL = "Manual"
 
 
 class Type(str, Enum):

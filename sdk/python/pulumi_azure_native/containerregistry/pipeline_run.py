@@ -25,7 +25,7 @@ class PipelineRunArgs:
         """
         The set of arguments for constructing a PipelineRun resource.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
         :param pulumi.Input[str] pipeline_run_name: The name of the pipeline run.
         :param pulumi.Input['PipelineRunRequestArgs'] request: The request parameters for a pipeline run.
@@ -55,7 +55,7 @@ class PipelineRunArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -113,7 +113,7 @@ class PipelineRun(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a pipeline run for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class PipelineRun(pulumi.CustomResource):
         :param pulumi.Input[str] pipeline_run_name: The name of the pipeline run.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[pulumi.InputType['PipelineRunRequestArgs']] request: The request parameters for a pipeline run.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -131,7 +131,7 @@ class PipelineRun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a pipeline run for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param PipelineRunArgs args: The arguments to use to populate this resource's properties.

@@ -699,7 +699,9 @@ class RestoredLogsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "endRestoreTime":
+        if key == "azureAsyncOperationId":
+            suggest = "azure_async_operation_id"
+        elif key == "endRestoreTime":
             suggest = "end_restore_time"
         elif key == "sourceTable":
             suggest = "source_table"
@@ -718,21 +720,32 @@ class RestoredLogsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 azure_async_operation_id: str,
                  end_restore_time: Optional[str] = None,
                  source_table: Optional[str] = None,
                  start_restore_time: Optional[str] = None):
         """
         Restore parameters.
+        :param str azure_async_operation_id: Search results table async operation id.
         :param str end_restore_time: The timestamp to end the restore by (UTC).
         :param str source_table: The table to restore data from.
         :param str start_restore_time: The timestamp to start the restore from (UTC).
         """
+        pulumi.set(__self__, "azure_async_operation_id", azure_async_operation_id)
         if end_restore_time is not None:
             pulumi.set(__self__, "end_restore_time", end_restore_time)
         if source_table is not None:
             pulumi.set(__self__, "source_table", source_table)
         if start_restore_time is not None:
             pulumi.set(__self__, "start_restore_time", start_restore_time)
+
+    @property
+    @pulumi.getter(name="azureAsyncOperationId")
+    def azure_async_operation_id(self) -> str:
+        """
+        Search results table async operation id.
+        """
+        return pulumi.get(self, "azure_async_operation_id")
 
     @property
     @pulumi.getter(name="endRestoreTime")
@@ -769,6 +782,8 @@ class ResultStatisticsResponse(dict):
         suggest = None
         if key == "ingestedRecords":
             suggest = "ingested_records"
+        elif key == "scannedGb":
+            suggest = "scanned_gb"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ResultStatisticsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -783,14 +798,17 @@ class ResultStatisticsResponse(dict):
 
     def __init__(__self__, *,
                  ingested_records: int,
-                 progress: float):
+                 progress: float,
+                 scanned_gb: float):
         """
         Search job execution statistics.
         :param int ingested_records: The number of rows that were returned by the search job.
         :param float progress: Search job completion percentage.
+        :param float scanned_gb: Search job: Amount of scanned data.
         """
         pulumi.set(__self__, "ingested_records", ingested_records)
         pulumi.set(__self__, "progress", progress)
+        pulumi.set(__self__, "scanned_gb", scanned_gb)
 
     @property
     @pulumi.getter(name="ingestedRecords")
@@ -808,6 +826,14 @@ class ResultStatisticsResponse(dict):
         """
         return pulumi.get(self, "progress")
 
+    @property
+    @pulumi.getter(name="scannedGb")
+    def scanned_gb(self) -> float:
+        """
+        Search job: Amount of scanned data.
+        """
+        return pulumi.get(self, "scanned_gb")
+
 
 @pulumi.output_type
 class SchemaResponse(dict):
@@ -817,11 +843,7 @@ class SchemaResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "restoredLogs":
-            suggest = "restored_logs"
-        elif key == "searchResults":
-            suggest = "search_results"
-        elif key == "standardColumns":
+        if key == "standardColumns":
             suggest = "standard_columns"
         elif key == "tableSubType":
             suggest = "table_sub_type"
@@ -844,8 +866,6 @@ class SchemaResponse(dict):
     def __init__(__self__, *,
                  categories: Sequence[str],
                  labels: Sequence[str],
-                 restored_logs: 'outputs.RestoredLogsResponse',
-                 search_results: 'outputs.SearchResultsResponse',
                  solutions: Sequence[str],
                  source: str,
                  standard_columns: Sequence['outputs.ColumnResponse'],
@@ -859,8 +879,6 @@ class SchemaResponse(dict):
         Table's schema.
         :param Sequence[str] categories: Table category.
         :param Sequence[str] labels: Table labels.
-        :param 'RestoredLogsResponse' restored_logs: Parameters of the restore operation that initiated this table.
-        :param 'SearchResultsResponse' search_results: Parameters of the search job that initiated this table.
         :param Sequence[str] solutions: List of solutions the table is affiliated with
         :param str source: Table's creator.
         :param Sequence['ColumnResponse'] standard_columns: A list of table standard columns.
@@ -873,8 +891,6 @@ class SchemaResponse(dict):
         """
         pulumi.set(__self__, "categories", categories)
         pulumi.set(__self__, "labels", labels)
-        pulumi.set(__self__, "restored_logs", restored_logs)
-        pulumi.set(__self__, "search_results", search_results)
         pulumi.set(__self__, "solutions", solutions)
         pulumi.set(__self__, "source", source)
         pulumi.set(__self__, "standard_columns", standard_columns)
@@ -904,22 +920,6 @@ class SchemaResponse(dict):
         Table labels.
         """
         return pulumi.get(self, "labels")
-
-    @property
-    @pulumi.getter(name="restoredLogs")
-    def restored_logs(self) -> 'outputs.RestoredLogsResponse':
-        """
-        Parameters of the restore operation that initiated this table.
-        """
-        return pulumi.get(self, "restored_logs")
-
-    @property
-    @pulumi.getter(name="searchResults")
-    def search_results(self) -> 'outputs.SearchResultsResponse':
-        """
-        Parameters of the search job that initiated this table.
-        """
-        return pulumi.get(self, "search_results")
 
     @property
     @pulumi.getter
@@ -1002,7 +1002,9 @@ class SearchResultsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceTable":
+        if key == "azureAsyncOperationId":
+            suggest = "azure_async_operation_id"
+        elif key == "sourceTable":
             suggest = "source_table"
         elif key == "endSearchTime":
             suggest = "end_search_time"
@@ -1021,6 +1023,7 @@ class SearchResultsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 azure_async_operation_id: str,
                  source_table: str,
                  description: Optional[str] = None,
                  end_search_time: Optional[str] = None,
@@ -1029,6 +1032,7 @@ class SearchResultsResponse(dict):
                  start_search_time: Optional[str] = None):
         """
         Parameters of the search job that initiated this table.
+        :param str azure_async_operation_id: Search results table async operation id.
         :param str source_table: The table used in the search job.
         :param str description: Search job Description.
         :param str end_search_time: The timestamp to end the search by (UTC)
@@ -1036,6 +1040,7 @@ class SearchResultsResponse(dict):
         :param str query: Search job query.
         :param str start_search_time: The timestamp to start the search from (UTC)
         """
+        pulumi.set(__self__, "azure_async_operation_id", azure_async_operation_id)
         pulumi.set(__self__, "source_table", source_table)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -1047,6 +1052,14 @@ class SearchResultsResponse(dict):
             pulumi.set(__self__, "query", query)
         if start_search_time is not None:
             pulumi.set(__self__, "start_search_time", start_search_time)
+
+    @property
+    @pulumi.getter(name="azureAsyncOperationId")
+    def azure_async_operation_id(self) -> str:
+        """
+        Search results table async operation id.
+        """
+        return pulumi.get(self, "azure_async_operation_id")
 
     @property
     @pulumi.getter(name="sourceTable")
@@ -1553,7 +1566,7 @@ class WorkspaceSkuResponse(dict):
         The SKU (tier) of a workspace.
         :param str last_sku_update: The last time when the sku was updated.
         :param str name: The name of the SKU.
-        :param int capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param int capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "last_sku_update", last_sku_update)
         pulumi.set(__self__, "name", name)
@@ -1580,7 +1593,7 @@ class WorkspaceSkuResponse(dict):
     @pulumi.getter(name="capacityReservationLevel")
     def capacity_reservation_level(self) -> Optional[int]:
         """
-        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 

@@ -163,8 +163,8 @@ class AppLogsConfigurationArgs:
                  log_analytics_configuration: Optional[pulumi.Input['LogAnalyticsConfigurationArgs']] = None):
         """
         Configuration of application logs
-        :param pulumi.Input[str] destination: Logs destination
-        :param pulumi.Input['LogAnalyticsConfigurationArgs'] log_analytics_configuration: Log Analytics configuration
+        :param pulumi.Input[str] destination: Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
+        :param pulumi.Input['LogAnalyticsConfigurationArgs'] log_analytics_configuration: Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -175,7 +175,7 @@ class AppLogsConfigurationArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
-        Logs destination
+        Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
         """
         return pulumi.get(self, "destination")
 
@@ -187,7 +187,7 @@ class AppLogsConfigurationArgs:
     @pulumi.getter(name="logAnalyticsConfiguration")
     def log_analytics_configuration(self) -> Optional[pulumi.Input['LogAnalyticsConfigurationArgs']]:
         """
-        Log Analytics configuration
+        Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         """
         return pulumi.get(self, "log_analytics_configuration")
 
@@ -3440,7 +3440,7 @@ class LogAnalyticsConfigurationArgs:
                  customer_id: Optional[pulumi.Input[str]] = None,
                  shared_key: Optional[pulumi.Input[str]] = None):
         """
-        Log analytics configuration
+        Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         :param pulumi.Input[str] customer_id: Log analytics customer id
         :param pulumi.Input[str] shared_key: Log analytics customer key
         """
@@ -3682,11 +3682,11 @@ class ManagedEnvironmentStoragePropertiesArgs:
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -3706,14 +3706,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

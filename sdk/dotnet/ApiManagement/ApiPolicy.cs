@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Policy Contract details.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiPolicy")]
     public partial class ApiPolicy : global::Pulumi.CustomResource
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string?> Format { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ApiPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,7 +123,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

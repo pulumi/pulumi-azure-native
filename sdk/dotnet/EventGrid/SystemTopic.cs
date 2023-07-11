@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid System Topic.
-    /// API Version: 2021-06-01-preview.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopic")]
     public partial class SystemTopic : global::Pulumi.CustomResource
@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:SystemTopic"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:SystemTopic"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:SystemTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:SystemTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

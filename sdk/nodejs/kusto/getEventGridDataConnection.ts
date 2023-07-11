@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getEventGridDataConnection(args: GetEventGridDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventGridDataConnectionResult> {
 
@@ -55,6 +55,14 @@ export interface GetEventGridDataConnectionResult {
      */
     readonly dataFormat?: string;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    readonly databaseRouting?: string;
+    /**
+     * The resource ID of the event grid that is subscribed to the storage account events.
+     */
+    readonly eventGridResourceId?: string;
+    /**
      * The resource ID where the event grid is configured to send events.
      */
     readonly eventHubResourceId: string;
@@ -75,6 +83,14 @@ export interface GetEventGridDataConnectionResult {
      * Resource location.
      */
     readonly location?: string;
+    /**
+     * The object ID of managedIdentityResourceId
+     */
+    readonly managedIdentityObjectId: string;
+    /**
+     * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+     */
+    readonly managedIdentityResourceId?: string;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
@@ -102,7 +118,7 @@ export interface GetEventGridDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getEventGridDataConnectionOutput(args: GetEventGridDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventGridDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventGridDataConnection(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB User Definition
-    /// API Version: 2021-10-15-preview.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-10-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoUserDefinition")]
     public partial class MongoDBResourceMongoUserDefinition : global::Pulumi.CustomResource
@@ -96,7 +96,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:MongoDBResourceMongoUserDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:MongoDBResourceMongoUserDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:MongoDBResourceMongoUserDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:MongoDBResourceMongoUserDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:MongoDBResourceMongoUserDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

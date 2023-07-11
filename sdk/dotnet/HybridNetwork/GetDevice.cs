@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridNetwork
     {
         /// <summary>
         /// Gets information about the specified device.
-        /// API Version: 2020-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified device.
-        /// API Version: 2020-01-01-preview.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("azure-native:hybridnetwork:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -124,6 +128,8 @@ namespace Pulumi.AzureNative.HybridNetwork
 
             string status,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -135,6 +141,7 @@ namespace Pulumi.AzureNative.HybridNetwork
             NetworkFunctions = networkFunctions;
             ProvisioningState = provisioningState;
             Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

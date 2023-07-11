@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a catalog
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCatalog(args: GetCatalogArgs, opts?: pulumi.InvokeOptions): Promise<GetCatalogResult> {
 
@@ -31,7 +31,7 @@ export interface GetCatalogArgs {
      */
     devCenterName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -65,6 +65,10 @@ export interface GetCatalogResult {
      */
     readonly provisioningState: string;
     /**
+     * The synchronization state of the catalog.
+     */
+    readonly syncState: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.devcenter.SystemDataResponse;
@@ -75,7 +79,7 @@ export interface GetCatalogResult {
 }
 /**
  * Gets a catalog
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getCatalogOutput(args: GetCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCatalogResult> {
     return pulumi.output(args).apply((a: any) => getCatalog(a, opts))
@@ -91,7 +95,7 @@ export interface GetCatalogOutputArgs {
      */
     devCenterName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

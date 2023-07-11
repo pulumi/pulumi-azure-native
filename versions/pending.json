@@ -1,17 +1,7 @@
 {
   "ADHybridHealthService": [],
-  "AVS": [
-    "2020-07-17-preview",
-    "2021-01-01-preview",
-    "2021-06-01",
-    "2021-12-01",
-    "2022-05-01"
-  ],
-  "Aad": [
-    "2021-05-01",
-    "2022-09-01",
-    "2022-12-01"
-  ],
+  "AVS": [],
+  "Aad": [],
   "AadIam": [
     "2017-04-01-preview",
     "2020-03-01",
@@ -19,14 +9,8 @@
     "2020-07-01-preview"
   ],
   "Addons": [],
-  "Advisor": [
-    "2022-09-01",
-    "2022-10-01",
-    "2023-01-01"
-  ],
-  "AgFoodPlatform": [
-    "2021-09-01-preview"
-  ],
+  "Advisor": [],
+  "AgFoodPlatform": [],
   "AlertsManagement": [
     "2019-06-01",
     "2021-04-01",
@@ -34,74 +18,32 @@
     "2021-08-08",
     "2021-08-08-preview",
     "2023-03-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-05-01-preview"
   ],
   "AnalysisServices": [
     "2017-08-01-beta"
   ],
+  "ApiCenter": [],
   "ApiManagement": [
-    "2017-03-01",
-    "2018-01-01",
-    "2018-06-01-preview",
-    "2019-01-01",
-    "2019-12-01",
-    "2019-12-01-preview",
-    "2020-06-01-preview",
-    "2020-12-01",
-    "2021-01-01-preview",
-    "2021-04-01-preview",
     "2021-08-01",
     "2021-12-01-preview",
     "2022-04-01-preview",
     "2022-08-01",
-    "2022-09-01-preview"
-  ],
-  "App": [
-    "2022-06-01-preview",
-    "2022-10-01",
-    "2022-11-01-preview"
-  ],
-  "AppComplianceAutomation": [],
-  "AppConfiguration": [
-    "2020-07-01-preview",
-    "2021-03-01-preview",
-    "2021-10-01-preview",
-    "2022-03-01-preview",
-    "2022-05-01",
-    "2023-03-01"
-  ],
-  "AppPlatform": [
-    "2020-11-01-preview",
-    "2021-06-01-preview",
-    "2021-09-01-preview",
-    "2022-01-01-preview",
-    "2022-03-01-preview",
-    "2022-04-01",
-    "2022-05-01-preview",
     "2022-09-01-preview",
-    "2022-11-01-preview",
-    "2022-12-01",
-    "2023-01-01-preview",
     "2023-03-01-preview"
   ],
+  "App": [
+    "2022-11-01-preview",
+    "2023-04-01-preview"
+  ],
+  "AppComplianceAutomation": [],
+  "AppConfiguration": [],
+  "AppPlatform": [],
   "Attestation": [
     "2021-06-01-preview"
   ],
   "Authorization": [
-    "2017-06-01-preview",
-    "2017-10-01-preview",
-    "2018-01-01-preview",
-    "2018-03-01",
-    "2018-05-01",
-    "2018-05-01-preview",
-    "2018-09-01-preview",
-    "2019-01-01",
-    "2019-06-01",
-    "2019-09-01",
-    "2020-03-01",
-    "2020-03-01-preview",
-    "2020-04-01-preview",
-    "2020-05-01",
     "2020-07-01-preview",
     "2020-08-01-preview",
     "2020-09-01",
@@ -113,6 +55,7 @@
     "2021-11-16-preview",
     "2021-12-01-preview",
     "2022-04-01",
+    "2022-05-01-preview",
     "2022-06-01",
     "2022-07-01-preview",
     "2022-08-01-preview"
@@ -131,168 +74,60 @@
     "2022-02-22",
     "2022-08-08"
   ],
-  "AutonomousDevelopmentPlatform": [
-    "2021-11-01-preview"
-  ],
+  "AutonomousDevelopmentPlatform": [],
   "AzureActiveDirectory": [
-    "2020-05-01-preview",
-    "2021-04-01",
     "2023-01-18-preview"
   ],
-  "AzureArcData": [
-    "2021-07-01-preview",
-    "2021-08-01",
-    "2021-11-01",
-    "2022-03-01-preview",
-    "2022-06-15-preview",
-    "2023-01-15-preview",
-    "2023-03-15-preview"
-  ],
+  "AzureArcData": [],
   "AzureData": [],
   "AzureSphere": [],
   "AzureStack": [
-    "2020-06-01-preview",
     "2022-06-01"
   ],
   "AzureStackHCI": [
-    "2021-01-01-preview",
-    "2021-07-01-preview",
-    "2021-09-01",
-    "2021-09-01-preview",
-    "2022-01-01",
-    "2022-03-01",
-    "2022-05-01",
-    "2022-09-01",
-    "2022-10-01",
-    "2022-12-01",
     "2023-02-01",
     "2023-03-01"
   ],
   "BareMetalInfrastructure": [],
-  "Batch": [
-    "2021-06-01",
-    "2022-01-01",
-    "2022-06-01",
-    "2022-10-01"
-  ],
+  "Batch": [],
   "Billing": [
     "2020-05-01"
   ],
   "BillingBenefits": [],
   "Blockchain": [],
   "Blueprint": [],
-  "BotService": [
-    "2020-06-02",
-    "2021-03-01",
-    "2021-05-01-preview",
-    "2022-06-15-preview",
-    "2022-09-15"
-  ],
+  "BotService": [],
   "Cache": [
-    "2020-10-01-preview",
-    "2020-12-01",
-    "2021-02-01-preview",
-    "2021-03-01",
-    "2021-06-01",
-    "2021-08-01",
-    "2022-01-01",
-    "2022-05-01",
-    "2022-06-01",
-    "2022-11-01-preview",
-    "2023-03-01-preview",
     "2023-04-01",
     "2023-05-01-preview"
   ],
   "Capacity": [],
-  "Cdn": [
-    "2021-06-01",
-    "2022-05-01-preview",
-    "2022-11-01-preview"
-  ],
-  "CertificateRegistration": [
-    "2020-12-01",
-    "2021-01-01",
-    "2021-01-15",
-    "2021-02-01",
-    "2021-03-01",
-    "2022-03-01",
-    "2022-09-01"
-  ],
+  "Cdn": [],
+  "CertificateRegistration": [],
   "ChangeAnalysis": [],
-  "Chaos": [
-    "2022-07-01-preview",
-    "2022-10-01-preview",
-    "2023-04-01-preview",
-    "2023-04-15-preview"
-  ],
-  "CognitiveServices": [
-    "2021-04-30",
-    "2021-10-01",
-    "2022-03-01",
-    "2022-10-01",
-    "2022-12-01"
-  ],
+  "Chaos": [],
+  "CognitiveServices": [],
   "Commerce": [],
   "Communication": [
-    "2020-08-20-preview",
-    "2021-10-01-preview",
-    "2022-07-01-preview",
-    "2023-03-01-preview",
-    "2023-03-31"
+    "2023-04-01-preview"
   ],
   "Compute": [
-    "2020-10-01-preview",
-    "2020-12-01",
-    "2021-03-01",
-    "2021-04-01",
-    "2021-07-01",
-    "2021-08-01",
-    "2021-10-01",
-    "2021-11-01",
-    "2021-12-01",
-    "2022-01-03",
-    "2022-03-01",
-    "2022-03-02",
-    "2022-03-03",
     "2022-04-04",
     "2022-07-02",
     "2022-08-01",
     "2022-09-04",
     "2022-11-01",
+    "2023-01-02",
     "2023-03-01"
   ],
   "ConfidentialLedger": [
-    "2021-05-13-preview",
-    "2022-05-13",
     "2022-09-08-preview",
     "2023-01-26-preview"
   ],
-  "Confluent": [
-    "2020-03-01-preview",
-    "2021-03-01-preview",
-    "2021-09-01-preview",
-    "2021-12-01"
-  ],
-  "ConnectedVMwarevSphere": [
-    "2022-01-10-preview",
-    "2022-07-15-preview"
-  ],
-  "Consumption": [
-    "2019-11-01",
-    "2021-05-01",
-    "2021-10-01",
-    "2022-09-01",
-    "2023-03-01"
-  ],
-  "ContainerInstance": [
-    "2021-07-01",
-    "2021-09-01",
-    "2021-10-01",
-    "2022-09-01",
-    "2022-10-01-preview",
-    "2023-02-01-preview",
-    "2023-05-01"
-  ],
+  "Confluent": [],
+  "ConnectedVMwarevSphere": [],
+  "Consumption": [],
+  "ContainerInstance": [],
   "ContainerRegistry": [
     "2017-03-01",
     "2017-06-01-preview",
@@ -314,11 +149,6 @@
     "2023-01-01-preview"
   ],
   "ContainerService": [
-    "2019-06-01",
-    "2019-08-01",
-    "2019-09-30-preview",
-    "2019-10-01",
-    "2019-10-27-preview",
     "2019-11-01",
     "2020-01-01",
     "2020-02-01",
@@ -362,7 +192,12 @@
     "2023-02-01",
     "2023-02-02-preview",
     "2023-03-01",
-    "2023-03-02-preview"
+    "2023-03-02-preview",
+    "2023-03-15-preview",
+    "2023-04-01",
+    "2023-04-02-preview",
+    "2023-05-01",
+    "2023-05-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -383,6 +218,7 @@
     "2022-10-01",
     "2022-10-01-preview",
     "2022-10-05-preview",
+    "2023-03-01",
     "2023-04-01-preview"
   ],
   "CustomProviders": [],
@@ -394,228 +230,77 @@
     "2020-01-01-privatepreview"
   ],
   "DBforMySQL": [
-    "2017-12-01-preview",
-    "2018-06-01",
-    "2018-06-01-privatepreview",
-    "2020-01-01",
-    "2020-01-01-privatepreview",
-    "2020-07-01-preview",
-    "2020-07-01-privatepreview",
-    "2021-05-01",
-    "2021-05-01-preview",
-    "2021-12-01-preview",
-    "2022-01-01",
     "2022-09-30-preview"
   ],
   "DBforPostgreSQL": [
-    "2017-12-01-preview",
-    "2018-06-01",
-    "2018-06-01-privatepreview",
-    "2020-01-01",
-    "2020-01-01-privatepreview",
-    "2020-02-14-preview",
-    "2020-02-14-privatepreview",
-    "2020-10-05-privatepreview",
-    "2020-11-05-preview",
-    "2021-03-31-privatepreview",
-    "2021-04-10-privatepreview",
-    "2021-06-01",
-    "2021-06-01-preview",
-    "2021-06-15-privatepreview",
-    "2022-01-20-preview",
-    "2022-03-08-preview",
-    "2022-03-08-privatepreview",
-    "2022-05-01-preview",
-    "2022-11-08",
-    "2022-12-01"
+    "2022-12-01",
+    "2023-03-01-preview"
   ],
-  "Dashboard": [
-    "2022-08-01"
-  ],
-  "DataBox": [
-    "2021-03-01",
-    "2021-05-01",
-    "2021-08-01-preview",
-    "2021-12-01",
-    "2022-02-01",
-    "2022-09-01",
-    "2022-10-01",
-    "2022-12-01"
-  ],
+  "Dashboard": [],
+  "DataBox": [],
   "DataBoxEdge": [
-    "2021-02-01",
-    "2021-02-01-preview",
-    "2021-06-01",
-    "2021-06-01-preview",
-    "2022-03-01",
     "2022-04-01-preview",
     "2022-12-01-preview",
     "2023-01-01-preview"
   ],
   "DataCatalog": [],
   "DataFactory": [],
-  "DataLakeAnalytics": [
-    "2019-11-01-preview"
-  ],
+  "DataLakeAnalytics": [],
   "DataLakeStore": [],
   "DataMigration": [
-    "2018-07-15-preview",
-    "2021-06-30",
     "2021-10-30-preview",
     "2022-01-30-preview",
     "2022-03-30-preview"
   ],
   "DataProtection": [
-    "2021-02-01-preview",
-    "2021-06-01-preview",
-    "2021-07-01",
-    "2021-10-01-preview",
-    "2021-12-01-preview",
-    "2022-01-01",
-    "2022-02-01-preview",
-    "2022-03-01",
-    "2022-03-31-preview",
-    "2022-04-01",
-    "2022-05-01",
-    "2022-09-01-preview",
-    "2022-10-01-preview",
-    "2022-11-01-preview",
-    "2022-12-01",
-    "2023-01-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-05-01"
   ],
-  "DataShare": [
-    "2020-10-01-preview",
-    "2021-08-01"
-  ],
+  "DataShare": [],
   "Databricks": [
-    "2021-04-01-preview",
-    "2022-04-01-preview",
-    "2022-10-01-preview",
-    "2023-02-01"
+    "2023-05-01"
   ],
-  "Datadog": [
-    "2022-06-01"
+  "Datadog": [],
+  "DelegatedNetwork": [
+    "2023-05-18-preview"
   ],
-  "DelegatedNetwork": [],
   "DeploymentManager": [],
   "DesktopVirtualization": [
-    "2021-03-09-preview",
-    "2021-04-01-preview",
-    "2021-07-12",
-    "2021-09-03-preview",
-    "2022-02-10-preview",
-    "2022-04-01-preview",
-    "2022-09-09",
     "2022-10-14-preview"
   ],
-  "DevCenter": [
-    "2022-10-12-preview",
-    "2022-11-11-preview",
-    "2023-01-01-preview",
-    "2023-04-01"
-  ],
-  "DevHub": [
-    "2022-10-11-preview"
-  ],
+  "DevCenter": [],
+  "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
   "DevTestLab": [],
-  "DeviceUpdate": [
-    "2022-04-01-preview",
-    "2022-10-01",
-    "2022-12-01-preview"
-  ],
+  "DeviceUpdate": [],
   "Devices": [
-    "2020-04-01",
-    "2020-06-15",
-    "2020-07-10-preview",
-    "2020-08-01",
-    "2020-08-31",
-    "2020-08-31-preview",
-    "2020-09-01-preview",
-    "2021-02-01-preview",
-    "2021-03-03-preview",
-    "2021-03-31",
-    "2021-07-01",
-    "2021-07-01-preview",
-    "2021-07-02",
-    "2021-07-02-preview",
-    "2021-10-15",
-    "2022-02-05",
-    "2022-04-30-preview",
-    "2022-11-15-preview",
     "2022-12-12",
     "2023-03-01-preview"
   ],
-  "DigitalTwins": [
-    "2021-06-30-preview",
-    "2022-05-31",
-    "2022-10-31",
-    "2023-01-31"
-  ],
+  "DigitalTwins": [],
   "DocumentDB": [
-    "2021-03-15",
-    "2021-04-01-preview",
-    "2021-04-15",
-    "2021-05-15",
-    "2021-06-15",
-    "2021-07-01-preview",
-    "2021-10-15",
-    "2021-10-15-preview",
-    "2021-11-15-preview",
-    "2022-02-15-preview",
-    "2022-05-15",
-    "2022-05-15-preview",
-    "2022-08-15",
-    "2022-08-15-preview",
-    "2022-11-15",
-    "2022-11-15-preview",
-    "2023-03-01-preview",
-    "2023-03-15",
     "2023-04-15"
   ],
-  "DomainRegistration": [
-    "2020-12-01",
-    "2021-01-01",
-    "2021-01-15",
-    "2021-02-01",
-    "2021-03-01",
-    "2022-03-01",
-    "2022-09-01"
-  ],
+  "DomainRegistration": [],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
-  "Easm": [
-    "2023-04-01-preview"
-  ],
+  "Easm": [],
   "EdgeOrder": [
     "2022-05-01-preview"
   ],
   "EdgeOrderPartner": [],
   "Education": [],
   "Elastic": [
-    "2020-07-01-preview",
-    "2021-09-01-preview",
-    "2021-10-01-preview",
-    "2022-05-05-preview",
-    "2022-07-01-preview",
-    "2022-09-01-preview",
-    "2023-02-01-preview"
+    "2023-06-15-preview"
   ],
   "ElasticSan": [],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
   "EventGrid": [
-    "2020-06-01",
-    "2020-10-15-preview",
-    "2021-06-01-preview",
-    "2021-10-15-preview",
-    "2021-12-01",
-    "2022-06-15"
+    "2023-06-01-preview"
   ],
   "EventHub": [
-    "2018-01-01-preview",
     "2021-01-01-preview",
     "2021-06-01-preview",
     "2021-11-01",
@@ -623,51 +308,27 @@
     "2022-10-01-preview"
   ],
   "ExtendedLocation": [
-    "2021-08-15",
     "2021-08-31-preview"
   ],
   "Features": [],
-  "FluidRelay": [
-    "2021-06-15-preview",
-    "2021-08-30-preview",
-    "2021-09-10-preview",
-    "2022-02-15",
-    "2022-04-21",
-    "2022-05-11",
-    "2022-05-26",
-    "2022-06-01"
-  ],
+  "FluidRelay": [],
   "GraphServices": [],
-  "GuestConfiguration": [
-    "2021-01-25",
-    "2022-01-25"
-  ],
+  "GuestConfiguration": [],
   "HDInsight": [
-    "2021-06-01",
     "2023-04-15-preview"
   ],
-  "HanaOnAzure": [
-    "2020-02-07-preview"
-  ],
+  "HanaOnAzure": [],
   "HardwareSecurityModules": [
-    "2021-11-30"
+    "2022-08-31-preview"
   ],
-  "HealthBot": [
-    "2020-12-08-preview",
-    "2021-06-10",
-    "2021-08-24",
-    "2022-08-08"
-  ],
+  "HealthBot": [],
   "HealthcareApis": [
-    "2022-06-01",
-    "2022-10-01-preview",
     "2022-12-01",
     "2023-02-28"
   ],
   "Help": [],
   "HybridCloud": [],
   "HybridCompute": [
-    "2020-08-15-preview",
     "2021-01-28-preview",
     "2021-03-25-preview",
     "2021-04-22-preview",
@@ -681,24 +342,15 @@
     "2022-11-10",
     "2022-12-27",
     "2022-12-27-preview",
-    "2023-03-15-preview"
+    "2023-03-15-preview",
+    "2023-04-25-preview"
   ],
-  "HybridConnectivity": [
-    "2023-03-15"
-  ],
-  "HybridContainerService": [
-    "2022-09-01-preview"
-  ],
+  "HybridConnectivity": [],
+  "HybridContainerService": [],
   "HybridData": [],
-  "HybridNetwork": [
-    "2021-05-01",
-    "2022-01-01-preview"
-  ],
-  "ImportExport": [
-    "2021-01-01"
-  ],
+  "HybridNetwork": [],
+  "ImportExport": [],
   "Insights": [
-    "2015-05-01",
     "2016-03-01",
     "2017-04-01",
     "2017-05-01-preview",
@@ -742,7 +394,8 @@
     "2023-01-01",
     "2023-01-01-preview",
     "2023-03-01-preview",
-    "2023-03-15-preview"
+    "2023-03-15-preview",
+    "2023-05-01-preview"
   ],
   "Intune": [
     "2015-01-14-privatepreview"
@@ -750,35 +403,18 @@
   "IoTCentral": [
     "2021-11-01-preview"
   ],
+  "IoTFirmwareDefense": [],
   "IoTSecurity": [],
-  "KeyVault": [
-    "2020-04-01-preview",
-    "2021-04-01-preview",
-    "2021-06-01-preview",
-    "2021-10-01",
-    "2021-11-01-preview",
-    "2022-02-01-preview",
-    "2022-07-01",
-    "2022-11-01",
-    "2023-02-01"
-  ],
+  "KeyVault": [],
   "Kubernetes": [
-    "2021-04-01-preview",
     "2021-10-01",
     "2022-05-01-preview",
     "2022-10-01-preview"
   ],
   "KubernetesConfiguration": [
-    "2020-10-01-preview",
-    "2021-03-01",
-    "2021-05-01-preview",
-    "2021-09-01",
-    "2021-11-01-preview",
-    "2022-01-01-preview",
-    "2022-03-01",
-    "2022-04-02-preview",
     "2022-07-01",
-    "2022-11-01"
+    "2022-11-01",
+    "2023-05-01"
   ],
   "Kusto": [
     "2019-01-21",
@@ -793,38 +429,30 @@
     "2022-02-01",
     "2022-07-07",
     "2022-11-11",
-    "2022-12-29"
+    "2022-12-29",
+    "2023-05-02"
   ],
   "LabServices": [
     "2021-10-01-preview",
     "2021-11-15-preview",
     "2022-08-01"
   ],
-  "LoadTestService": [
-    "2022-04-15-preview",
-    "2022-12-01"
-  ],
+  "LoadTestService": [],
   "Logic": [
     "2015-08-01-preview",
     "2016-06-01",
     "2018-07-01-preview",
     "2019-05-01"
   ],
-  "Logz": [
-    "2020-10-01-preview",
-    "2022-01-01-preview"
-  ],
+  "Logz": [],
   "M365SecurityAndCompliance": [],
   "MachineLearning": [
-    "2016-05-01-preview",
     "2017-01-01",
     "2019-10-01"
   ],
   "MachineLearningCompute": [],
   "MachineLearningExperimentation": [],
   "MachineLearningServices": [
-    "2020-04-01",
-    "2020-05-01-preview",
     "2020-05-15-preview",
     "2020-06-01",
     "2020-08-01",
@@ -842,47 +470,24 @@
     "2022-12-01-preview",
     "2023-02-01-preview",
     "2023-04-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-06-01-preview"
   ],
-  "Maintenance": [
-    "2020-07-01-preview",
-    "2021-04-01-preview",
-    "2021-05-01",
-    "2021-09-01-preview",
-    "2022-07-01-preview",
-    "2022-11-01-preview",
-    "2023-04-01"
-  ],
+  "Maintenance": [],
   "ManagedIdentity": [
-    "2021-09-30-preview",
-    "2022-01-31-preview",
     "2023-01-31"
   ],
   "ManagedNetwork": [],
   "ManagedNetworkFabric": [],
-  "ManagedServices": [
-    "2020-02-01-preview",
-    "2022-01-01-preview",
-    "2022-10-01"
-  ],
-  "Management": [
-    "2020-10-01",
-    "2021-04-01"
-  ],
+  "ManagedServices": [],
+  "Management": [],
   "ManagementPartner": [],
   "Maps": [
-    "2020-02-01-preview",
     "2021-02-01",
     "2021-07-01-preview",
     "2021-12-01-preview"
   ],
-  "Marketplace": [
-    "2021-06-01",
-    "2021-12-01",
-    "2022-03-01",
-    "2022-09-01",
-    "2023-01-01"
-  ],
+  "Marketplace": [],
   "MarketplaceNotifications": [],
   "MarketplaceOrdering": [],
   "Media": [
@@ -916,32 +521,12 @@
     "2021-03-01-preview"
   ],
   "MobileNetwork": [
-    "2022-11-01"
+    "2022-11-01",
+    "2023-06-01"
   ],
-  "Monitor": [
-    "2023-04-03"
-  ],
-  "NetApp": [
-    "2021-02-01",
-    "2021-04-01",
-    "2021-04-01-preview",
-    "2021-06-01",
-    "2021-08-01",
-    "2021-10-01",
-    "2022-01-01",
-    "2022-03-01",
-    "2022-05-01",
-    "2022-09-01"
-  ],
+  "Monitor": [],
+  "NetApp": [],
   "Network": [
-    "2018-06-01",
-    "2018-07-01",
-    "2018-08-01",
-    "2018-09-01",
-    "2018-10-01",
-    "2018-11-01",
-    "2018-12-01",
-    "2019-02-01",
     "2019-03-01",
     "2019-04-01",
     "2019-05-01",
@@ -971,21 +556,21 @@
     "2021-08-01",
     "2022-01-01",
     "2022-02-01-preview",
+    "2022-04-01",
     "2022-04-01-preview",
     "2022-05-01",
     "2022-07-01",
     "2022-09-01",
-    "2022-11-01"
+    "2022-11-01",
+    "2023-02-01",
+    "2023-07-01-preview"
   ],
-  "NetworkCloud": [],
-  "NetworkFunction": [
-    "2022-08-01",
-    "2022-11-01"
+  "NetworkCloud": [
+    "2023-05-01-preview"
   ],
+  "NetworkFunction": [],
   "NotificationHubs": [],
-  "OffAzure": [
-    "2020-07-07"
-  ],
+  "OffAzure": [],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
     "2019-08-01-preview",
@@ -999,19 +584,9 @@
     "2022-10-01"
   ],
   "OperationsManagement": [],
-  "Orbital": [
-    "2022-03-01",
-    "2022-11-01"
-  ],
-  "Peering": [
-    "2021-06-01",
-    "2022-01-01",
-    "2022-06-01",
-    "2022-10-01"
-  ],
+  "Orbital": [],
+  "Peering": [],
   "PolicyInsights": [
-    "2021-01-01",
-    "2021-10-01",
     "2022-09-01"
   ],
   "Portal": [
@@ -1026,85 +601,27 @@
   "PowerBIDedicated": [],
   "PowerPlatform": [],
   "ProfessionalService": [],
-  "ProviderHub": [
-    "2021-05-01-preview",
-    "2021-06-01-preview",
-    "2021-09-01-preview"
-  ],
-  "Purview": [
-    "2021-07-01"
-  ],
-  "Quantum": [
-    "2022-01-10-preview"
-  ],
+  "ProviderHub": [],
+  "Purview": [],
+  "Quantum": [],
   "Quota": [],
   "RecommendationsService": [
     "2022-03-01-preview"
   ],
   "RecoveryServices": [
-    "2018-12-20",
-    "2019-05-13",
-    "2019-06-15",
-    "2020-02-02",
-    "2020-10-01",
-    "2020-12-01",
-    "2021-01-01",
-    "2021-02-01",
-    "2021-02-01-preview",
-    "2021-02-10",
-    "2021-03-01",
-    "2021-04-01",
-    "2021-06-01",
-    "2021-07-01",
-    "2021-08-01",
-    "2021-10-01",
-    "2021-11-01",
-    "2021-11-01-preview",
-    "2021-11-15",
-    "2021-12-01",
-    "2022-01-01",
-    "2022-01-31-preview",
-    "2022-02-01",
-    "2022-03-01",
-    "2022-04-01",
-    "2022-05-01",
-    "2022-06-01-preview",
-    "2022-08-01",
-    "2022-09-01-preview",
-    "2022-09-10",
-    "2022-09-30-preview",
-    "2022-10-01",
-    "2023-01-01",
-    "2023-01-15",
-    "2023-02-01"
+    "2023-02-01",
+    "2023-04-01"
   ],
-  "RedHatOpenShift": [
-    "2021-09-01-preview",
-    "2022-04-01",
-    "2022-09-04"
-  ],
-  "Relay": [
-    "2018-01-01-preview",
-    "2021-11-01"
-  ],
+  "RedHatOpenShift": [],
+  "Relay": [],
   "ResourceConnector": [
-    "2022-04-15-preview",
     "2022-10-27"
   ],
-  "ResourceGraph": [
-    "2020-04-01-preview"
+  "ResourceGraph": [],
+  "ResourceHealth": [
+    "2022-10-01-preview"
   ],
-  "ResourceHealth": [],
   "Resources": [
-    "2019-05-10",
-    "2019-06-01-preview",
-    "2019-07-01",
-    "2019-08-01",
-    "2019-10-01",
-    "2019-10-01-preview",
-    "2020-06-01",
-    "2020-08-01",
-    "2020-10-01",
     "2021-01-01",
     "2021-03-01-preview",
     "2021-04-01",
@@ -1114,15 +631,9 @@
     "2022-09-01"
   ],
   "SaaS": [],
-  "ScVmm": [
-    "2022-05-21-preview"
-  ],
+  "ScVmm": [],
   "Scheduler": [],
-  "Search": [
-    "2020-08-01-preview",
-    "2021-04-01-preview",
-    "2022-09-01"
-  ],
+  "Search": [],
   "Security": [
     "2019-01-01",
     "2019-01-01-preview",
@@ -1142,89 +653,36 @@
     "2022-11-20-preview",
     "2023-01-01-preview",
     "2023-02-01-preview",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-05-01"
   ],
   "SecurityAndCompliance": [],
   "SecurityDevOps": [],
   "SecurityInsights": [
-    "2020-01-01",
-    "2021-03-01-preview",
-    "2021-04-01",
-    "2021-09-01-preview",
-    "2021-10-01",
-    "2021-10-01-preview",
-    "2022-01-01-preview",
-    "2022-04-01-preview",
-    "2022-05-01-preview",
-    "2022-06-01-preview",
-    "2022-07-01-preview",
-    "2022-08-01",
-    "2022-08-01-preview",
-    "2022-09-01-preview",
-    "2022-10-01-preview",
-    "2022-11-01",
-    "2022-11-01-preview",
-    "2022-12-01-preview",
-    "2023-02-01",
     "2023-02-01-preview",
     "2023-03-01-preview",
     "2023-04-01-preview",
-    "2023-05-01-preview"
+    "2023-05-01-preview",
+    "2023-06-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
-    "2018-01-01-preview",
     "2021-01-01-preview",
     "2021-06-01-preview",
     "2021-11-01",
     "2022-01-01-preview",
     "2022-10-01-preview"
   ],
-  "ServiceFabric": [
-    "2020-03-01",
-    "2020-12-01-preview",
-    "2021-01-01-preview",
-    "2021-05-01",
-    "2021-06-01",
-    "2021-07-01-preview",
-    "2021-09-01-privatepreview",
-    "2021-11-01-preview",
-    "2022-01-01",
-    "2022-02-01-preview",
-    "2022-06-01-preview",
-    "2022-08-01-preview",
-    "2022-10-01-preview",
-    "2023-02-01-preview",
-    "2023-03-01-preview"
-  ],
+  "ServiceFabric": [],
   "ServiceFabricMesh": [],
-  "ServiceLinker": [
-    "2022-01-01-preview",
-    "2022-05-01",
-    "2022-11-01-preview"
-  ],
-  "ServiceNetworking": [
-    "2023-05-01-preview"
-  ],
+  "ServiceLinker": [],
+  "ServiceNetworking": [],
   "SignalRService": [
-    "2020-07-01-preview",
-    "2021-04-01-preview",
-    "2021-06-01-preview",
-    "2021-09-01-preview",
-    "2021-10-01",
-    "2022-02-01",
-    "2022-08-01-preview",
-    "2023-02-01",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-06-01-preview"
   ],
-  "SoftwarePlan": [
-    "2019-12-01"
-  ],
-  "Solutions": [
-    "2020-08-21-preview",
-    "2021-02-01-preview",
-    "2021-07-01"
-  ],
+  "SoftwarePlan": [],
+  "Solutions": [],
   "Sql": [
     "2015-05-01-preview",
     "2017-03-01-preview",
@@ -1241,57 +699,28 @@
     "2021-11-01-preview",
     "2022-02-01-preview",
     "2022-05-01-preview",
-    "2022-08-01-preview"
+    "2022-08-01-preview",
+    "2022-11-01-preview"
   ],
   "SqlVirtualMachine": [
-    "2021-11-01-preview",
-    "2022-02-01",
     "2022-02-01-preview",
     "2022-07-01-preview",
     "2022-08-01-preview",
     "2023-01-01-preview"
   ],
   "StorSimple": [],
-  "Storage": [
-    "2021-04-01",
-    "2021-06-01",
-    "2021-08-01",
-    "2021-09-01",
-    "2022-05-01",
-    "2022-09-01"
-  ],
-  "StorageCache": [
-    "2021-05-01",
-    "2021-09-01",
-    "2022-01-01",
-    "2022-05-01",
-    "2023-01-01",
-    "2023-03-01-preview",
-    "2023-05-01"
-  ],
-  "StorageMover": [
-    "2023-03-01"
-  ],
-  "StoragePool": [
-    "2021-04-01-preview",
-    "2021-08-01"
-  ],
-  "StorageSync": [
-    "2020-09-01",
-    "2022-06-01"
-  ],
+  "Storage": [],
+  "StorageCache": [],
+  "StorageMover": [],
+  "StoragePool": [],
+  "StorageSync": [],
   "StreamAnalytics": [
-    "2017-04-01-preview",
-    "2020-03-01",
     "2020-03-01-preview",
     "2021-10-01-preview"
   ],
-  "Subscription": [
-    "2021-10-01"
-  ],
+  "Subscription": [],
   "Support": [],
   "Synapse": [
-    "2021-04-01-preview",
     "2021-05-01",
     "2021-06-01",
     "2021-06-01-preview"
@@ -1303,26 +732,13 @@
     "2021-06-30-preview"
   ],
   "VMwareCloudSimple": [],
-  "VideoAnalyzer": [
-    "2021-11-01-preview"
-  ],
-  "VideoIndexer": [
-    "2021-10-27-preview",
-    "2021-11-10-preview",
-    "2022-04-13-preview",
-    "2022-07-20-preview",
-    "2022-08-01"
-  ],
-  "VirtualMachineImages": [
-    "2021-10-01",
-    "2022-02-14",
-    "2022-07-01"
-  ],
-  "VisualStudio": [
-    "2017-11-01-preview"
-  ],
+  "VideoAnalyzer": [],
+  "VideoIndexer": [],
+  "VirtualMachineImages": [],
+  "VisualStudio": [],
   "VoiceServices": [
-    "2023-01-31"
+    "2023-01-31",
+    "2023-04-03"
   ],
   "Web": [
     "2016-03-01",
@@ -1344,18 +760,11 @@
     "2022-09-01"
   ],
   "WebPubSub": [
-    "2021-06-01-preview",
-    "2021-09-01-preview",
-    "2021-10-01",
-    "2022-08-01-preview",
-    "2023-02-01",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-06-01-preview"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],
   "WorkloadMonitor": [],
-  "Workloads": [
-    "2022-11-01-preview",
-    "2023-04-01"
-  ]
+  "Workloads": []
 }

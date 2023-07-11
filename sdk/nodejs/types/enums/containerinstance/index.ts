@@ -2,41 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170801preview from "./v20170801preview";
-import * as v20171001preview from "./v20171001preview";
-import * as v20171201preview from "./v20171201preview";
-import * as v20180201preview from "./v20180201preview";
-import * as v20180401 from "./v20180401";
-import * as v20180601 from "./v20180601";
-import * as v20180901 from "./v20180901";
-import * as v20181001 from "./v20181001";
-import * as v20191201 from "./v20191201";
-import * as v20201101 from "./v20201101";
 import * as v20210301 from "./v20210301";
 import * as v20210701 from "./v20210701";
-import * as v20210901 from "./v20210901";
-import * as v20211001 from "./v20211001";
-import * as v20220901 from "./v20220901";
-import * as v20221001preview from "./v20221001preview";
+import * as v20230201preview from "./v20230201preview";
 import * as v20230501 from "./v20230501";
 
 export {
-    v20170801preview,
-    v20171001preview,
-    v20171201preview,
-    v20180201preview,
-    v20180401,
-    v20180601,
-    v20180901,
-    v20181001,
-    v20191201,
-    v20201101,
     v20210301,
     v20210701,
-    v20210901,
-    v20211001,
-    v20220901,
-    v20221001preview,
+    v20230201preview,
     v20230501,
 };
 
@@ -60,6 +34,16 @@ export const ContainerGroupNetworkProtocol = {
  */
 export type ContainerGroupNetworkProtocol = (typeof ContainerGroupNetworkProtocol)[keyof typeof ContainerGroupNetworkProtocol];
 
+export const ContainerGroupPriority = {
+    Regular: "Regular",
+    Spot: "Spot",
+} as const;
+
+/**
+ * The priority of the container group.
+ */
+export type ContainerGroupPriority = (typeof ContainerGroupPriority)[keyof typeof ContainerGroupPriority];
+
 export const ContainerGroupRestartPolicy = {
     Always: "Always",
     OnFailure: "OnFailure",
@@ -77,6 +61,7 @@ export type ContainerGroupRestartPolicy = (typeof ContainerGroupRestartPolicy)[k
 export const ContainerGroupSku = {
     Standard: "Standard",
     Dedicated: "Dedicated",
+    Confidential: "Confidential",
 } as const;
 
 /**
@@ -93,6 +78,19 @@ export const ContainerNetworkProtocol = {
  * The protocol associated with the port.
  */
 export type ContainerNetworkProtocol = (typeof ContainerNetworkProtocol)[keyof typeof ContainerNetworkProtocol];
+
+export const DnsNameLabelReusePolicy = {
+    Unsecure: "Unsecure",
+    TenantReuse: "TenantReuse",
+    SubscriptionReuse: "SubscriptionReuse",
+    ResourceGroupReuse: "ResourceGroupReuse",
+    Noreuse: "Noreuse",
+} as const;
+
+/**
+ * The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+ */
+export type DnsNameLabelReusePolicy = (typeof DnsNameLabelReusePolicy)[keyof typeof DnsNameLabelReusePolicy];
 
 export const GpuSku = {
     K80: "K80",

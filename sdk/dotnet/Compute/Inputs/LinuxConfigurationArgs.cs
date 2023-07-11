@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
 {
 
     /// <summary>
-    /// Specifies the Linux operating system settings on the virtual machine. &lt;br&gt;&lt;br&gt;For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+    /// Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
     /// </summary>
     public sealed class LinuxConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -22,13 +22,19 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<bool>? DisablePasswordAuthentication { get; set; }
 
         /// <summary>
+        /// Indicates whether VMAgent Platform Updates is enabled for the Linux virtual machine. Default value is false.
+        /// </summary>
+        [Input("enableVMAgentPlatformUpdates")]
+        public Input<bool>? EnableVMAgentPlatformUpdates { get; set; }
+
+        /// <summary>
         /// [Preview Feature] Specifies settings related to VM Guest Patching on Linux.
         /// </summary>
         [Input("patchSettings")]
         public Input<Inputs.LinuxPatchSettingsArgs>? PatchSettings { get; set; }
 
         /// <summary>
-        /// Indicates whether virtual machine agent should be provisioned on the virtual machine. &lt;br&gt;&lt;br&gt; When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+        /// Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, default behavior is to set it to true. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         /// </summary>
         [Input("provisionVMAgent")]
         public Input<bool>? ProvisionVMAgent { get; set; }

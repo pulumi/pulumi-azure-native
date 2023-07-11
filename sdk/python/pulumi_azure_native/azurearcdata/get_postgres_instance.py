@@ -63,7 +63,7 @@ class GetPostgresInstanceResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -103,7 +103,7 @@ class GetPostgresInstanceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -119,7 +119,7 @@ class GetPostgresInstanceResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -146,7 +146,7 @@ def get_postgres_instance(postgres_instance_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPostgresInstanceResult:
     """
     Retrieves a postgres Instance resource
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str postgres_instance_name: Name of Postgres Instance
@@ -176,7 +176,7 @@ def get_postgres_instance_output(postgres_instance_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPostgresInstanceResult]:
     """
     Retrieves a postgres Instance resource
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str postgres_instance_name: Name of Postgres Instance

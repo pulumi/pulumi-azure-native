@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Storage Mover resource.
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2023-03-01.
  */
 export function getStorageMover(args: GetStorageMoverArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageMoverResult> {
 
@@ -70,7 +70,7 @@ export interface GetStorageMoverResult {
 }
 /**
  * Gets a Storage Mover resource.
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2023-03-01.
  */
 export function getStorageMoverOutput(args: GetStorageMoverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageMoverResult> {
     return pulumi.output(args).apply((a: any) => getStorageMover(a, opts))

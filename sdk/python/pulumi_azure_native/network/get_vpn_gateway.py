@@ -22,13 +22,16 @@ class GetVpnGatewayResult:
     """
     VpnGateway Resource.
     """
-    def __init__(__self__, bgp_settings=None, connections=None, etag=None, id=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, nat_rules=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
+    def __init__(__self__, bgp_settings=None, connections=None, enable_bgp_route_translation_for_nat=None, etag=None, id=None, ip_configurations=None, is_routing_preference_internet=None, location=None, name=None, nat_rules=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
         if bgp_settings and not isinstance(bgp_settings, dict):
             raise TypeError("Expected argument 'bgp_settings' to be a dict")
         pulumi.set(__self__, "bgp_settings", bgp_settings)
         if connections and not isinstance(connections, list):
             raise TypeError("Expected argument 'connections' to be a list")
         pulumi.set(__self__, "connections", connections)
+        if enable_bgp_route_translation_for_nat and not isinstance(enable_bgp_route_translation_for_nat, bool):
+            raise TypeError("Expected argument 'enable_bgp_route_translation_for_nat' to be a bool")
+        pulumi.set(__self__, "enable_bgp_route_translation_for_nat", enable_bgp_route_translation_for_nat)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -81,6 +84,14 @@ class GetVpnGatewayResult:
         List of all vpn connections to the gateway.
         """
         return pulumi.get(self, "connections")
+
+    @property
+    @pulumi.getter(name="enableBgpRouteTranslationForNat")
+    def enable_bgp_route_translation_for_nat(self) -> Optional[bool]:
+        """
+        Enable BGP routes translation for NAT on this VpnGateway.
+        """
+        return pulumi.get(self, "enable_bgp_route_translation_for_nat")
 
     @property
     @pulumi.getter
@@ -187,6 +198,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
         return GetVpnGatewayResult(
             bgp_settings=self.bgp_settings,
             connections=self.connections,
+            enable_bgp_route_translation_for_nat=self.enable_bgp_route_translation_for_nat,
             etag=self.etag,
             id=self.id,
             ip_configurations=self.ip_configurations,
@@ -206,7 +218,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpnGatewayResult:
     """
     Retrieves the details of a virtual wan vpn gateway.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the gateway.
@@ -221,6 +233,7 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
     return AwaitableGetVpnGatewayResult(
         bgp_settings=__ret__.bgp_settings,
         connections=__ret__.connections,
+        enable_bgp_route_translation_for_nat=__ret__.enable_bgp_route_translation_for_nat,
         etag=__ret__.etag,
         id=__ret__.id,
         ip_configurations=__ret__.ip_configurations,
@@ -241,7 +254,7 @@ def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Retrieves the details of a virtual wan vpn gateway.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str gateway_name: The name of the gateway.

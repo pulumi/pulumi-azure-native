@@ -86,7 +86,7 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceVirtualNetworkRuleResult:
     """
     Gets an VirtualNetworkRule for a Namespace by rule name.
-    API Version: 2018-01-01-preview.
+    Azure REST API version: 2018-01-01-preview.
 
 
     :param str namespace_name: The Namespace name
@@ -114,7 +114,7 @@ def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.In
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceVirtualNetworkRuleResult]:
     """
     Gets an VirtualNetworkRule for a Namespace by rule name.
-    API Version: 2018-01-01-preview.
+    Azure REST API version: 2018-01-01-preview.
 
 
     :param str namespace_name: The Namespace name

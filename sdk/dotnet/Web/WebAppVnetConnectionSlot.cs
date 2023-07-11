@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Web
 {
     /// <summary>
-    /// Virtual Network information contract.
-    /// API Version: 2020-12-01.
+    /// Virtual Network information ARM resource.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppVnetConnectionSlot")]
     public partial class WebAppVnetConnectionSlot : global::Pulumi.CustomResource

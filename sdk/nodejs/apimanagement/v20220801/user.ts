@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * User details.
- *
- * @deprecated azure-native:apimanagement/v20220801:User is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:User to guarantee forwards compatibility.
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class User extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): User {
-        pulumi.log.warn("User is deprecated: azure-native:apimanagement/v20220801:User is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:User to guarantee forwards compatibility.")
         return new User(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +85,7 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:User is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:User to guarantee forwards compatibility. */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("User is deprecated: azure-native:apimanagement/v20220801:User is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:User to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -139,7 +134,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:User" }, { type: "azure-native:apimanagement/v20160707:User" }, { type: "azure-native:apimanagement/v20161010:User" }, { type: "azure-native:apimanagement/v20170301:User" }, { type: "azure-native:apimanagement/v20180101:User" }, { type: "azure-native:apimanagement/v20180601preview:User" }, { type: "azure-native:apimanagement/v20190101:User" }, { type: "azure-native:apimanagement/v20191201:User" }, { type: "azure-native:apimanagement/v20191201preview:User" }, { type: "azure-native:apimanagement/v20200601preview:User" }, { type: "azure-native:apimanagement/v20201201:User" }, { type: "azure-native:apimanagement/v20210101preview:User" }, { type: "azure-native:apimanagement/v20210401preview:User" }, { type: "azure-native:apimanagement/v20210801:User" }, { type: "azure-native:apimanagement/v20211201preview:User" }, { type: "azure-native:apimanagement/v20220401preview:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:User" }, { type: "azure-native:apimanagement/v20160707:User" }, { type: "azure-native:apimanagement/v20161010:User" }, { type: "azure-native:apimanagement/v20170301:User" }, { type: "azure-native:apimanagement/v20180101:User" }, { type: "azure-native:apimanagement/v20180601preview:User" }, { type: "azure-native:apimanagement/v20190101:User" }, { type: "azure-native:apimanagement/v20191201:User" }, { type: "azure-native:apimanagement/v20191201preview:User" }, { type: "azure-native:apimanagement/v20200601preview:User" }, { type: "azure-native:apimanagement/v20201201:User" }, { type: "azure-native:apimanagement/v20210101preview:User" }, { type: "azure-native:apimanagement/v20210401preview:User" }, { type: "azure-native:apimanagement/v20210801:User" }, { type: "azure-native:apimanagement/v20211201preview:User" }, { type: "azure-native:apimanagement/v20220401preview:User" }, { type: "azure-native:apimanagement/v20220901preview:User" }, { type: "azure-native:apimanagement/v20230301preview:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }

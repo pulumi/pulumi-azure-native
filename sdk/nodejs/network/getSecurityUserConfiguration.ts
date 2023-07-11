@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a network manager security user configuration.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityUserConfigurationResult> {
 
@@ -23,7 +23,7 @@ export function getSecurityUserConfiguration(args: GetSecurityUserConfigurationA
 
 export interface GetSecurityUserConfigurationArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -37,7 +37,7 @@ export interface GetSecurityUserConfigurationArgs {
 }
 
 /**
- * Defines the security configuration
+ * Defines the security user configuration
  */
 export interface GetSecurityUserConfigurationResult {
     /**
@@ -45,13 +45,9 @@ export interface GetSecurityUserConfigurationResult {
      */
     readonly deleteExistingNSGs?: string;
     /**
-     * A description of the security configuration.
+     * A description of the security user configuration.
      */
     readonly description?: string;
-    /**
-     * A display name of the security configuration.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -69,10 +65,6 @@ export interface GetSecurityUserConfigurationResult {
      */
     readonly provisioningState: string;
     /**
-     * Security Type.
-     */
-    readonly securityType?: string;
-    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -83,7 +75,7 @@ export interface GetSecurityUserConfigurationResult {
 }
 /**
  * Retrieves a network manager security user configuration.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityUserConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityUserConfiguration(a, opts))
@@ -91,7 +83,7 @@ export function getSecurityUserConfigurationOutput(args: GetSecurityUserConfigur
 
 export interface GetSecurityUserConfigurationOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

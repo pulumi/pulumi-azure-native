@@ -6,23 +6,30 @@ from enum import Enum
 
 __all__ = [
     'AccumulatedType',
+    'BudgetNotificationOperatorType',
+    'BudgetOperatorType',
+    'CategoryType',
     'ChartType',
     'ConnectorBillingModel',
+    'ConnectorStatus',
     'CostAllocationPolicyType',
     'CostAllocationResourceType',
+    'CultureCode',
     'DaysOfWeek',
     'ExportType',
     'FileFormat',
     'FormatType',
+    'Frequency',
     'FunctionType',
     'GranularityType',
     'KpiTypeType',
     'MetricType',
     'OperatorType',
     'PivotTypeType',
+    'QueryColumnType',
     'RecurrenceType',
     'ReportColumnType',
-    'ReportConfigColumnType',
+    'ReportConfigSortingType',
     'ReportGranularityType',
     'ReportTimeframeType',
     'ReportType',
@@ -30,7 +37,10 @@ __all__ = [
     'ScheduleFrequency',
     'ScheduledActionKind',
     'ScheduledActionStatus',
+    'SettingsKind',
     'StatusType',
+    'ThresholdType',
+    'TimeGrainType',
     'TimeframeType',
     'WeeksOfMonth',
 ]
@@ -42,6 +52,68 @@ class AccumulatedType(str, Enum):
     """
     TRUE = "true"
     FALSE = "false"
+
+
+class BudgetNotificationOperatorType(str, Enum):
+    """
+    The comparison operator.
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+
+     Supported operators for **CategoryType: Cost**
+    - GreaterThan
+    - GreaterThanOrEqualTo
+
+     Supported operators for **CategoryType: ReservationUtilization**
+    - LessThan
+    """
+    EQUAL_TO = "EqualTo"
+    """
+    Notification will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future.
+
+     Supported for CategoryType(s): Cost.
+    """
+    GREATER_THAN = "GreaterThan"
+    """
+    Notification will be triggered if the evaluated cost is greater than the threshold value. Note: This is the recommended OperatorType while configuring Budget Alert.
+
+     Supported for CategoryType(s): Cost.
+    """
+    GREATER_THAN_OR_EQUAL_TO = "GreaterThanOrEqualTo"
+    """
+    Notification will be triggered if the evaluated cost is greater than or equal to the threshold value.
+
+     Supported for CategoryType(s): Cost.
+    """
+    LESS_THAN = "LessThan"
+    """
+    Notification will be triggered if any Reservations in the scope of the Reservation Utilization Alert Rule have a utilization less than the threshold percentage.
+
+     Supported for CategoryType(s): ReservationUtilization.
+    """
+
+
+class BudgetOperatorType(str, Enum):
+    """
+    The operator to use for comparison.
+    """
+    IN_ = "In"
+
+
+class CategoryType(str, Enum):
+    """
+    The category of the budget.
+    - 'Cost' defines a Budget.
+    - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
+    """
+    COST = "Cost"
+    """
+    A Budget that evaluates monetary cost of Azure resources against an amount, and alerts based on a configured notification threshold.
+    """
+    RESERVATION_UTILIZATION = "ReservationUtilization"
+    """
+    An Alert Rule that evaluates the utilization percentage of Azure Reservations, and alerts based on a configured notification threshold.
+    """
 
 
 class ChartType(str, Enum):
@@ -65,6 +137,15 @@ class ConnectorBillingModel(str, Enum):
     EXPIRED = "expired"
 
 
+class ConnectorStatus(str, Enum):
+    """
+    Connector status
+    """
+    ACTIVE = "active"
+    ERROR = "error"
+    SUSPENDED = "suspended"
+
+
 class CostAllocationPolicyType(str, Enum):
     """
     Method of cost allocation for the rule
@@ -84,6 +165,35 @@ class CostAllocationResourceType(str, Enum):
     """
     Allocates cost based on Azure Tag key value pairs.
     """
+
+
+class CultureCode(str, Enum):
+    """
+    Language in which the recipient will receive the notification, 
+
+     Supported for CategoryType(s): Cost, ReservationUtilization.
+    """
+    EN_US = "en-us"
+    JA_JP = "ja-jp"
+    ZH_CN = "zh-cn"
+    DE_DE = "de-de"
+    ES_ES = "es-es"
+    FR_FR = "fr-fr"
+    IT_IT = "it-it"
+    KO_KR = "ko-kr"
+    PT_BR = "pt-br"
+    RU_RU = "ru-ru"
+    ZH_TW = "zh-tw"
+    CS_CZ = "cs-cz"
+    PL_PL = "pl-pl"
+    TR_TR = "tr-tr"
+    DA_DK = "da-dk"
+    EN_GB = "en-gb"
+    HU_HU = "hu-hu"
+    NB_NO = "nb-no"
+    NL_NL = "nl-nl"
+    PT_PT = "pt-pt"
+    SV_SE = "sv-se"
 
 
 class DaysOfWeek(str, Enum):
@@ -110,7 +220,7 @@ class ExportType(str, Enum):
 
 class FileFormat(str, Enum):
     """
-    Destination of the view data. Currently only csv format is supported.
+    Destination of the view data. Currently only CSV format is supported.
     """
     CSV = "Csv"
 
@@ -122,13 +232,30 @@ class FormatType(str, Enum):
     CSV = "Csv"
 
 
+class Frequency(str, Enum):
+    """
+    Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).
+
+     Supported for CategoryType(s): ReservationUtilization.
+    """
+    DAILY = "Daily"
+    """
+    After the threshold breaches and an Alert is fired, no further alerts will be sent until the next calendar day.
+    """
+    WEEKLY = "Weekly"
+    """
+    After the threshold breaches and an Alert is fired, no further alerts will be sent for 7 calendar days.
+    """
+    MONTHLY = "Monthly"
+    """
+    After the threshold breaches and an Alert is fired, no further alerts will be sent for 30 calendar days.
+    """
+
+
 class FunctionType(str, Enum):
     """
     The name of the aggregation function to use.
     """
-    AVG = "Avg"
-    MAX = "Max"
-    MIN = "Min"
     SUM = "Sum"
 
 
@@ -173,6 +300,20 @@ class PivotTypeType(str, Enum):
     TAG_KEY = "TagKey"
 
 
+class QueryColumnType(str, Enum):
+    """
+    Has type of the column to group.
+    """
+    TAG_KEY = "TagKey"
+    """
+    The tag associated with the cost data.
+    """
+    DIMENSION = "Dimension"
+    """
+    The dimension of cost data.
+    """
+
+
 class RecurrenceType(str, Enum):
     """
     The schedule recurrence.
@@ -191,12 +332,12 @@ class ReportColumnType(str, Enum):
     DIMENSION = "Dimension"
 
 
-class ReportConfigColumnType(str, Enum):
+class ReportConfigSortingType(str, Enum):
     """
-    Has type of the column to group.
+    Direction of sort.
     """
-    TAG = "Tag"
-    DIMENSION = "Dimension"
+    ASCENDING = "Ascending"
+    DESCENDING = "Descending"
 
 
 class ReportGranularityType(str, Enum):
@@ -268,6 +409,10 @@ class ScheduledActionKind(str, Enum):
     """
     Cost analysis data will be emailed.
     """
+    INSIGHT_ALERT = "InsightAlert"
+    """
+    Cost anomaly information will be emailed. Available only on subscription scope at daily frequency. If no anomaly is detected on the resource, an email won't be sent.
+    """
 
 
 class ScheduledActionStatus(str, Enum):
@@ -276,12 +421,23 @@ class ScheduledActionStatus(str, Enum):
     """
     DISABLED = "Disabled"
     """
-    Scheduled action is saved but will not be executed.
+    Scheduled action is saved but will not be run.
     """
     ENABLED = "Enabled"
     """
-    Scheduled action is saved and will be executed.
+    Scheduled action is saved and will be run.
     """
+    EXPIRED = "Expired"
+    """
+    Scheduled action is expired.
+    """
+
+
+class SettingsKind(str, Enum):
+    """
+    Specifies the kind of settings.
+    """
+    TAGINHERITANCE = "taginheritance"
 
 
 class StatusType(str, Enum):
@@ -290,6 +446,95 @@ class StatusType(str, Enum):
     """
     ACTIVE = "Active"
     INACTIVE = "Inactive"
+
+
+class ThresholdType(str, Enum):
+    """
+    The type of threshold.
+
+     Supported for CategoryType(s): Cost.
+    """
+    ACTUAL = "Actual"
+    """
+    Actual costs budget alerts notify when the actual accrued cost exceeds the allocated budget.
+    """
+    FORECASTED = "Forecasted"
+    """
+    Forecasted costs budget alerts provide advanced notification that your spending trends are likely to exceed your allocated budget, as it relies on forecasted cost predictions.
+    """
+
+
+class TimeGrainType(str, Enum):
+    """
+    The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+
+    Supported for CategoryType(s): Cost, ReservationUtilization.
+
+     Supported timeGrainTypes for **CategoryType: Cost**
+
+    - Monthly
+    - Quarterly
+    - Annually
+    - BillingMonth*
+    - BillingQuarter*
+    - BillingAnnual*
+
+      *only supported for Web Direct customers.
+
+     Supported timeGrainTypes for **CategoryType: ReservationUtilization**
+    - Last7Days
+    - Last30Days
+
+     Required for CategoryType(s): Cost, ReservationUtilization.
+    """
+    MONTHLY = "Monthly"
+    """
+    The budget will track costs in the current calendar month against the amount.
+
+     Supported for CategoryType: Cost only.
+    """
+    QUARTERLY = "Quarterly"
+    """
+    The budget will track costs in the current calendar quarter against the amount.
+
+     Supported for CategoryType: Cost only.
+    """
+    ANNUALLY = "Annually"
+    """
+    The budget will track costs in the current calendar year against the amount.
+
+     Supported for CategoryType: Cost only.
+    """
+    BILLING_MONTH = "BillingMonth"
+    """
+    The budget will track costs in the current billing month against the amount.
+
+     Supported for CategoryType: Cost and Web Direct customers only.
+    """
+    BILLING_QUARTER = "BillingQuarter"
+    """
+    The budget will track costs in the current billing quarter against the amount.
+
+     Supported for CategoryType: Cost and Web Direct customers only.
+    """
+    BILLING_ANNUAL = "BillingAnnual"
+    """
+    The budget will track costs in the current billing year against the amount.
+
+     Supported for CategoryType: Cost and Web Direct customers only.
+    """
+    LAST7_DAYS = "Last7Days"
+    """
+    The Reservation Utilization Alert Rule will evaluate reservations based on their 7-Day utilization percentage.
+
+     Supported for CategoryType: ReservationUtilization only.
+    """
+    LAST30_DAYS = "Last30Days"
+    """
+    The Reservation Utilization Alert Rule will evaluate reservations based on their 30-Day utilization percentage.
+
+     Supported for CategoryType: ReservationUtilization only.
+    """
 
 
 class TimeframeType(str, Enum):

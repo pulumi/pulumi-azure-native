@@ -9,7 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['SimArgs', 'Sim']
@@ -21,14 +20,8 @@ class SimArgs:
                  resource_group_name: pulumi.Input[str],
                  sim_group_name: pulumi.Input[str],
                  authentication_key: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  sim_name: Optional[pulumi.Input[str]] = None,
                  sim_policy: Optional[pulumi.Input['SimPolicyResourceIdArgs']] = None,
@@ -39,17 +32,11 @@ class SimArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
         :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         :param pulumi.Input[str] integrated_circuit_card_identifier: The integrated circuit card ID (ICCID) for the SIM.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] sim_name: The name of the SIM.
-        :param pulumi.Input['SimPolicyResourceIdArgs'] sim_policy: The SIM policy used by this SIM.
+        :param pulumi.Input['SimPolicyResourceIdArgs'] sim_policy: The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         :param pulumi.Input[Sequence[pulumi.Input['SimStaticIpPropertiesArgs']]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
@@ -57,22 +44,10 @@ class SimArgs:
         pulumi.set(__self__, "sim_group_name", sim_group_name)
         if authentication_key is not None:
             pulumi.set(__self__, "authentication_key", authentication_key)
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if created_by is not None:
-            pulumi.set(__self__, "created_by", created_by)
-        if created_by_type is not None:
-            pulumi.set(__self__, "created_by_type", created_by_type)
         if device_type is not None:
             pulumi.set(__self__, "device_type", device_type)
         if integrated_circuit_card_identifier is not None:
             pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
-        if last_modified_at is not None:
-            pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by is not None:
-            pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type is not None:
-            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
         if operator_key_code is not None:
             pulumi.set(__self__, "operator_key_code", operator_key_code)
         if sim_name is not None:
@@ -131,42 +106,6 @@ class SimArgs:
         pulumi.set(self, "authentication_key", value)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @created_by.setter
-    def created_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_by", value)
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
-
-    @created_by_type.setter
-    def created_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "created_by_type", value)
-
-    @property
     @pulumi.getter(name="deviceType")
     def device_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -189,42 +128,6 @@ class SimArgs:
     @integrated_circuit_card_identifier.setter
     def integrated_circuit_card_identifier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "integrated_circuit_card_identifier", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @last_modified_at.setter
-    def last_modified_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_at", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[pulumi.Input[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @last_modified_by.setter
-    def last_modified_by(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_modified_by", value)
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[pulumi.Input[Union[str, 'CreatedByType']]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @last_modified_by_type.setter
-    def last_modified_by_type(self, value: Optional[pulumi.Input[Union[str, 'CreatedByType']]]):
-        pulumi.set(self, "last_modified_by_type", value)
 
     @property
     @pulumi.getter(name="operatorKeyCode")
@@ -254,7 +157,7 @@ class SimArgs:
     @pulumi.getter(name="simPolicy")
     def sim_policy(self) -> Optional[pulumi.Input['SimPolicyResourceIdArgs']]:
         """
-        The SIM policy used by this SIM.
+        The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         """
         return pulumi.get(self, "sim_policy")
 
@@ -281,15 +184,9 @@ class Sim(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_key: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
                  international_mobile_subscriber_identity: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
@@ -299,25 +196,19 @@ class Sim(pulumi.CustomResource):
                  __props__=None):
         """
         SIM resource.
-        API Version: 2022-04-01-preview.
+        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
-        :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
-        :param pulumi.Input[str] created_by: The identity that created the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] created_by_type: The type of identity that created the resource.
         :param pulumi.Input[str] device_type: An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         :param pulumi.Input[str] integrated_circuit_card_identifier: The integrated circuit card ID (ICCID) for the SIM.
         :param pulumi.Input[str] international_mobile_subscriber_identity: The international mobile subscriber identity (IMSI) for the SIM.
-        :param pulumi.Input[str] last_modified_at: The timestamp of resource last modification (UTC)
-        :param pulumi.Input[str] last_modified_by: The identity that last modified the resource.
-        :param pulumi.Input[Union[str, 'CreatedByType']] last_modified_by_type: The type of identity that last modified the resource.
         :param pulumi.Input[str] operator_key_code: The Opc value for the SIM.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] sim_group_name: The name of the SIM Group.
         :param pulumi.Input[str] sim_name: The name of the SIM.
-        :param pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']] sim_policy: The SIM policy used by this SIM.
+        :param pulumi.Input[pulumi.InputType['SimPolicyResourceIdArgs']] sim_policy: The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SimStaticIpPropertiesArgs']]]] static_ip_configuration: A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
         """
         ...
@@ -328,7 +219,7 @@ class Sim(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SIM resource.
-        API Version: 2022-04-01-preview.
+        Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param SimArgs args: The arguments to use to populate this resource's properties.
@@ -346,15 +237,9 @@ class Sim(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_key: Optional[pulumi.Input[str]] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 created_by: Optional[pulumi.Input[str]] = None,
-                 created_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  device_type: Optional[pulumi.Input[str]] = None,
                  integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
                  international_mobile_subscriber_identity: Optional[pulumi.Input[str]] = None,
-                 last_modified_at: Optional[pulumi.Input[str]] = None,
-                 last_modified_by: Optional[pulumi.Input[str]] = None,
-                 last_modified_by_type: Optional[pulumi.Input[Union[str, 'CreatedByType']]] = None,
                  operator_key_code: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sim_group_name: Optional[pulumi.Input[str]] = None,
@@ -371,17 +256,11 @@ class Sim(pulumi.CustomResource):
             __props__ = SimArgs.__new__(SimArgs)
 
             __props__.__dict__["authentication_key"] = authentication_key
-            __props__.__dict__["created_at"] = created_at
-            __props__.__dict__["created_by"] = created_by
-            __props__.__dict__["created_by_type"] = created_by_type
             __props__.__dict__["device_type"] = device_type
             __props__.__dict__["integrated_circuit_card_identifier"] = integrated_circuit_card_identifier
             if international_mobile_subscriber_identity is None and not opts.urn:
                 raise TypeError("Missing required property 'international_mobile_subscriber_identity'")
             __props__.__dict__["international_mobile_subscriber_identity"] = international_mobile_subscriber_identity
-            __props__.__dict__["last_modified_at"] = last_modified_at
-            __props__.__dict__["last_modified_by"] = last_modified_by
-            __props__.__dict__["last_modified_by_type"] = last_modified_by_type
             __props__.__dict__["operator_key_code"] = operator_key_code
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -395,9 +274,12 @@ class Sim(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["sim_state"] = None
+            __props__.__dict__["site_provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:Sim")])
+            __props__.__dict__["vendor_key_fingerprint"] = None
+            __props__.__dict__["vendor_name"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20221101:Sim"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:Sim")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Sim, __self__).__init__(
             'azure-native:mobilenetwork:Sim',
@@ -421,47 +303,20 @@ class Sim(pulumi.CustomResource):
 
         __props__ = SimArgs.__new__(SimArgs)
 
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["created_by"] = None
-        __props__.__dict__["created_by_type"] = None
         __props__.__dict__["device_type"] = None
         __props__.__dict__["integrated_circuit_card_identifier"] = None
         __props__.__dict__["international_mobile_subscriber_identity"] = None
-        __props__.__dict__["last_modified_at"] = None
-        __props__.__dict__["last_modified_by"] = None
-        __props__.__dict__["last_modified_by_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sim_policy"] = None
         __props__.__dict__["sim_state"] = None
+        __props__.__dict__["site_provisioning_state"] = None
         __props__.__dict__["static_ip_configuration"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["vendor_key_fingerprint"] = None
+        __props__.__dict__["vendor_name"] = None
         return Sim(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
 
     @property
     @pulumi.getter(name="deviceType")
@@ -488,30 +343,6 @@ class Sim(pulumi.CustomResource):
         return pulumi.get(self, "international_mobile_subscriber_identity")
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The timestamp of resource last modification (UTC)
-        """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> pulumi.Output[Optional[str]]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
-
-    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -531,7 +362,7 @@ class Sim(pulumi.CustomResource):
     @pulumi.getter(name="simPolicy")
     def sim_policy(self) -> pulumi.Output[Optional['outputs.SimPolicyResourceIdResponse']]:
         """
-        The SIM policy used by this SIM.
+        The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         """
         return pulumi.get(self, "sim_policy")
 
@@ -542,6 +373,14 @@ class Sim(pulumi.CustomResource):
         The state of the SIM resource.
         """
         return pulumi.get(self, "sim_state")
+
+    @property
+    @pulumi.getter(name="siteProvisioningState")
+    def site_provisioning_state(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A dictionary of sites to the provisioning state of this SIM on that site.
+        """
+        return pulumi.get(self, "site_provisioning_state")
 
     @property
     @pulumi.getter(name="staticIpConfiguration")
@@ -566,4 +405,20 @@ class Sim(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="vendorKeyFingerprint")
+    def vendor_key_fingerprint(self) -> pulumi.Output[str]:
+        """
+        The public key fingerprint of the SIM vendor who provided this SIM, if any.
+        """
+        return pulumi.get(self, "vendor_key_fingerprint")
+
+    @property
+    @pulumi.getter(name="vendorName")
+    def vendor_name(self) -> pulumi.Output[str]:
+        """
+        The name of the SIM vendor who provided this SIM, if any.
+        """
+        return pulumi.get(self, "vendor_name")
 

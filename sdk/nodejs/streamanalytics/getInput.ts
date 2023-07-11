@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified input.
- * API Version: 2016-03-01.
+ * Azure REST API version: 2020-03-01.
  */
 export function getInput(args: GetInputArgs, opts?: pulumi.InvokeOptions): Promise<GetInputResult> {
 
@@ -31,7 +31,7 @@ export interface GetInputArgs {
      */
     jobName: string;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -59,7 +59,7 @@ export interface GetInputResult {
 }
 /**
  * Gets details about the specified input.
- * API Version: 2016-03-01.
+ * Azure REST API version: 2020-03-01.
  */
 export function getInputOutput(args: GetInputOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInputResult> {
     return pulumi.output(args).apply((a: any) => getInput(a, opts))
@@ -75,7 +75,7 @@ export interface GetInputOutputArgs {
      */
     jobName: pulumi.Input<string>;
     /**
-     * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetApp
     {
         /// <summary>
         /// Get the NetApp account
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the NetApp account
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:netapp:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.NetApp
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -76,19 +76,31 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly ImmutableArray<Outputs.ActiveDirectoryResponse> ActiveDirectories;
         /// <summary>
+        /// Shows the status of disableShowmount for all volumes under the subscription, null equals false
+        /// </summary>
+        public readonly bool DisableShowmount;
+        /// <summary>
         /// Encryption settings
         /// </summary>
         public readonly Outputs.AccountEncryptionResponse? Encryption;
         /// <summary>
-        /// Resource Id
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The identity used for the resource.
+        /// </summary>
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -96,15 +108,15 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -112,9 +124,15 @@ namespace Pulumi.AzureNative.NetApp
         private GetAccountResult(
             ImmutableArray<Outputs.ActiveDirectoryResponse> activeDirectories,
 
+            bool disableShowmount,
+
             Outputs.AccountEncryptionResponse? encryption,
 
+            string etag,
+
             string id,
+
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 
@@ -129,8 +147,11 @@ namespace Pulumi.AzureNative.NetApp
             string type)
         {
             ActiveDirectories = activeDirectories;
+            DisableShowmount = disableShowmount;
             Encryption = encryption;
+            Etag = etag;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;

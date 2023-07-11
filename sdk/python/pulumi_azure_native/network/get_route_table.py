@@ -171,7 +171,7 @@ def get_route_table(expand: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
     """
     Gets the specified route table.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -206,7 +206,7 @@ def get_route_table_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Gets the specified route table.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

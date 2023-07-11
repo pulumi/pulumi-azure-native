@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get an App Service plan.
- * API Version: 2020-12-01.
+ * Description for Get an App Service plan.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAppServicePlan(args: GetAppServicePlanArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServicePlanResult> {
 
@@ -35,6 +35,14 @@ export interface GetAppServicePlanArgs {
  * App Service plan.
  */
 export interface GetAppServicePlanResult {
+    /**
+     * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+     */
+    readonly elasticScaleEnabled?: boolean;
+    /**
+     * Extended Location.
+     */
+    readonly extendedLocation?: outputs.web.ExtendedLocationResponse;
     /**
      * The time when the server farm free offer expires.
      */
@@ -92,6 +100,10 @@ export interface GetAppServicePlanResult {
      */
     readonly numberOfSites: number;
     /**
+     * The number of instances that are assigned to this App Service plan.
+     */
+    readonly numberOfWorkers: number;
+    /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
@@ -144,10 +156,15 @@ export interface GetAppServicePlanResult {
      * Target worker tier assigned to the App Service plan.
      */
     readonly workerTierName?: string;
+    /**
+     * If <code>true</code>, this App Service Plan will perform availability zone balancing.
+     * If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+     */
+    readonly zoneRedundant?: boolean;
 }
 /**
- * Get an App Service plan.
- * API Version: 2020-12-01.
+ * Description for Get an App Service plan.
+ * Azure REST API version: 2022-09-01.
  */
 export function getAppServicePlanOutput(args: GetAppServicePlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppServicePlanResult> {
     return pulumi.output(args).apply((a: any) => getAppServicePlan(a, opts))

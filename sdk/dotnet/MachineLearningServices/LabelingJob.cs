@@ -10,32 +10,32 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
-    /// Machine Learning labeling job object wrapped into ARM resource envelope.
-    /// API Version: 2020-09-01-preview.
+    /// Azure Resource Manager resource envelope.
+    /// Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:LabelingJob")]
     public partial class LabelingJob : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the resource entity.
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("labelingJobProperties")]
+        public Output<Outputs.LabelingJobResponse> LabelingJobProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Definition of a labeling job.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LabelingJobPropertiesResponse> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The resource provider and type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -70,7 +70,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220601preview:LabelingJob"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:LabelingJob"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:LabelingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:LabelingJob"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:LabelingJob"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:LabelingJob"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -95,19 +97,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class LabelingJobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name and identifier for LabelingJob.
+        /// The name and identifier for the LabelingJob.
         /// </summary>
-        [Input("labelingJobId")]
-        public Input<string>? LabelingJobId { get; set; }
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Definition of a labeling job.
+        /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LabelingJobPropertiesArgs>? Properties { get; set; }
+        [Input("labelingJobProperties", required: true)]
+        public Input<Inputs.LabelingJobArgs> LabelingJobProperties { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

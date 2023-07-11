@@ -10,6 +10,16 @@ export const getWebPubSub: typeof import("./getWebPubSub").getWebPubSub = null a
 export const getWebPubSubOutput: typeof import("./getWebPubSub").getWebPubSubOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSub","getWebPubSubOutput"], () => require("./getWebPubSub"));
 
+export { GetWebPubSubCustomCertificateArgs, GetWebPubSubCustomCertificateResult, GetWebPubSubCustomCertificateOutputArgs } from "./getWebPubSubCustomCertificate";
+export const getWebPubSubCustomCertificate: typeof import("./getWebPubSubCustomCertificate").getWebPubSubCustomCertificate = null as any;
+export const getWebPubSubCustomCertificateOutput: typeof import("./getWebPubSubCustomCertificate").getWebPubSubCustomCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubCustomCertificate","getWebPubSubCustomCertificateOutput"], () => require("./getWebPubSubCustomCertificate"));
+
+export { GetWebPubSubCustomDomainArgs, GetWebPubSubCustomDomainResult, GetWebPubSubCustomDomainOutputArgs } from "./getWebPubSubCustomDomain";
+export const getWebPubSubCustomDomain: typeof import("./getWebPubSubCustomDomain").getWebPubSubCustomDomain = null as any;
+export const getWebPubSubCustomDomainOutput: typeof import("./getWebPubSubCustomDomain").getWebPubSubCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubCustomDomain","getWebPubSubCustomDomainOutput"], () => require("./getWebPubSubCustomDomain"));
+
 export { GetWebPubSubHubArgs, GetWebPubSubHubResult, GetWebPubSubHubOutputArgs } from "./getWebPubSubHub";
 export const getWebPubSubHub: typeof import("./getWebPubSubHub").getWebPubSubHub = null as any;
 export const getWebPubSubHubOutput: typeof import("./getWebPubSubHub").getWebPubSubHubOutput = null as any;
@@ -19,6 +29,11 @@ export { GetWebPubSubPrivateEndpointConnectionArgs, GetWebPubSubPrivateEndpointC
 export const getWebPubSubPrivateEndpointConnection: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnection = null as any;
 export const getWebPubSubPrivateEndpointConnectionOutput: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSubPrivateEndpointConnection","getWebPubSubPrivateEndpointConnectionOutput"], () => require("./getWebPubSubPrivateEndpointConnection"));
+
+export { GetWebPubSubReplicaArgs, GetWebPubSubReplicaResult, GetWebPubSubReplicaOutputArgs } from "./getWebPubSubReplica";
+export const getWebPubSubReplica: typeof import("./getWebPubSubReplica").getWebPubSubReplica = null as any;
+export const getWebPubSubReplicaOutput: typeof import("./getWebPubSubReplica").getWebPubSubReplicaOutput = null as any;
+utilities.lazyLoad(exports, ["getWebPubSubReplica","getWebPubSubReplicaOutput"], () => require("./getWebPubSubReplica"));
 
 export { GetWebPubSubSharedPrivateLinkResourceArgs, GetWebPubSubSharedPrivateLinkResourceResult, GetWebPubSubSharedPrivateLinkResourceOutputArgs } from "./getWebPubSubSharedPrivateLinkResource";
 export const getWebPubSubSharedPrivateLinkResource: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResource = null as any;
@@ -35,6 +50,16 @@ export type WebPubSub = import("./webPubSub").WebPubSub;
 export const WebPubSub: typeof import("./webPubSub").WebPubSub = null as any;
 utilities.lazyLoad(exports, ["WebPubSub"], () => require("./webPubSub"));
 
+export { WebPubSubCustomCertificateArgs } from "./webPubSubCustomCertificate";
+export type WebPubSubCustomCertificate = import("./webPubSubCustomCertificate").WebPubSubCustomCertificate;
+export const WebPubSubCustomCertificate: typeof import("./webPubSubCustomCertificate").WebPubSubCustomCertificate = null as any;
+utilities.lazyLoad(exports, ["WebPubSubCustomCertificate"], () => require("./webPubSubCustomCertificate"));
+
+export { WebPubSubCustomDomainArgs } from "./webPubSubCustomDomain";
+export type WebPubSubCustomDomain = import("./webPubSubCustomDomain").WebPubSubCustomDomain;
+export const WebPubSubCustomDomain: typeof import("./webPubSubCustomDomain").WebPubSubCustomDomain = null as any;
+utilities.lazyLoad(exports, ["WebPubSubCustomDomain"], () => require("./webPubSubCustomDomain"));
+
 export { WebPubSubHubArgs } from "./webPubSubHub";
 export type WebPubSubHub = import("./webPubSubHub").WebPubSubHub;
 export const WebPubSubHub: typeof import("./webPubSubHub").WebPubSubHub = null as any;
@@ -44,6 +69,11 @@ export { WebPubSubPrivateEndpointConnectionArgs } from "./webPubSubPrivateEndpoi
 export type WebPubSubPrivateEndpointConnection = import("./webPubSubPrivateEndpointConnection").WebPubSubPrivateEndpointConnection;
 export const WebPubSubPrivateEndpointConnection: typeof import("./webPubSubPrivateEndpointConnection").WebPubSubPrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["WebPubSubPrivateEndpointConnection"], () => require("./webPubSubPrivateEndpointConnection"));
+
+export { WebPubSubReplicaArgs } from "./webPubSubReplica";
+export type WebPubSubReplica = import("./webPubSubReplica").WebPubSubReplica;
+export const WebPubSubReplica: typeof import("./webPubSubReplica").WebPubSubReplica = null as any;
+utilities.lazyLoad(exports, ["WebPubSubReplica"], () => require("./webPubSubReplica"));
 
 export { WebPubSubSharedPrivateLinkResourceArgs } from "./webPubSubSharedPrivateLinkResource";
 export type WebPubSubSharedPrivateLinkResource = import("./webPubSubSharedPrivateLinkResource").WebPubSubSharedPrivateLinkResource;
@@ -58,17 +88,17 @@ export * from "../types/enums/webpubsub";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
-import * as v20211001 from "./v20211001";
-import * as v20220801preview from "./v20220801preview";
 import * as v20230201 from "./v20230201";
+import * as v20230301preview from "./v20230301preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20210401preview,
     v20210601preview,
     v20210901preview,
-    v20211001,
-    v20220801preview,
     v20230201,
+    v20230301preview,
+    v20230601preview,
 };
 
 const _module = {
@@ -77,10 +107,16 @@ const _module = {
         switch (type) {
             case "azure-native:webpubsub:WebPubSub":
                 return new WebPubSub(name, <any>undefined, { urn })
+            case "azure-native:webpubsub:WebPubSubCustomCertificate":
+                return new WebPubSubCustomCertificate(name, <any>undefined, { urn })
+            case "azure-native:webpubsub:WebPubSubCustomDomain":
+                return new WebPubSubCustomDomain(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubHub":
                 return new WebPubSubHub(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubPrivateEndpointConnection":
                 return new WebPubSubPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:webpubsub:WebPubSubReplica":
+                return new WebPubSubReplica(name, <any>undefined, { urn })
             case "azure-native:webpubsub:WebPubSubSharedPrivateLinkResource":
                 return new WebPubSubSharedPrivateLinkResource(name, <any>undefined, { urn })
             default:

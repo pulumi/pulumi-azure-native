@@ -268,7 +268,7 @@ def get_task(registry_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskResult:
     """
     Get the properties of a specified task.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -311,7 +311,7 @@ def get_task_output(registry_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskResult]:
     """
     Get the properties of a specified task.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.

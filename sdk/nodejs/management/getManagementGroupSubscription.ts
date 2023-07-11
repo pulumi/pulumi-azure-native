@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Retrieves details about given subscription which is associated with the management group.
  *
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getManagementGroupSubscription(args: GetManagementGroupSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupSubscriptionResult> {
 
@@ -68,7 +68,7 @@ export interface GetManagementGroupSubscriptionResult {
 /**
  * Retrieves details about given subscription which is associated with the management group.
  *
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupSubscription(a, opts))

@@ -22,69 +22,6 @@ export const CreateMode = {
  */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
-export const DataFlowComputeType = {
-    General: "General",
-    MemoryOptimized: "MemoryOptimized",
-    ComputeOptimized: "ComputeOptimized",
-} as const;
-
-/**
- * Compute type of the cluster which will execute data flow job.
- */
-export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
-
-export const IntegrationRuntimeEdition = {
-    Standard: "Standard",
-    Enterprise: "Enterprise",
-} as const;
-
-/**
- * The edition for the SSIS Integration Runtime
- */
-export type IntegrationRuntimeEdition = (typeof IntegrationRuntimeEdition)[keyof typeof IntegrationRuntimeEdition];
-
-export const IntegrationRuntimeEntityReferenceType = {
-    IntegrationRuntimeReference: "IntegrationRuntimeReference",
-    LinkedServiceReference: "LinkedServiceReference",
-} as const;
-
-/**
- * The type of this referenced entity.
- */
-export type IntegrationRuntimeEntityReferenceType = (typeof IntegrationRuntimeEntityReferenceType)[keyof typeof IntegrationRuntimeEntityReferenceType];
-
-export const IntegrationRuntimeLicenseType = {
-    BasePrice: "BasePrice",
-    LicenseIncluded: "LicenseIncluded",
-} as const;
-
-/**
- * License type for bringing your own license scenario.
- */
-export type IntegrationRuntimeLicenseType = (typeof IntegrationRuntimeLicenseType)[keyof typeof IntegrationRuntimeLicenseType];
-
-export const IntegrationRuntimeSsisCatalogPricingTier = {
-    Basic: "Basic",
-    Standard: "Standard",
-    Premium: "Premium",
-    PremiumRS: "PremiumRS",
-} as const;
-
-/**
- * The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
- */
-export type IntegrationRuntimeSsisCatalogPricingTier = (typeof IntegrationRuntimeSsisCatalogPricingTier)[keyof typeof IntegrationRuntimeSsisCatalogPricingTier];
-
-export const IntegrationRuntimeType = {
-    Managed: "Managed",
-    SelfHosted: "SelfHosted",
-} as const;
-
-/**
- * Type of integration runtime.
- */
-export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
-
 export const NodeSize = {
     None: "None",
     Small: "Small",
@@ -123,16 +60,6 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
-export const SensitivityLabelRank = {
-    None: "None",
-    Low: "Low",
-    Medium: "Medium",
-    High: "High",
-    Critical: "Critical",
-} as const;
-
-export type SensitivityLabelRank = (typeof SensitivityLabelRank)[keyof typeof SensitivityLabelRank];
-
 export const StorageAccountType = {
     GRS: "GRS",
     LRS: "LRS",
@@ -143,16 +70,6 @@ export const StorageAccountType = {
  * The storage account type used to store backups for this sql pool.
  */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
-
-export const TransparentDataEncryptionStatus = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * The status of the database transparent data encryption.
- */
-export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];
 
 export const WorkspacePublicNetworkAccess = {
     Enabled: "Enabled",

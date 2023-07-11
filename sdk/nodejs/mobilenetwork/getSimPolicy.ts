@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified SIM policy.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimPolicy(args: GetSimPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSimPolicyResult> {
 
@@ -41,37 +41,13 @@ export interface GetSimPolicyArgs {
  */
 export interface GetSimPolicyResult {
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
-     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+     * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
      */
     readonly defaultSlice: outputs.mobilenetwork.SliceResourceIdResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    readonly lastModifiedAt?: string;
-    /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
     /**
      * The geo-location where the resource lives
      */
@@ -85,13 +61,17 @@ export interface GetSimPolicyResult {
      */
     readonly provisioningState: string;
     /**
-     * Interval for the UE periodic registration update procedure, in seconds.
+     * UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
      */
     readonly registrationTimer?: number;
     /**
      * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
      */
     readonly rfspIndex?: number;
+    /**
+     * A dictionary of sites to the provisioning state of this SIM policy on that site.
+     */
+    readonly siteProvisioningState: {[key: string]: string};
     /**
      * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
@@ -115,7 +95,7 @@ export interface GetSimPolicyResult {
 }
 /**
  * Gets information about the specified SIM policy.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function getSimPolicyOutput(args: GetSimPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSimPolicy(a, opts))

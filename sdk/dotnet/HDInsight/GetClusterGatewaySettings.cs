@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HDInsight
     {
         /// <summary>
         /// Gets the gateway settings for the specified cluster.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Task<GetClusterGatewaySettingsResult> InvokeAsync(GetClusterGatewaySettingsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the gateway settings for the specified cluster.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Output<GetClusterGatewaySettingsResult> Invoke(GetClusterGatewaySettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterGatewaySettingsResult>("azure-native:hdinsight:getClusterGatewaySettings", args ?? new GetClusterGatewaySettingsInvokeArgs(), options.WithDefaults());

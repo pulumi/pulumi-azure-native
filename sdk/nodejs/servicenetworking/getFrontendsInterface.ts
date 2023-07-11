@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a Traffic Controller Frontend
- * API Version: 2022-10-01-preview.
+ * Get a Frontend
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getFrontendsInterface(args: GetFrontendsInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontendsInterfaceResult> {
 
@@ -41,33 +41,25 @@ export interface GetFrontendsInterfaceArgs {
  */
 export interface GetFrontendsInterfaceResult {
     /**
+     * The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
+     */
+    readonly fqdn: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Frontend IP Address Version (Optional).
-     */
-    readonly ipAddressVersion?: string;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Frontend Mode (Optional).
-     */
-    readonly mode?: string;
-    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * test doc
+     * Provisioning State of Traffic Controller Frontend Resource
      */
     readonly provisioningState: string;
-    /**
-     * Frontend Public IP Address (Optional).
-     */
-    readonly publicIPAddress?: outputs.servicenetworking.FrontendPropertiesIPAddressResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -82,8 +74,8 @@ export interface GetFrontendsInterfaceResult {
     readonly type: string;
 }
 /**
- * Get a Traffic Controller Frontend
- * API Version: 2022-10-01-preview.
+ * Get a Frontend
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getFrontendsInterfaceOutput(args: GetFrontendsInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontendsInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getFrontendsInterface(a, opts))

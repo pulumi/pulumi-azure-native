@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Attestation service response message.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class AttestationProvider extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class AttestationProvider extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.attestation.PrivateEndpointConnectionResponse[]>;
     /**
+     * Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+     */
+    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
      * Status of attestation service.
      */
     public /*out*/ readonly status!: pulumi.Output<string | undefined>;
@@ -66,6 +70,10 @@ export class AttestationProvider extends pulumi.CustomResource {
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+     */
+    public /*out*/ readonly tpmAttestationAuthentication!: pulumi.Output<string | undefined>;
     /**
      * Trust model for the attestation provider.
      */
@@ -100,8 +108,10 @@ export class AttestationProvider extends pulumi.CustomResource {
             resourceInputs["attestUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tpmAttestationAuthentication"] = undefined /*out*/;
             resourceInputs["trustModel"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -109,14 +119,16 @@ export class AttestationProvider extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["tpmAttestationAuthentication"] = undefined /*out*/;
             resourceInputs["trustModel"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:attestation/v20180901preview:AttestationProvider" }, { type: "azure-native:attestation/v20201001:AttestationProvider" }, { type: "azure-native:attestation/v20210601preview:AttestationProvider" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:attestation/v20180901preview:AttestationProvider" }, { type: "azure-native:attestation/v20201001:AttestationProvider" }, { type: "azure-native:attestation/v20210601:AttestationProvider" }, { type: "azure-native:attestation/v20210601preview:AttestationProvider" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AttestationProvider.__pulumiType, name, resourceInputs, opts);
     }

@@ -98,12 +98,7 @@ class GatewayApiEntityTagArgs:
         pulumi.set(self, "provisioning_state", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class GatewayApiEntityTag(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -155,7 +150,6 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GatewayApiEntityTag is deprecated: azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -198,7 +192,7 @@ class GatewayApiEntityTag(pulumi.CustomResource):
             __props__.__dict__["subscription_required"] = None
             __props__.__dict__["terms_of_service_url"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayApiEntityTag")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayApiEntityTag"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GatewayApiEntityTag")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayApiEntityTag, __self__).__init__(
             'azure-native:apimanagement/v20220801:GatewayApiEntityTag',

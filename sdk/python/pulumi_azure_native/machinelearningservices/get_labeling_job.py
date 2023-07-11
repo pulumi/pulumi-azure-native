@@ -20,18 +20,18 @@ __all__ = [
 @pulumi.output_type
 class GetLabelingJobResult:
     """
-    Machine Learning labeling job object wrapped into ARM resource envelope.
+    Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, labeling_job_properties=None, name=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if labeling_job_properties and not isinstance(labeling_job_properties, dict):
+            raise TypeError("Expected argument 'labeling_job_properties' to be a dict")
+        pulumi.set(__self__, "labeling_job_properties", labeling_job_properties)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -43,31 +43,31 @@ class GetLabelingJobResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The resource URL of the entity (not URL encoded).
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="labelingJobProperties")
+    def labeling_job_properties(self) -> 'outputs.LabelingJobResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "labeling_job_properties")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the resource entity.
+        The name of the resource
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.LabelingJobPropertiesResponse':
-        """
-        Definition of a labeling job.
-        """
-        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -75,7 +75,7 @@ class GetLabelingJobResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        The resource provider and type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -87,33 +87,33 @@ class AwaitableGetLabelingJobResult(GetLabelingJobResult):
             yield self
         return GetLabelingJobResult(
             id=self.id,
+            labeling_job_properties=self.labeling_job_properties,
             name=self.name,
-            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
 
-def get_labeling_job(include_job_instructions: Optional[bool] = None,
+def get_labeling_job(id: Optional[str] = None,
+                     include_job_instructions: Optional[bool] = None,
                      include_label_categories: Optional[bool] = None,
-                     labeling_job_id: Optional[str] = None,
                      resource_group_name: Optional[str] = None,
                      workspace_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabelingJobResult:
     """
-    Gets a labeling job by id.
-    API Version: 2020-09-01-preview.
+    Azure Resource Manager resource envelope.
+    Azure REST API version: 2023-04-01-preview.
 
 
+    :param str id: The name and identifier for the LabelingJob.
     :param bool include_job_instructions: Boolean value to indicate whether to include JobInstructions in response.
-    :param bool include_label_categories: Boolean value to indicate whether to include LabelCategories in response.
-    :param str labeling_job_id: Name and identifier for LabelingJob.
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param bool include_label_categories: Boolean value to indicate Whether to include LabelCategories in response.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
+    __args__['id'] = id
     __args__['includeJobInstructions'] = include_job_instructions
     __args__['includeLabelCategories'] = include_label_categories
-    __args__['labelingJobId'] = labeling_job_id
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -121,28 +121,28 @@ def get_labeling_job(include_job_instructions: Optional[bool] = None,
 
     return AwaitableGetLabelingJobResult(
         id=__ret__.id,
+        labeling_job_properties=__ret__.labeling_job_properties,
         name=__ret__.name,
-        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_labeling_job)
-def get_labeling_job_output(include_job_instructions: Optional[pulumi.Input[Optional[bool]]] = None,
+def get_labeling_job_output(id: Optional[pulumi.Input[str]] = None,
+                            include_job_instructions: Optional[pulumi.Input[Optional[bool]]] = None,
                             include_label_categories: Optional[pulumi.Input[Optional[bool]]] = None,
-                            labeling_job_id: Optional[pulumi.Input[str]] = None,
                             resource_group_name: Optional[pulumi.Input[str]] = None,
                             workspace_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabelingJobResult]:
     """
-    Gets a labeling job by id.
-    API Version: 2020-09-01-preview.
+    Azure Resource Manager resource envelope.
+    Azure REST API version: 2023-04-01-preview.
 
 
+    :param str id: The name and identifier for the LabelingJob.
     :param bool include_job_instructions: Boolean value to indicate whether to include JobInstructions in response.
-    :param bool include_label_categories: Boolean value to indicate whether to include LabelCategories in response.
-    :param str labeling_job_id: Name and identifier for LabelingJob.
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param bool include_label_categories: Boolean value to indicate Whether to include LabelCategories in response.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     ...

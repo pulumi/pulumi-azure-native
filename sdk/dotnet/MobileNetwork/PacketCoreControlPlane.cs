@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// Packet core control plane resource.
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreControlPlane")]
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource
@@ -29,22 +29,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string?> CoreNetworkTechnology { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Configuration for uploading packet core diagnostics
         /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
+        [Output("diagnosticsUpload")]
+        public Output<Outputs.DiagnosticsUploadConfigurationResponse?> DiagnosticsUpload { get; private set; } = null!;
 
         /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
@@ -53,46 +41,34 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// The installation state of the packet core control plane resource.
+        /// </summary>
+        [Output("installation")]
+        public Output<Outputs.InstallationResponse?> Installation { get; private set; } = null!;
+
+        /// <summary>
+        /// The currently installed version of the packet core software.
+        /// </summary>
+        [Output("installedVersion")]
+        public Output<string> InstalledVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Settings to allow interoperability with third party components e.g. RANs and UEs.
         /// </summary>
         [Output("interopSettings")]
         public Output<object?> InteropSettings { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
-
-        /// <summary>
         /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
         /// </summary>
         [Output("localDiagnosticsAccess")]
-        public Output<Outputs.LocalDiagnosticsAccessConfigurationResponse?> LocalDiagnosticsAccess { get; private set; } = null!;
+        public Output<Outputs.LocalDiagnosticsAccessConfigurationResponse> LocalDiagnosticsAccess { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// Mobile network in which this packet core control plane is deployed.
-        /// </summary>
-        [Output("mobileNetwork")]
-        public Output<Outputs.MobileNetworkResourceIdResponse> MobileNetwork { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -104,13 +80,25 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// The platform where the packet core is deployed.
         /// </summary>
         [Output("platform")]
-        public Output<Outputs.PlatformConfigurationResponse?> Platform { get; private set; } = null!;
+        public Output<Outputs.PlatformConfigurationResponse> Platform { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the packet core control plane resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The previous version of the packet core software that was deployed. Used when performing the rollback action.
+        /// </summary>
+        [Output("rollbackVersion")]
+        public Output<string> RollbackVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
+        /// </summary>
+        [Output("sites")]
+        public Output<ImmutableArray<Outputs.SiteResourceIdResponse>> Sites { get; private set; } = null!;
 
         /// <summary>
         /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
@@ -137,7 +125,13 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the packet core software that is deployed.
+        /// The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
+        /// </summary>
+        [Output("ueMtu")]
+        public Output<int?> UeMtu { get; private set; } = null!;
+
+        /// <summary>
+        /// The desired version of the packet core software.
         /// </summary>
         [Output("version")]
         public Output<string?> Version { get; private set; } = null!;
@@ -170,6 +164,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:PacketCoreControlPlane"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:PacketCoreControlPlane"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -206,22 +201,10 @@ namespace Pulumi.AzureNative.MobileNetwork
         public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CoreNetworkType>? CoreNetworkTechnology { get; set; }
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
+        /// Configuration for uploading packet core diagnostics
         /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
+        [Input("diagnosticsUpload")]
+        public Input<Inputs.DiagnosticsUploadConfigurationArgs>? DiagnosticsUpload { get; set; }
 
         /// <summary>
         /// The identity used to retrieve the ingress certificate from Azure key vault.
@@ -230,46 +213,28 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The installation state of the packet core control plane resource.
+        /// </summary>
+        [Input("installation")]
+        public Input<Inputs.InstallationArgs>? Installation { get; set; }
+
+        /// <summary>
         /// Settings to allow interoperability with third party components e.g. RANs and UEs.
         /// </summary>
         [Input("interopSettings")]
         public Input<object>? InteropSettings { get; set; }
 
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? LastModifiedByType { get; set; }
-
-        /// <summary>
         /// The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
         /// </summary>
-        [Input("localDiagnosticsAccess")]
-        public Input<Inputs.LocalDiagnosticsAccessConfigurationArgs>? LocalDiagnosticsAccess { get; set; }
+        [Input("localDiagnosticsAccess", required: true)]
+        public Input<Inputs.LocalDiagnosticsAccessConfigurationArgs> LocalDiagnosticsAccess { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Mobile network in which this packet core control plane is deployed.
-        /// </summary>
-        [Input("mobileNetwork", required: true)]
-        public Input<Inputs.MobileNetworkResourceIdArgs> MobileNetwork { get; set; } = null!;
 
         /// <summary>
         /// The name of the packet core control plane.
@@ -280,14 +245,26 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// <summary>
         /// The platform where the packet core is deployed.
         /// </summary>
-        [Input("platform")]
-        public Input<Inputs.PlatformConfigurationArgs>? Platform { get; set; }
+        [Input("platform", required: true)]
+        public Input<Inputs.PlatformConfigurationArgs> Platform { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("sites", required: true)]
+        private InputList<Inputs.SiteResourceIdArgs>? _sites;
+
+        /// <summary>
+        /// Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.
+        /// </summary>
+        public InputList<Inputs.SiteResourceIdArgs> Sites
+        {
+            get => _sites ?? (_sites = new InputList<Inputs.SiteResourceIdArgs>());
+            set => _sites = value;
+        }
 
         /// <summary>
         /// The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
@@ -308,13 +285,20 @@ namespace Pulumi.AzureNative.MobileNetwork
         }
 
         /// <summary>
-        /// The version of the packet core software that is deployed.
+        /// The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.
+        /// </summary>
+        [Input("ueMtu")]
+        public Input<int>? UeMtu { get; set; }
+
+        /// <summary>
+        /// The desired version of the packet core software.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 
         public PacketCoreControlPlaneArgs()
         {
+            UeMtu = 1440;
         }
         public static new PacketCoreControlPlaneArgs Empty => new PacketCoreControlPlaneArgs();
     }

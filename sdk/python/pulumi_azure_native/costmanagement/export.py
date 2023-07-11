@@ -23,6 +23,7 @@ class ExportArgs:
                  e_tag: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 partition_data: Optional[pulumi.Input[bool]] = None,
                  schedule: Optional[pulumi.Input['ExportScheduleArgs']] = None):
         """
         The set of arguments for constructing a Export resource.
@@ -32,6 +33,7 @@ class ExportArgs:
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] export_name: Export Name.
         :param pulumi.Input[Union[str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
+        :param pulumi.Input[bool] partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         :param pulumi.Input['ExportScheduleArgs'] schedule: Has schedule information for the export.
         """
         pulumi.set(__self__, "definition", definition)
@@ -43,6 +45,8 @@ class ExportArgs:
             pulumi.set(__self__, "export_name", export_name)
         if format is not None:
             pulumi.set(__self__, "format", format)
+        if partition_data is not None:
+            pulumi.set(__self__, "partition_data", partition_data)
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
 
@@ -119,6 +123,18 @@ class ExportArgs:
         pulumi.set(self, "format", value)
 
     @property
+    @pulumi.getter(name="partitionData")
+    def partition_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+        """
+        return pulumi.get(self, "partition_data")
+
+    @partition_data.setter
+    def partition_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partition_data", value)
+
+    @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['ExportScheduleArgs']]:
         """
@@ -141,12 +157,13 @@ class Export(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 partition_data: Optional[pulumi.Input[bool]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         An export resource.
-        API Version: 2020-06-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,6 +172,7 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] export_name: Export Name.
         :param pulumi.Input[Union[str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
+        :param pulumi.Input[bool] partition_data: If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
         :param pulumi.Input[pulumi.InputType['ExportScheduleArgs']] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         """
@@ -166,7 +184,7 @@ class Export(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An export resource.
-        API Version: 2020-06-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
 
         :param str resource_name: The name of the resource.
         :param ExportArgs args: The arguments to use to populate this resource's properties.
@@ -188,6 +206,7 @@ class Export(pulumi.CustomResource):
                  e_tag: Optional[pulumi.Input[str]] = None,
                  export_name: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[Union[str, 'FormatType']]] = None,
+                 partition_data: Optional[pulumi.Input[bool]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ExportScheduleArgs']]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -208,6 +227,7 @@ class Export(pulumi.CustomResource):
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["export_name"] = export_name
             __props__.__dict__["format"] = format
+            __props__.__dict__["partition_data"] = partition_data
             __props__.__dict__["schedule"] = schedule
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
@@ -216,7 +236,7 @@ class Export(pulumi.CustomResource):
             __props__.__dict__["next_run_time_estimate"] = None
             __props__.__dict__["run_history"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20201201preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20210101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:Export")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20190901:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20201201preview:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20210101:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:Export"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:Export")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Export, __self__).__init__(
             'azure-native:costmanagement:Export',
@@ -246,6 +266,7 @@ class Export(pulumi.CustomResource):
         __props__.__dict__["format"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["next_run_time_estimate"] = None
+        __props__.__dict__["partition_data"] = None
         __props__.__dict__["run_history"] = None
         __props__.__dict__["schedule"] = None
         __props__.__dict__["type"] = None
@@ -295,15 +316,23 @@ class Export(pulumi.CustomResource):
     @pulumi.getter(name="nextRunTimeEstimate")
     def next_run_time_estimate(self) -> pulumi.Output[str]:
         """
-        If the export has an active schedule, provides an estimate of the next execution time.
+        If the export has an active schedule, provides an estimate of the next run time.
         """
         return pulumi.get(self, "next_run_time_estimate")
+
+    @property
+    @pulumi.getter(name="partitionData")
+    def partition_data(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+        """
+        return pulumi.get(self, "partition_data")
 
     @property
     @pulumi.getter(name="runHistory")
     def run_history(self) -> pulumi.Output[Optional['outputs.ExportExecutionListResultResponse']]:
         """
-        If requested, has the most recent execution history for the export.
+        If requested, has the most recent run history for the export.
         """
         return pulumi.get(self, "run_history")
 

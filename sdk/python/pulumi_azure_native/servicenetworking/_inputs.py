@@ -12,7 +12,6 @@ from ._enums import *
 
 __all__ = [
     'AssociationSubnetArgs',
-    'FrontendPropertiesIPAddressArgs',
 ]
 
 @pulumi.input_type
@@ -30,29 +29,6 @@ class AssociationSubnetArgs:
     def id(self) -> pulumi.Input[str]:
         """
         Association ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class FrontendPropertiesIPAddressArgs:
-    def __init__(__self__, *,
-                 id: pulumi.Input[str]):
-        """
-        Frontend IP Address.
-        :param pulumi.Input[str] id: IP Address.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
-        """
-        IP Address.
         """
         return pulumi.get(self, "id")
 

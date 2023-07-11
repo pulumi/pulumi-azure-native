@@ -11,13 +11,19 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:PatchSchedule")]
     public partial class PatchSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Resource name.
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -29,7 +35,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<ImmutableArray<Outputs.ScheduleEntryResponse>> ScheduleEntries { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -67,6 +73,8 @@ namespace Pulumi.AzureNative.Cache
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:PatchSchedule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:PatchSchedule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:PatchSchedule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

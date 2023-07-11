@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a gallery.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
  */
 export class Gallery extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class Gallery extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Gallery" }, { type: "azure-native:devcenter/v20220901preview:Gallery" }, { type: "azure-native:devcenter/v20221012preview:Gallery" }, { type: "azure-native:devcenter/v20221111preview:Gallery" }, { type: "azure-native:devcenter/v20230101preview:Gallery" }, { type: "azure-native:devcenter/v20230401:Gallery" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Gallery.__pulumiType, name, resourceInputs, opts);
     }
@@ -118,7 +118,7 @@ export interface GalleryArgs {
      */
     galleryResourceId: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

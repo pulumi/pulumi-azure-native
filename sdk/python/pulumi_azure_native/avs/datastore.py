@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DatastoreArgs', 'Datastore']
@@ -128,7 +129,7 @@ class Datastore(pulumi.CustomResource):
                  __props__=None):
         """
         A datastore resource
-        API Version: 2021-01-01-preview.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -147,7 +148,7 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A datastore resource
-        API Version: 2021-01-01-preview.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.
@@ -193,6 +194,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:avs/v20210101preview:Datastore"), pulumi.Alias(type_="azure-native:avs/v20210601:Datastore"), pulumi.Alias(type_="azure-native:avs/v20211201:Datastore"), pulumi.Alias(type_="azure-native:avs/v20220501:Datastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -222,6 +224,7 @@ class Datastore(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["net_app_volume"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["status"] = None
         __props__.__dict__["type"] = None
         return Datastore(resource_name, opts=opts, __props__=__props__)
 
@@ -256,6 +259,14 @@ class Datastore(pulumi.CustomResource):
         The state of the datastore provisioning
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Output[str]:
+        """
+        The operational status of the datastore
+        """
+        return pulumi.get(self, "status")
 
     @property
     @pulumi.getter

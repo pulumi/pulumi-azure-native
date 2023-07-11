@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the security configuration
- * API Version: 2021-02-01-preview.
+ * Defines the security user configuration
+ * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class SecurityUserConfiguration extends pulumi.CustomResource {
     /**
@@ -43,13 +43,9 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
      */
     public readonly deleteExistingNSGs!: pulumi.Output<string | undefined>;
     /**
-     * A description of the security configuration.
+     * A description of the security user configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A display name of the security configuration.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -62,10 +58,6 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
      * The provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * Security Type.
-     */
-    public readonly securityType!: pulumi.Output<string | undefined>;
     /**
      * The system metadata related to this resource.
      */
@@ -95,10 +87,8 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
             resourceInputs["deleteExistingNSGs"] = args ? args.deleteExistingNSGs : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -107,11 +97,9 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
         } else {
             resourceInputs["deleteExistingNSGs"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["securityType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -127,7 +115,7 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
  */
 export interface SecurityUserConfigurationArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName?: pulumi.Input<string>;
     /**
@@ -135,13 +123,9 @@ export interface SecurityUserConfigurationArgs {
      */
     deleteExistingNSGs?: pulumi.Input<string | enums.network.DeleteExistingNSGs>;
     /**
-     * A description of the security configuration.
+     * A description of the security user configuration.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A display name of the security configuration.
-     */
-    displayName?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
@@ -150,8 +134,4 @@ export interface SecurityUserConfigurationArgs {
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * Security Type.
-     */
-    securityType?: pulumi.Input<string | enums.network.SecurityType>;
 }

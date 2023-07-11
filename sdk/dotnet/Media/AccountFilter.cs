@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// An Account Filter.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:media:AccountFilter")]
     public partial class AccountFilter : global::Pulumi.CustomResource

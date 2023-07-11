@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets properties of a specified share.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetFileShareResult> InvokeAsync(GetFileShareArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a specified share.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetFileShareResult> Invoke(GetFileShareInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileShareResult>("azure-native:storage:getFileShare", args ?? new GetFileShareInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Storage
         public string AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Optional, used to expand the properties within share's properties.
+        /// Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Storage
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// Optional, used to expand the properties within share's properties.
+        /// Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }
@@ -132,6 +132,18 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly string LastModifiedTime;
         /// <summary>
+        /// Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+        /// </summary>
+        public readonly string LeaseDuration;
+        /// <summary>
+        /// Lease state of the share.
+        /// </summary>
+        public readonly string LeaseState;
+        /// <summary>
+        /// The lease status of the share.
+        /// </summary>
+        public readonly string LeaseStatus;
+        /// <summary>
         /// A name-value pair to associate with the share as metadata.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Metadata;
@@ -155,6 +167,10 @@ namespace Pulumi.AzureNative.Storage
         /// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         /// </summary>
         public readonly double ShareUsageBytes;
+        /// <summary>
+        /// List of stored access policies specified on the share.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SignedIdentifierResponse> SignedIdentifiers;
         /// <summary>
         /// Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
         /// </summary>
@@ -188,6 +204,12 @@ namespace Pulumi.AzureNative.Storage
 
             string lastModifiedTime,
 
+            string leaseDuration,
+
+            string leaseState,
+
+            string leaseStatus,
+
             ImmutableDictionary<string, string>? metadata,
 
             string name,
@@ -199,6 +221,8 @@ namespace Pulumi.AzureNative.Storage
             int? shareQuota,
 
             double shareUsageBytes,
+
+            ImmutableArray<Outputs.SignedIdentifierResponse> signedIdentifiers,
 
             string snapshotTime,
 
@@ -215,12 +239,16 @@ namespace Pulumi.AzureNative.Storage
             Etag = etag;
             Id = id;
             LastModifiedTime = lastModifiedTime;
+            LeaseDuration = leaseDuration;
+            LeaseState = leaseState;
+            LeaseStatus = leaseStatus;
             Metadata = metadata;
             Name = name;
             RemainingRetentionDays = remainingRetentionDays;
             RootSquash = rootSquash;
             ShareQuota = shareQuota;
             ShareUsageBytes = shareUsageBytes;
+            SignedIdentifiers = signedIdentifiers;
             SnapshotTime = snapshotTime;
             Type = type;
             Version = version;

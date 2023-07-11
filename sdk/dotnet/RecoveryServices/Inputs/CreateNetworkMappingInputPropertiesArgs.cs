@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// <summary>
         /// Recovery network Id.
         /// </summary>
-        [Input("recoveryNetworkId")]
-        public Input<string>? RecoveryNetworkId { get; set; }
+        [Input("recoveryNetworkId", required: true)]
+        public Input<string> RecoveryNetworkId { get; set; } = null!;
 
         public CreateNetworkMappingInputPropertiesArgs()
         {

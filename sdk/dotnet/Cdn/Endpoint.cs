@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("contentTypesToCompress")]
         public Output<ImmutableArray<string>> ContentTypesToCompress { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom domains under the endpoint.
+        /// </summary>
+        [Output("customDomains")]
+        public Output<ImmutableArray<Outputs.DeepCreatedCustomDomainResponse>> CustomDomains { get; private set; } = null!;
 
         /// <summary>
         /// A reference to the origin group.
@@ -200,6 +206,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Endpoint"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Endpoint"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Endpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

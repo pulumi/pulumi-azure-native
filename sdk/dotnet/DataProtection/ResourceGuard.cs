@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
-    /// API Version: 2021-10-01-preview.
+    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:ResourceGuard")]
     public partial class ResourceGuard : global::Pulumi.CustomResource
@@ -20,12 +20,6 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
-
-        /// <summary>
-        /// Input Managed Identity Details
-        /// </summary>
-        [Output("identity")]
-        public Output<Outputs.DppIdentityDetailsResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -102,6 +96,8 @@ namespace Pulumi.AzureNative.DataProtection
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221201:ResourceGuard"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:ResourceGuard"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:ResourceGuard"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -132,19 +128,19 @@ namespace Pulumi.AzureNative.DataProtection
         public Input<string>? ETag { get; set; }
 
         /// <summary>
-        /// Input Managed Identity Details
-        /// </summary>
-        [Input("identity")]
-        public Input<Inputs.DppIdentityDetailsArgs>? Identity { get; set; }
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// ResourceGuardResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ResourceGuardArgs>? Properties { get; set; }
+
+        /// <summary>
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

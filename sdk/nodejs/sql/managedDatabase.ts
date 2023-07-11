@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed database resource.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ManagedDatabase extends pulumi.CustomResource {
     /**
@@ -138,7 +138,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20190601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200202preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-native:sql/v20201101preview:ManagedDatabase" }, { type: "azure-native:sql/v20210201preview:ManagedDatabase" }, { type: "azure-native:sql/v20210501preview:ManagedDatabase" }, { type: "azure-native:sql/v20210801preview:ManagedDatabase" }, { type: "azure-native:sql/v20211101:ManagedDatabase" }, { type: "azure-native:sql/v20211101preview:ManagedDatabase" }, { type: "azure-native:sql/v20220201preview:ManagedDatabase" }, { type: "azure-native:sql/v20220501preview:ManagedDatabase" }, { type: "azure-native:sql/v20220801preview:ManagedDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ManagedDatabase" }, { type: "azure-native:sql/v20180601preview:ManagedDatabase" }, { type: "azure-native:sql/v20190601preview:ManagedDatabase" }, { type: "azure-native:sql/v20200202preview:ManagedDatabase" }, { type: "azure-native:sql/v20200801preview:ManagedDatabase" }, { type: "azure-native:sql/v20201101preview:ManagedDatabase" }, { type: "azure-native:sql/v20210201preview:ManagedDatabase" }, { type: "azure-native:sql/v20210501preview:ManagedDatabase" }, { type: "azure-native:sql/v20210801preview:ManagedDatabase" }, { type: "azure-native:sql/v20211101:ManagedDatabase" }, { type: "azure-native:sql/v20211101preview:ManagedDatabase" }, { type: "azure-native:sql/v20220201preview:ManagedDatabase" }, { type: "azure-native:sql/v20220501preview:ManagedDatabase" }, { type: "azure-native:sql/v20220801preview:ManagedDatabase" }, { type: "azure-native:sql/v20221101preview:ManagedDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedDatabase.__pulumiType, name, resourceInputs, opts);
     }

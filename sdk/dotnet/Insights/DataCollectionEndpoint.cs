@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
-    /// API Version: 2021-09-01-preview.
+    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionEndpoint")]
     public partial class DataCollectionEndpoint : global::Pulumi.CustomResource
@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Failover configuration on this endpoint. This property is READ-ONLY.
+        /// </summary>
+        [Output("failoverConfiguration")]
+        public Output<Outputs.DataCollectionEndpointResponseFailoverConfiguration> FailoverConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Managed service identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.DataCollectionEndpointResourceResponseIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
@@ -59,6 +71,18 @@ namespace Pulumi.AzureNative.Insights
         public Output<Outputs.DataCollectionEndpointResponseLogsIngestion?> LogsIngestion { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata for the resource. This property is READ-ONLY.
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.DataCollectionEndpointResponseMetadata> Metadata { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint used by clients to ingest metrics.
+        /// </summary>
+        [Output("metricsIngestion")]
+        public Output<Outputs.DataCollectionEndpointResponseMetricsIngestion?> MetricsIngestion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
@@ -69,6 +93,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("networkAcls")]
         public Output<Outputs.DataCollectionEndpointResponseNetworkAcls?> NetworkAcls { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.
+        /// </summary>
+        [Output("privateLinkScopedResources")]
+        public Output<ImmutableArray<Outputs.PrivateLinkScopedResourceResponse>> PrivateLinkScopedResources { get; private set; } = null!;
 
         /// <summary>
         /// The resource provisioning state. This property is READ-ONLY.
@@ -156,6 +186,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Managed service identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.DataCollectionEndpointResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The immutable ID of this data collection endpoint resource. This property is READ-ONLY.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerInstance
     {
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetContainerGroupResult> InvokeAsync(GetContainerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified container group in the specified subscription and resource group. The operation returns the properties of each container group including containers, image registry credentials, restart policy, IP address type, OS type, state, and volumes.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetContainerGroupResult> Invoke(GetContainerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupResult>("azure-native:containerinstance:getContainerGroup", args ?? new GetContainerGroupInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.ContainerInstance
     public sealed class GetContainerGroupResult
     {
         /// <summary>
+        /// The properties for confidential container group
+        /// </summary>
+        public readonly Outputs.ConfidentialComputePropertiesResponse? ConfidentialComputeProperties;
+        /// <summary>
         /// The containers within the container group.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
@@ -87,6 +91,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The encryption properties for a container group.
         /// </summary>
         public readonly Outputs.EncryptionPropertiesResponse? EncryptionProperties;
+        /// <summary>
+        /// extensions used by virtual kubelet
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DeploymentExtensionSpecResponse> Extensions;
         /// <summary>
         /// The resource id.
         /// </summary>
@@ -106,7 +114,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerGroupResponseInstanceView InstanceView;
+        public readonly Outputs.ContainerGroupPropertiesResponseInstanceView InstanceView;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
@@ -120,13 +128,13 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The network profile information for a container group.
-        /// </summary>
-        public readonly Outputs.ContainerGroupNetworkProfileResponse? NetworkProfile;
-        /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
         public readonly string OsType;
+        /// <summary>
+        /// The priority of the container group.
+        /// </summary>
+        public readonly string? Priority;
         /// <summary>
         /// The provisioning state of the container group. This only appears in the response.
         /// </summary>
@@ -143,6 +151,10 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         public readonly string? Sku;
         /// <summary>
+        /// The subnet resource IDs for a container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> SubnetIds;
+        /// <summary>
         /// The resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -154,9 +166,15 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The list of volumes that can be mounted by containers in this container group.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeResponse> Volumes;
+        /// <summary>
+        /// The zones for the container group.
+        /// </summary>
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetContainerGroupResult(
+            Outputs.ConfidentialComputePropertiesResponse? confidentialComputeProperties,
+
             ImmutableArray<Outputs.ContainerResponse> containers,
 
             Outputs.ContainerGroupDiagnosticsResponse? diagnostics,
@@ -164,6 +182,8 @@ namespace Pulumi.AzureNative.ContainerInstance
             Outputs.DnsConfigurationResponse? dnsConfig,
 
             Outputs.EncryptionPropertiesResponse? encryptionProperties,
+
+            ImmutableArray<Outputs.DeploymentExtensionSpecResponse> extensions,
 
             string id,
 
@@ -173,7 +193,7 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             ImmutableArray<Outputs.InitContainerDefinitionResponse> initContainers,
 
-            Outputs.ContainerGroupResponseInstanceView instanceView,
+            Outputs.ContainerGroupPropertiesResponseInstanceView instanceView,
 
             Outputs.IpAddressResponse? ipAddress,
 
@@ -181,9 +201,9 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string name,
 
-            Outputs.ContainerGroupNetworkProfileResponse? networkProfile,
-
             string osType,
+
+            string? priority,
 
             string provisioningState,
 
@@ -191,16 +211,22 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string? sku,
 
+            ImmutableArray<Outputs.ContainerGroupSubnetIdResponse> subnetIds,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            ImmutableArray<Outputs.VolumeResponse> volumes)
+            ImmutableArray<Outputs.VolumeResponse> volumes,
+
+            ImmutableArray<string> zones)
         {
+            ConfidentialComputeProperties = confidentialComputeProperties;
             Containers = containers;
             Diagnostics = diagnostics;
             DnsConfig = dnsConfig;
             EncryptionProperties = encryptionProperties;
+            Extensions = extensions;
             Id = id;
             Identity = identity;
             ImageRegistryCredentials = imageRegistryCredentials;
@@ -209,14 +235,16 @@ namespace Pulumi.AzureNative.ContainerInstance
             IpAddress = ipAddress;
             Location = location;
             Name = name;
-            NetworkProfile = networkProfile;
             OsType = osType;
+            Priority = priority;
             ProvisioningState = provisioningState;
             RestartPolicy = restartPolicy;
             Sku = sku;
+            SubnetIds = subnetIds;
             Tags = tags;
             Type = type;
             Volumes = volumes;
+            Zones = zones;
         }
     }
 }

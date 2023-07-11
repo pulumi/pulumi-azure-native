@@ -17,9 +17,17 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class PrivateEndpointResponse
     {
         /// <summary>
+        /// Application security groups in which the private endpoint IP configuration is included.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponse> ApplicationSecurityGroups;
+        /// <summary>
         /// An array of custom dns configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse> CustomDnsConfigs;
+        /// <summary>
+        /// The custom name of the network interface attached to the private endpoint.
+        /// </summary>
+        public readonly string? CustomNetworkInterfaceName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -32,6 +40,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -71,13 +83,19 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private PrivateEndpointResponse(
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponse> applicationSecurityGroups,
+
             ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse> customDnsConfigs,
+
+            string? customNetworkInterfaceName,
 
             string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string? id,
+
+            ImmutableArray<Outputs.PrivateEndpointIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
@@ -97,10 +115,13 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string type)
         {
+            ApplicationSecurityGroups = applicationSecurityGroups;
             CustomDnsConfigs = customDnsConfigs;
+            CustomNetworkInterfaceName = customNetworkInterfaceName;
             Etag = etag;
             ExtendedLocation = extendedLocation;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Location = location;
             ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;
             Name = name;

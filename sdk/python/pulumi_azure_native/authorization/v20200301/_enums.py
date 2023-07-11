@@ -6,8 +6,6 @@ from enum import Enum
 
 __all__ = [
     'EnforcementMode',
-    'ParameterType',
-    'PolicyType',
     'ResourceIdentityType',
 ]
 
@@ -24,29 +22,6 @@ class EnforcementMode(str, Enum):
     """
     The policy effect is not enforced during resource creation or update.
     """
-
-
-class ParameterType(str, Enum):
-    """
-    The data type of the parameter.
-    """
-    STRING = "String"
-    ARRAY = "Array"
-    OBJECT = "Object"
-    BOOLEAN = "Boolean"
-    INTEGER = "Integer"
-    FLOAT = "Float"
-    DATE_TIME = "DateTime"
-
-
-class PolicyType(str, Enum):
-    """
-    The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    BUILT_IN = "BuiltIn"
-    CUSTOM = "Custom"
-    STATIC = "Static"
 
 
 class ResourceIdentityType(str, Enum):

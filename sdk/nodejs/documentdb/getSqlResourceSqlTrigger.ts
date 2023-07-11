@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
 
@@ -74,7 +74,7 @@ export interface GetSqlResourceSqlTriggerResult {
 }
 /**
  * Gets the SQL trigger under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getSqlResourceSqlTriggerOutput(args: GetSqlResourceSqlTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlResourceSqlTriggerResult> {
     return pulumi.output(args).apply((a: any) => getSqlResourceSqlTrigger(a, opts))

@@ -386,42 +386,6 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
-    /// The provisioning state of the workspace.
-    /// </summary>
-    [EnumType]
-    public readonly struct WorkspaceEntityStatus : IEquatable<WorkspaceEntityStatus>
-    {
-        private readonly string _value;
-
-        private WorkspaceEntityStatus(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WorkspaceEntityStatus Creating { get; } = new WorkspaceEntityStatus("Creating");
-        public static WorkspaceEntityStatus Succeeded { get; } = new WorkspaceEntityStatus("Succeeded");
-        public static WorkspaceEntityStatus Failed { get; } = new WorkspaceEntityStatus("Failed");
-        public static WorkspaceEntityStatus Canceled { get; } = new WorkspaceEntityStatus("Canceled");
-        public static WorkspaceEntityStatus Deleting { get; } = new WorkspaceEntityStatus("Deleting");
-        public static WorkspaceEntityStatus ProvisioningAccount { get; } = new WorkspaceEntityStatus("ProvisioningAccount");
-        public static WorkspaceEntityStatus Updating { get; } = new WorkspaceEntityStatus("Updating");
-
-        public static bool operator ==(WorkspaceEntityStatus left, WorkspaceEntityStatus right) => left.Equals(right);
-        public static bool operator !=(WorkspaceEntityStatus left, WorkspaceEntityStatus right) => !left.Equals(right);
-
-        public static explicit operator string(WorkspaceEntityStatus value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WorkspaceEntityStatus other && Equals(other);
-        public bool Equals(WorkspaceEntityStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of the SKU.
     /// </summary>
     [EnumType]

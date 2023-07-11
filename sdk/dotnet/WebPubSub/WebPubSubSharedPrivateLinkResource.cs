@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.WebPubSub
 {
     /// <summary>
     /// Describes a Shared Private Link Resource
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubSharedPrivateLinkResource")]
     public partial class WebPubSubSharedPrivateLinkResource : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.WebPubSub
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the shared private link resource
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -95,6 +95,8 @@ namespace Pulumi.AzureNative.WebPubSub
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubSharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubSharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

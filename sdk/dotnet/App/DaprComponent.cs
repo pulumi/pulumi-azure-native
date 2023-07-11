@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Dapr Component.
-    /// API Version: 2022-03-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:app:DaprComponent")]
     public partial class DaprComponent : global::Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<string>> Scopes { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of a Dapr component to retrieve component secrets from
+        /// </summary>
+        [Output("secretStoreComponent")]
+        public Output<string?> SecretStoreComponent { get; private set; } = null!;
 
         /// <summary>
         /// Collection of secrets used by a Dapr component
@@ -105,6 +111,8 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:DaprComponent"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:DaprComponent"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:DaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:DaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:DaprComponent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -187,6 +195,12 @@ namespace Pulumi.AzureNative.App
             get => _scopes ?? (_scopes = new InputList<string>());
             set => _scopes = value;
         }
+
+        /// <summary>
+        /// Name of a Dapr component to retrieve component secrets from
+        /// </summary>
+        [Input("secretStoreComponent")]
+        public Input<string>? SecretStoreComponent { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.SecretArgs>? _secrets;

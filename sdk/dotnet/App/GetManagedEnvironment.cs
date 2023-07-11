@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetManagedEnvironmentResult> InvokeAsync(GetManagedEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of a Managed Environment used to host container apps.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetManagedEnvironmentResult> Invoke(GetManagedEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedEnvironmentResult>("azure-native:app:getManagedEnvironment", args ?? new GetManagedEnvironmentInvokeArgs(), options.WithDefaults());
@@ -78,6 +78,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly Outputs.AppLogsConfigurationResponse? AppLogsConfiguration;
         /// <summary>
+        /// Custom domain configuration for the environment
+        /// </summary>
+        public readonly Outputs.CustomDomainConfigurationResponse? CustomDomainConfiguration;
+        /// <summary>
         /// Application Insights connection string used by Dapr to export Service to Service communication telemetry
         /// </summary>
         public readonly string? DaprAIConnectionString;
@@ -94,9 +98,17 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly string DeploymentErrors;
         /// <summary>
+        /// The endpoint of the eventstream of the Environment.
+        /// </summary>
+        public readonly string EventStreamEndpoint;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Kind of the Environment.
+        /// </summary>
+        public readonly string? Kind;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -109,6 +121,10 @@ namespace Pulumi.AzureNative.App
         /// Provisioning state of the Environment.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// SKU properties of the Environment.
+        /// </summary>
+        public readonly Outputs.EnvironmentSkuPropertiesResponse? Sku;
         /// <summary>
         /// Static IP of the Environment
         /// </summary>
@@ -130,6 +146,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly Outputs.VnetConfigurationResponse? VnetConfiguration;
         /// <summary>
+        /// Workload profiles configured for the Managed Environment.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WorkloadProfileResponse> WorkloadProfiles;
+        /// <summary>
         /// Whether or not this Managed Environment is zone-redundant.
         /// </summary>
         public readonly bool? ZoneRedundant;
@@ -137,6 +157,8 @@ namespace Pulumi.AzureNative.App
         [OutputConstructor]
         private GetManagedEnvironmentResult(
             Outputs.AppLogsConfigurationResponse? appLogsConfiguration,
+
+            Outputs.CustomDomainConfigurationResponse? customDomainConfiguration,
 
             string? daprAIConnectionString,
 
@@ -146,13 +168,19 @@ namespace Pulumi.AzureNative.App
 
             string deploymentErrors,
 
+            string eventStreamEndpoint,
+
             string id,
+
+            string? kind,
 
             string location,
 
             string name,
 
             string provisioningState,
+
+            Outputs.EnvironmentSkuPropertiesResponse? sku,
 
             string staticIp,
 
@@ -164,22 +192,29 @@ namespace Pulumi.AzureNative.App
 
             Outputs.VnetConfigurationResponse? vnetConfiguration,
 
+            ImmutableArray<Outputs.WorkloadProfileResponse> workloadProfiles,
+
             bool? zoneRedundant)
         {
             AppLogsConfiguration = appLogsConfiguration;
+            CustomDomainConfiguration = customDomainConfiguration;
             DaprAIConnectionString = daprAIConnectionString;
             DaprAIInstrumentationKey = daprAIInstrumentationKey;
             DefaultDomain = defaultDomain;
             DeploymentErrors = deploymentErrors;
+            EventStreamEndpoint = eventStreamEndpoint;
             Id = id;
+            Kind = kind;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            Sku = sku;
             StaticIp = staticIp;
             SystemData = systemData;
             Tags = tags;
             Type = type;
             VnetConfiguration = vnetConfiguration;
+            WorkloadProfiles = workloadProfiles;
             ZoneRedundant = zoneRedundant;
         }
     }

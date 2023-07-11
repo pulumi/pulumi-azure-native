@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'AggregateFunctionPropertiesArgs',
     'AvroSerializationArgs',
+    'AzureDataExplorerOutputDataSourceArgs',
     'AzureDataLakeStoreOutputDataSourceArgs',
     'AzureFunctionOutputDataSourceArgs',
     'AzureMachineLearningServiceFunctionBindingArgs',
@@ -166,6 +167,95 @@ class AvroSerializationArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class AzureDataExplorerOutputDataSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 authentication_mode: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]] = None,
+                 cluster: Optional[pulumi.Input[str]] = None,
+                 database: Optional[pulumi.Input[str]] = None,
+                 table: Optional[pulumi.Input[str]] = None):
+        """
+        Describes an Azure Data Explorer output data source.
+        :param pulumi.Input[str] type: Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+               Expected value is 'Microsoft.Kusto/clusters/databases'.
+        :param pulumi.Input[Union[str, 'AuthenticationMode']] authentication_mode: Authentication Mode.
+        :param pulumi.Input[str] cluster: The name of the Azure Data Explorer cluster. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] database: The name of the Azure Data Explorer database. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[str] table: The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+        """
+        pulumi.set(__self__, "type", 'Microsoft.Kusto/clusters/databases')
+        if authentication_mode is not None:
+            pulumi.set(__self__, "authentication_mode", authentication_mode)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+        Expected value is 'Microsoft.Kusto/clusters/databases'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="authenticationMode")
+    def authentication_mode(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]:
+        """
+        Authentication Mode.
+        """
+        return pulumi.get(self, "authentication_mode")
+
+    @authentication_mode.setter
+    def authentication_mode(self, value: Optional[pulumi.Input[Union[str, 'AuthenticationMode']]]):
+        pulumi.set(self, "authentication_mode", value)
+
+    @property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure Data Explorer cluster. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure Data Explorer database. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def table(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Azure Table. Required on PUT (CreateOrReplace) requests.
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "table", value)
 
 
 @pulumi.input_type
@@ -3466,11 +3556,11 @@ class GatewayMessageBusStreamInputDataSourceArgs:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
-                 user_assigned_identities: Optional[Any] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Describes how identity is verified
         :param pulumi.Input[str] type: The type of identity, can be SystemAssigned or UserAssigned.
-        :param Any user_assigned_identities: The user assigned identities associated with the streaming job resource.
+        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The user assigned identities associated with the streaming job resource.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -3491,14 +3581,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Any]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The user assigned identities associated with the streaming job resource.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[Any]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -3868,7 +3958,7 @@ class OutputWatermarkPropertiesArgs:
 @pulumi.input_type
 class OutputArgs:
     def __init__(__self__, *,
-                 datasource: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
+                 datasource: Optional[pulumi.Input[Union['AzureDataExplorerOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  serialization: Optional[pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']]] = None,
                  size_window: Optional[pulumi.Input[int]] = None,
@@ -3876,7 +3966,7 @@ class OutputArgs:
                  watermark_settings: Optional[pulumi.Input['OutputWatermarkPropertiesArgs']] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
-        :param pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        :param pulumi.Input[Union['AzureDataExplorerOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[str] name: Resource name
         :param pulumi.Input[Union['AvroSerializationArgs', 'CsvSerializationArgs', 'CustomClrSerializationArgs', 'DeltaSerializationArgs', 'JsonSerializationArgs', 'ParquetSerializationArgs']] serialization: Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         :param pulumi.Input[int] size_window: The size window to constrain a Stream Analytics output to.
@@ -3898,14 +3988,14 @@ class OutputArgs:
 
     @property
     @pulumi.getter
-    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
+    def datasource(self) -> Optional[pulumi.Input[Union['AzureDataExplorerOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]:
         """
         Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
         """
         return pulumi.get(self, "datasource")
 
     @datasource.setter
-    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
+    def datasource(self, value: Optional[pulumi.Input[Union['AzureDataExplorerOutputDataSourceArgs', 'AzureDataLakeStoreOutputDataSourceArgs', 'AzureFunctionOutputDataSourceArgs', 'AzureSqlDatabaseOutputDataSourceArgs', 'AzureSynapseOutputDataSourceArgs', 'AzureTableOutputDataSourceArgs', 'BlobOutputDataSourceArgs', 'DocumentDbOutputDataSourceArgs', 'EventHubOutputDataSourceArgs', 'EventHubV2OutputDataSourceArgs', 'GatewayMessageBusOutputDataSourceArgs', 'PostgreSQLOutputDataSourceArgs', 'PowerBIOutputDataSourceArgs', 'RawOutputDatasourceArgs', 'ServiceBusQueueOutputDataSourceArgs', 'ServiceBusTopicOutputDataSourceArgs']]]):
         pulumi.set(self, "datasource", value)
 
     @property

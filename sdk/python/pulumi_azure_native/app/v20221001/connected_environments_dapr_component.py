@@ -197,12 +197,7 @@ class ConnectedEnvironmentsDaprComponentArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
-    warnings.warn("""azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -272,7 +267,6 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConnectedEnvironmentsDaprComponent is deprecated: azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -301,7 +295,7 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent"), pulumi.Alias(type_="azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedEnvironmentsDaprComponent, __self__).__init__(
             'azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent',

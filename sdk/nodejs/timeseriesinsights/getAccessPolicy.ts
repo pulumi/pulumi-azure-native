@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the access policy with the specified name in the specified environment.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getAccessPolicy(args: GetAccessPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPolicyResult> {
 
@@ -64,7 +64,7 @@ export interface GetAccessPolicyResult {
 }
 /**
  * Gets the access policy with the specified name in the specified environment.
- * API Version: 2020-05-15.
+ * Azure REST API version: 2020-05-15.
  */
 export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAccessPolicy(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a description for the specified namespace.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:servicebus:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -72,13 +72,29 @@ namespace Pulumi.AzureNative.ServiceBus
     public sealed class GetNamespaceResult
     {
         /// <summary>
-        /// The time the namespace was created.
+        /// Alternate name for namespace
+        /// </summary>
+        public readonly string? AlternateName;
+        /// <summary>
+        /// The time the namespace was created
         /// </summary>
         public readonly string CreatedAt;
+        /// <summary>
+        /// This property disables SAS authentication for the Service Bus namespace.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
         /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The Geo-location where the resource lives
         /// </summary>
@@ -88,21 +104,41 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string MetricId;
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        public readonly string? MinimumTlsVersion;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// Provisioning state of the namespace.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
         /// </summary>
         public readonly string ServiceBusEndpoint;
         /// <summary>
-        /// Properties of Sku
+        /// Properties of SKU
         /// </summary>
         public readonly Outputs.SBSkuResponse? Sku;
+        /// <summary>
+        /// Status of the namespace.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -115,42 +151,76 @@ namespace Pulumi.AzureNative.ServiceBus
         /// The time the namespace was updated.
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// Enabling this property creates a Premium Service Bus Namespace in regions supported availability zones.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string? alternateName,
+
             string createdAt,
 
+            bool? disableLocalAuth,
+
+            Outputs.EncryptionResponse? encryption,
+
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             string location,
 
             string metricId,
 
+            string? minimumTlsVersion,
+
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             string serviceBusEndpoint,
 
             Outputs.SBSkuResponse? sku,
 
+            string status,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            string updatedAt)
+            string updatedAt,
+
+            bool? zoneRedundant)
         {
+            AlternateName = alternateName;
             CreatedAt = createdAt;
+            DisableLocalAuth = disableLocalAuth;
+            Encryption = encryption;
             Id = id;
+            Identity = identity;
             Location = location;
             MetricId = metricId;
+            MinimumTlsVersion = minimumTlsVersion;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

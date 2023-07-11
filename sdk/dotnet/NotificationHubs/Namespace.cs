@@ -10,119 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
-    /// Description of a Namespace resource.
-    /// API Version: 2017-04-01.
+    /// Notification Hubs Namespace Resource.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The time the namespace was created.
-        /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not the namespace is set as Critical.
-        /// </summary>
-        [Output("critical")]
-        public Output<bool?> Critical { get; private set; } = null!;
-
-        /// <summary>
-        /// Data center for the namespace
-        /// </summary>
-        [Output("dataCenter")]
-        public Output<string?> DataCenter { get; private set; } = null!;
-
-        /// <summary>
-        /// Whether or not the namespace is currently enabled.
-        /// </summary>
-        [Output("enabled")]
-        public Output<bool?> Enabled { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for Azure Insights metrics
-        /// </summary>
-        [Output("metricId")]
-        public Output<string> MetricId { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace type.
+        /// Represents namespace properties.
         /// </summary>
-        [Output("namespaceType")]
-        public Output<string?> NamespaceType { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.NamespacePropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the Namespace.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-        /// </summary>
-        [Output("region")]
-        public Output<string?> Region { get; private set; } = null!;
-
-        /// <summary>
-        /// ScaleUnit where the namespace gets created
-        /// </summary>
-        [Output("scaleUnit")]
-        public Output<string?> ScaleUnit { get; private set; } = null!;
-
-        /// <summary>
-        /// Endpoint you can use to perform NotificationHub operations.
-        /// </summary>
-        [Output("serviceBusEndpoint")]
-        public Output<string?> ServiceBusEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// The sku of the created namespace
+        /// The Sku description for a namespace
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+        public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        [Output("status")]
-        public Output<string?> Status { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// The Id of the Azure subscription associated with the namespace.
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string?> SubscriptionId { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The time the namespace was updated.
-        /// </summary>
-        [Output("updatedAt")]
-        public Output<string?> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>
@@ -152,6 +86,7 @@ namespace Pulumi.AzureNative.NotificationHubs
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:Namespace"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:Namespace"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:Namespace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -176,118 +111,46 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The time the namespace was created.
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// Whether or not the namespace is set as Critical.
-        /// </summary>
-        [Input("critical")]
-        public Input<bool>? Critical { get; set; }
-
-        /// <summary>
-        /// Data center for the namespace
-        /// </summary>
-        [Input("dataCenter")]
-        public Input<string>? DataCenter { get; set; }
-
-        /// <summary>
-        /// Whether or not the namespace is currently enabled.
-        /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the namespace.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The namespace name.
+        /// Namespace name
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
-        /// The namespace type.
+        /// Represents namespace properties.
         /// </summary>
-        [Input("namespaceType")]
-        public Input<Pulumi.AzureNative.NotificationHubs.NamespaceType>? NamespaceType { get; set; }
+        [Input("properties")]
+        public Input<Inputs.NamespacePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Provisioning state of the Namespace.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// ScaleUnit where the namespace gets created
+        /// The Sku description for a namespace
         /// </summary>
-        [Input("scaleUnit")]
-        public Input<string>? ScaleUnit { get; set; }
-
-        /// <summary>
-        /// Endpoint you can use to perform NotificationHub operations.
-        /// </summary>
-        [Input("serviceBusEndpoint")]
-        public Input<string>? ServiceBusEndpoint { get; set; }
-
-        /// <summary>
-        /// The sku of the created namespace
-        /// </summary>
-        [Input("sku")]
-        public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-        /// </summary>
-        [Input("status")]
-        public Input<string>? Status { get; set; }
-
-        /// <summary>
-        /// The Id of the Azure subscription associated with the namespace.
-        /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
+        [Input("sku", required: true)]
+        public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The time the namespace was updated.
-        /// </summary>
-        [Input("updatedAt")]
-        public Input<string>? UpdatedAt { get; set; }
 
         public NamespaceArgs()
         {

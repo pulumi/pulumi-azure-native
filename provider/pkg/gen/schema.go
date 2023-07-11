@@ -29,8 +29,8 @@ import (
 	"github.com/go-openapi/spec"
 	"github.com/pkg/errors"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -38,10 +38,14 @@ import (
 )
 
 // Note - this needs to be kept in sync with the layout in the SDK package
-const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk"
+const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
+
+type Constraints interface {
+	ShouldInclude(provider string, version string, typeName, token string) bool
+}
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
+func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -217,6 +221,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				apiVersion:      version,
 				examples:        exampleMap,
 				upgradeWarnings: upgradePathMap,
+				constraints:     constraints,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -229,7 +234,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), version)
 			}
 			pythonModuleNames[module] = module
-			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
+			golangImportAliases[filepath.Join(goBasePath, module, "v2")] = strings.ToLower(providerName)
 
 			// Populate resources and get invokes.
 			items := versionMap[version]
@@ -269,6 +274,7 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
 		"importBasePath":                 goBasePath,
 		"packageImportAliases":           golangImportAliases,
+		"rootPackageName":                "pulumiazurenativesdk",
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
 	})
@@ -422,20 +428,30 @@ type packageGenerator struct {
 	examples        map[string][]resources.AzureAPIExample
 	apiVersion      string
 	upgradeWarnings map[string]string
+	constraints     Constraints
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
+	// Resource names should consistently start with upper case.
+	// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
+	// These aliases will not be required anymore with v3; their removal is tracked by #2411.
+	typeNameAliases := []string{}
+	titleCasedTypeName := strings.Title(typeName)
+	if titleCasedTypeName != typeName {
+		typeNameAliases = append(typeNameAliases, typeName)
+	}
+
 	// A single API path can be modelled as several resources if it accepts a polymorphic payload:
 	// i.e., when the request body is a discriminated union type of several object types. Pulumi
 	// schema doesn't support polymorphic (OneOf) resources, so the provider creates a separate resource
 	// per each union case. We call them "variants" in the code below.
 	variants, err := g.findResourceVariants(resource)
 	if err != nil {
-		return errors.Wrapf(err, "resource %s.%s", prov, typeName)
+		return errors.Wrapf(err, "resource %s.%s", prov, titleCasedTypeName)
 	}
 
-	for _, d := range variants {
-		err = g.genResourceVariant(prov, resource, d)
+	for _, v := range variants {
+		err = g.genResourceVariant(prov, resource, v, typeNameAliases...)
 		if err != nil {
 			return err
 		}
@@ -448,12 +464,12 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 
 	mainResource := &resourceVariant{
 		ResourceSpec: resource,
-		typeName:     typeName,
+		typeName:     titleCasedTypeName,
 	}
 	if resource.DeprecationMessage != "" {
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
-	return g.genResourceVariant(prov, resource, mainResource)
+	return g.genResourceVariant(prov, resource, mainResource, typeNameAliases...)
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
@@ -542,11 +558,20 @@ func (g *packageGenerator) findResourceVariants(resource *openapi.ResourceSpec) 
 	return result, nil
 }
 
-func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant) error {
+func (g *packageGenerator) makeTypeAlias(prov, alias, apiVersion string) pschema.AliasSpec {
+	fqAlias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, providerApiToModule(prov, apiVersion), alias)
+	return pschema.AliasSpec{Type: &fqAlias}
+}
+
+func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant, typeNameAliases ...string) error {
 	module := g.providerToModule(prov)
 	swagger := resource.Swagger
 	path := resource.PathItem
+
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
+	if !g.constraints.ShouldInclude(prov, g.apiVersion, resource.typeName, resourceTok) {
+		return nil
+	}
 
 	// Generate the resource.
 	gen := moduleGenerator{
@@ -591,14 +616,6 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
-	// Add an alias for each API version that has the same path in it.
-	var aliases []pschema.AliasSpec
-	for _, version := range resource.CompatibleVersions {
-		moduleName := providerApiToModule(prov, version)
-		alias := fmt.Sprintf("%s:%s:%s", g.pkg.Name, moduleName, resource.typeName)
-		aliases = append(aliases, pschema.AliasSpec{Type: &alias})
-	}
-
 	if upgradeMessage, ok := g.upgradeWarnings[resourceTok]; ok {
 		if resource.deprecationMessage == "" {
 			resource.deprecationMessage = upgradeMessage
@@ -616,64 +633,65 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 		},
 		InputProperties:    resourceRequest.specs,
 		RequiredInputs:     resourceRequest.requiredSpecs.SortedValues(),
-		Aliases:            aliases,
+		Aliases:            g.generateAliases(prov, resource, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
 	g.pkg.Resources[resourceTok] = resourceSpec
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-
-	var readOp *spec.Operation
-	switch {
-	case resource.PathItemList != nil:
-		if resource.PathItemList.Post != nil {
-			readOp = resource.PathItemList.Post
-		} else {
-			readOp = resource.PathItemList.Get
+	if g.constraints.ShouldInclude(prov, g.apiVersion, resource.typeName, functionTok) {
+		var readOp *spec.Operation
+		switch {
+		case resource.PathItemList != nil:
+			if resource.PathItemList.Post != nil {
+				readOp = resource.PathItemList.Post
+			} else {
+				readOp = resource.PathItemList.Get
+			}
+		case path.Get == nil:
+			readOp = path.Head
+		default:
+			readOp = path.Get
 		}
-	case path.Get == nil:
-		readOp = path.Head
-	default:
-		readOp = path.Get
-	}
 
-	parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
-	requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body)
-	if err != nil {
-		return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
-	}
-	responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
-	if err != nil {
-		return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
-	}
-
-	if path.Get != nil && responseFunction != nil {
-		functionSpec := pschema.FunctionSpec{
-			Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
-			DeprecationMessage: resource.deprecationMessage,
-			Inputs: &pschema.ObjectTypeSpec{
-				Description: requestFunction.description,
-				Type:        "object",
-				Properties:  requestFunction.specs,
-				Required:    requestFunction.requiredSpecs.SortedValues(),
-			},
-			Outputs: &pschema.ObjectTypeSpec{
-				Description: responseFunction.description,
-				Type:        "object",
-				Properties:  responseFunction.specs,
-				Required:    responseFunction.requiredSpecs.SortedValues(),
-			},
+		parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
+		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body)
+		if err != nil {
+			return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 		}
-		g.pkg.Functions[functionTok] = functionSpec
-
-		f := resources.AzureAPIInvoke{
-			APIVersion:    swagger.Info.Version,
-			Path:          resource.Path,
-			GetParameters: requestFunction.parameters,
-			Response:      responseFunction.properties,
+		responseFunction, err := gen.genResponse(readOp.Responses.StatusCodeResponses, swagger.ReferenceContext, resource.response)
+		if err != nil {
+			return errors.Wrapf(err, "failed to generate '%s': response type", functionTok)
 		}
-		g.metadata.Invokes[functionTok] = f
+
+		if path.Get != nil && responseFunction != nil {
+			functionSpec := pschema.FunctionSpec{
+				Description:        g.formatFunctionDescription(readOp, resourceResponse, swagger.Info),
+				DeprecationMessage: resource.deprecationMessage,
+				Inputs: &pschema.ObjectTypeSpec{
+					Description: requestFunction.description,
+					Type:        "object",
+					Properties:  requestFunction.specs,
+					Required:    requestFunction.requiredSpecs.SortedValues(),
+				},
+				Outputs: &pschema.ObjectTypeSpec{
+					Description: responseFunction.description,
+					Type:        "object",
+					Properties:  responseFunction.specs,
+					Required:    responseFunction.requiredSpecs.SortedValues(),
+				},
+			}
+			g.pkg.Functions[functionTok] = functionSpec
+
+			f := resources.AzureAPIInvoke{
+				APIVersion:    swagger.Info.Version,
+				Path:          resource.Path,
+				GetParameters: requestFunction.parameters,
+				Response:      responseFunction.properties,
+			}
+			g.metadata.Invokes[functionTok] = f
+		}
 	}
 
 	var readMethod, readPath string
@@ -705,6 +723,25 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 	g.generateExampleReferences(resourceTok, path, swagger)
 	return nil
+}
+
+func (g *packageGenerator) generateAliases(prov string, resource *resourceVariant, typeNameAliases ...string) []pschema.AliasSpec {
+	var aliases []pschema.AliasSpec
+
+	for _, alias := range typeNameAliases {
+		aliases = append(aliases, g.makeTypeAlias(prov, alias, g.apiVersion))
+	}
+
+	// Add an alias for each API version that has the same path in it.
+	for _, version := range resource.CompatibleVersions {
+		aliases = append(aliases, g.makeTypeAlias(prov, resource.typeName, version))
+
+		for _, alias := range typeNameAliases {
+			aliases = append(aliases, g.makeTypeAlias(prov, alias, version))
+		}
+	}
+
+	return aliases
 }
 
 func (g *packageGenerator) generateExampleReferences(resourceTok string, path *spec.PathItem, swagger *openapi.Spec) error {
@@ -781,6 +818,9 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
+	if !g.constraints.ShouldInclude(prov, g.apiVersion, typeName, functionTok) {
+		return
+	}
 
 	parameters := swagger.MergeParameters(pathItem.Post.Parameters, pathItem.Parameters)
 	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil)
@@ -847,10 +887,10 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, respons
 func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec) string {
 	description := desc
 	if g.apiVersion == "" {
-		description = fmt.Sprintf("%s\nAPI Version: %s.", description, info.Version)
+		description = fmt.Sprintf("%s\nAzure REST API version: %s.", description, info.Version)
 	}
 	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
-		description = fmt.Sprintf("%s\nPrevious API Version: %s. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.", description, resourceSpec.PreviousVersion)
+		description = fmt.Sprintf("%s Prior API version in Azure Native 1.x: %s", description, resourceSpec.PreviousVersion)
 	}
 	return description
 }
@@ -1167,19 +1207,6 @@ func (l *inMemoryLoader) LoadPackage(pkg string, _ *semver.Version) (*schema.Pac
 	return nil, errors.Errorf("package %s not found in the in-memory map", pkg)
 }
 
-func SetGoBasePath(pkgSpec schema.PackageSpec, importBasePath string) *schema.PackageSpec {
-	var goLanguage map[string]interface{}
-	err := json.Unmarshal(pkgSpec.Language["go"], &goLanguage)
-	if err != nil {
-		panic(err)
-	}
-
-	goLanguage["importBasePath"] = importBasePath
-
-	pkgSpec.Language["go"] = rawMessage(goLanguage)
-	return &pkgSpec
-}
-
 // GoModVersion Creates a valid go mod version from our pulumictl version.
 // Essentially, this removes any '+xxx' additions. See tests for examples.
 func GoModVersion(packageVersion *semver.Version) string {
@@ -1187,16 +1214,27 @@ func GoModVersion(packageVersion *semver.Version) string {
 		return "latest"
 	}
 	buildVersion := *packageVersion
-	// Only include patch Pre (the first Pre), if set.
-	if buildVersion.Pre != nil {
+	// If the version has a prerelease with a build number like 0+9fa804e8, make if Go-compatible by simplifying to 9fa804e8.
+	if buildVersion.Pre != nil && buildVersion.Build != nil {
 		buildVersion.Pre = buildVersion.Pre[:1]
-		if buildVersion.Build != nil {
-			for _, build := range buildVersion.Build {
-				buildVersion.Pre = append(buildVersion.Pre, semver.PRVersion{VersionStr: build})
-			}
+		for _, build := range buildVersion.Build {
+			buildVersion.Pre = append(buildVersion.Pre, semver.PRVersion{VersionStr: build})
 		}
 	}
 	// Ignore build versions
 	buildVersion.Build = nil
 	return "v" + buildVersion.String()
+}
+
+func GoModulePathVersion(packageVersion string) string {
+	// Take up to the first dot
+	vString, _, found := strings.Cut(packageVersion, ".")
+	if !found {
+		return ""
+	}
+	switch vString {
+	case "0", "1":
+		return ""
+	}
+	return "/v" + vString
 }

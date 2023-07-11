@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
-    /// API Version: 2021-12-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
     /// </summary>
-    [AzureNativeResourceType("azure-native:workloads:monitor")]
+    [AzureNativeResourceType("azure-native:workloads:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<Outputs.MonitorPropertiesResponseErrors> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         [Output("identity")]
         public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -121,12 +121,12 @@ namespace Pulumi.AzureNative.Workloads
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Monitor(string name, MonitorArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:workloads:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private Monitor(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:workloads:monitor", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:workloads:Monitor", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -137,8 +137,12 @@ namespace Pulumi.AzureNative.Workloads
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:workloads:monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20211201preview:monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20221101preview:monitor"},
+                    new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:Monitor"},
                     new global::Pulumi.Alias { Type = "azure-native:workloads/v20230401:monitor"},
                 },
             };
@@ -170,7 +174,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string>? AppLocation { get; set; }
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         [Input("identity")]
         public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }

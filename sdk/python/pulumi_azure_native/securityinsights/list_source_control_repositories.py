@@ -57,21 +57,18 @@ class AwaitableListSourceControlRepositoriesResult(ListSourceControlRepositories
             value=self.value)
 
 
-def list_source_control_repositories(operational_insights_resource_provider: Optional[str] = None,
-                                     resource_group_name: Optional[str] = None,
+def list_source_control_repositories(resource_group_name: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListSourceControlRepositoriesResult:
     """
     Gets a list of repositories metadata.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -83,16 +80,14 @@ def list_source_control_repositories(operational_insights_resource_provider: Opt
 
 
 @_utilities.lift_output_func(list_source_control_repositories)
-def list_source_control_repositories_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[str]] = None,
+def list_source_control_repositories_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListSourceControlRepositoriesResult]:
     """
     Gets a list of repositories metadata.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """

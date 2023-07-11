@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get schedule.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -94,7 +94,7 @@ export interface GetScheduleResult {
      */
     readonly taskType?: string;
     /**
-     * The time zone ID (e.g. Pacific Standard time).
+     * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
     readonly timeZoneId?: string;
     /**
@@ -112,7 +112,7 @@ export interface GetScheduleResult {
 }
 /**
  * Get schedule.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A TestLine resource
- * API Version: 2022-12-01-preview.
+ * Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview
  */
 export class TestLine extends pulumi.CustomResource {
     /**
@@ -116,7 +116,7 @@ export class TestLine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:TestLine" }, { type: "azure-native:voiceservices/v20230131:TestLine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:voiceservices/v20221201preview:TestLine" }, { type: "azure-native:voiceservices/v20230131:TestLine" }, { type: "azure-native:voiceservices/v20230403:TestLine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestLine.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,7 +141,7 @@ export interface TestLineArgs {
     /**
      * Purpose of this test line, e.g. automated or manual testing
      */
-    purpose: pulumi.Input<enums.voiceservices.TestLinePurpose>;
+    purpose: pulumi.Input<string | enums.voiceservices.TestLinePurpose>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -109,7 +109,7 @@ class GetViewResult:
     @pulumi.getter
     def currency(self) -> str:
         """
-        Selected currency.
+        Currency of the current view.
         """
         return pulumi.get(self, "currency")
 
@@ -123,9 +123,9 @@ class GetViewResult:
 
     @property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> str:
+    def date_range(self) -> Optional[str]:
         """
-        Selected date range for viewing cost in.
+        Date range of the current view.
         """
         return pulumi.get(self, "date_range")
 
@@ -155,9 +155,9 @@ class GetViewResult:
 
     @property
     @pulumi.getter(name="includeMonetaryCommitment")
-    def include_monetary_commitment(self) -> bool:
+    def include_monetary_commitment(self) -> Optional[bool]:
         """
-        Include monetary commitment
+        If true, report includes monetary commitment.
         """
         return pulumi.get(self, "include_monetary_commitment")
 
@@ -179,7 +179,7 @@ class GetViewResult:
 
     @property
     @pulumi.getter(name="modifiedOn")
-    def modified_on(self) -> str:
+    def modified_on(self) -> Optional[str]:
         """
         Date when the user last modified this view.
         """
@@ -265,7 +265,7 @@ def get_view(view_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewResult:
     """
     Gets the view by view name.
-    API Version: 2019-11-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str view_name: View name
@@ -302,7 +302,7 @@ def get_view_output(view_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets the view by view name.
-    API Version: 2019-11-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str view_name: View name

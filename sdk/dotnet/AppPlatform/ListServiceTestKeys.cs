@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// List test keys for a Service.
-        /// API Version: 2020-07-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<ListServiceTestKeysResult> InvokeAsync(ListServiceTestKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysArgs(), options.WithDefaults());
 
         /// <summary>
         /// List test keys for a Service.
-        /// API Version: 2020-07-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<ListServiceTestKeysResult> Invoke(ListServiceTestKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListServiceTestKeysResult>("azure-native:appplatform:listServiceTestKeys", args ?? new ListServiceTestKeysInvokeArgs(), options.WithDefaults());

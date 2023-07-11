@@ -20,18 +20,24 @@ __all__ = [
 @pulumi.output_type
 class GetProactiveDetectionConfigurationResult:
     """
-    Properties that define a ProactiveDetection configuration.
+    A ProactiveDetection configuration definition.
     """
-    def __init__(__self__, custom_emails=None, enabled=None, last_updated_time=None, name=None, rule_definitions=None, send_emails_to_subscription_owners=None):
+    def __init__(__self__, custom_emails=None, enabled=None, id=None, last_updated_time=None, location=None, name=None, rule_definitions=None, send_emails_to_subscription_owners=None, type=None):
         if custom_emails and not isinstance(custom_emails, list):
             raise TypeError("Expected argument 'custom_emails' to be a list")
         pulumi.set(__self__, "custom_emails", custom_emails)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if location and not isinstance(location, str):
+            raise TypeError("Expected argument 'location' to be a str")
+        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -41,6 +47,9 @@ class GetProactiveDetectionConfigurationResult:
         if send_emails_to_subscription_owners and not isinstance(send_emails_to_subscription_owners, bool):
             raise TypeError("Expected argument 'send_emails_to_subscription_owners' to be a bool")
         pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="customEmails")
@@ -59,8 +68,16 @@ class GetProactiveDetectionConfigurationResult:
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure resource Id
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[str]:
+    def last_updated_time(self) -> str:
         """
         The last time this rule was updated
         """
@@ -68,7 +85,15 @@ class GetProactiveDetectionConfigurationResult:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def location(self) -> Optional[str]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
         """
         The rule name
         """
@@ -76,7 +101,7 @@ class GetProactiveDetectionConfigurationResult:
 
     @property
     @pulumi.getter(name="ruleDefinitions")
-    def rule_definitions(self) -> Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions']:
+    def rule_definitions(self) -> Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions']:
         """
         Static definitions of the ProactiveDetection configuration rule (same values for all components).
         """
@@ -90,6 +115,14 @@ class GetProactiveDetectionConfigurationResult:
         """
         return pulumi.get(self, "send_emails_to_subscription_owners")
 
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
+
 
 class AwaitableGetProactiveDetectionConfigurationResult(GetProactiveDetectionConfigurationResult):
     # pylint: disable=using-constant-test
@@ -99,10 +132,13 @@ class AwaitableGetProactiveDetectionConfigurationResult(GetProactiveDetectionCon
         return GetProactiveDetectionConfigurationResult(
             custom_emails=self.custom_emails,
             enabled=self.enabled,
+            id=self.id,
             last_updated_time=self.last_updated_time,
+            location=self.location,
             name=self.name,
             rule_definitions=self.rule_definitions,
-            send_emails_to_subscription_owners=self.send_emails_to_subscription_owners)
+            send_emails_to_subscription_owners=self.send_emails_to_subscription_owners,
+            type=self.type)
 
 
 def get_proactive_detection_configuration(configuration_id: Optional[str] = None,
@@ -111,7 +147,7 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProactiveDetectionConfigurationResult:
     """
     Get the ProactiveDetection configuration for this configuration id.
-    API Version: 2015-05-01.
+    Azure REST API version: 2018-05-01-preview.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -128,10 +164,13 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
     return AwaitableGetProactiveDetectionConfigurationResult(
         custom_emails=__ret__.custom_emails,
         enabled=__ret__.enabled,
+        id=__ret__.id,
         last_updated_time=__ret__.last_updated_time,
+        location=__ret__.location,
         name=__ret__.name,
         rule_definitions=__ret__.rule_definitions,
-        send_emails_to_subscription_owners=__ret__.send_emails_to_subscription_owners)
+        send_emails_to_subscription_owners=__ret__.send_emails_to_subscription_owners,
+        type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_proactive_detection_configuration)
@@ -141,7 +180,7 @@ def get_proactive_detection_configuration_output(configuration_id: Optional[pulu
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveDetectionConfigurationResult]:
     """
     Get the ProactiveDetection configuration for this configuration id.
-    API Version: 2015-05-01.
+    Azure REST API version: 2018-05-01-preview.
 
 
     :param str configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.

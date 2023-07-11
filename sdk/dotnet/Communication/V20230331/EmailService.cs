@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Communication.V20230331
     /// <summary>
     /// A class representing an EmailService resource.
     /// </summary>
-    [Obsolete(@"azure-native:communication/v20230331:EmailService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:EmailService to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:communication/v20230331:EmailService")]
     public partial class EmailService : global::Pulumi.CustomResource
     {
@@ -86,6 +85,8 @@ namespace Pulumi.AzureNative.Communication.V20230331
                     new global::Pulumi.Alias { Type = "azure-native:communication:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:EmailService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

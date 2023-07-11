@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService
 {
     /// <summary>
     /// OpenShift Managed cluster.
-    /// API Version: 2019-04-30.
+    /// Azure REST API version: 2019-10-27-preview. Prior API version in Azure Native 1.x: 2019-04-30
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : global::Pulumi.CustomResource
@@ -53,6 +53,12 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<Outputs.OpenShiftManagedClusterMasterPoolProfileResponse?> MasterPoolProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Configures Log Analytics integration.
+        /// </summary>
+        [Output("monitorProfile")]
+        public Output<Outputs.OpenShiftManagedClusterMonitorProfileResponse?> MonitorProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
@@ -83,10 +89,16 @@ namespace Pulumi.AzureNative.ContainerService
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Service generated FQDN for OpenShift API server.
+        /// Service generated FQDN or private IP for OpenShift API server.
         /// </summary>
         [Output("publicHostname")]
         public Output<string> PublicHostname { get; private set; } = null!;
+
+        /// <summary>
+        /// Allows node rotation
+        /// </summary>
+        [Output("refreshCluster")]
+        public Output<bool?> RefreshCluster { get; private set; } = null!;
 
         /// <summary>
         /// Configuration for OpenShift router(s).
@@ -189,6 +201,12 @@ namespace Pulumi.AzureNative.ContainerService
         public Input<Inputs.OpenShiftManagedClusterMasterPoolProfileArgs>? MasterPoolProfile { get; set; }
 
         /// <summary>
+        /// Configures Log Analytics integration.
+        /// </summary>
+        [Input("monitorProfile")]
+        public Input<Inputs.OpenShiftManagedClusterMonitorProfileArgs>? MonitorProfile { get; set; }
+
+        /// <summary>
         /// Configuration for OpenShift networking.
         /// </summary>
         [Input("networkProfile")]
@@ -205,6 +223,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PurchasePlanArgs>? Plan { get; set; }
+
+        /// <summary>
+        /// Allows node rotation
+        /// </summary>
+        [Input("refreshCluster")]
+        public Input<bool>? RefreshCluster { get; set; }
 
         /// <summary>
         /// The name of the resource group.

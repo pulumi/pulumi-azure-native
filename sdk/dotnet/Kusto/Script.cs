@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a database script.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Script")]
     public partial class Script : global::Pulumi.CustomResource
@@ -41,10 +41,10 @@ namespace Pulumi.AzureNative.Kusto
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The url to the KQL script blob file.
+        /// The url to the KQL script blob file. Must not be used together with scriptContent property
         /// </summary>
         [Output("scriptUrl")]
-        public Output<string> ScriptUrl { get; private set; } = null!;
+        public Output<string?> ScriptUrl { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:Script"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:Script"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:Script"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Script"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -143,22 +144,28 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
+        /// </summary>
+        [Input("scriptContent")]
+        public Input<string>? ScriptContent { get; set; }
+
+        /// <summary>
         /// The name of the Kusto database script.
         /// </summary>
         [Input("scriptName")]
         public Input<string>? ScriptName { get; set; }
 
         /// <summary>
-        /// The url to the KQL script blob file.
+        /// The url to the KQL script blob file. Must not be used together with scriptContent property
         /// </summary>
-        [Input("scriptUrl", required: true)]
-        public Input<string> ScriptUrl { get; set; } = null!;
+        [Input("scriptUrl")]
+        public Input<string>? ScriptUrl { get; set; }
 
         /// <summary>
-        /// The SaS token.
+        /// The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
         /// </summary>
-        [Input("scriptUrlSasToken", required: true)]
-        public Input<string> ScriptUrlSasToken { get; set; } = null!;
+        [Input("scriptUrlSasToken")]
+        public Input<string>? ScriptUrlSasToken { get; set; }
 
         public ScriptArgs()
         {

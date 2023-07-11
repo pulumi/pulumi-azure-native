@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the logger specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getLogger(args: GetLoggerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoggerResult> {
 
@@ -24,7 +24,7 @@ export interface GetLoggerArgs {
      */
     loggerId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -47,7 +47,7 @@ export interface GetLoggerResult {
      */
     readonly description?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -59,7 +59,7 @@ export interface GetLoggerResult {
      */
     readonly loggerType: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -67,13 +67,13 @@ export interface GetLoggerResult {
      */
     readonly resourceId?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the details of the logger specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getLoggerOutput(args: GetLoggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoggerResult> {
     return pulumi.output(args).apply((a: any) => getLogger(a, opts))
@@ -85,7 +85,7 @@ export interface GetLoggerOutputArgs {
      */
     loggerId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

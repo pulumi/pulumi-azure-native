@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a SQL Server registration.
- * API Version: 2019-07-24-preview.
+ * Azure REST API version: 2019-07-24-preview.
  */
 export function getSqlServerRegistration(args: GetSqlServerRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerRegistrationResult> {
 
@@ -74,7 +74,7 @@ export interface GetSqlServerRegistrationResult {
 }
 /**
  * Gets a SQL Server registration.
- * API Version: 2019-07-24-preview.
+ * Azure REST API version: 2019-07-24-preview.
  */
 export function getSqlServerRegistrationOutput(args: GetSqlServerRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlServerRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getSqlServerRegistration(a, opts))

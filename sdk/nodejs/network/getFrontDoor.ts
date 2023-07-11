@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getFrontDoor(args: GetFrontDoorArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontDoorResult> {
 
@@ -51,6 +51,10 @@ export interface GetFrontDoorResult {
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
     readonly enabledState?: string;
+    /**
+     * Key-Value pair representing additional properties for frontdoor.
+     */
+    readonly extendedProperties: {[key: string]: string};
     /**
      * A friendly name for the frontDoor
      */
@@ -110,7 +114,7 @@ export interface GetFrontDoorResult {
 }
 /**
  * Gets a Front Door with the specified Front Door name under the specified subscription and resource group.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getFrontDoorOutput(args: GetFrontDoorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrontDoorResult> {
     return pulumi.output(args).apply((a: any) => getFrontDoor(a, opts))

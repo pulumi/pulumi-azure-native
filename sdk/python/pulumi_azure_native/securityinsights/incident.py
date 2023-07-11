@@ -33,7 +33,7 @@ class IncidentArgs:
                  owner: Optional[pulumi.Input['IncidentOwnerInfoArgs']] = None):
         """
         The set of arguments for constructing a Incident resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
         :param pulumi.Input[str] title: The title of the incident
@@ -76,7 +76,7 @@ class IncidentArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -263,7 +263,7 @@ class Incident(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an incident in Azure Security Insights.
-        API Version: 2020-01-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,7 +276,7 @@ class Incident(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IncidentLabelArgs']]]] labels: List of labels relevant to this incident
         :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input[pulumi.InputType['IncidentOwnerInfoArgs']] owner: Describes a user that the incident is assigned to
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[Union[str, 'IncidentStatus']] status: The status of the incident
         :param pulumi.Input[str] title: The title of the incident
@@ -290,7 +290,7 @@ class Incident(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an incident in Azure Security Insights.
-        API Version: 2020-01-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param IncidentArgs args: The arguments to use to populate this resource's properties.
@@ -361,9 +361,12 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["incident_url"] = None
             __props__.__dict__["last_modified_time_utc"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provider_incident_id"] = None
+            __props__.__dict__["provider_name"] = None
             __props__.__dict__["related_analytic_rule_ids"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Incident")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Incident"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Incident")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Incident, __self__).__init__(
             'azure-native:securityinsights:Incident',
@@ -402,9 +405,12 @@ class Incident(pulumi.CustomResource):
         __props__.__dict__["last_modified_time_utc"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["owner"] = None
+        __props__.__dict__["provider_incident_id"] = None
+        __props__.__dict__["provider_name"] = None
         __props__.__dict__["related_analytic_rule_ids"] = None
         __props__.__dict__["severity"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["title"] = None
         __props__.__dict__["type"] = None
         return Incident(resource_name, opts=opts, __props__=__props__)
@@ -517,7 +523,7 @@ class Incident(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -528,6 +534,22 @@ class Incident(pulumi.CustomResource):
         Describes a user that the incident is assigned to
         """
         return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="providerIncidentId")
+    def provider_incident_id(self) -> pulumi.Output[str]:
+        """
+        The incident ID assigned by the incident provider
+        """
+        return pulumi.get(self, "provider_incident_id")
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> pulumi.Output[str]:
+        """
+        The name of the source provider that generated the incident
+        """
+        return pulumi.get(self, "provider_name")
 
     @property
     @pulumi.getter(name="relatedAnalyticRuleIds")
@@ -554,6 +576,14 @@ class Incident(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def title(self) -> pulumi.Output[str]:
         """
@@ -565,7 +595,7 @@ class Incident(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

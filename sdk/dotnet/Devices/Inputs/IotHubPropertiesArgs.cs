@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Devices.Inputs
     /// </summary>
     public sealed class IotHubPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedFqdnList")]
+        private InputList<string>? _allowedFqdnList;
+
+        /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+        /// </summary>
+        public InputList<string> AllowedFqdnList
+        {
+            get => _allowedFqdnList ?? (_allowedFqdnList = new InputList<string>());
+            set => _allowedFqdnList = value;
+        }
+
         [Input("authorizationPolicies")]
         private InputList<Inputs.SharedAccessSignatureAuthorizationRuleArgs>? _authorizationPolicies;
 
@@ -40,10 +52,46 @@ namespace Pulumi.AzureNative.Devices.Inputs
         public Input<string>? Comments { get; set; }
 
         /// <summary>
+        /// The device streams properties of iothub.
+        /// </summary>
+        [Input("deviceStreams")]
+        public Input<Inputs.IotHubPropertiesDeviceStreamsArgs>? DeviceStreams { get; set; }
+
+        /// <summary>
+        /// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        [Input("disableDeviceSAS")]
+        public Input<bool>? DisableDeviceSAS { get; set; }
+
+        /// <summary>
+        /// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// If true, all module scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        [Input("disableModuleSAS")]
+        public Input<bool>? DisableModuleSAS { get; set; }
+
+        /// <summary>
+        /// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+        /// </summary>
+        [Input("enableDataResidency")]
+        public Input<bool>? EnableDataResidency { get; set; }
+
+        /// <summary>
         /// If True, file upload notifications are enabled.
         /// </summary>
         [Input("enableFileUploadNotifications")]
         public Input<bool>? EnableFileUploadNotifications { get; set; }
+
+        /// <summary>
+        /// The encryption properties for the IoT hub.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesDescriptionArgs>? Encryption { get; set; }
 
         [Input("eventHubEndpoints")]
         private InputMap<Inputs.EventHubPropertiesArgs>? _eventHubEndpoints;
@@ -74,6 +122,12 @@ namespace Pulumi.AzureNative.Devices.Inputs
             get => _ipFilterRules ?? (_ipFilterRules = new InputList<Inputs.IpFilterRuleArgs>());
             set => _ipFilterRules = value;
         }
+
+        /// <summary>
+        /// This property specifies the IP Version the hub is currently utilizing.
+        /// </summary>
+        [Input("ipVersion")]
+        public InputUnion<string, Pulumi.AzureNative.Devices.IpVersion>? IpVersion { get; set; }
 
         [Input("messagingEndpoints")]
         private InputMap<Inputs.MessagingEndpointPropertiesArgs>? _messagingEndpoints;
@@ -116,6 +170,18 @@ namespace Pulumi.AzureNative.Devices.Inputs
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Devices.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+        /// </summary>
+        [Input("restrictOutboundNetworkAccess")]
+        public Input<bool>? RestrictOutboundNetworkAccess { get; set; }
+
+        /// <summary>
+        /// This property store root certificate related information
+        /// </summary>
+        [Input("rootCertificate")]
+        public Input<Inputs.RootCertificatePropertiesArgs>? RootCertificate { get; set; }
 
         /// <summary>
         /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging

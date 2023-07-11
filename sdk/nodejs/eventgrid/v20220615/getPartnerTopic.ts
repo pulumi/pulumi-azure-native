@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get properties of a partner topic.
  */
-/** @deprecated azure-native:eventgrid/v20220615:PartnerTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopic to guarantee forwards compatibility. */
 export function getPartnerTopic(args: GetPartnerTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicResult> {
-    pulumi.log.warn("getPartnerTopic is deprecated: azure-native:eventgrid/v20220615:PartnerTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopic to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:eventgrid/v20220615:getPartnerTopic", {
@@ -102,7 +100,6 @@ export interface GetPartnerTopicResult {
 /**
  * Get properties of a partner topic.
  */
-/** @deprecated azure-native:eventgrid/v20220615:PartnerTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerTopic to guarantee forwards compatibility. */
 export function getPartnerTopicOutput(args: GetPartnerTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopic(a, opts))
 }

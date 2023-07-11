@@ -21,7 +21,10 @@ class MediaServiceArgs:
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['MediaServiceIdentityArgs']] = None,
+                 key_delivery: Optional[pulumi.Input['KeyDeliveryArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]]] = None,
                  storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -31,7 +34,10 @@ class MediaServiceArgs:
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input['AccountEncryptionArgs'] encryption: The account encryption properties.
         :param pulumi.Input['MediaServiceIdentityArgs'] identity: The Managed Identity for the Media Services account.
+        :param pulumi.Input['KeyDeliveryArgs'] key_delivery: The Key Delivery properties for Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for resources under the Media Services account.
         :param pulumi.Input[Sequence[pulumi.Input['StorageAccountArgs']]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -42,8 +48,16 @@ class MediaServiceArgs:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_delivery is not None:
+            pulumi.set(__self__, "key_delivery", key_delivery)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if minimum_tls_version is None:
+            minimum_tls_version = 'Tls12'
+        if minimum_tls_version is not None:
+            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
         if storage_accounts is not None:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if storage_authentication is not None:
@@ -100,6 +114,18 @@ class MediaServiceArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="keyDelivery")
+    def key_delivery(self) -> Optional[pulumi.Input['KeyDeliveryArgs']]:
+        """
+        The Key Delivery properties for Media Services account.
+        """
+        return pulumi.get(self, "key_delivery")
+
+    @key_delivery.setter
+    def key_delivery(self, value: Optional[pulumi.Input['KeyDeliveryArgs']]):
+        pulumi.set(self, "key_delivery", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -110,6 +136,30 @@ class MediaServiceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]]:
+        """
+        The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @minimum_tls_version.setter
+    def minimum_tls_version(self, value: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]]):
+        pulumi.set(self, "minimum_tls_version", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public network access is allowed for resources under the Media Services account.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
 
     @property
     @pulumi.getter(name="storageAccounts")
@@ -153,7 +203,10 @@ class MediaService(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
+                 key_delivery: Optional[pulumi.Input[pulumi.InputType['KeyDeliveryArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
@@ -161,14 +214,17 @@ class MediaService(pulumi.CustomResource):
                  __props__=None):
         """
         A Media Services account.
-        API Version: 2020-05-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: The account encryption properties.
         :param pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']] identity: The Managed Identity for the Media Services account.
+        :param pulumi.Input[pulumi.InputType['KeyDeliveryArgs']] key_delivery: The Key Delivery properties for Media Services account.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[Union[str, 'MinimumTlsVersion']] minimum_tls_version: The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for resources under the Media Services account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]] storage_accounts: The storage accounts for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -181,7 +237,7 @@ class MediaService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Media Services account.
-        API Version: 2020-05-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
 
         :param str resource_name: The name of the resource.
         :param MediaServiceArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +257,10 @@ class MediaService(pulumi.CustomResource):
                  account_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['MediaServiceIdentityArgs']]] = None,
+                 key_delivery: Optional[pulumi.Input[pulumi.InputType['KeyDeliveryArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 minimum_tls_version: Optional[pulumi.Input[Union[str, 'MinimumTlsVersion']]] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageAccountArgs']]]]] = None,
                  storage_authentication: Optional[pulumi.Input[Union[str, 'StorageAuthentication']]] = None,
@@ -218,7 +277,12 @@ class MediaService(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_delivery"] = key_delivery
             __props__.__dict__["location"] = location
+            if minimum_tls_version is None:
+                minimum_tls_version = 'Tls12'
+            __props__.__dict__["minimum_tls_version"] = minimum_tls_version
+            __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -227,6 +291,8 @@ class MediaService(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["media_service_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint_connections"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:media/v20151001:MediaService"), pulumi.Alias(type_="azure-native:media/v20180330preview:MediaService"), pulumi.Alias(type_="azure-native:media/v20180601preview:MediaService"), pulumi.Alias(type_="azure-native:media/v20180701:MediaService"), pulumi.Alias(type_="azure-native:media/v20200501:MediaService"), pulumi.Alias(type_="azure-native:media/v20210501:MediaService"), pulumi.Alias(type_="azure-native:media/v20210601:MediaService"), pulumi.Alias(type_="azure-native:media/v20211101:MediaService"), pulumi.Alias(type_="azure-native:media/v20230101:MediaService")])
@@ -255,9 +321,14 @@ class MediaService(pulumi.CustomResource):
 
         __props__.__dict__["encryption"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["key_delivery"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["media_service_id"] = None
+        __props__.__dict__["minimum_tls_version"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["private_endpoint_connections"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["public_network_access"] = None
         __props__.__dict__["storage_accounts"] = None
         __props__.__dict__["storage_authentication"] = None
         __props__.__dict__["system_data"] = None
@@ -282,6 +353,14 @@ class MediaService(pulumi.CustomResource):
         return pulumi.get(self, "identity")
 
     @property
+    @pulumi.getter(name="keyDelivery")
+    def key_delivery(self) -> pulumi.Output[Optional['outputs.KeyDeliveryResponse']]:
+        """
+        The Key Delivery properties for Media Services account.
+        """
+        return pulumi.get(self, "key_delivery")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
@@ -298,12 +377,44 @@ class MediaService(pulumi.CustomResource):
         return pulumi.get(self, "media_service_id")
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> pulumi.Output[Optional[str]]:
+        """
+        The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        The Private Endpoint Connections created for the Media Service account.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        Provisioning state of the Media Services account.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> pulumi.Output[Optional[str]]:
+        """
+        Whether or not public network access is allowed for resources under the Media Services account.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="storageAccounts")

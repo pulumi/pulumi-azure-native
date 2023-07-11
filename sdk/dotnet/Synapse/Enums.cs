@@ -8,91 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
-    /// SKU name.
-    /// </summary>
-    [EnumType]
-    public readonly struct AzureSkuName : IEquatable<AzureSkuName>
-    {
-        private readonly string _value;
-
-        private AzureSkuName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AzureSkuName Standard_DS13_v2_1TB_PS { get; } = new AzureSkuName("Standard_DS13_v2+1TB_PS");
-        public static AzureSkuName Standard_DS13_v2_2TB_PS { get; } = new AzureSkuName("Standard_DS13_v2+2TB_PS");
-        public static AzureSkuName Standard_DS14_v2_3TB_PS { get; } = new AzureSkuName("Standard_DS14_v2+3TB_PS");
-        public static AzureSkuName Standard_DS14_v2_4TB_PS { get; } = new AzureSkuName("Standard_DS14_v2+4TB_PS");
-        public static AzureSkuName Standard_D13_v2 { get; } = new AzureSkuName("Standard_D13_v2");
-        public static AzureSkuName Standard_D14_v2 { get; } = new AzureSkuName("Standard_D14_v2");
-        public static AzureSkuName Standard_L8s { get; } = new AzureSkuName("Standard_L8s");
-        public static AzureSkuName Standard_L16s { get; } = new AzureSkuName("Standard_L16s");
-        public static AzureSkuName Standard_L8s_v2 { get; } = new AzureSkuName("Standard_L8s_v2");
-        public static AzureSkuName Standard_L16s_v2 { get; } = new AzureSkuName("Standard_L16s_v2");
-        public static AzureSkuName Standard_D11_v2 { get; } = new AzureSkuName("Standard_D11_v2");
-        public static AzureSkuName Standard_D12_v2 { get; } = new AzureSkuName("Standard_D12_v2");
-        public static AzureSkuName Standard_L4s { get; } = new AzureSkuName("Standard_L4s");
-        public static AzureSkuName Dev_No_SLA_Standard_D11_v2 { get; } = new AzureSkuName("Dev(No SLA)_Standard_D11_v2");
-        public static AzureSkuName Standard_E64i_v3 { get; } = new AzureSkuName("Standard_E64i_v3");
-        public static AzureSkuName Standard_E80ids_v4 { get; } = new AzureSkuName("Standard_E80ids_v4");
-        public static AzureSkuName Standard_E2a_v4 { get; } = new AzureSkuName("Standard_E2a_v4");
-        public static AzureSkuName Standard_E4a_v4 { get; } = new AzureSkuName("Standard_E4a_v4");
-        public static AzureSkuName Standard_E8a_v4 { get; } = new AzureSkuName("Standard_E8a_v4");
-        public static AzureSkuName Standard_E16a_v4 { get; } = new AzureSkuName("Standard_E16a_v4");
-        public static AzureSkuName Standard_E8as_v4_1TB_PS { get; } = new AzureSkuName("Standard_E8as_v4+1TB_PS");
-        public static AzureSkuName Standard_E8as_v4_2TB_PS { get; } = new AzureSkuName("Standard_E8as_v4+2TB_PS");
-        public static AzureSkuName Standard_E16as_v4_3TB_PS { get; } = new AzureSkuName("Standard_E16as_v4+3TB_PS");
-        public static AzureSkuName Standard_E16as_v4_4TB_PS { get; } = new AzureSkuName("Standard_E16as_v4+4TB_PS");
-        public static AzureSkuName Dev_No_SLA_Standard_E2a_v4 { get; } = new AzureSkuName("Dev(No SLA)_Standard_E2a_v4");
-
-        public static bool operator ==(AzureSkuName left, AzureSkuName right) => left.Equals(right);
-        public static bool operator !=(AzureSkuName left, AzureSkuName right) => !left.Equals(right);
-
-        public static explicit operator string(AzureSkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AzureSkuName other && Equals(other);
-        public bool Equals(AzureSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// SKU tier.
-    /// </summary>
-    [EnumType]
-    public readonly struct AzureSkuTier : IEquatable<AzureSkuTier>
-    {
-        private readonly string _value;
-
-        private AzureSkuTier(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AzureSkuTier Basic { get; } = new AzureSkuTier("Basic");
-        public static AzureSkuTier Standard { get; } = new AzureSkuTier("Standard");
-
-        public static bool operator ==(AzureSkuTier left, AzureSkuTier right) => left.Equals(right);
-        public static bool operator !=(AzureSkuTier left, AzureSkuTier right) => !left.Equals(right);
-
-        public static explicit operator string(AzureSkuTier value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AzureSkuTier other && Equals(other);
-        public bool Equals(AzureSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of blob storage event type to process.
     /// </summary>
     [EnumType]
@@ -178,6 +93,37 @@ namespace Pulumi.AzureNative.Synapse
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Compression other && Equals(other);
         public bool Equals(Compression other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the spark config properties file.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
+    {
+        private readonly string _value;
+
+        private ConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationType File { get; } = new ConfigurationType("File");
+        public static ConfigurationType Artifact { get; } = new ConfigurationType("Artifact");
+
+        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
+        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -350,37 +296,6 @@ namespace Pulumi.AzureNative.Synapse
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DefaultPrincipalsModificationKind other && Equals(other);
         public bool Equals(DefaultPrincipalsModificationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The engine type
-    /// </summary>
-    [EnumType]
-    public readonly struct EngineType : IEquatable<EngineType>
-    {
-        private readonly string _value;
-
-        private EngineType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EngineType V2 { get; } = new EngineType("V2");
-        public static EngineType V3 { get; } = new EngineType("V3");
-
-        public static bool operator ==(EngineType left, EngineType right) => left.Equals(right);
-        public static bool operator !=(EngineType left, EngineType right) => !left.Equals(right);
-
-        public static explicit operator string(EngineType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EngineType other && Equals(other);
-        public bool Equals(EngineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -827,6 +742,7 @@ namespace Pulumi.AzureNative.Synapse
 
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
         public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
@@ -875,6 +791,70 @@ namespace Pulumi.AzureNative.Synapse
     }
 
     /// <summary>
+    /// SKU name.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuName Compute_optimized { get; } = new SkuName("Compute optimized");
+        public static SkuName Storage_optimized { get; } = new SkuName("Storage optimized");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SKU size.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuSize : IEquatable<SkuSize>
+    {
+        private readonly string _value;
+
+        private SkuSize(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SkuSize Extra_small { get; } = new SkuSize("Extra small");
+        public static SkuSize Small { get; } = new SkuSize("Small");
+        public static SkuSize Medium { get; } = new SkuSize("Medium");
+        public static SkuSize Large { get; } = new SkuSize("Large");
+
+        public static bool operator ==(SkuSize left, SkuSize right) => left.Equals(right);
+        public static bool operator !=(SkuSize left, SkuSize right) => !left.Equals(right);
+
+        public static explicit operator string(SkuSize value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuSize other && Equals(other);
+        public bool Equals(SkuSize other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The storage account type used to store backups for this sql pool.
     /// </summary>
     [EnumType]
@@ -889,7 +869,6 @@ namespace Pulumi.AzureNative.Synapse
 
         public static StorageAccountType GRS { get; } = new StorageAccountType("GRS");
         public static StorageAccountType LRS { get; } = new StorageAccountType("LRS");
-        public static StorageAccountType ZRS { get; } = new StorageAccountType("ZRS");
 
         public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
         public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);

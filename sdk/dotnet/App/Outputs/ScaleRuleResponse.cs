@@ -32,6 +32,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// Scale Rule Name
         /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Tcp requests based scaling.
+        /// </summary>
+        public readonly Outputs.TcpScaleRuleResponse? Tcp;
 
         [OutputConstructor]
         private ScaleRuleResponse(
@@ -41,12 +45,15 @@ namespace Pulumi.AzureNative.App.Outputs
 
             Outputs.HttpScaleRuleResponse? http,
 
-            string? name)
+            string? name,
+
+            Outputs.TcpScaleRuleResponse? tcp)
         {
             AzureQueue = azureQueue;
             Custom = custom;
             Http = http;
             Name = name;
+            Tcp = tcp;
         }
     }
 }

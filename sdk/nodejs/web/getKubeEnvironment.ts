@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get the properties of a Kubernetes Environment.
- * API Version: 2021-01-01.
+ * Description for Get the properties of a Kubernetes Environment.
+ * Azure REST API version: 2022-09-01.
  */
 export function getKubeEnvironment(args: GetKubeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKubeEnvironmentResult> {
 
@@ -49,6 +49,10 @@ export interface GetKubeEnvironmentResult {
      */
     readonly arcConfiguration?: outputs.web.ArcConfigurationResponse;
     /**
+     * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
+     */
+    readonly containerAppsConfiguration?: outputs.web.ContainerAppsConfigurationResponse;
+    /**
      * Default Domain Name for the cluster
      */
     readonly defaultDomain: string;
@@ -56,6 +60,10 @@ export interface GetKubeEnvironmentResult {
      * Any errors that occurred during deployment or deployment validation
      */
     readonly deploymentErrors: string;
+    /**
+     * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
+     */
+    readonly environmentType?: string;
     /**
      * Extended Location.
      */
@@ -98,8 +106,8 @@ export interface GetKubeEnvironmentResult {
     readonly type: string;
 }
 /**
- * Get the properties of a Kubernetes Environment.
- * API Version: 2021-01-01.
+ * Description for Get the properties of a Kubernetes Environment.
+ * Azure REST API version: 2022-09-01.
  */
 export function getKubeEnvironmentOutput(args: GetKubeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKubeEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getKubeEnvironment(a, opts))

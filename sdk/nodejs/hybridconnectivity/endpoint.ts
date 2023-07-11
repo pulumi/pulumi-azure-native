@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The endpoint for the target resource.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2023-03-15. Prior API version in Azure Native 1.x: 2022-05-01-preview
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -67,17 +67,17 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The resource provisioning state.
+     * The endpoint properties.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.hybridconnectivity.EndpointPropertiesResponse>;
     /**
-     * The resource Id of the connectivity endpoint (optional).
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridconnectivity.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -93,9 +93,6 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceUri === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'type'");
-            }
             resourceInputs["createdAt"] = args ? args.createdAt : undefined;
             resourceInputs["createdBy"] = args ? args.createdBy : undefined;
             resourceInputs["createdByType"] = args ? args.createdByType : undefined;
@@ -103,11 +100,11 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
             resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
             resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
@@ -116,12 +113,12 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["lastModifiedBy"] = undefined /*out*/;
             resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["resourceId"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20211006preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20220501preview:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridconnectivity/v20211006preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20220501preview:Endpoint" }, { type: "azure-native:hybridconnectivity/v20230315:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -160,15 +157,11 @@ export interface EndpointArgs {
      */
     lastModifiedByType?: pulumi.Input<string | enums.hybridconnectivity.CreatedByType>;
     /**
-     * The resource Id of the connectivity endpoint (optional).
+     * The endpoint properties.
      */
-    resourceId?: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.hybridconnectivity.EndpointPropertiesArgs>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
     resourceUri: pulumi.Input<string>;
-    /**
-     * The type of endpoint.
-     */
-    type: pulumi.Input<string | enums.hybridconnectivity.Type>;
 }

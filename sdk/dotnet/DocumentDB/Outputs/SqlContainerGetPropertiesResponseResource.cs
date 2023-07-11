@@ -18,6 +18,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         /// </summary>
         public readonly double? AnalyticalStorageTtl;
         /// <summary>
+        /// The client encryption policy for the container.
+        /// </summary>
+        public readonly Outputs.ClientEncryptionPolicyResponse? ClientEncryptionPolicy;
+        /// <summary>
         /// The conflict resolution policy for the container.
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponse? ConflictResolutionPolicy;
@@ -58,6 +62,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
         private SqlContainerGetPropertiesResponseResource(
             double? analyticalStorageTtl,
 
+            Outputs.ClientEncryptionPolicyResponse? clientEncryptionPolicy,
+
             Outputs.ConflictResolutionPolicyResponse? conflictResolutionPolicy,
 
             int? defaultTtl,
@@ -77,6 +83,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
             Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
         {
             AnalyticalStorageTtl = analyticalStorageTtl;
+            ClientEncryptionPolicy = clientEncryptionPolicy;
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;
             Etag = etag;

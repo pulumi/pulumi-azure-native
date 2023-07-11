@@ -5,76 +5,15 @@
 from enum import Enum
 
 __all__ = [
-    'AdvancedFilterOperatorType',
-    'DeadLetterEndPointType',
-    'EndpointType',
-    'EventDeliverySchema',
-    'EventSubscriptionIdentityType',
     'IdentityType',
     'InputSchema',
     'InputSchemaMappingType',
     'IpActionType',
-    'PartnerRegistrationVisibilityState',
     'PersistedConnectionStatus',
     'PublicNetworkAccess',
     'ResourceProvisioningState',
     'Sku',
 ]
-
-
-class AdvancedFilterOperatorType(str, Enum):
-    """
-    The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
-    """
-    NUMBER_IN = "NumberIn"
-    NUMBER_NOT_IN = "NumberNotIn"
-    NUMBER_LESS_THAN = "NumberLessThan"
-    NUMBER_GREATER_THAN = "NumberGreaterThan"
-    NUMBER_LESS_THAN_OR_EQUALS = "NumberLessThanOrEquals"
-    NUMBER_GREATER_THAN_OR_EQUALS = "NumberGreaterThanOrEquals"
-    BOOL_EQUALS = "BoolEquals"
-    STRING_IN = "StringIn"
-    STRING_NOT_IN = "StringNotIn"
-    STRING_BEGINS_WITH = "StringBeginsWith"
-    STRING_ENDS_WITH = "StringEndsWith"
-    STRING_CONTAINS = "StringContains"
-
-
-class DeadLetterEndPointType(str, Enum):
-    """
-    Type of the endpoint for the dead letter destination
-    """
-    STORAGE_BLOB = "StorageBlob"
-
-
-class EndpointType(str, Enum):
-    """
-    Type of the endpoint for the event subscription destination.
-    """
-    WEB_HOOK = "WebHook"
-    EVENT_HUB = "EventHub"
-    STORAGE_QUEUE = "StorageQueue"
-    HYBRID_CONNECTION = "HybridConnection"
-    SERVICE_BUS_QUEUE = "ServiceBusQueue"
-    SERVICE_BUS_TOPIC = "ServiceBusTopic"
-    AZURE_FUNCTION = "AzureFunction"
-
-
-class EventDeliverySchema(str, Enum):
-    """
-    The event delivery schema for the event subscription.
-    """
-    EVENT_GRID_SCHEMA = "EventGridSchema"
-    CUSTOM_INPUT_SCHEMA = "CustomInputSchema"
-    CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
-
-
-class EventSubscriptionIdentityType(str, Enum):
-    """
-    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
 
 
 class IdentityType(str, Enum):
@@ -108,15 +47,6 @@ class IpActionType(str, Enum):
     Action to perform based on the match or no match of the IpMask.
     """
     ALLOW = "Allow"
-
-
-class PartnerRegistrationVisibilityState(str, Enum):
-    """
-    Visibility state of the partner registration.
-    """
-    HIDDEN = "Hidden"
-    PUBLIC_PREVIEW = "PublicPreview"
-    GENERALLY_AVAILABLE = "GenerallyAvailable"
 
 
 class PersistedConnectionStatus(str, Enum):

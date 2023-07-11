@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// Gets the download URL of the test result.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetTestResultDownloadURLResult> InvokeAsync(GetTestResultDownloadURLArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the download URL of the test result.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());

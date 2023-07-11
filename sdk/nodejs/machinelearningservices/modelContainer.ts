@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class ModelContainer extends pulumi.CustomResource {
     /**
@@ -39,15 +39,15 @@ export class ModelContainer extends pulumi.CustomResource {
     }
 
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    public readonly modelContainerProperties!: pulumi.Output<outputs.machinelearningservices.ModelContainerResponse>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.ModelContainerResponse>;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -66,8 +66,8 @@ export class ModelContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
+            if ((!args || args.modelContainerProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'modelContainerProperties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,20 +75,20 @@ export class ModelContainer extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["modelContainerProperties"] = args ? (args.modelContainerProperties ? pulumi.output(args.modelContainerProperties).apply(inputs.machinelearningservices.modelContainerArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["modelContainerProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220501:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221001:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:ModelContainer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220501:ModelContainer" }, { type: "azure-native:machinelearningservices/v20220601preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221001:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221001preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20221201preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20230201preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20230401:ModelContainer" }, { type: "azure-native:machinelearningservices/v20230401preview:ModelContainer" }, { type: "azure-native:machinelearningservices/v20230601preview:ModelContainer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ModelContainer.__pulumiType, name, resourceInputs, opts);
     }
@@ -99,13 +99,13 @@ export class ModelContainer extends pulumi.CustomResource {
  */
 export interface ModelContainerArgs {
     /**
-     * Container name.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * [Required] Additional attributes of the entity.
      */
-    properties: pulumi.Input<inputs.machinelearningservices.ModelContainerArgs>;
+    modelContainerProperties: pulumi.Input<inputs.machinelearningservices.ModelContainerArgs>;
+    /**
+     * Container name. This is case-sensitive.
+     */
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -114,7 +114,7 @@ class GetInventoryItemResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -159,7 +159,7 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInventoryItemResult:
     """
     Shows an inventory item.
-    API Version: 2020-06-05-preview.
+    Azure REST API version: 2022-05-21-preview.
 
 
     :param str inventory_item_name: Name of the inventoryItem.
@@ -193,7 +193,7 @@ def get_inventory_item_output(inventory_item_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInventoryItemResult]:
     """
     Shows an inventory item.
-    API Version: 2020-06-05-preview.
+    Azure REST API version: 2022-05-21-preview.
 
 
     :param str inventory_item_name: Name of the inventoryItem.

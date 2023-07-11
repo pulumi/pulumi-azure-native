@@ -1,0 +1,3 @@
+name: go-user-assigned-identity
+runtime: go
+description: A minimal Azure Go Pulumi program

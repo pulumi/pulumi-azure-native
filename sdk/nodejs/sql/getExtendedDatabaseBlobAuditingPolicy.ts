@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an extended database's blob auditing policy.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getExtendedDatabaseBlobAuditingPolicy(args: GetExtendedDatabaseBlobAuditingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetExtendedDatabaseBlobAuditingPolicyResult> {
 
@@ -75,6 +75,10 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
      * USER_CHANGE_PASSWORD_GROUP
      * BATCH_STARTED_GROUP
      * BATCH_COMPLETED_GROUP
+     * DBCC_GROUP
+     * DATABASE_OWNERSHIP_CHANGE_GROUP
+     * DATABASE_CHANGE_GROUP
+     * LEDGER_OPERATION_GROUP
      * 
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
      * 
@@ -121,6 +125,10 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
      */
     readonly isAzureMonitorTargetEnabled?: boolean;
     /**
+     * Specifies whether Managed Identity is used to access blob storage
+     */
+    readonly isManagedIdentityInUse?: boolean;
+    /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
     readonly isStorageSecondaryKeyInUse?: boolean;
@@ -160,7 +168,7 @@ export interface GetExtendedDatabaseBlobAuditingPolicyResult {
 }
 /**
  * Gets an extended database's blob auditing policy.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getExtendedDatabaseBlobAuditingPolicyOutput(args: GetExtendedDatabaseBlobAuditingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtendedDatabaseBlobAuditingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getExtendedDatabaseBlobAuditingPolicy(a, opts))

@@ -14,9 +14,6 @@ __all__ = [
     'CmkKekIdentityArgs',
     'CmkKeyVaultPropertiesArgs',
     'IdentityDataArgs',
-    'PrivateEndpointConnectionArgs',
-    'PrivateEndpointArgs',
-    'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
     'VaultPropertiesEncryptionArgs',
     'VaultPropertiesArgs',
@@ -90,11 +87,11 @@ class CmkKeyVaultPropertiesArgs:
 class IdentityDataArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ResourceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input[Union[str, 'ResourceIdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -114,151 +111,15 @@ class IdentityDataArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None):
-        """
-        Private Endpoint Connection Response Properties
-        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Gets or sets private endpoint associated with the private endpoint connection
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Gets or sets private link service connection state
-        :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Gets or sets provisioning state of the private endpoint connection
-        """
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-
-    @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
-        """
-        Gets or sets private endpoint associated with the private endpoint connection
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
-        pulumi.set(self, "private_endpoint", value)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
-        """
-        Gets or sets private link service connection state
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'ProvisioningState']]]:
-        """
-        Gets or sets provisioning state of the private endpoint connection
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'ProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        The Private Endpoint network resource that is linked to the Private Endpoint connection
-        :param pulumi.Input[str] id: Gets or sets id
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets id
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 action_required: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]] = None):
-        """
-        Private Link Service Connection State
-        :param pulumi.Input[str] action_required: Gets or sets actions required
-        :param pulumi.Input[str] description: Gets or sets description
-        :param pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']] status: Gets or sets the status
-        """
-        if action_required is not None:
-            pulumi.set(__self__, "action_required", action_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionRequired")
-    def action_required(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets actions required
-        """
-        return pulumi.get(self, "action_required")
-
-    @action_required.setter
-    def action_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "action_required", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        Gets or sets description
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]:
-        """
-        Gets or sets the status
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

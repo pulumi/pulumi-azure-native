@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a cluster principal assignment.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
  */
 export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === KustoPoolPrincipalAssignment.__pulumiType;
     }
 
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    public /*out*/ readonly aadObjectId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -116,6 +120,7 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["aadObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -123,6 +128,7 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["tenantName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["aadObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
@@ -174,7 +180,7 @@ export interface KustoPoolPrincipalAssignmentArgs {
      */
     tenantId?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

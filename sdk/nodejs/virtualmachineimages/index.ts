@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetTriggerArgs, GetTriggerResult, GetTriggerOutputArgs } from "./getTrigger";
+export const getTrigger: typeof import("./getTrigger").getTrigger = null as any;
+export const getTriggerOutput: typeof import("./getTrigger").getTriggerOutput = null as any;
+utilities.lazyLoad(exports, ["getTrigger","getTriggerOutput"], () => require("./getTrigger"));
+
 export { GetVirtualMachineImageTemplateArgs, GetVirtualMachineImageTemplateResult, GetVirtualMachineImageTemplateOutputArgs } from "./getVirtualMachineImageTemplate";
 export const getVirtualMachineImageTemplate: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplate = null as any;
 export const getVirtualMachineImageTemplateOutput: typeof import("./getVirtualMachineImageTemplate").getVirtualMachineImageTemplateOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMachineImageTemplate","getVirtualMachineImageTemplateOutput"], () => require("./getVirtualMachineImageTemplate"));
+
+export { TriggerArgs } from "./trigger";
+export type Trigger = import("./trigger").Trigger;
+export const Trigger: typeof import("./trigger").Trigger = null as any;
+utilities.lazyLoad(exports, ["Trigger"], () => require("./trigger"));
 
 export { VirtualMachineImageTemplateArgs } from "./virtualMachineImageTemplate";
 export type VirtualMachineImageTemplate = import("./virtualMachineImageTemplate").VirtualMachineImageTemplate;
@@ -20,21 +30,9 @@ utilities.lazyLoad(exports, ["VirtualMachineImageTemplate"], () => require("./vi
 export * from "../types/enums/virtualmachineimages";
 
 // Export sub-modules:
-import * as v20180201preview from "./v20180201preview";
-import * as v20190201preview from "./v20190201preview";
-import * as v20190501preview from "./v20190501preview";
-import * as v20200214 from "./v20200214";
-import * as v20211001 from "./v20211001";
-import * as v20220214 from "./v20220214";
 import * as v20220701 from "./v20220701";
 
 export {
-    v20180201preview,
-    v20190201preview,
-    v20190501preview,
-    v20200214,
-    v20211001,
-    v20220214,
     v20220701,
 };
 
@@ -42,6 +40,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:virtualmachineimages:Trigger":
+                return new Trigger(name, <any>undefined, { urn })
             case "azure-native:virtualmachineimages:VirtualMachineImageTemplate":
                 return new VirtualMachineImageTemplate(name, <any>undefined, { urn })
             default:

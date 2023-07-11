@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Resource information.
-    /// API Version: 2019-05-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:Resource")]
     public partial class Resource : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Resource extended location.
+        /// </summary>
+        [Output("extendedLocation")]
+        public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
         /// <summary>
         /// The identity of the resource.
         /// </summary>
@@ -143,6 +149,12 @@ namespace Pulumi.AzureNative.Resources
 
     public sealed class ResourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Resource extended location.
+        /// </summary>
+        [Input("extendedLocation")]
+        public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
         /// <summary>
         /// The identity of the resource.
         /// </summary>

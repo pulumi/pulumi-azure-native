@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings with single toggle.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class EntityAnalytics extends pulumi.CustomResource {
     /**
@@ -39,20 +39,20 @@ export class EntityAnalytics extends pulumi.CustomResource {
     }
 
     /**
+     * The relevant entity providers that are synced
+     */
+    public readonly entityProviders!: pulumi.Output<string[] | undefined>;
+    /**
      * Etag of the azure resource
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    /**
-     * Determines whether the setting is enable or disabled.
-     */
-    public /*out*/ readonly isEnabled!: pulumi.Output<boolean>;
     /**
      * The kind of the setting
      * Expected value is 'EntityAnalytics'.
      */
     public readonly kind!: pulumi.Output<"EntityAnalytics">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -60,7 +60,7 @@ export class EntityAnalytics extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -78,35 +78,31 @@ export class EntityAnalytics extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["entityProviders"] = args ? args.entityProviders : undefined;
             resourceInputs["kind"] = "EntityAnalytics";
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settingsName"] = args ? args.settingsName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["entityProviders"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["isEnabled"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210301preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210901preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20211001preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220401preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220501preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220601preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220701preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220801preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220901preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20221001preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20221101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20221201preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230201preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230401preview:EntityAnalytics" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210301preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20210901preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20211001preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220401preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220501preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220601preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220701preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220801preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20220901preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20221001preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20221101preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20221201preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230201preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230301preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230401preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230501preview:EntityAnalytics" }, { type: "azure-native:securityinsights/v20230601preview:EntityAnalytics" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EntityAnalytics.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,14 +113,14 @@ export class EntityAnalytics extends pulumi.CustomResource {
  */
 export interface EntityAnalyticsArgs {
     /**
+     * The relevant entity providers that are synced
+     */
+    entityProviders?: pulumi.Input<pulumi.Input<string | enums.securityinsights.EntityProviders>[]>;
+    /**
      * The kind of the setting
      * Expected value is 'EntityAnalytics'.
      */
     kind: pulumi.Input<"EntityAnalytics">;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

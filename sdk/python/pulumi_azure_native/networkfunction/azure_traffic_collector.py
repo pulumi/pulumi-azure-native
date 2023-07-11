@@ -9,8 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
-from ._inputs import *
 
 __all__ = ['AzureTrafficCollectorArgs', 'AzureTrafficCollector']
 
@@ -19,22 +17,18 @@ class AzureTrafficCollectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  azure_traffic_collector_name: Optional[pulumi.Input[str]] = None,
-                 collector_policies: Optional[pulumi.Input[Sequence[pulumi.Input['CollectorPolicyArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AzureTrafficCollector resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
-        :param pulumi.Input[Sequence[pulumi.Input['CollectorPolicyArgs']]] collector_policies: Collector Policies for Azure Traffic Collector.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_traffic_collector_name is not None:
             pulumi.set(__self__, "azure_traffic_collector_name", azure_traffic_collector_name)
-        if collector_policies is not None:
-            pulumi.set(__self__, "collector_policies", collector_policies)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -63,18 +57,6 @@ class AzureTrafficCollectorArgs:
     @azure_traffic_collector_name.setter
     def azure_traffic_collector_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_traffic_collector_name", value)
-
-    @property
-    @pulumi.getter(name="collectorPolicies")
-    def collector_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollectorPolicyArgs']]]]:
-        """
-        Collector Policies for Azure Traffic Collector.
-        """
-        return pulumi.get(self, "collector_policies")
-
-    @collector_policies.setter
-    def collector_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CollectorPolicyArgs']]]]):
-        pulumi.set(self, "collector_policies", value)
 
     @property
     @pulumi.getter
@@ -107,19 +89,17 @@ class AzureTrafficCollector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_traffic_collector_name: Optional[pulumi.Input[str]] = None,
-                 collector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectorPolicyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Azure Traffic Collector resource.
-        API Version: 2022-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectorPolicyArgs']]]] collector_policies: Collector Policies for Azure Traffic Collector.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -132,7 +112,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Traffic Collector resource.
-        API Version: 2022-05-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01
 
         :param str resource_name: The name of the resource.
         :param AzureTrafficCollectorArgs args: The arguments to use to populate this resource's properties.
@@ -150,7 +130,6 @@ class AzureTrafficCollector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  azure_traffic_collector_name: Optional[pulumi.Input[str]] = None,
-                 collector_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectorPolicyArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -164,12 +143,12 @@ class AzureTrafficCollector(pulumi.CustomResource):
             __props__ = AzureTrafficCollectorArgs.__new__(AzureTrafficCollectorArgs)
 
             __props__.__dict__["azure_traffic_collector_name"] = azure_traffic_collector_name
-            __props__.__dict__["collector_policies"] = collector_policies
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["collector_policies"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -213,7 +192,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="collectorPolicies")
-    def collector_policies(self) -> pulumi.Output[Optional[Sequence['outputs.CollectorPolicyResponse']]]:
+    def collector_policies(self) -> pulumi.Output[Sequence['outputs.ResourceReferenceResponse']]:
         """
         Collector Policies for Azure Traffic Collector.
         """
@@ -229,7 +208,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[str]:
         """
         Resource location.
         """

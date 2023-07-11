@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the Shared Access Authorization Token for the User.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUserSharedAccessToken(args: GetUserSharedAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSharedAccessTokenResult> {
 
@@ -33,7 +33,7 @@ export interface GetUserSharedAccessTokenArgs {
      */
     keyType: enums.apimanagement.KeyType;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -57,7 +57,7 @@ export interface GetUserSharedAccessTokenResult {
 }
 /**
  * Gets the Shared Access Authorization Token for the User.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getUserSharedAccessTokenOutput(args: GetUserSharedAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSharedAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getUserSharedAccessToken(a, opts))
@@ -73,7 +73,7 @@ export interface GetUserSharedAccessTokenOutputArgs {
      */
     keyType: pulumi.Input<enums.apimanagement.KeyType>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

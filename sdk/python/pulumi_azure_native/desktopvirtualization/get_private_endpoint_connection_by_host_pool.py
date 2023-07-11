@@ -123,7 +123,7 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[str] =
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionByHostPoolResult:
     """
     Get a private endpoint connection.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -154,7 +154,7 @@ def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
     """
     Get a private endpoint connection.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2022-10-14-preview.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

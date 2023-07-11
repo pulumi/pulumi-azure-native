@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
@@ -16,27 +17,34 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
+                 private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
                  resource_group_name: pulumi.Input[str],
                  scope_name: pulumi.Input[str],
-                 private_endpoint: Optional[pulumi.Input['PrivateEndpointPropertyArgs']] = None,
-                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']] = None):
+                 private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
-        :param pulumi.Input['PrivateEndpointPropertyArgs'] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
-        :param pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs'] private_link_service_connection_state: Connection state of the private endpoint connection.
         """
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope_name", scope_name)
-        if private_endpoint is not None:
-            pulumi.set(__self__, "private_endpoint", private_endpoint)
         if private_endpoint_connection_name is not None:
             pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> pulumi.Input['PrivateLinkServiceConnectionStateArgs']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: pulumi.Input['PrivateLinkServiceConnectionStateArgs']):
+        pulumi.set(self, "private_link_service_connection_state", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +71,6 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "scope_name", value)
 
     @property
-    @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointPropertyArgs']]:
-        """
-        Private endpoint which the connection belongs to.
-        """
-        return pulumi.get(self, "private_endpoint")
-
-    @private_endpoint.setter
-    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointPropertyArgs']]):
-        pulumi.set(self, "private_endpoint", value)
-
-    @property
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -86,39 +82,25 @@ class PrivateEndpointConnectionArgs:
     def private_endpoint_connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_endpoint_connection_name", value)
 
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']]:
-        """
-        Connection state of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['PrivateLinkServiceConnectionStatePropertyArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
 
 class PrivateEndpointConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A private endpoint connection
-        API Version: 2019-10-17-preview.
+        The Private Endpoint Connection resource.
+        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']] private_endpoint: Private endpoint which the connection belongs to.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']] private_link_service_connection_state: Connection state of the private endpoint connection.
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_name: The name of the Azure Monitor PrivateLinkScope resource.
         """
@@ -129,8 +111,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  args: PrivateEndpointConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A private endpoint connection
-        API Version: 2019-10-17-preview.
+        The Private Endpoint Connection resource.
+        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -147,9 +129,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointPropertyArgs']]] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStatePropertyArgs']]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scope_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -161,8 +142,9 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
-            __props__.__dict__["private_endpoint"] = private_endpoint
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
+            if private_link_service_connection_state is None and not opts.urn:
+                raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -171,6 +153,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope_name'")
             __props__.__dict__["scope_name"] = scope_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["private_endpoint"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191017preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:insights/v20210701preview:PrivateEndpointConnection")])
@@ -208,23 +191,23 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointPropertyResponse']]:
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
-        Private endpoint which the connection belongs to.
+        The resource of private end point.
         """
         return pulumi.get(self, "private_endpoint")
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']]:
+    def private_link_service_connection_state(self) -> pulumi.Output['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
-        Connection state of the private endpoint connection.
+        A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -232,7 +215,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        State of the private endpoint connection.
+        The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -240,7 +223,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

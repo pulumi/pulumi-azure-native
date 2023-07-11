@@ -16,19 +16,31 @@ namespace Pulumi.AzureNative.Compute.Inputs
     public sealed class VirtualMachineScaleSetVMProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the billing related details of a Azure Spot VMSS. &lt;br&gt;&lt;br&gt;Minimum api-version: 2019-03-01.
+        /// Specifies the gallery applications that should be made available to the VM/VMSS
+        /// </summary>
+        [Input("applicationProfile")]
+        public Input<Inputs.ApplicationProfileArgs>? ApplicationProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the billing related details of a Azure Spot VMSS. Minimum api-version: 2019-03-01.
         /// </summary>
         [Input("billingProfile")]
         public Input<Inputs.BillingProfileArgs>? BillingProfile { get; set; }
 
         /// <summary>
-        /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
+        /// Specifies the capacity reservation related details of a scale set. Minimum api-version: 2021-04-01.
+        /// </summary>
+        [Input("capacityReservation")]
+        public Input<Inputs.CapacityReservationProfileArgs>? CapacityReservation { get; set; }
+
+        /// <summary>
+        /// Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         /// </summary>
         [Input("diagnosticsProfile")]
         public Input<Inputs.DiagnosticsProfileArgs>? DiagnosticsProfile { get; set; }
 
         /// <summary>
-        /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. &lt;br&gt;&lt;br&gt;For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. &lt;br&gt;&lt;br&gt;For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+        /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
         /// </summary>
         [Input("evictionPolicy")]
         public InputUnion<string, Pulumi.AzureNative.Compute.VirtualMachineEvictionPolicyTypes>? EvictionPolicy { get; set; }
@@ -38,6 +50,12 @@ namespace Pulumi.AzureNative.Compute.Inputs
         /// </summary>
         [Input("extensionProfile")]
         public Input<Inputs.VirtualMachineScaleSetExtensionProfileArgs>? ExtensionProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the hardware profile related details of a scale set. Minimum api-version: 2021-11-01.
+        /// </summary>
+        [Input("hardwareProfile")]
+        public Input<Inputs.VirtualMachineScaleSetHardwareProfileArgs>? HardwareProfile { get; set; }
 
         /// <summary>
         /// Specifies that the image or disk that is being used was licensed on-premises. &lt;br&gt;&lt;br&gt; Possible values for Windows Server operating system are: &lt;br&gt;&lt;br&gt; Windows_Client &lt;br&gt;&lt;br&gt; Windows_Server &lt;br&gt;&lt;br&gt; Possible values for Linux Server operating system are: &lt;br&gt;&lt;br&gt; RHEL_BYOS (for RHEL) &lt;br&gt;&lt;br&gt; SLES_BYOS (for SUSE) &lt;br&gt;&lt;br&gt; For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) &lt;br&gt;&lt;br&gt; [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) &lt;br&gt;&lt;br&gt; Minimum api-version: 2015-06-15
@@ -58,7 +76,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.VirtualMachineScaleSetOSProfileArgs>? OsProfile { get; set; }
 
         /// <summary>
-        /// Specifies the priority for the virtual machines in the scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2017-10-30-preview
+        /// Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
         /// </summary>
         [Input("priority")]
         public InputUnion<string, Pulumi.AzureNative.Compute.VirtualMachinePriorityTypes>? Priority { get; set; }
@@ -70,10 +88,22 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.ScheduledEventsProfileArgs>? ScheduledEventsProfile { get; set; }
 
         /// <summary>
+        /// Specifies the security posture to be used for all virtual machines in the scale set. Minimum api-version: 2023-03-01
+        /// </summary>
+        [Input("securityPostureReference")]
+        public Input<Inputs.SecurityPostureReferenceArgs>? SecurityPostureReference { get; set; }
+
+        /// <summary>
         /// Specifies the Security related profile settings for the virtual machines in the scale set.
         /// </summary>
         [Input("securityProfile")]
         public Input<Inputs.SecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
+        /// Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01
+        /// </summary>
+        [Input("serviceArtifactReference")]
+        public Input<Inputs.ServiceArtifactReferenceArgs>? ServiceArtifactReference { get; set; }
 
         /// <summary>
         /// Specifies the storage settings for the virtual machine disks.
@@ -82,7 +112,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.VirtualMachineScaleSetStorageProfileArgs>? StorageProfile { get; set; }
 
         /// <summary>
-        /// UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. &lt;br&gt;&lt;br&gt;Minimum api-version: 2021-03-01
+        /// UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }

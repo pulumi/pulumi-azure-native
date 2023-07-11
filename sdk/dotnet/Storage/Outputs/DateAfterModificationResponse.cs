@@ -11,15 +11,23 @@ namespace Pulumi.AzureNative.Storage.Outputs
 {
 
     /// <summary>
-    /// Object to define the number of days after object last modification Or last access. Properties daysAfterModificationGreaterThan and daysAfterLastAccessTimeGreaterThan are mutually exclusive.
+    /// Object to define the base blob action conditions. Properties daysAfterModificationGreaterThan, daysAfterLastAccessTimeGreaterThan and daysAfterCreationGreaterThan are mutually exclusive. The daysAfterLastTierChangeGreaterThan property is only applicable for tierToArchive actions which requires daysAfterModificationGreaterThan to be set, also it cannot be used in conjunction with daysAfterLastAccessTimeGreaterThan or daysAfterCreationGreaterThan.
     /// </summary>
     [OutputType]
     public sealed class DateAfterModificationResponse
     {
         /// <summary>
+        /// Value indicating the age in days after blob creation.
+        /// </summary>
+        public readonly double? DaysAfterCreationGreaterThan;
+        /// <summary>
         /// Value indicating the age in days after last blob access. This property can only be used in conjunction with last access time tracking policy
         /// </summary>
         public readonly double? DaysAfterLastAccessTimeGreaterThan;
+        /// <summary>
+        /// Value indicating the age in days after last blob tier change time. This property is only applicable for tierToArchive actions and requires daysAfterModificationGreaterThan to be set for baseBlobs based actions. The blob will be archived if both the conditions are satisfied.
+        /// </summary>
+        public readonly double? DaysAfterLastTierChangeGreaterThan;
         /// <summary>
         /// Value indicating the age in days after last modification
         /// </summary>
@@ -27,11 +35,17 @@ namespace Pulumi.AzureNative.Storage.Outputs
 
         [OutputConstructor]
         private DateAfterModificationResponse(
+            double? daysAfterCreationGreaterThan,
+
             double? daysAfterLastAccessTimeGreaterThan,
+
+            double? daysAfterLastTierChangeGreaterThan,
 
             double? daysAfterModificationGreaterThan)
         {
+            DaysAfterCreationGreaterThan = daysAfterCreationGreaterThan;
             DaysAfterLastAccessTimeGreaterThan = daysAfterLastAccessTimeGreaterThan;
+            DaysAfterLastTierChangeGreaterThan = daysAfterLastTierChangeGreaterThan;
             DaysAfterModificationGreaterThan = daysAfterModificationGreaterThan;
         }
     }

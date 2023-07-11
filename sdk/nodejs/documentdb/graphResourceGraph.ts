@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Cosmos DB Graph resource.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2023-03-15-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
  */
 export class GraphResourceGraph extends pulumi.CustomResource {
     /**
@@ -101,7 +101,7 @@ export class GraphResourceGraph extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20211015preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20211115preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20220215preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20220515preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20220815preview:GraphResourceGraph" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210701preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20211015preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20211115preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20220215preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20220515preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20220815preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20221115preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20230301preview:GraphResourceGraph" }, { type: "azure-native:documentdb/v20230315preview:GraphResourceGraph" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GraphResourceGraph.__pulumiType, name, resourceInputs, opts);
     }

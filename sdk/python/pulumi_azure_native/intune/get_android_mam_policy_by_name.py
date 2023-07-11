@@ -278,7 +278,7 @@ def get_android_mam_policy_by_name(host_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAndroidMAMPolicyByNameResult:
     """
     Returns AndroidMAMPolicy with given name.
-    API Version: 2015-01-14-preview.
+    Azure REST API version: 2015-01-14-preview.
 
 
     :param str host_name: Location hostName for the tenant
@@ -327,7 +327,7 @@ def get_android_mam_policy_by_name_output(host_name: Optional[pulumi.Input[str]]
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAndroidMAMPolicyByNameResult]:
     """
     Returns AndroidMAMPolicy with given name.
-    API Version: 2015-01-14-preview.
+    Azure REST API version: 2015-01-14-preview.
 
 
     :param str host_name: Location hostName for the tenant

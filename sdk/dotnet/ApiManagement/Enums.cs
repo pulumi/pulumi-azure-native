@@ -55,6 +55,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         public static ApiType Http { get; } = new ApiType("http");
         public static ApiType Soap { get; } = new ApiType("soap");
+        public static ApiType Websocket { get; } = new ApiType("websocket");
+        public static ApiType Graphql { get; } = new ApiType("graphql");
 
         public static bool operator ==(ApiType left, ApiType right) => left.Equals(right);
         public static bool operator !=(ApiType left, ApiType right) => !left.Equals(right);
@@ -176,6 +178,39 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
+    /// Authorization type options
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthorizationType : IEquatable<AuthorizationType>
+    {
+        private readonly string _value;
+
+        private AuthorizationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// OAuth2 authorization type
+        /// </summary>
+        public static AuthorizationType OAuth2 { get; } = new AuthorizationType("OAuth2");
+
+        public static bool operator ==(AuthorizationType left, AuthorizationType right) => left.Equals(right);
+        public static bool operator !=(AuthorizationType left, AuthorizationType right) => !left.Equals(right);
+
+        public static explicit operator string(AuthorizationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthorizationType other && Equals(other);
+        public bool Equals(AuthorizationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Backend communication protocol.
     /// </summary>
     [EnumType]
@@ -270,6 +305,71 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BearerTokenSendingMethods other && Equals(other);
         public bool Equals(BearerTokenSendingMethods other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Certificate Source.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateSource : IEquatable<CertificateSource>
+    {
+        private readonly string _value;
+
+        private CertificateSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateSource Managed { get; } = new CertificateSource("Managed");
+        public static CertificateSource KeyVault { get; } = new CertificateSource("KeyVault");
+        public static CertificateSource Custom { get; } = new CertificateSource("Custom");
+        public static CertificateSource BuiltIn { get; } = new CertificateSource("BuiltIn");
+
+        public static bool operator ==(CertificateSource left, CertificateSource right) => left.Equals(right);
+        public static bool operator !=(CertificateSource left, CertificateSource right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateSource other && Equals(other);
+        public bool Equals(CertificateSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Certificate Status.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateStatus : IEquatable<CertificateStatus>
+    {
+        private readonly string _value;
+
+        private CertificateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateStatus Completed { get; } = new CertificateStatus("Completed");
+        public static CertificateStatus Failed { get; } = new CertificateStatus("Failed");
+        public static CertificateStatus InProgress { get; } = new CertificateStatus("InProgress");
+
+        public static bool operator ==(CertificateStatus left, CertificateStatus right) => left.Equals(right);
+        public static bool operator !=(CertificateStatus left, CertificateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateStatus other && Equals(other);
+        public bool Equals(CertificateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -401,6 +501,10 @@ namespace Pulumi.AzureNative.ApiManagement
         /// The OpenAPI 3.0 JSON document is hosted on a publicly accessible internet address.
         /// </summary>
         public static ContentFormat Openapi_json_link { get; } = new ContentFormat("openapi+json-link");
+        /// <summary>
+        /// The GraphQL API endpoint hosted on a publicly accessible internet address.
+        /// </summary>
+        public static ContentFormat Graphql_link { get; } = new ContentFormat("graphql-link");
 
         public static bool operator ==(ContentFormat left, ContentFormat right) => left.Equals(right);
         public static bool operator !=(ContentFormat left, ContentFormat right) => !left.Equals(right);
@@ -447,6 +551,39 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataMaskingMode other && Equals(other);
         public bool Equals(DataMaskingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Purpose of debug credential.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayListDebugCredentialsContractPurpose : IEquatable<GatewayListDebugCredentialsContractPurpose>
+    {
+        private readonly string _value;
+
+        private GatewayListDebugCredentialsContractPurpose(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The tracing purpose.
+        /// </summary>
+        public static GatewayListDebugCredentialsContractPurpose Tracing { get; } = new GatewayListDebugCredentialsContractPurpose("tracing");
+
+        public static bool operator ==(GatewayListDebugCredentialsContractPurpose left, GatewayListDebugCredentialsContractPurpose right) => left.Equals(right);
+        public static bool operator !=(GatewayListDebugCredentialsContractPurpose left, GatewayListDebugCredentialsContractPurpose right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayListDebugCredentialsContractPurpose value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayListDebugCredentialsContractPurpose other && Equals(other);
+        public bool Equals(GatewayListDebugCredentialsContractPurpose other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -729,6 +866,80 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
+    /// Property can be used to enable NAT Gateway for this API Management service.
+    /// </summary>
+    [EnumType]
+    public readonly struct NatGatewayState : IEquatable<NatGatewayState>
+    {
+        private readonly string _value;
+
+        private NatGatewayState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Nat Gateway is enabled for the service.
+        /// </summary>
+        public static NatGatewayState Enabled { get; } = new NatGatewayState("Enabled");
+        /// <summary>
+        /// Nat Gateway is disabled for the service.
+        /// </summary>
+        public static NatGatewayState Disabled { get; } = new NatGatewayState("Disabled");
+
+        public static bool operator ==(NatGatewayState left, NatGatewayState right) => left.Equals(right);
+        public static bool operator !=(NatGatewayState left, NatGatewayState right) => !left.Equals(right);
+
+        public static explicit operator string(NatGatewayState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NatGatewayState other && Equals(other);
+        public bool Equals(NatGatewayState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// OAuth2 grant type options
+    /// </summary>
+    [EnumType]
+    public readonly struct OAuth2GrantType : IEquatable<OAuth2GrantType>
+    {
+        private readonly string _value;
+
+        private OAuth2GrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Authorization Code grant
+        /// </summary>
+        public static OAuth2GrantType AuthorizationCode { get; } = new OAuth2GrantType("AuthorizationCode");
+        /// <summary>
+        /// Client Credential grant
+        /// </summary>
+        public static OAuth2GrantType ClientCredentials { get; } = new OAuth2GrantType("ClientCredentials");
+
+        public static bool operator ==(OAuth2GrantType left, OAuth2GrantType right) => left.Equals(right);
+        public static bool operator !=(OAuth2GrantType left, OAuth2GrantType right) => !left.Equals(right);
+
+        public static explicit operator string(OAuth2GrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OAuth2GrantType other && Equals(other);
+        public bool Equals(OAuth2GrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format of the Operation Name for Application Insights telemetries. Default is Name.
     /// </summary>
     [EnumType]
@@ -783,7 +994,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static PolicyContentFormat Xml { get; } = new PolicyContentFormat("xml");
         /// <summary>
-        /// The policy XML document is hosted on a http endpoint accessible from the API Management service.
+        /// The policy XML document is hosted on a HTTP endpoint accessible from the API Management service.
         /// </summary>
         public static PolicyContentFormat Xml_link { get; } = new PolicyContentFormat("xml-link");
         /// <summary>
@@ -791,7 +1002,7 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static PolicyContentFormat Rawxml { get; } = new PolicyContentFormat("rawxml");
         /// <summary>
-        /// The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service.
+        /// The policy document is not XML encoded and is hosted on a HTTP endpoint accessible from the API Management service.
         /// </summary>
         public static PolicyContentFormat Rawxml_link { get; } = new PolicyContentFormat("rawxml-link");
 
@@ -922,6 +1133,8 @@ namespace Pulumi.AzureNative.ApiManagement
 
         public static Protocol Http { get; } = new Protocol("http");
         public static Protocol Https { get; } = new Protocol("https");
+        public static Protocol Ws { get; } = new Protocol("ws");
+        public static Protocol Wss { get; } = new Protocol("wss");
 
         public static bool operator ==(Protocol left, Protocol right) => left.Equals(right);
         public static bool operator !=(Protocol left, Protocol right) => !left.Equals(right);
@@ -961,6 +1174,37 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ProvisioningState other && Equals(other);
         public bool Equals(ProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1015,7 +1259,7 @@ namespace Pulumi.AzureNative.ApiManagement
         }
 
         /// <summary>
-        /// Xml schema type.
+        /// XML schema type.
         /// </summary>
         public static SchemaType Xml { get; } = new SchemaType("xml");
         /// <summary>
@@ -1092,9 +1336,11 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
-    /// Type of Api to create. 
-    ///  * `http` creates a SOAP to REST API 
-    ///  * `soap` creates a SOAP pass-through API .
+    /// Type of API to create. 
+    ///  * `http` creates a REST API 
+    ///  * `soap` creates a SOAP pass-through API  
+    ///  * `websocket` creates websocket API 
+    ///  * `graphql` creates GraphQL API.
     /// </summary>
     [EnumType]
     public readonly struct SoapApiType : IEquatable<SoapApiType>
@@ -1111,9 +1357,17 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public static SoapApiType SoapToRest { get; } = new SoapApiType("http");
         /// <summary>
-        /// Imports the Soap API having a SOAP front end.
+        /// Imports the SOAP API having a SOAP front end.
         /// </summary>
         public static SoapApiType SoapPassThrough { get; } = new SoapApiType("soap");
+        /// <summary>
+        /// Imports the API having a Websocket front end.
+        /// </summary>
+        public static SoapApiType WebSocket { get; } = new SoapApiType("websocket");
+        /// <summary>
+        /// Imports the API having a GraphQL front end.
+        /// </summary>
+        public static SoapApiType GraphQL { get; } = new SoapApiType("graphql");
 
         public static bool operator ==(SoapApiType left, SoapApiType right) => left.Equals(right);
         public static bool operator !=(SoapApiType left, SoapApiType right) => !left.Equals(right);
@@ -1207,6 +1461,43 @@ namespace Pulumi.AzureNative.ApiManagement
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SubscriptionState other && Equals(other);
         public bool Equals(SubscriptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'
+    /// </summary>
+    [EnumType]
+    public readonly struct TranslateRequiredQueryParametersConduct : IEquatable<TranslateRequiredQueryParametersConduct>
+    {
+        private readonly string _value;
+
+        private TranslateRequiredQueryParametersConduct(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Translates required query parameters to template ones. Is a default value
+        /// </summary>
+        public static TranslateRequiredQueryParametersConduct Template { get; } = new TranslateRequiredQueryParametersConduct("template");
+        /// <summary>
+        /// Leaves required query parameters as they are (no translation done).
+        /// </summary>
+        public static TranslateRequiredQueryParametersConduct Query { get; } = new TranslateRequiredQueryParametersConduct("query");
+
+        public static bool operator ==(TranslateRequiredQueryParametersConduct left, TranslateRequiredQueryParametersConduct right) => left.Equals(right);
+        public static bool operator !=(TranslateRequiredQueryParametersConduct left, TranslateRequiredQueryParametersConduct right) => !left.Equals(right);
+
+        public static explicit operator string(TranslateRequiredQueryParametersConduct value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TranslateRequiredQueryParametersConduct other && Equals(other);
+        public bool Equals(TranslateRequiredQueryParametersConduct other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

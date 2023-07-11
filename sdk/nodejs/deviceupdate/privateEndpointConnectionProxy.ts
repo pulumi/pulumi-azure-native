@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint connection proxy details.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
  */
 export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
     /**
@@ -104,7 +104,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20221001:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20230701:PrivateEndpointConnectionProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionProxy.__pulumiType, name, resourceInputs, opts);
     }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
-    /// API Version: 2021-03-15.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraResourceCassandraTable")]
     public partial class CassandraResourceCassandraTable : global::Pulumi.CustomResource
@@ -99,7 +99,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:CassandraResourceCassandraTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraResourceCassandraTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraResourceCassandraTable"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraResourceCassandraTable"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraResourceCassandraTable"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

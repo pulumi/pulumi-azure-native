@@ -109,7 +109,7 @@ class CustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param CustomDomainArgs args: The arguments to use to populate this resource's properties.
@@ -180,7 +180,7 @@ class CustomDomain(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200901:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20210601:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:CustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20160402:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20161002:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20170402:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20171012:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190415:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190615:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20191231:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200331:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200415:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20200901:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20210601:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:CustomDomain"), pulumi.Alias(type_="azure-native:cdn/v20230501:CustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomDomain, __self__).__init__(
             'azure-native:cdn:CustomDomain',
@@ -228,7 +228,7 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="customHttpsProvisioningState")
     def custom_https_provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning status of Custom Https of the custom domain.
+        Provisioning status of the custom domain.
         """
         return pulumi.get(self, "custom_https_provisioning_state")
 
@@ -260,7 +260,7 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning status of the custom domain.
+        Provisioning status of Custom Https of the custom domain.
         """
         return pulumi.get(self, "provisioning_state")
 

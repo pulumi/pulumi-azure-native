@@ -110,8 +110,8 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Get private endpoint connection.
-    API Version: 2020-05-01.
+    Get the details of a private endpoint connection.
+    Azure REST API version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -139,8 +139,8 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Get private endpoint connection.
-    API Version: 2020-05-01.
+    Get the details of a private endpoint connection.
+    Azure REST API version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

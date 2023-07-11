@@ -17,7 +17,6 @@ class IncidentCommentArgs:
     def __init__(__self__, *,
                  incident_id: pulumi.Input[str],
                  message: pulumi.Input[str],
-                 operational_insights_resource_provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  incident_comment_id: Optional[pulumi.Input[str]] = None):
@@ -25,14 +24,12 @@ class IncidentCommentArgs:
         The set of arguments for constructing a IncidentComment resource.
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] message: The comment message
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
         """
         pulumi.set(__self__, "incident_id", incident_id)
         pulumi.set(__self__, "message", message)
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if incident_comment_id is not None:
@@ -61,18 +58,6 @@ class IncidentCommentArgs:
     @message.setter
     def message(self, value: pulumi.Input[str]):
         pulumi.set(self, "message", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -119,20 +104,18 @@ class IncidentComment(pulumi.CustomResource):
                  incident_comment_id: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Represents an incident comment
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
         :param pulumi.Input[str] incident_id: Incident ID
         :param pulumi.Input[str] message: The comment message
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
@@ -144,7 +127,7 @@ class IncidentComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an incident comment
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param IncidentCommentArgs args: The arguments to use to populate this resource's properties.
@@ -164,7 +147,6 @@ class IncidentComment(pulumi.CustomResource):
                  incident_comment_id: Optional[pulumi.Input[str]] = None,
                  incident_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -183,9 +165,6 @@ class IncidentComment(pulumi.CustomResource):
             if message is None and not opts.urn:
                 raise TypeError("Missing required property 'message'")
             __props__.__dict__["message"] = message
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -199,7 +178,7 @@ class IncidentComment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IncidentComment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210401:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:IncidentComment"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:IncidentComment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IncidentComment, __self__).__init__(
             'azure-native:securityinsights:IncidentComment',
@@ -277,7 +256,7 @@ class IncidentComment(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -293,7 +272,7 @@ class IncidentComment(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Schema Contract details.
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Schema")]
     public partial class Schema : global::Pulumi.CustomResource
@@ -76,6 +76,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Schema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Schema"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:Schema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Schema"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Schema"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -17,8 +17,6 @@ __all__ = [
     'get_job_agent_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobAgent to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetJobAgentResult:
     """
@@ -143,7 +141,6 @@ def get_job_agent(job_agent_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_job_agent is deprecated: azure-native:sql/v20211101:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobAgent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobAgentName'] = job_agent_name
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +172,4 @@ def get_job_agent_output(job_agent_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
     """
-    pulumi.log.warn("""get_job_agent is deprecated: azure-native:sql/v20211101:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobAgent to guarantee forwards compatibility.""")
     ...

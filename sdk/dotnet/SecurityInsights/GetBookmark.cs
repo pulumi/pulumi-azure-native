@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a bookmark.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetBookmarkResult> InvokeAsync(GetBookmarkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a bookmark.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetBookmarkResult> Invoke(GetBookmarkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBookmarkResult>("azure-native:securityinsights:getBookmark", args ?? new GetBookmarkInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string BookmarkId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> BookmarkId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? EventTime;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly ImmutableArray<string> Labels;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -140,7 +140,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? QueryStartTime;
         /// <summary>
-        /// Azure resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -182,6 +186,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? queryStartTime,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
 
             string? updated,
@@ -202,6 +208,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             QueryEndTime = queryEndTime;
             QueryResult = queryResult;
             QueryStartTime = queryStartTime;
+            SystemData = systemData;
             Type = type;
             Updated = updated;
             UpdatedBy = updatedBy;

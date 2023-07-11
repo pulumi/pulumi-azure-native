@@ -8,29 +8,28 @@ using Pulumi;
 namespace Pulumi.AzureNative.Databricks
 {
     /// <summary>
-    /// The identity type.
+    /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
     /// </summary>
     [EnumType]
-    public readonly struct IdentityType : IEquatable<IdentityType>
+    public readonly struct EncryptionKeySource : IEquatable<EncryptionKeySource>
     {
         private readonly string _value;
 
-        private IdentityType(string value)
+        private EncryptionKeySource(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static IdentityType None { get; } = new IdentityType("None");
-        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static EncryptionKeySource Microsoft_Keyvault { get; } = new EncryptionKeySource("Microsoft.Keyvault");
 
-        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
-        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+        public static bool operator ==(EncryptionKeySource left, EncryptionKeySource right) => left.Equals(right);
+        public static bool operator !=(EncryptionKeySource left, EncryptionKeySource right) => !left.Equals(right);
 
-        public static explicit operator string(IdentityType value) => value._value;
+        public static explicit operator string(EncryptionKeySource value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
-        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EncryptionKeySource other && Equals(other);
+        public bool Equals(EncryptionKeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -70,6 +69,39 @@ namespace Pulumi.AzureNative.Databricks
     }
 
     /// <summary>
+    /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of a private endpoint connection
     /// </summary>
     [EnumType]
@@ -95,6 +127,69 @@ namespace Pulumi.AzureNative.Databricks
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateLinkServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateLinkServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
+    /// </summary>
+    [EnumType]
+    public readonly struct RequiredNsgRules : IEquatable<RequiredNsgRules>
+    {
+        private readonly string _value;
+
+        private RequiredNsgRules(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RequiredNsgRules AllRules { get; } = new RequiredNsgRules("AllRules");
+        public static RequiredNsgRules NoAzureDatabricksRules { get; } = new RequiredNsgRules("NoAzureDatabricksRules");
+        public static RequiredNsgRules NoAzureServiceRules { get; } = new RequiredNsgRules("NoAzureServiceRules");
+
+        public static bool operator ==(RequiredNsgRules left, RequiredNsgRules right) => left.Equals(right);
+        public static bool operator !=(RequiredNsgRules left, RequiredNsgRules right) => !left.Equals(right);
+
+        public static explicit operator string(RequiredNsgRules value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RequiredNsgRules other && Equals(other);
+        public bool Equals(RequiredNsgRules other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

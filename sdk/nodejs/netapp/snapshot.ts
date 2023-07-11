@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Snapshot of a Volume
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class Snapshot extends pulumi.CustomResource {
     /**
@@ -44,7 +47,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -56,7 +59,11 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly snapshotId!: pulumi.Output<string>;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -93,6 +100,7 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["created"] = undefined /*out*/;
@@ -100,10 +108,11 @@ export class Snapshot extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["snapshotId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Snapshot" }, { type: "azure-native:netapp/v20190501:Snapshot" }, { type: "azure-native:netapp/v20190601:Snapshot" }, { type: "azure-native:netapp/v20190701:Snapshot" }, { type: "azure-native:netapp/v20190801:Snapshot" }, { type: "azure-native:netapp/v20191001:Snapshot" }, { type: "azure-native:netapp/v20191101:Snapshot" }, { type: "azure-native:netapp/v20200201:Snapshot" }, { type: "azure-native:netapp/v20200301:Snapshot" }, { type: "azure-native:netapp/v20200501:Snapshot" }, { type: "azure-native:netapp/v20200601:Snapshot" }, { type: "azure-native:netapp/v20200701:Snapshot" }, { type: "azure-native:netapp/v20200801:Snapshot" }, { type: "azure-native:netapp/v20200901:Snapshot" }, { type: "azure-native:netapp/v20201101:Snapshot" }, { type: "azure-native:netapp/v20201201:Snapshot" }, { type: "azure-native:netapp/v20210201:Snapshot" }, { type: "azure-native:netapp/v20210401:Snapshot" }, { type: "azure-native:netapp/v20210401preview:Snapshot" }, { type: "azure-native:netapp/v20210601:Snapshot" }, { type: "azure-native:netapp/v20210801:Snapshot" }, { type: "azure-native:netapp/v20211001:Snapshot" }, { type: "azure-native:netapp/v20220101:Snapshot" }, { type: "azure-native:netapp/v20220301:Snapshot" }, { type: "azure-native:netapp/v20220501:Snapshot" }, { type: "azure-native:netapp/v20220901:Snapshot" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Snapshot" }, { type: "azure-native:netapp/v20190501:Snapshot" }, { type: "azure-native:netapp/v20190601:Snapshot" }, { type: "azure-native:netapp/v20190701:Snapshot" }, { type: "azure-native:netapp/v20190801:Snapshot" }, { type: "azure-native:netapp/v20191001:Snapshot" }, { type: "azure-native:netapp/v20191101:Snapshot" }, { type: "azure-native:netapp/v20200201:Snapshot" }, { type: "azure-native:netapp/v20200301:Snapshot" }, { type: "azure-native:netapp/v20200501:Snapshot" }, { type: "azure-native:netapp/v20200601:Snapshot" }, { type: "azure-native:netapp/v20200701:Snapshot" }, { type: "azure-native:netapp/v20200801:Snapshot" }, { type: "azure-native:netapp/v20200901:Snapshot" }, { type: "azure-native:netapp/v20201101:Snapshot" }, { type: "azure-native:netapp/v20201201:Snapshot" }, { type: "azure-native:netapp/v20210201:Snapshot" }, { type: "azure-native:netapp/v20210401:Snapshot" }, { type: "azure-native:netapp/v20210401preview:Snapshot" }, { type: "azure-native:netapp/v20210601:Snapshot" }, { type: "azure-native:netapp/v20210801:Snapshot" }, { type: "azure-native:netapp/v20211001:Snapshot" }, { type: "azure-native:netapp/v20220101:Snapshot" }, { type: "azure-native:netapp/v20220301:Snapshot" }, { type: "azure-native:netapp/v20220501:Snapshot" }, { type: "azure-native:netapp/v20220901:Snapshot" }, { type: "azure-native:netapp/v20221101:Snapshot" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Snapshot.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,7 +135,7 @@ export interface SnapshotArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

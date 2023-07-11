@@ -12,39 +12,93 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AadConfigurationResponse',
     'AdministrativeCredentialsResponse',
+    'AdministratorConfigurationResponse',
+    'AgentOptionsResponse',
+    'AgentPoolUpgradeSettingsResponse',
+    'AttachedNetworkConfigurationResponse',
+    'AvailableUpgradeResponse',
     'BareMetalMachineConfigurationDataResponse',
+    'BgpAdvertisementResponse',
     'BgpPeerResponse',
+    'BgpServiceLoadBalancerConfigurationResponse',
     'ClusterAvailableUpgradeVersionResponse',
     'ClusterAvailableVersionResponse',
     'ClusterCapacityResponse',
     'CniBgpConfigurationResponse',
     'CommunityAdvertisementResponse',
+    'ControlPlaneNodeConfigurationResponse',
     'EgressEndpointResponse',
     'EndpointDependencyResponse',
     'ExtendedLocationResponse',
+    'FeatureStatusResponse',
     'HardwareInventoryNetworkInterfaceResponse',
     'HardwareInventoryResponse',
     'HardwareValidationStatusResponse',
     'ImageRepositoryCredentialsResponse',
+    'InitialAgentPoolConfigurationResponse',
+    'IpAddressPoolResponse',
     'KeySetUserResponse',
     'KeySetUserStatusResponse',
+    'KubernetesClusterNodeResponse',
+    'KubernetesLabelResponse',
+    'L2NetworkAttachmentConfigurationResponse',
+    'L3NetworkAttachmentConfigurationResponse',
     'LldpNeighborResponse',
     'ManagedResourceGroupConfigurationResponse',
     'NetworkAttachmentResponse',
+    'NetworkConfigurationResponse',
     'NicResponse',
     'NodeConfigurationResponse',
     'NodeResponse',
     'OsDiskResponse',
     'RackDefinitionResponse',
+    'ServiceLoadBalancerBgpPeerResponse',
     'ServicePrincipalInformationResponse',
     'SshPublicKeyResponse',
     'StorageApplianceConfigurationDataResponse',
     'StorageProfileResponse',
     'SystemDataResponse',
+    'TrunkedNetworkAttachmentConfigurationResponse',
     'ValidationThresholdResponse',
     'VirtualMachinePlacementHintResponse',
 ]
+
+@pulumi.output_type
+class AadConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminGroupObjectIds":
+            suggest = "admin_group_object_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AadConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AadConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AadConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_group_object_ids: Sequence[str]):
+        """
+        :param Sequence[str] admin_group_object_ids: The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "admin_group_object_ids", admin_group_object_ids)
+
+    @property
+    @pulumi.getter(name="adminGroupObjectIds")
+    def admin_group_object_ids(self) -> Sequence[str]:
+        """
+        The list of Azure Active Directory group object IDs that will have an administrative role on the Kubernetes cluster.
+        """
+        return pulumi.get(self, "admin_group_object_ids")
+
 
 @pulumi.output_type
 class AdministrativeCredentialsResponse(dict):
@@ -73,6 +127,255 @@ class AdministrativeCredentialsResponse(dict):
         The username of the administrator of the device used during initialization.
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class AdministratorConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "sshPublicKeys":
+            suggest = "ssh_public_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdministratorConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdministratorConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdministratorConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_username: Optional[str] = None,
+                 ssh_public_keys: Optional[Sequence['outputs.SshPublicKeyResponse']] = None):
+        """
+        :param str admin_username: The user name for the administrator that will be applied to the operating systems that run Kubernetes nodes. If not supplied, a user name will be chosen by the service.
+        :param Sequence['SshPublicKeyResponse'] ssh_public_keys: The SSH configuration for the operating systems that run the nodes in the Kubernetes cluster. In some cases, specification of public keys may be required to produce a working environment.
+        """
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if ssh_public_keys is not None:
+            pulumi.set(__self__, "ssh_public_keys", ssh_public_keys)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[str]:
+        """
+        The user name for the administrator that will be applied to the operating systems that run Kubernetes nodes. If not supplied, a user name will be chosen by the service.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="sshPublicKeys")
+    def ssh_public_keys(self) -> Optional[Sequence['outputs.SshPublicKeyResponse']]:
+        """
+        The SSH configuration for the operating systems that run the nodes in the Kubernetes cluster. In some cases, specification of public keys may be required to produce a working environment.
+        """
+        return pulumi.get(self, "ssh_public_keys")
+
+
+@pulumi.output_type
+class AgentOptionsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hugepagesCount":
+            suggest = "hugepages_count"
+        elif key == "hugepagesSize":
+            suggest = "hugepages_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hugepages_count: float,
+                 hugepages_size: Optional[str] = None):
+        """
+        :param float hugepages_count: The number of hugepages to allocate.
+        :param str hugepages_size: The size of the hugepages to allocate.
+        """
+        pulumi.set(__self__, "hugepages_count", hugepages_count)
+        if hugepages_size is None:
+            hugepages_size = '2M'
+        if hugepages_size is not None:
+            pulumi.set(__self__, "hugepages_size", hugepages_size)
+
+    @property
+    @pulumi.getter(name="hugepagesCount")
+    def hugepages_count(self) -> float:
+        """
+        The number of hugepages to allocate.
+        """
+        return pulumi.get(self, "hugepages_count")
+
+    @property
+    @pulumi.getter(name="hugepagesSize")
+    def hugepages_size(self) -> Optional[str]:
+        """
+        The size of the hugepages to allocate.
+        """
+        return pulumi.get(self, "hugepages_size")
+
+
+@pulumi.output_type
+class AgentPoolUpgradeSettingsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxSurge":
+            suggest = "max_surge"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolUpgradeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolUpgradeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_surge: Optional[str] = None):
+        """
+        :param str max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        """
+        if max_surge is None:
+            max_surge = '1'
+        if max_surge is not None:
+            pulumi.set(__self__, "max_surge", max_surge)
+
+    @property
+    @pulumi.getter(name="maxSurge")
+    def max_surge(self) -> Optional[str]:
+        """
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 1.
+        """
+        return pulumi.get(self, "max_surge")
+
+
+@pulumi.output_type
+class AttachedNetworkConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "l2Networks":
+            suggest = "l2_networks"
+        elif key == "l3Networks":
+            suggest = "l3_networks"
+        elif key == "trunkedNetworks":
+            suggest = "trunked_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AttachedNetworkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AttachedNetworkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AttachedNetworkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 l2_networks: Optional[Sequence['outputs.L2NetworkAttachmentConfigurationResponse']] = None,
+                 l3_networks: Optional[Sequence['outputs.L3NetworkAttachmentConfigurationResponse']] = None,
+                 trunked_networks: Optional[Sequence['outputs.TrunkedNetworkAttachmentConfigurationResponse']] = None):
+        """
+        :param Sequence['L2NetworkAttachmentConfigurationResponse'] l2_networks: The list of Layer 2 Networks and related configuration for attachment.
+        :param Sequence['L3NetworkAttachmentConfigurationResponse'] l3_networks: The list of Layer 3 Networks and related configuration for attachment.
+        :param Sequence['TrunkedNetworkAttachmentConfigurationResponse'] trunked_networks: The list of Trunked Networks and related configuration for attachment.
+        """
+        if l2_networks is not None:
+            pulumi.set(__self__, "l2_networks", l2_networks)
+        if l3_networks is not None:
+            pulumi.set(__self__, "l3_networks", l3_networks)
+        if trunked_networks is not None:
+            pulumi.set(__self__, "trunked_networks", trunked_networks)
+
+    @property
+    @pulumi.getter(name="l2Networks")
+    def l2_networks(self) -> Optional[Sequence['outputs.L2NetworkAttachmentConfigurationResponse']]:
+        """
+        The list of Layer 2 Networks and related configuration for attachment.
+        """
+        return pulumi.get(self, "l2_networks")
+
+    @property
+    @pulumi.getter(name="l3Networks")
+    def l3_networks(self) -> Optional[Sequence['outputs.L3NetworkAttachmentConfigurationResponse']]:
+        """
+        The list of Layer 3 Networks and related configuration for attachment.
+        """
+        return pulumi.get(self, "l3_networks")
+
+    @property
+    @pulumi.getter(name="trunkedNetworks")
+    def trunked_networks(self) -> Optional[Sequence['outputs.TrunkedNetworkAttachmentConfigurationResponse']]:
+        """
+        The list of Trunked Networks and related configuration for attachment.
+        """
+        return pulumi.get(self, "trunked_networks")
+
+
+@pulumi.output_type
+class AvailableUpgradeResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityLifecycle":
+            suggest = "availability_lifecycle"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AvailableUpgradeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AvailableUpgradeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AvailableUpgradeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_lifecycle: str,
+                 version: str):
+        """
+        :param str availability_lifecycle: The version lifecycle indicator.
+        :param str version: The version available for upgrading.
+        """
+        pulumi.set(__self__, "availability_lifecycle", availability_lifecycle)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="availabilityLifecycle")
+    def availability_lifecycle(self) -> str:
+        """
+        The version lifecycle indicator.
+        """
+        return pulumi.get(self, "availability_lifecycle")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version available for upgrading.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -206,6 +509,81 @@ class BareMetalMachineConfigurationDataResponse(dict):
 
 
 @pulumi.output_type
+class BgpAdvertisementResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddressPools":
+            suggest = "ip_address_pools"
+        elif key == "advertiseToFabric":
+            suggest = "advertise_to_fabric"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BgpAdvertisementResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BgpAdvertisementResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BgpAdvertisementResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address_pools: Sequence[str],
+                 advertise_to_fabric: Optional[str] = None,
+                 communities: Optional[Sequence[str]] = None,
+                 peers: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] ip_address_pools: The names of the IP address pools associated with this announcement.
+        :param str advertise_to_fabric: The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+        :param Sequence[str] communities: The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.
+        :param Sequence[str] peers: The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.
+        """
+        pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+        if advertise_to_fabric is None:
+            advertise_to_fabric = 'True'
+        if advertise_to_fabric is not None:
+            pulumi.set(__self__, "advertise_to_fabric", advertise_to_fabric)
+        if communities is not None:
+            pulumi.set(__self__, "communities", communities)
+        if peers is not None:
+            pulumi.set(__self__, "peers", peers)
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Sequence[str]:
+        """
+        The names of the IP address pools associated with this announcement.
+        """
+        return pulumi.get(self, "ip_address_pools")
+
+    @property
+    @pulumi.getter(name="advertiseToFabric")
+    def advertise_to_fabric(self) -> Optional[str]:
+        """
+        The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.
+        """
+        return pulumi.get(self, "advertise_to_fabric")
+
+    @property
+    @pulumi.getter
+    def communities(self) -> Optional[Sequence[str]]:
+        """
+        The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.
+        """
+        return pulumi.get(self, "communities")
+
+    @property
+    @pulumi.getter
+    def peers(self) -> Optional[Sequence[str]]:
+        """
+        The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.
+        """
+        return pulumi.get(self, "peers")
+
+
+@pulumi.output_type
 class BgpPeerResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -251,6 +629,86 @@ class BgpPeerResponse(dict):
         The IPv4 or IPv6 address to peer with the associated CNI Network. The IP version type will drive a peering with the same version type from the Default CNI Network. For example, IPv4 to IPv4 or IPv6 to IPv6.
         """
         return pulumi.get(self, "peer_ip")
+
+
+@pulumi.output_type
+class BgpServiceLoadBalancerConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bgpAdvertisements":
+            suggest = "bgp_advertisements"
+        elif key == "bgpPeers":
+            suggest = "bgp_peers"
+        elif key == "fabricPeeringEnabled":
+            suggest = "fabric_peering_enabled"
+        elif key == "ipAddressPools":
+            suggest = "ip_address_pools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BgpServiceLoadBalancerConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BgpServiceLoadBalancerConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BgpServiceLoadBalancerConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bgp_advertisements: Optional[Sequence['outputs.BgpAdvertisementResponse']] = None,
+                 bgp_peers: Optional[Sequence['outputs.ServiceLoadBalancerBgpPeerResponse']] = None,
+                 fabric_peering_enabled: Optional[str] = None,
+                 ip_address_pools: Optional[Sequence['outputs.IpAddressPoolResponse']] = None):
+        """
+        :param Sequence['BgpAdvertisementResponse'] bgp_advertisements: The association of IP address pools to the communities and peers, allowing for announcement of IPs.
+        :param Sequence['ServiceLoadBalancerBgpPeerResponse'] bgp_peers: The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
+        :param str fabric_peering_enabled: The indicator to specify if the load balancer peers with the network fabric.
+        :param Sequence['IpAddressPoolResponse'] ip_address_pools: The list of pools of IP addresses that can be allocated to Load Balancer services.
+        """
+        if bgp_advertisements is not None:
+            pulumi.set(__self__, "bgp_advertisements", bgp_advertisements)
+        if bgp_peers is not None:
+            pulumi.set(__self__, "bgp_peers", bgp_peers)
+        if fabric_peering_enabled is None:
+            fabric_peering_enabled = 'True'
+        if fabric_peering_enabled is not None:
+            pulumi.set(__self__, "fabric_peering_enabled", fabric_peering_enabled)
+        if ip_address_pools is not None:
+            pulumi.set(__self__, "ip_address_pools", ip_address_pools)
+
+    @property
+    @pulumi.getter(name="bgpAdvertisements")
+    def bgp_advertisements(self) -> Optional[Sequence['outputs.BgpAdvertisementResponse']]:
+        """
+        The association of IP address pools to the communities and peers, allowing for announcement of IPs.
+        """
+        return pulumi.get(self, "bgp_advertisements")
+
+    @property
+    @pulumi.getter(name="bgpPeers")
+    def bgp_peers(self) -> Optional[Sequence['outputs.ServiceLoadBalancerBgpPeerResponse']]:
+        """
+        The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.
+        """
+        return pulumi.get(self, "bgp_peers")
+
+    @property
+    @pulumi.getter(name="fabricPeeringEnabled")
+    def fabric_peering_enabled(self) -> Optional[str]:
+        """
+        The indicator to specify if the load balancer peers with the network fabric.
+        """
+        return pulumi.get(self, "fabric_peering_enabled")
+
+    @property
+    @pulumi.getter(name="ipAddressPools")
+    def ip_address_pools(self) -> Optional[Sequence['outputs.IpAddressPoolResponse']]:
+        """
+        The list of pools of IP addresses that can be allocated to Load Balancer services.
+        """
+        return pulumi.get(self, "ip_address_pools")
 
 
 @pulumi.output_type
@@ -664,6 +1122,80 @@ class CommunityAdvertisementResponse(dict):
 
 
 @pulumi.output_type
+class ControlPlaneNodeConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSkuName":
+            suggest = "vm_sku_name"
+        elif key == "administratorConfiguration":
+            suggest = "administrator_configuration"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ControlPlaneNodeConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ControlPlaneNodeConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ControlPlaneNodeConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: float,
+                 vm_sku_name: str,
+                 administrator_configuration: Optional['outputs.AdministratorConfigurationResponse'] = None,
+                 availability_zones: Optional[Sequence[str]] = None):
+        """
+        :param float count: The number of virtual machines that use this configuration.
+        :param str vm_sku_name: The name of the VM SKU supplied during creation.
+        :param 'AdministratorConfigurationResponse' administrator_configuration: The administrator credentials to be used for the nodes in the control plane.
+        :param Sequence[str] availability_zones: The list of availability zones of the Network Cloud cluster to be used for the provisioning of nodes in the control plane. If not specified, all availability zones will be used.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        if administrator_configuration is not None:
+            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+
+    @property
+    @pulumi.getter
+    def count(self) -> float:
+        """
+        The number of virtual machines that use this configuration.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="vmSkuName")
+    def vm_sku_name(self) -> str:
+        """
+        The name of the VM SKU supplied during creation.
+        """
+        return pulumi.get(self, "vm_sku_name")
+
+    @property
+    @pulumi.getter(name="administratorConfiguration")
+    def administrator_configuration(self) -> Optional['outputs.AdministratorConfigurationResponse']:
+        """
+        The administrator credentials to be used for the nodes in the control plane.
+        """
+        return pulumi.get(self, "administrator_configuration")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        The list of availability zones of the Network Cloud cluster to be used for the provisioning of nodes in the control plane. If not specified, all availability zones will be used.
+        """
+        return pulumi.get(self, "availability_zones")
+
+
+@pulumi.output_type
 class EgressEndpointResponse(dict):
     def __init__(__self__, *,
                  category: str,
@@ -766,6 +1298,76 @@ class ExtendedLocationResponse(dict):
         The extended location type, for example, CustomLocation.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FeatureStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeatureStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeatureStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeatureStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 name: str,
+                 version: str):
+        """
+        :param str detailed_status: The status representing the state of this feature.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param str name: The name of the feature.
+        :param str version: The version of the feature.
+        """
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The status representing the state of this feature.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the feature.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version of the feature.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -1001,6 +1603,244 @@ class ImageRepositoryCredentialsResponse(dict):
 
 
 @pulumi.output_type
+class InitialAgentPoolConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "vmSkuName":
+            suggest = "vm_sku_name"
+        elif key == "administratorConfiguration":
+            suggest = "administrator_configuration"
+        elif key == "agentOptions":
+            suggest = "agent_options"
+        elif key == "attachedNetworkConfiguration":
+            suggest = "attached_network_configuration"
+        elif key == "availabilityZones":
+            suggest = "availability_zones"
+        elif key == "upgradeSettings":
+            suggest = "upgrade_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InitialAgentPoolConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InitialAgentPoolConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InitialAgentPoolConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 count: float,
+                 mode: str,
+                 name: str,
+                 vm_sku_name: str,
+                 administrator_configuration: Optional['outputs.AdministratorConfigurationResponse'] = None,
+                 agent_options: Optional['outputs.AgentOptionsResponse'] = None,
+                 attached_network_configuration: Optional['outputs.AttachedNetworkConfigurationResponse'] = None,
+                 availability_zones: Optional[Sequence[str]] = None,
+                 labels: Optional[Sequence['outputs.KubernetesLabelResponse']] = None,
+                 taints: Optional[Sequence['outputs.KubernetesLabelResponse']] = None,
+                 upgrade_settings: Optional['outputs.AgentPoolUpgradeSettingsResponse'] = None):
+        """
+        :param float count: The number of virtual machines that use this configuration.
+        :param str mode: The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+        :param str name: The name that will be used for the agent pool resource representing this agent pool.
+        :param str vm_sku_name: The name of the VM SKU that determines the size of resources allocated for node VMs.
+        :param 'AdministratorConfigurationResponse' administrator_configuration: The administrator credentials to be used for the nodes in this agent pool.
+        :param 'AgentOptionsResponse' agent_options: The configurations that will be applied to each agent in this agent pool.
+        :param 'AttachedNetworkConfigurationResponse' attached_network_configuration: The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
+        :param Sequence[str] availability_zones: The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
+        :param Sequence['KubernetesLabelResponse'] labels: The labels applied to the nodes in this agent pool.
+        :param Sequence['KubernetesLabelResponse'] taints: The taints applied to the nodes in this agent pool.
+        :param 'AgentPoolUpgradeSettingsResponse' upgrade_settings: The configuration of the agent pool.
+        """
+        pulumi.set(__self__, "count", count)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+        if administrator_configuration is not None:
+            pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+        if agent_options is not None:
+            pulumi.set(__self__, "agent_options", agent_options)
+        if attached_network_configuration is not None:
+            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+        if availability_zones is not None:
+            pulumi.set(__self__, "availability_zones", availability_zones)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if taints is not None:
+            pulumi.set(__self__, "taints", taints)
+        if upgrade_settings is not None:
+            pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+
+    @property
+    @pulumi.getter
+    def count(self) -> float:
+        """
+        The number of virtual machines that use this configuration.
+        """
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name that will be used for the agent pool resource representing this agent pool.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="vmSkuName")
+    def vm_sku_name(self) -> str:
+        """
+        The name of the VM SKU that determines the size of resources allocated for node VMs.
+        """
+        return pulumi.get(self, "vm_sku_name")
+
+    @property
+    @pulumi.getter(name="administratorConfiguration")
+    def administrator_configuration(self) -> Optional['outputs.AdministratorConfigurationResponse']:
+        """
+        The administrator credentials to be used for the nodes in this agent pool.
+        """
+        return pulumi.get(self, "administrator_configuration")
+
+    @property
+    @pulumi.getter(name="agentOptions")
+    def agent_options(self) -> Optional['outputs.AgentOptionsResponse']:
+        """
+        The configurations that will be applied to each agent in this agent pool.
+        """
+        return pulumi.get(self, "agent_options")
+
+    @property
+    @pulumi.getter(name="attachedNetworkConfiguration")
+    def attached_network_configuration(self) -> Optional['outputs.AttachedNetworkConfigurationResponse']:
+        """
+        The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
+        """
+        return pulumi.get(self, "attached_network_configuration")
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[str]]:
+        """
+        The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Sequence['outputs.KubernetesLabelResponse']]:
+        """
+        The labels applied to the nodes in this agent pool.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def taints(self) -> Optional[Sequence['outputs.KubernetesLabelResponse']]:
+        """
+        The taints applied to the nodes in this agent pool.
+        """
+        return pulumi.get(self, "taints")
+
+    @property
+    @pulumi.getter(name="upgradeSettings")
+    def upgrade_settings(self) -> Optional['outputs.AgentPoolUpgradeSettingsResponse']:
+        """
+        The configuration of the agent pool.
+        """
+        return pulumi.get(self, "upgrade_settings")
+
+
+@pulumi.output_type
+class IpAddressPoolResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoAssign":
+            suggest = "auto_assign"
+        elif key == "onlyUseHostIps":
+            suggest = "only_use_host_ips"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpAddressPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpAddressPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 addresses: Sequence[str],
+                 name: str,
+                 auto_assign: Optional[str] = None,
+                 only_use_host_ips: Optional[str] = None):
+        """
+        :param Sequence[str] addresses: The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        :param str name: The name used to identify this IP address pool for association with a BGP advertisement.
+        :param str auto_assign: The indicator to determine if automatic allocation from the pool should occur.
+        :param str only_use_host_ips: The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+        """
+        pulumi.set(__self__, "addresses", addresses)
+        pulumi.set(__self__, "name", name)
+        if auto_assign is None:
+            auto_assign = 'True'
+        if auto_assign is not None:
+            pulumi.set(__self__, "auto_assign", auto_assign)
+        if only_use_host_ips is None:
+            only_use_host_ips = 'True'
+        if only_use_host_ips is not None:
+            pulumi.set(__self__, "only_use_host_ips", only_use_host_ips)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> Sequence[str]:
+        """
+        The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses.
+        """
+        return pulumi.get(self, "addresses")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name used to identify this IP address pool for association with a BGP advertisement.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="autoAssign")
+    def auto_assign(self) -> Optional[str]:
+        """
+        The indicator to determine if automatic allocation from the pool should occur.
+        """
+        return pulumi.get(self, "auto_assign")
+
+    @property
+    @pulumi.getter(name="onlyUseHostIps")
+    def only_use_host_ips(self) -> Optional[str]:
+        """
+        The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive.
+        """
+        return pulumi.get(self, "only_use_host_ips")
+
+
+@pulumi.output_type
 class KeySetUserResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1026,8 +1866,8 @@ class KeySetUserResponse(dict):
                  ssh_public_key: 'outputs.SshPublicKeyResponse',
                  description: Optional[str] = None):
         """
-        :param str azure_user_name: The Azure Active Directory user name (email name).
-        :param 'SshPublicKeyResponse' ssh_public_key: The SSH public key for this user.
+        :param str azure_user_name: The user name that will be used for access.
+        :param 'SshPublicKeyResponse' ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param str description: The free-form description for this user.
         """
         pulumi.set(__self__, "azure_user_name", azure_user_name)
@@ -1039,7 +1879,7 @@ class KeySetUserResponse(dict):
     @pulumi.getter(name="azureUserName")
     def azure_user_name(self) -> str:
         """
-        The Azure Active Directory user name (email name).
+        The user name that will be used for access.
         """
         return pulumi.get(self, "azure_user_name")
 
@@ -1047,7 +1887,7 @@ class KeySetUserResponse(dict):
     @pulumi.getter(name="sshPublicKey")
     def ssh_public_key(self) -> 'outputs.SshPublicKeyResponse':
         """
-        The SSH public key for this user.
+        The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         """
         return pulumi.get(self, "ssh_public_key")
 
@@ -1086,7 +1926,7 @@ class KeySetUserStatusResponse(dict):
                  status: str,
                  status_message: str):
         """
-        :param str azure_user_name: The Azure Active Directory user name (email name).
+        :param str azure_user_name: The user name that will be used for access.
         :param str status: The indicator of whether the user is currently deployed for access.
         :param str status_message: The additional information describing the current status of this user, if any available.
         """
@@ -1098,7 +1938,7 @@ class KeySetUserStatusResponse(dict):
     @pulumi.getter(name="azureUserName")
     def azure_user_name(self) -> str:
         """
-        The Azure Active Directory user name (email name).
+        The user name that will be used for access.
         """
         return pulumi.get(self, "azure_user_name")
 
@@ -1117,6 +1957,397 @@ class KeySetUserStatusResponse(dict):
         The additional information describing the current status of this user, if any available.
         """
         return pulumi.get(self, "status_message")
+
+
+@pulumi.output_type
+class KubernetesClusterNodeResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentPoolId":
+            suggest = "agent_pool_id"
+        elif key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "bareMetalMachineId":
+            suggest = "bare_metal_machine_id"
+        elif key == "cpuCores":
+            suggest = "cpu_cores"
+        elif key == "detailedStatus":
+            suggest = "detailed_status"
+        elif key == "detailedStatusMessage":
+            suggest = "detailed_status_message"
+        elif key == "diskSizeGB":
+            suggest = "disk_size_gb"
+        elif key == "kubernetesVersion":
+            suggest = "kubernetes_version"
+        elif key == "memorySizeGB":
+            suggest = "memory_size_gb"
+        elif key == "networkAttachments":
+            suggest = "network_attachments"
+        elif key == "powerState":
+            suggest = "power_state"
+        elif key == "vmSkuName":
+            suggest = "vm_sku_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNodeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNodeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_pool_id: str,
+                 availability_zone: str,
+                 bare_metal_machine_id: str,
+                 cpu_cores: float,
+                 detailed_status: str,
+                 detailed_status_message: str,
+                 disk_size_gb: float,
+                 image: str,
+                 kubernetes_version: str,
+                 labels: Sequence['outputs.KubernetesLabelResponse'],
+                 memory_size_gb: float,
+                 mode: str,
+                 name: str,
+                 network_attachments: Sequence['outputs.NetworkAttachmentResponse'],
+                 power_state: str,
+                 role: str,
+                 taints: Sequence['outputs.KubernetesLabelResponse'],
+                 vm_sku_name: str):
+        """
+        :param str agent_pool_id: The resource ID of the agent pool that this node belongs to. This value is not represented on control plane nodes.
+        :param str availability_zone: The availability zone this node is running within.
+        :param str bare_metal_machine_id: The resource ID of the bare metal machine that hosts this node.
+        :param float cpu_cores: The number of CPU cores configured for this node, derived from the VM SKU specified.
+        :param str detailed_status: The detailed state of this node.
+        :param str detailed_status_message: The descriptive message about the current detailed status.
+        :param float disk_size_gb: The size of the disk configured for this node.
+        :param str image: The machine image used to deploy this node.
+        :param str kubernetes_version: The currently running version of Kubernetes and bundled features running on this node.
+        :param Sequence['KubernetesLabelResponse'] labels: The list of labels on this node that have been assigned to the agent pool containing this node.
+        :param float memory_size_gb: The amount of memory configured for this node, derived from the vm SKU specified.
+        :param str mode: The mode of the agent pool containing this node. Not applicable for control plane nodes.
+        :param str name: The name of this node, as realized in the Kubernetes cluster.
+        :param Sequence['NetworkAttachmentResponse'] network_attachments: The NetworkAttachments made to this node.
+        :param str power_state: The power state of this node.
+        :param str role: The role of this node in the cluster.
+        :param Sequence['KubernetesLabelResponse'] taints: The list of taints that have been assigned to the agent pool containing this node.
+        :param str vm_sku_name: The VM SKU name that was used to create this cluster node.
+        """
+        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
+        pulumi.set(__self__, "availability_zone", availability_zone)
+        pulumi.set(__self__, "bare_metal_machine_id", bare_metal_machine_id)
+        pulumi.set(__self__, "cpu_cores", cpu_cores)
+        pulumi.set(__self__, "detailed_status", detailed_status)
+        pulumi.set(__self__, "detailed_status_message", detailed_status_message)
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        pulumi.set(__self__, "image", image)
+        pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+        pulumi.set(__self__, "labels", labels)
+        pulumi.set(__self__, "memory_size_gb", memory_size_gb)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_attachments", network_attachments)
+        pulumi.set(__self__, "power_state", power_state)
+        pulumi.set(__self__, "role", role)
+        pulumi.set(__self__, "taints", taints)
+        pulumi.set(__self__, "vm_sku_name", vm_sku_name)
+
+    @property
+    @pulumi.getter(name="agentPoolId")
+    def agent_pool_id(self) -> str:
+        """
+        The resource ID of the agent pool that this node belongs to. This value is not represented on control plane nodes.
+        """
+        return pulumi.get(self, "agent_pool_id")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> str:
+        """
+        The availability zone this node is running within.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="bareMetalMachineId")
+    def bare_metal_machine_id(self) -> str:
+        """
+        The resource ID of the bare metal machine that hosts this node.
+        """
+        return pulumi.get(self, "bare_metal_machine_id")
+
+    @property
+    @pulumi.getter(name="cpuCores")
+    def cpu_cores(self) -> float:
+        """
+        The number of CPU cores configured for this node, derived from the VM SKU specified.
+        """
+        return pulumi.get(self, "cpu_cores")
+
+    @property
+    @pulumi.getter(name="detailedStatus")
+    def detailed_status(self) -> str:
+        """
+        The detailed state of this node.
+        """
+        return pulumi.get(self, "detailed_status")
+
+    @property
+    @pulumi.getter(name="detailedStatusMessage")
+    def detailed_status_message(self) -> str:
+        """
+        The descriptive message about the current detailed status.
+        """
+        return pulumi.get(self, "detailed_status_message")
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> float:
+        """
+        The size of the disk configured for this node.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter
+    def image(self) -> str:
+        """
+        The machine image used to deploy this node.
+        """
+        return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="kubernetesVersion")
+    def kubernetes_version(self) -> str:
+        """
+        The currently running version of Kubernetes and bundled features running on this node.
+        """
+        return pulumi.get(self, "kubernetes_version")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Sequence['outputs.KubernetesLabelResponse']:
+        """
+        The list of labels on this node that have been assigned to the agent pool containing this node.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter(name="memorySizeGB")
+    def memory_size_gb(self) -> float:
+        """
+        The amount of memory configured for this node, derived from the vm SKU specified.
+        """
+        return pulumi.get(self, "memory_size_gb")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> str:
+        """
+        The mode of the agent pool containing this node. Not applicable for control plane nodes.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this node, as realized in the Kubernetes cluster.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkAttachments")
+    def network_attachments(self) -> Sequence['outputs.NetworkAttachmentResponse']:
+        """
+        The NetworkAttachments made to this node.
+        """
+        return pulumi.get(self, "network_attachments")
+
+    @property
+    @pulumi.getter(name="powerState")
+    def power_state(self) -> str:
+        """
+        The power state of this node.
+        """
+        return pulumi.get(self, "power_state")
+
+    @property
+    @pulumi.getter
+    def role(self) -> str:
+        """
+        The role of this node in the cluster.
+        """
+        return pulumi.get(self, "role")
+
+    @property
+    @pulumi.getter
+    def taints(self) -> Sequence['outputs.KubernetesLabelResponse']:
+        """
+        The list of taints that have been assigned to the agent pool containing this node.
+        """
+        return pulumi.get(self, "taints")
+
+    @property
+    @pulumi.getter(name="vmSkuName")
+    def vm_sku_name(self) -> str:
+        """
+        The VM SKU name that was used to create this cluster node.
+        """
+        return pulumi.get(self, "vm_sku_name")
+
+
+@pulumi.output_type
+class KubernetesLabelResponse(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the label or taint.
+        :param str value: The value of the label or taint.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the label or taint.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the label or taint.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class L2NetworkAttachmentConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "pluginType":
+            suggest = "plugin_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in L2NetworkAttachmentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        L2NetworkAttachmentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        L2NetworkAttachmentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_id: str,
+                 plugin_type: Optional[str] = None):
+        """
+        :param str network_id: The resource ID of the network that is being configured for attachment.
+        :param str plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if plugin_type is None:
+            plugin_type = 'SRIOV'
+        if plugin_type is not None:
+            pulumi.set(__self__, "plugin_type", plugin_type)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> str:
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="pluginType")
+    def plugin_type(self) -> Optional[str]:
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        return pulumi.get(self, "plugin_type")
+
+
+@pulumi.output_type
+class L3NetworkAttachmentConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "ipamEnabled":
+            suggest = "ipam_enabled"
+        elif key == "pluginType":
+            suggest = "plugin_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in L3NetworkAttachmentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        L3NetworkAttachmentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        L3NetworkAttachmentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_id: str,
+                 ipam_enabled: Optional[str] = None,
+                 plugin_type: Optional[str] = None):
+        """
+        :param str network_id: The resource ID of the network that is being configured for attachment.
+        :param str ipam_enabled: The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+        :param str plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if ipam_enabled is None:
+            ipam_enabled = 'False'
+        if ipam_enabled is not None:
+            pulumi.set(__self__, "ipam_enabled", ipam_enabled)
+        if plugin_type is None:
+            plugin_type = 'SRIOV'
+        if plugin_type is not None:
+            pulumi.set(__self__, "plugin_type", plugin_type)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> str:
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="ipamEnabled")
+    def ipam_enabled(self) -> Optional[str]:
+        """
+        The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached.
+        """
+        return pulumi.get(self, "ipam_enabled")
+
+    @property
+    @pulumi.getter(name="pluginType")
+    def plugin_type(self) -> Optional[str]:
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        return pulumi.get(self, "plugin_type")
 
 
 @pulumi.output_type
@@ -1381,6 +2612,124 @@ class NetworkAttachmentResponse(dict):
         For a CloudServicesNetwork resource, this name will be ignored.
         """
         return pulumi.get(self, "network_attachment_name")
+
+
+@pulumi.output_type
+class NetworkConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudServicesNetworkId":
+            suggest = "cloud_services_network_id"
+        elif key == "cniNetworkId":
+            suggest = "cni_network_id"
+        elif key == "attachedNetworkConfiguration":
+            suggest = "attached_network_configuration"
+        elif key == "bgpServiceLoadBalancerConfiguration":
+            suggest = "bgp_service_load_balancer_configuration"
+        elif key == "dnsServiceIp":
+            suggest = "dns_service_ip"
+        elif key == "podCidrs":
+            suggest = "pod_cidrs"
+        elif key == "serviceCidrs":
+            suggest = "service_cidrs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_services_network_id: str,
+                 cni_network_id: str,
+                 attached_network_configuration: Optional['outputs.AttachedNetworkConfigurationResponse'] = None,
+                 bgp_service_load_balancer_configuration: Optional['outputs.BgpServiceLoadBalancerConfigurationResponse'] = None,
+                 dns_service_ip: Optional[str] = None,
+                 pod_cidrs: Optional[Sequence[str]] = None,
+                 service_cidrs: Optional[Sequence[str]] = None):
+        """
+        :param str cloud_services_network_id: The resource ID of the associated Cloud Services network.
+        :param str cni_network_id: The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
+        :param 'AttachedNetworkConfigurationResponse' attached_network_configuration: The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
+        :param 'BgpServiceLoadBalancerConfigurationResponse' bgp_service_load_balancer_configuration: The configuration of the BGP service load balancer for this Kubernetes cluster.
+        :param str dns_service_ip: The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        :param Sequence[str] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        :param Sequence[str] service_cidrs: The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        pulumi.set(__self__, "cloud_services_network_id", cloud_services_network_id)
+        pulumi.set(__self__, "cni_network_id", cni_network_id)
+        if attached_network_configuration is not None:
+            pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
+        if bgp_service_load_balancer_configuration is not None:
+            pulumi.set(__self__, "bgp_service_load_balancer_configuration", bgp_service_load_balancer_configuration)
+        if dns_service_ip is not None:
+            pulumi.set(__self__, "dns_service_ip", dns_service_ip)
+        if pod_cidrs is not None:
+            pulumi.set(__self__, "pod_cidrs", pod_cidrs)
+        if service_cidrs is not None:
+            pulumi.set(__self__, "service_cidrs", service_cidrs)
+
+    @property
+    @pulumi.getter(name="cloudServicesNetworkId")
+    def cloud_services_network_id(self) -> str:
+        """
+        The resource ID of the associated Cloud Services network.
+        """
+        return pulumi.get(self, "cloud_services_network_id")
+
+    @property
+    @pulumi.getter(name="cniNetworkId")
+    def cni_network_id(self) -> str:
+        """
+        The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.
+        """
+        return pulumi.get(self, "cni_network_id")
+
+    @property
+    @pulumi.getter(name="attachedNetworkConfiguration")
+    def attached_network_configuration(self) -> Optional['outputs.AttachedNetworkConfigurationResponse']:
+        """
+        The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.
+        """
+        return pulumi.get(self, "attached_network_configuration")
+
+    @property
+    @pulumi.getter(name="bgpServiceLoadBalancerConfiguration")
+    def bgp_service_load_balancer_configuration(self) -> Optional['outputs.BgpServiceLoadBalancerConfigurationResponse']:
+        """
+        The configuration of the BGP service load balancer for this Kubernetes cluster.
+        """
+        return pulumi.get(self, "bgp_service_load_balancer_configuration")
+
+    @property
+    @pulumi.getter(name="dnsServiceIp")
+    def dns_service_ip(self) -> Optional[str]:
+        """
+        The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.
+        """
+        return pulumi.get(self, "dns_service_ip")
+
+    @property
+    @pulumi.getter(name="podCidrs")
+    def pod_cidrs(self) -> Optional[Sequence[str]]:
+        """
+        The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        return pulumi.get(self, "pod_cidrs")
+
+    @property
+    @pulumi.getter(name="serviceCidrs")
+    def service_cidrs(self) -> Optional[Sequence[str]]:
+        """
+        The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        """
+        return pulumi.get(self, "service_cidrs")
 
 
 @pulumi.output_type
@@ -1776,7 +3125,7 @@ class RackDefinitionResponse(dict):
         :param str network_rack_id: The resource ID of the network rack that matches this rack definition.
         :param str rack_serial_number: The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
         :param str rack_sku_id: The resource ID of the sku for the rack being added.
-        :param str availability_zone: The zone name used for this rack when created.
+        :param str availability_zone: The zone name used for this rack when created. Availability zones are used for workload placement.
         :param Sequence['BareMetalMachineConfigurationDataResponse'] bare_metal_machine_configuration_data: The unordered list of bare metal machine configuration.
         :param str rack_location: The free-form description of the rack's location.
         :param Sequence['StorageApplianceConfigurationDataResponse'] storage_appliance_configuration_data: The list of storage appliance configuration data for this rack.
@@ -1821,7 +3170,7 @@ class RackDefinitionResponse(dict):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[str]:
         """
-        The zone name used for this rack when created.
+        The zone name used for this rack when created. Availability zones are used for workload placement.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -1848,6 +3197,155 @@ class RackDefinitionResponse(dict):
         The list of storage appliance configuration data for this rack.
         """
         return pulumi.get(self, "storage_appliance_configuration_data")
+
+
+@pulumi.output_type
+class ServiceLoadBalancerBgpPeerResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "peerAddress":
+            suggest = "peer_address"
+        elif key == "peerAsn":
+            suggest = "peer_asn"
+        elif key == "bfdEnabled":
+            suggest = "bfd_enabled"
+        elif key == "bgpMultiHop":
+            suggest = "bgp_multi_hop"
+        elif key == "holdTime":
+            suggest = "hold_time"
+        elif key == "keepAliveTime":
+            suggest = "keep_alive_time"
+        elif key == "myAsn":
+            suggest = "my_asn"
+        elif key == "peerPort":
+            suggest = "peer_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceLoadBalancerBgpPeerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceLoadBalancerBgpPeerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceLoadBalancerBgpPeerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 peer_address: str,
+                 peer_asn: float,
+                 bfd_enabled: Optional[str] = None,
+                 bgp_multi_hop: Optional[str] = None,
+                 hold_time: Optional[str] = None,
+                 keep_alive_time: Optional[str] = None,
+                 my_asn: Optional[float] = None,
+                 peer_port: Optional[float] = None):
+        """
+        :param str name: The name used to identify this BGP peer for association with a BGP advertisement.
+        :param str peer_address: The IPv4 or IPv6 address used to connect this BGP session.
+        :param float peer_asn: The autonomous system number expected from the remote end of the BGP session.
+        :param str bfd_enabled: The indicator of BFD enablement for this BgpPeer.
+        :param str bgp_multi_hop: The indicator to enable multi-hop peering support.
+        :param str hold_time: The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        :param str keep_alive_time: The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        :param float my_asn: The autonomous system number used for the local end of the BGP session.
+        :param float peer_port: The port used to connect this BGP session.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "peer_address", peer_address)
+        pulumi.set(__self__, "peer_asn", peer_asn)
+        if bfd_enabled is None:
+            bfd_enabled = 'False'
+        if bfd_enabled is not None:
+            pulumi.set(__self__, "bfd_enabled", bfd_enabled)
+        if bgp_multi_hop is None:
+            bgp_multi_hop = 'False'
+        if bgp_multi_hop is not None:
+            pulumi.set(__self__, "bgp_multi_hop", bgp_multi_hop)
+        if hold_time is not None:
+            pulumi.set(__self__, "hold_time", hold_time)
+        if keep_alive_time is not None:
+            pulumi.set(__self__, "keep_alive_time", keep_alive_time)
+        if my_asn is not None:
+            pulumi.set(__self__, "my_asn", my_asn)
+        if peer_port is None:
+            peer_port = 179
+        if peer_port is not None:
+            pulumi.set(__self__, "peer_port", peer_port)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name used to identify this BGP peer for association with a BGP advertisement.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="peerAddress")
+    def peer_address(self) -> str:
+        """
+        The IPv4 or IPv6 address used to connect this BGP session.
+        """
+        return pulumi.get(self, "peer_address")
+
+    @property
+    @pulumi.getter(name="peerAsn")
+    def peer_asn(self) -> float:
+        """
+        The autonomous system number expected from the remote end of the BGP session.
+        """
+        return pulumi.get(self, "peer_asn")
+
+    @property
+    @pulumi.getter(name="bfdEnabled")
+    def bfd_enabled(self) -> Optional[str]:
+        """
+        The indicator of BFD enablement for this BgpPeer.
+        """
+        return pulumi.get(self, "bfd_enabled")
+
+    @property
+    @pulumi.getter(name="bgpMultiHop")
+    def bgp_multi_hop(self) -> Optional[str]:
+        """
+        The indicator to enable multi-hop peering support.
+        """
+        return pulumi.get(self, "bgp_multi_hop")
+
+    @property
+    @pulumi.getter(name="holdTime")
+    def hold_time(self) -> Optional[str]:
+        """
+        The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H.
+        """
+        return pulumi.get(self, "hold_time")
+
+    @property
+    @pulumi.getter(name="keepAliveTime")
+    def keep_alive_time(self) -> Optional[str]:
+        """
+        The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H.
+        """
+        return pulumi.get(self, "keep_alive_time")
+
+    @property
+    @pulumi.getter(name="myAsn")
+    def my_asn(self) -> Optional[float]:
+        """
+        The autonomous system number used for the local end of the BGP session.
+        """
+        return pulumi.get(self, "my_asn")
+
+    @property
+    @pulumi.getter(name="peerPort")
+    def peer_port(self) -> Optional[float]:
+        """
+        The port used to connect this BGP session.
+        """
+        return pulumi.get(self, "peer_port")
 
 
 @pulumi.output_type
@@ -1944,7 +3442,7 @@ class SshPublicKeyResponse(dict):
     def __init__(__self__, *,
                  key_data: str):
         """
-        :param str key_data: The public ssh key of the user.
+        :param str key_data: The SSH public key data.
         """
         pulumi.set(__self__, "key_data", key_data)
 
@@ -1952,7 +3450,7 @@ class SshPublicKeyResponse(dict):
     @pulumi.getter(name="keyData")
     def key_data(self) -> str:
         """
-        The public ssh key of the user.
+        The SSH public key data.
         """
         return pulumi.get(self, "key_data")
 
@@ -2189,6 +3687,57 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TrunkedNetworkAttachmentConfigurationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkId":
+            suggest = "network_id"
+        elif key == "pluginType":
+            suggest = "plugin_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrunkedNetworkAttachmentConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrunkedNetworkAttachmentConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrunkedNetworkAttachmentConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_id: str,
+                 plugin_type: Optional[str] = None):
+        """
+        :param str network_id: The resource ID of the network that is being configured for attachment.
+        :param str plugin_type: The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        pulumi.set(__self__, "network_id", network_id)
+        if plugin_type is None:
+            plugin_type = 'SRIOV'
+        if plugin_type is not None:
+            pulumi.set(__self__, "plugin_type", plugin_type)
+
+    @property
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> str:
+        """
+        The resource ID of the network that is being configured for attachment.
+        """
+        return pulumi.get(self, "network_id")
+
+    @property
+    @pulumi.getter(name="pluginType")
+    def plugin_type(self) -> Optional[str]:
+        """
+        The indicator of how this network will be utilized by the Kubernetes cluster.
+        """
+        return pulumi.get(self, "plugin_type")
 
 
 @pulumi.output_type

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified scope map.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getScopeMap(args: GetScopeMapArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeMapResult> {
 
@@ -27,7 +27,7 @@ export interface GetScopeMapArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -77,7 +77,7 @@ export interface GetScopeMapResult {
 }
 /**
  * Gets the properties of the specified scope map.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getScopeMapOutput(args: GetScopeMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScopeMapResult> {
     return pulumi.output(args).apply((a: any) => getScopeMap(a, opts))
@@ -89,7 +89,7 @@ export interface GetScopeMapOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

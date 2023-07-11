@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Service and its properties.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -56,6 +56,10 @@ export interface GetServiceResult {
      */
     readonly sku?: outputs.appplatform.SkuResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.appplatform.SystemDataResponse;
+    /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     readonly tags?: {[key: string]: string};
@@ -66,7 +70,7 @@ export interface GetServiceResult {
 }
 /**
  * Get a Service and its properties.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

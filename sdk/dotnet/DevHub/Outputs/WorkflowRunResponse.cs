@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.DevHub.Outputs
         /// </summary>
         public readonly bool Succeeded;
         /// <summary>
+        /// Describes the status of the workflow run
+        /// </summary>
+        public readonly string? WorkflowRunStatus;
+        /// <summary>
         /// URL to the run of the workflow.
         /// </summary>
         public readonly string WorkflowRunURL;
@@ -32,10 +36,13 @@ namespace Pulumi.AzureNative.DevHub.Outputs
 
             bool succeeded,
 
+            string? workflowRunStatus,
+
             string workflowRunURL)
         {
             LastRunAt = lastRunAt;
             Succeeded = succeeded;
+            WorkflowRunStatus = workflowRunStatus;
             WorkflowRunURL = workflowRunURL;
         }
     }

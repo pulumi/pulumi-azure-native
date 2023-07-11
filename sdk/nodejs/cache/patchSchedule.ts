@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response to put/get patch schedules for Redis cache.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**
@@ -39,7 +39,11 @@ export class PatchSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -47,7 +51,7 @@ export class PatchSchedule extends pulumi.CustomResource {
      */
     public readonly scheduleEntries!: pulumi.Output<outputs.cache.ScheduleEntryResponse[]>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -75,14 +79,16 @@ export class PatchSchedule extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scheduleEntries"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20171001:PatchSchedule" }, { type: "azure-native:cache/v20180301:PatchSchedule" }, { type: "azure-native:cache/v20190701:PatchSchedule" }, { type: "azure-native:cache/v20200601:PatchSchedule" }, { type: "azure-native:cache/v20201201:PatchSchedule" }, { type: "azure-native:cache/v20210601:PatchSchedule" }, { type: "azure-native:cache/v20220501:PatchSchedule" }, { type: "azure-native:cache/v20220601:PatchSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20171001:PatchSchedule" }, { type: "azure-native:cache/v20180301:PatchSchedule" }, { type: "azure-native:cache/v20190701:PatchSchedule" }, { type: "azure-native:cache/v20200601:PatchSchedule" }, { type: "azure-native:cache/v20201201:PatchSchedule" }, { type: "azure-native:cache/v20210601:PatchSchedule" }, { type: "azure-native:cache/v20220501:PatchSchedule" }, { type: "azure-native:cache/v20220601:PatchSchedule" }, { type: "azure-native:cache/v20230401:PatchSchedule" }, { type: "azure-native:cache/v20230501preview:PatchSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PatchSchedule.__pulumiType, name, resourceInputs, opts);
     }

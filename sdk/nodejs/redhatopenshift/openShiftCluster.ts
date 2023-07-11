@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
- * API Version: 2020-04-30.
+ * Azure REST API version: 2022-09-04. Prior API version in Azure Native 1.x: 2020-04-30
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**
@@ -71,13 +71,17 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      */
     public readonly networkProfile!: pulumi.Output<outputs.redhatopenshift.NetworkProfileResponse | undefined>;
     /**
-     * The cluster provisioning state (immutable).
+     * The cluster provisioning state.
      */
     public readonly provisioningState!: pulumi.Output<string | undefined>;
     /**
      * The cluster service principal profile.
      */
     public readonly servicePrincipalProfile!: pulumi.Output<outputs.redhatopenshift.ServicePrincipalProfileResponse | undefined>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.redhatopenshift.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -119,6 +123,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workerProfiles"] = args ? args.workerProfiles : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["apiserverProfile"] = undefined /*out*/;
@@ -131,6 +136,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["servicePrincipalProfile"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerProfiles"] = undefined /*out*/;
@@ -175,7 +181,7 @@ export interface OpenShiftClusterArgs {
      */
     networkProfile?: pulumi.Input<inputs.redhatopenshift.NetworkProfileArgs>;
     /**
-     * The cluster provisioning state (immutable).
+     * The cluster provisioning state.
      */
     provisioningState?: pulumi.Input<string>;
     /**

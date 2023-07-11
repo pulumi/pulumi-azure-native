@@ -147,7 +147,7 @@ class DicomService(pulumi.CustomResource):
                  __props__=None):
         """
         The description of Dicom Service
-        API Version: 2022-05-15.
+        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,7 +167,7 @@ class DicomService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Dicom Service
-        API Version: 2022-05-15.
+        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
 
         :param str resource_name: The name of the resource.
         :param DicomServiceArgs args: The arguments to use to populate this resource's properties.
@@ -213,6 +213,7 @@ class DicomService(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["authentication_configuration"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["event_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -220,7 +221,7 @@ class DicomService(pulumi.CustomResource):
             __props__.__dict__["service_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:DicomService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:DicomService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DicomService, __self__).__init__(
             'azure-native:healthcareapis:DicomService',
@@ -247,6 +248,7 @@ class DicomService(pulumi.CustomResource):
         __props__.__dict__["authentication_configuration"] = None
         __props__.__dict__["cors_configuration"] = None
         __props__.__dict__["etag"] = None
+        __props__.__dict__["event_state"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -282,6 +284,14 @@ class DicomService(pulumi.CustomResource):
         An etag associated with the resource, used for optimistic concurrency when editing it.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="eventState")
+    def event_state(self) -> pulumi.Output[str]:
+        """
+        DICOM Service event support status.
+        """
+        return pulumi.get(self, "event_state")
 
     @property
     @pulumi.getter

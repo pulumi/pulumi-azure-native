@@ -19,14 +19,14 @@ class AccessConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['IdentityDataArgs']] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AccessConnector resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] connector_name: The name of the azure databricks accessConnector.
-        :param pulumi.Input['IdentityDataArgs'] identity: Identity for the resource.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -66,14 +66,14 @@ class AccessConnectorArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityDataArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
-        Identity for the resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityDataArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -107,19 +107,19 @@ class AccessConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Information about azure databricks accessConnector.
-        API Version: 2022-04-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: The name of the azure databricks accessConnector.
-        :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
+        :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -132,7 +132,7 @@ class AccessConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about azure databricks accessConnector.
-        API Version: 2022-04-01-preview.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param AccessConnectorArgs args: The arguments to use to populate this resource's properties.
@@ -150,7 +150,7 @@ class AccessConnector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityDataArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -174,7 +174,7 @@ class AccessConnector(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20220401preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20221001preview:AccessConnector")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:databricks/v20220401preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20221001preview:AccessConnector"), pulumi.Alias(type_="azure-native:databricks/v20230501:AccessConnector")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessConnector, __self__).__init__(
             'azure-native:databricks:AccessConnector',
@@ -209,9 +209,9 @@ class AccessConnector(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Output[Optional['outputs.IdentityDataResponse']]:
+    def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        Identity for the resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 

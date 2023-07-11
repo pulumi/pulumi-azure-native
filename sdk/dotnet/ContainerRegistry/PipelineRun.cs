@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a pipeline run for a container registry.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:PipelineRun")]
     public partial class PipelineRun : global::Pulumi.CustomResource
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<Inputs.PipelineRunRequestArgs>? Request { get; set; }
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

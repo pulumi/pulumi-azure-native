@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the report for a department by report name.
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByDepartment(args: GetReportByDepartmentArgs, opts?: pulumi.InvokeOptions): Promise<GetReportByDepartmentResult> {
 
@@ -70,7 +70,7 @@ export interface GetReportByDepartmentResult {
 }
 /**
  * Gets the report for a department by report name.
- * API Version: 2018-08-01-preview.
+ * Azure REST API version: 2018-08-01-preview.
  */
 export function getReportByDepartmentOutput(args: GetReportByDepartmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportByDepartmentResult> {
     return pulumi.output(args).apply((a: any) => getReportByDepartment(a, opts))

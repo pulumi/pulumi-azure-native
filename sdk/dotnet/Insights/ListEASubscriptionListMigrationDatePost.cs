@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// list date to migrate to new pricing model.
-        /// API Version: 2017-10-01.
+        /// Azure REST API version: 2017-10-01.
         /// </summary>
         public static Task<ListEASubscriptionListMigrationDatePostResult> InvokeAsync(ListEASubscriptionListMigrationDatePostArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListEASubscriptionListMigrationDatePostResult>("azure-native:insights:listEASubscriptionListMigrationDatePost", args ?? new ListEASubscriptionListMigrationDatePostArgs(), options.WithDefaults());

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataMigration
 {
     /// <summary>
     /// A file resource
-    /// API Version: 2018-07-15-preview.
+    /// Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:File")]
     public partial class File : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.DataMigration
         /// </summary>
         [Output("properties")]
         public Output<Outputs.ProjectFilePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

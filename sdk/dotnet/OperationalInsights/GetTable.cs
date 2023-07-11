@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a Log Analytics workspace table.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Log Analytics workspace table.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("azure-native:operationalinsights:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
@@ -114,11 +114,15 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Search job execution statistics.
         /// </summary>
-        public readonly Outputs.ResultStatisticsResponse? ResultStatistics;
+        public readonly Outputs.ResultStatisticsResponse ResultStatistics;
         /// <summary>
         /// The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
         /// </summary>
         public readonly int? RetentionInDays;
+        /// <summary>
+        /// True - Value originates from workspace retention in days, False - Customer specific.
+        /// </summary>
+        public readonly bool RetentionInDaysAsDefault;
         /// <summary>
         /// Table schema.
         /// </summary>
@@ -135,6 +139,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// The table total retention in days, between 4 and 2555. Setting this property to -1 will default to table retention.
         /// </summary>
         public readonly int? TotalRetentionInDays;
+        /// <summary>
+        /// True - Value originates from retention in days, False - Customer specific.
+        /// </summary>
+        public readonly bool TotalRetentionInDaysAsDefault;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -156,9 +164,11 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             Outputs.RestoredLogsResponse? restoredLogs,
 
-            Outputs.ResultStatisticsResponse? resultStatistics,
+            Outputs.ResultStatisticsResponse resultStatistics,
 
             int? retentionInDays,
+
+            bool retentionInDaysAsDefault,
 
             Outputs.SchemaResponse? schema,
 
@@ -167,6 +177,8 @@ namespace Pulumi.AzureNative.OperationalInsights
             Outputs.SystemDataResponse systemData,
 
             int? totalRetentionInDays,
+
+            bool totalRetentionInDaysAsDefault,
 
             string type)
         {
@@ -179,10 +191,12 @@ namespace Pulumi.AzureNative.OperationalInsights
             RestoredLogs = restoredLogs;
             ResultStatistics = resultStatistics;
             RetentionInDays = retentionInDays;
+            RetentionInDaysAsDefault = retentionInDaysAsDefault;
             Schema = schema;
             SearchResults = searchResults;
             SystemData = systemData;
             TotalRetentionInDays = totalRetentionInDays;
+            TotalRetentionInDaysAsDefault = totalRetentionInDaysAsDefault;
             Type = type;
         }
     }

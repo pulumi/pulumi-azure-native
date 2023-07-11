@@ -17,9 +17,13 @@ namespace Pulumi.AzureNative.Storage.Outputs
     public sealed class ActiveDirectoryPropertiesResponse
     {
         /// <summary>
+        /// Specifies the Active Directory account type for Azure Storage.
+        /// </summary>
+        public readonly string? AccountType;
+        /// <summary>
         /// Specifies the security identifier (SID) for Azure Storage.
         /// </summary>
-        public readonly string AzureStorageSid;
+        public readonly string? AzureStorageSid;
         /// <summary>
         /// Specifies the domain GUID.
         /// </summary>
@@ -31,36 +35,46 @@ namespace Pulumi.AzureNative.Storage.Outputs
         /// <summary>
         /// Specifies the security identifier (SID).
         /// </summary>
-        public readonly string DomainSid;
+        public readonly string? DomainSid;
         /// <summary>
         /// Specifies the Active Directory forest to get.
         /// </summary>
-        public readonly string ForestName;
+        public readonly string? ForestName;
         /// <summary>
         /// Specifies the NetBIOS domain name.
         /// </summary>
-        public readonly string NetBiosDomainName;
+        public readonly string? NetBiosDomainName;
+        /// <summary>
+        /// Specifies the Active Directory SAMAccountName for Azure Storage.
+        /// </summary>
+        public readonly string? SamAccountName;
 
         [OutputConstructor]
         private ActiveDirectoryPropertiesResponse(
-            string azureStorageSid,
+            string? accountType,
+
+            string? azureStorageSid,
 
             string domainGuid,
 
             string domainName,
 
-            string domainSid,
+            string? domainSid,
 
-            string forestName,
+            string? forestName,
 
-            string netBiosDomainName)
+            string? netBiosDomainName,
+
+            string? samAccountName)
         {
+            AccountType = accountType;
             AzureStorageSid = azureStorageSid;
             DomainGuid = domainGuid;
             DomainName = domainName;
             DomainSid = domainSid;
             ForestName = forestName;
             NetBiosDomainName = netBiosDomainName;
+            SamAccountName = samAccountName;
         }
     }
 }

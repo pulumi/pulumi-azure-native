@@ -22,7 +22,7 @@ class GetVirtualMachineResult:
     """
     Define the virtualMachine.
     """
-    def __init__(__self__, custom_resource_name=None, extended_location=None, firmware_type=None, folder_path=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, instance_uuid=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_pool_id=None, smbios_uuid=None, statuses=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, v_center_id=None, vm_id=None):
+    def __init__(__self__, custom_resource_name=None, extended_location=None, firmware_type=None, folder_path=None, guest_agent_profile=None, hardware_profile=None, id=None, identity=None, instance_uuid=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_profile=None, os_profile=None, placement_profile=None, power_state=None, provisioning_state=None, resource_pool_id=None, security_profile=None, smbios_uuid=None, statuses=None, storage_profile=None, system_data=None, tags=None, template_id=None, type=None, uuid=None, v_center_id=None, vm_id=None):
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
@@ -86,6 +86,9 @@ class GetVirtualMachineResult:
         if resource_pool_id and not isinstance(resource_pool_id, str):
             raise TypeError("Expected argument 'resource_pool_id' to be a str")
         pulumi.set(__self__, "resource_pool_id", resource_pool_id)
+        if security_profile and not isinstance(security_profile, dict):
+            raise TypeError("Expected argument 'security_profile' to be a dict")
+        pulumi.set(__self__, "security_profile", security_profile)
         if smbios_uuid and not isinstance(smbios_uuid, str):
             raise TypeError("Expected argument 'smbios_uuid' to be a str")
         pulumi.set(__self__, "smbios_uuid", smbios_uuid)
@@ -287,6 +290,14 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "resource_pool_id")
 
     @property
+    @pulumi.getter(name="securityProfile")
+    def security_profile(self) -> Optional['outputs.SecurityProfileResponse']:
+        """
+        Gets the security profile.
+        """
+        return pulumi.get(self, "security_profile")
+
+    @property
     @pulumi.getter(name="smbiosUuid")
     def smbios_uuid(self) -> Optional[str]:
         """
@@ -394,6 +405,7 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
             power_state=self.power_state,
             provisioning_state=self.provisioning_state,
             resource_pool_id=self.resource_pool_id,
+            security_profile=self.security_profile,
             smbios_uuid=self.smbios_uuid,
             statuses=self.statuses,
             storage_profile=self.storage_profile,
@@ -411,7 +423,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineResult:
     """
     Implements virtual machine GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.
@@ -445,6 +457,7 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
         power_state=__ret__.power_state,
         provisioning_state=__ret__.provisioning_state,
         resource_pool_id=__ret__.resource_pool_id,
+        security_profile=__ret__.security_profile,
         smbios_uuid=__ret__.smbios_uuid,
         statuses=__ret__.statuses,
         storage_profile=__ret__.storage_profile,
@@ -463,7 +476,7 @@ def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements virtual machine GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str resource_group_name: The Resource Group Name.

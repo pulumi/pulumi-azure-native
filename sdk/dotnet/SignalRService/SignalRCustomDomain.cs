@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// A custom domain
-    /// API Version: 2022-02-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRCustomDomain")]
     public partial class SignalRCustomDomain : global::Pulumi.CustomResource
@@ -80,6 +80,8 @@ namespace Pulumi.AzureNative.SignalRService
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

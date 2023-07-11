@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The AvailabilitySets resource definition.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:AvailabilitySet" }, { type: "azure-native:scvmm/v20220521preview:AvailabilitySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilitySet.__pulumiType, name, resourceInputs, opts);
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2019-09-01.
  */
 export function getQuery(args: GetQueryArgs, opts?: pulumi.InvokeOptions): Promise<GetQueryResult> {
 
@@ -95,7 +95,7 @@ export interface GetQueryResult {
 }
 /**
  * Gets a specific Log Analytics Query defined within a Log Analytics QueryPack.
- * API Version: 2019-09-01.
+ * Azure REST API version: 2019-09-01.
  */
 export function getQueryOutput(args: GetQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueryResult> {
     return pulumi.output(args).apply((a: any) => getQuery(a, opts))

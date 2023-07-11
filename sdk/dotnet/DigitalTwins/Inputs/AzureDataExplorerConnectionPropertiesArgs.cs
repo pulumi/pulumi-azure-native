@@ -28,16 +28,28 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         public Input<string> AdxEndpointUri { get; set; } = null!;
 
         /// <summary>
+        /// The name of the Azure Data Explorer table used for recording relationship lifecycle events. The table will not be created if this property is left unspecified.
+        /// </summary>
+        [Input("adxRelationshipLifecycleEventsTableName")]
+        public Input<string>? AdxRelationshipLifecycleEventsTableName { get; set; }
+
+        /// <summary>
         /// The resource ID of the Azure Data Explorer cluster.
         /// </summary>
         [Input("adxResourceId", required: true)]
         public Input<string> AdxResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Azure Data Explorer table. Defaults to AdtPropertyEvents.
+        /// The name of the Azure Data Explorer table used for storing updates to properties of twins and relationships. Defaults to AdtPropertyEvents.
         /// </summary>
         [Input("adxTableName")]
         public Input<string>? AdxTableName { get; set; }
+
+        /// <summary>
+        /// The name of the Azure Data Explorer table used for recording twin lifecycle events. The table will not be created if this property is left unspecified.
+        /// </summary>
+        [Input("adxTwinLifecycleEventsTableName")]
+        public Input<string>? AdxTwinLifecycleEventsTableName { get; set; }
 
         /// <summary>
         /// The type of time series connection resource.
@@ -70,10 +82,23 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
         [Input("eventHubNamespaceResourceId", required: true)]
         public Input<string> EventHubNamespaceResourceId { get; set; } = null!;
 
+        /// <summary>
+        /// Managed identity properties for the time series database connection resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedIdentityReferenceArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Specifies whether or not to record twin / relationship property and item removals, including removals of indexed or keyed values (such as map entries, array elements, etc.). This feature is de-activated unless explicitly set to 'true'. Setting this property to 'true' will generate an additional column in the property events table in ADX.
+        /// </summary>
+        [Input("recordPropertyAndItemRemovals")]
+        public InputUnion<string, Pulumi.AzureNative.DigitalTwins.RecordPropertyAndItemRemovals>? RecordPropertyAndItemRemovals { get; set; }
+
         public AzureDataExplorerConnectionPropertiesArgs()
         {
             AdxTableName = "AdtPropertyEvents";
             EventHubConsumerGroup = "$Default";
+            RecordPropertyAndItemRemovals = "false";
         }
         public static new AzureDataExplorerConnectionPropertiesArgs Empty => new AzureDataExplorerConnectionPropertiesArgs();
     }

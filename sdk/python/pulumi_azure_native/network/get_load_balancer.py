@@ -119,7 +119,7 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="inboundNatPools")
     def inbound_nat_pools(self) -> Optional[Sequence['outputs.InboundNatPoolResponse']]:
         """
-        Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
         """
         return pulumi.get(self, "inbound_nat_pools")
 
@@ -243,7 +243,7 @@ def get_load_balancer(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadBalancerResult:
     """
     Gets the specified load balancer.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -284,7 +284,7 @@ def get_load_balancer_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Gets the specified load balancer.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

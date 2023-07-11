@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a user rule.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetUserRuleResult> InvokeAsync(GetUserRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a user rule.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetUserRuleResult> Invoke(GetUserRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleResult>("azure-native:network:getUserRule", args ?? new GetUserRuleInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetUserRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetUserRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -124,10 +124,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// A friendly name for the rule.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -179,8 +175,6 @@ namespace Pulumi.AzureNative.Network
 
             string direction,
 
-            string? displayName,
-
             string etag,
 
             string id,
@@ -205,7 +199,6 @@ namespace Pulumi.AzureNative.Network
             DestinationPortRanges = destinationPortRanges;
             Destinations = destinations;
             Direction = direction;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Kind = kind;

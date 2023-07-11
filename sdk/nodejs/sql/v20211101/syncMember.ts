@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database sync member.
- *
- * @deprecated azure-native:sql/v20211101:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility.
  */
 export class SyncMember extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SyncMember extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SyncMember {
-        pulumi.log.warn("SyncMember is deprecated: azure-native:sql/v20211101:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility.")
         return new SyncMember(name, undefined as any, { ...opts, id: id });
     }
 
@@ -100,9 +97,7 @@ export class SyncMember extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility. */
     constructor(name: string, args: SyncMemberArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SyncMember is deprecated: azure-native:sql/v20211101:SyncMember is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SyncMember to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -151,7 +146,7 @@ export class SyncMember extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncMember" }, { type: "azure-native:sql/v20150501preview:SyncMember" }, { type: "azure-native:sql/v20190601preview:SyncMember" }, { type: "azure-native:sql/v20200202preview:SyncMember" }, { type: "azure-native:sql/v20200801preview:SyncMember" }, { type: "azure-native:sql/v20201101preview:SyncMember" }, { type: "azure-native:sql/v20210201preview:SyncMember" }, { type: "azure-native:sql/v20210501preview:SyncMember" }, { type: "azure-native:sql/v20210801preview:SyncMember" }, { type: "azure-native:sql/v20211101preview:SyncMember" }, { type: "azure-native:sql/v20220201preview:SyncMember" }, { type: "azure-native:sql/v20220501preview:SyncMember" }, { type: "azure-native:sql/v20220801preview:SyncMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:SyncMember" }, { type: "azure-native:sql/v20150501preview:SyncMember" }, { type: "azure-native:sql/v20190601preview:SyncMember" }, { type: "azure-native:sql/v20200202preview:SyncMember" }, { type: "azure-native:sql/v20200801preview:SyncMember" }, { type: "azure-native:sql/v20201101preview:SyncMember" }, { type: "azure-native:sql/v20210201preview:SyncMember" }, { type: "azure-native:sql/v20210501preview:SyncMember" }, { type: "azure-native:sql/v20210801preview:SyncMember" }, { type: "azure-native:sql/v20211101preview:SyncMember" }, { type: "azure-native:sql/v20220201preview:SyncMember" }, { type: "azure-native:sql/v20220501preview:SyncMember" }, { type: "azure-native:sql/v20220801preview:SyncMember" }, { type: "azure-native:sql/v20221101preview:SyncMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncMember.__pulumiType, name, resourceInputs, opts);
     }

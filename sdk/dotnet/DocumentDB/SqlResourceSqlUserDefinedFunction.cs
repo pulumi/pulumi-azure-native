@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB userDefinedFunction.
-    /// API Version: 2021-03-15.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-15
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlUserDefinedFunction")]
     public partial class SqlResourceSqlUserDefinedFunction : global::Pulumi.CustomResource
@@ -91,7 +91,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:SqlResourceSqlUserDefinedFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:SqlResourceSqlUserDefinedFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:SqlResourceSqlUserDefinedFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:SqlResourceSqlUserDefinedFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:SqlResourceSqlUserDefinedFunction"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:SqlResourceSqlUserDefinedFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:SqlResourceSqlUserDefinedFunction"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:SqlResourceSqlUserDefinedFunction"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

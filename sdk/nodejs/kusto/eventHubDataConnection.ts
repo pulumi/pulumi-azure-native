@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an event hub data connection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class EventHubDataConnection extends pulumi.CustomResource {
     /**
@@ -51,6 +51,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      */
     public readonly dataFormat!: pulumi.Output<string | undefined>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    public readonly databaseRouting!: pulumi.Output<string | undefined>;
+    /**
      * The resource ID of the event hub to be used to create a data connection.
      */
     public readonly eventHubResourceId!: pulumi.Output<string>;
@@ -68,6 +72,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
+     * The object ID of the managedIdentityResourceId
+     */
+    public /*out*/ readonly managedIdentityObjectId!: pulumi.Output<string>;
+    /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      */
     public readonly managedIdentityResourceId!: pulumi.Output<string | undefined>;
@@ -83,6 +91,10 @@ export class EventHubDataConnection extends pulumi.CustomResource {
      * The provisioned state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+     */
+    public readonly retrievalStartDate!: pulumi.Output<string | undefined>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
@@ -127,6 +139,7 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
             resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["databaseRouting"] = (args ? args.databaseRouting : undefined) ?? "Single";
             resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
             resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
             resourceInputs["kind"] = "EventHub";
@@ -134,7 +147,9 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
             resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["retrievalStartDate"] = args ? args.retrievalStartDate : undefined;
             resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -142,19 +157,22 @@ export class EventHubDataConnection extends pulumi.CustomResource {
             resourceInputs["compression"] = undefined /*out*/;
             resourceInputs["consumerGroup"] = undefined /*out*/;
             resourceInputs["dataFormat"] = undefined /*out*/;
+            resourceInputs["databaseRouting"] = undefined /*out*/;
             resourceInputs["eventHubResourceId"] = undefined /*out*/;
             resourceInputs["eventSystemProperties"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["managedIdentityResourceId"] = undefined /*out*/;
             resourceInputs["mappingRuleName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["retrievalStartDate"] = undefined /*out*/;
             resourceInputs["tableName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventHubDataConnection" }, { type: "azure-native:kusto/v20190515:EventHubDataConnection" }, { type: "azure-native:kusto/v20190907:EventHubDataConnection" }, { type: "azure-native:kusto/v20191109:EventHubDataConnection" }, { type: "azure-native:kusto/v20200215:EventHubDataConnection" }, { type: "azure-native:kusto/v20200614:EventHubDataConnection" }, { type: "azure-native:kusto/v20200918:EventHubDataConnection" }, { type: "azure-native:kusto/v20210101:EventHubDataConnection" }, { type: "azure-native:kusto/v20210827:EventHubDataConnection" }, { type: "azure-native:kusto/v20220201:EventHubDataConnection" }, { type: "azure-native:kusto/v20220707:EventHubDataConnection" }, { type: "azure-native:kusto/v20221111:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:EventHubDataConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20190121:EventHubDataConnection" }, { type: "azure-native:kusto/v20190515:EventHubDataConnection" }, { type: "azure-native:kusto/v20190907:EventHubDataConnection" }, { type: "azure-native:kusto/v20191109:EventHubDataConnection" }, { type: "azure-native:kusto/v20200215:EventHubDataConnection" }, { type: "azure-native:kusto/v20200614:EventHubDataConnection" }, { type: "azure-native:kusto/v20200918:EventHubDataConnection" }, { type: "azure-native:kusto/v20210101:EventHubDataConnection" }, { type: "azure-native:kusto/v20210827:EventHubDataConnection" }, { type: "azure-native:kusto/v20220201:EventHubDataConnection" }, { type: "azure-native:kusto/v20220707:EventHubDataConnection" }, { type: "azure-native:kusto/v20221111:EventHubDataConnection" }, { type: "azure-native:kusto/v20221229:EventHubDataConnection" }, { type: "azure-native:kusto/v20230502:EventHubDataConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EventHubDataConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -189,6 +207,10 @@ export interface EventHubDataConnectionArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
+    /**
      * The resource ID of the event hub to be used to create a data connection.
      */
     eventHubResourceId: pulumi.Input<string>;
@@ -217,6 +239,10 @@ export interface EventHubDataConnectionArgs {
      * The name of the resource group containing the Kusto cluster.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+     */
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */

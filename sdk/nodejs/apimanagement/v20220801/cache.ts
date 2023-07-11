@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Cache details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Cache to guarantee forwards compatibility.
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class Cache extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Cache {
-        pulumi.log.warn("Cache is deprecated: azure-native:apimanagement/v20220801:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Cache to guarantee forwards compatibility.")
         return new Cache(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +66,7 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Cache to guarantee forwards compatibility. */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Cache is deprecated: azure-native:apimanagement/v20220801:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Cache to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -105,7 +100,7 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["useFromLocation"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Cache" }, { type: "azure-native:apimanagement/v20180601preview:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-native:apimanagement/v20201201:Cache" }, { type: "azure-native:apimanagement/v20210101preview:Cache" }, { type: "azure-native:apimanagement/v20210401preview:Cache" }, { type: "azure-native:apimanagement/v20210801:Cache" }, { type: "azure-native:apimanagement/v20211201preview:Cache" }, { type: "azure-native:apimanagement/v20220401preview:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Cache" }, { type: "azure-native:apimanagement/v20180601preview:Cache" }, { type: "azure-native:apimanagement/v20190101:Cache" }, { type: "azure-native:apimanagement/v20191201:Cache" }, { type: "azure-native:apimanagement/v20191201preview:Cache" }, { type: "azure-native:apimanagement/v20200601preview:Cache" }, { type: "azure-native:apimanagement/v20201201:Cache" }, { type: "azure-native:apimanagement/v20210101preview:Cache" }, { type: "azure-native:apimanagement/v20210401preview:Cache" }, { type: "azure-native:apimanagement/v20210801:Cache" }, { type: "azure-native:apimanagement/v20211201preview:Cache" }, { type: "azure-native:apimanagement/v20220401preview:Cache" }, { type: "azure-native:apimanagement/v20220901preview:Cache" }, { type: "azure-native:apimanagement/v20230301preview:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);
     }

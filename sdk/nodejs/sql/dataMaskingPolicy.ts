@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents a database data masking policy.
- * API Version: 2014-04-01.
+ * A database data masking policy.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
  */
 export class DataMaskingPolicy extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
      */
     public readonly exemptPrincipals!: pulumi.Output<string | undefined>;
     /**
-     * The kind of data masking policy. Metadata, used for Azure portal.
+     * The kind of Data Masking Policy. Metadata, used for Azure portal.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql/v20211101:DataMaskingPolicy" }, { type: "azure-native:sql/v20220201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220801preview:DataMaskingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql/v20211101:DataMaskingPolicy" }, { type: "azure-native:sql/v20220201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220801preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20221101preview:DataMaskingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataMaskingPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -128,7 +128,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
  */
 export interface DataMaskingPolicyArgs {
     /**
-     * The name of the database for which the data masking rule applies.
+     * The name of the database for which the data masking policy applies.
      */
     dataMaskingPolicyName?: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getIotHubDataConnection(args: GetIotHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubDataConnectionResult> {
 
@@ -41,7 +41,7 @@ export interface GetIotHubDataConnectionArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -110,7 +110,7 @@ export interface GetIotHubDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getIotHubDataConnectionOutput(args: GetIotHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIotHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getIotHubDataConnection(a, opts))
@@ -134,7 +134,7 @@ export interface GetIotHubDataConnectionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

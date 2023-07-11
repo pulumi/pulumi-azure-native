@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a replication for a container registry.
-    /// API Version: 2019-05-01.
+    /// Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2019-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Replication")]
     public partial class Replication : global::Pulumi.CustomResource
@@ -35,10 +35,22 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        /// </summary>
+        [Output("regionEndpointEnabled")]
+        public Output<bool?> RegionEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the replication at the time the operation was called.
         /// </summary>
         [Output("status")]
         public Output<Outputs.StatusResponse> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -51,6 +63,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not zone redundancy is enabled for this container registry replication
+        /// </summary>
+        [Output("zoneRedundancy")]
+        public Output<string?> ZoneRedundancy { get; private set; } = null!;
 
 
         /// <summary>
@@ -119,6 +137,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Specifies whether the replication's regional endpoint is enabled. Requests will not be routed to a replication whose regional endpoint is disabled, however its data will continue to be synced with other replications.
+        /// </summary>
+        [Input("regionEndpointEnabled")]
+        public Input<bool>? RegionEndpointEnabled { get; set; }
+
+        /// <summary>
         /// The name of the container registry.
         /// </summary>
         [Input("registryName", required: true)]
@@ -131,7 +155,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string>? ReplicationName { get; set; }
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -148,8 +172,16 @@ namespace Pulumi.AzureNative.ContainerRegistry
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Whether or not zone redundancy is enabled for this container registry replication
+        /// </summary>
+        [Input("zoneRedundancy")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.ZoneRedundancy>? ZoneRedundancy { get; set; }
+
         public ReplicationArgs()
         {
+            RegionEndpointEnabled = true;
+            ZoneRedundancy = "Disabled";
         }
         public static new ReplicationArgs Empty => new ReplicationArgs();
     }

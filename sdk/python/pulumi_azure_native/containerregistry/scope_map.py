@@ -26,7 +26,7 @@ class ScopeMapArgs:
                E.g. repositories/repository-name/content/read,
                repositories/repository-name/metadata/write
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] description: The user friendly description of the scope map.
         :param pulumi.Input[str] scope_map_name: The name of the scope map.
         """
@@ -68,7 +68,7 @@ class ScopeMapArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -114,7 +114,7 @@ class ScopeMap(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents a scope map for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class ScopeMap(pulumi.CustomResource):
                repositories/repository-name/metadata/write
         :param pulumi.Input[str] description: The user friendly description of the scope map.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] scope_map_name: The name of the scope map.
         """
         ...
@@ -134,7 +134,7 @@ class ScopeMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a scope map for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ScopeMapArgs args: The arguments to use to populate this resource's properties.

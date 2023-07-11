@@ -9,13 +9,12 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a source control byt its identifier.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getSourceControl", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "sourceControlId": args.sourceControlId,
         "workspaceName": args.workspaceName,
@@ -23,10 +22,6 @@ export function getSourceControl(args: GetSourceControlArgs, opts?: pulumi.Invok
 }
 
 export interface GetSourceControlArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -50,18 +45,6 @@ export interface GetSourceControlResult {
      */
     readonly contentTypes: string[];
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    readonly createdAt?: string;
-    /**
-     * The identity that created the resource.
-     */
-    readonly createdBy?: string;
-    /**
-     * The type of identity that created the resource.
-     */
-    readonly createdByType?: string;
-    /**
      * A description of the source control
      */
     readonly description?: string;
@@ -74,23 +57,15 @@ export interface GetSourceControlResult {
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The timestamp of resource last modification (UTC)
+     * Information regarding the latest deployment for the source control.
      */
-    readonly lastModifiedAt?: string;
+    readonly lastDeploymentInfo?: outputs.securityinsights.DeploymentInfoResponse;
     /**
-     * The identity that last modified the resource.
-     */
-    readonly lastModifiedBy?: string;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    readonly lastModifiedByType?: string;
-    /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -102,27 +77,31 @@ export interface GetSourceControlResult {
      */
     readonly repository: outputs.securityinsights.RepositoryResponse;
     /**
+     * Information regarding the resources created in user's repository.
+     */
+    readonly repositoryResourceInfo?: outputs.securityinsights.RepositoryResourceInfoResponse;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The version number associated with the source control
+     */
+    readonly version?: string;
 }
 /**
  * Gets a source control byt its identifier.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getSourceControlOutput(args: GetSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getSourceControl(a, opts))
 }
 
 export interface GetSourceControlOutputArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

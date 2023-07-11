@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads
 {
     /// <summary>
     /// A provider instance associated with SAP monitor.
-    /// API Version: 2021-12-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<Outputs.ProviderInstancePropertiesResponseErrors> Errors { get; private set; } = null!;
 
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         [Output("identity")]
         public Output<Outputs.UserAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Workloads
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the provider instance errors.
+        /// Defines the provider specific properties.
         /// </summary>
         [Output("providerSettings")]
         public Output<object?> ProviderSettings { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Workloads
     public sealed class ProviderInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         [Input("identity")]
         public Input<Inputs.UserAssignedServiceIdentityArgs>? Identity { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.AzureNative.Workloads
         public Input<string>? ProviderInstanceName { get; set; }
 
         /// <summary>
-        /// Defines the provider instance errors.
+        /// Defines the provider specific properties.
         /// </summary>
         [Input("providerSettings")]
         public object? ProviderSettings { get; set; }

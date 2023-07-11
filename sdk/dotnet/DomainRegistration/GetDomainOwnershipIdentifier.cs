@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.DomainRegistration
     public static class GetDomainOwnershipIdentifier
     {
         /// <summary>
-        /// Get ownership identifier for domain
-        /// API Version: 2020-10-01.
+        /// Description for Get ownership identifier for domain
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetDomainOwnershipIdentifierResult> InvokeAsync(GetDomainOwnershipIdentifierArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get ownership identifier for domain
-        /// API Version: 2020-10-01.
+        /// Description for Get ownership identifier for domain
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetDomainOwnershipIdentifierResult> Invoke(GetDomainOwnershipIdentifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainOwnershipIdentifierResult>("azure-native:domainregistration:getDomainOwnershipIdentifier", args ?? new GetDomainOwnershipIdentifierInvokeArgs(), options.WithDefaults());
@@ -100,10 +100,6 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// </summary>
         public readonly string? OwnershipId;
         /// <summary>
-        /// The system metadata relating to this resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -118,15 +114,12 @@ namespace Pulumi.AzureNative.DomainRegistration
 
             string? ownershipId,
 
-            Outputs.SystemDataResponse systemData,
-
             string type)
         {
             Id = id;
             Kind = kind;
             Name = name;
             OwnershipId = ownershipId;
-            SystemData = systemData;
             Type = type;
         }
     }

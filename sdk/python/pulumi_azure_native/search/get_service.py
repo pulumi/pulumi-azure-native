@@ -22,7 +22,16 @@ class GetServiceResult:
     """
     Describes an Azure Cognitive Search service and its current state.
     """
-    def __init__(__self__, hosting_mode=None, id=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, tags=None, type=None):
+    def __init__(__self__, auth_options=None, disable_local_auth=None, encryption_with_cmk=None, hosting_mode=None, id=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, tags=None, type=None):
+        if auth_options and not isinstance(auth_options, dict):
+            raise TypeError("Expected argument 'auth_options' to be a dict")
+        pulumi.set(__self__, "auth_options", auth_options)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if encryption_with_cmk and not isinstance(encryption_with_cmk, dict):
+            raise TypeError("Expected argument 'encryption_with_cmk' to be a dict")
+        pulumi.set(__self__, "encryption_with_cmk", encryption_with_cmk)
         if hosting_mode and not isinstance(hosting_mode, str):
             raise TypeError("Expected argument 'hosting_mode' to be a str")
         pulumi.set(__self__, "hosting_mode", hosting_mode)
@@ -74,6 +83,30 @@ class GetServiceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="authOptions")
+    def auth_options(self) -> Optional['outputs.DataPlaneAuthOptionsResponse']:
+        """
+        Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        """
+        return pulumi.get(self, "auth_options")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
+    @pulumi.getter(name="encryptionWithCmk")
+    def encryption_with_cmk(self) -> Optional['outputs.EncryptionWithCmkResponse']:
+        """
+        Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        """
+        return pulumi.get(self, "encryption_with_cmk")
 
     @property
     @pulumi.getter(name="hostingMode")
@@ -218,6 +251,9 @@ class AwaitableGetServiceResult(GetServiceResult):
         if False:
             yield self
         return GetServiceResult(
+            auth_options=self.auth_options,
+            disable_local_auth=self.disable_local_auth,
+            encryption_with_cmk=self.encryption_with_cmk,
             hosting_mode=self.hosting_mode,
             id=self.id,
             identity=self.identity,
@@ -242,7 +278,7 @@ def get_service(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     Gets the search service with the given name in the given resource group.
-    API Version: 2020-08-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -255,6 +291,9 @@ def get_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:search:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
+        auth_options=__ret__.auth_options,
+        disable_local_auth=__ret__.disable_local_auth,
+        encryption_with_cmk=__ret__.encryption_with_cmk,
         hosting_mode=__ret__.hosting_mode,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -280,7 +319,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     Gets the search service with the given name in the given resource group.
-    API Version: 2020-08-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

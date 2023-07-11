@@ -64,7 +64,7 @@ class GetIotHubResourceEventHubConsumerGroupResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> Mapping[str, str]:
+    def properties(self) -> Any:
         """
         The tags.
         """
@@ -99,7 +99,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotHubResourceEventHubConsumerGroupResult:
     """
     Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
-    API Version: 2020-08-31.
+    Azure REST API version: 2022-11-15-preview.
 
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
@@ -131,7 +131,7 @@ def get_iot_hub_resource_event_hub_consumer_group_output(event_hub_endpoint_name
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotHubResourceEventHubConsumerGroupResult]:
     """
     Get a consumer group from the Event Hub-compatible device-to-cloud endpoint for an IoT hub.
-    API Version: 2020-08-31.
+    Azure REST API version: 2022-11-15-preview.
 
 
     :param str event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.

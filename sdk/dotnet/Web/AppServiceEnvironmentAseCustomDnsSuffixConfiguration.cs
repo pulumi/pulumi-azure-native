@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Full view of the custom domain suffix configuration for ASEv3.
-    /// API Version: 2022-03-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2022-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration")]
     public partial class AppServiceEnvironmentAseCustomDnsSuffixConfiguration : global::Pulumi.CustomResource

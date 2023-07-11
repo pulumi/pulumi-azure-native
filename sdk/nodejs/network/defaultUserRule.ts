@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network security default user rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class DefaultUserRule extends pulumi.CustomResource {
     /**
@@ -54,10 +54,6 @@ export class DefaultUserRule extends pulumi.CustomResource {
      * Indicates if the traffic matched against the rule in inbound or outbound.
      */
     public /*out*/ readonly direction!: pulumi.Output<string>;
-    /**
-     * A friendly name for the rule.
-     */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -137,7 +133,6 @@ export class DefaultUserRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRanges"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["protocol"] = undefined /*out*/;
@@ -151,7 +146,6 @@ export class DefaultUserRule extends pulumi.CustomResource {
             resourceInputs["destinationPortRanges"] = undefined /*out*/;
             resourceInputs["destinations"] = undefined /*out*/;
             resourceInputs["direction"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -175,7 +169,7 @@ export class DefaultUserRule extends pulumi.CustomResource {
  */
 export interface DefaultUserRuleArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

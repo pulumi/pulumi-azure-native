@@ -147,12 +147,12 @@ def get_export_pipeline(export_pipeline_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportPipelineResult:
     """
     Gets the properties of the export pipeline.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str export_pipeline_name: The name of the export pipeline.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['exportPipelineName'] = export_pipeline_name
@@ -180,11 +180,11 @@ def get_export_pipeline_output(export_pipeline_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportPipelineResult]:
     """
     Gets the properties of the export pipeline.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str export_pipeline_name: The name of the export pipeline.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

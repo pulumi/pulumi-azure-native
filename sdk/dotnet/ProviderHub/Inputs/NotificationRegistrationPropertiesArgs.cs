@@ -34,6 +34,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         [Input("notificationMode")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.NotificationMode>? NotificationMode { get; set; }
 
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
 

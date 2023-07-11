@@ -203,6 +203,69 @@ namespace Pulumi.AzureNative.ServiceBus
     }
 
     /// <summary>
+    /// Enumerates the possible value of keySource for Encryption
+    /// </summary>
+    [EnumType]
+    public readonly struct KeySource : IEquatable<KeySource>
+    {
+        private readonly string _value;
+
+        private KeySource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KeySource Microsoft_KeyVault { get; } = new KeySource("Microsoft.KeyVault");
+
+        public static bool operator ==(KeySource left, KeySource right) => left.Equals(right);
+        public static bool operator !=(KeySource left, KeySource right) => !left.Equals(right);
+
+        public static explicit operator string(KeySource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KeySource other && Equals(other);
+        public bool Equals(KeySource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The IP Filter Action
     /// </summary>
     [EnumType]
@@ -258,6 +321,69 @@ namespace Pulumi.AzureNative.ServiceBus
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateLinkConnectionStatus other && Equals(other);
         public bool Equals(PrivateLinkConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This determines if traffic is allowed over public network. By default it is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This determines if traffic is allowed over public network. By default it is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessFlag : IEquatable<PublicNetworkAccessFlag>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessFlag(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccessFlag Enabled { get; } = new PublicNetworkAccessFlag("Enabled");
+        public static PublicNetworkAccessFlag Disabled { get; } = new PublicNetworkAccessFlag("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessFlag left, PublicNetworkAccessFlag right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessFlag value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessFlag other && Equals(other);
+        public bool Equals(PublicNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -322,6 +448,38 @@ namespace Pulumi.AzureNative.ServiceBus
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The minimum TLS version for the cluster to support, e.g. '1.2'
+    /// </summary>
+    [EnumType]
+    public readonly struct TlsVersion : IEquatable<TlsVersion>
+    {
+        private readonly string _value;
+
+        private TlsVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TlsVersion TlsVersion_1_0 { get; } = new TlsVersion("1.0");
+        public static TlsVersion TlsVersion_1_1 { get; } = new TlsVersion("1.1");
+        public static TlsVersion TlsVersion_1_2 { get; } = new TlsVersion("1.2");
+
+        public static bool operator ==(TlsVersion left, TlsVersion right) => left.Equals(right);
+        public static bool operator !=(TlsVersion left, TlsVersion right) => !left.Equals(right);
+
+        public static explicit operator string(TlsVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TlsVersion other && Equals(other);
+        public bool Equals(TlsVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

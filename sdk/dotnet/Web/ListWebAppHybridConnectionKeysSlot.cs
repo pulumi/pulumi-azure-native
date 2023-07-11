@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Gets the send key name and value for a Hybrid Connection.
-        /// API Version: 2018-11-01.
+        /// Azure REST API version: 2018-11-01.
         /// </summary>
         public static Task<ListWebAppHybridConnectionKeysSlotResult> InvokeAsync(ListWebAppHybridConnectionKeysSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the send key name and value for a Hybrid Connection.
-        /// API Version: 2018-11-01.
+        /// Azure REST API version: 2018-11-01.
         /// </summary>
         public static Output<ListWebAppHybridConnectionKeysSlotResult> Invoke(ListWebAppHybridConnectionKeysSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppHybridConnectionKeysSlotResult>("azure-native:web:listWebAppHybridConnectionKeysSlot", args ?? new ListWebAppHybridConnectionKeysSlotInvokeArgs(), options.WithDefaults());

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
- * API Version: 2020-12-01.
+ * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     }
 
     /**
+     * Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+     */
+    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.DedicatedHostGroupPropertiesResponseAdditionalCapabilities | undefined>;
+    /**
      * A list of references to all dedicated hosts in the dedicated host group.
      */
     public /*out*/ readonly hosts!: pulumi.Output<outputs.compute.SubResourceReadOnlyResponse[]>;
@@ -59,7 +63,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
      */
     public readonly platformFaultDomainCount!: pulumi.Output<number>;
     /**
-     * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+     * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
      */
     public readonly supportAutomaticPlacement!: pulumi.Output<boolean | undefined>;
     /**
@@ -92,6 +96,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
             resourceInputs["hostGroupName"] = args ? args.hostGroupName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
@@ -104,6 +109,7 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalCapabilities"] = undefined /*out*/;
             resourceInputs["hosts"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -126,6 +132,10 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
  */
 export interface DedicatedHostGroupArgs {
     /**
+     * Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+     */
+    additionalCapabilities?: pulumi.Input<inputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs>;
+    /**
      * The name of the dedicated host group.
      */
     hostGroupName?: pulumi.Input<string>;
@@ -142,7 +152,7 @@ export interface DedicatedHostGroupArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. <br><br>Minimum api-version: 2020-06-01.
+     * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
      */
     supportAutomaticPlacement?: pulumi.Input<boolean>;
     /**

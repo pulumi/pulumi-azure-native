@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Post to List of Network Manager Deployment Status.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<ListNetworkManagerDeploymentStatusResult> InvokeAsync(ListNetworkManagerDeploymentStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListNetworkManagerDeploymentStatusResult>("azure-native:network:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Post to List of Network Manager Deployment Status.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<ListNetworkManagerDeploymentStatusResult> Invoke(ListNetworkManagerDeploymentStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListNetworkManagerDeploymentStatusResult>("azure-native:network:listNetworkManagerDeploymentStatus", args ?? new ListNetworkManagerDeploymentStatusInvokeArgs(), options.WithDefaults());
@@ -71,6 +71,12 @@ namespace Pulumi.AzureNative.Network
         [Input("skipToken")]
         public string? SkipToken { get; set; }
 
+        /// <summary>
+        /// An optional query parameter which specifies the maximum number of records to be returned by the server.
+        /// </summary>
+        [Input("top")]
+        public int? Top { get; set; }
+
         public ListNetworkManagerDeploymentStatusArgs()
         {
         }
@@ -120,6 +126,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("skipToken")]
         public Input<string>? SkipToken { get; set; }
+
+        /// <summary>
+        /// An optional query parameter which specifies the maximum number of records to be returned by the server.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
 
         public ListNetworkManagerDeploymentStatusInvokeArgs()
         {

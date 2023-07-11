@@ -20,9 +20,12 @@ __all__ = [
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
-    A private endpoint connection
+    The private endpoint connection resource.
     """
-    def __init__(__self__, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, group_ids=None, id=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, system_data=None, type=None):
+        if group_ids and not isinstance(group_ids, list):
+            raise TypeError("Expected argument 'group_ids' to be a list")
+        pulumi.set(__self__, "group_ids", group_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,15 +41,26 @@ class GetPrivateEndpointConnectionResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        The group ids for the private endpoint resource.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -60,17 +74,17 @@ class GetPrivateEndpointConnectionResult:
 
     @property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
         """
-        Private endpoint which the connection belongs to.
+        The private endpoint resource.
         """
         return pulumi.get(self, "private_endpoint")
 
     @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
         """
-        Connection state of the private endpoint connection.
+        A collection of information about the state of the connection between service consumer and provider.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -78,9 +92,17 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        State of the private endpoint connection.
+        The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -97,55 +119,59 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            group_ids=self.group_ids,
             id=self.id,
             name=self.name,
             private_endpoint=self.private_endpoint,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
-def get_private_endpoint_connection(private_endpoint_connection_name: Optional[str] = None,
+def get_private_endpoint_connection(cluster_name: Optional[str] = None,
+                                    private_endpoint_connection_name: Optional[str] = None,
                                     resource_group_name: Optional[str] = None,
-                                    server_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
-    Gets a private endpoint connection.
-    API Version: 2018-06-01.
+    Gets private endpoint connection.
+    Azure REST API version: 2022-11-08.
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection.
+    :param str cluster_name: The name of the cluster.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str server_name: The name of the server.
     """
     __args__ = dict()
+    __args__['clusterName'] = cluster_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['serverName'] = server_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        group_ids=__ret__.group_ids,
         id=__ret__.id,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_private_endpoint_connection)
-def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
+def get_private_endpoint_connection_output(cluster_name: Optional[pulumi.Input[str]] = None,
+                                           private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
                                            resource_group_name: Optional[pulumi.Input[str]] = None,
-                                           server_name: Optional[pulumi.Input[str]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
-    Gets a private endpoint connection.
-    API Version: 2018-06-01.
+    Gets private endpoint connection.
+    Azure REST API version: 2022-11-08.
 
 
-    :param str private_endpoint_connection_name: The name of the private endpoint connection.
+    :param str cluster_name: The name of the cluster.
+    :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str server_name: The name of the server.
     """
     ...

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the connection strings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the connection strings of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppConnectionStrings(args: ListWebAppConnectionStringsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppConnectionStringsResult> {
 
@@ -57,8 +57,8 @@ export interface ListWebAppConnectionStringsResult {
     readonly type: string;
 }
 /**
- * Gets the connection strings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the connection strings of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppConnectionStringsOutput(args: ListWebAppConnectionStringsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppConnectionStringsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppConnectionStrings(a, opts))

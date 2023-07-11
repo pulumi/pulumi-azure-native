@@ -34,6 +34,18 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         [Input("protectedItemsCount")]
         public Input<int>? ProtectedItemsCount { get; set; }
 
+        [Input("resourceGuardOperationRequests")]
+        private InputList<string>? _resourceGuardOperationRequests;
+
+        /// <summary>
+        /// ResourceGuard Operation Requests
+        /// </summary>
+        public InputList<string> ResourceGuardOperationRequests
+        {
+            get => _resourceGuardOperationRequests ?? (_resourceGuardOperationRequests = new InputList<string>());
+            set => _resourceGuardOperationRequests = value;
+        }
+
         [Input("subProtectionPolicy")]
         private InputList<Inputs.SubProtectionPolicyArgs>? _subProtectionPolicy;
 

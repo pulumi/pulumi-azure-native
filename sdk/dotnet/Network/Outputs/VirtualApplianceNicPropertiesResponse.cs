@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class VirtualApplianceNicPropertiesResponse
     {
         /// <summary>
+        /// Instance on which nic is attached.
+        /// </summary>
+        public readonly string InstanceName;
+        /// <summary>
         /// NIC name.
         /// </summary>
         public readonly string Name;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private VirtualApplianceNicPropertiesResponse(
+            string instanceName,
+
             string name,
 
             string privateIpAddress,
 
             string publicIpAddress)
         {
+            InstanceName = instanceName;
             Name = name;
             PrivateIpAddress = privateIpAddress;
             PublicIpAddress = publicIpAddress;

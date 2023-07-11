@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AnalyticsConnectorArgs } from "./analyticsConnector";
+export type AnalyticsConnector = import("./analyticsConnector").AnalyticsConnector;
+export const AnalyticsConnector: typeof import("./analyticsConnector").AnalyticsConnector = null as any;
+utilities.lazyLoad(exports, ["AnalyticsConnector"], () => require("./analyticsConnector"));
+
 export { DicomServiceArgs } from "./dicomService";
 export type DicomService = import("./dicomService").DicomService;
 export const DicomService: typeof import("./dicomService").DicomService = null as any;
@@ -14,6 +19,11 @@ export { FhirServiceArgs } from "./fhirService";
 export type FhirService = import("./fhirService").FhirService;
 export const FhirService: typeof import("./fhirService").FhirService = null as any;
 utilities.lazyLoad(exports, ["FhirService"], () => require("./fhirService"));
+
+export { GetAnalyticsConnectorArgs, GetAnalyticsConnectorResult, GetAnalyticsConnectorOutputArgs } from "./getAnalyticsConnector";
+export const getAnalyticsConnector: typeof import("./getAnalyticsConnector").getAnalyticsConnector = null as any;
+export const getAnalyticsConnectorOutput: typeof import("./getAnalyticsConnector").getAnalyticsConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAnalyticsConnector","getAnalyticsConnectorOutput"], () => require("./getAnalyticsConnector"));
 
 export { GetDicomServiceArgs, GetDicomServiceResult, GetDicomServiceOutputArgs } from "./getDicomService";
 export const getDicomService: typeof import("./getDicomService").getDicomService = null as any;
@@ -90,38 +100,20 @@ utilities.lazyLoad(exports, ["WorkspacePrivateEndpointConnection"], () => requir
 export * from "../types/enums/healthcareapis";
 
 // Export sub-modules:
-import * as v20180820preview from "./v20180820preview";
-import * as v20190916 from "./v20190916";
-import * as v20200315 from "./v20200315";
-import * as v20200330 from "./v20200330";
-import * as v20210111 from "./v20210111";
-import * as v20210601preview from "./v20210601preview";
-import * as v20211101 from "./v20211101";
-import * as v20220131preview from "./v20220131preview";
-import * as v20220515 from "./v20220515";
-import * as v20220601 from "./v20220601";
 import * as v20221001preview from "./v20221001preview";
-import * as v20221201 from "./v20221201";
+import * as v20230228 from "./v20230228";
 
 export {
-    v20180820preview,
-    v20190916,
-    v20200315,
-    v20200330,
-    v20210111,
-    v20210601preview,
-    v20211101,
-    v20220131preview,
-    v20220515,
-    v20220601,
     v20221001preview,
-    v20221201,
+    v20230228,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:healthcareapis:AnalyticsConnector":
+                return new AnalyticsConnector(name, <any>undefined, { urn })
             case "azure-native:healthcareapis:DicomService":
                 return new DicomService(name, <any>undefined, { urn })
             case "azure-native:healthcareapis:FhirService":

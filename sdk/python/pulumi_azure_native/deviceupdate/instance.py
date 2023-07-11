@@ -164,7 +164,7 @@ class Instance(pulumi.CustomResource):
                  __props__=None):
         """
         Device Update instance details.
-        API Version: 2020-03-01-preview.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class Instance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device Update instance details.
-        API Version: 2020-03-01-preview.
+        Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +235,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Instance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate/v20200301preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20221001:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20221201preview:Instance"), pulumi.Alias(type_="azure-native:deviceupdate/v20230701:Instance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Instance, __self__).__init__(
             'azure-native:deviceupdate:Instance',

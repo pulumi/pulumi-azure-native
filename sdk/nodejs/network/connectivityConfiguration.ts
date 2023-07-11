@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The network manager connectivity configuration resource
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class ConnectivityConfiguration extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
     /**
      * Groups for configuration
      */
-    public readonly appliesToGroups!: pulumi.Output<outputs.network.ConnectivityGroupItemResponse[] | undefined>;
+    public readonly appliesToGroups!: pulumi.Output<outputs.network.ConnectivityGroupItemResponse[]>;
     /**
      * Connectivity topology type.
      */
@@ -54,10 +54,6 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
      * A description of the connectivity configuration.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A friendly name for the resource.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -79,6 +75,10 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
+     * Unique identifier for this resource.
+     */
+    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
      * The system metadata related to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.network.SystemDataResponse>;
@@ -98,6 +98,9 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.appliesToGroups === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'appliesToGroups'");
+            }
             if ((!args || args.connectivityTopology === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectivityTopology'");
             }
@@ -112,7 +115,6 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             resourceInputs["connectivityTopology"] = args ? args.connectivityTopology : undefined;
             resourceInputs["deleteExistingPeering"] = args ? args.deleteExistingPeering : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["hubs"] = args ? args.hubs : undefined;
             resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
@@ -120,6 +122,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -127,17 +130,17 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             resourceInputs["connectivityTopology"] = undefined /*out*/;
             resourceInputs["deleteExistingPeering"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hubs"] = undefined /*out*/;
             resourceInputs["isGlobal"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20210501preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220101:ConnectivityConfiguration" }, { type: "azure-native:network/v20220201preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220401preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220501:ConnectivityConfiguration" }, { type: "azure-native:network/v20220701:ConnectivityConfiguration" }, { type: "azure-native:network/v20220901:ConnectivityConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20210501preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220101:ConnectivityConfiguration" }, { type: "azure-native:network/v20220201preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220401preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220501:ConnectivityConfiguration" }, { type: "azure-native:network/v20220701:ConnectivityConfiguration" }, { type: "azure-native:network/v20220901:ConnectivityConfiguration" }, { type: "azure-native:network/v20221101:ConnectivityConfiguration" }, { type: "azure-native:network/v20230201:ConnectivityConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectivityConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -150,7 +153,7 @@ export interface ConnectivityConfigurationArgs {
     /**
      * Groups for configuration
      */
-    appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.ConnectivityGroupItemArgs>[]>;
+    appliesToGroups: pulumi.Input<pulumi.Input<inputs.network.ConnectivityGroupItemArgs>[]>;
     /**
      * The name of the network manager connectivity configuration.
      */
@@ -167,10 +170,6 @@ export interface ConnectivityConfigurationArgs {
      * A description of the connectivity configuration.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A friendly name for the resource.
-     */
-    displayName?: pulumi.Input<string>;
     /**
      * List of hubItems
      */

@@ -2,14 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource {
     /**
@@ -63,10 +60,6 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.certificateregistration.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -101,7 +94,6 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["keyVaultId"] = undefined /*out*/;
@@ -110,7 +102,6 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

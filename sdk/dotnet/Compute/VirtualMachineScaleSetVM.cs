@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Describes a virtual machine scale set virtual machine.
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVM")]
     public partial class VirtualMachineScaleSetVM : global::Pulumi.CustomResource
@@ -23,13 +23,13 @@ namespace Pulumi.AzureNative.Compute
         public Output<Outputs.AdditionalCapabilitiesResponse?> AdditionalCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         /// </summary>
         [Output("availabilitySet")]
         public Output<Outputs.SubResourceResponse?> AvailabilitySet { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
+        /// Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         /// </summary>
         [Output("diagnosticsProfile")]
         public Output<Outputs.DiagnosticsProfileResponse?> DiagnosticsProfile { get; private set; } = null!;
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("hardwareProfile")]
         public Output<Outputs.HardwareProfileResponse?> HardwareProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the virtual machine, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.VirtualMachineIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine instance ID.
@@ -244,13 +250,13 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.AdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
 
         /// <summary>
-        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). &lt;br&gt;&lt;br&gt; For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) &lt;br&gt;&lt;br&gt; Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
         /// </summary>
         [Input("availabilitySet")]
         public Input<Inputs.SubResourceArgs>? AvailabilitySet { get; set; }
 
         /// <summary>
-        /// Specifies the boot diagnostic settings state. &lt;br&gt;&lt;br&gt;Minimum api-version: 2015-06-15.
+        /// Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         /// </summary>
         [Input("diagnosticsProfile")]
         public Input<Inputs.DiagnosticsProfileArgs>? DiagnosticsProfile { get; set; }
@@ -260,6 +266,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Input("hardwareProfile")]
         public Input<Inputs.HardwareProfileArgs>? HardwareProfile { get; set; }
+
+        /// <summary>
+        /// The identity of the virtual machine, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.VirtualMachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The instance ID of the virtual machine.

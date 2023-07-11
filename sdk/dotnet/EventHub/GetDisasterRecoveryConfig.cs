@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetDisasterRecoveryConfigResult> InvokeAsync(GetDisasterRecoveryConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDisasterRecoveryConfigResult>("azure-native:eventhub:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves Alias(Disaster Recovery configuration) for primary or secondary namespace
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetDisasterRecoveryConfigResult> Invoke(GetDisasterRecoveryConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDisasterRecoveryConfigResult>("azure-native:eventhub:getDisasterRecoveryConfig", args ?? new GetDisasterRecoveryConfigInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -112,7 +116,11 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Role;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
@@ -121,6 +129,8 @@ namespace Pulumi.AzureNative.EventHub
             string? alternateName,
 
             string id,
+
+            string location,
 
             string name,
 
@@ -132,15 +142,19 @@ namespace Pulumi.AzureNative.EventHub
 
             string role,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AlternateName = alternateName;
             Id = id;
+            Location = location;
             Name = name;
             PartnerNamespace = partnerNamespace;
             PendingReplicationOperationsCount = pendingReplicationOperationsCount;
             ProvisioningState = provisioningState;
             Role = role;
+            SystemData = systemData;
             Type = type;
         }
     }

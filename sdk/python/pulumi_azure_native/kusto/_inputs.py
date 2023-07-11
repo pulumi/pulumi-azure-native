@@ -11,15 +11,42 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AcceptedAudiencesArgs',
     'AzureSkuArgs',
     'IdentityArgs',
     'KeyVaultPropertiesArgs',
+    'LanguageExtensionsListArgs',
+    'LanguageExtensionArgs',
     'OptimizedAutoscaleArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
     'TableLevelSharingPropertiesArgs',
     'TrustedExternalTenantArgs',
     'VirtualNetworkConfigurationArgs',
 ]
+
+@pulumi.input_type
+class AcceptedAudiencesArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Represents an accepted audience trusted by the cluster.
+        :param pulumi.Input[str] value: GUID or valid URL representing an accepted audience.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        GUID or valid URL representing an accepted audience.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
 
 @pulumi.input_type
 class AzureSkuArgs:
@@ -79,11 +106,11 @@ class AzureSkuArgs:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'IdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input[Union[str, 'IdentityType']] type: The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -103,22 +130,22 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[str],
-                 key_vault_uri: pulumi.Input[str],
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None,
                  user_identity: Optional[pulumi.Input[str]] = None):
         """
@@ -128,8 +155,10 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_version: The version of the key vault key.
         :param pulumi.Input[str] user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
         if user_identity is not None:
@@ -137,26 +166,26 @@ class KeyVaultPropertiesArgs:
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[str]:
+    def key_name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the key vault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: pulumi.Input[str]):
+    def key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_name", value)
 
     @property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> pulumi.Input[str]:
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
         """
         The Uri of the key vault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: pulumi.Input[str]):
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @property
@@ -182,6 +211,70 @@ class KeyVaultPropertiesArgs:
     @user_identity.setter
     def user_identity(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_identity", value)
+
+
+@pulumi.input_type
+class LanguageExtensionsListArgs:
+    def __init__(__self__, *,
+                 value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]] = None):
+        """
+        The list of language extension objects.
+        :param pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]] value: The list of language extensions.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]:
+        """
+        The list of language extensions.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LanguageExtensionArgs']]]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class LanguageExtensionArgs:
+    def __init__(__self__, *,
+                 language_extension_image_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionImageName']]] = None,
+                 language_extension_name: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]] = None):
+        """
+        The language extension object.
+        :param pulumi.Input[Union[str, 'LanguageExtensionImageName']] language_extension_image_name: The language extension image name.
+        :param pulumi.Input[Union[str, 'LanguageExtensionName']] language_extension_name: The language extension name.
+        """
+        if language_extension_image_name is not None:
+            pulumi.set(__self__, "language_extension_image_name", language_extension_image_name)
+        if language_extension_name is not None:
+            pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionImageName")
+    def language_extension_image_name(self) -> Optional[pulumi.Input[Union[str, 'LanguageExtensionImageName']]]:
+        """
+        The language extension image name.
+        """
+        return pulumi.get(self, "language_extension_image_name")
+
+    @language_extension_image_name.setter
+    def language_extension_image_name(self, value: Optional[pulumi.Input[Union[str, 'LanguageExtensionImageName']]]):
+        pulumi.set(self, "language_extension_image_name", value)
+
+    @property
+    @pulumi.getter(name="languageExtensionName")
+    def language_extension_name(self) -> Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]:
+        """
+        The language extension name.
+        """
+        return pulumi.get(self, "language_extension_name")
+
+    @language_extension_name.setter
+    def language_extension_name(self, value: Optional[pulumi.Input[Union[str, 'LanguageExtensionName']]]):
+        pulumi.set(self, "language_extension_name", value)
 
 
 @pulumi.input_type
@@ -297,15 +390,19 @@ class TableLevelSharingPropertiesArgs:
     def __init__(__self__, *,
                  external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 functions_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 functions_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Tables that will be included and excluded in the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_exclude: List of external tables exclude from the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_exclude: List of external tables to exclude from the follower database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_tables_to_include: List of external tables to include in the follower database
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_exclude: List of materialized views exclude from the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] functions_to_exclude: List of functions to exclude from the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] functions_to_include: List of functions to include in the follower database
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_exclude: List of materialized views to exclude from the follower database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] materialized_views_to_include: List of materialized views to include in the follower database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_exclude: List of tables to exclude from the follower database
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_include: List of tables to include in the follower database
@@ -314,6 +411,10 @@ class TableLevelSharingPropertiesArgs:
             pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
         if external_tables_to_include is not None:
             pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if functions_to_exclude is not None:
+            pulumi.set(__self__, "functions_to_exclude", functions_to_exclude)
+        if functions_to_include is not None:
+            pulumi.set(__self__, "functions_to_include", functions_to_include)
         if materialized_views_to_exclude is not None:
             pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
         if materialized_views_to_include is not None:
@@ -327,7 +428,7 @@ class TableLevelSharingPropertiesArgs:
     @pulumi.getter(name="externalTablesToExclude")
     def external_tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of external tables exclude from the follower database
+        List of external tables to exclude from the follower database
         """
         return pulumi.get(self, "external_tables_to_exclude")
 
@@ -348,10 +449,34 @@ class TableLevelSharingPropertiesArgs:
         pulumi.set(self, "external_tables_to_include", value)
 
     @property
+    @pulumi.getter(name="functionsToExclude")
+    def functions_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of functions to exclude from the follower database
+        """
+        return pulumi.get(self, "functions_to_exclude")
+
+    @functions_to_exclude.setter
+    def functions_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "functions_to_exclude", value)
+
+    @property
+    @pulumi.getter(name="functionsToInclude")
+    def functions_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of functions to include in the follower database
+        """
+        return pulumi.get(self, "functions_to_include")
+
+    @functions_to_include.setter
+    def functions_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "functions_to_include", value)
+
+    @property
     @pulumi.getter(name="materializedViewsToExclude")
     def materialized_views_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of materialized views exclude from the follower database
+        List of materialized views to exclude from the follower database
         """
         return pulumi.get(self, "materialized_views_to_exclude")
 

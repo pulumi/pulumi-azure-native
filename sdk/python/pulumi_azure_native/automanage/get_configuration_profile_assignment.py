@@ -22,16 +22,22 @@ class GetConfigurationProfileAssignmentResult:
     """
     Configuration profile assignment is an association between a VM and automanage profile configuration.
     """
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, managed_by=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -43,6 +49,14 @@ class GetConfigurationProfileAssignmentResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        Azure resource id. Indicates if this resource is managed by another Azure resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -61,6 +75,14 @@ class GetConfigurationProfileAssignmentResult:
         return pulumi.get(self, "properties")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -76,8 +98,10 @@ class AwaitableGetConfigurationProfileAssignmentResult(GetConfigurationProfileAs
             yield self
         return GetConfigurationProfileAssignmentResult(
             id=self.id,
+            managed_by=self.managed_by,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -87,7 +111,7 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConfigurationProfileAssignmentResult:
     """
     Get information about a configuration profile assignment
-    API Version: 2020-06-30-preview.
+    Azure REST API version: 2022-05-04.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.
@@ -103,8 +127,10 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
 
     return AwaitableGetConfigurationProfileAssignmentResult(
         id=__ret__.id,
+        managed_by=__ret__.managed_by,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -115,7 +141,7 @@ def get_configuration_profile_assignment_output(configuration_profile_assignment
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileAssignmentResult]:
     """
     Get information about a configuration profile assignment
-    API Version: 2020-06-30-preview.
+    Azure REST API version: 2022-05-04.
 
 
     :param str configuration_profile_assignment_name: The configuration profile assignment name.

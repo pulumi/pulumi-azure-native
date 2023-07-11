@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? DiskUri;
         /// <summary>
+        /// The failover name for the managed disk.
+        /// </summary>
+        public readonly string? FailoverDiskName;
+        /// <summary>
         /// A value indicating whether vm has encrypted os disk or not.
         /// </summary>
         public readonly bool? IsDiskEncrypted;
@@ -100,6 +104,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The secret URL / identifier (BEK).
         /// </summary>
         public readonly string? SecretIdentifier;
+        /// <summary>
+        /// The test failover name for the managed disk.
+        /// </summary>
+        public readonly string? TfoDiskName;
 
         [OutputConstructor]
         private A2AProtectedDiskDetailsResponse(
@@ -120,6 +128,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string? diskType,
 
             string? diskUri,
+
+            string? failoverDiskName,
 
             bool? isDiskEncrypted,
 
@@ -143,7 +153,9 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             bool? resyncRequired,
 
-            string? secretIdentifier)
+            string? secretIdentifier,
+
+            string? tfoDiskName)
         {
             AllowedDiskLevelOperation = allowedDiskLevelOperation;
             DataPendingAtSourceAgentInMB = dataPendingAtSourceAgentInMB;
@@ -154,6 +166,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DiskState = diskState;
             DiskType = diskType;
             DiskUri = diskUri;
+            FailoverDiskName = failoverDiskName;
             IsDiskEncrypted = isDiskEncrypted;
             IsDiskKeyEncrypted = isDiskKeyEncrypted;
             KekKeyVaultArmId = kekKeyVaultArmId;
@@ -166,6 +179,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             RecoveryDiskUri = recoveryDiskUri;
             ResyncRequired = resyncRequired;
             SecretIdentifier = secretIdentifier;
+            TfoDiskName = tfoDiskName;
         }
     }
 }

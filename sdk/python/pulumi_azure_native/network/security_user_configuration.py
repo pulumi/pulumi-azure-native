@@ -20,18 +20,14 @@ class SecurityUserConfigurationArgs:
                  resource_group_name: pulumi.Input[str],
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None):
+                 description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityUserConfiguration resource.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[Union[str, 'DeleteExistingNSGs']] delete_existing_nsgs: Flag if need to delete existing network security groups.
-        :param pulumi.Input[str] description: A description of the security configuration.
-        :param pulumi.Input[str] display_name: A display name of the security configuration.
-        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Security Type.
+        :param pulumi.Input[str] description: A description of the security user configuration.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -41,10 +37,6 @@ class SecurityUserConfigurationArgs:
             pulumi.set(__self__, "delete_existing_nsgs", delete_existing_nsgs)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if security_type is not None:
-            pulumi.set(__self__, "security_type", security_type)
 
     @property
     @pulumi.getter(name="networkManagerName")
@@ -74,7 +66,7 @@ class SecurityUserConfigurationArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -98,37 +90,13 @@ class SecurityUserConfigurationArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A description of the security configuration.
+        A description of the security user configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A display name of the security configuration.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="securityType")
-    def security_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityType']]]:
-        """
-        Security Type.
-        """
-        return pulumi.get(self, "security_type")
-
-    @security_type.setter
-    def security_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityType']]]):
-        pulumi.set(self, "security_type", value)
 
 
 class SecurityUserConfiguration(pulumi.CustomResource):
@@ -139,24 +107,20 @@ class SecurityUserConfiguration(pulumi.CustomResource):
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
                  __props__=None):
         """
-        Defines the security configuration
-        API Version: 2021-02-01-preview.
+        Defines the security user configuration
+        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[Union[str, 'DeleteExistingNSGs']] delete_existing_nsgs: Flag if need to delete existing network security groups.
-        :param pulumi.Input[str] description: A description of the security configuration.
-        :param pulumi.Input[str] display_name: A display name of the security configuration.
+        :param pulumi.Input[str] description: A description of the security user configuration.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Security Type.
         """
         ...
     @overload
@@ -165,8 +129,8 @@ class SecurityUserConfiguration(pulumi.CustomResource):
                  args: SecurityUserConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Defines the security configuration
-        API Version: 2021-02-01-preview.
+        Defines the security user configuration
+        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param SecurityUserConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -186,10 +150,8 @@ class SecurityUserConfiguration(pulumi.CustomResource):
                  configuration_name: Optional[pulumi.Input[str]] = None,
                  delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -202,14 +164,12 @@ class SecurityUserConfiguration(pulumi.CustomResource):
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["delete_existing_nsgs"] = delete_existing_nsgs
             __props__.__dict__["description"] = description
-            __props__.__dict__["display_name"] = display_name
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["security_type"] = security_type
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -241,11 +201,9 @@ class SecurityUserConfiguration(pulumi.CustomResource):
 
         __props__.__dict__["delete_existing_nsgs"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["security_type"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SecurityUserConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -262,17 +220,9 @@ class SecurityUserConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A description of the security configuration.
+        A description of the security user configuration.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A display name of the security configuration.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -297,14 +247,6 @@ class SecurityUserConfiguration(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="securityType")
-    def security_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        Security Type.
-        """
-        return pulumi.get(self, "security_type")
 
     @property
     @pulumi.getter(name="systemData")

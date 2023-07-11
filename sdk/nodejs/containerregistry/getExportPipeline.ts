@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the export pipeline.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getExportPipeline(args: GetExportPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetExportPipelineResult> {
 
@@ -31,7 +31,7 @@ export interface GetExportPipelineArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -79,7 +79,7 @@ export interface GetExportPipelineResult {
 }
 /**
  * Gets the properties of the export pipeline.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getExportPipelineOutput(args: GetExportPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportPipelineResult> {
     return pulumi.output(args).apply((a: any) => getExportPipeline(a, opts))
@@ -95,7 +95,7 @@ export interface GetExportPipelineOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

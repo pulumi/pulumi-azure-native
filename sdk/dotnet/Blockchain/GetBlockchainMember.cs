@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Blockchain
     {
         /// <summary>
         /// Get details about a blockchain member.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2018-06-01-preview.
         /// </summary>
         public static Task<GetBlockchainMemberResult> InvokeAsync(GetBlockchainMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get details about a blockchain member.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2018-06-01-preview.
         /// </summary>
         public static Output<GetBlockchainMemberResult> Invoke(GetBlockchainMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlockchainMemberResult>("azure-native:blockchain:getBlockchainMember", args ?? new GetBlockchainMemberInvokeArgs(), options.WithDefaults());

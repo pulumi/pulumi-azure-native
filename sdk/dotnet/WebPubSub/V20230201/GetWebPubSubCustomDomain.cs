@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.WebPubSub.V20230201
 {
-    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility.")]
     public static class GetWebPubSubCustomDomain
     {
         /// <summary>

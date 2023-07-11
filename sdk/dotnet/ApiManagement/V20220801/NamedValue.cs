@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// NamedValue details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:NamedValue")]
     public partial class NamedValue : global::Pulumi.CustomResource
     {
@@ -93,6 +92,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:NamedValue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:NamedValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:NamedValue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:NamedValue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

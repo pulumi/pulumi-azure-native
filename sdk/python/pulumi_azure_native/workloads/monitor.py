@@ -32,7 +32,7 @@ class MonitorArgs:
         The set of arguments for constructing a Monitor resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
-        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input['UserAssignedServiceIdentityArgs'] identity: [currently not in use] Managed service identity(user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
@@ -92,7 +92,7 @@ class MonitorArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -216,12 +216,12 @@ class Monitor(pulumi.CustomResource):
                  __props__=None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        API Version: 2021-12-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
-        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: Managed service identity (user assigned identities)
+        :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: [currently not in use] Managed service identity(user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
         :param pulumi.Input[pulumi.InputType['ManagedRGConfigurationArgs']] managed_resource_group_configuration: Managed resource group configuration
@@ -240,7 +240,7 @@ class Monitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
-        API Version: 2021-12-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.
@@ -297,10 +297,10 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["storage_account_arm_id"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads/v20211201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:monitor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:workloads:monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20211201preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20221101preview:monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:Monitor"), pulumi.Alias(type_="azure-native:workloads/v20230401:monitor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Monitor, __self__).__init__(
-            'azure-native:workloads:monitor',
+            'azure-native:workloads:Monitor',
             resource_name,
             __props__,
             opts)
@@ -359,7 +359,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedServiceIdentityResponse']]:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 

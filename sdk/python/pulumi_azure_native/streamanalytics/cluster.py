@@ -114,7 +114,7 @@ class Cluster(pulumi.CustomResource):
                  __props__=None):
         """
         A Stream Analytics Cluster object
-        API Version: 2020-03-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,7 +132,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Stream Analytics Cluster object
-        API Version: 2020-03-01-preview.
+        Azure REST API version: 2020-03-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
@@ -170,9 +170,13 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["capacity_allocated"] = None
+            __props__.__dict__["capacity_assigned"] = None
+            __props__.__dict__["cluster_id"] = None
+            __props__.__dict__["created_date"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
-            __props__.__dict__["properties"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:streamanalytics/v20200301:Cluster"), pulumi.Alias(type_="azure-native:streamanalytics/v20200301preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -198,14 +202,50 @@ class Cluster(pulumi.CustomResource):
 
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
+        __props__.__dict__["capacity_allocated"] = None
+        __props__.__dict__["capacity_assigned"] = None
+        __props__.__dict__["cluster_id"] = None
+        __props__.__dict__["created_date"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
+        __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return Cluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="capacityAllocated")
+    def capacity_allocated(self) -> pulumi.Output[int]:
+        """
+        Represents the number of streaming units currently being used on the cluster.
+        """
+        return pulumi.get(self, "capacity_allocated")
+
+    @property
+    @pulumi.getter(name="capacityAssigned")
+    def capacity_assigned(self) -> pulumi.Output[int]:
+        """
+        Represents the sum of the SUs of all streaming jobs associated with the cluster. If all of the jobs were running, this would be the capacity allocated.
+        """
+        return pulumi.get(self, "capacity_assigned")
+
+    @property
+    @pulumi.getter(name="clusterId")
+    def cluster_id(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for the cluster.
+        """
+        return pulumi.get(self, "cluster_id")
+
+    @property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> pulumi.Output[str]:
+        """
+        The date this cluster was created.
+        """
+        return pulumi.get(self, "created_date")
 
     @property
     @pulumi.getter
@@ -232,12 +272,12 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ClusterPropertiesResponse']:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The properties associated with a Stream Analytics cluster.
+        The status of the cluster provisioning. The three terminal states are: Succeeded, Failed and Canceled
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter

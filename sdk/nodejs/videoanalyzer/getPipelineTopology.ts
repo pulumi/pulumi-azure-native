@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves a specific pipeline topology by name. If a topology with that name has been previously created, the call will return the JSON representation of that topology.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getPipelineTopology(args: GetPipelineTopologyArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineTopologyResult> {
 
@@ -92,7 +92,7 @@ export interface GetPipelineTopologyResult {
 }
 /**
  * Retrieves a specific pipeline topology by name. If a topology with that name has been previously created, the call will return the JSON representation of that topology.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getPipelineTopologyOutput(args: GetPipelineTopologyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineTopologyResult> {
     return pulumi.output(args).apply((a: any) => getPipelineTopology(a, opts))

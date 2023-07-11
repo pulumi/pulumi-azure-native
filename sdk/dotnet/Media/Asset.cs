@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// An Asset.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2020-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:media:Asset")]
     public partial class Asset : global::Pulumi.CustomResource
@@ -45,6 +45,12 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The Asset container encryption scope in the storage account.
+        /// </summary>
+        [Output("encryptionScope")]
+        public Output<string?> EncryptionScope { get; private set; } = null!;
 
         /// <summary>
         /// The last modified date of the Asset.
@@ -167,6 +173,12 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The Asset container encryption scope in the storage account.
+        /// </summary>
+        [Input("encryptionScope")]
+        public Input<string>? EncryptionScope { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

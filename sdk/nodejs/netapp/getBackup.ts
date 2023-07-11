@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a particular backup of the volume
- * API Version: 2020-12-01.
+ * Gets the specified backup of the volume
+ * Azure REST API version: 2022-11-01.
  */
 export function getBackup(args: GetBackupArgs, opts?: pulumi.InvokeOptions): Promise<GetBackupResult> {
 
@@ -34,7 +37,7 @@ export interface GetBackupArgs {
      */
     poolName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -64,7 +67,7 @@ export interface GetBackupResult {
      */
     readonly failureReason: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -76,7 +79,7 @@ export interface GetBackupResult {
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -88,17 +91,25 @@ export interface GetBackupResult {
      */
     readonly size: number;
     /**
-     * Resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.netapp.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+     */
+    readonly useExistingSnapshot?: boolean;
     /**
      * Volume name
      */
     readonly volumeName: string;
 }
 /**
- * Get a particular backup of the volume
- * API Version: 2020-12-01.
+ * Gets the specified backup of the volume
+ * Azure REST API version: 2022-11-01.
  */
 export function getBackupOutput(args: GetBackupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackupResult> {
     return pulumi.output(args).apply((a: any) => getBackup(a, opts))
@@ -118,7 +129,7 @@ export interface GetBackupOutputArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

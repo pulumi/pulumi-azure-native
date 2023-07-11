@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnServerConfiguration Resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnServerConfiguration")]
     public partial class VpnServerConfiguration : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("aadAuthenticationParameters")]
         public Output<Outputs.AadAuthenticationParametersResponse?> AadAuthenticationParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all VpnServerConfigurationPolicyGroups.
+        /// </summary>
+        [Output("configurationPolicyGroups")]
+        public Output<ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse>> ConfigurationPolicyGroups { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -168,6 +174,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VpnServerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VpnServerConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VpnServerConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:VpnServerConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -196,6 +204,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("aadAuthenticationParameters")]
         public Input<Inputs.AadAuthenticationParametersArgs>? AadAuthenticationParameters { get; set; }
+
+        [Input("configurationPolicyGroups")]
+        private InputList<Inputs.VpnServerConfigurationPolicyGroupArgs>? _configurationPolicyGroups;
+
+        /// <summary>
+        /// List of all VpnServerConfigurationPolicyGroups.
+        /// </summary>
+        public InputList<Inputs.VpnServerConfigurationPolicyGroupArgs> ConfigurationPolicyGroups
+        {
+            get => _configurationPolicyGroups ?? (_configurationPolicyGroups = new InputList<Inputs.VpnServerConfigurationPolicyGroupArgs>());
+            set => _configurationPolicyGroups = value;
+        }
 
         /// <summary>
         /// Resource ID.

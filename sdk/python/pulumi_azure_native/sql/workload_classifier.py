@@ -209,7 +209,7 @@ class WorkloadClassifier(pulumi.CustomResource):
                  __props__=None):
         """
         Workload classifier operations for a data warehouse
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -233,7 +233,7 @@ class WorkloadClassifier(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload classifier operations for a data warehouse
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param WorkloadClassifierArgs args: The arguments to use to populate this resource's properties.
@@ -293,7 +293,7 @@ class WorkloadClassifier(pulumi.CustomResource):
             __props__.__dict__["workload_group_name"] = workload_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20190601preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20200202preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20200801preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20201101preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20210201preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20210501preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20210801preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20211101:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20211101preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20220201preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20220501preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20220801preview:WorkloadClassifier")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20190601preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20200202preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20200801preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20201101preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20210201preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20210501preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20210801preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20211101:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20211101preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20220201preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20220501preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20220801preview:WorkloadClassifier"), pulumi.Alias(type_="azure-native:sql/v20221101preview:WorkloadClassifier")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkloadClassifier, __self__).__init__(
             'azure-native:sql:WorkloadClassifier',

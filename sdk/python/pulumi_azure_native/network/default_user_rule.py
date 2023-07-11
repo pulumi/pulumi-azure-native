@@ -24,7 +24,7 @@ class DefaultUserRuleArgs:
                  rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DefaultUserRule resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -47,7 +47,7 @@ class DefaultUserRuleArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[str]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -144,11 +144,11 @@ class DefaultUserRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network security default user rule.
-        API Version: 2021-02-01-preview.
+        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] flag: Default rule flag.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
@@ -165,7 +165,7 @@ class DefaultUserRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security default user rule.
-        API Version: 2021-02-01-preview.
+        Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param DefaultUserRuleArgs args: The arguments to use to populate this resource's properties.
@@ -219,7 +219,6 @@ class DefaultUserRule(pulumi.CustomResource):
             __props__.__dict__["destination_port_ranges"] = None
             __props__.__dict__["destinations"] = None
             __props__.__dict__["direction"] = None
-            __props__.__dict__["display_name"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["protocol"] = None
@@ -256,7 +255,6 @@ class DefaultUserRule(pulumi.CustomResource):
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["direction"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["flag"] = None
         __props__.__dict__["kind"] = None
@@ -300,14 +298,6 @@ class DefaultUserRule(pulumi.CustomResource):
         Indicates if the traffic matched against the rule in inbound or outbound.
         """
         return pulumi.get(self, "direction")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter

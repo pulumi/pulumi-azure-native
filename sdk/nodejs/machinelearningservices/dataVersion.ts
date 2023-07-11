@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class DataVersion extends pulumi.CustomResource {
     /**
@@ -39,15 +39,15 @@ export class DataVersion extends pulumi.CustomResource {
     }
 
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    public readonly dataVersionBaseProperties!: pulumi.Output<outputs.machinelearningservices.MLTableDataResponse | outputs.machinelearningservices.UriFileDataVersionResponse | outputs.machinelearningservices.UriFolderDataVersionResponse>;
+    /**
      * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.DataVersionResponse>;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
@@ -66,11 +66,11 @@ export class DataVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.dataVersionBaseProperties === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'dataVersionBaseProperties'");
+            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
-            }
-            if ((!args || args.properties === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'properties'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -78,21 +78,21 @@ export class DataVersion extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["dataVersionBaseProperties"] = args ? args.dataVersionBaseProperties : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["dataVersionBaseProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220501:DataVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:DataVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20220501:DataVersion" }, { type: "azure-native:machinelearningservices/v20220601preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001:DataVersion" }, { type: "azure-native:machinelearningservices/v20221001preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20221201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230201preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401:DataVersion" }, { type: "azure-native:machinelearningservices/v20230401preview:DataVersion" }, { type: "azure-native:machinelearningservices/v20230601preview:DataVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -103,13 +103,13 @@ export class DataVersion extends pulumi.CustomResource {
  */
 export interface DataVersionArgs {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    dataVersionBaseProperties: pulumi.Input<inputs.machinelearningservices.MLTableDataArgs | inputs.machinelearningservices.UriFileDataVersionArgs | inputs.machinelearningservices.UriFolderDataVersionArgs>;
+    /**
      * Container name.
      */
     name: pulumi.Input<string>;
-    /**
-     * [Required] Additional attributes of the entity.
-     */
-    properties: pulumi.Input<inputs.machinelearningservices.DataVersionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

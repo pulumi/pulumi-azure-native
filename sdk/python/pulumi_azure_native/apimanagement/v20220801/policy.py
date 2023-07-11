@@ -99,12 +99,7 @@ class PolicyArgs:
         pulumi.set(self, "policy_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Policy(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -156,7 +151,6 @@ class Policy(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Policy is deprecated: azure-native:apimanagement/v20220801:Policy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Policy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -180,7 +174,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Policy"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:apimanagement/v20220801:Policy',

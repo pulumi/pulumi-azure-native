@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Get the details of a Media Services account
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetMediaServiceResult> InvokeAsync(GetMediaServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the details of a Media Services account
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetMediaServiceResult> Invoke(GetMediaServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMediaServiceResult>("azure-native:media:getMediaService", args ?? new GetMediaServiceInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly Outputs.MediaServiceIdentityResponse? Identity;
         /// <summary>
+        /// The Key Delivery properties for Media Services account.
+        /// </summary>
+        public readonly Outputs.KeyDeliveryResponse? KeyDelivery;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -92,9 +96,25 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string MediaServiceId;
         /// <summary>
+        /// The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+        /// </summary>
+        public readonly string? MinimumTlsVersion;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Private Endpoint Connections created for the Media Service account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
+        /// Provisioning state of the Media Services account.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Whether or not public network access is allowed for resources under the Media Services account.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The storage accounts for this resource.
         /// </summary>
@@ -121,11 +141,21 @@ namespace Pulumi.AzureNative.Media
 
             Outputs.MediaServiceIdentityResponse? identity,
 
+            Outputs.KeyDeliveryResponse? keyDelivery,
+
             string location,
 
             string mediaServiceId,
 
+            string? minimumTlsVersion,
+
             string name,
+
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
+            string provisioningState,
+
+            string? publicNetworkAccess,
 
             ImmutableArray<Outputs.StorageAccountResponse> storageAccounts,
 
@@ -140,9 +170,14 @@ namespace Pulumi.AzureNative.Media
             Encryption = encryption;
             Id = id;
             Identity = identity;
+            KeyDelivery = keyDelivery;
             Location = location;
             MediaServiceId = mediaServiceId;
+            MinimumTlsVersion = minimumTlsVersion;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             StorageAccounts = storageAccounts;
             StorageAuthentication = storageAuthentication;
             SystemData = systemData;

@@ -22,7 +22,7 @@ class GetStorageSyncServiceResult:
     """
     Storage Sync Service object.
     """
-    def __init__(__self__, id=None, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
+    def __init__(__self__, id=None, incoming_traffic_policy=None, last_operation_name=None, last_workflow_id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, storage_sync_service_status=None, storage_sync_service_uid=None, system_data=None, tags=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,6 +53,9 @@ class GetStorageSyncServiceResult:
         if storage_sync_service_uid and not isinstance(storage_sync_service_uid, str):
             raise TypeError("Expected argument 'storage_sync_service_uid' to be a str")
         pulumi.set(__self__, "storage_sync_service_uid", storage_sync_service_uid)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -141,6 +144,14 @@ class GetStorageSyncServiceResult:
         return pulumi.get(self, "storage_sync_service_uid")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -173,6 +184,7 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
             provisioning_state=self.provisioning_state,
             storage_sync_service_status=self.storage_sync_service_status,
             storage_sync_service_uid=self.storage_sync_service_uid,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -182,7 +194,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageSyncServiceResult:
     """
     Get a given StorageSyncService.
-    API Version: 2020-03-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -205,6 +217,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         storage_sync_service_status=__ret__.storage_sync_service_status,
         storage_sync_service_uid=__ret__.storage_sync_service_uid,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -215,7 +228,7 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageSyncServiceResult]:
     """
     Get a given StorageSyncService.
-    API Version: 2020-03-01.
+    Azure REST API version: 2022-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

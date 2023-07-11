@@ -38,18 +38,6 @@ export const ManagedIdentityType = {
  */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
-export const PrivateLinkServiceConnectionStatus = {
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
- */
-export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
-
 export const UpstreamAuthType = {
     None: "None",
     ManagedIdentity: "ManagedIdentity",

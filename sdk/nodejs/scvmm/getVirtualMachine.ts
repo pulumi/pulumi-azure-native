@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements VirtualMachine GET method.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -60,6 +60,10 @@ export interface GetVirtualMachineResult {
      */
     readonly generation?: number;
     /**
+     * Guest agent status properties.
+     */
+    readonly guestAgentProfile?: outputs.scvmm.GuestAgentProfileResponse;
+    /**
      * Hardware properties.
      */
     readonly hardwareProfile?: outputs.scvmm.HardwareProfileResponse;
@@ -68,9 +72,17 @@ export interface GetVirtualMachineResult {
      */
     readonly id: string;
     /**
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.scvmm.IdentityResponse;
+    /**
      * Gets or sets the inventory Item ID for the resource.
      */
     readonly inventoryItemId?: string;
+    /**
+     * Last restored checkpoint in the vm.
+     */
+    readonly lastRestoredVMCheckpoint: outputs.scvmm.CheckpointResponse;
     /**
      * Gets or sets the location.
      */
@@ -130,7 +142,7 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Implements VirtualMachine GET method.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

@@ -23,6 +23,10 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ContainerResponse> Containers;
         /// <summary>
+        /// List of specialized containers that run before app containers.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InitContainerResponse> InitContainers;
+        /// <summary>
         /// User friendly suffix that is appended to the revision name
         /// </summary>
         public readonly string? RevisionSuffix;
@@ -39,6 +43,8 @@ namespace Pulumi.AzureNative.App.Outputs
         private TemplateResponse(
             ImmutableArray<Outputs.ContainerResponse> containers,
 
+            ImmutableArray<Outputs.InitContainerResponse> initContainers,
+
             string? revisionSuffix,
 
             Outputs.ScaleResponse? scale,
@@ -46,6 +52,7 @@ namespace Pulumi.AzureNative.App.Outputs
             ImmutableArray<Outputs.VolumeResponse> volumes)
         {
             Containers = containers;
+            InitContainers = initContainers;
             RevisionSuffix = revisionSuffix;
             Scale = scale;
             Volumes = volumes;

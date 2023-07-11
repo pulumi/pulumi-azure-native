@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents an environment type.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:EnvironmentType")]
     public partial class EnvironmentType : global::Pulumi.CustomResource
@@ -75,6 +75,8 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:EnvironmentType"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:EnvironmentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:EnvironmentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:EnvironmentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +113,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string>? EnvironmentTypeName { get; set; }
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

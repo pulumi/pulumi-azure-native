@@ -390,7 +390,7 @@ class Endpoint(pulumi.CustomResource):
                  __props__=None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -424,7 +424,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -504,13 +504,14 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url_signing_keys"] = url_signing_keys
             __props__.__dict__["web_application_firewall_policy_link"] = web_application_firewall_policy_link
+            __props__.__dict__["custom_domains"] = None
             __props__.__dict__["host_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20160402:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20161002:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20170402:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20171012:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20190415:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20190615:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20191231:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200331:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200415:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200901:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20210601:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20160402:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20161002:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20170402:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20171012:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20190415:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20190615:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20190615preview:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20191231:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200331:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200415:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20200901:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20210601:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Endpoint"), pulumi.Alias(type_="azure-native:cdn/v20230501:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:cdn:Endpoint',
@@ -535,6 +536,7 @@ class Endpoint(pulumi.CustomResource):
         __props__ = EndpointArgs.__new__(EndpointArgs)
 
         __props__.__dict__["content_types_to_compress"] = None
+        __props__.__dict__["custom_domains"] = None
         __props__.__dict__["default_origin_group"] = None
         __props__.__dict__["delivery_policy"] = None
         __props__.__dict__["geo_filters"] = None
@@ -567,6 +569,14 @@ class Endpoint(pulumi.CustomResource):
         List of content types on which compression applies. The value should be a valid MIME type.
         """
         return pulumi.get(self, "content_types_to_compress")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> pulumi.Output[Sequence['outputs.DeepCreatedCustomDomainResponse']]:
+        """
+        The custom domains under the endpoint.
+        """
+        return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter(name="defaultOriginGroup")

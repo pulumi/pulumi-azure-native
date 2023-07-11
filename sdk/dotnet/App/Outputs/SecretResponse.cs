@@ -17,13 +17,28 @@ namespace Pulumi.AzureNative.App.Outputs
     public sealed class SecretResponse
     {
         /// <summary>
+        /// Resource ID of a managed identity to authenticate with Azure Key Vault, or System to use a system-assigned identity.
+        /// </summary>
+        public readonly string? Identity;
+        /// <summary>
+        /// Azure Key Vault URL pointing to the secret referenced by the container app.
+        /// </summary>
+        public readonly string? KeyVaultUrl;
+        /// <summary>
         /// Secret Name.
         /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]
-        private SecretResponse(string? name)
+        private SecretResponse(
+            string? identity,
+
+            string? keyVaultUrl,
+
+            string? name)
         {
+            Identity = identity;
+            KeyVaultUrl = keyVaultUrl;
             Name = name;
         }
     }

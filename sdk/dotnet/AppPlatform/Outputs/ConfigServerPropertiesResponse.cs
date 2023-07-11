@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// </summary>
         public readonly Outputs.ConfigServerSettingsResponse? ConfigServer;
         /// <summary>
+        /// Enabled state of the config server. This is only used in Consumption tier.
+        /// </summary>
+        public readonly string? EnabledState;
+        /// <summary>
         /// Error when apply config server settings.
         /// </summary>
         public readonly Outputs.ErrorResponse? Error;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         private ConfigServerPropertiesResponse(
             Outputs.ConfigServerSettingsResponse? configServer,
 
+            string? enabledState,
+
             Outputs.ErrorResponse? error,
 
             string provisioningState)
         {
             ConfigServer = configServer;
+            EnabledState = enabledState;
             Error = error;
             ProvisioningState = provisioningState;
         }

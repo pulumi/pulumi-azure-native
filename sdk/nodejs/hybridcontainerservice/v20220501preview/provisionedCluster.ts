@@ -99,7 +99,7 @@ export class ProvisionedCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:ProvisionedCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcontainerservice:ProvisionedCluster" }, { type: "azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProvisionedCluster.__pulumiType, name, resourceInputs, opts);
     }

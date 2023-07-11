@@ -85,6 +85,11 @@ export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null a
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
 
+export { GetWorkspaceSharedKeysArgs, GetWorkspaceSharedKeysResult, GetWorkspaceSharedKeysOutputArgs } from "./getWorkspaceSharedKeys";
+export const getWorkspaceSharedKeys: typeof import("./getWorkspaceSharedKeys").getWorkspaceSharedKeys = null as any;
+export const getWorkspaceSharedKeysOutput: typeof import("./getWorkspaceSharedKeys").getWorkspaceSharedKeysOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceSharedKeys","getWorkspaceSharedKeysOutput"], () => require("./getWorkspaceSharedKeys"));
+
 export { LinkedServiceArgs } from "./linkedService";
 export type LinkedService = import("./linkedService").LinkedService;
 export const LinkedService: typeof import("./linkedService").LinkedService = null as any;
@@ -135,12 +140,9 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 export * from "../types/enums/operationalinsights";
 
 // Export sub-modules:
-import * as v20150320 from "./v20150320";
 import * as v20151101preview from "./v20151101preview";
-import * as v20190801preview from "./v20190801preview";
 import * as v20190901 from "./v20190901";
 import * as v20190901preview from "./v20190901preview";
-import * as v20200301preview from "./v20200301preview";
 import * as v20200801 from "./v20200801";
 import * as v20201001 from "./v20201001";
 import * as v20210601 from "./v20210601";
@@ -148,12 +150,9 @@ import * as v20211201preview from "./v20211201preview";
 import * as v20221001 from "./v20221001";
 
 export {
-    v20150320,
     v20151101preview,
-    v20190801preview,
     v20190901,
     v20190901preview,
-    v20200301preview,
     v20200801,
     v20201001,
     v20210601,

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// API Version: 2022-12-12-preview.
+    /// Azure REST API version: 2022-12-12-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:DefaultCniNetwork")]
     public partial class DefaultCniNetwork : global::Pulumi.CustomResource

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified static member.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetStaticMemberResult> InvokeAsync(GetStaticMemberArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified static member.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetStaticMemberResult> Invoke(GetStaticMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticMemberResult>("azure-native:network:getStaticMember", args ?? new GetStaticMemberInvokeArgs(), options.WithDefaults());
@@ -108,6 +108,14 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The provisioning state of the scope assignment resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource region.
+        /// </summary>
+        public readonly string Region;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string? ResourceId;
@@ -128,6 +136,10 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
+            string provisioningState,
+
+            string region,
+
             string? resourceId,
 
             Outputs.SystemDataResponse systemData,
@@ -137,6 +149,8 @@ namespace Pulumi.AzureNative.Network
             Etag = etag;
             Id = id;
             Name = name;
+            ProvisioningState = provisioningState;
+            Region = region;
             ResourceId = resourceId;
             SystemData = systemData;
             Type = type;

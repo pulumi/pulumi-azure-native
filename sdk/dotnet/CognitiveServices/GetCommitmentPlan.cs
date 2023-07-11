@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CognitiveServices
     {
         /// <summary>
         /// Gets the specified commitmentPlans associated with the Cognitive Services account.
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified commitmentPlans associated with the Cognitive Services account.
-        /// API Version: 2021-10-01.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:cognitiveservices:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,14 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The Kind of the resource.
+        /// </summary>
+        public readonly string? Kind;
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -100,9 +108,17 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         public readonly Outputs.CommitmentPlanPropertiesResponse Properties;
         /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -114,19 +130,31 @@ namespace Pulumi.AzureNative.CognitiveServices
 
             string id,
 
+            string? kind,
+
+            string? location,
+
             string name,
 
             Outputs.CommitmentPlanPropertiesResponse properties,
 
+            Outputs.SkuResponse? sku,
+
             Outputs.SystemDataResponse systemData,
+
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Etag = etag;
             Id = id;
+            Kind = kind;
+            Location = location;
             Name = name;
             Properties = properties;
+            Sku = sku;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

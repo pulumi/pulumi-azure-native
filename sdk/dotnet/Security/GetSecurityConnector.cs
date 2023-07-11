@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Retrieves details of a specific security connector
-        /// API Version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetSecurityConnectorResult> InvokeAsync(GetSecurityConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves details of a specific security connector
-        /// API Version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetSecurityConnectorResult> Invoke(GetSecurityConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConnectorResult>("azure-native:security:getSecurityConnector", args ?? new GetSecurityConnectorInvokeArgs(), options.WithDefaults());
@@ -72,17 +72,25 @@ namespace Pulumi.AzureNative.Security
     public sealed class GetSecurityConnectorResult
     {
         /// <summary>
+        /// The security connector environment data.
+        /// </summary>
+        public readonly object? EnvironmentData;
+        /// <summary>
         /// The multi cloud resource's cloud name.
         /// </summary>
-        public readonly string? CloudName;
+        public readonly string? EnvironmentName;
         /// <summary>
         /// Entity tag is used for comparing two or more entities from the same requested resource.
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// The multi cloud resource identifier (account id in case of AWS connector).
+        /// The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         /// </summary>
         public readonly string? HierarchyIdentifier;
+        /// <summary>
+        /// The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
+        /// </summary>
+        public readonly string HierarchyIdentifierTrialEndDate;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -104,10 +112,6 @@ namespace Pulumi.AzureNative.Security
         /// </summary>
         public readonly ImmutableArray<object> Offerings;
         /// <summary>
-        /// The multi cloud account's organizational data
-        /// </summary>
-        public readonly Outputs.SecurityConnectorPropertiesResponseOrganizationalData? OrganizationalData;
-        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -122,11 +126,15 @@ namespace Pulumi.AzureNative.Security
 
         [OutputConstructor]
         private GetSecurityConnectorResult(
-            string? cloudName,
+            object? environmentData,
+
+            string? environmentName,
 
             string? etag,
 
             string? hierarchyIdentifier,
+
+            string hierarchyIdentifierTrialEndDate,
 
             string id,
 
@@ -138,23 +146,22 @@ namespace Pulumi.AzureNative.Security
 
             ImmutableArray<object> offerings,
 
-            Outputs.SecurityConnectorPropertiesResponseOrganizationalData? organizationalData,
-
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            CloudName = cloudName;
+            EnvironmentData = environmentData;
+            EnvironmentName = environmentName;
             Etag = etag;
             HierarchyIdentifier = hierarchyIdentifier;
+            HierarchyIdentifierTrialEndDate = hierarchyIdentifierTrialEndDate;
             Id = id;
             Kind = kind;
             Location = location;
             Name = name;
             Offerings = offerings;
-            OrganizationalData = organizationalData;
             SystemData = systemData;
             Tags = tags;
             Type = type;

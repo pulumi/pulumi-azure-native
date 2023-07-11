@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getDeviceGroup(args: GetDeviceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceGroupResult> {
 
@@ -92,7 +92,7 @@ export interface GetDeviceGroupResult {
 }
 /**
  * Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getDeviceGroupOutput(args: GetDeviceGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceGroupResult> {
     return pulumi.output(args).apply((a: any) => getDeviceGroup(a, opts))

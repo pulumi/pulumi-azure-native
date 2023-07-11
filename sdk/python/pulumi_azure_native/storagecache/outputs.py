@@ -12,6 +12,16 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AmlFilesystemArchiveResponse',
+    'AmlFilesystemArchiveResponseStatus',
+    'AmlFilesystemClientInfoResponse',
+    'AmlFilesystemContainerStorageInterfaceResponse',
+    'AmlFilesystemEncryptionSettingsResponse',
+    'AmlFilesystemHealthResponse',
+    'AmlFilesystemHsmSettingsResponse',
+    'AmlFilesystemIdentityResponse',
+    'AmlFilesystemResponseHsm',
+    'AmlFilesystemResponseMaintenanceWindow',
     'BlobNfsTargetResponse',
     'CacheActiveDirectorySettingsResponse',
     'CacheActiveDirectorySettingsResponseCredentials',
@@ -19,9 +29,11 @@ __all__ = [
     'CacheEncryptionSettingsResponse',
     'CacheHealthResponse',
     'CacheIdentityResponse',
+    'CacheIdentityResponseUserAssignedIdentities',
     'CacheNetworkSettingsResponse',
     'CacheResponseSku',
     'CacheSecuritySettingsResponse',
+    'CacheUpgradeSettingsResponse',
     'CacheUpgradeStatusResponse',
     'CacheUsernameDownloadSettingsResponse',
     'CacheUsernameDownloadSettingsResponseCredentials',
@@ -33,9 +45,663 @@ __all__ = [
     'Nfs3TargetResponse',
     'NfsAccessPolicyResponse',
     'NfsAccessRuleResponse',
+    'PrimingJobResponse',
+    'SkuNameResponse',
+    'StorageTargetSpaceAllocationResponse',
     'SystemDataResponse',
     'UnknownTargetResponse',
+    'UserAssignedIdentitiesResponseUserAssignedIdentities',
 ]
+
+@pulumi.output_type
+class AmlFilesystemArchiveResponse(dict):
+    """
+    Information about the AML file system archive
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filesystemPath":
+            suggest = "filesystem_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemArchiveResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemArchiveResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemArchiveResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filesystem_path: str,
+                 status: 'outputs.AmlFilesystemArchiveResponseStatus'):
+        """
+        Information about the AML file system archive
+        :param str filesystem_path: Lustre file system path to archive relative to the file system root.  Specify '/' to archive all modified data.
+        :param 'AmlFilesystemArchiveResponseStatus' status: The status of the archive
+        """
+        pulumi.set(__self__, "filesystem_path", filesystem_path)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="filesystemPath")
+    def filesystem_path(self) -> str:
+        """
+        Lustre file system path to archive relative to the file system root.  Specify '/' to archive all modified data.
+        """
+        return pulumi.get(self, "filesystem_path")
+
+    @property
+    @pulumi.getter
+    def status(self) -> 'outputs.AmlFilesystemArchiveResponseStatus':
+        """
+        The status of the archive
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class AmlFilesystemArchiveResponseStatus(dict):
+    """
+    The status of the archive
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "lastCompletionTime":
+            suggest = "last_completion_time"
+        elif key == "lastStartedTime":
+            suggest = "last_started_time"
+        elif key == "percentComplete":
+            suggest = "percent_complete"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemArchiveResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemArchiveResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemArchiveResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str,
+                 last_completion_time: str,
+                 last_started_time: str,
+                 percent_complete: int,
+                 state: str):
+        """
+        The status of the archive
+        :param str error_code: Server-defined error code for the archive operation
+        :param str error_message: Server-defined error message for the archive operation
+        :param str last_completion_time: The time of the last completed archive operation
+        :param str last_started_time: The time the latest archive operation started
+        :param int percent_complete: The completion percentage of the archive operation
+        :param str state: The state of the archive operation
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "last_completion_time", last_completion_time)
+        pulumi.set(__self__, "last_started_time", last_started_time)
+        pulumi.set(__self__, "percent_complete", percent_complete)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        Server-defined error code for the archive operation
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        Server-defined error message for the archive operation
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="lastCompletionTime")
+    def last_completion_time(self) -> str:
+        """
+        The time of the last completed archive operation
+        """
+        return pulumi.get(self, "last_completion_time")
+
+    @property
+    @pulumi.getter(name="lastStartedTime")
+    def last_started_time(self) -> str:
+        """
+        The time the latest archive operation started
+        """
+        return pulumi.get(self, "last_started_time")
+
+    @property
+    @pulumi.getter(name="percentComplete")
+    def percent_complete(self) -> int:
+        """
+        The completion percentage of the archive operation
+        """
+        return pulumi.get(self, "percent_complete")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The state of the archive operation
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class AmlFilesystemClientInfoResponse(dict):
+    """
+    AML file system client information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerStorageInterface":
+            suggest = "container_storage_interface"
+        elif key == "lustreVersion":
+            suggest = "lustre_version"
+        elif key == "mgsAddress":
+            suggest = "mgs_address"
+        elif key == "mountCommand":
+            suggest = "mount_command"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemClientInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemClientInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemClientInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_storage_interface: 'outputs.AmlFilesystemContainerStorageInterfaceResponse',
+                 lustre_version: str,
+                 mgs_address: str,
+                 mount_command: str):
+        """
+        AML file system client information
+        :param 'AmlFilesystemContainerStorageInterfaceResponse' container_storage_interface: Container Storage Interface information for the AML file system.
+        :param str lustre_version: The version of Lustre running in the AML file system
+        :param str mgs_address: The IPv4 address used by clients to mount the AML file system's Lustre Management Service (MGS).
+        :param str mount_command: Recommended command to mount the AML file system
+        """
+        pulumi.set(__self__, "container_storage_interface", container_storage_interface)
+        pulumi.set(__self__, "lustre_version", lustre_version)
+        pulumi.set(__self__, "mgs_address", mgs_address)
+        pulumi.set(__self__, "mount_command", mount_command)
+
+    @property
+    @pulumi.getter(name="containerStorageInterface")
+    def container_storage_interface(self) -> 'outputs.AmlFilesystemContainerStorageInterfaceResponse':
+        """
+        Container Storage Interface information for the AML file system.
+        """
+        return pulumi.get(self, "container_storage_interface")
+
+    @property
+    @pulumi.getter(name="lustreVersion")
+    def lustre_version(self) -> str:
+        """
+        The version of Lustre running in the AML file system
+        """
+        return pulumi.get(self, "lustre_version")
+
+    @property
+    @pulumi.getter(name="mgsAddress")
+    def mgs_address(self) -> str:
+        """
+        The IPv4 address used by clients to mount the AML file system's Lustre Management Service (MGS).
+        """
+        return pulumi.get(self, "mgs_address")
+
+    @property
+    @pulumi.getter(name="mountCommand")
+    def mount_command(self) -> str:
+        """
+        Recommended command to mount the AML file system
+        """
+        return pulumi.get(self, "mount_command")
+
+
+@pulumi.output_type
+class AmlFilesystemContainerStorageInterfaceResponse(dict):
+    """
+    AML file system container storage interface information
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "persistentVolume":
+            suggest = "persistent_volume"
+        elif key == "persistentVolumeClaim":
+            suggest = "persistent_volume_claim"
+        elif key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemContainerStorageInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemContainerStorageInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemContainerStorageInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 persistent_volume: str,
+                 persistent_volume_claim: str,
+                 storage_class: str):
+        """
+        AML file system container storage interface information
+        :param str persistent_volume: Recommended AKS Persistent Volume for the CSI driver, in Base64 encoded YAML
+        :param str persistent_volume_claim: Recommended AKS Persistent Volume Claim for the CSI driver, in Base64 encoded YAML
+        :param str storage_class: Recommended AKS Storage Class for the CSI driver, in Base64 encoded YAML
+        """
+        pulumi.set(__self__, "persistent_volume", persistent_volume)
+        pulumi.set(__self__, "persistent_volume_claim", persistent_volume_claim)
+        pulumi.set(__self__, "storage_class", storage_class)
+
+    @property
+    @pulumi.getter(name="persistentVolume")
+    def persistent_volume(self) -> str:
+        """
+        Recommended AKS Persistent Volume for the CSI driver, in Base64 encoded YAML
+        """
+        return pulumi.get(self, "persistent_volume")
+
+    @property
+    @pulumi.getter(name="persistentVolumeClaim")
+    def persistent_volume_claim(self) -> str:
+        """
+        Recommended AKS Persistent Volume Claim for the CSI driver, in Base64 encoded YAML
+        """
+        return pulumi.get(self, "persistent_volume_claim")
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> str:
+        """
+        Recommended AKS Storage Class for the CSI driver, in Base64 encoded YAML
+        """
+        return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class AmlFilesystemEncryptionSettingsResponse(dict):
+    """
+    AML file system encryption settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyEncryptionKey":
+            suggest = "key_encryption_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemEncryptionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemEncryptionSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemEncryptionSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
+        """
+        AML file system encryption settings.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the encryption key in Key Vault.
+        """
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
+        """
+        Specifies the location of the encryption key in Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+
+@pulumi.output_type
+class AmlFilesystemHealthResponse(dict):
+    """
+    An indication of AML file system health. Gives more information about health than just that related to provisioning.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCode":
+            suggest = "status_code"
+        elif key == "statusDescription":
+            suggest = "status_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemHealthResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemHealthResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemHealthResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 state: Optional[str] = None,
+                 status_code: Optional[str] = None,
+                 status_description: Optional[str] = None):
+        """
+        An indication of AML file system health. Gives more information about health than just that related to provisioning.
+        :param str state: List of AML file system health states.
+        :param str status_code: Server-defined error code for the AML file system health
+        :param str status_description: Describes the health state.
+        """
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+        if status_description is not None:
+            pulumi.set(__self__, "status_description", status_description)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        List of AML file system health states.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[str]:
+        """
+        Server-defined error code for the AML file system health
+        """
+        return pulumi.get(self, "status_code")
+
+    @property
+    @pulumi.getter(name="statusDescription")
+    def status_description(self) -> Optional[str]:
+        """
+        Describes the health state.
+        """
+        return pulumi.get(self, "status_description")
+
+
+@pulumi.output_type
+class AmlFilesystemHsmSettingsResponse(dict):
+    """
+    AML file system HSM settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loggingContainer":
+            suggest = "logging_container"
+        elif key == "importPrefix":
+            suggest = "import_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemHsmSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemHsmSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemHsmSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container: str,
+                 logging_container: str,
+                 import_prefix: Optional[str] = None):
+        """
+        AML file system HSM settings.
+        :param str container: Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
+        :param str logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
+        :param str import_prefix: Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "logging_container", logging_container)
+        if import_prefix is None:
+            import_prefix = '/'
+        if import_prefix is not None:
+            pulumi.set(__self__, "import_prefix", import_prefix)
+
+    @property
+    @pulumi.getter
+    def container(self) -> str:
+        """
+        Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
+        """
+        return pulumi.get(self, "container")
+
+    @property
+    @pulumi.getter(name="loggingContainer")
+    def logging_container(self) -> str:
+        """
+        Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
+        """
+        return pulumi.get(self, "logging_container")
+
+    @property
+    @pulumi.getter(name="importPrefix")
+    def import_prefix(self) -> Optional[str]:
+        """
+        Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        """
+        return pulumi.get(self, "import_prefix")
+
+
+@pulumi.output_type
+class AmlFilesystemIdentityResponse(dict):
+    """
+    Managed Identity properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']] = None):
+        """
+        Managed Identity properties.
+        :param str principal_id: The principal ID for the user-assigned identity of the resource.
+        :param str tenant_id: The tenant ID associated with the resource.
+        :param str type: The type of identity used for the resource.
+        :param Mapping[str, 'UserAssignedIdentitiesResponseUserAssignedIdentities'] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID for the user-assigned identity of the resource.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID associated with the resource.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponseUserAssignedIdentities']]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class AmlFilesystemResponseHsm(dict):
+    """
+    Hydration and archive settings and status
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveStatus":
+            suggest = "archive_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemResponseHsm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemResponseHsm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemResponseHsm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_status: Sequence['outputs.AmlFilesystemArchiveResponse'],
+                 settings: Optional['outputs.AmlFilesystemHsmSettingsResponse'] = None):
+        """
+        Hydration and archive settings and status
+        :param Sequence['AmlFilesystemArchiveResponse'] archive_status: Archive status
+        :param 'AmlFilesystemHsmSettingsResponse' settings: Specifies HSM settings of the AML file system.
+        """
+        pulumi.set(__self__, "archive_status", archive_status)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="archiveStatus")
+    def archive_status(self) -> Sequence['outputs.AmlFilesystemArchiveResponse']:
+        """
+        Archive status
+        """
+        return pulumi.get(self, "archive_status")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional['outputs.AmlFilesystemHsmSettingsResponse']:
+        """
+        Specifies HSM settings of the AML file system.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
+class AmlFilesystemResponseMaintenanceWindow(dict):
+    """
+    Start time of a 30-minute weekly maintenance window.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dayOfWeek":
+            suggest = "day_of_week"
+        elif key == "timeOfDayUTC":
+            suggest = "time_of_day_utc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AmlFilesystemResponseMaintenanceWindow. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AmlFilesystemResponseMaintenanceWindow.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AmlFilesystemResponseMaintenanceWindow.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 day_of_week: Optional[str] = None,
+                 time_of_day_utc: Optional[str] = None):
+        """
+        Start time of a 30-minute weekly maintenance window.
+        :param str day_of_week: Day of the week on which the maintenance window will occur.
+        :param str time_of_day_utc: The time of day (in UTC) to start the maintenance window.
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if time_of_day_utc is not None:
+            pulumi.set(__self__, "time_of_day_utc", time_of_day_utc)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[str]:
+        """
+        Day of the week on which the maintenance window will occur.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @property
+    @pulumi.getter(name="timeOfDayUTC")
+    def time_of_day_utc(self) -> Optional[str]:
+        """
+        The time of day (in UTC) to start the maintenance window.
+        """
+        return pulumi.get(self, "time_of_day_utc")
+
 
 @pulumi.output_type
 class BlobNfsTargetResponse(dict):
@@ -47,6 +713,10 @@ class BlobNfsTargetResponse(dict):
         suggest = None
         if key == "usageModel":
             suggest = "usage_model"
+        elif key == "verificationTimer":
+            suggest = "verification_timer"
+        elif key == "writeBackTimer":
+            suggest = "write_back_timer"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BlobNfsTargetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -61,16 +731,24 @@ class BlobNfsTargetResponse(dict):
 
     def __init__(__self__, *,
                  target: Optional[str] = None,
-                 usage_model: Optional[str] = None):
+                 usage_model: Optional[str] = None,
+                 verification_timer: Optional[int] = None,
+                 write_back_timer: Optional[int] = None):
         """
         Properties pertaining to the BlobNfsTarget.
         :param str target: Resource ID of the storage container.
         :param str usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        :param int verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        :param int write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer is not None:
+            pulumi.set(__self__, "verification_timer", verification_timer)
+        if write_back_timer is not None:
+            pulumi.set(__self__, "write_back_timer", write_back_timer)
 
     @property
     @pulumi.getter
@@ -87,6 +765,22 @@ class BlobNfsTargetResponse(dict):
         Identifies the StorageCache usage model to be used for this storage target.
         """
         return pulumi.get(self, "usage_model")
+
+    @property
+    @pulumi.getter(name="verificationTimer")
+    def verification_timer(self) -> Optional[int]:
+        """
+        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        """
+        return pulumi.get(self, "verification_timer")
+
+    @property
+    @pulumi.getter(name="writeBackTimer")
+    def write_back_timer(self) -> Optional[int]:
+        """
+        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        """
+        return pulumi.get(self, "write_back_timer")
 
 
 @pulumi.output_type
@@ -212,23 +906,16 @@ class CacheActiveDirectorySettingsResponseCredentials(dict):
     Active Directory admin credentials used to join the HPC Cache to a domain.
     """
     def __init__(__self__, *,
-                 password: str,
-                 username: str):
+                 username: str,
+                 password: Optional[str] = None):
         """
         Active Directory admin credentials used to join the HPC Cache to a domain.
-        :param str password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param str username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        :param str password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "password")
+        if password is not None:
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter
@@ -237,6 +924,14 @@ class CacheActiveDirectorySettingsResponseCredentials(dict):
         Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
         return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "password")
 
 
 @pulumi.output_type
@@ -303,6 +998,8 @@ class CacheEncryptionSettingsResponse(dict):
         suggest = None
         if key == "keyEncryptionKey":
             suggest = "key_encryption_key"
+        elif key == "rotationToLatestKeyVersionEnabled":
+            suggest = "rotation_to_latest_key_version_enabled"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CacheEncryptionSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -316,27 +1013,39 @@ class CacheEncryptionSettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None):
+                 key_encryption_key: Optional['outputs.KeyVaultKeyReferenceResponse'] = None,
+                 rotation_to_latest_key_version_enabled: Optional[bool] = None):
         """
         Cache encryption settings.
-        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param 'KeyVaultKeyReferenceResponse' key_encryption_key: Specifies the location of the key encryption key in key vault.
+        :param bool rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
     def key_encryption_key(self) -> Optional['outputs.KeyVaultKeyReferenceResponse']:
         """
-        Specifies the location of the key encryption key in Key Vault.
+        Specifies the location of the key encryption key in key vault.
         """
         return pulumi.get(self, "key_encryption_key")
+
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[bool]:
+        """
+        Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
 
 @pulumi.output_type
 class CacheHealthResponse(dict):
     """
-    An indication of Cache health. Gives more information about health than just that related to provisioning.
+    An indication of cache health. Gives more information about health than just that related to provisioning.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -360,9 +1069,9 @@ class CacheHealthResponse(dict):
                  state: Optional[str] = None,
                  status_description: Optional[str] = None):
         """
-        An indication of Cache health. Gives more information about health than just that related to provisioning.
+        An indication of cache health. Gives more information about health than just that related to provisioning.
         :param Sequence['ConditionResponse'] conditions: Outstanding conditions that need to be investigated and resolved.
-        :param str state: List of Cache health states.
+        :param str state: List of cache health states. Down is when the cluster is not responding.  Degraded is when its functioning but has some alerts. Transitioning when it is creating or deleting. Unknown will be returned in old api versions when a new value is added in future versions. WaitingForKey is when the create is waiting for the system assigned identity to be given access to the encryption key in the encryption settings.
         :param str status_description: Describes explanation of state.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -383,7 +1092,7 @@ class CacheHealthResponse(dict):
     @pulumi.getter
     def state(self) -> Optional[str]:
         """
-        List of Cache health states.
+        List of cache health states. Down is when the cluster is not responding.  Degraded is when its functioning but has some alerts. Transitioning when it is creating or deleting. Unknown will be returned in old api versions when a new value is added in future versions. WaitingForKey is when the create is waiting for the system assigned identity to be given access to the encryption key in the encryption settings.
         """
         return pulumi.get(self, "state")
 
@@ -408,6 +1117,8 @@ class CacheIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CacheIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -423,23 +1134,27 @@ class CacheIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.CacheIdentityResponseUserAssignedIdentities']] = None):
         """
         Cache identity properties.
-        :param str principal_id: The principal id of the cache.
-        :param str tenant_id: The tenant id associated with the cache.
+        :param str principal_id: The principal ID for the system-assigned identity of the cache.
+        :param str tenant_id: The tenant ID associated with the cache.
         :param str type: The type of identity used for the cache
+        :param Mapping[str, 'CacheIdentityResponseUserAssignedIdentities'] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The principal id of the cache.
+        The principal ID for the system-assigned identity of the cache.
         """
         return pulumi.get(self, "principal_id")
 
@@ -447,7 +1162,7 @@ class CacheIdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The tenant id associated with the cache.
+        The tenant ID associated with the cache.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -458,6 +1173,62 @@ class CacheIdentityResponse(dict):
         The type of identity used for the cache
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.CacheIdentityResponseUserAssignedIdentities']]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class CacheIdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client ID of the user-assigned identity.
+        :param str principal_id: The principal ID of the user-assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type
@@ -496,7 +1267,7 @@ class CacheNetworkSettingsResponse(dict):
                  ntp_server: Optional[str] = None):
         """
         Cache network settings.
-        :param Sequence[str] utility_addresses: Array of additional IP addresses used by this Cache.
+        :param Sequence[str] utility_addresses: Array of additional IP addresses used by this cache.
         :param str dns_search_domain: DNS search domain
         :param Sequence[str] dns_servers: DNS servers for the cache to use.  It will be set from the network configuration if no value is provided.
         :param int mtu: The IPv4 maximum transmission unit configured for the subnet.
@@ -520,7 +1291,7 @@ class CacheNetworkSettingsResponse(dict):
     @pulumi.getter(name="utilityAddresses")
     def utility_addresses(self) -> Sequence[str]:
         """
-        Array of additional IP addresses used by this Cache.
+        Array of additional IP addresses used by this cache.
         """
         return pulumi.get(self, "utility_addresses")
 
@@ -560,13 +1331,13 @@ class CacheNetworkSettingsResponse(dict):
 @pulumi.output_type
 class CacheResponseSku(dict):
     """
-    SKU for the Cache.
+    SKU for the cache.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
-        SKU for the Cache.
-        :param str name: SKU name for this Cache.
+        SKU for the cache.
+        :param str name: SKU name for this cache.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -575,7 +1346,7 @@ class CacheResponseSku(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        SKU name for this Cache.
+        SKU name for this cache.
         """
         return pulumi.get(self, "name")
 
@@ -621,9 +1392,63 @@ class CacheSecuritySettingsResponse(dict):
 
 
 @pulumi.output_type
+class CacheUpgradeSettingsResponse(dict):
+    """
+    Cache Upgrade Settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "scheduledTime":
+            suggest = "scheduled_time"
+        elif key == "upgradeScheduleEnabled":
+            suggest = "upgrade_schedule_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CacheUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CacheUpgradeSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CacheUpgradeSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scheduled_time: Optional[str] = None,
+                 upgrade_schedule_enabled: Optional[bool] = None):
+        """
+        Cache Upgrade Settings.
+        :param str scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        :param bool upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        if scheduled_time is not None:
+            pulumi.set(__self__, "scheduled_time", scheduled_time)
+        if upgrade_schedule_enabled is not None:
+            pulumi.set(__self__, "upgrade_schedule_enabled", upgrade_schedule_enabled)
+
+    @property
+    @pulumi.getter(name="scheduledTime")
+    def scheduled_time(self) -> Optional[str]:
+        """
+        When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        """
+        return pulumi.get(self, "scheduled_time")
+
+    @property
+    @pulumi.getter(name="upgradeScheduleEnabled")
+    def upgrade_schedule_enabled(self) -> Optional[bool]:
+        """
+        True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        return pulumi.get(self, "upgrade_schedule_enabled")
+
+
+@pulumi.output_type
 class CacheUpgradeStatusResponse(dict):
     """
-    Properties describing the software upgrade state of the Cache.
+    Properties describing the software upgrade state of the cache.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -657,10 +1482,10 @@ class CacheUpgradeStatusResponse(dict):
                  last_firmware_update: str,
                  pending_firmware_version: str):
         """
-        Properties describing the software upgrade state of the Cache.
-        :param str current_firmware_version: Version string of the firmware currently installed on this Cache.
-        :param str firmware_update_deadline: Time at which the pending firmware update will automatically be installed on the Cache.
-        :param str firmware_update_status: True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        Properties describing the software upgrade state of the cache.
+        :param str current_firmware_version: Version string of the firmware currently installed on this cache.
+        :param str firmware_update_deadline: Time at which the pending firmware update will automatically be installed on the cache.
+        :param str firmware_update_status: True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         :param str last_firmware_update: Time of the last successful firmware update.
         :param str pending_firmware_version: When firmwareUpdateAvailable is true, this field holds the version string for the update.
         """
@@ -674,7 +1499,7 @@ class CacheUpgradeStatusResponse(dict):
     @pulumi.getter(name="currentFirmwareVersion")
     def current_firmware_version(self) -> str:
         """
-        Version string of the firmware currently installed on this Cache.
+        Version string of the firmware currently installed on this cache.
         """
         return pulumi.get(self, "current_firmware_version")
 
@@ -682,7 +1507,7 @@ class CacheUpgradeStatusResponse(dict):
     @pulumi.getter(name="firmwareUpdateDeadline")
     def firmware_update_deadline(self) -> str:
         """
-        Time at which the pending firmware update will automatically be installed on the Cache.
+        Time at which the pending firmware update will automatically be installed on the cache.
         """
         return pulumi.get(self, "firmware_update_deadline")
 
@@ -690,7 +1515,7 @@ class CacheUpgradeStatusResponse(dict):
     @pulumi.getter(name="firmwareUpdateStatus")
     def firmware_update_status(self) -> str:
         """
-        True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
         """
         return pulumi.get(self, "firmware_update_status")
 
@@ -782,12 +1607,16 @@ class CacheUsernameDownloadSettingsResponse(dict):
         :param str username_source: This setting determines how the cache gets username and group names for clients.
         """
         pulumi.set(__self__, "username_downloaded", username_downloaded)
+        if auto_download_certificate is None:
+            auto_download_certificate = False
         if auto_download_certificate is not None:
             pulumi.set(__self__, "auto_download_certificate", auto_download_certificate)
         if ca_certificate_uri is not None:
             pulumi.set(__self__, "ca_certificate_uri", ca_certificate_uri)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if encrypt_ldap_connection is None:
+            encrypt_ldap_connection = False
         if encrypt_ldap_connection is not None:
             pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
         if extended_groups is not None:
@@ -798,6 +1627,8 @@ class CacheUsernameDownloadSettingsResponse(dict):
             pulumi.set(__self__, "ldap_base_dn", ldap_base_dn)
         if ldap_server is not None:
             pulumi.set(__self__, "ldap_server", ldap_server)
+        if require_valid_certificate is None:
+            require_valid_certificate = False
         if require_valid_certificate is not None:
             pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
@@ -1017,7 +1848,7 @@ class ConditionResponse(dict):
 @pulumi.output_type
 class KeyVaultKeyReferenceResponse(dict):
     """
-    Describes a reference to Key Vault Key.
+    Describes a reference to key vault key.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1042,9 +1873,9 @@ class KeyVaultKeyReferenceResponse(dict):
                  key_url: str,
                  source_vault: 'outputs.KeyVaultKeyReferenceResponseSourceVault'):
         """
-        Describes a reference to Key Vault Key.
-        :param str key_url: The URL referencing a key encryption key in Key Vault.
-        :param 'KeyVaultKeyReferenceResponseSourceVault' source_vault: Describes a resource Id to source Key Vault.
+        Describes a reference to key vault key.
+        :param str key_url: The URL referencing a key encryption key in key vault.
+        :param 'KeyVaultKeyReferenceResponseSourceVault' source_vault: Describes a resource Id to source key vault.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -1053,7 +1884,7 @@ class KeyVaultKeyReferenceResponse(dict):
     @pulumi.getter(name="keyUrl")
     def key_url(self) -> str:
         """
-        The URL referencing a key encryption key in Key Vault.
+        The URL referencing a key encryption key in key vault.
         """
         return pulumi.get(self, "key_url")
 
@@ -1061,7 +1892,7 @@ class KeyVaultKeyReferenceResponse(dict):
     @pulumi.getter(name="sourceVault")
     def source_vault(self) -> 'outputs.KeyVaultKeyReferenceResponseSourceVault':
         """
-        Describes a resource Id to source Key Vault.
+        Describes a resource Id to source key vault.
         """
         return pulumi.get(self, "source_vault")
 
@@ -1069,12 +1900,12 @@ class KeyVaultKeyReferenceResponse(dict):
 @pulumi.output_type
 class KeyVaultKeyReferenceResponseSourceVault(dict):
     """
-    Describes a resource Id to source Key Vault.
+    Describes a resource Id to source key vault.
     """
     def __init__(__self__, *,
                  id: Optional[str] = None):
         """
-        Describes a resource Id to source Key Vault.
+        Describes a resource Id to source key vault.
         :param str id: Resource Id.
         """
         if id is not None:
@@ -1124,7 +1955,7 @@ class NamespaceJunctionResponse(dict):
                  target_path: Optional[str] = None):
         """
         A namespace junction.
-        :param str namespace_path: Namespace path on a Cache for a Storage Target.
+        :param str namespace_path: Namespace path on a cache for a Storage Target.
         :param str nfs_access_policy: Name of the access policy applied to this junction.
         :param str nfs_export: NFS export where targetPath exists.
         :param str target_path: Path in Storage Target to which namespacePath points.
@@ -1144,7 +1975,7 @@ class NamespaceJunctionResponse(dict):
     @pulumi.getter(name="namespacePath")
     def namespace_path(self) -> Optional[str]:
         """
-        Namespace path on a Cache for a Storage Target.
+        Namespace path on a cache for a Storage Target.
         """
         return pulumi.get(self, "namespace_path")
 
@@ -1183,6 +2014,10 @@ class Nfs3TargetResponse(dict):
         suggest = None
         if key == "usageModel":
             suggest = "usage_model"
+        elif key == "verificationTimer":
+            suggest = "verification_timer"
+        elif key == "writeBackTimer":
+            suggest = "write_back_timer"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in Nfs3TargetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1197,16 +2032,24 @@ class Nfs3TargetResponse(dict):
 
     def __init__(__self__, *,
                  target: Optional[str] = None,
-                 usage_model: Optional[str] = None):
+                 usage_model: Optional[str] = None,
+                 verification_timer: Optional[int] = None,
+                 write_back_timer: Optional[int] = None):
         """
         Properties pertaining to the Nfs3Target
         :param str target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
         :param str usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        :param int verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        :param int write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer is not None:
+            pulumi.set(__self__, "verification_timer", verification_timer)
+        if write_back_timer is not None:
+            pulumi.set(__self__, "write_back_timer", write_back_timer)
 
     @property
     @pulumi.getter
@@ -1223,6 +2066,22 @@ class Nfs3TargetResponse(dict):
         Identifies the StorageCache usage model to be used for this storage target.
         """
         return pulumi.get(self, "usage_model")
+
+    @property
+    @pulumi.getter(name="verificationTimer")
+    def verification_timer(self) -> Optional[int]:
+        """
+        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        """
+        return pulumi.get(self, "verification_timer")
+
+    @property
+    @pulumi.getter(name="writeBackTimer")
+    def write_back_timer(self) -> Optional[int]:
+        """
+        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        """
+        return pulumi.get(self, "write_back_timer")
 
 
 @pulumi.output_type
@@ -1404,6 +2263,185 @@ class NfsAccessRuleResponse(dict):
 
 
 @pulumi.output_type
+class PrimingJobResponse(dict):
+    """
+    A priming job instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "primingJobDetails":
+            suggest = "priming_job_details"
+        elif key == "primingJobId":
+            suggest = "priming_job_id"
+        elif key == "primingJobName":
+            suggest = "priming_job_name"
+        elif key == "primingJobPercentComplete":
+            suggest = "priming_job_percent_complete"
+        elif key == "primingJobState":
+            suggest = "priming_job_state"
+        elif key == "primingJobStatus":
+            suggest = "priming_job_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrimingJobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrimingJobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrimingJobResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 priming_job_details: str,
+                 priming_job_id: str,
+                 priming_job_name: str,
+                 priming_job_percent_complete: float,
+                 priming_job_state: str,
+                 priming_job_status: str):
+        """
+        A priming job instance.
+        :param str priming_job_details: The job details or error information if any.
+        :param str priming_job_id: The unique identifier of the priming job.
+        :param str priming_job_name: The priming job name.
+        :param float priming_job_percent_complete: The current progress of the priming job, as a percentage.
+        :param str priming_job_state: The state of the priming operation.
+        :param str priming_job_status: The status code of the priming job.
+        """
+        pulumi.set(__self__, "priming_job_details", priming_job_details)
+        pulumi.set(__self__, "priming_job_id", priming_job_id)
+        pulumi.set(__self__, "priming_job_name", priming_job_name)
+        pulumi.set(__self__, "priming_job_percent_complete", priming_job_percent_complete)
+        pulumi.set(__self__, "priming_job_state", priming_job_state)
+        pulumi.set(__self__, "priming_job_status", priming_job_status)
+
+    @property
+    @pulumi.getter(name="primingJobDetails")
+    def priming_job_details(self) -> str:
+        """
+        The job details or error information if any.
+        """
+        return pulumi.get(self, "priming_job_details")
+
+    @property
+    @pulumi.getter(name="primingJobId")
+    def priming_job_id(self) -> str:
+        """
+        The unique identifier of the priming job.
+        """
+        return pulumi.get(self, "priming_job_id")
+
+    @property
+    @pulumi.getter(name="primingJobName")
+    def priming_job_name(self) -> str:
+        """
+        The priming job name.
+        """
+        return pulumi.get(self, "priming_job_name")
+
+    @property
+    @pulumi.getter(name="primingJobPercentComplete")
+    def priming_job_percent_complete(self) -> float:
+        """
+        The current progress of the priming job, as a percentage.
+        """
+        return pulumi.get(self, "priming_job_percent_complete")
+
+    @property
+    @pulumi.getter(name="primingJobState")
+    def priming_job_state(self) -> str:
+        """
+        The state of the priming operation.
+        """
+        return pulumi.get(self, "priming_job_state")
+
+    @property
+    @pulumi.getter(name="primingJobStatus")
+    def priming_job_status(self) -> str:
+        """
+        The status code of the priming job.
+        """
+        return pulumi.get(self, "priming_job_status")
+
+
+@pulumi.output_type
+class SkuNameResponse(dict):
+    """
+    SKU for the resource.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        SKU for the resource.
+        :param str name: SKU name for this resource.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        SKU name for this resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class StorageTargetSpaceAllocationResponse(dict):
+    """
+    Storage Target space allocation properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allocationPercentage":
+            suggest = "allocation_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageTargetSpaceAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageTargetSpaceAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageTargetSpaceAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allocation_percentage: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        Storage Target space allocation properties.
+        :param int allocation_percentage: The percentage of cache space allocated for this storage target
+        :param str name: Name of the storage target.
+        """
+        if allocation_percentage is not None:
+            pulumi.set(__self__, "allocation_percentage", allocation_percentage)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="allocationPercentage")
+    def allocation_percentage(self) -> Optional[int]:
+        """
+        The percentage of cache space allocated for this storage target
+        """
+        return pulumi.get(self, "allocation_percentage")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the storage target.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -1534,5 +2572,53 @@ class UnknownTargetResponse(dict):
         Dictionary of string->string pairs containing information about the Storage Target.
         """
         return pulumi.get(self, "attributes")
+
+
+@pulumi.output_type
+class UserAssignedIdentitiesResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client ID of the user-assigned identity.
+        :param str principal_id: The principal ID of the user-assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the user-assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

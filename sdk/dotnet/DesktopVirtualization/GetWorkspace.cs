@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a workspace.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a workspace.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:desktopvirtualization:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -157,6 +161,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -175,6 +181,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             ObjectId = objectId;
             Plan = plan;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

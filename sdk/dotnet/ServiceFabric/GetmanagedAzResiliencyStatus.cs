@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceFabric
     {
         /// <summary>
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetmanagedAzResiliencyStatusResult> InvokeAsync(GetmanagedAzResiliencyStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusArgs(), options.WithDefaults());
 
         /// <summary>
         /// Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetmanagedAzResiliencyStatusResult> Invoke(GetmanagedAzResiliencyStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetmanagedAzResiliencyStatusResult>("azure-native:servicefabric:getmanagedAzResiliencyStatus", args ?? new GetmanagedAzResiliencyStatusInvokeArgs(), options.WithDefaults());

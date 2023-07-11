@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets details about the specified input.
-        /// API Version: 2016-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Task<GetInputResult> InvokeAsync(GetInputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details about the specified input.
-        /// API Version: 2016-03-01.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("azure-native:streamanalytics:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public string JobName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

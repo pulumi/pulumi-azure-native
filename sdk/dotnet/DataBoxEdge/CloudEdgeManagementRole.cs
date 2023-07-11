@@ -10,8 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DataBoxEdge
 {
     /// <summary>
-    /// CloudEdgeManagementRole role.
-    /// API Version: 2020-12-01.
+    /// The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal.
+    /// For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
+    /// By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
+    /// Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:CloudEdgeManagementRole")]
     public partial class CloudEdgeManagementRole : global::Pulumi.CustomResource
@@ -48,7 +50,7 @@ namespace Pulumi.AzureNative.DataBoxEdge
         public Output<string> RoleStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Role configured on ASE resource
+        /// Metadata pertaining to creation and last modification of Role
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;

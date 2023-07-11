@@ -34,10 +34,34 @@ namespace Pulumi.AzureNative.App.Inputs
         public InputUnion<string, Pulumi.AzureNative.App.AppProtocol>? AppProtocol { get; set; }
 
         /// <summary>
+        /// Enables API logging for the Dapr sidecar
+        /// </summary>
+        [Input("enableApiLogging")]
+        public Input<bool>? EnableApiLogging { get; set; }
+
+        /// <summary>
         /// Boolean indicating if the Dapr side car is enabled
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        /// </summary>
+        [Input("httpMaxRequestSize")]
+        public Input<int>? HttpMaxRequestSize { get; set; }
+
+        /// <summary>
+        /// Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        /// </summary>
+        [Input("httpReadBufferSize")]
+        public Input<int>? HttpReadBufferSize { get; set; }
+
+        /// <summary>
+        /// Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        /// </summary>
+        [Input("logLevel")]
+        public InputUnion<string, Pulumi.AzureNative.App.LogLevel>? LogLevel { get; set; }
 
         public DaprArgs()
         {

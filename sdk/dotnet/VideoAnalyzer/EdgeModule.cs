@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
 {
     /// <summary>
     /// The representation of an edge module.
-    /// API Version: 2021-05-01-preview.
+    /// Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:EdgeModule")]
     public partial class EdgeModule : global::Pulumi.CustomResource
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.VideoAnalyzer
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the edge module to create or update.
+        /// The Edge Module name.
         /// </summary>
         [Input("edgeModuleName")]
         public Input<string>? EdgeModuleName { get; set; }

@@ -159,11 +159,11 @@ class ColumnArgs:
 class IdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['IdentityType'],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Identity for the resource.
         :param pulumi.Input['IdentityType'] type: Type of managed service identity.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -183,14 +183,14 @@ class IdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -774,7 +774,7 @@ class WorkspaceSkuArgs:
         """
         The SKU (tier) of a workspace.
         :param pulumi.Input[Union[str, 'WorkspaceSkuNameEnum']] name: The name of the SKU.
-        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        :param pulumi.Input[int] capacity_reservation_level: The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         pulumi.set(__self__, "name", name)
         if capacity_reservation_level is not None:
@@ -796,7 +796,7 @@ class WorkspaceSkuArgs:
     @pulumi.getter(name="capacityReservationLevel")
     def capacity_reservation_level(self) -> Optional[pulumi.Input[int]]:
         """
-        The capacity reservation level for this workspace, when CapacityReservation sku is selected.
+        The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.
         """
         return pulumi.get(self, "capacity_reservation_level")
 

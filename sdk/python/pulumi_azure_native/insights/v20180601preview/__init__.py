@@ -5,8 +5,8 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .get_guest_diagnostics_setting import *
 from .get_guest_diagnostics_settings_association import *
-from .getguest_diagnostics_setting import *
 from .guest_diagnostics_setting import *
 from .guest_diagnostics_settings_association import *
 from ._inputs import *

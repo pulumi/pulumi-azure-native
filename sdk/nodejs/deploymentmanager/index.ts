@@ -70,11 +70,9 @@ utilities.lazyLoad(exports, ["Step"], () => require("./step"));
 export * from "../types/enums/deploymentmanager";
 
 // Export sub-modules:
-import * as v20180901preview from "./v20180901preview";
 import * as v20191101preview from "./v20191101preview";
 
 export {
-    v20180901preview,
     v20191101preview,
 };
 

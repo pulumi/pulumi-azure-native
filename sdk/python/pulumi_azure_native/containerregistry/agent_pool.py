@@ -181,7 +181,7 @@ class AgentPool(pulumi.CustomResource):
         """
         The agentpool that has the ARM resource and properties.
         The agentpool will have all information to create an agent pool.
-        API Version: 2019-06-01-preview.
+        Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class AgentPool(pulumi.CustomResource):
         """
         The agentpool that has the ARM resource and properties.
         The agentpool will have all information to create an agent pool.
-        API Version: 2019-06-01-preview.
+        Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.

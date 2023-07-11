@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Gets the report for a billing account by report name.
-        /// API Version: 2018-08-01-preview.
+        /// Azure REST API version: 2018-08-01-preview.
         /// </summary>
         public static Task<GetReportByBillingAccountResult> InvokeAsync(GetReportByBillingAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportByBillingAccountResult>("azure-native:costmanagement:getReportByBillingAccount", args ?? new GetReportByBillingAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the report for a billing account by report name.
-        /// API Version: 2018-08-01-preview.
+        /// Azure REST API version: 2018-08-01-preview.
         /// </summary>
         public static Output<GetReportByBillingAccountResult> Invoke(GetReportByBillingAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportByBillingAccountResult>("azure-native:costmanagement:getReportByBillingAccount", args ?? new GetReportByBillingAccountInvokeArgs(), options.WithDefaults());

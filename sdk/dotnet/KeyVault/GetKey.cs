@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KeyVault
     {
         /// <summary>
         /// Gets the current version of the specified key from the specified key vault.
-        /// API Version: 2019-09-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("azure-native:keyvault:getKey", args ?? new GetKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the current version of the specified key from the specified key vault.
-        /// API Version: 2019-09-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("azure-native:keyvault:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
@@ -121,6 +121,14 @@ namespace Pulumi.AzureNative.KeyVault
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Key release policy in response. It will be used for both output and input. Omitted if empty
+        /// </summary>
+        public readonly Outputs.KeyReleasePolicyResponse? ReleasePolicy;
+        /// <summary>
+        /// Key rotation policy in response. It will be used for both output and input. Omitted if empty
+        /// </summary>
+        public readonly Outputs.RotationPolicyResponse? RotationPolicy;
+        /// <summary>
         /// Tags assigned to the key vault resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -151,6 +159,10 @@ namespace Pulumi.AzureNative.KeyVault
 
             string name,
 
+            Outputs.KeyReleasePolicyResponse? releasePolicy,
+
+            Outputs.RotationPolicyResponse? rotationPolicy,
+
             ImmutableDictionary<string, string> tags,
 
             string type)
@@ -165,6 +177,8 @@ namespace Pulumi.AzureNative.KeyVault
             Kty = kty;
             Location = location;
             Name = name;
+            ReleasePolicy = releasePolicy;
+            RotationPolicy = rotationPolicy;
             Tags = tags;
             Type = type;
         }

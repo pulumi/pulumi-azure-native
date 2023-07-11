@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string? IdentifierUri;
         /// <summary>
-        /// The name of the webhook receiver. Names must be unique across all receivers within an action group.
+        /// The name of the webhook receiver. Names must be unique across all receivers within a tenant action group.
         /// </summary>
         public readonly string Name;
         /// <summary>

@@ -80,6 +80,16 @@ export const getGremlinResourceGremlinGraph: typeof import("./getGremlinResource
 export const getGremlinResourceGremlinGraphOutput: typeof import("./getGremlinResourceGremlinGraph").getGremlinResourceGremlinGraphOutput = null as any;
 utilities.lazyLoad(exports, ["getGremlinResourceGremlinGraph","getGremlinResourceGremlinGraphOutput"], () => require("./getGremlinResourceGremlinGraph"));
 
+export { GetMongoClusterArgs, GetMongoClusterResult, GetMongoClusterOutputArgs } from "./getMongoCluster";
+export const getMongoCluster: typeof import("./getMongoCluster").getMongoCluster = null as any;
+export const getMongoClusterOutput: typeof import("./getMongoCluster").getMongoClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoCluster","getMongoClusterOutput"], () => require("./getMongoCluster"));
+
+export { GetMongoClusterFirewallRuleArgs, GetMongoClusterFirewallRuleResult, GetMongoClusterFirewallRuleOutputArgs } from "./getMongoClusterFirewallRule";
+export const getMongoClusterFirewallRule: typeof import("./getMongoClusterFirewallRule").getMongoClusterFirewallRule = null as any;
+export const getMongoClusterFirewallRuleOutput: typeof import("./getMongoClusterFirewallRule").getMongoClusterFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getMongoClusterFirewallRule","getMongoClusterFirewallRuleOutput"], () => require("./getMongoClusterFirewallRule"));
+
 export { GetMongoDBResourceMongoDBCollectionArgs, GetMongoDBResourceMongoDBCollectionResult, GetMongoDBResourceMongoDBCollectionOutputArgs } from "./getMongoDBResourceMongoDBCollection";
 export const getMongoDBResourceMongoDBCollection: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollection = null as any;
 export const getMongoDBResourceMongoDBCollectionOutput: typeof import("./getMongoDBResourceMongoDBCollection").getMongoDBResourceMongoDBCollectionOutput = null as any;
@@ -180,10 +190,25 @@ export const listDatabaseAccountKeys: typeof import("./listDatabaseAccountKeys")
 export const listDatabaseAccountKeysOutput: typeof import("./listDatabaseAccountKeys").listDatabaseAccountKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDatabaseAccountKeys","listDatabaseAccountKeysOutput"], () => require("./listDatabaseAccountKeys"));
 
+export { ListMongoClusterConnectionStringsArgs, ListMongoClusterConnectionStringsResult, ListMongoClusterConnectionStringsOutputArgs } from "./listMongoClusterConnectionStrings";
+export const listMongoClusterConnectionStrings: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStrings = null as any;
+export const listMongoClusterConnectionStringsOutput: typeof import("./listMongoClusterConnectionStrings").listMongoClusterConnectionStringsOutput = null as any;
+utilities.lazyLoad(exports, ["listMongoClusterConnectionStrings","listMongoClusterConnectionStringsOutput"], () => require("./listMongoClusterConnectionStrings"));
+
 export { ListNotebookWorkspaceConnectionInfoArgs, ListNotebookWorkspaceConnectionInfoResult, ListNotebookWorkspaceConnectionInfoOutputArgs } from "./listNotebookWorkspaceConnectionInfo";
 export const listNotebookWorkspaceConnectionInfo: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfo = null as any;
 export const listNotebookWorkspaceConnectionInfoOutput: typeof import("./listNotebookWorkspaceConnectionInfo").listNotebookWorkspaceConnectionInfoOutput = null as any;
 utilities.lazyLoad(exports, ["listNotebookWorkspaceConnectionInfo","listNotebookWorkspaceConnectionInfoOutput"], () => require("./listNotebookWorkspaceConnectionInfo"));
+
+export { MongoClusterArgs } from "./mongoCluster";
+export type MongoCluster = import("./mongoCluster").MongoCluster;
+export const MongoCluster: typeof import("./mongoCluster").MongoCluster = null as any;
+utilities.lazyLoad(exports, ["MongoCluster"], () => require("./mongoCluster"));
+
+export { MongoClusterFirewallRuleArgs } from "./mongoClusterFirewallRule";
+export type MongoClusterFirewallRule = import("./mongoClusterFirewallRule").MongoClusterFirewallRule;
+export const MongoClusterFirewallRule: typeof import("./mongoClusterFirewallRule").MongoClusterFirewallRule = null as any;
+utilities.lazyLoad(exports, ["MongoClusterFirewallRule"], () => require("./mongoClusterFirewallRule"));
 
 export { MongoDBResourceMongoDBCollectionArgs } from "./mongoDBResourceMongoDBCollection";
 export type MongoDBResourceMongoDBCollection = import("./mongoDBResourceMongoDBCollection").MongoDBResourceMongoDBCollection;
@@ -265,68 +290,18 @@ utilities.lazyLoad(exports, ["TableResourceTable"], () => require("./tableResour
 export * from "../types/enums/documentdb";
 
 // Export sub-modules:
-import * as v20150401 from "./v20150401";
-import * as v20150408 from "./v20150408";
-import * as v20151106 from "./v20151106";
-import * as v20160319 from "./v20160319";
-import * as v20160331 from "./v20160331";
-import * as v20190801 from "./v20190801";
-import * as v20190801preview from "./v20190801preview";
-import * as v20191212 from "./v20191212";
-import * as v20200301 from "./v20200301";
-import * as v20200401 from "./v20200401";
-import * as v20200601preview from "./v20200601preview";
-import * as v20200901 from "./v20200901";
-import * as v20210115 from "./v20210115";
-import * as v20210301preview from "./v20210301preview";
-import * as v20210315 from "./v20210315";
 import * as v20210401preview from "./v20210401preview";
-import * as v20210415 from "./v20210415";
-import * as v20210515 from "./v20210515";
-import * as v20210615 from "./v20210615";
 import * as v20210701preview from "./v20210701preview";
-import * as v20211015 from "./v20211015";
-import * as v20211015preview from "./v20211015preview";
-import * as v20211115preview from "./v20211115preview";
-import * as v20220215preview from "./v20220215preview";
-import * as v20220515 from "./v20220515";
-import * as v20220515preview from "./v20220515preview";
-import * as v20220815 from "./v20220815";
-import * as v20220815preview from "./v20220815preview";
-import * as v20221115 from "./v20221115";
-import * as v20230315 from "./v20230315";
+import * as v20230301preview from "./v20230301preview";
+import * as v20230315preview from "./v20230315preview";
+import * as v20230415 from "./v20230415";
 
 export {
-    v20150401,
-    v20150408,
-    v20151106,
-    v20160319,
-    v20160331,
-    v20190801,
-    v20190801preview,
-    v20191212,
-    v20200301,
-    v20200401,
-    v20200601preview,
-    v20200901,
-    v20210115,
-    v20210301preview,
-    v20210315,
     v20210401preview,
-    v20210415,
-    v20210515,
-    v20210615,
     v20210701preview,
-    v20211015,
-    v20211015preview,
-    v20211115preview,
-    v20220215preview,
-    v20220515,
-    v20220515preview,
-    v20220815,
-    v20220815preview,
-    v20221115,
-    v20230315,
+    v20230301preview,
+    v20230315preview,
+    v20230415,
 };
 
 const _module = {
@@ -351,6 +326,10 @@ const _module = {
                 return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb:GremlinResourceGremlinGraph":
                 return new GremlinResourceGremlinGraph(name, <any>undefined, { urn })
+            case "azure-native:documentdb:MongoCluster":
+                return new MongoCluster(name, <any>undefined, { urn })
+            case "azure-native:documentdb:MongoClusterFirewallRule":
+                return new MongoClusterFirewallRule(name, <any>undefined, { urn })
             case "azure-native:documentdb:MongoDBResourceMongoDBCollection":
                 return new MongoDBResourceMongoDBCollection(name, <any>undefined, { urn })
             case "azure-native:documentdb:MongoDBResourceMongoDBDatabase":

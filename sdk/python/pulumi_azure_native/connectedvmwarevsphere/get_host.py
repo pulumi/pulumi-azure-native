@@ -22,10 +22,13 @@ class GetHostResult:
     """
     Define the host.
     """
-    def __init__(__self__, custom_resource_name=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, custom_resource_name=None, datastore_ids=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, network_ids=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        if datastore_ids and not isinstance(datastore_ids, list):
+            raise TypeError("Expected argument 'datastore_ids' to be a list")
+        pulumi.set(__self__, "datastore_ids", datastore_ids)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
@@ -50,6 +53,9 @@ class GetHostResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_ids and not isinstance(network_ids, list):
+            raise TypeError("Expected argument 'network_ids' to be a list")
+        pulumi.set(__self__, "network_ids", network_ids)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -79,6 +85,14 @@ class GetHostResult:
         Gets the name of the corresponding resource in Kubernetes.
         """
         return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="datastoreIds")
+    def datastore_ids(self) -> Sequence[str]:
+        """
+        Gets or sets the datastore ARM ids.
+        """
+        return pulumi.get(self, "datastore_ids")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -145,6 +159,14 @@ class GetHostResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkIds")
+    def network_ids(self) -> Sequence[str]:
+        """
+        Gets or sets the network ARM ids.
+        """
+        return pulumi.get(self, "network_ids")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -208,6 +230,7 @@ class AwaitableGetHostResult(GetHostResult):
             yield self
         return GetHostResult(
             custom_resource_name=self.custom_resource_name,
+            datastore_ids=self.datastore_ids,
             extended_location=self.extended_location,
             id=self.id,
             inventory_item_id=self.inventory_item_id,
@@ -216,6 +239,7 @@ class AwaitableGetHostResult(GetHostResult):
             mo_name=self.mo_name,
             mo_ref_id=self.mo_ref_id,
             name=self.name,
+            network_ids=self.network_ids,
             provisioning_state=self.provisioning_state,
             statuses=self.statuses,
             system_data=self.system_data,
@@ -230,7 +254,7 @@ def get_host(host_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHostResult:
     """
     Implements host GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str host_name: Name of the host.
@@ -244,6 +268,7 @@ def get_host(host_name: Optional[str] = None,
 
     return AwaitableGetHostResult(
         custom_resource_name=__ret__.custom_resource_name,
+        datastore_ids=__ret__.datastore_ids,
         extended_location=__ret__.extended_location,
         id=__ret__.id,
         inventory_item_id=__ret__.inventory_item_id,
@@ -252,6 +277,7 @@ def get_host(host_name: Optional[str] = None,
         mo_name=__ret__.mo_name,
         mo_ref_id=__ret__.mo_ref_id,
         name=__ret__.name,
+        network_ids=__ret__.network_ids,
         provisioning_state=__ret__.provisioning_state,
         statuses=__ret__.statuses,
         system_data=__ret__.system_data,
@@ -267,7 +293,7 @@ def get_host_output(host_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHostResult]:
     """
     Implements host GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str host_name: Name of the host.

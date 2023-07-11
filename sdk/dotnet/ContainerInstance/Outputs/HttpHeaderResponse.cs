@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 {
 
     /// <summary>
-    /// The HTTP header
+    /// The HTTP header.
     /// </summary>
     [OutputType]
     public sealed class HttpHeaderResponse

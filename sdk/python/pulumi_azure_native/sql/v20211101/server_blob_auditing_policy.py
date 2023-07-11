@@ -411,12 +411,7 @@ class ServerBlobAuditingPolicyArgs:
         pulumi.set(self, "storage_endpoint", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ServerBlobAuditingPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -580,7 +575,6 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
                  storage_account_subscription_id: Optional[pulumi.Input[str]] = None,
                  storage_endpoint: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServerBlobAuditingPolicy is deprecated: azure-native:sql/v20211101:ServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerBlobAuditingPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -611,7 +605,7 @@ class ServerBlobAuditingPolicy(pulumi.CustomResource):
             __props__.__dict__["storage_endpoint"] = storage_endpoint
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerBlobAuditingPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerBlobAuditingPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerBlobAuditingPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerBlobAuditingPolicy, __self__).__init__(
             'azure-native:sql/v20211101:ServerBlobAuditingPolicy',

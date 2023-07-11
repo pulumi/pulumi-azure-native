@@ -99,7 +99,7 @@ def get_web_pub_sub_hub(hub_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebPubSubHubResult:
     """
     Get a hub setting.
-    API Version: 2021-10-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str hub_name: The hub name.
@@ -128,7 +128,7 @@ def get_web_pub_sub_hub_output(hub_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebPubSubHubResult]:
     """
     Get a hub setting.
-    API Version: 2021-10-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str hub_name: The hub name.

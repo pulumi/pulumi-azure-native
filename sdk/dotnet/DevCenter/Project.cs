@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Represents a project resource.
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Project")]
     public partial class Project : global::Pulumi.CustomResource
@@ -29,10 +29,22 @@ namespace Pulumi.AzureNative.DevCenter
         public Output<string?> DevCenterId { get; private set; } = null!;
 
         /// <summary>
+        /// The URI of the Dev Center resource this project is associated with.
+        /// </summary>
+        [Output("devCenterUri")]
+        public Output<string> DevCenterUri { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        /// </summary>
+        [Output("maxDevBoxesPerUser")]
+        public Output<int?> MaxDevBoxesPerUser { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -93,6 +105,8 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:Project"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:Project"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:Project"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:Project"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -135,13 +149,19 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        /// </summary>
+        [Input("maxDevBoxesPerUser")]
+        public Input<int>? MaxDevBoxesPerUser { get; set; }
+
+        /// <summary>
         /// The name of the project.
         /// </summary>
         [Input("projectName")]
         public Input<string>? ProjectName { get; set; }
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

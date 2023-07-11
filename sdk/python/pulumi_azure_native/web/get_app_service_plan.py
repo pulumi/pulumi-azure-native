@@ -22,7 +22,13 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
+    def __init__(__self__, elastic_scale_enabled=None, extended_location=None, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, id=None, is_spot=None, is_xenon=None, kind=None, kube_environment_profile=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, number_of_workers=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None, zone_redundant=None):
+        if elastic_scale_enabled and not isinstance(elastic_scale_enabled, bool):
+            raise TypeError("Expected argument 'elastic_scale_enabled' to be a bool")
+        pulumi.set(__self__, "elastic_scale_enabled", elastic_scale_enabled)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if free_offer_expiration_time and not isinstance(free_offer_expiration_time, str):
             raise TypeError("Expected argument 'free_offer_expiration_time' to be a str")
         pulumi.set(__self__, "free_offer_expiration_time", free_offer_expiration_time)
@@ -65,6 +71,9 @@ class GetAppServicePlanResult:
         if number_of_sites and not isinstance(number_of_sites, int):
             raise TypeError("Expected argument 'number_of_sites' to be a int")
         pulumi.set(__self__, "number_of_sites", number_of_sites)
+        if number_of_workers and not isinstance(number_of_workers, int):
+            raise TypeError("Expected argument 'number_of_workers' to be a int")
+        pulumi.set(__self__, "number_of_workers", number_of_workers)
         if per_site_scaling and not isinstance(per_site_scaling, bool):
             raise TypeError("Expected argument 'per_site_scaling' to be a bool")
         pulumi.set(__self__, "per_site_scaling", per_site_scaling)
@@ -104,6 +113,25 @@ class GetAppServicePlanResult:
         if worker_tier_name and not isinstance(worker_tier_name, str):
             raise TypeError("Expected argument 'worker_tier_name' to be a str")
         pulumi.set(__self__, "worker_tier_name", worker_tier_name)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="elasticScaleEnabled")
+    def elastic_scale_enabled(self) -> Optional[bool]:
+        """
+        ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+        """
+        return pulumi.get(self, "elastic_scale_enabled")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="freeOfferExpirationTime")
@@ -218,6 +246,14 @@ class GetAppServicePlanResult:
         return pulumi.get(self, "number_of_sites")
 
     @property
+    @pulumi.getter(name="numberOfWorkers")
+    def number_of_workers(self) -> int:
+        """
+        The number of instances that are assigned to this App Service plan.
+        """
+        return pulumi.get(self, "number_of_workers")
+
+    @property
     @pulumi.getter(name="perSiteScaling")
     def per_site_scaling(self) -> Optional[bool]:
         """
@@ -322,6 +358,15 @@ class GetAppServicePlanResult:
         """
         return pulumi.get(self, "worker_tier_name")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        If <code>true</code>, this App Service Plan will perform availability zone balancing.
+        If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
     # pylint: disable=using-constant-test
@@ -329,6 +374,8 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
         if False:
             yield self
         return GetAppServicePlanResult(
+            elastic_scale_enabled=self.elastic_scale_enabled,
+            extended_location=self.extended_location,
             free_offer_expiration_time=self.free_offer_expiration_time,
             geo_region=self.geo_region,
             hosting_environment_profile=self.hosting_environment_profile,
@@ -343,6 +390,7 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             maximum_number_of_workers=self.maximum_number_of_workers,
             name=self.name,
             number_of_sites=self.number_of_sites,
+            number_of_workers=self.number_of_workers,
             per_site_scaling=self.per_site_scaling,
             provisioning_state=self.provisioning_state,
             reserved=self.reserved,
@@ -355,15 +403,16 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
             target_worker_count=self.target_worker_count,
             target_worker_size_id=self.target_worker_size_id,
             type=self.type,
-            worker_tier_name=self.worker_tier_name)
+            worker_tier_name=self.worker_tier_name,
+            zone_redundant=self.zone_redundant)
 
 
 def get_app_service_plan(name: Optional[str] = None,
                          resource_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServicePlanResult:
     """
-    Get an App Service plan.
-    API Version: 2020-12-01.
+    Description for Get an App Service plan.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service plan.
@@ -376,6 +425,8 @@ def get_app_service_plan(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getAppServicePlan', __args__, opts=opts, typ=GetAppServicePlanResult).value
 
     return AwaitableGetAppServicePlanResult(
+        elastic_scale_enabled=__ret__.elastic_scale_enabled,
+        extended_location=__ret__.extended_location,
         free_offer_expiration_time=__ret__.free_offer_expiration_time,
         geo_region=__ret__.geo_region,
         hosting_environment_profile=__ret__.hosting_environment_profile,
@@ -390,6 +441,7 @@ def get_app_service_plan(name: Optional[str] = None,
         maximum_number_of_workers=__ret__.maximum_number_of_workers,
         name=__ret__.name,
         number_of_sites=__ret__.number_of_sites,
+        number_of_workers=__ret__.number_of_workers,
         per_site_scaling=__ret__.per_site_scaling,
         provisioning_state=__ret__.provisioning_state,
         reserved=__ret__.reserved,
@@ -402,7 +454,8 @@ def get_app_service_plan(name: Optional[str] = None,
         target_worker_count=__ret__.target_worker_count,
         target_worker_size_id=__ret__.target_worker_size_id,
         type=__ret__.type,
-        worker_tier_name=__ret__.worker_tier_name)
+        worker_tier_name=__ret__.worker_tier_name,
+        zone_redundant=__ret__.zone_redundant)
 
 
 @_utilities.lift_output_func(get_app_service_plan)
@@ -410,8 +463,8 @@ def get_app_service_plan_output(name: Optional[pulumi.Input[str]] = None,
                                 resource_group_name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServicePlanResult]:
     """
-    Get an App Service plan.
-    API Version: 2020-12-01.
+    Description for Get an App Service plan.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service plan.

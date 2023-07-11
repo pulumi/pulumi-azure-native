@@ -6,120 +6,106 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'ConfigurationSource',
     'CreateMode',
-    'GeoRedundantBackup',
-    'IdentityType',
-    'InfrastructureEncryption',
-    'MinimalTlsVersionEnum',
-    'PublicNetworkAccessEnum',
-    'ServerKeyType',
+    'DataEncryptionType',
+    'EnableStatusEnum',
+    'HighAvailabilityMode',
+    'ManagedServiceIdentityType',
+    'PrivateEndpointServiceConnectionStatus',
+    'ReplicationRole',
     'ServerVersion',
     'SkuTier',
-    'SslEnforcementEnum',
-    'StorageAutogrow',
 ]
 
 
 class AdministratorType(str, Enum):
     """
-    The type of administrator.
+    Type of the sever administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
 
 
+class ConfigurationSource(str, Enum):
+    """
+    Source of the configuration.
+    """
+    SYSTEM_DEFAULT = "system-default"
+    USER_OVERRIDE = "user-override"
+
+
 class CreateMode(str, Enum):
     """
-    The mode to create a new server.
+    The mode to create a new MySQL server.
     """
     DEFAULT = "Default"
     POINT_IN_TIME_RESTORE = "PointInTimeRestore"
-    GEO_RESTORE = "GeoRestore"
     REPLICA = "Replica"
+    GEO_RESTORE = "GeoRestore"
 
 
-class GeoRedundantBackup(str, Enum):
+class DataEncryptionType(str, Enum):
     """
-    Enable Geo-redundant or not for server backup.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class IdentityType(str, Enum):
-    """
-    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class InfrastructureEncryption(str, Enum):
-    """
-    Status showing whether the server enabled infrastructure encryption.
-    """
-    ENABLED = "Enabled"
-    """
-    Default value for single layer of encryption for data at rest.
-    """
-    DISABLED = "Disabled"
-    """
-    Additional (2nd) layer of encryption for data at rest
-    """
-
-
-class MinimalTlsVersionEnum(str, Enum):
-    """
-    Enforce a minimal Tls version for the server.
-    """
-    TLS1_0 = "TLS1_0"
-    TLS1_1 = "TLS1_1"
-    TLS1_2 = "TLS1_2"
-    TLS_ENFORCEMENT_DISABLED = "TLSEnforcementDisabled"
-
-
-class PublicNetworkAccessEnum(str, Enum):
-    """
-    Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class ServerKeyType(str, Enum):
-    """
-    The key type like 'AzureKeyVault'.
+    The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.
     """
     AZURE_KEY_VAULT = "AzureKeyVault"
+    SYSTEM_MANAGED = "SystemManaged"
+
+
+class EnableStatusEnum(str, Enum):
+    """
+    Enable Log On Disk or not.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class HighAvailabilityMode(str, Enum):
+    """
+    High availability mode for a server.
+    """
+    DISABLED = "Disabled"
+    ZONE_REDUNDANT = "ZoneRedundant"
+    SAME_ZONE = "SameZone"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    USER_ASSIGNED = "UserAssigned"
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class ReplicationRole(str, Enum):
+    """
+    The replication role.
+    """
+    NONE = "None"
+    SOURCE = "Source"
+    REPLICA = "Replica"
 
 
 class ServerVersion(str, Enum):
     """
     Server version.
     """
-    SERVER_VERSION_5_6 = "5.6"
     SERVER_VERSION_5_7 = "5.7"
-    SERVER_VERSION_8_0 = "8.0"
+    SERVER_VERSION_8_0_21 = "8.0.21"
 
 
 class SkuTier(str, Enum):
     """
-    The tier of the particular SKU, e.g. Basic.
+    The tier of the particular SKU, e.g. GeneralPurpose.
     """
-    BASIC = "Basic"
+    BURSTABLE = "Burstable"
     GENERAL_PURPOSE = "GeneralPurpose"
     MEMORY_OPTIMIZED = "MemoryOptimized"
-
-
-class SslEnforcementEnum(str, Enum):
-    """
-    Enable ssl enforcement or not when connect to server.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class StorageAutogrow(str, Enum):
-    """
-    Enable Storage Auto Grow.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"

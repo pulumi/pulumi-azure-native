@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class ListNotificationHubKeysResult:
     """
-    Namespace/NotificationHub Connection String
+    Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
     """
     def __init__(__self__, key_name=None, primary_connection_string=None, primary_key=None, secondary_connection_string=None, secondary_key=None):
         if key_name and not isinstance(key_name, str):
@@ -40,41 +40,42 @@ class ListNotificationHubKeysResult:
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> Optional[str]:
+    def key_name(self) -> str:
         """
-        KeyName of the created AuthorizationRule
+        Gets or sets keyName of the created AuthorizationRule
         """
         return pulumi.get(self, "key_name")
 
     @property
     @pulumi.getter(name="primaryConnectionString")
-    def primary_connection_string(self) -> Optional[str]:
+    def primary_connection_string(self) -> str:
         """
-        PrimaryConnectionString of the AuthorizationRule.
+        Gets or sets primaryConnectionString of the AuthorizationRule.
         """
         return pulumi.get(self, "primary_connection_string")
 
     @property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> Optional[str]:
+    def primary_key(self) -> str:
         """
-        PrimaryKey of the created AuthorizationRule.
+        Gets or sets primaryKey of the created AuthorizationRule.
         """
         return pulumi.get(self, "primary_key")
 
     @property
     @pulumi.getter(name="secondaryConnectionString")
-    def secondary_connection_string(self) -> Optional[str]:
+    def secondary_connection_string(self) -> str:
         """
-        SecondaryConnectionString of the created AuthorizationRule
+        Gets or sets secondaryConnectionString of the created
+        AuthorizationRule
         """
         return pulumi.get(self, "secondary_connection_string")
 
     @property
     @pulumi.getter(name="secondaryKey")
-    def secondary_key(self) -> Optional[str]:
+    def secondary_key(self) -> str:
         """
-        SecondaryKey of the created AuthorizationRule
+        Gets or sets secondaryKey of the created AuthorizationRule
         """
         return pulumi.get(self, "secondary_key")
 
@@ -98,14 +99,14 @@ def list_notification_hub_keys(authorization_rule_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListNotificationHubKeysResult:
     """
-    Gets the Primary and Secondary ConnectionStrings to the NotificationHub
-    API Version: 2017-04-01.
+    Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+    Azure REST API version: 2023-01-01-preview.
 
 
-    :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.
-    :param str namespace_name: The namespace name.
-    :param str notification_hub_name: The notification hub name.
-    :param str resource_group_name: The name of the resource group.
+    :param str authorization_rule_name: Authorization Rule Name
+    :param str namespace_name: Namespace name
+    :param str notification_hub_name: Notification Hub name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
@@ -130,13 +131,13 @@ def list_notification_hub_keys_output(authorization_rule_name: Optional[pulumi.I
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListNotificationHubKeysResult]:
     """
-    Gets the Primary and Secondary ConnectionStrings to the NotificationHub
-    API Version: 2017-04-01.
+    Response for the POST request that returns Namespace or NotificationHub access keys (connection strings).
+    Azure REST API version: 2023-01-01-preview.
 
 
-    :param str authorization_rule_name: The connection string of the NotificationHub for the specified authorizationRule.
-    :param str namespace_name: The namespace name.
-    :param str notification_hub_name: The notification hub name.
-    :param str resource_group_name: The name of the resource group.
+    :param str authorization_rule_name: Authorization Rule Name
+    :param str namespace_name: Namespace name
+    :param str notification_hub_name: Notification Hub name
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

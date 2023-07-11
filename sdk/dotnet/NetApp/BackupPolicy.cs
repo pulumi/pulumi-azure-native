@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Backup policy information
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Backup Policy Resource ID
+        /// </summary>
+        [Output("backupPolicyId")]
+        public Output<string> BackupPolicyId { get; private set; } = null!;
+
         /// <summary>
         /// Daily backups count to keep
         /// </summary>
@@ -29,7 +35,13 @@ namespace Pulumi.AzureNative.NetApp
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// A unique read-only string that changes whenever the resource is updated.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -41,7 +53,7 @@ namespace Pulumi.AzureNative.NetApp
         public Output<int?> MonthlyBackupsToKeep { get; private set; } = null!;
 
         /// <summary>
-        /// Name of backup policy
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -53,13 +65,19 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -74,19 +92,13 @@ namespace Pulumi.AzureNative.NetApp
         /// Volumes using current backup policy
         /// </summary>
         [Output("volumesAssigned")]
-        public Output<int?> VolumesAssigned { get; private set; } = null!;
+        public Output<int> VolumesAssigned { get; private set; } = null!;
 
         /// <summary>
         /// Weekly backups count to keep
         /// </summary>
         [Output("weeklyBackupsToKeep")]
         public Output<int?> WeeklyBackupsToKeep { get; private set; } = null!;
-
-        /// <summary>
-        /// Yearly backups count to keep
-        /// </summary>
-        [Output("yearlyBackupsToKeep")]
-        public Output<int?> YearlyBackupsToKeep { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,6 +142,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:BackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:BackupPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:BackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +191,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -190,7 +203,7 @@ namespace Pulumi.AzureNative.NetApp
         public Input<int>? MonthlyBackupsToKeep { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -199,7 +212,7 @@ namespace Pulumi.AzureNative.NetApp
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -207,35 +220,11 @@ namespace Pulumi.AzureNative.NetApp
             set => _tags = value;
         }
 
-        [Input("volumeBackups")]
-        private InputList<Inputs.VolumeBackupsArgs>? _volumeBackups;
-
-        /// <summary>
-        /// A list of volumes assigned to this policy
-        /// </summary>
-        public InputList<Inputs.VolumeBackupsArgs> VolumeBackups
-        {
-            get => _volumeBackups ?? (_volumeBackups = new InputList<Inputs.VolumeBackupsArgs>());
-            set => _volumeBackups = value;
-        }
-
-        /// <summary>
-        /// Volumes using current backup policy
-        /// </summary>
-        [Input("volumesAssigned")]
-        public Input<int>? VolumesAssigned { get; set; }
-
         /// <summary>
         /// Weekly backups count to keep
         /// </summary>
         [Input("weeklyBackupsToKeep")]
         public Input<int>? WeeklyBackupsToKeep { get; set; }
-
-        /// <summary>
-        /// Yearly backups count to keep
-        /// </summary>
-        [Input("yearlyBackupsToKeep")]
-        public Input<int>? YearlyBackupsToKeep { get; set; }
 
         public BackupPolicyArgs()
         {

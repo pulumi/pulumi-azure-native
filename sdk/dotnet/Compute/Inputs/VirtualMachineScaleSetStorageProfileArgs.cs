@@ -19,12 +19,20 @@ namespace Pulumi.AzureNative.Compute.Inputs
         private InputList<Inputs.VirtualMachineScaleSetDataDiskArgs>? _dataDisks;
 
         /// <summary>
-        /// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public InputList<Inputs.VirtualMachineScaleSetDataDiskArgs> DataDisks
         {
             get => _dataDisks ?? (_dataDisks = new InputList<Inputs.VirtualMachineScaleSetDataDiskArgs>());
             set => _dataDisks = value;
+        }
+
+        [Input("diskControllerType")]
+        private InputList<Union<string, Pulumi.AzureNative.Compute.DiskControllerTypes>>? _diskControllerType;
+        public InputList<Union<string, Pulumi.AzureNative.Compute.DiskControllerTypes>> DiskControllerType
+        {
+            get => _diskControllerType ?? (_diskControllerType = new InputList<Union<string, Pulumi.AzureNative.Compute.DiskControllerTypes>>());
+            set => _diskControllerType = value;
         }
 
         /// <summary>
@@ -34,7 +42,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.ImageReferenceArgs>? ImageReference { get; set; }
 
         /// <summary>
-        /// Specifies information about the operating system disk used by the virtual machines in the scale set. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// Specifies information about the operating system disk used by the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         [Input("osDisk")]
         public Input<Inputs.VirtualMachineScaleSetOSDiskArgs>? OsDisk { get; set; }

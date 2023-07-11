@@ -10,12 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
-    /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
-    /// API Version: 2020-12-01.
+    /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        /// </summary>
+        [Output("additionalCapabilities")]
+        public Output<Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities?> AdditionalCapabilities { get; private set; } = null!;
+
         /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
@@ -47,7 +53,7 @@ namespace Pulumi.AzureNative.Compute
         public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         /// </summary>
         [Output("supportAutomaticPlacement")]
         public Output<bool?> SupportAutomaticPlacement { get; private set; } = null!;
@@ -132,6 +138,12 @@ namespace Pulumi.AzureNative.Compute
     public sealed class DedicatedHostGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        /// </summary>
+        [Input("additionalCapabilities")]
+        public Input<Inputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs>? AdditionalCapabilities { get; set; }
+
+        /// <summary>
         /// The name of the dedicated host group.
         /// </summary>
         [Input("hostGroupName")]
@@ -156,7 +168,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         /// </summary>
         [Input("supportAutomaticPlacement")]
         public Input<bool>? SupportAutomaticPlacement { get; set; }

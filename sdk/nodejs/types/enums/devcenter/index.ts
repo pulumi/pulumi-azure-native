@@ -2,16 +2,12 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20220801preview from "./v20220801preview";
-import * as v20220901preview from "./v20220901preview";
-import * as v20221012preview from "./v20221012preview";
 import * as v20221111preview from "./v20221111preview";
+import * as v20230401 from "./v20230401";
 
 export {
-    v20220801preview,
-    v20220901preview,
-    v20221012preview,
     v20221111preview,
+    v20230401,
 };
 
 export const DomainJoinType = {
@@ -24,15 +20,25 @@ export const DomainJoinType = {
  */
 export type DomainJoinType = (typeof DomainJoinType)[keyof typeof DomainJoinType];
 
-export const EnableStatus = {
+export const EnvironmentTypeEnableStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",
 } as const;
 
 /**
- * Indicates whether or not this scheduled task is enabled.
+ * Defines whether this Environment Type can be used in this Project.
  */
-export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
+export type EnvironmentTypeEnableStatus = (typeof EnvironmentTypeEnableStatus)[keyof typeof EnvironmentTypeEnableStatus];
+
+export const HibernateSupport = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+ */
+export type HibernateSupport = (typeof HibernateSupport)[keyof typeof HibernateSupport];
 
 export const LicenseType = {
     Windows_Client: "Windows_Client",
@@ -65,6 +71,16 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const ScheduleEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates whether or not this scheduled task is enabled.
+ */
+export type ScheduleEnableStatus = (typeof ScheduleEnableStatus)[keyof typeof ScheduleEnableStatus];
+
 export const ScheduledFrequency = {
     Daily: "Daily",
 } as const;
@@ -94,3 +110,13 @@ export const SkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const StopOnDisconnectEnableStatus = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+ */
+export type StopOnDisconnectEnableStatus = (typeof StopOnDisconnectEnableStatus)[keyof typeof StopOnDisconnectEnableStatus];

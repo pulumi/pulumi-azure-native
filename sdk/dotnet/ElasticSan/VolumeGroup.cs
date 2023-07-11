@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ElasticSan
 {
     /// <summary>
     /// Response for Volume Group request.
-    /// API Version: 2021-11-20-preview.
+    /// Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource

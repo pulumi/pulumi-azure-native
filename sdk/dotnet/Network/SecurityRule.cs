@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Network security rule.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityRule")]
     public partial class SecurityRule : global::Pulumi.CustomResource
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Network
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
         [Output("priority")]
-        public Output<int?> Priority { get; private set; } = null!;
+        public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.
@@ -199,6 +199,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:SecurityRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:SecurityRule"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:SecurityRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:SecurityRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:SecurityRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -309,8 +311,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        [Input("priority")]
-        public Input<int>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
         /// Network protocol this rule applies to.

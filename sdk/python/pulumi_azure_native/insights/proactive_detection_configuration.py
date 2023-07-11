@@ -21,9 +21,9 @@ class ProactiveDetectionConfigurationArgs:
                  configuration_id: Optional[pulumi.Input[str]] = None,
                  custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_definitions: Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs']] = None,
+                 rule_definitions: Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']] = None,
                  send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ProactiveDetectionConfiguration resource.
@@ -32,9 +32,9 @@ class ProactiveDetectionConfigurationArgs:
         :param pulumi.Input[str] configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: Custom email addresses for this rule notifications
         :param pulumi.Input[bool] enabled: A flag that indicates whether this rule is enabled by the user
-        :param pulumi.Input[str] last_updated_time: The last time this rule was updated
-        :param pulumi.Input[str] name: The rule name
-        :param pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs'] rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] name: Azure resource name
+        :param pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs'] rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
         :param pulumi.Input[bool] send_emails_to_subscription_owners: A flag that indicated whether notifications on this rule should be sent to subscription owners
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -45,8 +45,8 @@ class ProactiveDetectionConfigurationArgs:
             pulumi.set(__self__, "custom_emails", custom_emails)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if last_updated_time is not None:
-            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if rule_definitions is not None:
@@ -115,22 +115,22 @@ class ProactiveDetectionConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
     @property
-    @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
         """
-        The last time this rule was updated
+        Resource location
         """
-        return pulumi.get(self, "last_updated_time")
+        return pulumi.get(self, "location")
 
-    @last_updated_time.setter
-    def last_updated_time(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "last_updated_time", value)
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The rule name
+        Azure resource name
         """
         return pulumi.get(self, "name")
 
@@ -140,14 +140,14 @@ class ProactiveDetectionConfigurationArgs:
 
     @property
     @pulumi.getter(name="ruleDefinitions")
-    def rule_definitions(self) -> Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs']]:
+    def rule_definitions(self) -> Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']]:
         """
         Static definitions of the ProactiveDetection configuration rule (same values for all components).
         """
         return pulumi.get(self, "rule_definitions")
 
     @rule_definitions.setter
-    def rule_definitions(self, value: Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs']]):
+    def rule_definitions(self, value: Optional[pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']]):
         pulumi.set(self, "rule_definitions", value)
 
     @property
@@ -171,27 +171,27 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  configuration_id: Optional[pulumi.Input[str]] = None,
                  custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 rule_definitions: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs']]] = None,
+                 rule_definitions: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']]] = None,
                  send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Properties that define a ProactiveDetection configuration.
-        API Version: 2015-05-01.
+        A ProactiveDetection configuration definition.
+        Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_emails: Custom email addresses for this rule notifications
         :param pulumi.Input[bool] enabled: A flag that indicates whether this rule is enabled by the user
-        :param pulumi.Input[str] last_updated_time: The last time this rule was updated
-        :param pulumi.Input[str] name: The rule name
+        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] name: Azure resource name
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the Application Insights component resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs']] rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
+        :param pulumi.Input[pulumi.InputType['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']] rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
         :param pulumi.Input[bool] send_emails_to_subscription_owners: A flag that indicated whether notifications on this rule should be sent to subscription owners
         """
         ...
@@ -201,8 +201,8 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  args: ProactiveDetectionConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Properties that define a ProactiveDetection configuration.
-        API Version: 2015-05-01.
+        A ProactiveDetection configuration definition.
+        Azure REST API version: 2018-05-01-preview. Prior API version in Azure Native 1.x: 2015-05-01
 
         :param str resource_name: The name of the resource.
         :param ProactiveDetectionConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -222,11 +222,11 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  configuration_id: Optional[pulumi.Input[str]] = None,
                  custom_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 last_updated_time: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
-                 rule_definitions: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs']]] = None,
+                 rule_definitions: Optional[pulumi.Input[pulumi.InputType['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs']]] = None,
                  send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -240,7 +240,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["configuration_id"] = configuration_id
             __props__.__dict__["custom_emails"] = custom_emails
             __props__.__dict__["enabled"] = enabled
-            __props__.__dict__["last_updated_time"] = last_updated_time
+            __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -250,6 +250,8 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["rule_definitions"] = rule_definitions
             __props__.__dict__["send_emails_to_subscription_owners"] = send_emails_to_subscription_owners
+            __props__.__dict__["last_updated_time"] = None
+            __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20150501:ProactiveDetectionConfiguration"), pulumi.Alias(type_="azure-native:insights/v20180501preview:ProactiveDetectionConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProactiveDetectionConfiguration, __self__).__init__(
@@ -277,9 +279,11 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
         __props__.__dict__["custom_emails"] = None
         __props__.__dict__["enabled"] = None
         __props__.__dict__["last_updated_time"] = None
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rule_definitions"] = None
         __props__.__dict__["send_emails_to_subscription_owners"] = None
+        __props__.__dict__["type"] = None
         return ProactiveDetectionConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -300,7 +304,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lastUpdatedTime")
-    def last_updated_time(self) -> pulumi.Output[Optional[str]]:
+    def last_updated_time(self) -> pulumi.Output[str]:
         """
         The last time this rule was updated
         """
@@ -308,7 +312,15 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def location(self) -> pulumi.Output[Optional[str]]:
+        """
+        Resource location
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
         """
         The rule name
         """
@@ -316,7 +328,7 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ruleDefinitions")
-    def rule_definitions(self) -> pulumi.Output[Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationResponseRuleDefinitions']]:
+    def rule_definitions(self) -> pulumi.Output[Optional['outputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesResponseRuleDefinitions']]:
         """
         Static definitions of the ProactiveDetection configuration rule (same values for all components).
         """
@@ -329,4 +341,12 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
         A flag that indicated whether notifications on this rule should be sent to subscription owners
         """
         return pulumi.get(self, "send_emails_to_subscription_owners")
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Output[str]:
+        """
+        Azure resource type
+        """
+        return pulumi.get(self, "type")
 

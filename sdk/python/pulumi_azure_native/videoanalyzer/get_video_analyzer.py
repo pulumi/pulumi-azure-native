@@ -20,9 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetVideoAnalyzerResult:
     """
-    A Video Analyzer account.
+    The Video Analyzer account.
     """
-    def __init__(__self__, encryption=None, endpoints=None, id=None, identity=None, location=None, name=None, storage_accounts=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, endpoints=None, id=None, identity=None, iot_hubs=None, location=None, name=None, network_access_control=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, storage_accounts=None, system_data=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -35,12 +35,27 @@ class GetVideoAnalyzerResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if iot_hubs and not isinstance(iot_hubs, list):
+            raise TypeError("Expected argument 'iot_hubs' to be a list")
+        pulumi.set(__self__, "iot_hubs", iot_hubs)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_access_control and not isinstance(network_access_control, dict):
+            raise TypeError("Expected argument 'network_access_control' to be a dict")
+        pulumi.set(__self__, "network_access_control", network_access_control)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if storage_accounts and not isinstance(storage_accounts, list):
             raise TypeError("Expected argument 'storage_accounts' to be a list")
         pulumi.set(__self__, "storage_accounts", storage_accounts)
@@ -56,7 +71,7 @@ class GetVideoAnalyzerResult:
 
     @property
     @pulumi.getter
-    def encryption(self) -> 'outputs.AccountEncryptionResponse':
+    def encryption(self) -> Optional['outputs.AccountEncryptionResponse']:
         """
         The account encryption properties.
         """
@@ -66,7 +81,7 @@ class GetVideoAnalyzerResult:
     @pulumi.getter
     def endpoints(self) -> Sequence['outputs.EndpointResponse']:
         """
-        The list of endpoints associated with this resource.
+        The endpoints associated with this resource.
         """
         return pulumi.get(self, "endpoints")
 
@@ -82,9 +97,17 @@ class GetVideoAnalyzerResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.VideoAnalyzerIdentityResponse']:
         """
-        The set of managed identities associated with the Video Analyzer resource.
+        The identities associated to the Video Analyzer resource.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="iotHubs")
+    def iot_hubs(self) -> Optional[Sequence['outputs.IotHubResponse']]:
+        """
+        The IoT Hubs for this resource.
+        """
+        return pulumi.get(self, "iot_hubs")
 
     @property
     @pulumi.getter
@@ -103,6 +126,38 @@ class GetVideoAnalyzerResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkAccessControl")
+    def network_access_control(self) -> Optional['outputs.NetworkAccessControlResponse']:
+        """
+        Network access control for Video Analyzer.
+        """
+        return pulumi.get(self, "network_access_control")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        Private Endpoint Connections created under Video Analyzer account.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the Video Analyzer account.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Whether or not public network access is allowed for resources under the Video Analyzer account.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter(name="storageAccounts")
     def storage_accounts(self) -> Sequence['outputs.StorageAccountResponse']:
         """
@@ -114,7 +169,7 @@ class GetVideoAnalyzerResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system data of the Video Analyzer account.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -145,8 +200,13 @@ class AwaitableGetVideoAnalyzerResult(GetVideoAnalyzerResult):
             endpoints=self.endpoints,
             id=self.id,
             identity=self.identity,
+            iot_hubs=self.iot_hubs,
             location=self.location,
             name=self.name,
+            network_access_control=self.network_access_control,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             storage_accounts=self.storage_accounts,
             system_data=self.system_data,
             tags=self.tags,
@@ -158,7 +218,7 @@ def get_video_analyzer(account_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVideoAnalyzerResult:
     """
     Get the details of the specified Video Analyzer account
-    API Version: 2021-05-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.
@@ -175,8 +235,13 @@ def get_video_analyzer(account_name: Optional[str] = None,
         endpoints=__ret__.endpoints,
         id=__ret__.id,
         identity=__ret__.identity,
+        iot_hubs=__ret__.iot_hubs,
         location=__ret__.location,
         name=__ret__.name,
+        network_access_control=__ret__.network_access_control,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
+        provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         storage_accounts=__ret__.storage_accounts,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
@@ -189,7 +254,7 @@ def get_video_analyzer_output(account_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVideoAnalyzerResult]:
     """
     Get the details of the specified Video Analyzer account
-    API Version: 2021-05-01-preview.
+    Azure REST API version: 2021-11-01-preview.
 
 
     :param str account_name: The Video Analyzer account name.

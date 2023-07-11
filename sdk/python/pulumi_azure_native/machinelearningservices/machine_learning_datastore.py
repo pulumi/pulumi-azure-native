@@ -608,7 +608,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  __props__=None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
-        API Version: 2020-05-01-preview.
+        Azure REST API version: 2020-05-01-preview. Prior API version in Azure Native 1.x: 2020-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -655,7 +655,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
-        API Version: 2020-05-01-preview.
+        Azure REST API version: 2020-05-01-preview. Prior API version in Azure Native 1.x: 2020-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatastoreArgs args: The arguments to use to populate this resource's properties.
@@ -765,7 +765,7 @@ class MachineLearningDatastore(pulumi.CustomResource):
             __props__.__dict__["sku"] = None
             __props__.__dict__["tags"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:MachineLearningDatastore"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:MachineLearningDatastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineLearningDatastore, __self__).__init__(
             'azure-native:machinelearningservices:MachineLearningDatastore',

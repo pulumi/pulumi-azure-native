@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a LoadTest resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
 
@@ -22,7 +22,7 @@ export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetLoadTestArgs {
     /**
-     * Load Test resource name.
+     * Load Test name.
      */
     loadTestName: string;
     /**
@@ -44,13 +44,17 @@ export interface GetLoadTestResult {
      */
     readonly description?: string;
     /**
+     * CMK Encryption property.
+     */
+    readonly encryption?: outputs.loadtestservice.EncryptionPropertiesResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
      * The type of identity used for the resource.
      */
-    readonly identity?: outputs.loadtestservice.SystemAssignedServiceIdentityResponse;
+    readonly identity?: outputs.loadtestservice.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -78,7 +82,7 @@ export interface GetLoadTestResult {
 }
 /**
  * Get a LoadTest resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadTestResult> {
     return pulumi.output(args).apply((a: any) => getLoadTest(a, opts))
@@ -86,7 +90,7 @@ export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.Inv
 
 export interface GetLoadTestOutputArgs {
     /**
-     * Load Test resource name.
+     * Load Test name.
      */
     loadTestName: pulumi.Input<string>;
     /**

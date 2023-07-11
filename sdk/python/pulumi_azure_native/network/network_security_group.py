@@ -18,6 +18,7 @@ __all__ = ['NetworkSecurityGroupInitArgs', 'NetworkSecurityGroup']
 class NetworkSecurityGroupInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 flush_connection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class NetworkSecurityGroupInitArgs:
         """
         The set of arguments for constructing a NetworkSecurityGroup resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
@@ -33,6 +35,8 @@ class NetworkSecurityGroupInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if flush_connection is not None:
+            pulumi.set(__self__, "flush_connection", flush_connection)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -55,6 +59,18 @@ class NetworkSecurityGroupInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="flushConnection")
+    def flush_connection(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        return pulumi.get(self, "flush_connection")
+
+    @flush_connection.setter
+    def flush_connection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "flush_connection", value)
 
     @property
     @pulumi.getter
@@ -122,6 +138,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 flush_connection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -131,10 +148,11 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  __props__=None):
         """
         NetworkSecurityGroup resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
@@ -150,7 +168,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkSecurityGroup resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityGroupInitArgs args: The arguments to use to populate this resource's properties.
@@ -167,6 +185,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 flush_connection: Optional[pulumi.Input[bool]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_security_group_name: Optional[pulumi.Input[str]] = None,
@@ -182,6 +201,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkSecurityGroupInitArgs.__new__(NetworkSecurityGroupInitArgs)
 
+            __props__.__dict__["flush_connection"] = flush_connection
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["network_security_group_name"] = network_security_group_name
@@ -199,7 +219,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["subnets"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20150615:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20160330:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20160601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20160901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20161201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20171001:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20171101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20181001:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20181101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20181201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkSecurityGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20150615:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20160330:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20160601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20160901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20161201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20170901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20171001:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20171101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20180801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20181001:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20181101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20181201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20190901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20191201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200401:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200601:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20200801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20201101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210201:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210301:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20210801:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220501:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220701:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20220901:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkSecurityGroup"), pulumi.Alias(type_="azure-native:network/v20230201:NetworkSecurityGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityGroup, __self__).__init__(
             'azure-native:network:NetworkSecurityGroup',
@@ -226,6 +246,7 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         __props__.__dict__["default_security_rules"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["flow_logs"] = None
+        __props__.__dict__["flush_connection"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_interfaces"] = None
@@ -260,6 +281,14 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         A collection of references to flow log resources.
         """
         return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter(name="flushConnection")
+    def flush_connection(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        return pulumi.get(self, "flush_connection")
 
     @property
     @pulumi.getter

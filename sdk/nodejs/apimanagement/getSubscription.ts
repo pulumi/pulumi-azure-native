@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Subscription entity.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
 
@@ -20,7 +20,7 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
 
 export interface GetSubscriptionArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -58,11 +58,11 @@ export interface GetSubscriptionResult {
      */
     readonly expirationDate?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -98,13 +98,13 @@ export interface GetSubscriptionResult {
      */
     readonly stateComment?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the specified Subscription entity.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getSubscription(a, opts))
@@ -112,7 +112,7 @@ export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pu
 
 export interface GetSubscriptionOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A file resource
- * API Version: 2018-07-15-preview.
+ * Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview
  */
 export class File extends pulumi.CustomResource {
     /**
@@ -51,6 +51,10 @@ export class File extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.datamigration.ProjectFilePropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -82,11 +86,13 @@ export class File extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

@@ -11,21 +11,69 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ManagedServiceIdentityArgs',
     'PrimaryRegionPropertiesArgs',
     'ServiceRegionPropertiesArgs',
 ]
 
 @pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
 class PrimaryRegionPropertiesArgs:
     def __init__(__self__, *,
                  operator_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 allowed_media_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 allowed_signaling_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  esrp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The configuration used in this region as primary, and other regions as backup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] operator_addresses: IP address to use to contact the operator network from this region
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_media_source_address_prefixes: The allowed source IP address or CIDR ranges for media
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_signaling_source_address_prefixes: The allowed source IP address or CIDR ranges for signaling
         :param pulumi.Input[Sequence[pulumi.Input[str]]] esrp_addresses: IP address to use to contact the ESRP from this region
         """
         pulumi.set(__self__, "operator_addresses", operator_addresses)
+        if allowed_media_source_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
+        if allowed_signaling_source_address_prefixes is not None:
+            pulumi.set(__self__, "allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
         if esrp_addresses is not None:
             pulumi.set(__self__, "esrp_addresses", esrp_addresses)
 
@@ -40,6 +88,30 @@ class PrimaryRegionPropertiesArgs:
     @operator_addresses.setter
     def operator_addresses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "operator_addresses", value)
+
+    @property
+    @pulumi.getter(name="allowedMediaSourceAddressPrefixes")
+    def allowed_media_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed source IP address or CIDR ranges for media
+        """
+        return pulumi.get(self, "allowed_media_source_address_prefixes")
+
+    @allowed_media_source_address_prefixes.setter
+    def allowed_media_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_media_source_address_prefixes", value)
+
+    @property
+    @pulumi.getter(name="allowedSignalingSourceAddressPrefixes")
+    def allowed_signaling_source_address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The allowed source IP address or CIDR ranges for signaling
+        """
+        return pulumi.get(self, "allowed_signaling_source_address_prefixes")
+
+    @allowed_signaling_source_address_prefixes.setter
+    def allowed_signaling_source_address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_signaling_source_address_prefixes", value)
 
     @property
     @pulumi.getter(name="esrpAddresses")

@@ -144,12 +144,7 @@ class LongTermRetentionPolicyArgs:
         pulumi.set(self, "yearly_retention", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class LongTermRetentionPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -210,7 +205,6 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
                  weekly_retention: Optional[pulumi.Input[str]] = None,
                  yearly_retention: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""LongTermRetentionPolicy is deprecated: azure-native:sql/v20211101:LongTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:LongTermRetentionPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -235,7 +229,7 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["yearly_retention"] = yearly_retention
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:LongTermRetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20170301preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:LongTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:LongTermRetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LongTermRetentionPolicy, __self__).__init__(
             'azure-native:sql/v20211101:LongTermRetentionPolicy',

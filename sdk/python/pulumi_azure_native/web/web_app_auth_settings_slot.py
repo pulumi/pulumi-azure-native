@@ -65,7 +65,7 @@ class WebAppAuthSettingsSlotArgs:
         :param pulumi.Input[str] aad_claims_authorization: Gets a JSON string containing the Azure AD Acl settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JSON Web Tokens issued by 
                Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
                allowed audience, regardless of this setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -301,7 +301,7 @@ class WebAppAuthSettingsSlotArgs:
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Allowed audience values to consider when validating JWTs issued by 
+        Allowed audience values to consider when validating JSON Web Tokens issued by 
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """
@@ -843,14 +843,14 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aad_claims_authorization: Gets a JSON string containing the Azure AD Acl settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_login_params: Login parameters to send to the OpenID Connect authorization endpoint when
                a user logs in. Each parameter must be in the form "key=value".
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JWTs issued by 
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_audiences: Allowed audience values to consider when validating JSON Web Tokens issued by 
                Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
                allowed audience, regardless of this setting.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_external_redirect_urls: External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
@@ -950,7 +950,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsSlotArgs args: The arguments to use to populate this resource's properties.
@@ -1155,7 +1155,7 @@ class WebAppAuthSettingsSlot(pulumi.CustomResource):
     @pulumi.getter(name="allowedAudiences")
     def allowed_audiences(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Allowed audience values to consider when validating JWTs issued by 
+        Allowed audience values to consider when validating JSON Web Tokens issued by 
         Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
         allowed audience, regardless of this setting.
         """

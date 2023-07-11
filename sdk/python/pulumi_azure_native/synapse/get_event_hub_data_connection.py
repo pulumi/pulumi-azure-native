@@ -22,7 +22,7 @@ class GetEventHubDataConnectionResult:
     """
     Class representing an event hub data connection.
     """
-    def __init__(__self__, compression=None, consumer_group=None, data_format=None, event_hub_resource_id=None, event_system_properties=None, id=None, kind=None, location=None, mapping_rule_name=None, name=None, provisioning_state=None, system_data=None, table_name=None, type=None):
+    def __init__(__self__, compression=None, consumer_group=None, data_format=None, event_hub_resource_id=None, event_system_properties=None, id=None, kind=None, location=None, managed_identity_resource_id=None, mapping_rule_name=None, name=None, provisioning_state=None, system_data=None, table_name=None, type=None):
         if compression and not isinstance(compression, str):
             raise TypeError("Expected argument 'compression' to be a str")
         pulumi.set(__self__, "compression", compression)
@@ -47,6 +47,9 @@ class GetEventHubDataConnectionResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_identity_resource_id and not isinstance(managed_identity_resource_id, str):
+            raise TypeError("Expected argument 'managed_identity_resource_id' to be a str")
+        pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name and not isinstance(mapping_rule_name, str):
             raise TypeError("Expected argument 'mapping_rule_name' to be a str")
         pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
@@ -132,6 +135,14 @@ class GetEventHubDataConnectionResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedIdentityResourceId")
+    def managed_identity_resource_id(self) -> Optional[str]:
+        """
+        The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        """
+        return pulumi.get(self, "managed_identity_resource_id")
+
+    @property
     @pulumi.getter(name="mappingRuleName")
     def mapping_rule_name(self) -> Optional[str]:
         """
@@ -194,6 +205,7 @@ class AwaitableGetEventHubDataConnectionResult(GetEventHubDataConnectionResult):
             id=self.id,
             kind=self.kind,
             location=self.location,
+            managed_identity_resource_id=self.managed_identity_resource_id,
             mapping_rule_name=self.mapping_rule_name,
             name=self.name,
             provisioning_state=self.provisioning_state,
@@ -210,14 +222,14 @@ def get_event_hub_data_connection(data_connection_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventHubDataConnectionResult:
     """
     Returns a data connection.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['dataConnectionName'] = data_connection_name
@@ -237,6 +249,7 @@ def get_event_hub_data_connection(data_connection_name: Optional[str] = None,
         id=__ret__.id,
         kind=__ret__.kind,
         location=__ret__.location,
+        managed_identity_resource_id=__ret__.managed_identity_resource_id,
         mapping_rule_name=__ret__.mapping_rule_name,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
@@ -254,13 +267,13 @@ def get_event_hub_data_connection_output(data_connection_name: Optional[pulumi.I
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventHubDataConnectionResult]:
     """
     Returns a data connection.
-    API Version: 2021-04-01-preview.
+    Azure REST API version: 2021-06-01-preview.
 
 
     :param str data_connection_name: The name of the data connection.
     :param str database_name: The name of the database in the Kusto pool.
     :param str kusto_pool_name: The name of the Kusto pool.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

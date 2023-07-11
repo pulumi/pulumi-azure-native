@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a description for the specified topic.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
 
@@ -77,15 +77,23 @@ export interface GetTopicResult {
      */
     readonly enablePartitioning?: boolean;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
+     * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
+     */
+    readonly maxMessageSizeInKilobytes?: number;
     /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
     readonly maxSizeInMegabytes?: number;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -109,7 +117,11 @@ export interface GetTopicResult {
      */
     readonly supportOrdering?: boolean;
     /**
-     * Resource type
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.servicebus.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**
@@ -119,7 +131,7 @@ export interface GetTopicResult {
 }
 /**
  * Returns a description for the specified topic.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getTopicOutput(args: GetTopicOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTopicResult> {
     return pulumi.output(args).apply((a: any) => getTopic(a, opts))

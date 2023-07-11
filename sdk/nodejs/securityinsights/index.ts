@@ -60,6 +60,16 @@ export type BookmarkRelation = import("./bookmarkRelation").BookmarkRelation;
 export const BookmarkRelation: typeof import("./bookmarkRelation").BookmarkRelation = null as any;
 utilities.lazyLoad(exports, ["BookmarkRelation"], () => require("./bookmarkRelation"));
 
+export { ContentPackageArgs } from "./contentPackage";
+export type ContentPackage = import("./contentPackage").ContentPackage;
+export const ContentPackage: typeof import("./contentPackage").ContentPackage = null as any;
+utilities.lazyLoad(exports, ["ContentPackage"], () => require("./contentPackage"));
+
+export { ContentTemplateArgs } from "./contentTemplate";
+export type ContentTemplate = import("./contentTemplate").ContentTemplate;
+export const ContentTemplate: typeof import("./contentTemplate").ContentTemplate = null as any;
+utilities.lazyLoad(exports, ["ContentTemplate"], () => require("./contentTemplate"));
+
 export { EntityAnalyticsArgs } from "./entityAnalytics";
 export type EntityAnalytics = import("./entityAnalytics").EntityAnalytics;
 export const EntityAnalytics: typeof import("./entityAnalytics").EntityAnalytics = null as any;
@@ -69,6 +79,11 @@ export { EyesOnArgs } from "./eyesOn";
 export type EyesOn = import("./eyesOn").EyesOn;
 export const EyesOn: typeof import("./eyesOn").EyesOn = null as any;
 utilities.lazyLoad(exports, ["EyesOn"], () => require("./eyesOn"));
+
+export { FileImportArgs } from "./fileImport";
+export type FileImport = import("./fileImport").FileImport;
+export const FileImport: typeof import("./fileImport").FileImport = null as any;
+utilities.lazyLoad(exports, ["FileImport"], () => require("./fileImport"));
 
 export { FusionAlertRuleArgs } from "./fusionAlertRule";
 export type FusionAlertRule = import("./fusionAlertRule").FusionAlertRule;
@@ -130,6 +145,16 @@ export const getBookmarkRelation: typeof import("./getBookmarkRelation").getBook
 export const getBookmarkRelationOutput: typeof import("./getBookmarkRelation").getBookmarkRelationOutput = null as any;
 utilities.lazyLoad(exports, ["getBookmarkRelation","getBookmarkRelationOutput"], () => require("./getBookmarkRelation"));
 
+export { GetContentPackageArgs, GetContentPackageResult, GetContentPackageOutputArgs } from "./getContentPackage";
+export const getContentPackage: typeof import("./getContentPackage").getContentPackage = null as any;
+export const getContentPackageOutput: typeof import("./getContentPackage").getContentPackageOutput = null as any;
+utilities.lazyLoad(exports, ["getContentPackage","getContentPackageOutput"], () => require("./getContentPackage"));
+
+export { GetContentTemplateArgs, GetContentTemplateResult, GetContentTemplateOutputArgs } from "./getContentTemplate";
+export const getContentTemplate: typeof import("./getContentTemplate").getContentTemplate = null as any;
+export const getContentTemplateOutput: typeof import("./getContentTemplate").getContentTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getContentTemplate","getContentTemplateOutput"], () => require("./getContentTemplate"));
+
 export { GetEntitiesGetTimelineArgs, GetEntitiesGetTimelineResult, GetEntitiesGetTimelineOutputArgs } from "./getEntitiesGetTimeline";
 export const getEntitiesGetTimeline: typeof import("./getEntitiesGetTimeline").getEntitiesGetTimeline = null as any;
 export const getEntitiesGetTimelineOutput: typeof import("./getEntitiesGetTimeline").getEntitiesGetTimelineOutput = null as any;
@@ -150,10 +175,30 @@ export const getEyesOn: typeof import("./getEyesOn").getEyesOn = null as any;
 export const getEyesOnOutput: typeof import("./getEyesOn").getEyesOnOutput = null as any;
 utilities.lazyLoad(exports, ["getEyesOn","getEyesOnOutput"], () => require("./getEyesOn"));
 
+export { GetFileImportArgs, GetFileImportResult, GetFileImportOutputArgs } from "./getFileImport";
+export const getFileImport: typeof import("./getFileImport").getFileImport = null as any;
+export const getFileImportOutput: typeof import("./getFileImport").getFileImportOutput = null as any;
+utilities.lazyLoad(exports, ["getFileImport","getFileImportOutput"], () => require("./getFileImport"));
+
 export { GetFusionAlertRuleArgs, GetFusionAlertRuleResult, GetFusionAlertRuleOutputArgs } from "./getFusionAlertRule";
 export const getFusionAlertRule: typeof import("./getFusionAlertRule").getFusionAlertRule = null as any;
 export const getFusionAlertRuleOutput: typeof import("./getFusionAlertRule").getFusionAlertRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getFusionAlertRule","getFusionAlertRuleOutput"], () => require("./getFusionAlertRule"));
+
+export { GetHuntArgs, GetHuntResult, GetHuntOutputArgs } from "./getHunt";
+export const getHunt: typeof import("./getHunt").getHunt = null as any;
+export const getHuntOutput: typeof import("./getHunt").getHuntOutput = null as any;
+utilities.lazyLoad(exports, ["getHunt","getHuntOutput"], () => require("./getHunt"));
+
+export { GetHuntCommentArgs, GetHuntCommentResult, GetHuntCommentOutputArgs } from "./getHuntComment";
+export const getHuntComment: typeof import("./getHuntComment").getHuntComment = null as any;
+export const getHuntCommentOutput: typeof import("./getHuntComment").getHuntCommentOutput = null as any;
+utilities.lazyLoad(exports, ["getHuntComment","getHuntCommentOutput"], () => require("./getHuntComment"));
+
+export { GetHuntRelationArgs, GetHuntRelationResult, GetHuntRelationOutputArgs } from "./getHuntRelation";
+export const getHuntRelation: typeof import("./getHuntRelation").getHuntRelation = null as any;
+export const getHuntRelationOutput: typeof import("./getHuntRelation").getHuntRelationOutput = null as any;
+utilities.lazyLoad(exports, ["getHuntRelation","getHuntRelationOutput"], () => require("./getHuntRelation"));
 
 export { GetIncidentArgs, GetIncidentResult, GetIncidentOutputArgs } from "./getIncident";
 export const getIncident: typeof import("./getIncident").getIncident = null as any;
@@ -169,6 +214,11 @@ export { GetIncidentRelationArgs, GetIncidentRelationResult, GetIncidentRelation
 export const getIncidentRelation: typeof import("./getIncidentRelation").getIncidentRelation = null as any;
 export const getIncidentRelationOutput: typeof import("./getIncidentRelation").getIncidentRelationOutput = null as any;
 utilities.lazyLoad(exports, ["getIncidentRelation","getIncidentRelationOutput"], () => require("./getIncidentRelation"));
+
+export { GetIncidentTaskArgs, GetIncidentTaskResult, GetIncidentTaskOutputArgs } from "./getIncidentTask";
+export const getIncidentTask: typeof import("./getIncidentTask").getIncidentTask = null as any;
+export const getIncidentTaskOutput: typeof import("./getIncidentTask").getIncidentTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getIncidentTask","getIncidentTaskOutput"], () => require("./getIncidentTask"));
 
 export { GetMCASDataConnectorArgs, GetMCASDataConnectorResult, GetMCASDataConnectorOutputArgs } from "./getMCASDataConnector";
 export const getMCASDataConnector: typeof import("./getMCASDataConnector").getMCASDataConnector = null as any;
@@ -235,6 +285,41 @@ export const getWatchlistItem: typeof import("./getWatchlistItem").getWatchlistI
 export const getWatchlistItemOutput: typeof import("./getWatchlistItem").getWatchlistItemOutput = null as any;
 utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
 
+export { GetWorkspaceManagerAssignmentArgs, GetWorkspaceManagerAssignmentResult, GetWorkspaceManagerAssignmentOutputArgs } from "./getWorkspaceManagerAssignment";
+export const getWorkspaceManagerAssignment: typeof import("./getWorkspaceManagerAssignment").getWorkspaceManagerAssignment = null as any;
+export const getWorkspaceManagerAssignmentOutput: typeof import("./getWorkspaceManagerAssignment").getWorkspaceManagerAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceManagerAssignment","getWorkspaceManagerAssignmentOutput"], () => require("./getWorkspaceManagerAssignment"));
+
+export { GetWorkspaceManagerConfigurationArgs, GetWorkspaceManagerConfigurationResult, GetWorkspaceManagerConfigurationOutputArgs } from "./getWorkspaceManagerConfiguration";
+export const getWorkspaceManagerConfiguration: typeof import("./getWorkspaceManagerConfiguration").getWorkspaceManagerConfiguration = null as any;
+export const getWorkspaceManagerConfigurationOutput: typeof import("./getWorkspaceManagerConfiguration").getWorkspaceManagerConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceManagerConfiguration","getWorkspaceManagerConfigurationOutput"], () => require("./getWorkspaceManagerConfiguration"));
+
+export { GetWorkspaceManagerGroupArgs, GetWorkspaceManagerGroupResult, GetWorkspaceManagerGroupOutputArgs } from "./getWorkspaceManagerGroup";
+export const getWorkspaceManagerGroup: typeof import("./getWorkspaceManagerGroup").getWorkspaceManagerGroup = null as any;
+export const getWorkspaceManagerGroupOutput: typeof import("./getWorkspaceManagerGroup").getWorkspaceManagerGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceManagerGroup","getWorkspaceManagerGroupOutput"], () => require("./getWorkspaceManagerGroup"));
+
+export { GetWorkspaceManagerMemberArgs, GetWorkspaceManagerMemberResult, GetWorkspaceManagerMemberOutputArgs } from "./getWorkspaceManagerMember";
+export const getWorkspaceManagerMember: typeof import("./getWorkspaceManagerMember").getWorkspaceManagerMember = null as any;
+export const getWorkspaceManagerMemberOutput: typeof import("./getWorkspaceManagerMember").getWorkspaceManagerMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspaceManagerMember","getWorkspaceManagerMemberOutput"], () => require("./getWorkspaceManagerMember"));
+
+export { HuntArgs } from "./hunt";
+export type Hunt = import("./hunt").Hunt;
+export const Hunt: typeof import("./hunt").Hunt = null as any;
+utilities.lazyLoad(exports, ["Hunt"], () => require("./hunt"));
+
+export { HuntCommentArgs } from "./huntComment";
+export type HuntComment = import("./huntComment").HuntComment;
+export const HuntComment: typeof import("./huntComment").HuntComment = null as any;
+utilities.lazyLoad(exports, ["HuntComment"], () => require("./huntComment"));
+
+export { HuntRelationArgs } from "./huntRelation";
+export type HuntRelation = import("./huntRelation").HuntRelation;
+export const HuntRelation: typeof import("./huntRelation").HuntRelation = null as any;
+utilities.lazyLoad(exports, ["HuntRelation"], () => require("./huntRelation"));
+
 export { IncidentArgs } from "./incident";
 export type Incident = import("./incident").Incident;
 export const Incident: typeof import("./incident").Incident = null as any;
@@ -249,6 +334,11 @@ export { IncidentRelationArgs } from "./incidentRelation";
 export type IncidentRelation = import("./incidentRelation").IncidentRelation;
 export const IncidentRelation: typeof import("./incidentRelation").IncidentRelation = null as any;
 utilities.lazyLoad(exports, ["IncidentRelation"], () => require("./incidentRelation"));
+
+export { IncidentTaskArgs } from "./incidentTask";
+export type IncidentTask = import("./incidentTask").IncidentTask;
+export const IncidentTask: typeof import("./incidentTask").IncidentTask = null as any;
+utilities.lazyLoad(exports, ["IncidentTask"], () => require("./incidentTask"));
 
 export { ListSourceControlRepositoriesArgs, ListSourceControlRepositoriesResult, ListSourceControlRepositoriesOutputArgs } from "./listSourceControlRepositories";
 export const listSourceControlRepositories: typeof import("./listSourceControlRepositories").listSourceControlRepositories = null as any;
@@ -320,57 +410,75 @@ export type WatchlistItem = import("./watchlistItem").WatchlistItem;
 export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
 utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
 
+export { WorkspaceManagerAssignmentArgs } from "./workspaceManagerAssignment";
+export type WorkspaceManagerAssignment = import("./workspaceManagerAssignment").WorkspaceManagerAssignment;
+export const WorkspaceManagerAssignment: typeof import("./workspaceManagerAssignment").WorkspaceManagerAssignment = null as any;
+utilities.lazyLoad(exports, ["WorkspaceManagerAssignment"], () => require("./workspaceManagerAssignment"));
+
+export { WorkspaceManagerConfigurationArgs } from "./workspaceManagerConfiguration";
+export type WorkspaceManagerConfiguration = import("./workspaceManagerConfiguration").WorkspaceManagerConfiguration;
+export const WorkspaceManagerConfiguration: typeof import("./workspaceManagerConfiguration").WorkspaceManagerConfiguration = null as any;
+utilities.lazyLoad(exports, ["WorkspaceManagerConfiguration"], () => require("./workspaceManagerConfiguration"));
+
+export { WorkspaceManagerGroupArgs } from "./workspaceManagerGroup";
+export type WorkspaceManagerGroup = import("./workspaceManagerGroup").WorkspaceManagerGroup;
+export const WorkspaceManagerGroup: typeof import("./workspaceManagerGroup").WorkspaceManagerGroup = null as any;
+utilities.lazyLoad(exports, ["WorkspaceManagerGroup"], () => require("./workspaceManagerGroup"));
+
+export { WorkspaceManagerMemberArgs } from "./workspaceManagerMember";
+export type WorkspaceManagerMember = import("./workspaceManagerMember").WorkspaceManagerMember;
+export const WorkspaceManagerMember: typeof import("./workspaceManagerMember").WorkspaceManagerMember = null as any;
+utilities.lazyLoad(exports, ["WorkspaceManagerMember"], () => require("./workspaceManagerMember"));
+
 
 // Export enums:
 export * from "../types/enums/securityinsights";
 
 // Export sub-modules:
 import * as v20190101preview from "./v20190101preview";
-import * as v20200101 from "./v20200101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
 import * as v20210901preview from "./v20210901preview";
-import * as v20211001 from "./v20211001";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220601preview from "./v20220601preview";
 import * as v20220701preview from "./v20220701preview";
-import * as v20220801 from "./v20220801";
 import * as v20220801preview from "./v20220801preview";
 import * as v20220901preview from "./v20220901preview";
 import * as v20221001preview from "./v20221001preview";
-import * as v20221101 from "./v20221101";
 import * as v20221101preview from "./v20221101preview";
 import * as v20221201preview from "./v20221201preview";
 import * as v20230201 from "./v20230201";
 import * as v20230201preview from "./v20230201preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230401preview from "./v20230401preview";
+import * as v20230501preview from "./v20230501preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20190101preview,
-    v20200101,
     v20210301preview,
     v20210401,
     v20210901preview,
-    v20211001,
     v20211001preview,
     v20220101preview,
     v20220401preview,
     v20220501preview,
     v20220601preview,
     v20220701preview,
-    v20220801,
     v20220801preview,
     v20220901preview,
     v20221001preview,
-    v20221101,
     v20221101preview,
     v20221201preview,
     v20230201,
     v20230201preview,
+    v20230301preview,
     v20230401preview,
+    v20230501preview,
+    v20230601preview,
 };
 
 const _module = {
@@ -399,18 +507,32 @@ const _module = {
                 return new Bookmark(name, <any>undefined, { urn })
             case "azure-native:securityinsights:BookmarkRelation":
                 return new BookmarkRelation(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:ContentPackage":
+                return new ContentPackage(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:ContentTemplate":
+                return new ContentTemplate(name, <any>undefined, { urn })
             case "azure-native:securityinsights:EntityAnalytics":
                 return new EntityAnalytics(name, <any>undefined, { urn })
             case "azure-native:securityinsights:EyesOn":
                 return new EyesOn(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:FileImport":
+                return new FileImport(name, <any>undefined, { urn })
             case "azure-native:securityinsights:FusionAlertRule":
                 return new FusionAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:Hunt":
+                return new Hunt(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:HuntComment":
+                return new HuntComment(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:HuntRelation":
+                return new HuntRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Incident":
                 return new Incident(name, <any>undefined, { urn })
             case "azure-native:securityinsights:IncidentComment":
                 return new IncidentComment(name, <any>undefined, { urn })
             case "azure-native:securityinsights:IncidentRelation":
                 return new IncidentRelation(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:IncidentTask":
+                return new IncidentTask(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MCASDataConnector":
                 return new MCASDataConnector(name, <any>undefined, { urn })
             case "azure-native:securityinsights:MDATPDataConnector":
@@ -437,6 +559,14 @@ const _module = {
                 return new Watchlist(name, <any>undefined, { urn })
             case "azure-native:securityinsights:WatchlistItem":
                 return new WatchlistItem(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:WorkspaceManagerAssignment":
+                return new WorkspaceManagerAssignment(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:WorkspaceManagerConfiguration":
+                return new WorkspaceManagerConfiguration(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:WorkspaceManagerGroup":
+                return new WorkspaceManagerGroup(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:WorkspaceManagerMember":
+                return new WorkspaceManagerMember(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// VpnServerConfigurationPolicyGroup Resource.
-    /// API Version: 2022-01-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ConfigurationPolicyGroup")]
     public partial class ConfigurationPolicyGroup : global::Pulumi.CustomResource
@@ -94,6 +94,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ConfigurationPolicyGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ConfigurationPolicyGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConfigurationPolicyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConfigurationPolicyGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ConfigurationPolicyGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -14,7 +14,11 @@ from ._enums import *
 __all__ = [
     'AADBasedSecurityPrincipalResponse',
     'CertBasedSecurityPrincipalResponse',
+    'CertificateTagsResponse',
+    'DeploymentTypeResponse',
     'LedgerPropertiesResponse',
+    'ManagedCCFPropertiesResponse',
+    'MemberIdentityCertificateResponse',
     'SystemDataResponse',
 ]
 
@@ -139,6 +143,83 @@ class CertBasedSecurityPrincipalResponse(dict):
 
 
 @pulumi.output_type
+class CertificateTagsResponse(dict):
+    """
+    Tags for Managed CCF Certificates
+    """
+    def __init__(__self__, *,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Tags for Managed CCF Certificates
+        :param Mapping[str, str] tags: Additional tags for Managed CCF Certificates
+        """
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Additional tags for Managed CCF Certificates
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DeploymentTypeResponse(dict):
+    """
+    Object representing DeploymentType for Managed CCF.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appSourceUri":
+            suggest = "app_source_uri"
+        elif key == "languageRuntime":
+            suggest = "language_runtime"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentTypeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentTypeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentTypeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_source_uri: Optional[str] = None,
+                 language_runtime: Optional[str] = None):
+        """
+        Object representing DeploymentType for Managed CCF.
+        :param str app_source_uri: Source Uri containing ManagedCCF code
+        :param str language_runtime: Unique name for the Managed CCF.
+        """
+        if app_source_uri is not None:
+            pulumi.set(__self__, "app_source_uri", app_source_uri)
+        if language_runtime is not None:
+            pulumi.set(__self__, "language_runtime", language_runtime)
+
+    @property
+    @pulumi.getter(name="appSourceUri")
+    def app_source_uri(self) -> Optional[str]:
+        """
+        Source Uri containing ManagedCCF code
+        """
+        return pulumi.get(self, "app_source_uri")
+
+    @property
+    @pulumi.getter(name="languageRuntime")
+    def language_runtime(self) -> Optional[str]:
+        """
+        Unique name for the Managed CCF.
+        """
+        return pulumi.get(self, "language_runtime")
+
+
+@pulumi.output_type
 class LedgerPropertiesResponse(dict):
     """
     Additional Confidential Ledger properties.
@@ -160,8 +241,6 @@ class LedgerPropertiesResponse(dict):
             suggest = "aad_based_security_principals"
         elif key == "certBasedSecurityPrincipals":
             suggest = "cert_based_security_principals"
-        elif key == "ledgerStorageAccount":
-            suggest = "ledger_storage_account"
         elif key == "ledgerType":
             suggest = "ledger_type"
 
@@ -184,7 +263,6 @@ class LedgerPropertiesResponse(dict):
                  provisioning_state: str,
                  aad_based_security_principals: Optional[Sequence['outputs.AADBasedSecurityPrincipalResponse']] = None,
                  cert_based_security_principals: Optional[Sequence['outputs.CertBasedSecurityPrincipalResponse']] = None,
-                 ledger_storage_account: Optional[str] = None,
                  ledger_type: Optional[str] = None):
         """
         Additional Confidential Ledger properties.
@@ -195,7 +273,6 @@ class LedgerPropertiesResponse(dict):
         :param str provisioning_state: Provisioning state of Ledger Resource
         :param Sequence['AADBasedSecurityPrincipalResponse'] aad_based_security_principals: Array of all AAD based Security Principals.
         :param Sequence['CertBasedSecurityPrincipalResponse'] cert_based_security_principals: Array of all cert based Security Principals.
-        :param str ledger_storage_account: Name of the Blob Storage Account for saving ledger files
         :param str ledger_type: Type of Confidential Ledger
         """
         pulumi.set(__self__, "identity_service_uri", identity_service_uri)
@@ -207,8 +284,6 @@ class LedgerPropertiesResponse(dict):
             pulumi.set(__self__, "aad_based_security_principals", aad_based_security_principals)
         if cert_based_security_principals is not None:
             pulumi.set(__self__, "cert_based_security_principals", cert_based_security_principals)
-        if ledger_storage_account is not None:
-            pulumi.set(__self__, "ledger_storage_account", ledger_storage_account)
         if ledger_type is not None:
             pulumi.set(__self__, "ledger_type", ledger_type)
 
@@ -269,20 +344,175 @@ class LedgerPropertiesResponse(dict):
         return pulumi.get(self, "cert_based_security_principals")
 
     @property
-    @pulumi.getter(name="ledgerStorageAccount")
-    def ledger_storage_account(self) -> Optional[str]:
-        """
-        Name of the Blob Storage Account for saving ledger files
-        """
-        return pulumi.get(self, "ledger_storage_account")
-
-    @property
     @pulumi.getter(name="ledgerType")
     def ledger_type(self) -> Optional[str]:
         """
         Type of Confidential Ledger
         """
         return pulumi.get(self, "ledger_type")
+
+
+@pulumi.output_type
+class ManagedCCFPropertiesResponse(dict):
+    """
+    Additional Managed CCF properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appName":
+            suggest = "app_name"
+        elif key == "appUri":
+            suggest = "app_uri"
+        elif key == "identityServiceUri":
+            suggest = "identity_service_uri"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "memberIdentityCertificates":
+            suggest = "member_identity_certificates"
+        elif key == "nodeCount":
+            suggest = "node_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedCCFPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedCCFPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedCCFPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_name: str,
+                 app_uri: str,
+                 identity_service_uri: str,
+                 provisioning_state: str,
+                 deployment_type: Optional['outputs.DeploymentTypeResponse'] = None,
+                 member_identity_certificates: Optional[Sequence['outputs.MemberIdentityCertificateResponse']] = None,
+                 node_count: Optional[int] = None):
+        """
+        Additional Managed CCF properties.
+        :param str app_name: Unique name for the Managed CCF.
+        :param str app_uri: Endpoint for calling Managed CCF Service.
+        :param str identity_service_uri: Endpoint for accessing network identity.
+        :param str provisioning_state: Provisioning state of Ledger Resource
+        :param 'DeploymentTypeResponse' deployment_type: Deployment Type of Managed CCF
+        :param Sequence['MemberIdentityCertificateResponse'] member_identity_certificates: List of member identity certificates for  Managed CCF
+        :param int node_count: Number of CCF nodes in the Managed CCF.
+        """
+        pulumi.set(__self__, "app_name", app_name)
+        pulumi.set(__self__, "app_uri", app_uri)
+        pulumi.set(__self__, "identity_service_uri", identity_service_uri)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if deployment_type is not None:
+            pulumi.set(__self__, "deployment_type", deployment_type)
+        if member_identity_certificates is not None:
+            pulumi.set(__self__, "member_identity_certificates", member_identity_certificates)
+        if node_count is not None:
+            pulumi.set(__self__, "node_count", node_count)
+
+    @property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> str:
+        """
+        Unique name for the Managed CCF.
+        """
+        return pulumi.get(self, "app_name")
+
+    @property
+    @pulumi.getter(name="appUri")
+    def app_uri(self) -> str:
+        """
+        Endpoint for calling Managed CCF Service.
+        """
+        return pulumi.get(self, "app_uri")
+
+    @property
+    @pulumi.getter(name="identityServiceUri")
+    def identity_service_uri(self) -> str:
+        """
+        Endpoint for accessing network identity.
+        """
+        return pulumi.get(self, "identity_service_uri")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of Ledger Resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> Optional['outputs.DeploymentTypeResponse']:
+        """
+        Deployment Type of Managed CCF
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @property
+    @pulumi.getter(name="memberIdentityCertificates")
+    def member_identity_certificates(self) -> Optional[Sequence['outputs.MemberIdentityCertificateResponse']]:
+        """
+        List of member identity certificates for  Managed CCF
+        """
+        return pulumi.get(self, "member_identity_certificates")
+
+    @property
+    @pulumi.getter(name="nodeCount")
+    def node_count(self) -> Optional[int]:
+        """
+        Number of CCF nodes in the Managed CCF.
+        """
+        return pulumi.get(self, "node_count")
+
+
+@pulumi.output_type
+class MemberIdentityCertificateResponse(dict):
+    """
+    Object representing MemberIdentityCertificate for Managed CCF.
+    """
+    def __init__(__self__, *,
+                 certificate: Optional[str] = None,
+                 encryptionkey: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.CertificateTagsResponse']] = None):
+        """
+        Object representing MemberIdentityCertificate for Managed CCF.
+        :param str certificate: Member Identity Certificate
+        :param str encryptionkey: Member Identity Certificate Encryption Key
+        """
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if encryptionkey is not None:
+            pulumi.set(__self__, "encryptionkey", encryptionkey)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional[str]:
+        """
+        Member Identity Certificate
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter
+    def encryptionkey(self) -> Optional[str]:
+        """
+        Member Identity Certificate Encryption Key
+        """
+        return pulumi.get(self, "encryptionkey")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.CertificateTagsResponse']]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type

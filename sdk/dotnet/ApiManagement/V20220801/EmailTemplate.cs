@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Email Template details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:EmailTemplate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:EmailTemplate to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:EmailTemplate")]
     public partial class EmailTemplate : global::Pulumi.CustomResource
     {
@@ -103,6 +102,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:EmailTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:EmailTemplate"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:EmailTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:EmailTemplate"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:EmailTemplate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

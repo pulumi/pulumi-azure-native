@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetGalleryApplicationResult',
@@ -21,7 +22,10 @@ class GetGalleryApplicationResult:
     """
     Specifies information about the gallery Application Definition that you want to create or update.
     """
-    def __init__(__self__, description=None, end_of_life_date=None, eula=None, id=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, tags=None, type=None):
+    def __init__(__self__, custom_actions=None, description=None, end_of_life_date=None, eula=None, id=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, supported_os_type=None, tags=None, type=None):
+        if custom_actions and not isinstance(custom_actions, list):
+            raise TypeError("Expected argument 'custom_actions' to be a list")
+        pulumi.set(__self__, "custom_actions", custom_actions)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -55,6 +59,14 @@ class GetGalleryApplicationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="customActions")
+    def custom_actions(self) -> Optional[Sequence['outputs.GalleryApplicationCustomActionResponse']]:
+        """
+        A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+        """
+        return pulumi.get(self, "custom_actions")
 
     @property
     @pulumi.getter
@@ -151,6 +163,7 @@ class AwaitableGetGalleryApplicationResult(GetGalleryApplicationResult):
         if False:
             yield self
         return GetGalleryApplicationResult(
+            custom_actions=self.custom_actions,
             description=self.description,
             end_of_life_date=self.end_of_life_date,
             eula=self.eula,
@@ -170,7 +183,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryApplicationResult:
     """
     Retrieves information about a gallery Application Definition.
-    API Version: 2020-09-30.
+    Azure REST API version: 2022-03-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.
@@ -185,6 +198,7 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGalleryApplication', __args__, opts=opts, typ=GetGalleryApplicationResult).value
 
     return AwaitableGetGalleryApplicationResult(
+        custom_actions=__ret__.custom_actions,
         description=__ret__.description,
         end_of_life_date=__ret__.end_of_life_date,
         eula=__ret__.eula,
@@ -205,7 +219,7 @@ def get_gallery_application_output(gallery_application_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryApplicationResult]:
     """
     Retrieves information about a gallery Application Definition.
-    API Version: 2020-09-30.
+    Azure REST API version: 2022-03-03.
 
 
     :param str gallery_application_name: The name of the gallery Application Definition to be retrieved.

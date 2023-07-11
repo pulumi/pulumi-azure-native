@@ -32,7 +32,7 @@ class AvailabilitySetArgs:
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[int] platform_update_domain_count: Update Domain count.
-        :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        :param pulumi.Input['SubResourceArgs'] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input['SkuArgs'] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] virtual_machines: A list of references to all virtual machines in the availability set.
@@ -119,7 +119,7 @@ class AvailabilitySetArgs:
     @pulumi.getter(name="proximityPlacementGroup")
     def proximity_placement_group(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
-        Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 
@@ -180,8 +180,8 @@ class AvailabilitySet(pulumi.CustomResource):
                  virtual_machines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  __props__=None):
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-        API Version: 2020-12-01.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,7 +189,7 @@ class AvailabilitySet(pulumi.CustomResource):
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain_count: Fault Domain count.
         :param pulumi.Input[int] platform_update_domain_count: Update Domain count.
-        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        :param pulumi.Input[pulumi.InputType['SubResourceArgs']] proximity_placement_group: Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -202,8 +202,8 @@ class AvailabilitySet(pulumi.CustomResource):
                  args: AvailabilitySetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-        API Version: 2020-12-01.
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.
@@ -324,7 +324,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @pulumi.getter(name="proximityPlacementGroup")
     def proximity_placement_group(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
         """
-        Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
         """
         return pulumi.get(self, "proximity_placement_group")
 

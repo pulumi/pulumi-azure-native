@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets information about a server.
  */
-/** @deprecated azure-native:dbforpostgresql/v20221201:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Server to guarantee forwards compatibility. */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
-    pulumi.log.warn("getServer is deprecated: azure-native:dbforpostgresql/v20221201:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Server to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20221201:getServer", {
@@ -89,13 +87,13 @@ export interface GetServerResult {
      */
     readonly name: string;
     /**
-     * Network properties of a server.
+     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
      */
     readonly network?: outputs.dbforpostgresql.v20221201.NetworkResponse;
     /**
      * Replicas allowed for a server.
      */
-    readonly replicaCapacity?: number;
+    readonly replicaCapacity: number;
     /**
      * Replication role of the server
      */
@@ -104,6 +102,10 @@ export interface GetServerResult {
      * The SKU (pricing tier) of the server.
      */
     readonly sku?: outputs.dbforpostgresql.v20221201.SkuResponse;
+    /**
+     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+     */
+    readonly sourceServerResourceId?: string;
     /**
      * A state of a server that is visible to user.
      */
@@ -132,7 +134,6 @@ export interface GetServerResult {
 /**
  * Gets information about a server.
  */
-/** @deprecated azure-native:dbforpostgresql/v20221201:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Server to guarantee forwards compatibility. */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))
 }

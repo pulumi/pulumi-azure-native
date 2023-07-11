@@ -10,23 +10,26 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
+    /// <summary>
+    /// Details about the pod identity assigned to the Managed Cluster.
+    /// </summary>
     [OutputType]
     public sealed class ManagedClusterPodIdentityResponse
     {
         /// <summary>
-        /// Binding selector to use for the AzureIdentityBinding resource.
+        /// The binding selector to use for the AzureIdentityBinding resource.
         /// </summary>
         public readonly string? BindingSelector;
         /// <summary>
-        /// Information of the user assigned identity.
+        /// The user assigned identity details.
         /// </summary>
         public readonly Outputs.UserAssignedIdentityResponse Identity;
         /// <summary>
-        /// Name of the pod identity.
+        /// The name of the pod identity.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Namespace of the pod identity.
+        /// The namespace of the pod identity.
         /// </summary>
         public readonly string Namespace;
         public readonly Outputs.ManagedClusterPodIdentityResponseProvisioningInfo ProvisioningInfo;

@@ -41,6 +41,37 @@ namespace Pulumi.AzureNative.HybridConnectivity
     }
 
     /// <summary>
+    /// The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceName : IEquatable<ServiceName>
+    {
+        private readonly string _value;
+
+        private ServiceName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceName SSH { get; } = new ServiceName("SSH");
+        public static ServiceName WAC { get; } = new ServiceName("WAC");
+
+        public static bool operator ==(ServiceName left, ServiceName right) => left.Equals(right);
+        public static bool operator !=(ServiceName left, ServiceName right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceName other && Equals(other);
+        public bool Equals(ServiceName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of endpoint.
     /// </summary>
     [EnumType]

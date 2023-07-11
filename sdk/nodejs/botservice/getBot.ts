@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a BotService specified by the parameters.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-09-15.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
 
@@ -36,7 +36,7 @@ export interface GetBotArgs {
  */
 export interface GetBotResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -78,7 +78,7 @@ export interface GetBotResult {
 }
 /**
  * Returns a BotService specified by the parameters.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-09-15.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))

@@ -19,8 +19,10 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
                  resource_group_name: pulumi.Input[str],
                  vm_name: pulumi.Input[str],
                  async_execution: Optional[pulumi.Input[bool]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]]] = None,
                  protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]]] = None,
@@ -29,15 +31,18 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
                  run_command_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input['VirtualMachineRunCommandScriptSourceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+                 timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 treat_failure_as_deployment_failure: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualMachineRunCommandByVirtualMachine resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] vm_name: The name of the virtual machine where the run command should be created or updated.
         :param pulumi.Input[bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
-        :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded.
+        :param pulumi.Input['RunCommandManagedIdentityArgs'] error_blob_managed_identity: User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded.
+        :param pulumi.Input['RunCommandManagedIdentityArgs'] output_blob_managed_identity: User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
         :param pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]] parameters: The parameters used by the script.
         :param pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]] protected_parameters: The parameters used by the script.
         :param pulumi.Input[str] run_as_password: Specifies the user account password on the VM when executing the run command.
@@ -46,6 +51,7 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         :param pulumi.Input['VirtualMachineRunCommandScriptSourceArgs'] source: The source of the run command script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
+        :param pulumi.Input[bool] treat_failure_as_deployment_failure: Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_name", vm_name)
@@ -53,10 +59,14 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
             async_execution = False
         if async_execution is not None:
             pulumi.set(__self__, "async_execution", async_execution)
+        if error_blob_managed_identity is not None:
+            pulumi.set(__self__, "error_blob_managed_identity", error_blob_managed_identity)
         if error_blob_uri is not None:
             pulumi.set(__self__, "error_blob_uri", error_blob_uri)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if output_blob_managed_identity is not None:
+            pulumi.set(__self__, "output_blob_managed_identity", output_blob_managed_identity)
         if output_blob_uri is not None:
             pulumi.set(__self__, "output_blob_uri", output_blob_uri)
         if parameters is not None:
@@ -75,6 +85,10 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
             pulumi.set(__self__, "tags", tags)
         if timeout_in_seconds is not None:
             pulumi.set(__self__, "timeout_in_seconds", timeout_in_seconds)
+        if treat_failure_as_deployment_failure is None:
+            treat_failure_as_deployment_failure = False
+        if treat_failure_as_deployment_failure is not None:
+            pulumi.set(__self__, "treat_failure_as_deployment_failure", treat_failure_as_deployment_failure)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -113,10 +127,22 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         pulumi.set(self, "async_execution", value)
 
     @property
+    @pulumi.getter(name="errorBlobManagedIdentity")
+    def error_blob_managed_identity(self) -> Optional[pulumi.Input['RunCommandManagedIdentityArgs']]:
+        """
+        User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        """
+        return pulumi.get(self, "error_blob_managed_identity")
+
+    @error_blob_managed_identity.setter
+    def error_blob_managed_identity(self, value: Optional[pulumi.Input['RunCommandManagedIdentityArgs']]):
+        pulumi.set(self, "error_blob_managed_identity", value)
+
+    @property
     @pulumi.getter(name="errorBlobUri")
     def error_blob_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Azure storage blob where script error stream will be uploaded.
+        Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
         """
         return pulumi.get(self, "error_blob_uri")
 
@@ -137,10 +163,22 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="outputBlobManagedIdentity")
+    def output_blob_managed_identity(self) -> Optional[pulumi.Input['RunCommandManagedIdentityArgs']]:
+        """
+        User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        """
+        return pulumi.get(self, "output_blob_managed_identity")
+
+    @output_blob_managed_identity.setter
+    def output_blob_managed_identity(self, value: Optional[pulumi.Input['RunCommandManagedIdentityArgs']]):
+        pulumi.set(self, "output_blob_managed_identity", value)
+
+    @property
     @pulumi.getter(name="outputBlobUri")
     def output_blob_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the Azure storage blob where script output stream will be uploaded.
+        Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
         """
         return pulumi.get(self, "output_blob_uri")
 
@@ -244,6 +282,18 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
     def timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout_in_seconds", value)
 
+    @property
+    @pulumi.getter(name="treatFailureAsDeploymentFailure")
+    def treat_failure_as_deployment_failure(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+        """
+        return pulumi.get(self, "treat_failure_as_deployment_failure")
+
+    @treat_failure_as_deployment_failure.setter
+    def treat_failure_as_deployment_failure(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "treat_failure_as_deployment_failure", value)
+
 
 class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
     @overload
@@ -251,8 +301,10 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_execution: Optional[pulumi.Input[bool]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
                  protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
@@ -263,18 +315,21 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['VirtualMachineRunCommandScriptSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 treat_failure_as_deployment_failure: Optional[pulumi.Input[bool]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Describes a Virtual Machine run command.
-        API Version: 2021-03-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
-        :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded.
+        :param pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']] error_blob_managed_identity: User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        :param pulumi.Input[str] error_blob_uri: Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded.
+        :param pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']] output_blob_managed_identity: User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        :param pulumi.Input[str] output_blob_uri: Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]] parameters: The parameters used by the script.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]] protected_parameters: The parameters used by the script.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -284,6 +339,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['VirtualMachineRunCommandScriptSourceArgs']] source: The source of the run command script.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout_in_seconds: The timeout in seconds to execute the run command.
+        :param pulumi.Input[bool] treat_failure_as_deployment_failure: Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
         :param pulumi.Input[str] vm_name: The name of the virtual machine where the run command should be created or updated.
         """
         ...
@@ -294,7 +350,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine run command.
-        API Version: 2021-03-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineRunCommandByVirtualMachineArgs args: The arguments to use to populate this resource's properties.
@@ -312,8 +368,10 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  async_execution: Optional[pulumi.Input[bool]] = None,
+                 error_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
                  error_blob_uri: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 output_blob_managed_identity: Optional[pulumi.Input[pulumi.InputType['RunCommandManagedIdentityArgs']]] = None,
                  output_blob_uri: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
                  protected_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RunCommandInputParameterArgs']]]]] = None,
@@ -324,6 +382,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  source: Optional[pulumi.Input[pulumi.InputType['VirtualMachineRunCommandScriptSourceArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+                 treat_failure_as_deployment_failure: Optional[pulumi.Input[bool]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -337,8 +396,10 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             if async_execution is None:
                 async_execution = False
             __props__.__dict__["async_execution"] = async_execution
+            __props__.__dict__["error_blob_managed_identity"] = error_blob_managed_identity
             __props__.__dict__["error_blob_uri"] = error_blob_uri
             __props__.__dict__["location"] = location
+            __props__.__dict__["output_blob_managed_identity"] = output_blob_managed_identity
             __props__.__dict__["output_blob_uri"] = output_blob_uri
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["protected_parameters"] = protected_parameters
@@ -351,6 +412,9 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeout_in_seconds"] = timeout_in_seconds
+            if treat_failure_as_deployment_failure is None:
+                treat_failure_as_deployment_failure = False
+            __props__.__dict__["treat_failure_as_deployment_failure"] = treat_failure_as_deployment_failure
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
@@ -383,10 +447,12 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         __props__ = VirtualMachineRunCommandByVirtualMachineArgs.__new__(VirtualMachineRunCommandByVirtualMachineArgs)
 
         __props__.__dict__["async_execution"] = None
+        __props__.__dict__["error_blob_managed_identity"] = None
         __props__.__dict__["error_blob_uri"] = None
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["output_blob_managed_identity"] = None
         __props__.__dict__["output_blob_uri"] = None
         __props__.__dict__["parameters"] = None
         __props__.__dict__["protected_parameters"] = None
@@ -396,6 +462,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         __props__.__dict__["source"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout_in_seconds"] = None
+        __props__.__dict__["treat_failure_as_deployment_failure"] = None
         __props__.__dict__["type"] = None
         return VirtualMachineRunCommandByVirtualMachine(resource_name, opts=opts, __props__=__props__)
 
@@ -408,10 +475,18 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "async_execution")
 
     @property
+    @pulumi.getter(name="errorBlobManagedIdentity")
+    def error_blob_managed_identity(self) -> pulumi.Output[Optional['outputs.RunCommandManagedIdentityResponse']]:
+        """
+        User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        """
+        return pulumi.get(self, "error_blob_managed_identity")
+
+    @property
     @pulumi.getter(name="errorBlobUri")
     def error_blob_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Azure storage blob where script error stream will be uploaded.
+        Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
         """
         return pulumi.get(self, "error_blob_uri")
 
@@ -440,10 +515,18 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="outputBlobManagedIdentity")
+    def output_blob_managed_identity(self) -> pulumi.Output[Optional['outputs.RunCommandManagedIdentityResponse']]:
+        """
+        User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+        """
+        return pulumi.get(self, "output_blob_managed_identity")
+
+    @property
     @pulumi.getter(name="outputBlobUri")
     def output_blob_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the Azure storage blob where script output stream will be uploaded.
+        Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
         """
         return pulumi.get(self, "output_blob_uri")
 
@@ -467,7 +550,7 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state, which only appears in the response.
+        The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -510,6 +593,14 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         The timeout in seconds to execute the run command.
         """
         return pulumi.get(self, "timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="treatFailureAsDeploymentFailure")
+    def treat_failure_as_deployment_failure(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+        """
+        return pulumi.get(self, "treat_failure_as_deployment_failure")
 
     @property
     @pulumi.getter

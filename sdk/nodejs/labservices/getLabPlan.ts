@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the properties of a Lab Plan.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2022-08-01.
  */
 export function getLabPlan(args: GetLabPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetLabPlanResult> {
 
@@ -56,6 +56,10 @@ export interface GetLabPlanResult {
      */
     readonly id: string;
     /**
+     * Managed Identity Information
+     */
+    readonly identity?: outputs.labservices.IdentityResponse;
+    /**
      * Base Url of the lms instance this lab plan can link lab rosters against.
      */
     readonly linkedLmsInstance?: string;
@@ -94,7 +98,7 @@ export interface GetLabPlanResult {
 }
 /**
  * Retrieves the properties of a Lab Plan.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2022-08-01.
  */
 export function getLabPlanOutput(args: GetLabPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabPlanResult> {
     return pulumi.output(args).apply((a: any) => getLabPlan(a, opts))

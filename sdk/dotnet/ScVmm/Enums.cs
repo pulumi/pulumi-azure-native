@@ -101,6 +101,37 @@ namespace Pulumi.AzureNative.ScVmm
     }
 
     /// <summary>
+    /// The type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType None { get; } = new IdentityType("None");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// They inventory type.
     /// </summary>
     [EnumType]
@@ -157,6 +188,38 @@ namespace Pulumi.AzureNative.ScVmm
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LimitCpuForMigration other && Equals(other);
         public bool Equals(LimitCpuForMigration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the guest agent provisioning action.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProvisioningAction : IEquatable<ProvisioningAction>
+    {
+        private readonly string _value;
+
+        private ProvisioningAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
+        public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
+        public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
+
+        public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);
+        public static bool operator !=(ProvisioningAction left, ProvisioningAction right) => !left.Equals(right);
+
+        public static explicit operator string(ProvisioningAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProvisioningAction other && Equals(other);
+        public bool Equals(ProvisioningAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

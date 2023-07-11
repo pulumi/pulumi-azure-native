@@ -95,12 +95,7 @@ class ManagedInstancePrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,7 +146,6 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagedInstancePrivateEndpointConnection is deprecated: azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -172,7 +166,7 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstancePrivateEndpointConnection, __self__).__init__(
             'azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection',

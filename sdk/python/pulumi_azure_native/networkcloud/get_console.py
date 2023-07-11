@@ -110,7 +110,7 @@ class GetConsoleResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -216,7 +216,7 @@ def get_console(console_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConsoleResult:
     """
     Get properties of the provided virtual machine console.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str console_name: The name of the virtual machine console.
@@ -255,7 +255,7 @@ def get_console_output(console_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsoleResult]:
     """
     Get properties of the provided virtual machine console.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str console_name: The name of the virtual machine console.

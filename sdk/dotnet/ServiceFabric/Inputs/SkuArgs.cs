@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
 {
 
     /// <summary>
-    /// Sku definition
+    /// Service Fabric managed cluster Sku definition
     /// </summary>
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ServiceFabric.Inputs
         /// Sku Name.
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.ServiceFabric.SkuName> Name { get; set; } = null!;
 
         public SkuArgs()
         {

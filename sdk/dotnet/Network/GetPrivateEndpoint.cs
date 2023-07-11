@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified private endpoint by resource group.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:network:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified private endpoint by resource group.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:network:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -84,9 +84,17 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetPrivateEndpointResult
     {
         /// <summary>
+        /// Application security groups in which the private endpoint IP configuration is included.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponse> ApplicationSecurityGroups;
+        /// <summary>
         /// An array of custom dns configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse> CustomDnsConfigs;
+        /// <summary>
+        /// The custom name of the network interface attached to the private endpoint.
+        /// </summary>
+        public readonly string? CustomNetworkInterfaceName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -99,6 +107,10 @@ namespace Pulumi.AzureNative.Network
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointIPConfigurationResponse> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -138,13 +150,19 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetPrivateEndpointResult(
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponse> applicationSecurityGroups,
+
             ImmutableArray<Outputs.CustomDnsConfigPropertiesFormatResponse> customDnsConfigs,
+
+            string? customNetworkInterfaceName,
 
             string etag,
 
             Outputs.ExtendedLocationResponse? extendedLocation,
 
             string? id,
+
+            ImmutableArray<Outputs.PrivateEndpointIPConfigurationResponse> ipConfigurations,
 
             string? location,
 
@@ -164,10 +182,13 @@ namespace Pulumi.AzureNative.Network
 
             string type)
         {
+            ApplicationSecurityGroups = applicationSecurityGroups;
             CustomDnsConfigs = customDnsConfigs;
+            CustomNetworkInterfaceName = customNetworkInterfaceName;
             Etag = etag;
             ExtendedLocation = extendedLocation;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Location = location;
             ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;
             Name = name;

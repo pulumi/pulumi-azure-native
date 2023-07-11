@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Description of subscription resource.
-    /// API Version: 2017-04-01.
+    /// Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Output("autoDeleteOnIdle")]
         public Output<string?> AutoDeleteOnIdle { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties specific to client affine subscriptions.
+        /// </summary>
+        [Output("clientAffineProperties")]
+        public Output<Outputs.SBClientAffinePropertiesResponse?> ClientAffineProperties { get; private set; } = null!;
 
         /// <summary>
         /// Message count details
@@ -83,6 +89,18 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string?> ForwardTo { get; private set; } = null!;
 
         /// <summary>
+        /// Value that indicates whether the subscription has an affinity to the client id.
+        /// </summary>
+        [Output("isClientAffine")]
+        public Output<bool?> IsClientAffine { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
         /// </summary>
         [Output("lockDuration")]
@@ -101,7 +119,7 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<double> MessageCount { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -119,7 +137,13 @@ namespace Pulumi.AzureNative.ServiceBus
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -194,6 +218,12 @@ namespace Pulumi.AzureNative.ServiceBus
         public Input<string>? AutoDeleteOnIdle { get; set; }
 
         /// <summary>
+        /// Properties specific to client affine subscriptions.
+        /// </summary>
+        [Input("clientAffineProperties")]
+        public Input<Inputs.SBClientAffinePropertiesArgs>? ClientAffineProperties { get; set; }
+
+        /// <summary>
         /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
         /// </summary>
         [Input("deadLetteringOnFilterEvaluationExceptions")]
@@ -234,6 +264,12 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         [Input("forwardTo")]
         public Input<string>? ForwardTo { get; set; }
+
+        /// <summary>
+        /// Value that indicates whether the subscription has an affinity to the client id.
+        /// </summary>
+        [Input("isClientAffine")]
+        public Input<bool>? IsClientAffine { get; set; }
 
         /// <summary>
         /// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.

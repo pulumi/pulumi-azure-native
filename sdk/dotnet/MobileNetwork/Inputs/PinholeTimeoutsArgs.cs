@@ -16,19 +16,19 @@ namespace Pulumi.AzureNative.MobileNetwork.Inputs
     public sealed class PinholeTimeoutsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.
+        /// Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.
         /// </summary>
         [Input("icmp")]
         public Input<int>? Icmp { get; set; }
 
         /// <summary>
-        /// Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes, as per RFC 5382 section 5.
+        /// Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
         /// </summary>
         [Input("tcp")]
         public Input<int>? Tcp { get; set; }
 
         /// <summary>
-        /// Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes, as per RFC 4787 section 4.3.
+        /// Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
         /// </summary>
         [Input("udp")]
         public Input<int>? Udp { get; set; }

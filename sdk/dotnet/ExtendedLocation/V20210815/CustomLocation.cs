@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210815
     /// <summary>
     /// Custom Locations definition.
     /// </summary>
-    [Obsolete(@"azure-native:extendedlocation/v20210815:CustomLocation is being removed in the next major version of this provider. Upgrade to at least azure-native:extendedlocation/v20210831preview:CustomLocation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:extendedlocation/v20210815:CustomLocation")]
     public partial class CustomLocation : global::Pulumi.CustomResource
     {

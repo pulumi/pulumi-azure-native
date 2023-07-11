@@ -25,7 +25,10 @@ class VirtualMachineImageTemplateArgs:
                  customize: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]]] = None,
                  image_template_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 optimize: Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']] = None,
+                 staging_resource_group: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validate: Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']] = None,
                  vm_profile: Optional[pulumi.Input['ImageTemplateVmProfileArgs']] = None):
         """
         The set of arguments for constructing a VirtualMachineImageTemplate resource.
@@ -33,11 +36,14 @@ class VirtualMachineImageTemplateArgs:
         :param pulumi.Input['ImageTemplateIdentityArgs'] identity: The identity of the image template, if configured.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union['ImageTemplateManagedImageSourceArgs', 'ImageTemplatePlatformImageSourceArgs', 'ImageTemplateSharedImageVersionSourceArgs']] source: Specifies the properties used to describe the source image.
-        :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageTemplateFileCustomizerArgs', 'ImageTemplatePowerShellCustomizerArgs', 'ImageTemplateRestartCustomizerArgs', 'ImageTemplateShellCustomizerArgs', 'ImageTemplateWindowsUpdateCustomizerArgs']]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
         :param pulumi.Input[str] image_template_name: The name of the image Template
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input['ImageTemplatePropertiesOptimizeArgs'] optimize: Specifies optimization to be performed on image.
+        :param pulumi.Input[str] staging_resource_group: The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input['ImageTemplatePropertiesValidateArgs'] validate: Configuration options and list of validations to be performed on the resulting image.
         :param pulumi.Input['ImageTemplateVmProfileArgs'] vm_profile: Describes how virtual machine is set up to build images
         """
         pulumi.set(__self__, "distribute", distribute)
@@ -54,8 +60,14 @@ class VirtualMachineImageTemplateArgs:
             pulumi.set(__self__, "image_template_name", image_template_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if optimize is not None:
+            pulumi.set(__self__, "optimize", optimize)
+        if staging_resource_group is not None:
+            pulumi.set(__self__, "staging_resource_group", staging_resource_group)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
         if vm_profile is not None:
             pulumi.set(__self__, "vm_profile", vm_profile)
 
@@ -111,7 +123,7 @@ class VirtualMachineImageTemplateArgs:
     @pulumi.getter(name="buildTimeoutInMinutes")
     def build_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         """
         return pulumi.get(self, "build_timeout_in_minutes")
 
@@ -147,7 +159,7 @@ class VirtualMachineImageTemplateArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -157,15 +169,51 @@ class VirtualMachineImageTemplateArgs:
 
     @property
     @pulumi.getter
+    def optimize(self) -> Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']]:
+        """
+        Specifies optimization to be performed on image.
+        """
+        return pulumi.get(self, "optimize")
+
+    @optimize.setter
+    def optimize(self, value: Optional[pulumi.Input['ImageTemplatePropertiesOptimizeArgs']]):
+        pulumi.set(self, "optimize", value)
+
+    @property
+    @pulumi.getter(name="stagingResourceGroup")
+    def staging_resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        """
+        return pulumi.get(self, "staging_resource_group")
+
+    @staging_resource_group.setter
+    def staging_resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "staging_resource_group", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter
+    def validate(self) -> Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']]:
+        """
+        Configuration options and list of validations to be performed on the resulting image.
+        """
+        return pulumi.get(self, "validate")
+
+    @validate.setter
+    def validate(self, value: Optional[pulumi.Input['ImageTemplatePropertiesValidateArgs']]):
+        pulumi.set(self, "validate", value)
 
     @property
     @pulumi.getter(name="vmProfile")
@@ -191,26 +239,32 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']]] = None,
                  image_template_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 optimize: Optional[pulumi.Input[pulumi.InputType['ImageTemplatePropertiesOptimizeArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]]] = None,
+                 staging_resource_group: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validate: Optional[pulumi.Input[pulumi.InputType['ImageTemplatePropertiesValidateArgs']]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
                  __props__=None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        API Version: 2020-02-14.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ImageTemplateFileCustomizerArgs'], pulumi.InputType['ImageTemplatePowerShellCustomizerArgs'], pulumi.InputType['ImageTemplateRestartCustomizerArgs'], pulumi.InputType['ImageTemplateShellCustomizerArgs'], pulumi.InputType['ImageTemplateWindowsUpdateCustomizerArgs']]]]] customize: Specifies the properties used to describe the customization steps of the image, like Image source etc
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageDistributorArgs'], pulumi.InputType['ImageTemplateSharedImageDistributorArgs'], pulumi.InputType['ImageTemplateVhdDistributorArgs']]]]] distribute: The distribution targets where the image output needs to go to.
         :param pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']] identity: The identity of the image template, if configured.
         :param pulumi.Input[str] image_template_name: The name of the image Template
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[pulumi.InputType['ImageTemplatePropertiesOptimizeArgs']] optimize: Specifies optimization to be performed on image.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]] source: Specifies the properties used to describe the source image.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[str] staging_resource_group: The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[pulumi.InputType['ImageTemplatePropertiesValidateArgs']] validate: Configuration options and list of validations to be performed on the resulting image.
         :param pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']] vm_profile: Describes how virtual machine is set up to build images
         """
         ...
@@ -221,7 +275,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-        API Version: 2020-02-14.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-02-14
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -244,9 +298,12 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['ImageTemplateIdentityArgs']]] = None,
                  image_template_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 optimize: Optional[pulumi.Input[pulumi.InputType['ImageTemplatePropertiesOptimizeArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[Union[pulumi.InputType['ImageTemplateManagedImageSourceArgs'], pulumi.InputType['ImageTemplatePlatformImageSourceArgs'], pulumi.InputType['ImageTemplateSharedImageVersionSourceArgs']]]] = None,
+                 staging_resource_group: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 validate: Optional[pulumi.Input[pulumi.InputType['ImageTemplatePropertiesValidateArgs']]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -269,18 +326,23 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_template_name"] = image_template_name
             __props__.__dict__["location"] = location
+            __props__.__dict__["optimize"] = optimize
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             if source is None and not opts.urn:
                 raise TypeError("Missing required property 'source'")
             __props__.__dict__["source"] = source
+            __props__.__dict__["staging_resource_group"] = staging_resource_group
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["validate"] = validate
             __props__.__dict__["vm_profile"] = vm_profile
+            __props__.__dict__["exact_staging_resource_group"] = None
             __props__.__dict__["last_run_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_error"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190201preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20200214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20211001:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"), pulumi.Alias(type_="azure-native:virtualmachineimages/v20220701:VirtualMachineImageTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -309,15 +371,20 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         __props__.__dict__["build_timeout_in_minutes"] = None
         __props__.__dict__["customize"] = None
         __props__.__dict__["distribute"] = None
+        __props__.__dict__["exact_staging_resource_group"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["last_run_status"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["optimize"] = None
         __props__.__dict__["provisioning_error"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["source"] = None
+        __props__.__dict__["staging_resource_group"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["validate"] = None
         __props__.__dict__["vm_profile"] = None
         return VirtualMachineImageTemplate(resource_name, opts=opts, __props__=__props__)
 
@@ -325,7 +392,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter(name="buildTimeoutInMinutes")
     def build_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
         """
-        Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
         """
         return pulumi.get(self, "build_timeout_in_minutes")
 
@@ -344,6 +411,14 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         The distribution targets where the image output needs to go to.
         """
         return pulumi.get(self, "distribute")
+
+    @property
+    @pulumi.getter(name="exactStagingResourceGroup")
+    def exact_staging_resource_group(self) -> pulumi.Output[str]:
+        """
+        The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
+        """
+        return pulumi.get(self, "exact_staging_resource_group")
 
     @property
     @pulumi.getter
@@ -365,7 +440,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -373,9 +448,17 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def optimize(self) -> pulumi.Output[Optional['outputs.ImageTemplatePropertiesResponseOptimize']]:
+        """
+        Specifies optimization to be performed on image.
+        """
+        return pulumi.get(self, "optimize")
 
     @property
     @pulumi.getter(name="provisioningError")
@@ -402,10 +485,26 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         return pulumi.get(self, "source")
 
     @property
+    @pulumi.getter(name="stagingResourceGroup")
+    def staging_resource_group(self) -> pulumi.Output[Optional[str]]:
+        """
+        The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+        """
+        return pulumi.get(self, "staging_resource_group")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -413,9 +512,17 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def validate(self) -> pulumi.Output[Optional['outputs.ImageTemplatePropertiesResponseValidate']]:
+        """
+        Configuration options and list of validations to be performed on the resulting image.
+        """
+        return pulumi.get(self, "validate")
 
     @property
     @pulumi.getter(name="vmProfile")

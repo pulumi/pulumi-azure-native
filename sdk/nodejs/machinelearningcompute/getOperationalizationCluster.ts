@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
- * API Version: 2017-08-01-preview.
+ * Azure REST API version: 2017-08-01-preview.
  */
 export function getOperationalizationCluster(args: GetOperationalizationClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOperationalizationClusterResult> {
 
@@ -102,7 +102,7 @@ export interface GetOperationalizationClusterResult {
 }
 /**
  * Gets the operationalization cluster resource view. Note that the credentials are not returned by this call. Call ListKeys to get them.
- * API Version: 2017-08-01-preview.
+ * Azure REST API version: 2017-08-01-preview.
  */
 export function getOperationalizationClusterOutput(args: GetOperationalizationClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOperationalizationClusterResult> {
     return pulumi.output(args).apply((a: any) => getOperationalizationCluster(a, opts))

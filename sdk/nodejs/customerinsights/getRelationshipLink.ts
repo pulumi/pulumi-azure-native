@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified relationship Link.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getRelationshipLink(args: GetRelationshipLinkArgs, opts?: pulumi.InvokeOptions): Promise<GetRelationshipLinkResult> {
 
@@ -99,7 +99,7 @@ export interface GetRelationshipLinkResult {
 }
 /**
  * Gets information about the specified relationship Link.
- * API Version: 2017-04-26.
+ * Azure REST API version: 2017-04-26.
  */
 export function getRelationshipLinkOutput(args: GetRelationshipLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRelationshipLinkResult> {
     return pulumi.output(args).apply((a: any) => getRelationshipLink(a, opts))

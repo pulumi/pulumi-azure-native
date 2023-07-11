@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// The provisionedClusters resource definition.
-    /// API Version: 2022-05-01-preview.
+    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice:ProvisionedCluster")]
     public partial class ProvisionedCluster : global::Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:ProvisionedCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -129,16 +130,16 @@ namespace Pulumi.AzureNative.HybridContainerService
         public Input<Inputs.ProvisionedClustersAllPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Parameter for the name of the provisioned cluster
-        /// </summary>
-        [Input("provisionedClustersName")]
-        public Input<string>? ProvisionedClustersName { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter for the name of the provisioned cluster
+        /// </summary>
+        [Input("resourceName")]
+        public Input<string>? ResourceName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

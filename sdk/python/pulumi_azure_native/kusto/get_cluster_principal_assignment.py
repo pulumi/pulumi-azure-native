@@ -21,7 +21,10 @@ class GetClusterPrincipalAssignmentResult:
     """
     Class representing a cluster principal assignment.
     """
-    def __init__(__self__, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, tenant_id=None, tenant_name=None, type=None):
+    def __init__(__self__, aad_object_id=None, id=None, name=None, principal_id=None, principal_name=None, principal_type=None, provisioning_state=None, role=None, tenant_id=None, tenant_name=None, type=None):
+        if aad_object_id and not isinstance(aad_object_id, str):
+            raise TypeError("Expected argument 'aad_object_id' to be a str")
+        pulumi.set(__self__, "aad_object_id", aad_object_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -52,6 +55,14 @@ class GetClusterPrincipalAssignmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> str:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter
@@ -140,6 +151,7 @@ class AwaitableGetClusterPrincipalAssignmentResult(GetClusterPrincipalAssignment
         if False:
             yield self
         return GetClusterPrincipalAssignmentResult(
+            aad_object_id=self.aad_object_id,
             id=self.id,
             name=self.name,
             principal_id=self.principal_id,
@@ -158,7 +170,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterPrincipalAssignmentResult:
     """
     Gets a Kusto cluster principalAssignment.
-    API Version: 2021-01-01.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.
@@ -173,6 +185,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getClusterPrincipalAssignment', __args__, opts=opts, typ=GetClusterPrincipalAssignmentResult).value
 
     return AwaitableGetClusterPrincipalAssignmentResult(
+        aad_object_id=__ret__.aad_object_id,
         id=__ret__.id,
         name=__ret__.name,
         principal_id=__ret__.principal_id,
@@ -192,7 +205,7 @@ def get_cluster_principal_assignment_output(cluster_name: Optional[pulumi.Input[
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
     """
     Gets a Kusto cluster principalAssignment.
-    API Version: 2021-01-01.
+    Azure REST API version: 2022-12-29.
 
 
     :param str cluster_name: The name of the Kusto cluster.

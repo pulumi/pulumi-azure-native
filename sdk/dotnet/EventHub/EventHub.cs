@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
-    /// API Version: 2017-04-01.
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:EventHub")]
     public partial class EventHub : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        [Output("location")]
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
@@ -53,13 +59,25 @@ namespace Pulumi.AzureNative.EventHub
         public Output<ImmutableArray<string>> PartitionIds { get; private set; } = null!;
 
         /// <summary>
+        /// Event Hub retention settings
+        /// </summary>
+        [Output("retentionDescription")]
+        public Output<Outputs.RetentionDescriptionResponse?> RetentionDescription { get; private set; } = null!;
+
+        /// <summary>
         /// Enumerates the possible values for the status of the Event Hub.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -162,6 +180,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Event Hub retention settings
+        /// </summary>
+        [Input("retentionDescription")]
+        public Input<Inputs.RetentionDescriptionArgs>? RetentionDescription { get; set; }
 
         /// <summary>
         /// Enumerates the possible values for the status of the Event Hub.

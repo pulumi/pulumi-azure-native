@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     {
         /// <summary>
         /// Returns account details for the given account name.
-        /// API Version: 2020-03-01-preview.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns account details for the given account name.
-        /// API Version: 2020-03-01-preview.
+        /// Azure REST API version: 2023-07-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:deviceupdate:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// CMK encryption at rest properties
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
+        /// <summary>
         /// API host name.
         /// </summary>
         public readonly string HostName;
@@ -87,6 +91,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Device Update account primary and failover location details
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LocationResponse> Locations;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -104,6 +112,10 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        public readonly string? Sku;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -118,6 +130,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
         [OutputConstructor]
         private GetAccountResult(
+            Outputs.EncryptionResponse? encryption,
+
             string hostName,
 
             string id,
@@ -125,6 +139,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
             Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
+
+            ImmutableArray<Outputs.LocationResponse> locations,
 
             string name,
 
@@ -134,20 +150,25 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
             string? publicNetworkAccess,
 
+            string? sku,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Encryption = encryption;
             HostName = hostName;
             Id = id;
             Identity = identity;
             Location = location;
+            Locations = locations;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            Sku = sku;
             SystemData = systemData;
             Tags = tags;
             Type = type;

@@ -6,10 +6,12 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .change_data_capture import *
 from .credential_operation import *
 from .data_flow import *
 from .dataset import *
 from .factory import *
+from .get_change_data_capture import *
 from .get_credential_operation import *
 from .get_data_flow import *
 from .get_dataset import *

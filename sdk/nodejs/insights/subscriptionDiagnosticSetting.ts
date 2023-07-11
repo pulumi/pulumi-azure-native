@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The subscription diagnostic setting resource.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2017-05-01-preview
  */
 export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
     /**
@@ -47,15 +47,15 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly eventHubName!: pulumi.Output<string | undefined>;
     /**
-     * Location of the resource
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
      * The list of logs settings.
      */
     public readonly logs!: pulumi.Output<outputs.insights.SubscriptionLogSettingsResponse[] | undefined>;
     /**
-     * Azure resource name
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    public readonly marketplacePartnerId!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -67,7 +67,11 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The system metadata related to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -88,21 +92,23 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
             resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["logs"] = args ? args.logs : undefined;
+            resourceInputs["marketplacePartnerId"] = args ? args.marketplacePartnerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["eventHubAuthorizationRuleId"] = undefined /*out*/;
             resourceInputs["eventHubName"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["logs"] = undefined /*out*/;
+            resourceInputs["marketplacePartnerId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["serviceBusRuleId"] = undefined /*out*/;
             resourceInputs["storageAccountId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceId"] = undefined /*out*/;
         }
@@ -126,13 +132,13 @@ export interface SubscriptionDiagnosticSettingArgs {
      */
     eventHubName?: pulumi.Input<string>;
     /**
-     * Location of the resource
-     */
-    location?: pulumi.Input<string>;
-    /**
      * The list of logs settings.
      */
     logs?: pulumi.Input<pulumi.Input<inputs.insights.SubscriptionLogSettingsArgs>[]>;
+    /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    marketplacePartnerId?: pulumi.Input<string>;
     /**
      * The name of the diagnostic setting.
      */

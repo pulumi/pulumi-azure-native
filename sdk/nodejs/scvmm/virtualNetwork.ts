@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The VirtualNetworks resource definition.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -127,7 +127,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualNetwork" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VirtualNetwork" }, { type: "azure-native:scvmm/v20220521preview:VirtualNetwork" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualNetwork.__pulumiType, name, resourceInputs, opts);
     }

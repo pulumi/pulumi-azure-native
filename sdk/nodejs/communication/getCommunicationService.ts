@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the CommunicationService and its properties.
- * API Version: 2020-08-20.
+ * Azure REST API version: 2023-03-31.
  */
 export function getCommunicationService(args: GetCommunicationServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetCommunicationServiceResult> {
 
@@ -44,7 +44,7 @@ export interface GetCommunicationServiceResult {
      */
     readonly hostName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -52,9 +52,13 @@ export interface GetCommunicationServiceResult {
      */
     readonly immutableResourceId: string;
     /**
-     * The Azure location where the CommunicationService is running.
+     * List of email Domain resource Ids.
      */
-    readonly location?: string;
+    readonly linkedDomains?: string[];
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
     /**
      * The name of the resource
      */
@@ -68,11 +72,11 @@ export interface GetCommunicationServiceResult {
      */
     readonly provisioningState: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.communication.SystemDataResponse;
     /**
-     * Tags of the service which is a list of key value pairs that describe the resource.
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -86,7 +90,7 @@ export interface GetCommunicationServiceResult {
 }
 /**
  * Get the CommunicationService and its properties.
- * API Version: 2020-08-20.
+ * Azure REST API version: 2023-03-31.
  */
 export function getCommunicationServiceOutput(args: GetCommunicationServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommunicationServiceResult> {
     return pulumi.output(args).apply((a: any) => getCommunicationService(a, opts))

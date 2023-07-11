@@ -113,7 +113,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                  __props__=None):
         """
         The lock information.
-        API Version: 2017-04-01.
+        Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lock information.
-        API Version: 2017-04-01.
+        Azure REST API version: 2020-05-01. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param ManagementLockByScopeArgs args: The arguments to use to populate this resource's properties.
@@ -172,6 +172,7 @@ class ManagementLockByScope(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:authorization/v20160901:ManagementLockByScope"), pulumi.Alias(type_="azure-native:authorization/v20170401:ManagementLockByScope"), pulumi.Alias(type_="azure-native:authorization/v20200501:ManagementLockByScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -201,6 +202,7 @@ class ManagementLockByScope(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["notes"] = None
         __props__.__dict__["owners"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ManagementLockByScope(resource_name, opts=opts, __props__=__props__)
 
@@ -235,6 +237,14 @@ class ManagementLockByScope(pulumi.CustomResource):
         The owners of the lock.
         """
         return pulumi.get(self, "owners")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

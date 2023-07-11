@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
- * API Version: 2018-12-03.
+ * Azure REST API version: 2018-12-03.
  */
 export function getEnterpriseKnowledgeGraph(args: GetEnterpriseKnowledgeGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetEnterpriseKnowledgeGraphResult> {
 
@@ -66,7 +66,7 @@ export interface GetEnterpriseKnowledgeGraphResult {
 }
 /**
  * Returns a EnterpriseKnowledgeGraph service specified by the parameters.
- * API Version: 2018-12-03.
+ * Azure REST API version: 2018-12-03.
  */
 export function getEnterpriseKnowledgeGraphOutput(args: GetEnterpriseKnowledgeGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnterpriseKnowledgeGraphResult> {
     return pulumi.output(args).apply((a: any) => getEnterpriseKnowledgeGraph(a, opts))

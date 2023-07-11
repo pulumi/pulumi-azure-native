@@ -58,7 +58,13 @@ namespace Pulumi.AzureNative.Network.Inputs
         public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkPeeringState>? PeeringState { get; set; }
 
         /// <summary>
-        /// The reference to the remote virtual network address space.
+        /// The peering sync status of the virtual network peering.
+        /// </summary>
+        [Input("peeringSyncLevel")]
+        public InputUnion<string, Pulumi.AzureNative.Network.VirtualNetworkPeeringLevel>? PeeringSyncLevel { get; set; }
+
+        /// <summary>
+        /// The reference to the address space peered with the remote virtual network.
         /// </summary>
         [Input("remoteAddressSpace")]
         public Input<Inputs.AddressSpaceArgs>? RemoteAddressSpace { get; set; }
@@ -74,6 +80,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         /// </summary>
         [Input("remoteVirtualNetwork")]
         public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
+
+        /// <summary>
+        /// The reference to the current address space of the remote virtual network.
+        /// </summary>
+        [Input("remoteVirtualNetworkAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? RemoteVirtualNetworkAddressSpace { get; set; }
 
         /// <summary>
         /// Resource type.

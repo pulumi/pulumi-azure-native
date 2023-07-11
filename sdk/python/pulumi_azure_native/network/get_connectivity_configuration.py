@@ -22,7 +22,7 @@ class GetConnectivityConfigurationResult:
     """
     The network manager connectivity configuration resource
     """
-    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, display_name=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, system_data=None, type=None):
+    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering=None, description=None, etag=None, hubs=None, id=None, is_global=None, name=None, provisioning_state=None, resource_guid=None, system_data=None, type=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
@@ -35,9 +35,6 @@ class GetConnectivityConfigurationResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -56,6 +53,9 @@ class GetConnectivityConfigurationResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        pulumi.set(__self__, "resource_guid", resource_guid)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -65,7 +65,7 @@ class GetConnectivityConfigurationResult:
 
     @property
     @pulumi.getter(name="appliesToGroups")
-    def applies_to_groups(self) -> Optional[Sequence['outputs.ConnectivityGroupItemResponse']]:
+    def applies_to_groups(self) -> Sequence['outputs.ConnectivityGroupItemResponse']:
         """
         Groups for configuration
         """
@@ -94,14 +94,6 @@ class GetConnectivityConfigurationResult:
         A description of the connectivity configuration.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[str]:
-        """
-        A friendly name for the resource.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -152,6 +144,14 @@ class GetConnectivityConfigurationResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -178,13 +178,13 @@ class AwaitableGetConnectivityConfigurationResult(GetConnectivityConfigurationRe
             connectivity_topology=self.connectivity_topology,
             delete_existing_peering=self.delete_existing_peering,
             description=self.description,
-            display_name=self.display_name,
             etag=self.etag,
             hubs=self.hubs,
             id=self.id,
             is_global=self.is_global,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             system_data=self.system_data,
             type=self.type)
 
@@ -195,7 +195,7 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectivityConfigurationResult:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.
@@ -214,13 +214,13 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
         connectivity_topology=__ret__.connectivity_topology,
         delete_existing_peering=__ret__.delete_existing_peering,
         description=__ret__.description,
-        display_name=__ret__.display_name,
         etag=__ret__.etag,
         hubs=__ret__.hubs,
         id=__ret__.id,
         is_global=__ret__.is_global,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        resource_guid=__ret__.resource_guid,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -232,7 +232,7 @@ def get_connectivity_configuration_output(configuration_name: Optional[pulumi.In
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectivityConfigurationResult]:
     """
     Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str configuration_name: The name of the network manager connectivity configuration.

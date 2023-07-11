@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
-        /// API Version: 2020-07-01-preview.
+        /// Azure REST API version: 2022-07-01-preview.
         /// </summary>
         public static Task<GetPolicyExemptionResult> InvokeAsync(GetPolicyExemptionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionArgs(), options.WithDefaults());
 
         /// <summary>
         /// This operation retrieves a single policy exemption, given its name and the scope it was created at.
-        /// API Version: 2020-07-01-preview.
+        /// Azure REST API version: 2022-07-01-preview.
         /// </summary>
         public static Output<GetPolicyExemptionResult> Invoke(GetPolicyExemptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyExemptionResult>("azure-native:authorization:getPolicyExemption", args ?? new GetPolicyExemptionInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class GetPolicyExemptionResult
     {
         /// <summary>
+        /// The option whether validate the exemption is at or under the assignment scope.
+        /// </summary>
+        public readonly string? AssignmentScopeValidation;
+        /// <summary>
         /// The description of the policy exemption.
         /// </summary>
         public readonly string? Description;
@@ -108,6 +112,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<string> PolicyDefinitionReferenceIds;
         /// <summary>
+        /// The resource selector list to filter policies by resource properties.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceSelectorResponse> ResourceSelectors;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -118,6 +126,8 @@ namespace Pulumi.AzureNative.Authorization
 
         [OutputConstructor]
         private GetPolicyExemptionResult(
+            string? assignmentScopeValidation,
+
             string? description,
 
             string? displayName,
@@ -136,10 +146,13 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<string> policyDefinitionReferenceIds,
 
+            ImmutableArray<Outputs.ResourceSelectorResponse> resourceSelectors,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            AssignmentScopeValidation = assignmentScopeValidation;
             Description = description;
             DisplayName = displayName;
             ExemptionCategory = exemptionCategory;
@@ -149,6 +162,7 @@ namespace Pulumi.AzureNative.Authorization
             Name = name;
             PolicyAssignmentId = policyAssignmentId;
             PolicyDefinitionReferenceIds = policyDefinitionReferenceIds;
+            ResourceSelectors = resourceSelectors;
             SystemData = systemData;
             Type = type;
         }

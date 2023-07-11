@@ -41,6 +41,8 @@ from .get_kusto_cluster_data_set import *
 from .get_kusto_cluster_data_set_mapping import *
 from .get_kusto_database_data_set import *
 from .get_kusto_database_data_set_mapping import *
+from .get_kusto_table_data_set import *
+from .get_kusto_table_data_set_mapping import *
 from .get_scheduled_synchronization_setting import *
 from .get_scheduled_trigger import *
 from .get_share import *
@@ -56,6 +58,8 @@ from .kusto_cluster_data_set import *
 from .kusto_cluster_data_set_mapping import *
 from .kusto_database_data_set import *
 from .kusto_database_data_set_mapping import *
+from .kusto_table_data_set import *
+from .kusto_table_data_set_mapping import *
 from .list_share_subscription_source_share_synchronization_settings import *
 from .list_share_subscription_synchronization_details import *
 from .list_share_subscription_synchronizations import *
@@ -76,20 +80,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datashare.v20181101preview as __v20181101preview
-    v20181101preview = __v20181101preview
-    import pulumi_azure_native.datashare.v20191101 as __v20191101
-    v20191101 = __v20191101
-    import pulumi_azure_native.datashare.v20200901 as __v20200901
-    v20200901 = __v20200901
     import pulumi_azure_native.datashare.v20201001preview as __v20201001preview
     v20201001preview = __v20201001preview
     import pulumi_azure_native.datashare.v20210801 as __v20210801
     v20210801 = __v20210801
 else:
-    v20181101preview = _utilities.lazy_import('pulumi_azure_native.datashare.v20181101preview')
-    v20191101 = _utilities.lazy_import('pulumi_azure_native.datashare.v20191101')
-    v20200901 = _utilities.lazy_import('pulumi_azure_native.datashare.v20200901')
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.datashare.v20201001preview')
     v20210801 = _utilities.lazy_import('pulumi_azure_native.datashare.v20210801')
 

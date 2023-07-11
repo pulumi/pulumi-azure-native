@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets NetworkRuleSet for a Namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getNamespaceNetworkRuleSet(args: GetNamespaceNetworkRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceNetworkRuleSetResult> {
 
@@ -32,7 +32,7 @@ export interface GetNamespaceNetworkRuleSetArgs {
 }
 
 /**
- * Description of NetworkRuleSet resource.
+ * Description of topic resource.
  */
 export interface GetNamespaceNetworkRuleSetResult {
     /**
@@ -48,11 +48,27 @@ export interface GetNamespaceNetworkRuleSetResult {
      */
     readonly ipRules?: outputs.eventhub.NWRuleSetIpRulesResponse[];
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * This determines if traffic is allowed over public network. By default it is enabled. If value is SecuredByPerimeter then Inbound and Outbound communication is controlled by the network security perimeter and profile's access rules. 
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
+     * Value that indicates whether Trusted Service Access is Enabled or not.
+     */
+    readonly trustedServiceAccessEnabled?: boolean;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
     /**
@@ -62,7 +78,7 @@ export interface GetNamespaceNetworkRuleSetResult {
 }
 /**
  * Gets NetworkRuleSet for a Namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getNamespaceNetworkRuleSetOutput(args: GetNamespaceNetworkRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceNetworkRuleSetResult> {
     return pulumi.output(args).apply((a: any) => getNamespaceNetworkRuleSet(a, opts))

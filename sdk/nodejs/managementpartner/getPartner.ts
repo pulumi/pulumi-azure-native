@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the management partner using the partnerId, objectId and tenantId.
- * API Version: 2018-02-01.
+ * Azure REST API version: 2018-02-01.
  */
 export function getPartner(args: GetPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerResult> {
 
@@ -74,7 +74,7 @@ export interface GetPartnerResult {
 }
 /**
  * Get the management partner using the partnerId, objectId and tenantId.
- * API Version: 2018-02-01.
+ * Azure REST API version: 2018-02-01.
  */
 export function getPartnerOutput(args: GetPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerResult> {
     return pulumi.output(args).apply((a: any) => getPartner(a, opts))

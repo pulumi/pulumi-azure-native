@@ -154,6 +154,8 @@ namespace Pulumi.AzureNative.Network.V20190701
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualWan"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualWan"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualWan"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualWan"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:VirtualWan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single favorite by its FavoriteId, defined within an Application Insights component.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2015-05-01.
  */
 export function getFavorite(args: GetFavoriteArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteResult> {
 
@@ -84,7 +84,7 @@ export interface GetFavoriteResult {
 }
 /**
  * Get a single favorite by its FavoriteId, defined within an Application Insights component.
- * API Version: 2015-05-01.
+ * Azure REST API version: 2015-05-01.
  */
 export function getFavoriteOutput(args: GetFavoriteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFavoriteResult> {
     return pulumi.output(args).apply((a: any) => getFavorite(a, opts))

@@ -134,8 +134,6 @@ export class PrivateStoreOffer extends pulumi.CustomResource {
             resourceInputs["updateSuppressedDueIdempotence"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:marketplace:PrivateStoreOffer" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateStoreOffer.__pulumiType, name, resourceInputs, opts);
     }
 }

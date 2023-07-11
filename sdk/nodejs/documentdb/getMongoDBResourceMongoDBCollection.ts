@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getMongoDBResourceMongoDBCollection(args: GetMongoDBResourceMongoDBCollectionArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBCollectionResult> {
 
@@ -70,7 +70,7 @@ export interface GetMongoDBResourceMongoDBCollectionResult {
 }
 /**
  * Gets the MongoDB collection under an existing Azure Cosmos DB database account.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2023-04-15.
  */
 export function getMongoDBResourceMongoDBCollectionOutput(args: GetMongoDBResourceMongoDBCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMongoDBResourceMongoDBCollectionResult> {
     return pulumi.output(args).apply((a: any) => getMongoDBResourceMongoDBCollection(a, opts))

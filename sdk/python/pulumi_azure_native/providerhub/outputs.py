@@ -17,6 +17,7 @@ __all__ = [
     'DefaultRolloutPropertiesResponseStatus',
     'DefaultRolloutResponseProperties',
     'DefaultRolloutSpecificationResponseCanary',
+    'DefaultRolloutSpecificationResponseExpeditedRollout',
     'DefaultRolloutSpecificationResponseHighTraffic',
     'DefaultRolloutSpecificationResponseLowTraffic',
     'DefaultRolloutSpecificationResponseMediumTraffic',
@@ -31,12 +32,14 @@ __all__ = [
     'LoggingRuleResponseHiddenPropertyPaths',
     'NotificationEndpointResponse',
     'NotificationRegistrationResponseProperties',
-    'OperationsDefinitionResponseDisplay',
+    'OpenApiConfigurationResponse',
+    'OpenApiValidationResponse',
     'ProviderHubMetadataResponseProviderAuthentication',
     'ProviderHubMetadataResponseThirdPartyProviderAuthorization',
     'ProviderRegistrationPropertiesResponseProviderHubMetadata',
     'ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications',
     'ProviderRegistrationResponseProperties',
+    'ResourceConcurrencyControlOptionResponse',
     'ResourceProviderAuthorizationResponse',
     'ResourceProviderCapabilitiesResponse',
     'ResourceProviderManifestPropertiesResponseFeaturesRule',
@@ -52,7 +55,9 @@ __all__ = [
     'ResourceTypeRegistrationPropertiesResponseExtensionOptions',
     'ResourceTypeRegistrationPropertiesResponseFeaturesRule',
     'ResourceTypeRegistrationPropertiesResponseIdentityManagement',
+    'ResourceTypeRegistrationPropertiesResponseManagement',
     'ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions',
+    'ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration',
     'ResourceTypeRegistrationPropertiesResponseResourceMovePolicy',
     'ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications',
     'ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions',
@@ -69,6 +74,7 @@ __all__ = [
     'SubscriptionStateOverrideActionResponse',
     'SubscriptionStateRuleResponse',
     'SwaggerSpecificationResponse',
+    'SystemDataResponse',
     'ThrottlingMetricResponse',
     'ThrottlingRuleResponse',
     'TypedErrorInfoResponse',
@@ -100,7 +106,9 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "highTraffic":
+        if key == "expeditedRollout":
+            suggest = "expedited_rollout"
+        elif key == "highTraffic":
             suggest = "high_traffic"
         elif key == "lowTraffic":
             suggest = "low_traffic"
@@ -128,6 +136,7 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
 
     def __init__(__self__, *,
                  canary: Optional['outputs.DefaultRolloutSpecificationResponseCanary'] = None,
+                 expedited_rollout: Optional['outputs.DefaultRolloutSpecificationResponseExpeditedRollout'] = None,
                  high_traffic: Optional['outputs.DefaultRolloutSpecificationResponseHighTraffic'] = None,
                  low_traffic: Optional['outputs.DefaultRolloutSpecificationResponseLowTraffic'] = None,
                  medium_traffic: Optional['outputs.DefaultRolloutSpecificationResponseMediumTraffic'] = None,
@@ -137,6 +146,8 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
                  rest_of_the_world_group_two: Optional['outputs.DefaultRolloutSpecificationResponseRestOfTheWorldGroupTwo'] = None):
         if canary is not None:
             pulumi.set(__self__, "canary", canary)
+        if expedited_rollout is not None:
+            pulumi.set(__self__, "expedited_rollout", expedited_rollout)
         if high_traffic is not None:
             pulumi.set(__self__, "high_traffic", high_traffic)
         if low_traffic is not None:
@@ -156,6 +167,11 @@ class DefaultRolloutPropertiesResponseSpecification(dict):
     @pulumi.getter
     def canary(self) -> Optional['outputs.DefaultRolloutSpecificationResponseCanary']:
         return pulumi.get(self, "canary")
+
+    @property
+    @pulumi.getter(name="expeditedRollout")
+    def expedited_rollout(self) -> Optional['outputs.DefaultRolloutSpecificationResponseExpeditedRollout']:
+        return pulumi.get(self, "expedited_rollout")
 
     @property
     @pulumi.getter(name="highTraffic")
@@ -291,6 +307,7 @@ class DefaultRolloutResponseProperties(dict):
                  status: Optional['outputs.DefaultRolloutPropertiesResponseStatus'] = None):
         """
         Properties of the rollout.
+        :param str provisioning_state: The provisioned state of the resource.
         """
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -302,6 +319,9 @@ class DefaultRolloutResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -351,6 +371,25 @@ class DefaultRolloutSpecificationResponseCanary(dict):
     @pulumi.getter(name="skipRegions")
     def skip_regions(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "skip_regions")
+
+
+@pulumi.output_type
+class DefaultRolloutSpecificationResponseExpeditedRollout(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Indicates whether expedited rollout is enabled/disabled
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates whether expedited rollout is enabled/disabled
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -469,18 +508,38 @@ class DefaultRolloutSpecificationResponseMediumTraffic(dict):
 
 @pulumi.output_type
 class DefaultRolloutSpecificationResponseProviderRegistration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultRolloutSpecificationResponseProviderRegistration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultRolloutSpecificationResponseProviderRegistration.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  properties: Optional['outputs.ProviderRegistrationResponseProperties'] = None):
         """
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -500,6 +559,14 @@ class DefaultRolloutSpecificationResponseProviderRegistration(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -963,6 +1030,9 @@ class NotificationRegistrationResponseProperties(dict):
                  notification_endpoints: Optional[Sequence['outputs.NotificationEndpointResponse']] = None,
                  notification_mode: Optional[str] = None,
                  provisioning_state: Optional[str] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         if included_events is not None:
             pulumi.set(__self__, "included_events", included_events)
         if message_scope is not None:
@@ -997,46 +1067,59 @@ class NotificationRegistrationResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type
-class OperationsDefinitionResponseDisplay(dict):
-    """
-    Display information of the operation.
-    """
+class OpenApiConfigurationResponse(dict):
     def __init__(__self__, *,
-                 description: str,
-                 operation: str,
-                 provider: str,
-                 resource: str):
+                 validation: Optional['outputs.OpenApiValidationResponse'] = None):
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.OpenApiValidationResponse']:
+        return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class OpenApiValidationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowNoncompliantCollectionResponse":
+            suggest = "allow_noncompliant_collection_response"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OpenApiValidationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OpenApiValidationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OpenApiValidationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_noncompliant_collection_response: Optional[bool] = None):
         """
-        Display information of the operation.
+        :param bool allow_noncompliant_collection_response: Indicates whether a non compliance response is allowed for a LIST call
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "operation", operation)
-        pulumi.set(__self__, "provider", provider)
-        pulumi.set(__self__, "resource", resource)
+        if allow_noncompliant_collection_response is not None:
+            pulumi.set(__self__, "allow_noncompliant_collection_response", allow_noncompliant_collection_response)
 
     @property
-    @pulumi.getter
-    def description(self) -> str:
-        return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter
-    def operation(self) -> str:
-        return pulumi.get(self, "operation")
-
-    @property
-    @pulumi.getter
-    def provider(self) -> str:
-        return pulumi.get(self, "provider")
-
-    @property
-    @pulumi.getter
-    def resource(self) -> str:
-        return pulumi.get(self, "resource")
+    @pulumi.getter(name="allowNoncompliantCollectionResponse")
+    def allow_noncompliant_collection_response(self) -> Optional[bool]:
+        """
+        Indicates whether a non compliance response is allowed for a LIST call
+        """
+        return pulumi.get(self, "allow_noncompliant_collection_response")
 
 
 @pulumi.output_type
@@ -1251,6 +1334,9 @@ class ProviderRegistrationResponseProperties(dict):
                  required_features: Optional[Sequence[str]] = None,
                  subscription_lifecycle_notification_specifications: Optional['outputs.ProviderRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications'] = None,
                  template_deployment_options: Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions'] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         if capabilities is not None:
             pulumi.set(__self__, "capabilities", capabilities)
         if features_rule is not None:
@@ -1335,6 +1421,9 @@ class ProviderRegistrationResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -1356,6 +1445,19 @@ class ProviderRegistrationResponseProperties(dict):
     @pulumi.getter(name="templateDeploymentOptions")
     def template_deployment_options(self) -> Optional['outputs.ResourceProviderManifestPropertiesResponseTemplateDeploymentOptions']:
         return pulumi.get(self, "template_deployment_options")
+
+
+@pulumi.output_type
+class ResourceConcurrencyControlOptionResponse(dict):
+    def __init__(__self__, *,
+                 policy: Optional[str] = None):
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> Optional[str]:
+        return pulumi.get(self, "policy")
 
 
 @pulumi.output_type
@@ -1689,6 +1791,8 @@ class ResourceTypeEndpointResponse(dict):
         suggest = None
         if key == "apiVersions":
             suggest = "api_versions"
+        elif key == "endpointType":
+            suggest = "endpoint_type"
         elif key == "featuresRule":
             suggest = "features_rule"
         elif key == "requiredFeatures":
@@ -1708,6 +1812,7 @@ class ResourceTypeEndpointResponse(dict):
     def __init__(__self__, *,
                  api_versions: Optional[Sequence[str]] = None,
                  enabled: Optional[bool] = None,
+                 endpoint_type: Optional[str] = None,
                  extensions: Optional[Sequence['outputs.ResourceTypeExtensionResponse']] = None,
                  features_rule: Optional['outputs.ResourceTypeEndpointResponseFeaturesRule'] = None,
                  locations: Optional[Sequence[str]] = None,
@@ -1717,6 +1822,8 @@ class ResourceTypeEndpointResponse(dict):
             pulumi.set(__self__, "api_versions", api_versions)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
         if extensions is not None:
             pulumi.set(__self__, "extensions", extensions)
         if features_rule is not None:
@@ -1737,6 +1844,11 @@ class ResourceTypeEndpointResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[str]:
+        return pulumi.get(self, "endpoint_type")
 
     @property
     @pulumi.getter
@@ -2000,6 +2112,106 @@ class ResourceTypeRegistrationPropertiesResponseIdentityManagement(dict):
 
 
 @pulumi.output_type
+class ResourceTypeRegistrationPropertiesResponseManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "incidentContactEmail":
+            suggest = "incident_contact_email"
+        elif key == "incidentRoutingService":
+            suggest = "incident_routing_service"
+        elif key == "incidentRoutingTeam":
+            suggest = "incident_routing_team"
+        elif key == "manifestOwners":
+            suggest = "manifest_owners"
+        elif key == "resourceAccessPolicy":
+            suggest = "resource_access_policy"
+        elif key == "resourceAccessRoles":
+            suggest = "resource_access_roles"
+        elif key == "schemaOwners":
+            suggest = "schema_owners"
+        elif key == "serviceTreeInfos":
+            suggest = "service_tree_infos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 incident_contact_email: Optional[str] = None,
+                 incident_routing_service: Optional[str] = None,
+                 incident_routing_team: Optional[str] = None,
+                 manifest_owners: Optional[Sequence[str]] = None,
+                 resource_access_policy: Optional[str] = None,
+                 resource_access_roles: Optional[Sequence[Any]] = None,
+                 schema_owners: Optional[Sequence[str]] = None,
+                 service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None):
+        if incident_contact_email is not None:
+            pulumi.set(__self__, "incident_contact_email", incident_contact_email)
+        if incident_routing_service is not None:
+            pulumi.set(__self__, "incident_routing_service", incident_routing_service)
+        if incident_routing_team is not None:
+            pulumi.set(__self__, "incident_routing_team", incident_routing_team)
+        if manifest_owners is not None:
+            pulumi.set(__self__, "manifest_owners", manifest_owners)
+        if resource_access_policy is not None:
+            pulumi.set(__self__, "resource_access_policy", resource_access_policy)
+        if resource_access_roles is not None:
+            pulumi.set(__self__, "resource_access_roles", resource_access_roles)
+        if schema_owners is not None:
+            pulumi.set(__self__, "schema_owners", schema_owners)
+        if service_tree_infos is not None:
+            pulumi.set(__self__, "service_tree_infos", service_tree_infos)
+
+    @property
+    @pulumi.getter(name="incidentContactEmail")
+    def incident_contact_email(self) -> Optional[str]:
+        return pulumi.get(self, "incident_contact_email")
+
+    @property
+    @pulumi.getter(name="incidentRoutingService")
+    def incident_routing_service(self) -> Optional[str]:
+        return pulumi.get(self, "incident_routing_service")
+
+    @property
+    @pulumi.getter(name="incidentRoutingTeam")
+    def incident_routing_team(self) -> Optional[str]:
+        return pulumi.get(self, "incident_routing_team")
+
+    @property
+    @pulumi.getter(name="manifestOwners")
+    def manifest_owners(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "manifest_owners")
+
+    @property
+    @pulumi.getter(name="resourceAccessPolicy")
+    def resource_access_policy(self) -> Optional[str]:
+        return pulumi.get(self, "resource_access_policy")
+
+    @property
+    @pulumi.getter(name="resourceAccessRoles")
+    def resource_access_roles(self) -> Optional[Sequence[Any]]:
+        return pulumi.get(self, "resource_access_roles")
+
+    @property
+    @pulumi.getter(name="schemaOwners")
+    def schema_owners(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "schema_owners")
+
+    @property
+    @pulumi.getter(name="serviceTreeInfos")
+    def service_tree_infos(self) -> Optional[Sequence['outputs.ServiceTreeInfoResponse']]:
+        return pulumi.get(self, "service_tree_infos")
+
+
+@pulumi.output_type
 class ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2027,6 +2239,44 @@ class ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions(dict):
     @pulumi.getter(name="optInHeaders")
     def opt_in_headers(self) -> Optional[str]:
         return pulumi.get(self, "opt_in_headers")
+
+
+@pulumi.output_type
+class ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiVersion":
+            suggest = "api_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_version: Optional[str] = None,
+                 enabled: Optional[bool] = None):
+        if api_version is not None:
+            pulumi.set(__self__, "api_version", api_version)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="apiVersion")
+    def api_version(self) -> Optional[str]:
+        return pulumi.get(self, "api_version")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -2161,18 +2411,38 @@ class ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions(dict):
 
 @pulumi.output_type
 class ResourceTypeRegistrationResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceTypeRegistrationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceTypeRegistrationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceTypeRegistrationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: str,
                  name: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  properties: Optional['outputs.ResourceTypeRegistrationResponseProperties'] = None):
         """
         :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -2192,6 +2462,14 @@ class ResourceTypeRegistrationResponse(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -2242,14 +2520,20 @@ class ResourceTypeRegistrationResponseProperties(dict):
             suggest = "logging_rules"
         elif key == "marketplaceType":
             suggest = "marketplace_type"
+        elif key == "openApiConfiguration":
+            suggest = "open_api_configuration"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "requestHeaderOptions":
             suggest = "request_header_options"
         elif key == "requiredFeatures":
             suggest = "required_features"
+        elif key == "resourceConcurrencyControlOptions":
+            suggest = "resource_concurrency_control_options"
         elif key == "resourceDeletionPolicy":
             suggest = "resource_deletion_policy"
+        elif key == "resourceGraphConfiguration":
+            suggest = "resource_graph_configuration"
         elif key == "resourceMovePolicy":
             suggest = "resource_move_policy"
         elif key == "routingType":
@@ -2294,12 +2578,16 @@ class ResourceTypeRegistrationResponseProperties(dict):
                  is_pure_proxy: Optional[bool] = None,
                  linked_access_checks: Optional[Sequence['outputs.LinkedAccessCheckResponse']] = None,
                  logging_rules: Optional[Sequence['outputs.LoggingRuleResponse']] = None,
+                 management: Optional['outputs.ResourceTypeRegistrationPropertiesResponseManagement'] = None,
                  marketplace_type: Optional[str] = None,
+                 open_api_configuration: Optional['outputs.OpenApiConfigurationResponse'] = None,
                  provisioning_state: Optional[str] = None,
                  regionality: Optional[str] = None,
                  request_header_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions'] = None,
                  required_features: Optional[Sequence[str]] = None,
+                 resource_concurrency_control_options: Optional[Mapping[str, 'outputs.ResourceConcurrencyControlOptionResponse']] = None,
                  resource_deletion_policy: Optional[str] = None,
+                 resource_graph_configuration: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration'] = None,
                  resource_move_policy: Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy'] = None,
                  routing_type: Optional[str] = None,
                  service_tree_infos: Optional[Sequence['outputs.ServiceTreeInfoResponse']] = None,
@@ -2308,6 +2596,9 @@ class ResourceTypeRegistrationResponseProperties(dict):
                  swagger_specifications: Optional[Sequence['outputs.SwaggerSpecificationResponse']] = None,
                  template_deployment_options: Optional['outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions'] = None,
                  throttling_rules: Optional[Sequence['outputs.ThrottlingRuleResponse']] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         if allowed_unauthorized_actions is not None:
             pulumi.set(__self__, "allowed_unauthorized_actions", allowed_unauthorized_actions)
         if authorization_action_mappings is not None:
@@ -2338,8 +2629,12 @@ class ResourceTypeRegistrationResponseProperties(dict):
             pulumi.set(__self__, "linked_access_checks", linked_access_checks)
         if logging_rules is not None:
             pulumi.set(__self__, "logging_rules", logging_rules)
+        if management is not None:
+            pulumi.set(__self__, "management", management)
         if marketplace_type is not None:
             pulumi.set(__self__, "marketplace_type", marketplace_type)
+        if open_api_configuration is not None:
+            pulumi.set(__self__, "open_api_configuration", open_api_configuration)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if regionality is not None:
@@ -2348,8 +2643,12 @@ class ResourceTypeRegistrationResponseProperties(dict):
             pulumi.set(__self__, "request_header_options", request_header_options)
         if required_features is not None:
             pulumi.set(__self__, "required_features", required_features)
+        if resource_concurrency_control_options is not None:
+            pulumi.set(__self__, "resource_concurrency_control_options", resource_concurrency_control_options)
         if resource_deletion_policy is not None:
             pulumi.set(__self__, "resource_deletion_policy", resource_deletion_policy)
+        if resource_graph_configuration is not None:
+            pulumi.set(__self__, "resource_graph_configuration", resource_graph_configuration)
         if resource_move_policy is not None:
             pulumi.set(__self__, "resource_move_policy", resource_move_policy)
         if routing_type is not None:
@@ -2443,13 +2742,26 @@ class ResourceTypeRegistrationResponseProperties(dict):
         return pulumi.get(self, "logging_rules")
 
     @property
+    @pulumi.getter
+    def management(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseManagement']:
+        return pulumi.get(self, "management")
+
+    @property
     @pulumi.getter(name="marketplaceType")
     def marketplace_type(self) -> Optional[str]:
         return pulumi.get(self, "marketplace_type")
 
     @property
+    @pulumi.getter(name="openApiConfiguration")
+    def open_api_configuration(self) -> Optional['outputs.OpenApiConfigurationResponse']:
+        return pulumi.get(self, "open_api_configuration")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -2468,9 +2780,19 @@ class ResourceTypeRegistrationResponseProperties(dict):
         return pulumi.get(self, "required_features")
 
     @property
+    @pulumi.getter(name="resourceConcurrencyControlOptions")
+    def resource_concurrency_control_options(self) -> Optional[Mapping[str, 'outputs.ResourceConcurrencyControlOptionResponse']]:
+        return pulumi.get(self, "resource_concurrency_control_options")
+
+    @property
     @pulumi.getter(name="resourceDeletionPolicy")
     def resource_deletion_policy(self) -> Optional[str]:
         return pulumi.get(self, "resource_deletion_policy")
+
+    @property
+    @pulumi.getter(name="resourceGraphConfiguration")
+    def resource_graph_configuration(self) -> Optional['outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration']:
+        return pulumi.get(self, "resource_graph_configuration")
 
     @property
     @pulumi.getter(name="resourceMovePolicy")
@@ -2536,9 +2858,12 @@ class ServiceTreeInfoResponse(dict):
 
     def __init__(__self__, *,
                  component_id: Optional[str] = None,
+                 readiness: Optional[str] = None,
                  service_id: Optional[str] = None):
         if component_id is not None:
             pulumi.set(__self__, "component_id", component_id)
+        if readiness is not None:
+            pulumi.set(__self__, "readiness", readiness)
         if service_id is not None:
             pulumi.set(__self__, "service_id", service_id)
 
@@ -2546,6 +2871,11 @@ class ServiceTreeInfoResponse(dict):
     @pulumi.getter(name="componentId")
     def component_id(self) -> Optional[str]:
         return pulumi.get(self, "component_id")
+
+    @property
+    @pulumi.getter
+    def readiness(self) -> Optional[str]:
+        return pulumi.get(self, "readiness")
 
     @property
     @pulumi.getter(name="serviceId")
@@ -2706,6 +3036,9 @@ class SkuResourceResponseProperties(dict):
     def __init__(__self__, *,
                  sku_settings: Sequence['outputs.SkuSettingResponse'],
                  provisioning_state: Optional[str] = None):
+        """
+        :param str provisioning_state: The provisioned state of the resource.
+        """
         pulumi.set(__self__, "sku_settings", sku_settings)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -2718,6 +3051,9 @@ class SkuResourceResponseProperties(dict):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioned state of the resource.
+        """
         return pulumi.get(self, "provisioning_state")
 
 
@@ -3011,6 +3347,116 @@ class SwaggerSpecificationResponse(dict):
     @pulumi.getter(name="swaggerSpecFolderUri")
     def swagger_spec_folder_uri(self) -> Optional[str]:
         return pulumi.get(self, "swagger_spec_folder_uri")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

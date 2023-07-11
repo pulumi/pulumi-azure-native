@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the source control configuration of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the source control configuration of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppSourceControlSlot(args: GetWebAppSourceControlSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSourceControlSlotResult> {
 
@@ -86,8 +86,8 @@ export interface GetWebAppSourceControlSlotResult {
     readonly type: string;
 }
 /**
- * Gets the source control configuration of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the source control configuration of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppSourceControlSlotOutput(args: GetWebAppSourceControlSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSourceControlSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSourceControlSlot(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Advisor
     {
         /// <summary>
         /// Obtains the details of a suppression.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetSuppressionResult> InvokeAsync(GetSuppressionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Obtains the details of a suppression.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetSuppressionResult> Invoke(GetSuppressionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuppressionResult>("azure-native:advisor:getSuppression", args ?? new GetSuppressionInvokeArgs(), options.WithDefaults());
@@ -88,11 +88,11 @@ namespace Pulumi.AzureNative.Advisor
         /// </summary>
         public readonly string ExpirationTimeStamp;
         /// <summary>
-        /// The resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -100,11 +100,15 @@ namespace Pulumi.AzureNative.Advisor
         /// </summary>
         public readonly string? SuppressionId;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The duration for which the suppression is valid.
         /// </summary>
         public readonly string? Ttl;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.Advisor
 
             string? suppressionId,
 
+            Outputs.SystemDataResponse systemData,
+
             string? ttl,
 
             string type)
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.Advisor
             Id = id;
             Name = name;
             SuppressionId = suppressionId;
+            SystemData = systemData;
             Ttl = ttl;
             Type = type;
         }

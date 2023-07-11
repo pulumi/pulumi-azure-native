@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:LinkedServer")]
     public partial class LinkedServer : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The unchanging DNS name which will always point to current geo-primary cache among the linked redis caches for seamless Geo Failover experience.
+        /// </summary>
+        [Output("geoReplicatedPrimaryHostName")]
+        public Output<string> GeoReplicatedPrimaryHostName { get; private set; } = null!;
+
         /// <summary>
         /// Fully qualified resourceId of the linked redis cache.
         /// </summary>
@@ -29,10 +35,16 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> LinkedRedisCacheLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The changing DNS name that resolves to the current geo-primary cache among the linked redis caches before or after the Geo Failover.
+        /// </summary>
+        [Output("primaryHostName")]
+        public Output<string> PrimaryHostName { get; private set; } = null!;
 
         /// <summary>
         /// Terminal state of the link between primary and secondary redis cache.
@@ -47,7 +59,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> ServerRole { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -86,6 +98,8 @@ namespace Pulumi.AzureNative.Cache
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:LinkedServer"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:LinkedServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:LinkedServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

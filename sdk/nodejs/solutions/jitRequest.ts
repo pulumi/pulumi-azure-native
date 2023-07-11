@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about JIT request definition.
- * API Version: 2019-07-01.
+ * Azure REST API version: 2021-07-01. Prior API version in Azure Native 1.x: 2019-07-01
  */
 export class JitRequest extends pulumi.CustomResource {
     /**
@@ -75,6 +75,10 @@ export class JitRequest extends pulumi.CustomResource {
      */
     public /*out*/ readonly publisherTenantId!: pulumi.Output<string>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
+    /**
      * Resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -122,6 +126,7 @@ export class JitRequest extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;
         } else {
@@ -134,6 +139,7 @@ export class JitRequest extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publisherTenantId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedBy"] = undefined /*out*/;

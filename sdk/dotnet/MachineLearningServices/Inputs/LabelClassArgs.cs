@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 {
 
     /// <summary>
-    /// Represents a label or a category of labels in a labeling job.
+    /// Label class definition
     /// </summary>
     public sealed class LabelClassArgs : global::Pulumi.ResourceArgs
     {

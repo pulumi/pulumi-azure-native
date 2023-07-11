@@ -2,37 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20190301 from "./v20190301";
-import * as v20190701 from "./v20190701";
-import * as v20190801 from "./v20190801";
-import * as v20200501preview from "./v20200501preview";
-import * as v20200901 from "./v20200901";
-import * as v20200901preview from "./v20200901preview";
-import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
-import * as v20210601 from "./v20210601";
-import * as v20210601preview from "./v20210601preview";
 import * as v20220301 from "./v20220301";
 import * as v20220401preview from "./v20220401preview";
-import * as v20221201preview from "./v20221201preview";
 import * as v20230101preview from "./v20230101preview";
 
 export {
-    v20190301,
-    v20190701,
-    v20190801,
-    v20200501preview,
-    v20200901,
-    v20200901preview,
-    v20201201,
     v20210201,
     v20210201preview,
-    v20210601,
-    v20210601preview,
     v20220301,
     v20220401preview,
-    v20221201preview,
     v20230101preview,
 };
 
@@ -78,21 +58,6 @@ export const ClientPermissionType = {
  */
 export type ClientPermissionType = (typeof ClientPermissionType)[keyof typeof ClientPermissionType];
 
-export const DataBoxEdgeDeviceStatus = {
-    ReadyToSetup: "ReadyToSetup",
-    Online: "Online",
-    Offline: "Offline",
-    NeedsAttention: "NeedsAttention",
-    Disconnected: "Disconnected",
-    PartiallyDisconnected: "PartiallyDisconnected",
-    Maintenance: "Maintenance",
-} as const;
-
-/**
- * The status of the Data Box Edge/Gateway device.
- */
-export type DataBoxEdgeDeviceStatus = (typeof DataBoxEdgeDeviceStatus)[keyof typeof DataBoxEdgeDeviceStatus];
-
 export const DataPolicy = {
     Cloud: "Cloud",
     Local: "Local",
@@ -102,6 +67,16 @@ export const DataPolicy = {
  * Data policy of the storage Account.
  */
 export type DataPolicy = (typeof DataPolicy)[keyof typeof DataPolicy];
+
+export const DataResidencyType = {
+    GeoZoneReplication: "GeoZoneReplication",
+    ZoneReplication: "ZoneReplication",
+} as const;
+
+/**
+ * DataResidencyType enum
+ */
+export type DataResidencyType = (typeof DataResidencyType)[keyof typeof DataResidencyType];
 
 export const DayOfWeek = {
     Sunday: "Sunday",
@@ -255,10 +230,18 @@ export const SkuName = {
     EdgeP_High: "EdgeP_High",
     EdgePR_Base: "EdgePR_Base",
     EdgePR_Base_UPS: "EdgePR_Base_UPS",
+    EP2_64_1VPU_W: "EP2_64_1VPU_W",
+    EP2_128_1T4_Mx1_W: "EP2_128_1T4_Mx1_W",
+    EP2_256_2T4_W: "EP2_256_2T4_W",
     EdgeMR_Mini: "EdgeMR_Mini",
     RCA_Small: "RCA_Small",
     RCA_Large: "RCA_Large",
     RDC: "RDC",
+    Management: "Management",
+    EP2_64_Mx1_W: "EP2_64_Mx1_W",
+    EP2_128_GPU1_Mx1_W: "EP2_128_GPU1_Mx1_W",
+    EP2_256_GPU2_Mx1: "EP2_256_GPU2_Mx1",
+    EdgeMR_TCP: "EdgeMR_TCP",
 } as const;
 
 /**

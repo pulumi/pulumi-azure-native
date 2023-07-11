@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines the inventory item.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class InventoryItem extends pulumi.CustomResource {
     /**
@@ -63,7 +63,7 @@ export class InventoryItem extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system data.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.scvmm.SystemDataResponse>;
     /**
@@ -118,7 +118,7 @@ export class InventoryItem extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:InventoryItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:InventoryItem" }, { type: "azure-native:scvmm/v20220521preview:InventoryItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(InventoryItem.__pulumiType, name, resourceInputs, opts);
     }

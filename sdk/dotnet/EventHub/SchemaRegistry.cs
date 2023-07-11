@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single item in List or Get Schema Group operation
-    /// API Version: 2022-01-01-preview.
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:SchemaRegistry")]
     public partial class SchemaRegistry : global::Pulumi.CustomResource

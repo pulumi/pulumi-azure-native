@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * App Service plan.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**
@@ -38,6 +38,14 @@ export class AppServicePlan extends pulumi.CustomResource {
         return obj['__pulumiType'] === AppServicePlan.__pulumiType;
     }
 
+    /**
+     * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+     */
+    public readonly elasticScaleEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Extended Location.
+     */
+    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
     /**
      * The time when the server farm free offer expires.
      */
@@ -91,6 +99,10 @@ export class AppServicePlan extends pulumi.CustomResource {
      */
     public /*out*/ readonly numberOfSites!: pulumi.Output<number>;
     /**
+     * The number of instances that are assigned to this App Service plan.
+     */
+    public /*out*/ readonly numberOfWorkers!: pulumi.Output<number>;
+    /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
@@ -143,6 +155,11 @@ export class AppServicePlan extends pulumi.CustomResource {
      * Target worker tier assigned to the App Service plan.
      */
     public readonly workerTierName!: pulumi.Output<string | undefined>;
+    /**
+     * If <code>true</code>, this App Service Plan will perform availability zone balancing.
+     * If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+     */
+    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppServicePlan resource with the given unique name, arguments, and options.
@@ -158,6 +175,8 @@ export class AppServicePlan extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["elasticScaleEnabled"] = args ? args.elasticScaleEnabled : undefined;
+            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
             resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
             resourceInputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
@@ -177,15 +196,19 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
             resourceInputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
             resourceInputs["workerTierName"] = args ? args.workerTierName : undefined;
+            resourceInputs["zoneRedundant"] = (args ? args.zoneRedundant : undefined) ?? false;
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
             resourceInputs["numberOfSites"] = undefined /*out*/;
+            resourceInputs["numberOfWorkers"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceGroup"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["subscription"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["elasticScaleEnabled"] = undefined /*out*/;
+            resourceInputs["extendedLocation"] = undefined /*out*/;
             resourceInputs["freeOfferExpirationTime"] = undefined /*out*/;
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["hostingEnvironmentProfile"] = undefined /*out*/;
@@ -199,6 +222,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfSites"] = undefined /*out*/;
+            resourceInputs["numberOfWorkers"] = undefined /*out*/;
             resourceInputs["perSiteScaling"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["reserved"] = undefined /*out*/;
@@ -212,6 +236,7 @@ export class AppServicePlan extends pulumi.CustomResource {
             resourceInputs["targetWorkerSizeId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerTierName"] = undefined /*out*/;
+            resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:AppServicePlan" }, { type: "azure-native:web/v20160901:AppServicePlan" }, { type: "azure-native:web/v20180201:AppServicePlan" }, { type: "azure-native:web/v20190801:AppServicePlan" }, { type: "azure-native:web/v20200601:AppServicePlan" }, { type: "azure-native:web/v20200901:AppServicePlan" }, { type: "azure-native:web/v20201001:AppServicePlan" }, { type: "azure-native:web/v20201201:AppServicePlan" }, { type: "azure-native:web/v20210101:AppServicePlan" }, { type: "azure-native:web/v20210115:AppServicePlan" }, { type: "azure-native:web/v20210201:AppServicePlan" }, { type: "azure-native:web/v20210301:AppServicePlan" }, { type: "azure-native:web/v20220301:AppServicePlan" }, { type: "azure-native:web/v20220901:AppServicePlan" }] };
@@ -224,6 +249,14 @@ export class AppServicePlan extends pulumi.CustomResource {
  * The set of arguments for constructing a AppServicePlan resource.
  */
 export interface AppServicePlanArgs {
+    /**
+     * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
+     */
+    elasticScaleEnabled?: pulumi.Input<boolean>;
+    /**
+     * Extended Location.
+     */
+    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
     /**
      * The time when the server farm free offer expires.
      */
@@ -301,4 +334,9 @@ export interface AppServicePlanArgs {
      * Target worker tier assigned to the App Service plan.
      */
     workerTierName?: pulumi.Input<string>;
+    /**
+     * If <code>true</code>, this App Service Plan will perform availability zone balancing.
+     * If <code>false</code>, this App Service Plan will not perform availability zone balancing.
+     */
+    zoneRedundant?: pulumi.Input<boolean>;
 }

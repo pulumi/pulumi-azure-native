@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Workload group operations for a data warehouse
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:WorkloadGroup")]
     public partial class WorkloadGroup : global::Pulumi.CustomResource
@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:WorkloadGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:WorkloadGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:WorkloadGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:WorkloadGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

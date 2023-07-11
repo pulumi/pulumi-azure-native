@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Api details.
- * API Version: 2020-12-01.
+ * API details.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class ProductApi extends pulumi.CustomResource {
     /**
@@ -39,11 +39,11 @@ export class ProductApi extends pulumi.CustomResource {
     }
 
     /**
-     * Describes the Revision of the Api. If no value is provided, default revision 1 is created
+     * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
     public /*out*/ readonly apiRevision!: pulumi.Output<string | undefined>;
     /**
-     * Description of the Api Revision.
+     * Description of the API Revision.
      */
     public /*out*/ readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -51,11 +51,11 @@ export class ProductApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiType!: pulumi.Output<string | undefined>;
     /**
-     * Indicates the Version identifier of the API if the API is versioned
+     * Indicates the version identifier of the API if the API is versioned
      */
     public /*out*/ readonly apiVersion!: pulumi.Output<string | undefined>;
     /**
-     * Description of the Api Version.
+     * Description of the API Version.
      */
     public /*out*/ readonly apiVersionDescription!: pulumi.Output<string | undefined>;
     /**
@@ -70,6 +70,10 @@ export class ProductApi extends pulumi.CustomResource {
      * Collection of authentication settings included into this API.
      */
     public /*out*/ readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
+    /**
+     * Contact information for the API.
+     */
+    public /*out*/ readonly contact!: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
@@ -87,7 +91,11 @@ export class ProductApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
     /**
-     * Resource name.
+     * License information for the API.
+     */
+    public /*out*/ readonly license!: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -115,7 +123,11 @@ export class ProductApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource type for API Management resource.
+     *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
+     */
+    public /*out*/ readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -151,10 +163,12 @@ export class ProductApi extends pulumi.CustomResource {
             resourceInputs["apiVersionSet"] = undefined /*out*/;
             resourceInputs["apiVersionSetId"] = undefined /*out*/;
             resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["isCurrent"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["license"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;
             resourceInputs["protocols"] = undefined /*out*/;
@@ -162,6 +176,7 @@ export class ProductApi extends pulumi.CustomResource {
             resourceInputs["sourceApiId"] = undefined /*out*/;
             resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
             resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["termsOfServiceUrl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["apiRevision"] = undefined /*out*/;
@@ -172,10 +187,12 @@ export class ProductApi extends pulumi.CustomResource {
             resourceInputs["apiVersionSet"] = undefined /*out*/;
             resourceInputs["apiVersionSetId"] = undefined /*out*/;
             resourceInputs["authenticationSettings"] = undefined /*out*/;
+            resourceInputs["contact"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["isCurrent"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
+            resourceInputs["license"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;
             resourceInputs["protocols"] = undefined /*out*/;
@@ -183,10 +200,11 @@ export class ProductApi extends pulumi.CustomResource {
             resourceInputs["sourceApiId"] = undefined /*out*/;
             resourceInputs["subscriptionKeyParameterNames"] = undefined /*out*/;
             resourceInputs["subscriptionRequired"] = undefined /*out*/;
+            resourceInputs["termsOfServiceUrl"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ProductApi" }, { type: "azure-native:apimanagement/v20180101:ProductApi" }, { type: "azure-native:apimanagement/v20180601preview:ProductApi" }, { type: "azure-native:apimanagement/v20190101:ProductApi" }, { type: "azure-native:apimanagement/v20191201:ProductApi" }, { type: "azure-native:apimanagement/v20191201preview:ProductApi" }, { type: "azure-native:apimanagement/v20200601preview:ProductApi" }, { type: "azure-native:apimanagement/v20201201:ProductApi" }, { type: "azure-native:apimanagement/v20210101preview:ProductApi" }, { type: "azure-native:apimanagement/v20210401preview:ProductApi" }, { type: "azure-native:apimanagement/v20210801:ProductApi" }, { type: "azure-native:apimanagement/v20211201preview:ProductApi" }, { type: "azure-native:apimanagement/v20220401preview:ProductApi" }, { type: "azure-native:apimanagement/v20220801:ProductApi" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ProductApi" }, { type: "azure-native:apimanagement/v20180101:ProductApi" }, { type: "azure-native:apimanagement/v20180601preview:ProductApi" }, { type: "azure-native:apimanagement/v20190101:ProductApi" }, { type: "azure-native:apimanagement/v20191201:ProductApi" }, { type: "azure-native:apimanagement/v20191201preview:ProductApi" }, { type: "azure-native:apimanagement/v20200601preview:ProductApi" }, { type: "azure-native:apimanagement/v20201201:ProductApi" }, { type: "azure-native:apimanagement/v20210101preview:ProductApi" }, { type: "azure-native:apimanagement/v20210401preview:ProductApi" }, { type: "azure-native:apimanagement/v20210801:ProductApi" }, { type: "azure-native:apimanagement/v20211201preview:ProductApi" }, { type: "azure-native:apimanagement/v20220401preview:ProductApi" }, { type: "azure-native:apimanagement/v20220801:ProductApi" }, { type: "azure-native:apimanagement/v20220901preview:ProductApi" }, { type: "azure-native:apimanagement/v20230301preview:ProductApi" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductApi.__pulumiType, name, resourceInputs, opts);
     }
@@ -205,7 +223,7 @@ export interface ProductApiArgs {
      */
     productId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

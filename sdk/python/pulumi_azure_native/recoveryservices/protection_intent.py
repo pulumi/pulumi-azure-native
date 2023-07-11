@@ -23,7 +23,7 @@ class ProtectionIntentArgs:
                  e_tag: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ProtectionIntent resource.
@@ -33,7 +33,7 @@ class ProtectionIntentArgs:
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input[str] intent_object_name: Intent object name.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']] properties: ProtectionIntentResource properties
+        :param pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']] properties: ProtectionIntentResource properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
@@ -124,14 +124,14 @@ class ProtectionIntentArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]:
+    def properties(self) -> Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]:
         """
         ProtectionIntentResource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]):
+    def properties(self, value: Optional[pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]]):
         pulumi.set(self, "properties", value)
 
     @property
@@ -156,14 +156,14 @@ class ProtectionIntent(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadContainerAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Base class for backup ProtectionIntent.
-        API Version: 2021-02-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -171,7 +171,7 @@ class ProtectionIntent(pulumi.CustomResource):
         :param pulumi.Input[str] fabric_name: Fabric name associated with the backup item.
         :param pulumi.Input[str] intent_object_name: Intent object name.
         :param pulumi.Input[str] location: Resource location.
-        :param pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]] properties: ProtectionIntentResource properties
+        :param pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadContainerAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]] properties: ProtectionIntentResource properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
@@ -184,7 +184,7 @@ class ProtectionIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for backup ProtectionIntent.
-        API Version: 2021-02-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-02-01
 
         :param str resource_name: The name of the resource.
         :param ProtectionIntentArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class ProtectionIntent(pulumi.CustomResource):
                  fabric_name: Optional[pulumi.Input[str]] = None,
                  intent_object_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['AzureRecoveryServiceVaultProtectionIntentArgs'], pulumi.InputType['AzureResourceProtectionIntentArgs'], pulumi.InputType['AzureWorkloadAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadContainerAutoProtectionIntentArgs'], pulumi.InputType['AzureWorkloadSQLAutoProtectionIntentArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
@@ -234,7 +234,7 @@ class ProtectionIntent(pulumi.CustomResource):
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20170701:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ProtectionIntent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20170701:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210201preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220601preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220901preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ProtectionIntent"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ProtectionIntent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ProtectionIntent, __self__).__init__(
             'azure-native:recoveryservices:ProtectionIntent',

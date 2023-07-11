@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific application for the requested scope by applicationId
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getSecurityConnectorApplication(args: GetSecurityConnectorApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorApplicationResult> {
 
@@ -64,7 +64,7 @@ export interface GetSecurityConnectorApplicationResult {
 }
 /**
  * Get a specific application for the requested scope by applicationId
- * API Version: 2022-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview.
  */
 export function getSecurityConnectorApplicationOutput(args: GetSecurityConnectorApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorApplicationResult> {
     return pulumi.output(args).apply((a: any) => getSecurityConnectorApplication(a, opts))

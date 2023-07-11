@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Data Lake Analytics compute policy.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getComputePolicy(args: GetComputePolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetComputePolicyResult> {
 
@@ -68,7 +68,7 @@ export interface GetComputePolicyResult {
 }
 /**
  * Gets the specified Data Lake Analytics compute policy.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2019-11-01-preview.
  */
 export function getComputePolicyOutput(args: GetComputePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputePolicyResult> {
     return pulumi.output(args).apply((a: any) => getComputePolicy(a, opts))

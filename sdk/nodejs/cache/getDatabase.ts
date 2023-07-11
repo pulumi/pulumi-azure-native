@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a database in a RedisEnterprise cluster.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
 
@@ -53,6 +53,10 @@ export interface GetDatabaseResult {
      */
     readonly evictionPolicy?: string;
     /**
+     * Optional set of properties to configure geo replication for this database.
+     */
+    readonly geoReplication?: outputs.cache.DatabasePropertiesResponseGeoReplication;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -81,13 +85,17 @@ export interface GetDatabaseResult {
      */
     readonly resourceState: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.cache.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets information about a database in a RedisEnterprise cluster.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
     return pulumi.output(args).apply((a: any) => getDatabase(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Restore Point details.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class RestorePoint extends pulumi.CustomResource {
     /**
@@ -39,13 +39,17 @@ export class RestorePoint extends pulumi.CustomResource {
     }
 
     /**
-     * Gets the consistency mode for the restore point. Please refer to https://aka.ms/RestorePoints for more details.
+     * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
      */
-    public /*out*/ readonly consistencyMode!: pulumi.Output<string>;
+    public readonly consistencyMode!: pulumi.Output<string | undefined>;
     /**
      * List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
      */
     public readonly excludeDisks!: pulumi.Output<outputs.compute.ApiEntityReferenceResponse[] | undefined>;
+    /**
+     * The restore point instance view.
+     */
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.RestorePointInstanceViewResponse>;
     /**
      * Resource name
      */
@@ -57,7 +61,11 @@ export class RestorePoint extends pulumi.CustomResource {
     /**
      * Gets the details of the VM captured at the time of the restore point creation.
      */
-    public /*out*/ readonly sourceMetadata!: pulumi.Output<outputs.compute.RestorePointSourceMetadataResponse>;
+    public readonly sourceMetadata!: pulumi.Output<outputs.compute.RestorePointSourceMetadataResponse | undefined>;
+    /**
+     * Resource Id of the source restore point from which a copy needs to be created.
+     */
+    public readonly sourceRestorePoint!: pulumi.Output<outputs.compute.ApiEntityReferenceResponse | undefined>;
     /**
      * Gets the creation time of the restore point.
      */
@@ -84,22 +92,26 @@ export class RestorePoint extends pulumi.CustomResource {
             if ((!args || args.restorePointCollectionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restorePointCollectionName'");
             }
+            resourceInputs["consistencyMode"] = args ? args.consistencyMode : undefined;
             resourceInputs["excludeDisks"] = args ? args.excludeDisks : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restorePointCollectionName"] = args ? args.restorePointCollectionName : undefined;
             resourceInputs["restorePointName"] = args ? args.restorePointName : undefined;
+            resourceInputs["sourceMetadata"] = args ? args.sourceMetadata : undefined;
+            resourceInputs["sourceRestorePoint"] = args ? args.sourceRestorePoint : undefined;
             resourceInputs["timeCreated"] = args ? args.timeCreated : undefined;
-            resourceInputs["consistencyMode"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["sourceMetadata"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["consistencyMode"] = undefined /*out*/;
             resourceInputs["excludeDisks"] = undefined /*out*/;
+            resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sourceMetadata"] = undefined /*out*/;
+            resourceInputs["sourceRestorePoint"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -114,6 +126,10 @@ export class RestorePoint extends pulumi.CustomResource {
  * The set of arguments for constructing a RestorePoint resource.
  */
 export interface RestorePointArgs {
+    /**
+     * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+     */
+    consistencyMode?: pulumi.Input<string | enums.compute.ConsistencyModeTypes>;
     /**
      * List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
      */
@@ -130,6 +146,14 @@ export interface RestorePointArgs {
      * The name of the restore point.
      */
     restorePointName?: pulumi.Input<string>;
+    /**
+     * Gets the details of the VM captured at the time of the restore point creation.
+     */
+    sourceMetadata?: pulumi.Input<inputs.compute.RestorePointSourceMetadataArgs>;
+    /**
+     * Resource Id of the source restore point from which a copy needs to be created.
+     */
+    sourceRestorePoint?: pulumi.Input<inputs.compute.ApiEntityReferenceArgs>;
     /**
      * Gets the creation time of the restore point.
      */

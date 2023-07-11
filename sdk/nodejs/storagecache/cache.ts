@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
- * API Version: 2021-03-01.
+ * A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class Cache extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly encryptionSettings!: pulumi.Output<outputs.storagecache.CacheEncryptionSettingsResponse | undefined>;
     /**
-     * Health of the Cache.
+     * Health of the cache.
      */
     public /*out*/ readonly health!: pulumi.Output<outputs.storagecache.CacheHealthResponse>;
     /**
@@ -63,11 +63,11 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Array of IP addresses that can be used by clients mounting this Cache.
+     * Array of IPv4 addresses that can be used by clients mounting this cache.
      */
     public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
     /**
-     * Name of Cache.
+     * Name of cache.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -75,19 +75,27 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly networkSettings!: pulumi.Output<outputs.storagecache.CacheNetworkSettingsResponse | undefined>;
     /**
+     * Specifies the priming jobs defined in the cache.
+     */
+    public /*out*/ readonly primingJobs!: pulumi.Output<outputs.storagecache.PrimingJobResponse[]>;
+    /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * Specifies security settings of the cache.
      */
     public readonly securitySettings!: pulumi.Output<outputs.storagecache.CacheSecuritySettingsResponse | undefined>;
     /**
-     * SKU for the Cache.
+     * SKU for the cache.
      */
     public readonly sku!: pulumi.Output<outputs.storagecache.CacheResponseSku | undefined>;
     /**
-     * Subnet used for the Cache.
+     * Specifies the space allocation percentage for each storage target in the cache.
+     */
+    public /*out*/ readonly spaceAllocation!: pulumi.Output<outputs.storagecache.StorageTargetSpaceAllocationResponse[]>;
+    /**
+     * Subnet used for the cache.
      */
     public readonly subnet!: pulumi.Output<string | undefined>;
     /**
@@ -99,13 +107,21 @@ export class Cache extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of the Cache; Microsoft.StorageCache/Cache
+     * Type of the cache; Microsoft.StorageCache/Cache
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * Upgrade status of the Cache.
+     * Upgrade settings of the cache.
      */
-    public /*out*/ readonly upgradeStatus!: pulumi.Output<outputs.storagecache.CacheUpgradeStatusResponse | undefined>;
+    public readonly upgradeSettings!: pulumi.Output<outputs.storagecache.CacheUpgradeSettingsResponse | undefined>;
+    /**
+     * Upgrade status of the cache.
+     */
+    public /*out*/ readonly upgradeStatus!: pulumi.Output<outputs.storagecache.CacheUpgradeStatusResponse>;
+    /**
+     * Availability zones for resources. This field should only contain a single element in the array.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -128,15 +144,19 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkSettings"] = args ? (args.networkSettings ? pulumi.output(args.networkSettings).apply(inputs.storagecache.cacheNetworkSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["securitySettings"] = args ? args.securitySettings : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["subnet"] = args ? args.subnet : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["health"] = undefined /*out*/;
             resourceInputs["mountAddresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["primingJobs"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["spaceAllocation"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["upgradeStatus"] = undefined /*out*/;
@@ -150,17 +170,21 @@ export class Cache extends pulumi.CustomResource {
             resourceInputs["mountAddresses"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkSettings"] = undefined /*out*/;
+            resourceInputs["primingJobs"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["securitySettings"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["spaceAllocation"] = undefined /*out*/;
             resourceInputs["subnet"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["upgradeSettings"] = undefined /*out*/;
             resourceInputs["upgradeStatus"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20190801preview:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-native:storagecache/v20210301:Cache" }, { type: "azure-native:storagecache/v20210501:Cache" }, { type: "azure-native:storagecache/v20210901:Cache" }, { type: "azure-native:storagecache/v20220101:Cache" }, { type: "azure-native:storagecache/v20220501:Cache" }, { type: "azure-native:storagecache/v20230101:Cache" }, { type: "azure-native:storagecache/v20230301preview:Cache" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20190801preview:Cache" }, { type: "azure-native:storagecache/v20191101:Cache" }, { type: "azure-native:storagecache/v20200301:Cache" }, { type: "azure-native:storagecache/v20201001:Cache" }, { type: "azure-native:storagecache/v20210301:Cache" }, { type: "azure-native:storagecache/v20210501:Cache" }, { type: "azure-native:storagecache/v20210901:Cache" }, { type: "azure-native:storagecache/v20220101:Cache" }, { type: "azure-native:storagecache/v20220501:Cache" }, { type: "azure-native:storagecache/v20230101:Cache" }, { type: "azure-native:storagecache/v20230301preview:Cache" }, { type: "azure-native:storagecache/v20230501:Cache" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cache.__pulumiType, name, resourceInputs, opts);
     }
@@ -171,7 +195,7 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName?: pulumi.Input<string>;
     /**
@@ -199,11 +223,7 @@ export interface CacheArgs {
      */
     networkSettings?: pulumi.Input<inputs.storagecache.CacheNetworkSettingsArgs>;
     /**
-     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-     */
-    provisioningState?: pulumi.Input<string | enums.storagecache.ProvisioningStateType>;
-    /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -211,15 +231,23 @@ export interface CacheArgs {
      */
     securitySettings?: pulumi.Input<inputs.storagecache.CacheSecuritySettingsArgs>;
     /**
-     * SKU for the Cache.
+     * SKU for the cache.
      */
     sku?: pulumi.Input<inputs.storagecache.CacheSkuArgs>;
     /**
-     * Subnet used for the Cache.
+     * Subnet used for the cache.
      */
     subnet?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Upgrade settings of the cache.
+     */
+    upgradeSettings?: pulumi.Input<inputs.storagecache.CacheUpgradeSettingsArgs>;
+    /**
+     * Availability zones for resources. This field should only contain a single element in the array.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

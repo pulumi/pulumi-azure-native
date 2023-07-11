@@ -22,7 +22,7 @@ class GetSAPApplicationServerInstanceResult:
     """
     Define the SAP Application Server Instance resource.
     """
-    def __init__(__self__, errors=None, gateway_port=None, health=None, hostname=None, icm_http_port=None, icm_https_port=None, id=None, instance_no=None, ip_address=None, kernel_patch=None, kernel_version=None, location=None, name=None, provisioning_state=None, status=None, storage_details=None, subnet=None, system_data=None, tags=None, type=None, virtual_machine_id=None):
+    def __init__(__self__, errors=None, gateway_port=None, health=None, hostname=None, icm_http_port=None, icm_https_port=None, id=None, instance_no=None, ip_address=None, kernel_patch=None, kernel_version=None, load_balancer_details=None, location=None, name=None, provisioning_state=None, status=None, subnet=None, system_data=None, tags=None, type=None, vm_details=None):
         if errors and not isinstance(errors, dict):
             raise TypeError("Expected argument 'errors' to be a dict")
         pulumi.set(__self__, "errors", errors)
@@ -56,6 +56,9 @@ class GetSAPApplicationServerInstanceResult:
         if kernel_version and not isinstance(kernel_version, str):
             raise TypeError("Expected argument 'kernel_version' to be a str")
         pulumi.set(__self__, "kernel_version", kernel_version)
+        if load_balancer_details and not isinstance(load_balancer_details, dict):
+            raise TypeError("Expected argument 'load_balancer_details' to be a dict")
+        pulumi.set(__self__, "load_balancer_details", load_balancer_details)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -68,9 +71,6 @@ class GetSAPApplicationServerInstanceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
-        if storage_details and not isinstance(storage_details, list):
-            raise TypeError("Expected argument 'storage_details' to be a list")
-        pulumi.set(__self__, "storage_details", storage_details)
         if subnet and not isinstance(subnet, str):
             raise TypeError("Expected argument 'subnet' to be a str")
         pulumi.set(__self__, "subnet", subnet)
@@ -83,9 +83,9 @@ class GetSAPApplicationServerInstanceResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-        if virtual_machine_id and not isinstance(virtual_machine_id, str):
-            raise TypeError("Expected argument 'virtual_machine_id' to be a str")
-        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        if vm_details and not isinstance(vm_details, list):
+            raise TypeError("Expected argument 'vm_details' to be a list")
+        pulumi.set(__self__, "vm_details", vm_details)
 
     @property
     @pulumi.getter
@@ -176,6 +176,14 @@ class GetSAPApplicationServerInstanceResult:
         return pulumi.get(self, "kernel_version")
 
     @property
+    @pulumi.getter(name="loadBalancerDetails")
+    def load_balancer_details(self) -> 'outputs.LoadBalancerDetailsResponse':
+        """
+        The Load Balancer details such as LoadBalancer ID attached to Application Server Virtual Machines
+        """
+        return pulumi.get(self, "load_balancer_details")
+
+    @property
     @pulumi.getter
     def location(self) -> str:
         """
@@ -206,14 +214,6 @@ class GetSAPApplicationServerInstanceResult:
         Defines the SAP Instance status.
         """
         return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="storageDetails")
-    def storage_details(self) -> Sequence['outputs.StorageInformationResponse']:
-        """
-        Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
-        """
-        return pulumi.get(self, "storage_details")
 
     @property
     @pulumi.getter
@@ -248,12 +248,12 @@ class GetSAPApplicationServerInstanceResult:
         return pulumi.get(self, "type")
 
     @property
-    @pulumi.getter(name="virtualMachineId")
-    def virtual_machine_id(self) -> str:
+    @pulumi.getter(name="vmDetails")
+    def vm_details(self) -> Sequence['outputs.ApplicationServerVmDetailsResponse']:
         """
-        The virtual machine.
+        The list of virtual machines.
         """
-        return pulumi.get(self, "virtual_machine_id")
+        return pulumi.get(self, "vm_details")
 
 
 class AwaitableGetSAPApplicationServerInstanceResult(GetSAPApplicationServerInstanceResult):
@@ -273,16 +273,16 @@ class AwaitableGetSAPApplicationServerInstanceResult(GetSAPApplicationServerInst
             ip_address=self.ip_address,
             kernel_patch=self.kernel_patch,
             kernel_version=self.kernel_version,
+            load_balancer_details=self.load_balancer_details,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
             status=self.status,
-            storage_details=self.storage_details,
             subnet=self.subnet,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            virtual_machine_id=self.virtual_machine_id)
+            vm_details=self.vm_details)
 
 
 def get_sap_application_server_instance(application_instance_name: Optional[str] = None,
@@ -291,7 +291,7 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPApplicationServerInstanceResult:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str application_instance_name: The name of SAP Application Server instance resource.
@@ -317,16 +317,16 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
         ip_address=__ret__.ip_address,
         kernel_patch=__ret__.kernel_patch,
         kernel_version=__ret__.kernel_version,
+        load_balancer_details=__ret__.load_balancer_details,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
-        storage_details=__ret__.storage_details,
         subnet=__ret__.subnet,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
-        virtual_machine_id=__ret__.virtual_machine_id)
+        vm_details=__ret__.vm_details)
 
 
 @_utilities.lift_output_func(get_sap_application_server_instance)
@@ -336,7 +336,7 @@ def get_sap_application_server_instance_output(application_instance_name: Option
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPApplicationServerInstanceResult]:
     """
     Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str application_instance_name: The name of SAP Application Server instance resource.

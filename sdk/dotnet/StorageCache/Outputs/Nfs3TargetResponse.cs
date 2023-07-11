@@ -24,15 +24,29 @@ namespace Pulumi.AzureNative.StorageCache.Outputs
         /// Identifies the StorageCache usage model to be used for this storage target.
         /// </summary>
         public readonly string? UsageModel;
+        /// <summary>
+        /// Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        /// </summary>
+        public readonly int? VerificationTimer;
+        /// <summary>
+        /// Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        /// </summary>
+        public readonly int? WriteBackTimer;
 
         [OutputConstructor]
         private Nfs3TargetResponse(
             string? target,
 
-            string? usageModel)
+            string? usageModel,
+
+            int? verificationTimer,
+
+            int? writeBackTimer)
         {
             Target = target;
             UsageModel = usageModel;
+            VerificationTimer = verificationTimer;
+            WriteBackTimer = writeBackTimer;
         }
     }
 }

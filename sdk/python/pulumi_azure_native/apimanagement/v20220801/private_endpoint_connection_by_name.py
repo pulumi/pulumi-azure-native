@@ -100,12 +100,7 @@ class PrivateEndpointConnectionByNameArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class PrivateEndpointConnectionByName(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -157,7 +152,6 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateEndpointConnectionByName is deprecated: azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -180,7 +174,7 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
             __props__.__dict__["private_link_service_connection_state"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionByName, __self__).__init__(
             'azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName',

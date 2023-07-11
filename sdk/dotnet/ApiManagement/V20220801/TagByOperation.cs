@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Tag Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:TagByOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:TagByOperation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:TagByOperation")]
     public partial class TagByOperation : global::Pulumi.CustomResource
     {
@@ -73,6 +72,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:TagByOperation"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:TagByOperation"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:TagByOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:TagByOperation"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:TagByOperation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns an attached database configuration.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getAttachedDatabaseConfiguration(args: GetAttachedDatabaseConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedDatabaseConfigurationResult> {
 
@@ -53,6 +53,14 @@ export interface GetAttachedDatabaseConfigurationResult {
      */
     readonly databaseName: string;
     /**
+     * Overrides the original database name. Relevant only when attaching to a specific database.
+     */
+    readonly databaseNameOverride?: string;
+    /**
+     * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+     */
+    readonly databaseNamePrefix?: string;
+    /**
      * The default principals modification kind
      */
     readonly defaultPrincipalsModificationKind: string;
@@ -83,7 +91,7 @@ export interface GetAttachedDatabaseConfigurationResult {
 }
 /**
  * Returns an attached database configuration.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getAttachedDatabaseConfigurationOutput(args: GetAttachedDatabaseConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedDatabaseConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getAttachedDatabaseConfiguration(a, opts))

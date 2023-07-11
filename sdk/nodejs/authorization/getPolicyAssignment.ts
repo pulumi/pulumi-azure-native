@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
 
@@ -76,6 +76,10 @@ export interface GetPolicyAssignmentResult {
      */
     readonly notScopes?: string[];
     /**
+     * The policy property value override.
+     */
+    readonly overrides?: outputs.authorization.OverrideResponse[];
+    /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
     readonly parameters?: {[key: string]: outputs.authorization.ParameterValuesValueResponse};
@@ -84,9 +88,17 @@ export interface GetPolicyAssignmentResult {
      */
     readonly policyDefinitionId?: string;
     /**
+     * The resource selector list to filter policies by resource properties.
+     */
+    readonly resourceSelectors?: outputs.authorization.ResourceSelectorResponse[];
+    /**
      * The scope for the policy assignment.
      */
     readonly scope: string;
+    /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
     /**
      * The type of the policy assignment.
      */
@@ -94,7 +106,7 @@ export interface GetPolicyAssignmentResult {
 }
 /**
  * This operation retrieves a single policy assignment, given its name and the scope it was created at.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2022-06-01.
  */
 export function getPolicyAssignmentOutput(args: GetPolicyAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyAssignment(a, opts))

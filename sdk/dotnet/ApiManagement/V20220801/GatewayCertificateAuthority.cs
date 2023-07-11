@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Gateway certificate authority details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:GatewayCertificateAuthority")]
     public partial class GatewayCertificateAuthority : global::Pulumi.CustomResource
     {
@@ -67,6 +66,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GatewayCertificateAuthority"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GatewayCertificateAuthority"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

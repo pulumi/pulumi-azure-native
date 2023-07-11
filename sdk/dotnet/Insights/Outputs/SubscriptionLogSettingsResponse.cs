@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string? Category;
         /// <summary>
+        /// Name of a Subscription Diagnostic Log category group for a resource type this setting is applied to.
+        /// </summary>
+        public readonly string? CategoryGroup;
+        /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
         public readonly bool Enabled;
@@ -29,9 +33,12 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private SubscriptionLogSettingsResponse(
             string? category,
 
+            string? categoryGroup,
+
             bool enabled)
         {
             Category = category;
+            CategoryGroup = categoryGroup;
             Enabled = enabled;
         }
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a scaling plan.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
 
@@ -86,14 +86,14 @@ export interface GetScalingPlanResult {
     readonly objectId: string;
     readonly plan?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan;
     /**
-     * The ring number of scaling plan.
-     */
-    readonly ring?: number;
-    /**
-     * List of ScalingSchedule definitions.
+     * List of ScalingPlanPooledSchedule definitions.
      */
     readonly schedules?: outputs.desktopvirtualization.ScalingScheduleResponse[];
     readonly sku?: outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.desktopvirtualization.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -101,7 +101,7 @@ export interface GetScalingPlanResult {
     /**
      * Timezone of the scaling plan.
      */
-    readonly timeZone?: string;
+    readonly timeZone: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -109,7 +109,7 @@ export interface GetScalingPlanResult {
 }
 /**
  * Get a scaling plan.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09.
  */
 export function getScalingPlanOutput(args: GetScalingPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScalingPlanResult> {
     return pulumi.output(args).apply((a: any) => getScalingPlan(a, opts))

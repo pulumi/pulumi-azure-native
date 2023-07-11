@@ -128,12 +128,7 @@ class GraphQLApiResolverArgs:
         pulumi.set(self, "resolver_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:GraphQLApiResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolver to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class GraphQLApiResolver(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:GraphQLApiResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolver to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,7 +186,6 @@ class GraphQLApiResolver(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GraphQLApiResolver is deprecated: azure-native:apimanagement/v20220801:GraphQLApiResolver is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolver to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -215,6 +209,8 @@ class GraphQLApiResolver(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GraphQLApiResolver"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GraphQLApiResolver"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GraphQLApiResolver")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GraphQLApiResolver, __self__).__init__(
             'azure-native:apimanagement/v20220801:GraphQLApiResolver',
             resource_name,

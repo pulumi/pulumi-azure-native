@@ -8,68 +8,6 @@ using Pulumi;
 namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 {
     /// <summary>
-    /// A role defining the data plane operations that a principal can perform on a Time Series Insights client.
-    /// </summary>
-    [EnumType]
-    public readonly struct AccessPolicyRole : IEquatable<AccessPolicyRole>
-    {
-        private readonly string _value;
-
-        private AccessPolicyRole(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static AccessPolicyRole Reader { get; } = new AccessPolicyRole("Reader");
-        public static AccessPolicyRole Contributor { get; } = new AccessPolicyRole("Contributor");
-
-        public static bool operator ==(AccessPolicyRole left, AccessPolicyRole right) => left.Equals(right);
-        public static bool operator !=(AccessPolicyRole left, AccessPolicyRole right) => !left.Equals(right);
-
-        public static explicit operator string(AccessPolicyRole value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is AccessPolicyRole other && Equals(other);
-        public bool Equals(AccessPolicyRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataStringComparisonBehavior : IEquatable<DataStringComparisonBehavior>
-    {
-        private readonly string _value;
-
-        private DataStringComparisonBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataStringComparisonBehavior Ordinal { get; } = new DataStringComparisonBehavior("Ordinal");
-        public static DataStringComparisonBehavior OrdinalIgnoreCase { get; } = new DataStringComparisonBehavior("OrdinalIgnoreCase");
-
-        public static bool operator ==(DataStringComparisonBehavior left, DataStringComparisonBehavior right) => left.Equals(right);
-        public static bool operator !=(DataStringComparisonBehavior left, DataStringComparisonBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(DataStringComparisonBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataStringComparisonBehavior other && Equals(other);
-        public bool Equals(DataStringComparisonBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The kind of the environment.
     /// </summary>
     [EnumType]
@@ -93,99 +31,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnvironmentKind other && Equals(other);
         public bool Equals(EnvironmentKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The kind of the event source.
-    /// </summary>
-    [EnumType]
-    public readonly struct EventSourceKind : IEquatable<EventSourceKind>
-    {
-        private readonly string _value;
-
-        private EventSourceKind(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static EventSourceKind Microsoft_EventHub { get; } = new EventSourceKind("Microsoft.EventHub");
-        public static EventSourceKind Microsoft_IoTHub { get; } = new EventSourceKind("Microsoft.IoTHub");
-
-        public static bool operator ==(EventSourceKind left, EventSourceKind right) => left.Equals(right);
-        public static bool operator !=(EventSourceKind left, EventSourceKind right) => !left.Equals(right);
-
-        public static explicit operator string(EventSourceKind value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is EventSourceKind other && Equals(other);
-        public bool Equals(EventSourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
-    /// </summary>
-    [EnumType]
-    public readonly struct IngressStartAtType : IEquatable<IngressStartAtType>
-    {
-        private readonly string _value;
-
-        private IngressStartAtType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IngressStartAtType EarliestAvailable { get; } = new IngressStartAtType("EarliestAvailable");
-        public static IngressStartAtType EventSourceCreationTime { get; } = new IngressStartAtType("EventSourceCreationTime");
-        public static IngressStartAtType CustomEnqueuedTime { get; } = new IngressStartAtType("CustomEnqueuedTime");
-
-        public static bool operator ==(IngressStartAtType left, IngressStartAtType right) => left.Equals(right);
-        public static bool operator !=(IngressStartAtType left, IngressStartAtType right) => !left.Equals(right);
-
-        public static explicit operator string(IngressStartAtType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IngressStartAtType other && Equals(other);
-        public bool Equals(IngressStartAtType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// An enum that represents the format of the local timestamp property that needs to be set.
-    /// </summary>
-    [EnumType]
-    public readonly struct LocalTimestampFormat : IEquatable<LocalTimestampFormat>
-    {
-        private readonly string _value;
-
-        private LocalTimestampFormat(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static LocalTimestampFormat Embedded { get; } = new LocalTimestampFormat("Embedded");
-
-        public static bool operator ==(LocalTimestampFormat left, LocalTimestampFormat right) => left.Equals(right);
-        public static bool operator !=(LocalTimestampFormat left, LocalTimestampFormat right) => !left.Equals(right);
-
-        public static explicit operator string(LocalTimestampFormat value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is LocalTimestampFormat other && Equals(other);
-        public bool Equals(LocalTimestampFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -287,39 +132,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
     }
 
     /// <summary>
-    /// The type of the key property.
-    /// </summary>
-    [EnumType]
-    public readonly struct ReferenceDataKeyPropertyType : IEquatable<ReferenceDataKeyPropertyType>
-    {
-        private readonly string _value;
-
-        private ReferenceDataKeyPropertyType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ReferenceDataKeyPropertyType String { get; } = new ReferenceDataKeyPropertyType("String");
-        public static ReferenceDataKeyPropertyType Double { get; } = new ReferenceDataKeyPropertyType("Double");
-        public static ReferenceDataKeyPropertyType Bool { get; } = new ReferenceDataKeyPropertyType("Bool");
-        public static ReferenceDataKeyPropertyType DateTime { get; } = new ReferenceDataKeyPropertyType("DateTime");
-
-        public static bool operator ==(ReferenceDataKeyPropertyType left, ReferenceDataKeyPropertyType right) => left.Equals(right);
-        public static bool operator !=(ReferenceDataKeyPropertyType left, ReferenceDataKeyPropertyType right) => !left.Equals(right);
-
-        public static explicit operator string(ReferenceDataKeyPropertyType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ReferenceDataKeyPropertyType other && Equals(other);
-        public bool Equals(ReferenceDataKeyPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of this SKU.
     /// </summary>
     [EnumType]
@@ -345,37 +157,6 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
-    /// </summary>
-    [EnumType]
-    public readonly struct StorageLimitExceededBehavior : IEquatable<StorageLimitExceededBehavior>
-    {
-        private readonly string _value;
-
-        private StorageLimitExceededBehavior(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StorageLimitExceededBehavior PurgeOldData { get; } = new StorageLimitExceededBehavior("PurgeOldData");
-        public static StorageLimitExceededBehavior PauseIngress { get; } = new StorageLimitExceededBehavior("PauseIngress");
-
-        public static bool operator ==(StorageLimitExceededBehavior left, StorageLimitExceededBehavior right) => left.Equals(right);
-        public static bool operator !=(StorageLimitExceededBehavior left, StorageLimitExceededBehavior right) => !left.Equals(right);
-
-        public static explicit operator string(StorageLimitExceededBehavior value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageLimitExceededBehavior other && Equals(other);
-        public bool Equals(StorageLimitExceededBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get the specific private end point connection by specific private link service in the resource group.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetPrivateLinkServicePrivateEndpointConnectionResult> InvokeAsync(GetPrivateLinkServicePrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the specific private end point connection by specific private link service in the resource group.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetPrivateLinkServicePrivateEndpointConnectionResult> Invoke(GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkServicePrivateEndpointConnectionResult>("azure-native:network:getPrivateLinkServicePrivateEndpointConnection", args ?? new GetPrivateLinkServicePrivateEndpointConnectionInvokeArgs(), options.WithDefaults());
@@ -116,6 +116,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.PrivateEndpointResponse PrivateEndpoint;
         /// <summary>
+        /// The location of the private endpoint.
+        /// </summary>
+        public readonly string PrivateEndpointLocation;
+        /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         public readonly Outputs.PrivateLinkServiceConnectionStateResponse? PrivateLinkServiceConnectionState;
@@ -140,6 +144,8 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.PrivateEndpointResponse privateEndpoint,
 
+            string privateEndpointLocation,
+
             Outputs.PrivateLinkServiceConnectionStateResponse? privateLinkServiceConnectionState,
 
             string provisioningState,
@@ -151,6 +157,7 @@ namespace Pulumi.AzureNative.Network
             LinkIdentifier = linkIdentifier;
             Name = name;
             PrivateEndpoint = privateEndpoint;
+            PrivateEndpointLocation = privateEndpointLocation;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
             Type = type;

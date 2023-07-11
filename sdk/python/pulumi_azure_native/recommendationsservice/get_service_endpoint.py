@@ -123,7 +123,7 @@ def get_service_endpoint(account_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceEndpointResult:
     """
     Returns ServiceEndpoint resources for a given name.
-    API Version: 2022-02-01.
+    Azure REST API version: 2022-02-01.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.
@@ -154,7 +154,7 @@ def get_service_endpoint_output(account_name: Optional[pulumi.Input[str]] = None
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceEndpointResult]:
     """
     Returns ServiceEndpoint resources for a given name.
-    API Version: 2022-02-01.
+    Azure REST API version: 2022-02-01.
 
 
     :param str account_name: The name of the RecommendationsService Account resource.

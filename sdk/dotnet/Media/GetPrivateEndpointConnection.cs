@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Media
     public static class GetPrivateEndpointConnection
     {
         /// <summary>
-        /// Get private endpoint connection.
-        /// API Version: 2020-05-01.
+        /// Get the details of a private endpoint connection.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:media:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get private endpoint connection.
-        /// API Version: 2020-05-01.
+        /// Get the details of a private endpoint connection.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:media:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

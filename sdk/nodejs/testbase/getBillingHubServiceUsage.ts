@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getBillingHubServiceUsage(args: GetBillingHubServiceUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingHubServiceUsageResult> {
 
@@ -46,7 +46,7 @@ export interface GetBillingHubServiceUsageResult {
     readonly totalUsedFreeHours?: number;
 }
 /**
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-04-01-preview.
  */
 export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingHubServiceUsageResult> {
     return pulumi.output(args).apply((a: any) => getBillingHubServiceUsage(a, opts))

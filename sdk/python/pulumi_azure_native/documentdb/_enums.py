@@ -5,11 +5,16 @@
 from enum import Enum
 
 __all__ = [
+    'AnalyticalStorageSchemaType',
     'AuthenticationMethod',
+    'BackupPolicyMigrationStatus',
     'BackupPolicyType',
+    'BackupStorageRedundancy',
     'CompositePathSortOrder',
     'ConflictResolutionMode',
     'ConnectorOffer',
+    'ContinuousTier',
+    'CreateMode',
     'DataType',
     'DatabaseAccountKind',
     'DatabaseAccountOfferType',
@@ -17,11 +22,15 @@ __all__ = [
     'IndexKind',
     'IndexingMode',
     'ManagedCassandraProvisioningState',
+    'ManagedCassandraResourceIdentityType',
+    'MinimalTlsVersion',
     'MongoRoleDefinitionType',
     'NetworkAclBypass',
+    'NodeKind',
     'PartitionKind',
     'PublicNetworkAccess',
     'ResourceIdentityType',
+    'RestoreMode',
     'RoleDefinitionType',
     'ServerVersion',
     'ServiceSize',
@@ -32,12 +41,31 @@ __all__ = [
 ]
 
 
+class AnalyticalStorageSchemaType(str, Enum):
+    """
+    Describes the types of schema for analytical storage.
+    """
+    WELL_DEFINED = "WellDefined"
+    FULL_FIDELITY = "FullFidelity"
+
+
 class AuthenticationMethod(str, Enum):
     """
     Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
     """
     NONE = "None"
     CASSANDRA = "Cassandra"
+    LDAP = "Ldap"
+
+
+class BackupPolicyMigrationStatus(str, Enum):
+    """
+    Describes the status of migration between backup policy types.
+    """
+    INVALID = "Invalid"
+    IN_PROGRESS = "InProgress"
+    COMPLETED = "Completed"
+    FAILED = "Failed"
 
 
 class BackupPolicyType(str, Enum):
@@ -46,6 +74,15 @@ class BackupPolicyType(str, Enum):
     """
     PERIODIC = "Periodic"
     CONTINUOUS = "Continuous"
+
+
+class BackupStorageRedundancy(str, Enum):
+    """
+    Enum to indicate type of backup residency
+    """
+    GEO = "Geo"
+    LOCAL = "Local"
+    ZONE = "Zone"
 
 
 class CompositePathSortOrder(str, Enum):
@@ -69,6 +106,22 @@ class ConnectorOffer(str, Enum):
     The cassandra connector offer type for the Cosmos DB database C* account.
     """
     SMALL = "Small"
+
+
+class ContinuousTier(str, Enum):
+    """
+    Enum to indicate type of Continuous backup mode
+    """
+    CONTINUOUS7_DAYS = "Continuous7Days"
+    CONTINUOUS30_DAYS = "Continuous30Days"
+
+
+class CreateMode(str, Enum):
+    """
+    The mode to create a mongo cluster.
+    """
+    DEFAULT = "Default"
+    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
 
 
 class DataType(str, Enum):
@@ -140,6 +193,23 @@ class ManagedCassandraProvisioningState(str, Enum):
     CANCELED = "Canceled"
 
 
+class ManagedCassandraResourceIdentityType(str, Enum):
+    """
+    The type of the resource.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    NONE = "None"
+
+
+class MinimalTlsVersion(str, Enum):
+    """
+    Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+    """
+    TLS = "Tls"
+    TLS11 = "Tls11"
+    TLS12 = "Tls12"
+
+
 class MongoRoleDefinitionType(str, Enum):
     """
     Indicates whether the Role Definition was built-in or user created.
@@ -154,6 +224,13 @@ class NetworkAclBypass(str, Enum):
     """
     NONE = "None"
     AZURE_SERVICES = "AzureServices"
+
+
+class NodeKind(str, Enum):
+    """
+    The node type deployed in the node group.
+    """
+    SHARD = "Shard"
 
 
 class PartitionKind(str, Enum):
@@ -171,6 +248,7 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class ResourceIdentityType(str, Enum):
@@ -181,6 +259,13 @@ class ResourceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
     NONE = "None"
+
+
+class RestoreMode(str, Enum):
+    """
+    Describes the mode of the restore.
+    """
+    POINT_IN_TIME = "PointInTime"
 
 
 class RoleDefinitionType(str, Enum):
@@ -198,6 +283,7 @@ class ServerVersion(str, Enum):
     SERVER_VERSION_3_2 = "3.2"
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
+    SERVER_VERSION_4_2 = "4.2"
 
 
 class ServiceSize(str, Enum):
@@ -215,6 +301,8 @@ class ServiceType(str, Enum):
     """
     SQL_DEDICATED_GATEWAY = "SqlDedicatedGateway"
     DATA_TRANSFER = "DataTransfer"
+    GRAPH_API_COMPUTE = "GraphAPICompute"
+    MATERIALIZED_VIEWS_BUILDER = "MaterializedViewsBuilder"
 
 
 class SpatialType(str, Enum):

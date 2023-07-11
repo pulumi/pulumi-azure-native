@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getEnvironmentSpecificationVersion(args: GetEnvironmentSpecificationVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentSpecificationVersionResult> {
 
@@ -68,7 +68,7 @@ export interface GetEnvironmentSpecificationVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getEnvironmentSpecificationVersionOutput(args: GetEnvironmentSpecificationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentSpecificationVersionResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentSpecificationVersion(a, opts))

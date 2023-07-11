@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get domain ownership identifier for web app.
- * API Version: 2020-12-01.
+ * Description for Get domain ownership identifier for web app.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppDomainOwnershipIdentifier(args: GetWebAppDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDomainOwnershipIdentifierResult> {
 
@@ -59,8 +59,8 @@ export interface GetWebAppDomainOwnershipIdentifierResult {
     readonly value?: string;
 }
 /**
- * Get domain ownership identifier for web app.
- * API Version: 2020-12-01.
+ * Description for Get domain ownership identifier for web app.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppDomainOwnershipIdentifierOutput(args: GetWebAppDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDomainOwnershipIdentifier(a, opts))

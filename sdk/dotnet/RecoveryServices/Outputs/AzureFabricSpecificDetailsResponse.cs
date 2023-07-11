@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ContainerIds;
         /// <summary>
+        /// The ExtendedLocations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.A2AExtendedLocationDetailsResponse> ExtendedLocations;
+        /// <summary>
         /// Gets the class type. Overridden in derived classes.
         /// Expected value is 'Azure'.
         /// </summary>
@@ -29,18 +33,35 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The Location for the Azure fabric.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The location details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.A2AFabricSpecificLocationDetailsResponse> LocationDetails;
+        /// <summary>
+        /// The zones.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.A2AZoneDetailsResponse> Zones;
 
         [OutputConstructor]
         private AzureFabricSpecificDetailsResponse(
             ImmutableArray<string> containerIds,
 
+            ImmutableArray<Outputs.A2AExtendedLocationDetailsResponse> extendedLocations,
+
             string instanceType,
 
-            string? location)
+            string? location,
+
+            ImmutableArray<Outputs.A2AFabricSpecificLocationDetailsResponse> locationDetails,
+
+            ImmutableArray<Outputs.A2AZoneDetailsResponse> zones)
         {
             ContainerIds = containerIds;
+            ExtendedLocations = extendedLocations;
             InstanceType = instanceType;
             Location = location;
+            LocationDetails = locationDetails;
+            Zones = zones;
         }
     }
 }

@@ -121,7 +121,7 @@ def get_monitor(monitor_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
-    API Version: 2020-10-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -149,7 +149,7 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
-    API Version: 2020-10-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name

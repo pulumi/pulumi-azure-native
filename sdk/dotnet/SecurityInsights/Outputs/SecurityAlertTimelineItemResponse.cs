@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly string EndTimeUtc;
         /// <summary>
+        /// The intent of the alert.
+        /// </summary>
+        public readonly string Intent;
+        /// <summary>
         /// The entity query kind
         /// Expected value is 'SecurityAlert'.
         /// </summary>
@@ -54,6 +58,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// </summary>
         public readonly string StartTimeUtc;
         /// <summary>
+        /// The techniques of the alert.
+        /// </summary>
+        public readonly ImmutableArray<string> Techniques;
+        /// <summary>
         /// The alert generated time.
         /// </summary>
         public readonly string TimeGenerated;
@@ -70,6 +78,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             string endTimeUtc,
 
+            string intent,
+
             string kind,
 
             string? productName,
@@ -78,6 +88,8 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 
             string startTimeUtc,
 
+            ImmutableArray<string> techniques,
+
             string timeGenerated)
         {
             AlertType = alertType;
@@ -85,10 +97,12 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
             Description = description;
             DisplayName = displayName;
             EndTimeUtc = endTimeUtc;
+            Intent = intent;
             Kind = kind;
             ProductName = productName;
             Severity = severity;
             StartTimeUtc = startTimeUtc;
+            Techniques = techniques;
             TimeGenerated = timeGenerated;
         }
     }

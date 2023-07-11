@@ -2,37 +2,51 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170101 from "./v20170101";
-import * as v20170501 from "./v20170501";
-import * as v20170901 from "./v20170901";
-import * as v20181201 from "./v20181201";
-import * as v20190401 from "./v20190401";
-import * as v20190801 from "./v20190801";
-import * as v20200301 from "./v20200301";
-import * as v20200501 from "./v20200501";
-import * as v20200901 from "./v20200901";
-import * as v20210101 from "./v20210101";
-import * as v20210601 from "./v20210601";
 import * as v20220101 from "./v20220101";
 import * as v20220601 from "./v20220601";
-import * as v20221001 from "./v20221001";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20170101,
-    v20170501,
-    v20170901,
-    v20181201,
-    v20190401,
-    v20190801,
-    v20200301,
-    v20200501,
-    v20200901,
-    v20210101,
-    v20210601,
     v20220101,
     v20220601,
-    v20221001,
+    v20230501,
 };
+
+export const AuthenticationMode = {
+    /**
+     * The authentication mode using shared keys.
+     */
+    SharedKey: "SharedKey",
+    /**
+     * The authentication mode using Azure Active Directory.
+     */
+    AAD: "AAD",
+    /**
+     * The authentication mode using task authentication tokens.
+     */
+    TaskAuthenticationToken: "TaskAuthenticationToken",
+} as const;
+
+/**
+ * The authentication mode for the Batch account.
+ */
+export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
+
+export const AutoStorageAuthenticationMode = {
+    /**
+     * The Batch service will authenticate requests to auto-storage using storage account keys.
+     */
+    StorageKeys: "StorageKeys",
+    /**
+     * The Batch service will authenticate requests to auto-storage using the managed identity assigned to the Batch account.
+     */
+    BatchAccountManagedIdentity: "BatchAccountManagedIdentity",
+} as const;
+
+/**
+ * The authentication mode which the Batch service will use to manage the auto-storage account.
+ */
+export type AutoStorageAuthenticationMode = (typeof AutoStorageAuthenticationMode)[keyof typeof AutoStorageAuthenticationMode];
 
 export const AutoUserScope = {
     /**
@@ -75,22 +89,6 @@ export const CachingType = {
  *  The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.
  */
 export type CachingType = (typeof CachingType)[keyof typeof CachingType];
-
-export const CertificateFormat = {
-    /**
-     * The certificate is a PFX (PKCS#12) formatted certificate or certificate chain.
-     */
-    Pfx: "Pfx",
-    /**
-     * The certificate is a base64-encoded X.509 certificate.
-     */
-    Cer: "Cer",
-} as const;
-
-/**
- * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
- */
-export type CertificateFormat = (typeof CertificateFormat)[keyof typeof CertificateFormat];
 
 export const CertificateStoreLocation = {
     /**
@@ -167,6 +165,10 @@ export const ContainerType = {
      * A Docker compatible container technology will be used to launch the containers.
      */
     DockerCompatible: "DockerCompatible",
+    /**
+     * A CRI based technology will be used to launch the containers.
+     */
+    CriCompatible: "CriCompatible",
 } as const;
 
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
@@ -184,6 +186,18 @@ export const ContainerWorkingDirectory = {
 
 export type ContainerWorkingDirectory = (typeof ContainerWorkingDirectory)[keyof typeof ContainerWorkingDirectory];
 
+export const DiffDiskPlacement = {
+    /**
+     * The Ephemeral OS Disk is stored on the VM cache.
+     */
+    CacheDisk: "CacheDisk",
+} as const;
+
+/**
+ * This property can be used by user in the request to choose which location the operating system should be in. e.g., cache disk space for Ephemeral OS disk provisioning. For more information on Ephemeral OS disk size requirements, please refer to Ephemeral OS disk size requirements for Windows VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/windows/ephemeral-os-disks#size-requirements and Linux VMs at https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ephemeral-os-disks#size-requirements.
+ */
+export type DiffDiskPlacement = (typeof DiffDiskPlacement)[keyof typeof DiffDiskPlacement];
+
 export const DiskEncryptionTarget = {
     /**
      * The OS Disk on the compute node is encrypted.
@@ -200,6 +214,19 @@ export const DiskEncryptionTarget = {
  */
 export type DiskEncryptionTarget = (typeof DiskEncryptionTarget)[keyof typeof DiskEncryptionTarget];
 
+export const DynamicVNetAssignmentScope = {
+    /**
+     * No dynamic VNet assignment is enabled.
+     */
+    None: "none",
+    /**
+     * Dynamic VNet assignment is done per-job. If this value is set, the network configuration subnet ID must also be set. This feature requires approval before use, please contact support
+     */
+    Job: "job",
+} as const;
+
+export type DynamicVNetAssignmentScope = (typeof DynamicVNetAssignmentScope)[keyof typeof DynamicVNetAssignmentScope];
+
 export const ElevationLevel = {
     /**
      * The user is a standard user without elevated access.
@@ -215,6 +242,22 @@ export const ElevationLevel = {
  * nonAdmin - The auto user is a standard user without elevated access. admin - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin.
  */
 export type ElevationLevel = (typeof ElevationLevel)[keyof typeof ElevationLevel];
+
+export const EndpointAccessDefaultAction = {
+    /**
+     * Allow client access.
+     */
+    Allow: "Allow",
+    /**
+     * Deny client access.
+     */
+    Deny: "Deny",
+} as const;
+
+/**
+ * Default action for endpoint access. It is only applicable when publicNetworkAccess is enabled.
+ */
+export type EndpointAccessDefaultAction = (typeof EndpointAccessDefaultAction)[keyof typeof EndpointAccessDefaultAction];
 
 export const IPAddressProvisioningType = {
     /**
@@ -235,6 +278,18 @@ export const IPAddressProvisioningType = {
  * The default value is BatchManaged
  */
 export type IPAddressProvisioningType = (typeof IPAddressProvisioningType)[keyof typeof IPAddressProvisioningType];
+
+export const IPRuleAction = {
+    /**
+     * Allow access for the matched client IP address.
+     */
+    Allow: "Allow",
+} as const;
+
+/**
+ * Action when client IP address is matched.
+ */
+export type IPRuleAction = (typeof IPRuleAction)[keyof typeof IPRuleAction];
 
 export const InboundEndpointProtocol = {
     /**
@@ -309,6 +364,26 @@ export const NetworkSecurityGroupRuleAccess = {
 } as const;
 
 export type NetworkSecurityGroupRuleAccess = (typeof NetworkSecurityGroupRuleAccess)[keyof typeof NetworkSecurityGroupRuleAccess];
+
+export const NodeCommunicationMode = {
+    /**
+     * The node communication mode is automatically set by the Batch service.
+     */
+    Default: "Default",
+    /**
+     * Nodes using the Classic communication mode require inbound TCP communication on ports 29876 and 29877 from the "BatchNodeManagement.{region}" service tag and outbound TCP communication on port 443 to the "Storage.region" and "BatchNodeManagement.{region}" service tags.
+     */
+    Classic: "Classic",
+    /**
+     * Nodes using the Simplified communication mode require outbound TCP communication on port 443 to the "BatchNodeManagement.{region}" service tag. No open inbound ports are required.
+     */
+    Simplified: "Simplified",
+} as const;
+
+/**
+ * If omitted, the default value is Default.
+ */
+export type NodeCommunicationMode = (typeof NodeCommunicationMode)[keyof typeof NodeCommunicationMode];
 
 export const NodePlacementPolicyType = {
     /**

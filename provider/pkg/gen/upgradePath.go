@@ -18,7 +18,7 @@ func GenerateUpgradeWarnings() (map[string]string, error) {
 	}
 	// TODO: This version is hardcoded - we should find a way to inspect at least what major
 	// version we're building and read the proper file here.
-	upgradePathFile := filepath.Join(wd, "versions", "v2-removed-resources.yaml")
+	upgradePathFile := filepath.Join(wd, "versions", "v3-removed-resources.yaml")
 	data, err := os.ReadFile(upgradePathFile)
 	if err != nil {
 		return nil, err

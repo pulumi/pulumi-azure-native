@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The log profile resource.
-    /// API Version: 2016-03-01.
+    /// Azure REST API version: 2016-03-01. Prior API version in Azure Native 1.x: 2016-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:LogProfile")]
     public partial class LogProfile : global::Pulumi.CustomResource

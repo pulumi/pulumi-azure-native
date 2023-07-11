@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an environment type.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
  */
 export class EnvironmentType extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class EnvironmentType extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:EnvironmentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:EnvironmentType" }, { type: "azure-native:devcenter/v20220901preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221012preview:EnvironmentType" }, { type: "azure-native:devcenter/v20221111preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230101preview:EnvironmentType" }, { type: "azure-native:devcenter/v20230401:EnvironmentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EnvironmentType.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,7 +111,7 @@ export interface EnvironmentTypeArgs {
      */
     environmentTypeName?: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

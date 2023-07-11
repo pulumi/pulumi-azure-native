@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Identity Provider details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:IdentityProvider to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:IdentityProvider")]
     public partial class IdentityProvider : global::Pulumi.CustomResource
     {
@@ -129,6 +128,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:IdentityProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:IdentityProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:IdentityProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:IdentityProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:IdentityProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        [Output("aadObjectId")]
+        public Output<string> AadObjectId { get; private set; } = null!;
+
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -105,6 +111,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:ClusterPrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:ClusterPrincipalAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:ClusterPrincipalAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:ClusterPrincipalAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

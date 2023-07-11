@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The SourceControl Configuration object returned in Get & Put response.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**
@@ -166,7 +166,7 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20200701preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20201001preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210301:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20210501preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220301:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20230501:SourceControlConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControlConfiguration.__pulumiType, name, resourceInputs, opts);
     }
@@ -181,11 +181,11 @@ export interface SourceControlConfigurationArgs {
      */
     clusterName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+     * The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
      */
     clusterResourceName: pulumi.Input<string>;
     /**
-     * The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+     * The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
      */
     clusterRp: pulumi.Input<string>;
     /**
@@ -225,7 +225,7 @@ export interface SourceControlConfigurationArgs {
      */
     repositoryUrl?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

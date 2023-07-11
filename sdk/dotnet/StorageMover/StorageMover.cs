@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.StorageMover
 {
     /// <summary>
     /// The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
-    /// API Version: 2022-07-01-preview.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-07-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:StorageMover")]
     public partial class StorageMover : global::Pulumi.CustomResource

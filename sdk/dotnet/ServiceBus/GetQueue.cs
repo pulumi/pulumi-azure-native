@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceBus
     {
         /// <summary>
         /// Returns a description for the specified queue.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a description for the specified queue.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-01-01-preview.
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("azure-native:servicebus:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());
@@ -132,9 +132,13 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? ForwardTo;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
         /// <summary>
         /// ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
         /// </summary>
@@ -144,6 +148,10 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly int? MaxDeliveryCount;
         /// <summary>
+        /// Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
+        /// </summary>
+        public readonly double? MaxMessageSizeInKilobytes;
+        /// <summary>
         /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
         /// </summary>
         public readonly int? MaxSizeInMegabytes;
@@ -152,7 +160,7 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly double MessageCount;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -172,7 +180,11 @@ namespace Pulumi.AzureNative.ServiceBus
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// Resource type
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -208,9 +220,13 @@ namespace Pulumi.AzureNative.ServiceBus
 
             string id,
 
+            string location,
+
             string? lockDuration,
 
             int? maxDeliveryCount,
+
+            double? maxMessageSizeInKilobytes,
 
             int? maxSizeInMegabytes,
 
@@ -225,6 +241,8 @@ namespace Pulumi.AzureNative.ServiceBus
             double sizeInBytes,
 
             string? status,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -243,8 +261,10 @@ namespace Pulumi.AzureNative.ServiceBus
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
             Id = id;
+            Location = location;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
+            MaxMessageSizeInKilobytes = maxMessageSizeInKilobytes;
             MaxSizeInMegabytes = maxSizeInMegabytes;
             MessageCount = messageCount;
             Name = name;
@@ -252,6 +272,7 @@ namespace Pulumi.AzureNative.ServiceBus
             RequiresSession = requiresSession;
             SizeInBytes = sizeInBytes;
             Status = status;
+            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
         }

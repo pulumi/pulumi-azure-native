@@ -2,40 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170601preview from "./v20170601preview";
-import * as v20171001 from "./v20171001";
 import * as v20180201preview from "./v20180201preview";
 import * as v20180901 from "./v20180901";
 import * as v20190401 from "./v20190401";
 import * as v20190501 from "./v20190501";
-import * as v20190501preview from "./v20190501preview";
 import * as v20190601preview from "./v20190601preview";
-import * as v20191201preview from "./v20191201preview";
-import * as v20201101preview from "./v20201101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210801preview from "./v20210801preview";
-import * as v20210901 from "./v20210901";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220201preview from "./v20220201preview";
 import * as v20221201 from "./v20221201";
 import * as v20230101preview from "./v20230101preview";
 
 export {
-    v20170601preview,
-    v20171001,
     v20180201preview,
     v20180901,
     v20190401,
     v20190501,
-    v20190501preview,
     v20190601preview,
-    v20191201preview,
-    v20201101preview,
-    v20210601preview,
-    v20210801preview,
-    v20210901,
-    v20211201preview,
-    v20220201preview,
     v20221201,
     v20230101preview,
 };
@@ -45,7 +25,7 @@ export const Action = {
 } as const;
 
 /**
- * The action of virtual network rule.
+ * The action of IP ACL rule.
  */
 export type Action = (typeof Action)[keyof typeof Action];
 
@@ -93,6 +73,8 @@ export const BaseImageTriggerType = {
 export type BaseImageTriggerType = (typeof BaseImageTriggerType)[keyof typeof BaseImageTriggerType];
 
 export const ConnectedRegistryMode = {
+    ReadWrite: "ReadWrite",
+    ReadOnly: "ReadOnly",
     Registry: "Registry",
     Mirror: "Mirror",
 } as const;
@@ -114,6 +96,15 @@ export const ConnectionStatus = {
  */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
+export const CredentialName = {
+    Credential1: "Credential1",
+} as const;
+
+/**
+ * The name of the credential.
+ */
+export type CredentialName = (typeof CredentialName)[keyof typeof CredentialName];
+
 export const DefaultAction = {
     Allow: "Allow",
     Deny: "Deny",
@@ -123,6 +114,26 @@ export const DefaultAction = {
  * The default action of allow or deny when no other rules match.
  */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
+export const EncryptionStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * Indicates whether or not the encryption is enabled for container registry.
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+export const ExportPolicyStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
+export type ExportPolicyStatus = (typeof ExportPolicyStatus)[keyof typeof ExportPolicyStatus];
 
 export const LogLevel = {
     Debug: "Debug",
@@ -136,6 +147,16 @@ export const LogLevel = {
  * The verbosity of logs persisted on the connected registry.
  */
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+export const NetworkRuleBypassOptions = {
+    AzureServices: "AzureServices",
+    None: "None",
+} as const;
+
+/**
+ * Whether to allow trusted Azure services to access a network restricted registry.
+ */
+export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
 
 export const OS = {
     Windows: "Windows",
@@ -192,6 +213,16 @@ export const PolicyStatus = {
  * The value that indicates whether the policy is enabled or not.
  */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for the container registry.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
@@ -374,3 +405,13 @@ export const WebhookStatus = {
  * The status of the webhook at the time the operation was called.
  */
 export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
+
+export const ZoneRedundancy = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not zone redundancy is enabled for this container registry replication
+ */
+export type ZoneRedundancy = (typeof ZoneRedundancy)[keyof typeof ZoneRedundancy];

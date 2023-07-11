@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['SyncGroupArgs', 'SyncGroup']
 
@@ -76,7 +77,7 @@ class SyncGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Sync Group object.
-        API Version: 2020-03-01.
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -92,7 +93,7 @@ class SyncGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Sync Group object.
-        API Version: 2020-03-01.
+        Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-03-01
 
         :param str resource_name: The name of the resource.
         :param SyncGroupArgs args: The arguments to use to populate this resource's properties.
@@ -130,6 +131,7 @@ class SyncGroup(pulumi.CustomResource):
             __props__.__dict__["sync_group_name"] = sync_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["sync_group_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["unique_id"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagesync/v20170605preview:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20180402:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20180701:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20181001:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20190201:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20190301:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20190601:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20191001:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20200301:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20200901:SyncGroup"), pulumi.Alias(type_="azure-native:storagesync/v20220601:SyncGroup")])
@@ -158,6 +160,7 @@ class SyncGroup(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["sync_group_status"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["unique_id"] = None
         return SyncGroup(resource_name, opts=opts, __props__=__props__)
@@ -177,6 +180,14 @@ class SyncGroup(pulumi.CustomResource):
         Sync group status
         """
         return pulumi.get(self, "sync_group_status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

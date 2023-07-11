@@ -2,55 +2,49 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170907privatepreview from "./v20170907privatepreview";
 import * as v20180907preview from "./v20180907preview";
-import * as v20190121 from "./v20190121";
-import * as v20190515 from "./v20190515";
 import * as v20190907 from "./v20190907";
 import * as v20191109 from "./v20191109";
 import * as v20200215 from "./v20200215";
-import * as v20200614 from "./v20200614";
-import * as v20200918 from "./v20200918";
-import * as v20210101 from "./v20210101";
-import * as v20210827 from "./v20210827";
-import * as v20220201 from "./v20220201";
 import * as v20220707 from "./v20220707";
-import * as v20221111 from "./v20221111";
 import * as v20221229 from "./v20221229";
+import * as v20230502 from "./v20230502";
 
 export {
-    v20170907privatepreview,
     v20180907preview,
-    v20190121,
-    v20190515,
     v20190907,
     v20191109,
     v20200215,
-    v20200614,
-    v20200918,
-    v20210101,
-    v20210827,
-    v20220201,
     v20220707,
-    v20221111,
     v20221229,
+    v20230502,
 };
 
 export const AzureSkuName = {
+    Dev_No_SLA_Standard_D11_v2: "Dev(No SLA)_Standard_D11_v2",
+    Dev_No_SLA_Standard_E2a_v4: "Dev(No SLA)_Standard_E2a_v4",
+    Standard_D11_v2: "Standard_D11_v2",
+    Standard_D12_v2: "Standard_D12_v2",
+    Standard_D13_v2: "Standard_D13_v2",
+    Standard_D14_v2: "Standard_D14_v2",
+    Standard_D32d_v4: "Standard_D32d_v4",
+    Standard_D16d_v5: "Standard_D16d_v5",
+    Standard_D32d_v5: "Standard_D32d_v5",
     Standard_DS13_v2_1TB_PS: "Standard_DS13_v2+1TB_PS",
     Standard_DS13_v2_2TB_PS: "Standard_DS13_v2+2TB_PS",
     Standard_DS14_v2_3TB_PS: "Standard_DS14_v2+3TB_PS",
     Standard_DS14_v2_4TB_PS: "Standard_DS14_v2+4TB_PS",
-    Standard_D13_v2: "Standard_D13_v2",
-    Standard_D14_v2: "Standard_D14_v2",
+    Standard_L4s: "Standard_L4s",
     Standard_L8s: "Standard_L8s",
     Standard_L16s: "Standard_L16s",
     Standard_L8s_v2: "Standard_L8s_v2",
     Standard_L16s_v2: "Standard_L16s_v2",
-    Standard_D11_v2: "Standard_D11_v2",
-    Standard_D12_v2: "Standard_D12_v2",
-    Standard_L4s: "Standard_L4s",
-    Dev_No_SLA_Standard_D11_v2: "Dev(No SLA)_Standard_D11_v2",
+    Standard_L8s_v3: "Standard_L8s_v3",
+    Standard_L16s_v3: "Standard_L16s_v3",
+    Standard_L32s_v3: "Standard_L32s_v3",
+    Standard_L8as_v3: "Standard_L8as_v3",
+    Standard_L16as_v3: "Standard_L16as_v3",
+    Standard_L32as_v3: "Standard_L32as_v3",
     Standard_E64i_v3: "Standard_E64i_v3",
     Standard_E80ids_v4: "Standard_E80ids_v4",
     Standard_E2a_v4: "Standard_E2a_v4",
@@ -61,7 +55,36 @@ export const AzureSkuName = {
     Standard_E8as_v4_2TB_PS: "Standard_E8as_v4+2TB_PS",
     Standard_E16as_v4_3TB_PS: "Standard_E16as_v4+3TB_PS",
     Standard_E16as_v4_4TB_PS: "Standard_E16as_v4+4TB_PS",
-    Dev_No_SLA_Standard_E2a_v4: "Dev(No SLA)_Standard_E2a_v4",
+    Standard_E8as_v5_1TB_PS: "Standard_E8as_v5+1TB_PS",
+    Standard_E8as_v5_2TB_PS: "Standard_E8as_v5+2TB_PS",
+    Standard_E16as_v5_3TB_PS: "Standard_E16as_v5+3TB_PS",
+    Standard_E16as_v5_4TB_PS: "Standard_E16as_v5+4TB_PS",
+    Standard_E2ads_v5: "Standard_E2ads_v5",
+    Standard_E4ads_v5: "Standard_E4ads_v5",
+    Standard_E8ads_v5: "Standard_E8ads_v5",
+    Standard_E16ads_v5: "Standard_E16ads_v5",
+    Standard_EC8as_v5_1TB_PS: "Standard_EC8as_v5+1TB_PS",
+    Standard_EC8as_v5_2TB_PS: "Standard_EC8as_v5+2TB_PS",
+    Standard_EC16as_v5_3TB_PS: "Standard_EC16as_v5+3TB_PS",
+    Standard_EC16as_v5_4TB_PS: "Standard_EC16as_v5+4TB_PS",
+    Standard_EC8ads_v5: "Standard_EC8ads_v5",
+    Standard_EC16ads_v5: "Standard_EC16ads_v5",
+    Standard_E8s_v4_1TB_PS: "Standard_E8s_v4+1TB_PS",
+    Standard_E8s_v4_2TB_PS: "Standard_E8s_v4+2TB_PS",
+    Standard_E16s_v4_3TB_PS: "Standard_E16s_v4+3TB_PS",
+    Standard_E16s_v4_4TB_PS: "Standard_E16s_v4+4TB_PS",
+    Standard_E8s_v5_1TB_PS: "Standard_E8s_v5+1TB_PS",
+    Standard_E8s_v5_2TB_PS: "Standard_E8s_v5+2TB_PS",
+    Standard_E16s_v5_3TB_PS: "Standard_E16s_v5+3TB_PS",
+    Standard_E16s_v5_4TB_PS: "Standard_E16s_v5+4TB_PS",
+    Standard_E2d_v4: "Standard_E2d_v4",
+    Standard_E4d_v4: "Standard_E4d_v4",
+    Standard_E8d_v4: "Standard_E8d_v4",
+    Standard_E16d_v4: "Standard_E16d_v4",
+    Standard_E2d_v5: "Standard_E2d_v5",
+    Standard_E4d_v5: "Standard_E4d_v5",
+    Standard_E8d_v5: "Standard_E8d_v5",
+    Standard_E16d_v5: "Standard_E16d_v5",
 } as const;
 
 /**
@@ -89,6 +112,16 @@ export const BlobStorageEventType = {
  */
 export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
 
+export const ClusterNetworkAccessFlag = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
+export type ClusterNetworkAccessFlag = (typeof ClusterNetworkAccessFlag)[keyof typeof ClusterNetworkAccessFlag];
+
 export const ClusterPrincipalRole = {
     AllDatabasesAdmin: "AllDatabasesAdmin",
     AllDatabasesViewer: "AllDatabasesViewer",
@@ -113,6 +146,7 @@ export const DataConnectionKind = {
     EventHub: "EventHub",
     EventGrid: "EventGrid",
     IotHub: "IotHub",
+    CosmosDb: "CosmosDb",
 } as const;
 
 /**
@@ -144,6 +178,16 @@ export const DatabasePrincipalRole = {
  * Database principal role.
  */
 export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
+
+export const DatabaseRouting = {
+    Single: "Single",
+    Multi: "Multi",
+} as const;
+
+/**
+ * Indication for database routing information from the data connection, by default only database routing information is allowed
+ */
+export type DatabaseRouting = (typeof DatabaseRouting)[keyof typeof DatabaseRouting];
 
 export const DefaultPrincipalsModificationKind = {
     Union: "Union",
@@ -260,6 +304,27 @@ export const Kind = {
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
+export const LanguageExtensionImageName = {
+    R: "R",
+    Python3_6_5: "Python3_6_5",
+    Python3_10_8: "Python3_10_8",
+} as const;
+
+/**
+ * The language extension image name.
+ */
+export type LanguageExtensionImageName = (typeof LanguageExtensionImageName)[keyof typeof LanguageExtensionImageName];
+
+export const LanguageExtensionName = {
+    PYTHON: "PYTHON",
+    R: "R",
+} as const;
+
+/**
+ * The language extension name.
+ */
+export type LanguageExtensionName = (typeof LanguageExtensionName)[keyof typeof LanguageExtensionName];
+
 export const PrincipalType = {
     App: "App",
     Group: "Group",
@@ -270,3 +335,23 @@ export const PrincipalType = {
  * Principal type.
  */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
+
+export const PublicIPType = {
+    IPv4: "IPv4",
+    DualStack: "DualStack",
+} as const;
+
+/**
+ * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+ */
+export type PublicIPType = (typeof PublicIPType)[keyof typeof PublicIPType];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];

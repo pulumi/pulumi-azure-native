@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// Access Review Schedule Definition.
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2021-12-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : global::Pulumi.CustomResource
@@ -71,10 +71,40 @@ namespace Pulumi.AzureNative.Authorization
         public Output<string?> EndDate { get; private set; } = null!;
 
         /// <summary>
+        /// This is used to indicate the resource id(s) to exclude
+        /// </summary>
+        [Output("excludeResourceId")]
+        public Output<string?> ExcludeResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// This is used to indicate the role definition id(s) to exclude
+        /// </summary>
+        [Output("excludeRoleDefinitionId")]
+        public Output<string?> ExcludeRoleDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Output("expandNestedMemberships")]
+        public Output<bool?> ExpandNestedMemberships { get; private set; } = null!;
+
+        /// <summary>
         /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         /// </summary>
         [Output("inactiveDuration")]
         public Output<string?> InactiveDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Output("includeAccessBelowResource")]
+        public Output<bool?> IncludeAccessBelowResource { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Output("includeInheritedAccess")]
+        public Output<bool?> IncludeInheritedAccess { get; private set; } = null!;
 
         /// <summary>
         /// The duration in days for an instance.
@@ -135,6 +165,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("principalType")]
         public Output<string> PrincipalType { get; private set; } = null!;
+
+        /// <summary>
+        /// Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        /// </summary>
+        [Output("recommendationLookBackDuration")]
+        public Output<string?> RecommendationLookBackDuration { get; private set; } = null!;
 
         /// <summary>
         /// Flag to indicate whether showing recommendations to reviewers is enabled.
@@ -304,10 +340,40 @@ namespace Pulumi.AzureNative.Authorization
         public Input<string>? EndDate { get; set; }
 
         /// <summary>
+        /// This is used to indicate the resource id(s) to exclude
+        /// </summary>
+        [Input("excludeResourceId")]
+        public Input<string>? ExcludeResourceId { get; set; }
+
+        /// <summary>
+        /// This is used to indicate the role definition id(s) to exclude
+        /// </summary>
+        [Input("excludeRoleDefinitionId")]
+        public Input<string>? ExcludeRoleDefinitionId { get; set; }
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Input("expandNestedMemberships")]
+        public Input<bool>? ExpandNestedMemberships { get; set; }
+
+        /// <summary>
         /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         /// </summary>
         [Input("inactiveDuration")]
         public Input<string>? InactiveDuration { get; set; }
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Input("includeAccessBelowResource")]
+        public Input<bool>? IncludeAccessBelowResource { get; set; }
+
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        [Input("includeInheritedAccess")]
+        public Input<bool>? IncludeInheritedAccess { get; set; }
 
         /// <summary>
         /// The duration in days for an instance.
@@ -350,6 +416,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Input("numberOfOccurrences")]
         public Input<int>? NumberOfOccurrences { get; set; }
+
+        /// <summary>
+        /// Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        /// </summary>
+        [Input("recommendationLookBackDuration")]
+        public Input<string>? RecommendationLookBackDuration { get; set; }
 
         /// <summary>
         /// Flag to indicate whether showing recommendations to reviewers is enabled.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the active diagnostic settings for the specified resource.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getDiagnosticSetting(args: GetDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticSettingResult> {
 
@@ -44,7 +44,7 @@ export interface GetDiagnosticSettingResult {
      */
     readonly eventHubName?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -56,11 +56,15 @@ export interface GetDiagnosticSettingResult {
      */
     readonly logs?: outputs.insights.LogSettingsResponse[];
     /**
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    readonly marketplacePartnerId?: string;
+    /**
      * The list of metric settings.
      */
     readonly metrics?: outputs.insights.MetricSettingsResponse[];
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -72,7 +76,11 @@ export interface GetDiagnosticSettingResult {
      */
     readonly storageAccountId?: string;
     /**
-     * Azure resource type
+     * The system metadata related to this resource.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -82,7 +90,7 @@ export interface GetDiagnosticSettingResult {
 }
 /**
  * Gets the active diagnostic settings for the specified resource.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getDiagnosticSettingOutput(args: GetDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getDiagnosticSetting(a, opts))

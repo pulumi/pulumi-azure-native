@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Azure dedicated HSM.
- * API Version: 2018-10-31-preview.
+ * Azure REST API version: 2021-11-30.
  */
 export function getDedicatedHsm(args: GetDedicatedHsmArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHsmResult> {
 
@@ -44,6 +44,10 @@ export interface GetDedicatedHsmResult {
      */
     readonly location: string;
     /**
+     * Specifies the management network interfaces of the dedicated hsm.
+     */
+    readonly managementNetworkProfile?: outputs.hardwaresecuritymodules.NetworkProfileResponse;
+    /**
      * The name of the dedicated HSM.
      */
     readonly name: string;
@@ -68,6 +72,10 @@ export interface GetDedicatedHsmResult {
      */
     readonly statusMessage: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource
+     */
+    readonly systemData: outputs.hardwaresecuritymodules.SystemDataResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -82,7 +90,7 @@ export interface GetDedicatedHsmResult {
 }
 /**
  * Gets the specified Azure dedicated HSM.
- * API Version: 2018-10-31-preview.
+ * Azure REST API version: 2021-11-30.
  */
 export function getDedicatedHsmOutput(args: GetDedicatedHsmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHsmResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHsm(a, opts))

@@ -264,21 +264,41 @@ class LogRulesArgs:
 @pulumi.input_type
 class MonitorPropertiesArgs:
     def __init__(__self__, *,
+                 generate_api_key: Optional[pulumi.Input[bool]] = None,
                  monitoring_status: Optional[pulumi.Input[Union[str, 'MonitoringStatus']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
-                 user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
+                 user_info: Optional[pulumi.Input['UserInfoArgs']] = None,
+                 version: Optional[pulumi.Input[str]] = None):
         """
         Properties specific to the monitor resource.
+        :param pulumi.Input[bool] generate_api_key: Flag to determine if User API Key has to be generated and shared.
         :param pulumi.Input[Union[str, 'MonitoringStatus']] monitoring_status: Flag specifying if the resource monitoring is enabled or disabled.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: Provisioning state of the monitor resource.
         :param pulumi.Input['UserInfoArgs'] user_info: User information.
+        :param pulumi.Input[str] version: Version of elastic of the monitor resource
         """
+        if generate_api_key is not None:
+            pulumi.set(__self__, "generate_api_key", generate_api_key)
         if monitoring_status is not None:
             pulumi.set(__self__, "monitoring_status", monitoring_status)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if user_info is not None:
             pulumi.set(__self__, "user_info", user_info)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="generateApiKey")
+    def generate_api_key(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to determine if User API Key has to be generated and shared.
+        """
+        return pulumi.get(self, "generate_api_key")
+
+    @generate_api_key.setter
+    def generate_api_key(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "generate_api_key", value)
 
     @property
     @pulumi.getter(name="monitoringStatus")
@@ -315,6 +335,18 @@ class MonitorPropertiesArgs:
     @user_info.setter
     def user_info(self, value: Optional[pulumi.Input['UserInfoArgs']]):
         pulumi.set(self, "user_info", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of elastic of the monitor resource
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

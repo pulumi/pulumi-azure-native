@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the access keys for the RedisEnterprise database.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function listDatabaseKeys(args: ListDatabaseKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListDatabaseKeysResult> {
 
@@ -48,7 +48,7 @@ export interface ListDatabaseKeysResult {
 }
 /**
  * Retrieves the access keys for the RedisEnterprise database.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function listDatabaseKeysOutput(args: ListDatabaseKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListDatabaseKeysResult> {
     return pulumi.output(args).apply((a: any) => listDatabaseKeys(a, opts))

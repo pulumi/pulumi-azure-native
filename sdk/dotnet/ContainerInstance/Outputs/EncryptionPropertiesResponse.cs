@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
     public sealed class EncryptionPropertiesResponse
     {
         /// <summary>
+        /// The keyvault managed identity.
+        /// </summary>
+        public readonly string? Identity;
+        /// <summary>
         /// The encryption key name.
         /// </summary>
         public readonly string KeyName;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.ContainerInstance.Outputs
 
         [OutputConstructor]
         private EncryptionPropertiesResponse(
+            string? identity,
+
             string keyName,
 
             string keyVersion,
 
             string vaultBaseUrl)
         {
+            Identity = identity;
             KeyName = keyName;
             KeyVersion = keyVersion;
             VaultBaseUrl = vaultBaseUrl;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents ASC (Azure Security Center) data connector.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
  */
 export class ASCDataConnector extends pulumi.CustomResource {
     /**
@@ -52,7 +52,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"AzureSecurityCenter">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -60,7 +60,11 @@ export class ASCDataConnector extends pulumi.CustomResource {
      */
     public readonly subscriptionId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,6 +96,7 @@ export class ASCDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataTypes"] = undefined /*out*/;
@@ -99,10 +104,11 @@ export class ASCDataConnector extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["subscriptionId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20200101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20211001:ASCDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:ASCDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20200101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20211001:ASCDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230301preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:ASCDataConnector" }, { type: "azure-native:securityinsights/v20230601preview:ASCDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ASCDataConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,7 +132,7 @@ export interface ASCDataConnectorArgs {
      */
     kind: pulumi.Input<"AzureSecurityCenter">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

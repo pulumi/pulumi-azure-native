@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kubernetes
 {
     /// <summary>
     /// Represents a connected cluster.
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2022-05-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetes:ConnectedCluster")]
     public partial class ConnectedCluster : global::Pulumi.CustomResource
@@ -87,6 +87,18 @@ namespace Pulumi.AzureNative.Kubernetes
         /// </summary>
         [Output("offering")]
         public Output<string> Offering { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        [Output("privateLinkScopeResourceId")]
+        public Output<string?> PrivateLinkScopeResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        [Output("privateLinkState")]
+        public Output<string?> PrivateLinkState { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning state of the connected cluster resource.
@@ -215,6 +227,18 @@ namespace Pulumi.AzureNative.Kubernetes
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The resource id of the private link scope this connected cluster is assigned to, if any.
+        /// </summary>
+        [Input("privateLinkScopeResourceId")]
+        public Input<string>? PrivateLinkScopeResourceId { get; set; }
+
+        /// <summary>
+        /// Property which describes the state of private link on a connected cluster resource.
+        /// </summary>
+        [Input("privateLinkState")]
+        public InputUnion<string, Pulumi.AzureNative.Kubernetes.PrivateLinkState>? PrivateLinkState { get; set; }
+
+        /// <summary>
         /// Provisioning state of the connected cluster resource.
         /// </summary>
         [Input("provisioningState")]
@@ -240,6 +264,7 @@ namespace Pulumi.AzureNative.Kubernetes
 
         public ConnectedClusterArgs()
         {
+            PrivateLinkState = "Disabled";
         }
         public static new ConnectedClusterArgs Empty => new ConnectedClusterArgs();
     }

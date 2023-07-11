@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a network connection resource
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetNetworkConnectionResult> InvokeAsync(GetNetworkConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkConnectionResult>("azure-native:devcenter:getNetworkConnection", args ?? new GetNetworkConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network connection resource
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetNetworkConnectionResult> Invoke(GetNetworkConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkConnectionResult>("azure-native:devcenter:getNetworkConnection", args ?? new GetNetworkConnectionInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DevCenter
         public string NetworkConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> NetworkConnectionName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

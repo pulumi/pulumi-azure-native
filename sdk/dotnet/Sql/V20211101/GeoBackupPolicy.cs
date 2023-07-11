@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// A Geo backup policy.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : global::Pulumi.CustomResource
     {
@@ -82,6 +81,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:GeoBackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:GeoBackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:GeoBackupPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:GeoBackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

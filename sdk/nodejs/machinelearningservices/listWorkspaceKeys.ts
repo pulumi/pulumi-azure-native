@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceKeysResult> {
 
@@ -22,7 +22,7 @@ export function listWorkspaceKeys(args: ListWorkspaceKeysArgs, opts?: pulumi.Inv
 
 export interface ListWorkspaceKeysArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -40,7 +40,7 @@ export interface ListWorkspaceKeysResult {
 }
 /**
  * Lists all the keys associated with this workspace. This includes keys for the storage account, app insights and password for container registry
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceKeysResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceKeys(a, opts))
@@ -48,7 +48,7 @@ export function listWorkspaceKeysOutput(args: ListWorkspaceKeysOutputArgs, opts?
 
 export interface ListWorkspaceKeysOutputArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

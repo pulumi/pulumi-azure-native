@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of a partner namespace.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerNamespace(args: GetPartnerNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerNamespaceResult> {
 
@@ -64,6 +64,11 @@ export interface GetPartnerNamespaceResult {
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
     readonly partnerRegistrationFullyQualifiedId?: string;
+    /**
+     * This determines if events published to this partner namespace should use the source attribute in the event payload
+     * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+     */
+    readonly partnerTopicRoutingMode?: string;
     readonly privateEndpointConnections: outputs.eventgrid.PrivateEndpointConnectionResponse[];
     /**
      * Provisioning state of the partner namespace.
@@ -89,7 +94,7 @@ export interface GetPartnerNamespaceResult {
 }
 /**
  * Get properties of a partner namespace.
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerNamespaceOutput(args: GetPartnerNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getPartnerNamespace(a, opts))

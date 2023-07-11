@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Traffic Manager endpoint.
- * API Version: 2018-08-01.
+ * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class Endpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === Endpoint.__pulumiType;
     }
 
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+     */
+    public readonly alwaysServe!: pulumi.Output<string | undefined>;
     /**
      * List of custom headers.
      */
@@ -119,6 +123,7 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["alwaysServe"] = args ? args.alwaysServe : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
             resourceInputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
@@ -140,6 +145,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["weight"] = args ? args.weight : undefined;
         } else {
+            resourceInputs["alwaysServe"] = undefined /*out*/;
             resourceInputs["customHeaders"] = undefined /*out*/;
             resourceInputs["endpointLocation"] = undefined /*out*/;
             resourceInputs["endpointMonitorStatus"] = undefined /*out*/;
@@ -157,7 +163,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20151101:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }, { type: "azure-native:network/v20180801:Endpoint" }, { type: "azure-native:network/v20220401preview:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20151101:Endpoint" }, { type: "azure-native:network/v20170301:Endpoint" }, { type: "azure-native:network/v20170501:Endpoint" }, { type: "azure-native:network/v20180201:Endpoint" }, { type: "azure-native:network/v20180301:Endpoint" }, { type: "azure-native:network/v20180401:Endpoint" }, { type: "azure-native:network/v20180801:Endpoint" }, { type: "azure-native:network/v20220401:Endpoint" }, { type: "azure-native:network/v20220401preview:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -167,6 +173,10 @@ export class Endpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a Endpoint resource.
  */
 export interface EndpointArgs {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+     */
+    alwaysServe?: pulumi.Input<string | enums.network.AlwaysServe>;
     /**
      * List of custom headers.
      */
@@ -224,7 +234,7 @@ export interface EndpointArgs {
      */
     profileName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

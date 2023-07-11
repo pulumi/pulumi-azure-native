@@ -89,6 +89,8 @@ export class MigrateAgent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:migrate:MigrateAgent" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrateAgent.__pulumiType, name, resourceInputs, opts);
     }
 }

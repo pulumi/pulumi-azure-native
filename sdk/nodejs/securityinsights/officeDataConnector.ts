@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents office data connector.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
  */
 export class OfficeDataConnector extends pulumi.CustomResource {
     /**
@@ -52,15 +52,19 @@ export class OfficeDataConnector extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"Office365">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenant id to connect to, and get the data from.
      */
     public readonly tenantId!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -92,17 +96,19 @@ export class OfficeDataConnector extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["dataTypes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220801:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeDataConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20200101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20210901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20211001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220401preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220501preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220601preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220701preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220801:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220801preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20220901preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221001preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221101preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20221201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230201preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230301preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230401preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230501preview:OfficeDataConnector" }, { type: "azure-native:securityinsights/v20230601preview:OfficeDataConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OfficeDataConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -126,7 +132,7 @@ export interface OfficeDataConnectorArgs {
      */
     kind: pulumi.Input<"Office365">;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

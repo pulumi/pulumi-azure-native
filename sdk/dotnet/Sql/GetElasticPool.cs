@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets an elastic pool.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetElasticPoolResult> InvokeAsync(GetElasticPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an elastic pool.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetElasticPoolResult> Invoke(GetElasticPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetElasticPoolResult>("azure-native:sql:getElasticPool", args ?? new GetElasticPoolInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
+        /// </summary>
+        public readonly int? HighAvailabilityReplicaCount;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -111,6 +115,10 @@ namespace Pulumi.AzureNative.Sql
         /// The storage limit for the database elastic pool in bytes.
         /// </summary>
         public readonly double? MaxSizeBytes;
+        /// <summary>
+        /// Minimal capacity that serverless pool will not shrink below, if not paused
+        /// </summary>
+        public readonly double? MinCapacity;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -150,6 +158,8 @@ namespace Pulumi.AzureNative.Sql
         private GetElasticPoolResult(
             string creationDate,
 
+            int? highAvailabilityReplicaCount,
+
             string id,
 
             string kind,
@@ -161,6 +171,8 @@ namespace Pulumi.AzureNative.Sql
             string? maintenanceConfigurationId,
 
             double? maxSizeBytes,
+
+            double? minCapacity,
 
             string name,
 
@@ -177,12 +189,14 @@ namespace Pulumi.AzureNative.Sql
             bool? zoneRedundant)
         {
             CreationDate = creationDate;
+            HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;
             MaintenanceConfigurationId = maintenanceConfigurationId;
             MaxSizeBytes = maxSizeBytes;
+            MinCapacity = minCapacity;
             Name = name;
             PerDatabaseSettings = perDatabaseSettings;
             Sku = sku;

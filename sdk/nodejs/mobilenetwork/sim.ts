@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SIM resource.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class Sim extends pulumi.CustomResource {
     /**
@@ -39,18 +39,6 @@ export class Sim extends pulumi.CustomResource {
     }
 
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that created the resource.
-     */
-    public readonly createdBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that created the resource.
-     */
-    public readonly createdByType!: pulumi.Output<string | undefined>;
-    /**
      * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
      */
     public readonly deviceType!: pulumi.Output<string | undefined>;
@@ -63,18 +51,6 @@ export class Sim extends pulumi.CustomResource {
      */
     public readonly internationalMobileSubscriberIdentity!: pulumi.Output<string>;
     /**
-     * The timestamp of resource last modification (UTC)
-     */
-    public readonly lastModifiedAt!: pulumi.Output<string | undefined>;
-    /**
-     * The identity that last modified the resource.
-     */
-    public readonly lastModifiedBy!: pulumi.Output<string | undefined>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    public readonly lastModifiedByType!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -83,13 +59,17 @@ export class Sim extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The SIM policy used by this SIM.
+     * The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
      */
     public readonly simPolicy!: pulumi.Output<outputs.mobilenetwork.SimPolicyResourceIdResponse | undefined>;
     /**
      * The state of the SIM resource.
      */
     public /*out*/ readonly simState!: pulumi.Output<string>;
+    /**
+     * A dictionary of sites to the provisioning state of this SIM on that site.
+     */
+    public /*out*/ readonly siteProvisioningState!: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
      */
@@ -102,6 +82,14 @@ export class Sim extends pulumi.CustomResource {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
+    /**
+     * The public key fingerprint of the SIM vendor who provided this SIM, if any.
+     */
+    public /*out*/ readonly vendorKeyFingerprint!: pulumi.Output<string>;
+    /**
+     * The name of the SIM vendor who provided this SIM, if any.
+     */
+    public /*out*/ readonly vendorName!: pulumi.Output<string>;
 
     /**
      * Create a Sim resource with the given unique name, arguments, and options.
@@ -124,15 +112,9 @@ export class Sim extends pulumi.CustomResource {
                 throw new Error("Missing required property 'simGroupName'");
             }
             resourceInputs["authenticationKey"] = args ? args.authenticationKey : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["createdByType"] = args ? args.createdByType : undefined;
             resourceInputs["deviceType"] = args ? args.deviceType : undefined;
             resourceInputs["integratedCircuitCardIdentifier"] = args ? args.integratedCircuitCardIdentifier : undefined;
             resourceInputs["internationalMobileSubscriberIdentity"] = args ? args.internationalMobileSubscriberIdentity : undefined;
-            resourceInputs["lastModifiedAt"] = args ? args.lastModifiedAt : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["lastModifiedByType"] = args ? args.lastModifiedByType : undefined;
             resourceInputs["operatorKeyCode"] = args ? args.operatorKeyCode : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["simGroupName"] = args ? args.simGroupName : undefined;
@@ -142,28 +124,28 @@ export class Sim extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["simState"] = undefined /*out*/;
+            resourceInputs["siteProvisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vendorKeyFingerprint"] = undefined /*out*/;
+            resourceInputs["vendorName"] = undefined /*out*/;
         } else {
-            resourceInputs["createdAt"] = undefined /*out*/;
-            resourceInputs["createdBy"] = undefined /*out*/;
-            resourceInputs["createdByType"] = undefined /*out*/;
             resourceInputs["deviceType"] = undefined /*out*/;
             resourceInputs["integratedCircuitCardIdentifier"] = undefined /*out*/;
             resourceInputs["internationalMobileSubscriberIdentity"] = undefined /*out*/;
-            resourceInputs["lastModifiedAt"] = undefined /*out*/;
-            resourceInputs["lastModifiedBy"] = undefined /*out*/;
-            resourceInputs["lastModifiedByType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["simPolicy"] = undefined /*out*/;
             resourceInputs["simState"] = undefined /*out*/;
+            resourceInputs["siteProvisioningState"] = undefined /*out*/;
             resourceInputs["staticIpConfiguration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["vendorKeyFingerprint"] = undefined /*out*/;
+            resourceInputs["vendorName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:Sim" }, { type: "azure-native:mobilenetwork/v20221101:Sim" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:mobilenetwork/v20220401preview:Sim" }, { type: "azure-native:mobilenetwork/v20221101:Sim" }, { type: "azure-native:mobilenetwork/v20230601:Sim" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Sim.__pulumiType, name, resourceInputs, opts);
     }
@@ -178,18 +160,6 @@ export interface SimArgs {
      */
     authenticationKey?: pulumi.Input<string>;
     /**
-     * The timestamp of resource creation (UTC).
-     */
-    createdAt?: pulumi.Input<string>;
-    /**
-     * The identity that created the resource.
-     */
-    createdBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that created the resource.
-     */
-    createdByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
-    /**
      * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
      */
     deviceType?: pulumi.Input<string>;
@@ -201,18 +171,6 @@ export interface SimArgs {
      * The international mobile subscriber identity (IMSI) for the SIM.
      */
     internationalMobileSubscriberIdentity: pulumi.Input<string>;
-    /**
-     * The timestamp of resource last modification (UTC)
-     */
-    lastModifiedAt?: pulumi.Input<string>;
-    /**
-     * The identity that last modified the resource.
-     */
-    lastModifiedBy?: pulumi.Input<string>;
-    /**
-     * The type of identity that last modified the resource.
-     */
-    lastModifiedByType?: pulumi.Input<string | enums.mobilenetwork.CreatedByType>;
     /**
      * The Opc value for the SIM.
      */
@@ -230,7 +188,7 @@ export interface SimArgs {
      */
     simName?: pulumi.Input<string>;
     /**
-     * The SIM policy used by this SIM.
+     * The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
      */
     simPolicy?: pulumi.Input<inputs.mobilenetwork.SimPolicyResourceIdArgs>;
     /**

@@ -205,7 +205,7 @@ def get_private_zone(private_zone_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateZoneResult:
     """
     Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
-    API Version: 2020-06-01.
+    Azure REST API version: 2020-06-01.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).
@@ -240,7 +240,7 @@ def get_private_zone_output(private_zone_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateZoneResult]:
     """
     Gets a Private DNS zone. Retrieves the zone properties, but not the virtual networks links or the record sets within the zone.
-    API Version: 2020-06-01.
+    Azure REST API version: 2020-06-01.
 
 
     :param str private_zone_name: The name of the Private DNS zone (without a terminating dot).

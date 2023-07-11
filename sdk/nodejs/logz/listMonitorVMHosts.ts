@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response of a list VM Host Update Operation.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function listMonitorVMHosts(args: ListMonitorVMHostsArgs, opts?: pulumi.InvokeOptions): Promise<ListMonitorVMHostsResult> {
 
@@ -46,7 +46,7 @@ export interface ListMonitorVMHostsResult {
 }
 /**
  * Response of a list VM Host Update Operation.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function listMonitorVMHostsOutput(args: ListMonitorVMHostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListMonitorVMHostsResult> {
     return pulumi.output(args).apply((a: any) => listMonitorVMHosts(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.KeyVault
 {
     /// <summary>
     /// Resource information with extended details.
-    /// API Version: 2019-09-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2019-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:Secret")]
     public partial class Secret : global::Pulumi.CustomResource
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.KeyVault
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the secret
+        /// Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         /// </summary>
         [Input("secretName")]
         public Input<string>? SecretName { get; set; }

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Api Operation details.
- * API Version: 2020-12-01.
+ * API Operation details.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class ApiOperation extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     public readonly method!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -71,7 +71,7 @@ export class ApiOperation extends pulumi.CustomResource {
      */
     public readonly templateParameters!: pulumi.Output<outputs.apimanagement.ParameterContractResponse[] | undefined>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -135,7 +135,7 @@ export class ApiOperation extends pulumi.CustomResource {
             resourceInputs["urlTemplate"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:ApiOperation" }, { type: "azure-native:apimanagement/v20161010:ApiOperation" }, { type: "azure-native:apimanagement/v20170301:ApiOperation" }, { type: "azure-native:apimanagement/v20180101:ApiOperation" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20190101:ApiOperation" }, { type: "azure-native:apimanagement/v20191201:ApiOperation" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20201201:ApiOperation" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210801:ApiOperation" }, { type: "azure-native:apimanagement/v20211201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20220401preview:ApiOperation" }, { type: "azure-native:apimanagement/v20220801:ApiOperation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20160707:ApiOperation" }, { type: "azure-native:apimanagement/v20161010:ApiOperation" }, { type: "azure-native:apimanagement/v20170301:ApiOperation" }, { type: "azure-native:apimanagement/v20180101:ApiOperation" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20190101:ApiOperation" }, { type: "azure-native:apimanagement/v20191201:ApiOperation" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperation" }, { type: "azure-native:apimanagement/v20201201:ApiOperation" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperation" }, { type: "azure-native:apimanagement/v20210801:ApiOperation" }, { type: "azure-native:apimanagement/v20211201preview:ApiOperation" }, { type: "azure-native:apimanagement/v20220401preview:ApiOperation" }, { type: "azure-native:apimanagement/v20220801:ApiOperation" }, { type: "azure-native:apimanagement/v20220901preview:ApiOperation" }, { type: "azure-native:apimanagement/v20230301preview:ApiOperation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiOperation.__pulumiType, name, resourceInputs, opts);
     }
@@ -174,7 +174,7 @@ export interface ApiOperationArgs {
      */
     request?: pulumi.Input<inputs.apimanagement.RequestContractArgs>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

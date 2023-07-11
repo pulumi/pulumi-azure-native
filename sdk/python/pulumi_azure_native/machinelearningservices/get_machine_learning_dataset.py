@@ -135,7 +135,7 @@ def get_machine_learning_dataset(dataset_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineLearningDatasetResult:
     """
     Get a Dataset by name.
-    API Version: 2020-05-01-preview.
+    Azure REST API version: 2020-05-01-preview.
 
 
     :param str dataset_name: The Dataset name.
@@ -167,7 +167,7 @@ def get_machine_learning_dataset_output(dataset_name: Optional[pulumi.Input[str]
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineLearningDatasetResult]:
     """
     Get a Dataset by name.
-    API Version: 2020-05-01-preview.
+    Azure REST API version: 2020-05-01-preview.
 
 
     :param str dataset_name: The Dataset name.

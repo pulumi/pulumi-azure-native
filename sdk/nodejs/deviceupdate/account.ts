@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device Update account details.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
+     * CMK encryption at rest properties
+     */
+    public readonly encryption!: pulumi.Output<outputs.deviceupdate.EncryptionResponse | undefined>;
+    /**
      * API host name.
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
@@ -50,6 +54,10 @@ export class Account extends pulumi.CustomResource {
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * Device Update account primary and failover location details
+     */
+    public /*out*/ readonly locations!: pulumi.Output<outputs.deviceupdate.LocationResponse[]>;
     /**
      * The name of the resource
      */
@@ -66,6 +74,10 @@ export class Account extends pulumi.CustomResource {
      * Whether or not public network access is allowed for the account.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Device Update Sku
+     */
+    public readonly sku!: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -94,31 +106,37 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
             resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sku"] = (args ? args.sku : undefined) ?? "Standard";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["hostName"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:Account" }, { type: "azure-native:deviceupdate/v20220401preview:Account" }, { type: "azure-native:deviceupdate/v20221001:Account" }, { type: "azure-native:deviceupdate/v20221201preview:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:Account" }, { type: "azure-native:deviceupdate/v20220401preview:Account" }, { type: "azure-native:deviceupdate/v20221001:Account" }, { type: "azure-native:deviceupdate/v20221201preview:Account" }, { type: "azure-native:deviceupdate/v20230701:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -132,6 +150,10 @@ export interface AccountArgs {
      * Account name.
      */
     accountName?: pulumi.Input<string>;
+    /**
+     * CMK encryption at rest properties
+     */
+    encryption?: pulumi.Input<inputs.deviceupdate.EncryptionArgs>;
     /**
      * The type of identity used for the resource.
      */
@@ -152,6 +174,10 @@ export interface AccountArgs {
      * The resource group name.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Device Update Sku
+     */
+    sku?: pulumi.Input<string | enums.deviceupdate.SKU>;
     /**
      * Resource tags.
      */

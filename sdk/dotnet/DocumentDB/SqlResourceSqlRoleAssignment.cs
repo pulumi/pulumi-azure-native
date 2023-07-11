@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : global::Pulumi.CustomResource
@@ -87,7 +87,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:SqlResourceSqlRoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:SqlResourceSqlRoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:SqlResourceSqlRoleAssignment"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:SqlResourceSqlRoleAssignment"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:SqlResourceSqlRoleAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

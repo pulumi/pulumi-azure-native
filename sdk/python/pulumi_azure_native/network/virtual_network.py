@@ -24,7 +24,9 @@ class VirtualNetworkArgs:
                  dhcp_options: Optional[pulumi.Input['DhcpOptionsArgs']] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -41,7 +43,9 @@ class VirtualNetworkArgs:
         :param pulumi.Input['DhcpOptionsArgs'] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param pulumi.Input['VirtualNetworkEncryptionArgs'] encryption: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the virtual network.
+        :param pulumi.Input[int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
@@ -67,8 +71,12 @@ class VirtualNetworkArgs:
             enable_vm_protection = False
         if enable_vm_protection is not None:
             pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if flow_timeout_in_minutes is not None:
+            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ip_allocations is not None:
@@ -169,6 +177,18 @@ class VirtualNetworkArgs:
         pulumi.set(self, "enable_vm_protection", value)
 
     @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]:
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['VirtualNetworkEncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
@@ -179,6 +199,18 @@ class VirtualNetworkArgs:
     @extended_location.setter
     def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @property
+    @pulumi.getter(name="flowTimeoutInMinutes")
+    def flow_timeout_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        return pulumi.get(self, "flow_timeout_in_minutes")
+
+    @flow_timeout_in_minutes.setter
+    def flow_timeout_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "flow_timeout_in_minutes", value)
 
     @property
     @pulumi.getter
@@ -276,7 +308,9 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -288,7 +322,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Network resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -298,7 +332,9 @@ class VirtualNetwork(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DhcpOptionsArgs']] dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
         :param pulumi.Input[bool] enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
         :param pulumi.Input[bool] enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']] encryption: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the virtual network.
+        :param pulumi.Input[int] flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] ip_allocations: Array of IpAllocation which reference this VNET.
         :param pulumi.Input[str] location: Resource location.
@@ -316,7 +352,7 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Network resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -339,7 +375,9 @@ class VirtualNetwork(pulumi.CustomResource):
                  dhcp_options: Optional[pulumi.Input[pulumi.InputType['DhcpOptionsArgs']]] = None,
                  enable_ddos_protection: Optional[pulumi.Input[bool]] = None,
                  enable_vm_protection: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkEncryptionArgs']]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
+                 flow_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  ip_allocations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -367,7 +405,9 @@ class VirtualNetwork(pulumi.CustomResource):
             if enable_vm_protection is None:
                 enable_vm_protection = False
             __props__.__dict__["enable_vm_protection"] = enable_vm_protection
+            __props__.__dict__["encryption"] = encryption
             __props__.__dict__["extended_location"] = extended_location
+            __props__.__dict__["flow_timeout_in_minutes"] = flow_timeout_in_minutes
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_allocations"] = ip_allocations
             __props__.__dict__["location"] = location
@@ -379,11 +419,12 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["virtual_network_peerings"] = virtual_network_peerings
             __props__.__dict__["etag"] = None
+            __props__.__dict__["flow_logs"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150501preview:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20150615:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160330:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20160901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20161201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20170901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20171101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20180801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181001:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20181201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220501:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220701:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20220901:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20221101:VirtualNetwork"), pulumi.Alias(type_="azure-native:network/v20230201:VirtualNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetwork, __self__).__init__(
             'azure-native:network:VirtualNetwork',
@@ -413,8 +454,11 @@ class VirtualNetwork(pulumi.CustomResource):
         __props__.__dict__["dhcp_options"] = None
         __props__.__dict__["enable_ddos_protection"] = None
         __props__.__dict__["enable_vm_protection"] = None
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
+        __props__.__dict__["flow_logs"] = None
+        __props__.__dict__["flow_timeout_in_minutes"] = None
         __props__.__dict__["ip_allocations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -476,6 +520,14 @@ class VirtualNetwork(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.VirtualNetworkEncryptionResponse']]:
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
         A unique read-only string that changes whenever the resource is updated.
@@ -489,6 +541,22 @@ class VirtualNetwork(pulumi.CustomResource):
         The extended location of the virtual network.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="flowLogs")
+    def flow_logs(self) -> pulumi.Output[Sequence['outputs.FlowLogResponse']]:
+        """
+        A collection of references to flow log resources.
+        """
+        return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter(name="flowTimeoutInMinutes")
+    def flow_timeout_in_minutes(self) -> pulumi.Output[Optional[int]]:
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        return pulumi.get(self, "flow_timeout_in_minutes")
 
     @property
     @pulumi.getter(name="ipAllocations")

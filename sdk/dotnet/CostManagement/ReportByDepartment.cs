@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// A report resource.
-    /// API Version: 2018-08-01-preview.
+    /// Azure REST API version: 2018-08-01-preview. Prior API version in Azure Native 1.x: 2018-08-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:ReportByDepartment")]
     public partial class ReportByDepartment : global::Pulumi.CustomResource

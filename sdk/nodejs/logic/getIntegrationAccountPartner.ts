@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account partner.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountPartner(args: GetIntegrationAccountPartnerArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountPartnerResult> {
 
@@ -83,7 +83,7 @@ export interface GetIntegrationAccountPartnerResult {
 }
 /**
  * Gets an integration account partner.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountPartnerOutput(args: GetIntegrationAccountPartnerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountPartnerResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountPartner(a, opts))

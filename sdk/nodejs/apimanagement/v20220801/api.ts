@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * API details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility.
  */
 export class Api extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Api extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Api {
-        pulumi.log.warn("Api is deprecated: azure-native:apimanagement/v20220801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility.")
         return new Api(name, undefined as any, { ...opts, id: id });
     }
 
@@ -140,9 +137,7 @@ export class Api extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility. */
     constructor(name: string, args: ApiArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Api is deprecated: azure-native:apimanagement/v20220801:Api is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Api to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -212,7 +207,7 @@ export class Api extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Api" }, { type: "azure-native:apimanagement/v20160707:Api" }, { type: "azure-native:apimanagement/v20161010:Api" }, { type: "azure-native:apimanagement/v20170301:Api" }, { type: "azure-native:apimanagement/v20180101:Api" }, { type: "azure-native:apimanagement/v20180601preview:Api" }, { type: "azure-native:apimanagement/v20190101:Api" }, { type: "azure-native:apimanagement/v20191201:Api" }, { type: "azure-native:apimanagement/v20191201preview:Api" }, { type: "azure-native:apimanagement/v20200601preview:Api" }, { type: "azure-native:apimanagement/v20201201:Api" }, { type: "azure-native:apimanagement/v20210101preview:Api" }, { type: "azure-native:apimanagement/v20210401preview:Api" }, { type: "azure-native:apimanagement/v20210801:Api" }, { type: "azure-native:apimanagement/v20211201preview:Api" }, { type: "azure-native:apimanagement/v20220401preview:Api" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Api" }, { type: "azure-native:apimanagement/v20160707:Api" }, { type: "azure-native:apimanagement/v20161010:Api" }, { type: "azure-native:apimanagement/v20170301:Api" }, { type: "azure-native:apimanagement/v20180101:Api" }, { type: "azure-native:apimanagement/v20180601preview:Api" }, { type: "azure-native:apimanagement/v20190101:Api" }, { type: "azure-native:apimanagement/v20191201:Api" }, { type: "azure-native:apimanagement/v20191201preview:Api" }, { type: "azure-native:apimanagement/v20200601preview:Api" }, { type: "azure-native:apimanagement/v20201201:Api" }, { type: "azure-native:apimanagement/v20210101preview:Api" }, { type: "azure-native:apimanagement/v20210401preview:Api" }, { type: "azure-native:apimanagement/v20210801:Api" }, { type: "azure-native:apimanagement/v20211201preview:Api" }, { type: "azure-native:apimanagement/v20220401preview:Api" }, { type: "azure-native:apimanagement/v20220901preview:Api" }, { type: "azure-native:apimanagement/v20230301preview:Api" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Api.__pulumiType, name, resourceInputs, opts);
     }

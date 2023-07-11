@@ -11,18 +11,191 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'LiveTraceCategoryArgs',
+    'LiveTraceConfigurationArgs',
+    'ManagedIdentitySettingsArgs',
+    'ManagedIdentityArgs',
     'NetworkACLArgs',
     'PrivateEndpointACLArgs',
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'ResourceLogCategoryArgs',
+    'ResourceLogConfigurationArgs',
     'ResourceReferenceArgs',
     'ResourceSkuArgs',
+    'ServerlessSettingsArgs',
     'ServerlessUpstreamSettingsArgs',
     'SignalRCorsSettingsArgs',
     'SignalRFeatureArgs',
     'SignalRNetworkACLsArgs',
+    'SignalRTlsSettingsArgs',
+    'UpstreamAuthSettingsArgs',
     'UpstreamTemplateArgs',
 ]
+
+@pulumi.input_type
+class LiveTraceCategoryArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Live trace category configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[str] enabled: Indicates whether or the live trace category is enabled.
+               Available values: true, false.
+               Case insensitive.
+        :param pulumi.Input[str] name: Gets or sets the live trace category's name.
+               Available values: ConnectivityLogs, MessagingLogs.
+               Case insensitive.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether or the live trace category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the live trace category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class LiveTraceConfigurationArgs:
+    def __init__(__self__, *,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[str]] = None):
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]] categories: Gets or sets the list of category configurations.
+        :param pulumi.Input[str] enabled: Indicates whether or not enable live trace.
+               When it's set to true, live trace client can connect to the service.
+               Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+               Available values: true, false.
+               Case insensitive.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+        if enabled is None:
+            enabled = 'false'
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]]:
+        """
+        Gets or sets the list of category configurations.
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LiveTraceCategoryArgs']]]]):
+        pulumi.set(self, "categories", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether or not enable live trace.
+        When it's set to true, live trace client can connect to the service.
+        Otherwise, live trace client can't connect to the service, so that you are unable to receive any log, no matter what you configure in "categories".
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class ManagedIdentitySettingsArgs:
+    def __init__(__self__, *,
+                 resource: Optional[pulumi.Input[str]] = None):
+        """
+        Managed identity settings for upstream.
+        :param pulumi.Input[str] resource: The Resource indicating the App ID URI of the target resource.
+               It also appears in the aud (audience) claim of the issued token.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Resource indicating the App ID URI of the target resource.
+        It also appears in the aud (audience) claim of the issued token.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource", value)
+
+
+@pulumi.input_type
+class ManagedIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        A class represent managed identities used for request and response
+        :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Represents the identity type: systemAssigned, userAssigned, None
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Get or set the user assigned identities
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]]:
+        """
+        Represents the identity type: systemAssigned, userAssigned, None
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Get or set the user assigned identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class NetworkACLArgs:
@@ -200,6 +373,78 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class ResourceLogCategoryArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Resource log category configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[str] enabled: Indicates whether or the resource log category is enabled.
+               Available values: true, false.
+               Case insensitive.
+        :param pulumi.Input[str] name: Gets or sets the resource log category's name.
+               Available values: ConnectivityLogs, MessagingLogs.
+               Case insensitive.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether or the resource log category is enabled.
+        Available values: true, false.
+        Case insensitive.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the resource log category's name.
+        Available values: ConnectivityLogs, MessagingLogs.
+        Case insensitive.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ResourceLogConfigurationArgs:
+    def __init__(__self__, *,
+                 categories: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]] = None):
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]] categories: Gets or sets the list of category configurations.
+        """
+        if categories is not None:
+            pulumi.set(__self__, "categories", categories)
+
+    @property
+    @pulumi.getter
+    def categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]]:
+        """
+        Gets or sets the list of category configurations.
+        """
+        return pulumi.get(self, "categories")
+
+    @categories.setter
+    def categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceLogCategoryArgs']]]]):
+        pulumi.set(self, "categories", value)
+
+
+@pulumi.input_type
 class ResourceReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -230,15 +475,16 @@ class ResourceSkuArgs:
                  capacity: Optional[pulumi.Input[int]] = None,
                  tier: Optional[pulumi.Input[Union[str, 'SignalRSkuTier']]] = None):
         """
-        The billing information of the SignalR resource.
+        The billing information of the resource.
         :param pulumi.Input[str] name: The name of the SKU. Required.
                
-               Allowed values: Standard_S1, Free_F1
-        :param pulumi.Input[int] capacity: Optional, integer. The unit count of SignalR resource. 1 by default.
+               Allowed values: Standard_S1, Free_F1, Premium_P1
+        :param pulumi.Input[int] capacity: Optional, integer. The unit count of the resource. 1 by default.
                
                If present, following values are allowed:
-                   Free: 1
-                   Standard: 1,2,5,10,20,50,100
+                   Free: 1;
+                   Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+                   Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         :param pulumi.Input[Union[str, 'SignalRSkuTier']] tier: Optional tier of this particular SKU. 'Standard' or 'Free'. 
                
                `Basic` is deprecated, use `Standard` instead.
@@ -255,7 +501,7 @@ class ResourceSkuArgs:
         """
         The name of the SKU. Required.
         
-        Allowed values: Standard_S1, Free_F1
+        Allowed values: Standard_S1, Free_F1, Premium_P1
         """
         return pulumi.get(self, "name")
 
@@ -267,11 +513,12 @@ class ResourceSkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        Optional, integer. The unit count of SignalR resource. 1 by default.
+        Optional, integer. The unit count of the resource. 1 by default.
         
         If present, following values are allowed:
-            Free: 1
-            Standard: 1,2,5,10,20,50,100
+            Free: 1;
+            Standard: 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
+            Premium:  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100;
         """
         return pulumi.get(self, "capacity")
 
@@ -295,11 +542,51 @@ class ResourceSkuArgs:
 
 
 @pulumi.input_type
+class ServerlessSettingsArgs:
+    def __init__(__self__, *,
+                 connection_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        Serverless settings.
+        :param pulumi.Input[int] connection_timeout_in_seconds: Gets or sets Client Connection Timeout. Optional to be set.
+               Value in seconds.
+               Default value is 30 seconds.
+               Customer should set the timeout to a shorter period if messages are expected to be sent in shorter intervals,
+               and want the client to disconnect more quickly after the last message is sent.
+               You can set the timeout to a longer period if messages are expected to be sent in longer intervals,
+               and they want to keep the same client connection alive during this session.
+               The service considers the client disconnected if it hasn't received a message (including keep-alive) in this interval.
+        """
+        if connection_timeout_in_seconds is None:
+            connection_timeout_in_seconds = 30
+        if connection_timeout_in_seconds is not None:
+            pulumi.set(__self__, "connection_timeout_in_seconds", connection_timeout_in_seconds)
+
+    @property
+    @pulumi.getter(name="connectionTimeoutInSeconds")
+    def connection_timeout_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Gets or sets Client Connection Timeout. Optional to be set.
+        Value in seconds.
+        Default value is 30 seconds.
+        Customer should set the timeout to a shorter period if messages are expected to be sent in shorter intervals,
+        and want the client to disconnect more quickly after the last message is sent.
+        You can set the timeout to a longer period if messages are expected to be sent in longer intervals,
+        and they want to keep the same client connection alive during this session.
+        The service considers the client disconnected if it hasn't received a message (including keep-alive) in this interval.
+        """
+        return pulumi.get(self, "connection_timeout_in_seconds")
+
+    @connection_timeout_in_seconds.setter
+    def connection_timeout_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_timeout_in_seconds", value)
+
+
+@pulumi.input_type
 class ServerlessUpstreamSettingsArgs:
     def __init__(__self__, *,
                  templates: Optional[pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]]] = None):
         """
-        The settings for the Upstream when the Azure SignalR is in server-less mode.
+        The settings for the Upstream when the service is in server-less mode.
         :param pulumi.Input[Sequence[pulumi.Input['UpstreamTemplateArgs']]] templates: Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
         """
         if templates is not None:
@@ -349,10 +636,12 @@ class SignalRFeatureArgs:
                  value: pulumi.Input[str],
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        Feature of a SignalR resource, which controls the SignalR runtime behavior.
+        Feature of a resource, which controls the runtime behavior.
         :param pulumi.Input[Union[str, 'FeatureFlags']] flag: FeatureFlags is the supported features of Azure SignalR service.
                - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
                - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+               - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+               - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
         :param pulumi.Input[str] value: Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: Optional properties related to this feature.
         """
@@ -368,6 +657,8 @@ class SignalRFeatureArgs:
         FeatureFlags is the supported features of Azure SignalR service.
         - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
         - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+        - EnableMessagingLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+        - EnableLiveTrace: Live Trace allows you to know what's happening inside Azure SignalR service, it will give you live traces in real time, it will be helpful when you developing your own Azure SignalR based web application or self-troubleshooting some issues. Please note that live traces are counted as outbound messages that will be charged. Values allowed: "true"/"false", to enable/disable live trace feature.
         """
         return pulumi.get(self, "flag")
 
@@ -407,13 +698,11 @@ class SignalRNetworkACLsArgs:
                  private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]]] = None,
                  public_network: Optional[pulumi.Input['NetworkACLArgs']] = None):
         """
-        Network ACLs for SignalR
-        :param pulumi.Input[Union[str, 'ACLAction']] default_action: Default action when no other rule matches
+        Network ACLs for the resource
+        :param pulumi.Input[Union[str, 'ACLAction']] default_action: Azure Networking ACL Action.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointACLArgs']]] private_endpoints: ACLs for requests from private endpoints
-        :param pulumi.Input['NetworkACLArgs'] public_network: ACL for requests from public network
+        :param pulumi.Input['NetworkACLArgs'] public_network: Network ACL
         """
-        if default_action is None:
-            default_action = 'Deny'
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if private_endpoints is not None:
@@ -425,7 +714,7 @@ class SignalRNetworkACLsArgs:
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[pulumi.Input[Union[str, 'ACLAction']]]:
         """
-        Default action when no other rule matches
+        Azure Networking ACL Action.
         """
         return pulumi.get(self, "default_action")
 
@@ -449,7 +738,7 @@ class SignalRNetworkACLsArgs:
     @pulumi.getter(name="publicNetwork")
     def public_network(self) -> Optional[pulumi.Input['NetworkACLArgs']]:
         """
-        ACL for requests from public network
+        Network ACL
         """
         return pulumi.get(self, "public_network")
 
@@ -459,9 +748,76 @@ class SignalRNetworkACLsArgs:
 
 
 @pulumi.input_type
+class SignalRTlsSettingsArgs:
+    def __init__(__self__, *,
+                 client_cert_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        TLS settings for the resource
+        :param pulumi.Input[bool] client_cert_enabled: Request client certificate during TLS handshake if enabled
+        """
+        if client_cert_enabled is None:
+            client_cert_enabled = True
+        if client_cert_enabled is not None:
+            pulumi.set(__self__, "client_cert_enabled", client_cert_enabled)
+
+    @property
+    @pulumi.getter(name="clientCertEnabled")
+    def client_cert_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Request client certificate during TLS handshake if enabled
+        """
+        return pulumi.get(self, "client_cert_enabled")
+
+    @client_cert_enabled.setter
+    def client_cert_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_cert_enabled", value)
+
+
+@pulumi.input_type
+class UpstreamAuthSettingsArgs:
+    def __init__(__self__, *,
+                 managed_identity: Optional[pulumi.Input['ManagedIdentitySettingsArgs']] = None,
+                 type: Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]] = None):
+        """
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        :param pulumi.Input['ManagedIdentitySettingsArgs'] managed_identity: Managed identity settings for upstream.
+        :param pulumi.Input[Union[str, 'UpstreamAuthType']] type: Upstream auth type enum.
+        """
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input['ManagedIdentitySettingsArgs']]:
+        """
+        Managed identity settings for upstream.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input['ManagedIdentitySettingsArgs']]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]]:
+        """
+        Upstream auth type enum.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'UpstreamAuthType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class UpstreamTemplateArgs:
     def __init__(__self__, *,
                  url_template: pulumi.Input[str],
+                 auth: Optional[pulumi.Input['UpstreamAuthSettingsArgs']] = None,
                  category_pattern: Optional[pulumi.Input[str]] = None,
                  event_pattern: Optional[pulumi.Input[str]] = None,
                  hub_pattern: Optional[pulumi.Input[str]] = None):
@@ -470,23 +826,26 @@ class UpstreamTemplateArgs:
         The template defines the pattern of the event, the hub or the category of the incoming request that matches current URL template.
         :param pulumi.Input[str] url_template: Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
                For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+        :param pulumi.Input['UpstreamAuthSettingsArgs'] auth: Upstream auth settings. If not set, no auth is used for upstream messages.
         :param pulumi.Input[str] category_pattern: Gets or sets the matching pattern for category names. If not set, it matches any category.
                There are 3 kind of patterns supported:
-                   1. "*", it to matches any category name
-                   2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-                   3. The single category name, for example, "connections", it matches the category "connections"
+                   1. "*", it to matches any category name.
+                   2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages".
+                   3. The single category name, for example, "connections", it matches the category "connections".
         :param pulumi.Input[str] event_pattern: Gets or sets the matching pattern for event names. If not set, it matches any event.
                There are 3 kind of patterns supported:
-                   1. "*", it to matches any event name
-                   2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-                   3. The single event name, for example, "connect", it matches "connect"
+                   1. "*", it to matches any event name.
+                   2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect".
+                   3. The single event name, for example, "connect", it matches "connect".
         :param pulumi.Input[str] hub_pattern: Gets or sets the matching pattern for hub names. If not set, it matches any hub.
                There are 3 kind of patterns supported:
-                   1. "*", it to matches any hub name
-                   2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-                   3. The single hub name, for example, "hub1", it matches "hub1"
+                   1. "*", it to matches any hub name.
+                   2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2".
+                   3. The single hub name, for example, "hub1", it matches "hub1".
         """
         pulumi.set(__self__, "url_template", url_template)
+        if auth is not None:
+            pulumi.set(__self__, "auth", auth)
         if category_pattern is not None:
             pulumi.set(__self__, "category_pattern", category_pattern)
         if event_pattern is not None:
@@ -508,14 +867,26 @@ class UpstreamTemplateArgs:
         pulumi.set(self, "url_template", value)
 
     @property
+    @pulumi.getter
+    def auth(self) -> Optional[pulumi.Input['UpstreamAuthSettingsArgs']]:
+        """
+        Upstream auth settings. If not set, no auth is used for upstream messages.
+        """
+        return pulumi.get(self, "auth")
+
+    @auth.setter
+    def auth(self, value: Optional[pulumi.Input['UpstreamAuthSettingsArgs']]):
+        pulumi.set(self, "auth", value)
+
+    @property
     @pulumi.getter(name="categoryPattern")
     def category_pattern(self) -> Optional[pulumi.Input[str]]:
         """
         Gets or sets the matching pattern for category names. If not set, it matches any category.
         There are 3 kind of patterns supported:
-            1. "*", it to matches any category name
-            2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-            3. The single category name, for example, "connections", it matches the category "connections"
+            1. "*", it to matches any category name.
+            2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages".
+            3. The single category name, for example, "connections", it matches the category "connections".
         """
         return pulumi.get(self, "category_pattern")
 
@@ -529,9 +900,9 @@ class UpstreamTemplateArgs:
         """
         Gets or sets the matching pattern for event names. If not set, it matches any event.
         There are 3 kind of patterns supported:
-            1. "*", it to matches any event name
-            2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-            3. The single event name, for example, "connect", it matches "connect"
+            1. "*", it to matches any event name.
+            2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect".
+            3. The single event name, for example, "connect", it matches "connect".
         """
         return pulumi.get(self, "event_pattern")
 
@@ -545,9 +916,9 @@ class UpstreamTemplateArgs:
         """
         Gets or sets the matching pattern for hub names. If not set, it matches any hub.
         There are 3 kind of patterns supported:
-            1. "*", it to matches any hub name
-            2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-            3. The single hub name, for example, "hub1", it matches "hub1"
+            1. "*", it to matches any hub name.
+            2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2".
+            3. The single hub name, for example, "hub1", it matches "hub1".
         """
         return pulumi.get(self, "hub_pattern")
 

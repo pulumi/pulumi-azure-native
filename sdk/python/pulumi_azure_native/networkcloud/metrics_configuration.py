@@ -160,7 +160,7 @@ class MetricsConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +180,7 @@ class MetricsConfiguration(pulumi.CustomResource):
                  args: MetricsConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param MetricsConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -237,7 +237,7 @@ class MetricsConfiguration(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:MetricsConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:MetricsConfiguration"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:MetricsConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MetricsConfiguration, __self__).__init__(
             'azure-native:networkcloud:MetricsConfiguration',

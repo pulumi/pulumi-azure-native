@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the service.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateEndpointConnectionsForEDM(args: GetPrivateEndpointConnectionsForEDMArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionsForEDMResult> {
 
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionsForEDMResult {
 }
 /**
  * Gets the specified private endpoint connection associated with the service.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview.
  */
 export function getPrivateEndpointConnectionsForEDMOutput(args: GetPrivateEndpointConnectionsForEDMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionsForEDMResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnectionsForEDM(a, opts))

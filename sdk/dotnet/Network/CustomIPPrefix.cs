@@ -11,11 +11,29 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Custom IP prefix resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:CustomIPPrefix")]
     public partial class CustomIPPrefix : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ASN for CIDR advertising. Should be an integer as string.
+        /// </summary>
+        [Output("asn")]
+        public Output<string?> Asn { get; private set; } = null!;
+
+        /// <summary>
+        /// Authorization message for WAN validation.
+        /// </summary>
+        [Output("authorizationMessage")]
+        public Output<string?> AuthorizationMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of all Children for IPv6 /48 CustomIpPrefix.
+        /// </summary>
+        [Output("childCustomIpPrefixes")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> ChildCustomIpPrefixes { get; private set; } = null!;
+
         /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
         /// </summary>
@@ -29,16 +47,40 @@ namespace Pulumi.AzureNative.Network
         public Output<string?> CommissionedState { get; private set; } = null!;
 
         /// <summary>
+        /// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        /// </summary>
+        [Output("customIpPrefixParent")]
+        public Output<Outputs.SubResourceResponse?> CustomIpPrefixParent { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to do express route advertise.
+        /// </summary>
+        [Output("expressRouteAdvertise")]
+        public Output<bool?> ExpressRouteAdvertise { get; private set; } = null!;
+
+        /// <summary>
         /// The extended location of the custom IP prefix.
         /// </summary>
         [Output("extendedLocation")]
         public Output<Outputs.ExtendedLocationResponse?> ExtendedLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The reason why resource is in failed state.
+        /// </summary>
+        [Output("failedReason")]
+        public Output<string> FailedReason { get; private set; } = null!;
+
+        /// <summary>
+        /// The Geo for CIDR advertising. Should be an Geo code.
+        /// </summary>
+        [Output("geo")]
+        public Output<string?> Geo { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -51,6 +93,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to Advertise the range to Internet.
+        /// </summary>
+        [Output("noInternetAdvertise")]
+        public Output<bool?> NoInternetAdvertise { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of custom IP prefix. Should be Singular, Parent, or Child.
+        /// </summary>
+        [Output("prefixType")]
+        public Output<string?> PrefixType { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the custom IP prefix resource.
@@ -69,6 +123,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("resourceGuid")]
         public Output<string> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// Signed message for WAN validation.
+        /// </summary>
+        [Output("signedMessage")]
+        public Output<string?> SignedMessage { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -125,6 +185,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:CustomIPPrefix"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:CustomIPPrefix"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:CustomIPPrefix"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,6 +211,18 @@ namespace Pulumi.AzureNative.Network
     public sealed class CustomIPPrefixArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ASN for CIDR advertising. Should be an integer as string.
+        /// </summary>
+        [Input("asn")]
+        public Input<string>? Asn { get; set; }
+
+        /// <summary>
+        /// Authorization message for WAN validation.
+        /// </summary>
+        [Input("authorizationMessage")]
+        public Input<string>? AuthorizationMessage { get; set; }
+
+        /// <summary>
         /// The prefix range in CIDR notation. Should include the start address and the prefix length.
         /// </summary>
         [Input("cidr")]
@@ -167,10 +241,28 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? CustomIpPrefixName { get; set; }
 
         /// <summary>
+        /// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+        /// </summary>
+        [Input("customIpPrefixParent")]
+        public Input<Inputs.SubResourceArgs>? CustomIpPrefixParent { get; set; }
+
+        /// <summary>
+        /// Whether to do express route advertise.
+        /// </summary>
+        [Input("expressRouteAdvertise")]
+        public Input<bool>? ExpressRouteAdvertise { get; set; }
+
+        /// <summary>
         /// The extended location of the custom IP prefix.
         /// </summary>
         [Input("extendedLocation")]
         public Input<Inputs.ExtendedLocationArgs>? ExtendedLocation { get; set; }
+
+        /// <summary>
+        /// The Geo for CIDR advertising. Should be an Geo code.
+        /// </summary>
+        [Input("geo")]
+        public InputUnion<string, Pulumi.AzureNative.Network.Geo>? Geo { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -185,10 +277,28 @@ namespace Pulumi.AzureNative.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Whether to Advertise the range to Internet.
+        /// </summary>
+        [Input("noInternetAdvertise")]
+        public Input<bool>? NoInternetAdvertise { get; set; }
+
+        /// <summary>
+        /// Type of custom IP prefix. Should be Singular, Parent, or Child.
+        /// </summary>
+        [Input("prefixType")]
+        public InputUnion<string, Pulumi.AzureNative.Network.CustomIpPrefixType>? PrefixType { get; set; }
+
+        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Signed message for WAN validation.
+        /// </summary>
+        [Input("signedMessage")]
+        public Input<string>? SignedMessage { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

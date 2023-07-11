@@ -11,16 +11,40 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing a Kusto cluster.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The cluster's accepted audiences.
+        /// </summary>
+        [Output("acceptedAudiences")]
+        public Output<ImmutableArray<Outputs.AcceptedAudiencesResponse>> AcceptedAudiences { get; private set; } = null!;
+
+        /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// </summary>
+        [Output("allowedFqdnList")]
+        public Output<ImmutableArray<string>> AllowedFqdnList { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of ips in the format of CIDR allowed to connect to the cluster.
+        /// </summary>
+        [Output("allowedIpRangeList")]
+        public Output<ImmutableArray<string>> AllowedIpRangeList { get; private set; } = null!;
+
+        /// <summary>
         /// The cluster data ingestion URI.
         /// </summary>
         [Output("dataIngestionUri")]
         public Output<string> DataIngestionUri { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Output("enableAutoStop")]
+        public Output<bool?> EnableAutoStop { get; private set; } = null!;
 
         /// <summary>
         /// A boolean value that indicates if the cluster's disks are encrypted.
@@ -74,7 +98,7 @@ namespace Pulumi.AzureNative.Kusto
         /// List of the cluster's language extensions.
         /// </summary>
         [Output("languageExtensions")]
-        public Output<Outputs.LanguageExtensionsListResponse> LanguageExtensions { get; private set; } = null!;
+        public Output<Outputs.LanguageExtensionsListResponse?> LanguageExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -95,10 +119,34 @@ namespace Pulumi.AzureNative.Kusto
         public Output<Outputs.OptimizedAutoscaleResponse?> OptimizedAutoscale { get; private set; } = null!;
 
         /// <summary>
+        /// A list of private endpoint connections.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioned state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        /// </summary>
+        [Output("publicIPType")]
+        public Output<string?> PublicIPType { get; private set; } = null!;
+
+        /// <summary>
+        /// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Output("restrictOutboundNetworkAccess")]
+        public Output<string?> RestrictOutboundNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the cluster.
@@ -117,6 +165,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("stateReason")]
         public Output<string> StateReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -194,6 +248,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -217,11 +272,53 @@ namespace Pulumi.AzureNative.Kusto
 
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("acceptedAudiences")]
+        private InputList<Inputs.AcceptedAudiencesArgs>? _acceptedAudiences;
+
+        /// <summary>
+        /// The cluster's accepted audiences.
+        /// </summary>
+        public InputList<Inputs.AcceptedAudiencesArgs> AcceptedAudiences
+        {
+            get => _acceptedAudiences ?? (_acceptedAudiences = new InputList<Inputs.AcceptedAudiencesArgs>());
+            set => _acceptedAudiences = value;
+        }
+
+        [Input("allowedFqdnList")]
+        private InputList<string>? _allowedFqdnList;
+
+        /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// </summary>
+        public InputList<string> AllowedFqdnList
+        {
+            get => _allowedFqdnList ?? (_allowedFqdnList = new InputList<string>());
+            set => _allowedFqdnList = value;
+        }
+
+        [Input("allowedIpRangeList")]
+        private InputList<string>? _allowedIpRangeList;
+
+        /// <summary>
+        /// The list of ips in the format of CIDR allowed to connect to the cluster.
+        /// </summary>
+        public InputList<string> AllowedIpRangeList
+        {
+            get => _allowedIpRangeList ?? (_allowedIpRangeList = new InputList<string>());
+            set => _allowedIpRangeList = value;
+        }
+
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        [Input("enableAutoStop")]
+        public Input<bool>? EnableAutoStop { get; set; }
 
         /// <summary>
         /// A boolean value that indicates if the cluster's disks are encrypted.
@@ -266,6 +363,12 @@ namespace Pulumi.AzureNative.Kusto
         public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
         /// <summary>
+        /// List of the cluster's language extensions.
+        /// </summary>
+        [Input("languageExtensions")]
+        public Input<Inputs.LanguageExtensionsListArgs>? LanguageExtensions { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -278,10 +381,28 @@ namespace Pulumi.AzureNative.Kusto
         public Input<Inputs.OptimizedAutoscaleArgs>? OptimizedAutoscale { get; set; }
 
         /// <summary>
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        /// </summary>
+        [Input("publicIPType")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.PublicIPType>? PublicIPType { get; set; }
+
+        /// <summary>
+        /// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// The name of the resource group containing the Kusto cluster.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        [Input("restrictOutboundNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.ClusterNetworkAccessFlag>? RestrictOutboundNetworkAccess { get; set; }
 
         /// <summary>
         /// The SKU of the cluster.
@@ -314,6 +435,12 @@ namespace Pulumi.AzureNative.Kusto
         }
 
         /// <summary>
+        /// Virtual Cluster graduation properties
+        /// </summary>
+        [Input("virtualClusterGraduationProperties")]
+        public Input<string>? VirtualClusterGraduationProperties { get; set; }
+
+        /// <summary>
         /// Virtual network definition.
         /// </summary>
         [Input("virtualNetworkConfiguration")]
@@ -333,11 +460,15 @@ namespace Pulumi.AzureNative.Kusto
 
         public ClusterArgs()
         {
+            EnableAutoStop = true;
             EnableDiskEncryption = false;
             EnableDoubleEncryption = false;
             EnablePurge = false;
             EnableStreamingIngest = false;
             EngineType = "V3";
+            PublicIPType = "IPv4";
+            PublicNetworkAccess = "Enabled";
+            RestrictOutboundNetworkAccess = "Disabled";
         }
         public static new ClusterArgs Empty => new ClusterArgs();
     }

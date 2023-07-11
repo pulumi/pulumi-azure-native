@@ -2,40 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170615preview from "./v20170615preview";
-import * as v20170915preview from "./v20170915preview";
-import * as v20180101 from "./v20180101";
-import * as v20180501preview from "./v20180501preview";
-import * as v20180915preview from "./v20180915preview";
-import * as v20190101 from "./v20190101";
-import * as v20190201preview from "./v20190201preview";
-import * as v20190601 from "./v20190601";
-import * as v20200101preview from "./v20200101preview";
 import * as v20200401preview from "./v20200401preview";
-import * as v20200601 from "./v20200601";
-import * as v20201015preview from "./v20201015preview";
-import * as v20210601preview from "./v20210601preview";
 import * as v20211015preview from "./v20211015preview";
-import * as v20211201 from "./v20211201";
 import * as v20220615 from "./v20220615";
+import * as v20230601preview from "./v20230601preview";
 
 export {
-    v20170615preview,
-    v20170915preview,
-    v20180101,
-    v20180501preview,
-    v20180915preview,
-    v20190101,
-    v20190201preview,
-    v20190601,
-    v20200101preview,
     v20200401preview,
-    v20200601,
-    v20201015preview,
-    v20210601preview,
     v20211015preview,
-    v20211201,
     v20220615,
+    v20230601preview,
 };
 
 export const AdvancedFilterOperatorType = {
@@ -65,6 +41,16 @@ export const AdvancedFilterOperatorType = {
  */
 export type AdvancedFilterOperatorType = (typeof AdvancedFilterOperatorType)[keyof typeof AdvancedFilterOperatorType];
 
+export const AlternativeAuthenticationNameSource = {
+    ClientCertificateSubject: "ClientCertificateSubject",
+    ClientCertificateDns: "ClientCertificateDns",
+    ClientCertificateUri: "ClientCertificateUri",
+    ClientCertificateIp: "ClientCertificateIp",
+    ClientCertificateEmail: "ClientCertificateEmail",
+} as const;
+
+export type AlternativeAuthenticationNameSource = (typeof AlternativeAuthenticationNameSource)[keyof typeof AlternativeAuthenticationNameSource];
+
 export const ChannelProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -72,6 +58,7 @@ export const ChannelProvisioningState = {
     Succeeded: "Succeeded",
     Canceled: "Canceled",
     Failed: "Failed",
+    IdleDueToMirroredPartnerTopicDeletion: "IdleDueToMirroredPartnerTopicDeletion",
 } as const;
 
 /**
@@ -81,13 +68,46 @@ export type ChannelProvisioningState = (typeof ChannelProvisioningState)[keyof t
 
 export const ChannelType = {
     PartnerTopic: "PartnerTopic",
-    PartnerDestination: "PartnerDestination",
 } as const;
 
 /**
- * The type of the event channel which represents the  direction flow of events.
+ * The type of the event channel which represents the direction flow of events.
  */
 export type ChannelType = (typeof ChannelType)[keyof typeof ChannelType];
+
+export const ClientCertificateValidationScheme = {
+    SubjectMatchesAuthenticationName: "SubjectMatchesAuthenticationName",
+    DnsMatchesAuthenticationName: "DnsMatchesAuthenticationName",
+    UriMatchesAuthenticationName: "UriMatchesAuthenticationName",
+    IpMatchesAuthenticationName: "IpMatchesAuthenticationName",
+    EmailMatchesAuthenticationName: "EmailMatchesAuthenticationName",
+    ThumbprintMatch: "ThumbprintMatch",
+} as const;
+
+/**
+ * The validation scheme used to authenticate the client. Default value is SubjectMatchesAuthenticationName.
+ */
+export type ClientCertificateValidationScheme = (typeof ClientCertificateValidationScheme)[keyof typeof ClientCertificateValidationScheme];
+
+export const ClientState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Indicates if the client is enabled or not. Default value is Enabled.
+ */
+export type ClientState = (typeof ClientState)[keyof typeof ClientState];
+
+export const DataResidencyBoundary = {
+    WithinGeopair: "WithinGeopair",
+    WithinRegion: "WithinRegion",
+} as const;
+
+/**
+ * Data Residency Boundary of the resource.
+ */
+export type DataResidencyBoundary = (typeof DataResidencyBoundary)[keyof typeof DataResidencyBoundary];
 
 export const DeadLetterEndPointType = {
     StorageBlob: "StorageBlob",
@@ -108,6 +128,24 @@ export const DeliveryAttributeMappingType = {
  */
 export type DeliveryAttributeMappingType = (typeof DeliveryAttributeMappingType)[keyof typeof DeliveryAttributeMappingType];
 
+export const DeliveryMode = {
+    Queue: "Queue",
+} as const;
+
+/**
+ * Delivery mode of the event subscription.
+ */
+export type DeliveryMode = (typeof DeliveryMode)[keyof typeof DeliveryMode];
+
+export const DeliverySchema = {
+    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
+} as const;
+
+/**
+ * The event delivery schema for the event subscription.
+ */
+export type DeliverySchema = (typeof DeliverySchema)[keyof typeof DeliverySchema];
+
 export const EndpointType = {
     WebHook: "WebHook",
     EventHub: "EventHub",
@@ -116,7 +154,6 @@ export const EndpointType = {
     ServiceBusQueue: "ServiceBusQueue",
     ServiceBusTopic: "ServiceBusTopic",
     AzureFunction: "AzureFunction",
-    PartnerDestination: "PartnerDestination",
 } as const;
 
 /**
@@ -144,6 +181,15 @@ export const EventDeliverySchema = {
  */
 export type EventDeliverySchema = (typeof EventDeliverySchema)[keyof typeof EventDeliverySchema];
 
+export const EventInputSchema = {
+    CloudEventSchemaV1_0: "CloudEventSchemaV1_0",
+} as const;
+
+/**
+ * This determines the format that is expected for incoming events published to the topic.
+ */
+export type EventInputSchema = (typeof EventInputSchema)[keyof typeof EventInputSchema];
+
 export const EventSubscriptionIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -153,6 +199,33 @@ export const EventSubscriptionIdentityType = {
  * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
  */
 export type EventSubscriptionIdentityType = (typeof EventSubscriptionIdentityType)[keyof typeof EventSubscriptionIdentityType];
+
+export const FilterOperatorType = {
+    NumberIn: "NumberIn",
+    NumberNotIn: "NumberNotIn",
+    NumberLessThan: "NumberLessThan",
+    NumberGreaterThan: "NumberGreaterThan",
+    NumberLessThanOrEquals: "NumberLessThanOrEquals",
+    NumberGreaterThanOrEquals: "NumberGreaterThanOrEquals",
+    BoolEquals: "BoolEquals",
+    StringIn: "StringIn",
+    StringNotIn: "StringNotIn",
+    StringBeginsWith: "StringBeginsWith",
+    StringEndsWith: "StringEndsWith",
+    StringContains: "StringContains",
+    NumberInRange: "NumberInRange",
+    NumberNotInRange: "NumberNotInRange",
+    StringNotBeginsWith: "StringNotBeginsWith",
+    StringNotEndsWith: "StringNotEndsWith",
+    StringNotContains: "StringNotContains",
+    IsNullOrUndefined: "IsNullOrUndefined",
+    IsNotNull: "IsNotNull",
+} as const;
+
+/**
+ * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+ */
+export type FilterOperatorType = (typeof FilterOperatorType)[keyof typeof FilterOperatorType];
 
 export const IdentityType = {
     None: "None",
@@ -195,15 +268,6 @@ export const IpActionType = {
  */
 export type IpActionType = (typeof IpActionType)[keyof typeof IpActionType];
 
-export const PartnerClientAuthenticationType = {
-    AzureAD: "AzureAD",
-} as const;
-
-/**
- * Type of client authentication
- */
-export type PartnerClientAuthenticationType = (typeof PartnerClientAuthenticationType)[keyof typeof PartnerClientAuthenticationType];
-
 export const PartnerConfigurationProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -228,40 +292,6 @@ export const PartnerDestinationActivationState = {
  */
 export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
 
-export const PartnerDestinationProvisioningState = {
-    Creating: "Creating",
-    Updating: "Updating",
-    Deleting: "Deleting",
-    Succeeded: "Succeeded",
-    Canceled: "Canceled",
-    Failed: "Failed",
-} as const;
-
-/**
- * Provisioning state of the partner destination.
- */
-export type PartnerDestinationProvisioningState = (typeof PartnerDestinationProvisioningState)[keyof typeof PartnerDestinationProvisioningState];
-
-export const PartnerEndpointType = {
-    WebHook: "WebHook",
-} as const;
-
-/**
- * Type of the endpoint for the partner destination
- */
-export type PartnerEndpointType = (typeof PartnerEndpointType)[keyof typeof PartnerEndpointType];
-
-export const PartnerRegistrationVisibilityState = {
-    Hidden: "Hidden",
-    PublicPreview: "PublicPreview",
-    GenerallyAvailable: "GenerallyAvailable",
-} as const;
-
-/**
- * Visibility state of the partner registration.
- */
-export type PartnerRegistrationVisibilityState = (typeof PartnerRegistrationVisibilityState)[keyof typeof PartnerRegistrationVisibilityState];
-
 export const PartnerTopicActivationState = {
     NeverActivated: "NeverActivated",
     Activated: "Activated",
@@ -272,6 +302,27 @@ export const PartnerTopicActivationState = {
  * Activation state of the partner topic.
  */
 export type PartnerTopicActivationState = (typeof PartnerTopicActivationState)[keyof typeof PartnerTopicActivationState];
+
+export const PartnerTopicRoutingMode = {
+    SourceEventAttribute: "SourceEventAttribute",
+    ChannelNameHeader: "ChannelNameHeader",
+} as const;
+
+/**
+ * This determines if events published to this partner namespace should use the source attribute in the event payload
+ * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
+ */
+export type PartnerTopicRoutingMode = (typeof PartnerTopicRoutingMode)[keyof typeof PartnerTopicRoutingMode];
+
+export const PermissionType = {
+    Publisher: "Publisher",
+    Subscriber: "Subscriber",
+} as const;
+
+/**
+ * The allowed permission.
+ */
+export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];
 
 export const PersistedConnectionStatus = {
     Pending: "Pending",
@@ -296,6 +347,15 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
+export const PublisherType = {
+    Custom: "Custom",
+} as const;
+
+/**
+ * Publisher type of the namespace topic.
+ */
+export type PublisherType = (typeof PublisherType)[keyof typeof PublisherType];
+
 export const ReadinessState = {
     NeverActivated: "NeverActivated",
     Activated: "Activated",
@@ -319,3 +379,50 @@ export const ResourceProvisioningState = {
  * Provisioning state of the Private Endpoint Connection.
  */
 export type ResourceProvisioningState = (typeof ResourceProvisioningState)[keyof typeof ResourceProvisioningState];
+
+export const RoutingIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+export type RoutingIdentityType = (typeof RoutingIdentityType)[keyof typeof RoutingIdentityType];
+
+export const SkuName = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * The name of the SKU.
+ */
+export type SkuName = (typeof SkuName)[keyof typeof SkuName];
+
+export const StaticRoutingEnrichmentType = {
+    String: "String",
+} as const;
+
+/**
+ * Static routing enrichment value type. For e.g. this property value can be 'String'.
+ */
+export type StaticRoutingEnrichmentType = (typeof StaticRoutingEnrichmentType)[keyof typeof StaticRoutingEnrichmentType];
+
+export const TlsVersion = {
+    TlsVersion_1_0: "1.0",
+    TlsVersion_1_1: "1.1",
+    TlsVersion_1_2: "1.2",
+} as const;
+
+/**
+ * Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+ */
+export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];
+
+export const TopicSpacesConfigurationState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.
+ */
+export type TopicSpacesConfigurationState = (typeof TopicSpacesConfigurationState)[keyof typeof TopicSpacesConfigurationState];

@@ -119,6 +119,26 @@ export const getScopeAccessReviewScheduleDefinitionById: typeof import("./getSco
 export const getScopeAccessReviewScheduleDefinitionByIdOutput: typeof import("./getScopeAccessReviewScheduleDefinitionById").getScopeAccessReviewScheduleDefinitionByIdOutput = null as any;
 utilities.lazyLoad(exports, ["getScopeAccessReviewScheduleDefinitionById","getScopeAccessReviewScheduleDefinitionByIdOutput"], () => require("./getScopeAccessReviewScheduleDefinitionById"));
 
+export { GetVariableArgs, GetVariableResult, GetVariableOutputArgs } from "./getVariable";
+export const getVariable: typeof import("./getVariable").getVariable = null as any;
+export const getVariableOutput: typeof import("./getVariable").getVariableOutput = null as any;
+utilities.lazyLoad(exports, ["getVariable","getVariableOutput"], () => require("./getVariable"));
+
+export { GetVariableAtManagementGroupArgs, GetVariableAtManagementGroupResult, GetVariableAtManagementGroupOutputArgs } from "./getVariableAtManagementGroup";
+export const getVariableAtManagementGroup: typeof import("./getVariableAtManagementGroup").getVariableAtManagementGroup = null as any;
+export const getVariableAtManagementGroupOutput: typeof import("./getVariableAtManagementGroup").getVariableAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableAtManagementGroup","getVariableAtManagementGroupOutput"], () => require("./getVariableAtManagementGroup"));
+
+export { GetVariableValueArgs, GetVariableValueResult, GetVariableValueOutputArgs } from "./getVariableValue";
+export const getVariableValue: typeof import("./getVariableValue").getVariableValue = null as any;
+export const getVariableValueOutput: typeof import("./getVariableValue").getVariableValueOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableValue","getVariableValueOutput"], () => require("./getVariableValue"));
+
+export { GetVariableValueAtManagementGroupArgs, GetVariableValueAtManagementGroupResult, GetVariableValueAtManagementGroupOutputArgs } from "./getVariableValueAtManagementGroup";
+export const getVariableValueAtManagementGroup: typeof import("./getVariableValueAtManagementGroup").getVariableValueAtManagementGroup = null as any;
+export const getVariableValueAtManagementGroupOutput: typeof import("./getVariableValueAtManagementGroup").getVariableValueAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableValueAtManagementGroup","getVariableValueAtManagementGroupOutput"], () => require("./getVariableValueAtManagementGroup"));
+
 export { ManagementLockAtResourceGroupLevelArgs } from "./managementLockAtResourceGroupLevel";
 export type ManagementLockAtResourceGroupLevel = import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel;
 export const ManagementLockAtResourceGroupLevel: typeof import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel = null as any;
@@ -204,80 +224,62 @@ export type ScopeAccessReviewScheduleDefinitionById = import("./scopeAccessRevie
 export const ScopeAccessReviewScheduleDefinitionById: typeof import("./scopeAccessReviewScheduleDefinitionById").ScopeAccessReviewScheduleDefinitionById = null as any;
 utilities.lazyLoad(exports, ["ScopeAccessReviewScheduleDefinitionById"], () => require("./scopeAccessReviewScheduleDefinitionById"));
 
+export { VariableArgs } from "./variable";
+export type Variable = import("./variable").Variable;
+export const Variable: typeof import("./variable").Variable = null as any;
+utilities.lazyLoad(exports, ["Variable"], () => require("./variable"));
+
+export { VariableAtManagementGroupArgs } from "./variableAtManagementGroup";
+export type VariableAtManagementGroup = import("./variableAtManagementGroup").VariableAtManagementGroup;
+export const VariableAtManagementGroup: typeof import("./variableAtManagementGroup").VariableAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["VariableAtManagementGroup"], () => require("./variableAtManagementGroup"));
+
+export { VariableValueArgs } from "./variableValue";
+export type VariableValue = import("./variableValue").VariableValue;
+export const VariableValue: typeof import("./variableValue").VariableValue = null as any;
+utilities.lazyLoad(exports, ["VariableValue"], () => require("./variableValue"));
+
+export { VariableValueAtManagementGroupArgs } from "./variableValueAtManagementGroup";
+export type VariableValueAtManagementGroup = import("./variableValueAtManagementGroup").VariableValueAtManagementGroup;
+export const VariableValueAtManagementGroup: typeof import("./variableValueAtManagementGroup").VariableValueAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["VariableValueAtManagementGroup"], () => require("./variableValueAtManagementGroup"));
+
 
 // Export enums:
 export * from "../types/enums/authorization";
 
 // Export sub-modules:
-import * as v20150101 from "./v20150101";
-import * as v20150701 from "./v20150701";
-import * as v20151001preview from "./v20151001preview";
-import * as v20160401 from "./v20160401";
-import * as v20160901 from "./v20160901";
-import * as v20161201 from "./v20161201";
-import * as v20170401 from "./v20170401";
-import * as v20170601preview from "./v20170601preview";
 import * as v20171001preview from "./v20171001preview";
-import * as v20180101preview from "./v20180101preview";
-import * as v20180301 from "./v20180301";
 import * as v20180501 from "./v20180501";
-import * as v20180501preview from "./v20180501preview";
-import * as v20180901preview from "./v20180901preview";
-import * as v20190101 from "./v20190101";
 import * as v20190601 from "./v20190601";
-import * as v20190901 from "./v20190901";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
-import * as v20200701preview from "./v20200701preview";
-import * as v20200801preview from "./v20200801preview";
-import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
 import * as v20201001preview from "./v20201001preview";
-import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
-import * as v20210701preview from "./v20210701preview";
-import * as v20211116preview from "./v20211116preview";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220401 from "./v20220401";
+import * as v20220501preview from "./v20220501preview";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
 import * as v20220801preview from "./v20220801preview";
 
 export {
-    v20150101,
-    v20150701,
-    v20151001preview,
-    v20160401,
-    v20160901,
-    v20161201,
-    v20170401,
-    v20170601preview,
     v20171001preview,
-    v20180101preview,
-    v20180301,
     v20180501,
-    v20180501preview,
-    v20180901preview,
-    v20190101,
     v20190601,
-    v20190901,
     v20200301,
     v20200301preview,
     v20200401preview,
     v20200501,
-    v20200701preview,
-    v20200801preview,
-    v20200901,
     v20201001,
     v20201001preview,
-    v20210301preview,
     v20210601,
-    v20210701preview,
-    v20211116preview,
     v20211201preview,
     v20220401,
+    v20220501preview,
     v20220601,
     v20220701preview,
     v20220801preview,
@@ -325,6 +327,14 @@ const _module = {
                 return new ScopeAccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
             case "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById":
                 return new ScopeAccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
+            case "azure-native:authorization:Variable":
+                return new Variable(name, <any>undefined, { urn })
+            case "azure-native:authorization:VariableAtManagementGroup":
+                return new VariableAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:VariableValue":
+                return new VariableValue(name, <any>undefined, { urn })
+            case "azure-native:authorization:VariableValueAtManagementGroup":
+                return new VariableValueAtManagementGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

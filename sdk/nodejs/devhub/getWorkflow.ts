@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource representation of a workflow
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-10-11-preview.
  */
 export function getWorkflow(args: GetWorkflowArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkflowResult> {
 
@@ -44,6 +44,10 @@ export interface GetWorkflowResult {
      */
     readonly aksResourceId?: string;
     /**
+     * The name of the app.
+     */
+    readonly appName?: string;
+    /**
      * Determines the authorization status of requests.
      */
     readonly authStatus: string;
@@ -51,6 +55,10 @@ export interface GetWorkflowResult {
      * Repository Branch Name
      */
     readonly branchName?: string;
+    /**
+     * The version of the language image used for building the code in the generated dockerfile.
+     */
+    readonly builderVersion?: string;
     readonly deploymentProperties?: outputs.devhub.DeploymentPropertiesResponse;
     /**
      * Path to Dockerfile Build Context within the repository.
@@ -61,14 +69,50 @@ export interface GetWorkflowResult {
      */
     readonly dockerfile?: string;
     /**
+     * The mode of generation to be used for generating Dockerfiles.
+     */
+    readonly dockerfileGenerationMode?: string;
+    /**
+     * The directory to output the generated Dockerfile to.
+     */
+    readonly dockerfileOutputDirectory?: string;
+    /**
+     * The programming language used.
+     */
+    readonly generationLanguage?: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The name of the image to be generated.
+     */
+    readonly imageName?: string;
+    /**
+     * The tag to apply to the generated image.
+     */
+    readonly imageTag?: string;
+    /**
+     * The version of the language image used for execution in the generated dockerfile.
+     */
+    readonly languageVersion?: string;
     readonly lastWorkflowRun?: outputs.devhub.WorkflowRunResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * The mode of generation to be used for generating Manifest.
+     */
+    readonly manifestGenerationMode?: string;
+    /**
+     * The directory to output the generated manifests to.
+     */
+    readonly manifestOutputDirectory?: string;
+    /**
+     * Determines the type of manifests to be generated.
+     */
+    readonly manifestType?: string;
     /**
      * The name of the resource
      */
@@ -81,6 +125,10 @@ export interface GetWorkflowResult {
      * The fields needed for OIDC with GitHub.
      */
     readonly oidcCredentials?: outputs.devhub.GitHubWorkflowProfileResponseOidcCredentials;
+    /**
+     * The port the application is exposed on.
+     */
+    readonly port?: string;
     /**
      * The status of the Pull Request submitted against the users repository.
      */
@@ -116,7 +164,7 @@ export interface GetWorkflowResult {
 }
 /**
  * Resource representation of a workflow
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-10-11-preview.
  */
 export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
     return pulumi.output(args).apply((a: any) => getWorkflow(a, opts))

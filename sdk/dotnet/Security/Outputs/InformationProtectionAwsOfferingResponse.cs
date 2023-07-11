@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security.Outputs
 {
 
     /// <summary>
-    /// The information protection for AWS offering configurations
+    /// The information protection for AWS offering
     /// </summary>
     [OutputType]
     public sealed class InformationProtectionAwsOfferingResponse

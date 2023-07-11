@@ -50,7 +50,7 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineRdpFileContentsResult:
     """
     Gets a string that represents the contents of the RDP file for the virtual machine
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str lab_name: The name of the lab.
@@ -75,7 +75,7 @@ def get_virtual_machine_rdp_file_contents_output(lab_name: Optional[pulumi.Input
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineRdpFileContentsResult]:
     """
     Gets a string that represents the contents of the RDP file for the virtual machine
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str lab_name: The name of the lab.

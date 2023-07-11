@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Intune.V20150114Preview
 {
-    [Obsolete(@"azure-native:intune/v20150114preview:IoMAMPolicyByName is being removed in the next major version of this provider. Upgrade to at least azure-native:intune/v20150114privatepreview:IoMAMPolicyByName to guarantee forwards compatibility.")]
     public static class GetIoMAMPolicyByName
     {
         /// <summary>

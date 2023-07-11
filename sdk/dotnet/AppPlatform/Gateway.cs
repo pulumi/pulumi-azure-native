@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Spring Cloud Gateway resource
-    /// API Version: 2022-01-01-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource
@@ -78,6 +78,8 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Gateway"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Gateway"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Gateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Gateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

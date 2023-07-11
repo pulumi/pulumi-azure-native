@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the email template specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetEmailTemplateResult> {
 
@@ -23,7 +23,7 @@ export function getEmailTemplate(args: GetEmailTemplateArgs, opts?: pulumi.Invok
 
 export interface GetEmailTemplateArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -49,15 +49,15 @@ export interface GetEmailTemplateResult {
      */
     readonly description?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Whether the template is the default template provided by Api Management or has been edited.
+     * Whether the template is the default template provided by API Management or has been edited.
      */
     readonly isDefault: boolean;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -73,13 +73,13 @@ export interface GetEmailTemplateResult {
      */
     readonly title?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the details of the email template specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEmailTemplateResult> {
     return pulumi.output(args).apply((a: any) => getEmailTemplate(a, opts))
@@ -87,7 +87,7 @@ export function getEmailTemplateOutput(args: GetEmailTemplateOutputArgs, opts?: 
 
 export interface GetEmailTemplateOutputArgs {
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

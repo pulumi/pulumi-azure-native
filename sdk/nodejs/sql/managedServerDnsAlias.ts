@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A managed server DNS alias.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-11-01-preview
  */
 export class ManagedServerDnsAlias extends pulumi.CustomResource {
     /**
@@ -84,7 +84,7 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20211101:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220201preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220501preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220801preview:ManagedServerDnsAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20211101:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220201preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220501preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220801preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20221101preview:ManagedServerDnsAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedServerDnsAlias.__pulumiType, name, resourceInputs, opts);
     }

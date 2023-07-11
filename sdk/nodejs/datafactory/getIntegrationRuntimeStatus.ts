@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets detailed status information for an integration runtime.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getIntegrationRuntimeStatus(args: GetIntegrationRuntimeStatusArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationRuntimeStatusResult> {
 
@@ -51,7 +51,7 @@ export interface GetIntegrationRuntimeStatusResult {
 }
 /**
  * Gets detailed status information for an integration runtime.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getIntegrationRuntimeStatusOutput(args: GetIntegrationRuntimeStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationRuntimeStatusResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationRuntimeStatus(a, opts))

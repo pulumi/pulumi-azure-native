@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an Event Grid data connection.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventGridDataConnection")]
     public partial class EventGridDataConnection : global::Pulumi.CustomResource
@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("dataFormat")]
         public Output<string?> DataFormat { get; private set; } = null!;
+
+        /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Output("databaseRouting")]
+        public Output<string?> DatabaseRouting { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the event grid that is subscribed to the storage account events.
+        /// </summary>
+        [Output("eventGridResourceId")]
+        public Output<string?> EventGridResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID where the event grid is configured to send events.
@@ -58,6 +70,18 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The object ID of managedIdentityResourceId
+        /// </summary>
+        [Output("managedIdentityObjectId")]
+        public Output<string> ManagedIdentityObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        /// </summary>
+        [Output("managedIdentityResourceId")]
+        public Output<string?> ManagedIdentityResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
@@ -140,6 +164,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:EventGridDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:EventGridDataConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:EventGridDataConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:EventGridDataConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -200,6 +225,18 @@ namespace Pulumi.AzureNative.Kusto
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
+        /// Indication for database routing information from the data connection, by default only database routing information is allowed
+        /// </summary>
+        [Input("databaseRouting")]
+        public InputUnion<string, Pulumi.AzureNative.Kusto.DatabaseRouting>? DatabaseRouting { get; set; }
+
+        /// <summary>
+        /// The resource ID of the event grid that is subscribed to the storage account events.
+        /// </summary>
+        [Input("eventGridResourceId")]
+        public Input<string>? EventGridResourceId { get; set; }
+
+        /// <summary>
         /// The resource ID where the event grid is configured to send events.
         /// </summary>
         [Input("eventHubResourceId", required: true)]
@@ -223,6 +260,12 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
+        /// </summary>
+        [Input("managedIdentityResourceId")]
+        public Input<string>? ManagedIdentityResourceId { get; set; }
 
         /// <summary>
         /// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
@@ -250,6 +293,7 @@ namespace Pulumi.AzureNative.Kusto
 
         public EventGridDataConnectionArgs()
         {
+            DatabaseRouting = "Single";
         }
         public static new EventGridDataConnectionArgs Empty => new EventGridDataConnectionArgs();
     }

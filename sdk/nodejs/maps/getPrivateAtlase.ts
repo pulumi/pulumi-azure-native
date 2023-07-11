@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * [Deprecated] Get a Private Atlas resource.
- * API Version: 2020-02-01-preview.
+ * Azure REST API version: 2020-02-01-preview.
  */
 export function getPrivateAtlase(args: GetPrivateAtlaseArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateAtlaseResult> {
 
@@ -67,7 +67,7 @@ export interface GetPrivateAtlaseResult {
 }
 /**
  * [Deprecated] Get a Private Atlas resource.
- * API Version: 2020-02-01-preview.
+ * Azure REST API version: 2020-02-01-preview.
  */
 export function getPrivateAtlaseOutput(args: GetPrivateAtlaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateAtlaseResult> {
     return pulumi.output(args).apply((a: any) => getPrivateAtlase(a, opts))

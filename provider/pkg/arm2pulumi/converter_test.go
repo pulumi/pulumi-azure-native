@@ -3,9 +3,10 @@
 package arm2pulumi
 
 import (
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConvert(t *testing.T) {

@@ -29,9 +29,25 @@ namespace Pulumi.AzureNative.App.Outputs
         /// </summary>
         public readonly string? AppProtocol;
         /// <summary>
+        /// Enables API logging for the Dapr sidecar
+        /// </summary>
+        public readonly bool? EnableApiLogging;
+        /// <summary>
         /// Boolean indicating if the Dapr side car is enabled
         /// </summary>
         public readonly bool? Enabled;
+        /// <summary>
+        /// Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB.
+        /// </summary>
+        public readonly int? HttpMaxRequestSize;
+        /// <summary>
+        /// Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.
+        /// </summary>
+        public readonly int? HttpReadBufferSize;
+        /// <summary>
+        /// Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+        /// </summary>
+        public readonly string? LogLevel;
 
         [OutputConstructor]
         private DaprResponse(
@@ -41,12 +57,24 @@ namespace Pulumi.AzureNative.App.Outputs
 
             string? appProtocol,
 
-            bool? enabled)
+            bool? enableApiLogging,
+
+            bool? enabled,
+
+            int? httpMaxRequestSize,
+
+            int? httpReadBufferSize,
+
+            string? logLevel)
         {
             AppId = appId;
             AppPort = appPort;
             AppProtocol = appProtocol;
+            EnableApiLogging = enableApiLogging;
             Enabled = enabled;
+            HttpMaxRequestSize = httpMaxRequestSize;
+            HttpReadBufferSize = httpReadBufferSize;
+            LogLevel = logLevel;
         }
     }
 }

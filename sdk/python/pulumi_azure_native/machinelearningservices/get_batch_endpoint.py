@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetBatchEndpointResult:
-    def __init__(__self__, id=None, identity=None, kind=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, batch_endpoint_properties=None, id=None, identity=None, kind=None, location=None, name=None, sku=None, system_data=None, tags=None, type=None):
+        if batch_endpoint_properties and not isinstance(batch_endpoint_properties, dict):
+            raise TypeError("Expected argument 'batch_endpoint_properties' to be a dict")
+        pulumi.set(__self__, "batch_endpoint_properties", batch_endpoint_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -35,9 +38,9 @@ class GetBatchEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        pulumi.set(__self__, "sku", sku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -49,6 +52,14 @@ class GetBatchEndpointResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="batchEndpointProperties")
+    def batch_endpoint_properties(self) -> 'outputs.BatchEndpointResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "batch_endpoint_properties")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -58,9 +69,9 @@ class GetBatchEndpointResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ResourceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        Service identity associated with a resource.
+        Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -90,17 +101,17 @@ class GetBatchEndpointResult:
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.BatchEndpointResponse':
+    def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        [Required] Additional attributes of the entity.
+        Sku details required for ARM contract for Autoscaling.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -127,12 +138,13 @@ class AwaitableGetBatchEndpointResult(GetBatchEndpointResult):
         if False:
             yield self
         return GetBatchEndpointResult(
+            batch_endpoint_properties=self.batch_endpoint_properties,
             id=self.id,
             identity=self.identity,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -143,7 +155,7 @@ def get_batch_endpoint(endpoint_name: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBatchEndpointResult:
     """
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str endpoint_name: Name for the Batch Endpoint.
@@ -158,12 +170,13 @@ def get_batch_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getBatchEndpoint', __args__, opts=opts, typ=GetBatchEndpointResult).value
 
     return AwaitableGetBatchEndpointResult(
+        batch_endpoint_properties=__ret__.batch_endpoint_properties,
         id=__ret__.id,
         identity=__ret__.identity,
         kind=__ret__.kind,
         location=__ret__.location,
         name=__ret__.name,
-        properties=__ret__.properties,
+        sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -175,7 +188,7 @@ def get_batch_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchEndpointResult]:
     """
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str endpoint_name: Name for the Batch Endpoint.

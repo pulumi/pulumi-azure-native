@@ -22,7 +22,7 @@ class GetMSIXPackageResult:
     """
     Schema for MSIX Package properties.
     """
-    def __init__(__self__, display_name=None, id=None, image_path=None, is_active=None, is_regular_registration=None, last_updated=None, name=None, package_applications=None, package_dependencies=None, package_family_name=None, package_name=None, package_relative_path=None, type=None, version=None):
+    def __init__(__self__, display_name=None, id=None, image_path=None, is_active=None, is_regular_registration=None, last_updated=None, name=None, package_applications=None, package_dependencies=None, package_family_name=None, package_name=None, package_relative_path=None, system_data=None, type=None, version=None):
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -59,6 +59,9 @@ class GetMSIXPackageResult:
         if package_relative_path and not isinstance(package_relative_path, str):
             raise TypeError("Expected argument 'package_relative_path' to be a str")
         pulumi.set(__self__, "package_relative_path", package_relative_path)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -163,6 +166,14 @@ class GetMSIXPackageResult:
         return pulumi.get(self, "package_relative_path")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -197,6 +208,7 @@ class AwaitableGetMSIXPackageResult(GetMSIXPackageResult):
             package_family_name=self.package_family_name,
             package_name=self.package_name,
             package_relative_path=self.package_relative_path,
+            system_data=self.system_data,
             type=self.type,
             version=self.version)
 
@@ -207,7 +219,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMSIXPackageResult:
     """
     Get a msixpackage.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-09-09.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group
@@ -234,6 +246,7 @@ def get_msix_package(host_pool_name: Optional[str] = None,
         package_family_name=__ret__.package_family_name,
         package_name=__ret__.package_name,
         package_relative_path=__ret__.package_relative_path,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         version=__ret__.version)
 
@@ -245,7 +258,7 @@ def get_msix_package_output(host_pool_name: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
     Get a msixpackage.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-09-09.
 
 
     :param str host_pool_name: The name of the host pool within the specified resource group

@@ -23,7 +23,7 @@ class BackupPolicyInitArgs:
                  properties: Optional[pulumi.Input['BackupPolicyArgs']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         :param pulumi.Input[str] backup_policy_name: Name of the policy
         :param pulumi.Input['BackupPolicyArgs'] properties: BaseBackupPolicyResource properties
@@ -39,7 +39,7 @@ class BackupPolicyInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group where the backup vault is present.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -96,13 +96,13 @@ class BackupPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         BaseBackupPolicy resource
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: Name of the policy
         :param pulumi.Input[pulumi.InputType['BackupPolicyArgs']] properties: BaseBackupPolicyResource properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
         ...
@@ -113,7 +113,7 @@ class BackupPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BaseBackupPolicy resource
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyInitArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +154,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:BackupPolicy"), pulumi.Alias(type_="azure-native:dataprotection/v20230501:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azure-native:dataprotection:BackupPolicy',

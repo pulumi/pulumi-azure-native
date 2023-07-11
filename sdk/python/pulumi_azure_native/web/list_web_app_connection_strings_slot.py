@@ -98,8 +98,8 @@ def list_web_app_connection_strings_slot(name: Optional[str] = None,
                                          slot: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWebAppConnectionStringsSlotResult:
     """
-    Gets the connection strings of an app.
-    API Version: 2020-12-01.
+    Description for Gets the connection strings of an app.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -127,8 +127,8 @@ def list_web_app_connection_strings_slot_output(name: Optional[pulumi.Input[str]
                                                 slot: Optional[pulumi.Input[str]] = None,
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWebAppConnectionStringsSlotResult]:
     """
-    Gets the connection strings of an app.
-    API Version: 2020-12-01.
+    Description for Gets the connection strings of an app.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

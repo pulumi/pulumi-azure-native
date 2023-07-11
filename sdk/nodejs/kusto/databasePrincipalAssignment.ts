@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a database principal assignment.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
         return obj['__pulumiType'] === DatabasePrincipalAssignment.__pulumiType;
     }
 
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    public /*out*/ readonly aadObjectId!: pulumi.Output<string>;
     /**
      * The name of the resource
      */
@@ -112,12 +116,14 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["role"] = args ? args.role : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["aadObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["tenantName"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["aadObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;
             resourceInputs["principalName"] = undefined /*out*/;
@@ -129,7 +135,7 @@ export class DatabasePrincipalAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210827:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220201:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220707:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221111:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221229:DatabasePrincipalAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20191109:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200215:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200614:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20200918:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210101:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20210827:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220201:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20220707:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221111:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20221229:DatabasePrincipalAssignment" }, { type: "azure-native:kusto/v20230502:DatabasePrincipalAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabasePrincipalAssignment.__pulumiType, name, resourceInputs, opts);
     }

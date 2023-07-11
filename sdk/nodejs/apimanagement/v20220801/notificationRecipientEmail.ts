@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Recipient Email details.
- *
- * @deprecated azure-native:apimanagement/v20220801:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility.
  */
 export class NotificationRecipientEmail extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NotificationRecipientEmail {
-        pulumi.log.warn("NotificationRecipientEmail is deprecated: azure-native:apimanagement/v20220801:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility.")
         return new NotificationRecipientEmail(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +54,7 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility. */
     constructor(name: string, args: NotificationRecipientEmailArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NotificationRecipientEmail is deprecated: azure-native:apimanagement/v20220801:NotificationRecipientEmail is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientEmail to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -84,7 +79,7 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20170301:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20211201preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20220401preview:NotificationRecipientEmail" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20170301:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20211201preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20220401preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20220901preview:NotificationRecipientEmail" }, { type: "azure-native:apimanagement/v20230301preview:NotificationRecipientEmail" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRecipientEmail.__pulumiType, name, resourceInputs, opts);
     }

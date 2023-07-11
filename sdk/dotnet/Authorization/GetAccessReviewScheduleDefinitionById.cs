@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get single access review definition
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get single access review definition
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetAccessReviewScheduleDefinitionByIdResult> Invoke(GetAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getAccessReviewScheduleDefinitionById", args ?? new GetAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,18 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly string? EndDate;
         /// <summary>
+        /// This is used to indicate the resource id(s) to exclude
+        /// </summary>
+        public readonly string? ExcludeResourceId;
+        /// <summary>
+        /// This is used to indicate the role definition id(s) to exclude
+        /// </summary>
+        public readonly string? ExcludeRoleDefinitionId;
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        public readonly bool? ExpandNestedMemberships;
+        /// <summary>
         /// The access review schedule definition id.
         /// </summary>
         public readonly string Id;
@@ -103,6 +115,14 @@ namespace Pulumi.AzureNative.Authorization
         /// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
         /// </summary>
         public readonly string? InactiveDuration;
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        public readonly bool? IncludeAccessBelowResource;
+        /// <summary>
+        /// Flag to indicate whether to expand nested memberships or not.
+        /// </summary>
+        public readonly bool? IncludeInheritedAccess;
         /// <summary>
         /// The duration in days for an instance.
         /// </summary>
@@ -143,6 +163,10 @@ namespace Pulumi.AzureNative.Authorization
         /// The identity type user/servicePrincipal to review
         /// </summary>
         public readonly string PrincipalType;
+        /// <summary>
+        /// Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+        /// </summary>
+        public readonly string? RecommendationLookBackDuration;
         /// <summary>
         /// Flag to indicate whether showing recommendations to reviewers is enabled.
         /// </summary>
@@ -204,9 +228,19 @@ namespace Pulumi.AzureNative.Authorization
 
             string? endDate,
 
+            string? excludeResourceId,
+
+            string? excludeRoleDefinitionId,
+
+            bool? expandNestedMemberships,
+
             string id,
 
             string? inactiveDuration,
+
+            bool? includeAccessBelowResource,
+
+            bool? includeInheritedAccess,
 
             int? instanceDurationInDays,
 
@@ -227,6 +261,8 @@ namespace Pulumi.AzureNative.Authorization
             string principalName,
 
             string principalType,
+
+            string? recommendationLookBackDuration,
 
             bool? recommendationsEnabled,
 
@@ -257,8 +293,13 @@ namespace Pulumi.AzureNative.Authorization
             DescriptionForReviewers = descriptionForReviewers;
             DisplayName = displayName;
             EndDate = endDate;
+            ExcludeResourceId = excludeResourceId;
+            ExcludeRoleDefinitionId = excludeRoleDefinitionId;
+            ExpandNestedMemberships = expandNestedMemberships;
             Id = id;
             InactiveDuration = inactiveDuration;
+            IncludeAccessBelowResource = includeAccessBelowResource;
+            IncludeInheritedAccess = includeInheritedAccess;
             InstanceDurationInDays = instanceDurationInDays;
             Instances = instances;
             Interval = interval;
@@ -269,6 +310,7 @@ namespace Pulumi.AzureNative.Authorization
             PrincipalId = principalId;
             PrincipalName = principalName;
             PrincipalType = principalType;
+            RecommendationLookBackDuration = recommendationLookBackDuration;
             RecommendationsEnabled = recommendationsEnabled;
             ReminderNotificationsEnabled = reminderNotificationsEnabled;
             ResourceId = resourceId;

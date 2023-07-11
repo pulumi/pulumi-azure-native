@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getGitHubConnector(args: GetGitHubConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetGitHubConnectorResult> {
 
@@ -66,7 +66,7 @@ export interface GetGitHubConnectorResult {
 }
 /**
  * Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getGitHubConnectorOutput(args: GetGitHubConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitHubConnectorResult> {
     return pulumi.output(args).apply((a: any) => getGitHubConnector(a, opts))

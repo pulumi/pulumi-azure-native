@@ -2,14 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get ownership identifier for domain
- * API Version: 2020-10-01.
+ * Description for Get ownership identifier for domain
+ * Azure REST API version: 2022-09-01.
  */
 export function getDomainOwnershipIdentifier(args: GetDomainOwnershipIdentifierArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainOwnershipIdentifierResult> {
 
@@ -57,17 +54,13 @@ export interface GetDomainOwnershipIdentifierResult {
      */
     readonly ownershipId?: string;
     /**
-     * The system metadata relating to this resource.
-     */
-    readonly systemData: outputs.domainregistration.SystemDataResponse;
-    /**
      * Resource type.
      */
     readonly type: string;
 }
 /**
- * Get ownership identifier for domain
- * API Version: 2020-10-01.
+ * Description for Get ownership identifier for domain
+ * Azure REST API version: 2022-09-01.
  */
 export function getDomainOwnershipIdentifierOutput(args: GetDomainOwnershipIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainOwnershipIdentifierResult> {
     return pulumi.output(args).apply((a: any) => getDomainOwnershipIdentifier(a, opts))

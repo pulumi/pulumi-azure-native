@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Container App SourceControl.
-    /// API Version: 2022-03-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsSourceControl")]
     public partial class ContainerAppsSourceControl : global::Pulumi.CustomResource
@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:ContainerAppsSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ContainerAppsSourceControl"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ContainerAppsSourceControl"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ContainerAppsSourceControl"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

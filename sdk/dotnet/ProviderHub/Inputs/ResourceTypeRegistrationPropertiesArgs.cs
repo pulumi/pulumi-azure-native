@@ -92,9 +92,18 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
             set => _loggingRules = value;
         }
 
-        [Input("marketplaceType")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.MarketplaceType>? MarketplaceType { get; set; }
+        [Input("management")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesManagementArgs>? Management { get; set; }
 
+        [Input("marketplaceType")]
+        public Input<string>? MarketplaceType { get; set; }
+
+        [Input("openApiConfiguration")]
+        public Input<Inputs.OpenApiConfigurationArgs>? OpenApiConfiguration { get; set; }
+
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
 
@@ -112,8 +121,19 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
             set => _requiredFeatures = value;
         }
 
+        [Input("resourceConcurrencyControlOptions")]
+        private InputMap<Inputs.ResourceConcurrencyControlOptionArgs>? _resourceConcurrencyControlOptions;
+        public InputMap<Inputs.ResourceConcurrencyControlOptionArgs> ResourceConcurrencyControlOptions
+        {
+            get => _resourceConcurrencyControlOptions ?? (_resourceConcurrencyControlOptions = new InputMap<Inputs.ResourceConcurrencyControlOptionArgs>());
+            set => _resourceConcurrencyControlOptions = value;
+        }
+
         [Input("resourceDeletionPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceDeletionPolicy>? ResourceDeletionPolicy { get; set; }
+
+        [Input("resourceGraphConfiguration")]
+        public Input<Inputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs>? ResourceGraphConfiguration { get; set; }
 
         [Input("resourceMovePolicy")]
         public Input<Inputs.ResourceTypeRegistrationPropertiesResourceMovePolicyArgs>? ResourceMovePolicy { get; set; }

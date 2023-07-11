@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['BackupArgs', 'Backup']
 
@@ -20,16 +21,18 @@ class BackupArgs:
                  volume_name: pulumi.Input[str],
                  backup_name: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None):
+                 location: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Backup resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] backup_name: The name of the backup
         :param pulumi.Input[str] label: Label for backup
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
@@ -41,6 +44,10 @@ class BackupArgs:
             pulumi.set(__self__, "label", label)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if use_existing_snapshot is None:
+            use_existing_snapshot = False
+        if use_existing_snapshot is not None:
+            pulumi.set(__self__, "use_existing_snapshot", use_existing_snapshot)
 
     @property
     @pulumi.getter(name="accountName")
@@ -70,7 +77,7 @@ class BackupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -126,6 +133,18 @@ class BackupArgs:
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
 
+    @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
+
+    @use_existing_snapshot.setter
+    def use_existing_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_existing_snapshot", value)
+
 
 class Backup(pulumi.CustomResource):
     @overload
@@ -138,11 +157,12 @@ class Backup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Backup of a Volume
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +171,8 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] label: Label for backup
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[bool] use_existing_snapshot: Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
         :param pulumi.Input[str] volume_name: The name of the volume
         """
         ...
@@ -162,7 +183,7 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup of a Volume
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param BackupArgs args: The arguments to use to populate this resource's properties.
@@ -185,6 +206,7 @@ class Backup(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 use_existing_snapshot: Optional[pulumi.Input[bool]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -207,6 +229,9 @@ class Backup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if use_existing_snapshot is None:
+                use_existing_snapshot = False
+            __props__.__dict__["use_existing_snapshot"] = use_existing_snapshot
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
@@ -217,8 +242,9 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["size"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220301:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20200501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200701:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20200901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20201201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210201:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210601:Backup"), pulumi.Alias(type_="azure-native:netapp/v20210801:Backup"), pulumi.Alias(type_="azure-native:netapp/v20211001:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220101:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220301:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220501:Backup"), pulumi.Alias(type_="azure-native:netapp/v20220901:Backup"), pulumi.Alias(type_="azure-native:netapp/v20221101:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:netapp:Backup',
@@ -251,7 +277,9 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["size"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["use_existing_snapshot"] = None
         __props__.__dict__["volume_name"] = None
         return Backup(resource_name, opts=opts, __props__=__props__)
 
@@ -307,7 +335,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -328,12 +356,28 @@ class Backup(pulumi.CustomResource):
         return pulumi.get(self, "size")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="useExistingSnapshot")
+    def use_existing_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        """
+        return pulumi.get(self, "use_existing_snapshot")
 
     @property
     @pulumi.getter(name="volumeName")

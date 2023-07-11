@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly Outputs.GalleryOSDiskImageResponse? OsDiskImage;
         /// <summary>
-        /// The gallery artifact version source.
+        /// The source of the gallery artifact version.
         /// </summary>
-        public readonly Outputs.GalleryArtifactVersionSourceResponse? Source;
+        public readonly Outputs.GalleryArtifactVersionFullSourceResponse? Source;
 
         [OutputConstructor]
         private GalleryImageVersionStorageProfileResponse(
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             Outputs.GalleryOSDiskImageResponse? osDiskImage,
 
-            Outputs.GalleryArtifactVersionSourceResponse? source)
+            Outputs.GalleryArtifactVersionFullSourceResponse? source)
         {
             DataDiskImages = dataDiskImages;
             OsDiskImage = osDiskImage;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account schema.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountSchema(args: GetIntegrationAccountSchemaArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountSchemaResult> {
 
@@ -103,7 +103,7 @@ export interface GetIntegrationAccountSchemaResult {
 }
 /**
  * Gets an integration account schema.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountSchemaOutput(args: GetIntegrationAccountSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountSchemaResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountSchema(a, opts))

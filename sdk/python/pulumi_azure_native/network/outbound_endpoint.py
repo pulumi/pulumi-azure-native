@@ -18,27 +18,26 @@ class OutboundEndpointArgs:
     def __init__(__self__, *,
                  dns_resolver_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 subnet: pulumi.Input['SubResourceArgs'],
                  location: Optional[pulumi.Input[str]] = None,
                  outbound_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 subnet: Optional[pulumi.Input['SubResourceArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OutboundEndpoint resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['SubResourceArgs'] subnet: The reference to the subnet used for the outbound endpoint.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] outbound_endpoint_name: The name of the outbound endpoint for the DNS resolver.
-        :param pulumi.Input['SubResourceArgs'] subnet: The reference to the subnet used for the outbound endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dns_resolver_name", dns_resolver_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "subnet", subnet)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if outbound_endpoint_name is not None:
             pulumi.set(__self__, "outbound_endpoint_name", outbound_endpoint_name)
-        if subnet is not None:
-            pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -68,6 +67,18 @@ class OutboundEndpointArgs:
 
     @property
     @pulumi.getter
+    def subnet(self) -> pulumi.Input['SubResourceArgs']:
+        """
+        The reference to the subnet used for the outbound endpoint.
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: pulumi.Input['SubResourceArgs']):
+        pulumi.set(self, "subnet", value)
+
+    @property
+    @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
         The geo-location where the resource lives
@@ -89,18 +100,6 @@ class OutboundEndpointArgs:
     @outbound_endpoint_name.setter
     def outbound_endpoint_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "outbound_endpoint_name", value)
-
-    @property
-    @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubResourceArgs']]:
-        """
-        The reference to the subnet used for the outbound endpoint.
-        """
-        return pulumi.get(self, "subnet")
-
-    @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubResourceArgs']]):
-        pulumi.set(self, "subnet", value)
 
     @property
     @pulumi.getter
@@ -129,7 +128,7 @@ class OutboundEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Describes an outbound endpoint for a DNS resolver.
-        API Version: 2020-04-01-preview.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +147,7 @@ class OutboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an outbound endpoint for a DNS resolver.
-        API Version: 2020-04-01-preview.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param OutboundEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -188,6 +187,8 @@ class OutboundEndpoint(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if subnet is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet'")
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
@@ -273,7 +274,7 @@ class OutboundEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def subnet(self) -> pulumi.Output[Optional['outputs.SubResourceResponse']]:
+    def subnet(self) -> pulumi.Output['outputs.SubResourceResponse']:
         """
         The reference to the subnet used for the outbound endpoint.
         """

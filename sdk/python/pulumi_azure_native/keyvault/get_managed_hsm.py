@@ -134,7 +134,7 @@ def get_managed_hsm(name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedHsmResult:
     """
     Gets the specified managed HSM Pool.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str name: The name of the managed HSM Pool.
@@ -163,7 +163,7 @@ def get_managed_hsm_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedHsmResult]:
     """
     Gets the specified managed HSM Pool.
-    API Version: 2021-06-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str name: The name of the managed HSM Pool.

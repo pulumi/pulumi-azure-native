@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Application Configuration Service resource
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
  */
 export class ConfigurationService extends pulumi.CustomResource {
     /**
@@ -73,7 +73,7 @@ export class ConfigurationService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["configurationServiceName"] = args ? args.configurationServiceName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.configurationServicePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -86,7 +86,7 @@ export class ConfigurationService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220401:ConfigurationService" }, { type: "azure-native:appplatform/v20220501preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220901preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221201:ConfigurationService" }, { type: "azure-native:appplatform/v20230101preview:ConfigurationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220401:ConfigurationService" }, { type: "azure-native:appplatform/v20220501preview:ConfigurationService" }, { type: "azure-native:appplatform/v20220901preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20221201:ConfigurationService" }, { type: "azure-native:appplatform/v20230101preview:ConfigurationService" }, { type: "azure-native:appplatform/v20230301preview:ConfigurationService" }, { type: "azure-native:appplatform/v20230501preview:ConfigurationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigurationService.__pulumiType, name, resourceInputs, opts);
     }

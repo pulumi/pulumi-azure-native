@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
     public sealed class CacheEncryptionSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the location of the key encryption key in Key Vault.
+        /// Specifies the location of the key encryption key in key vault.
         /// </summary>
         [Input("keyEncryptionKey")]
         public Input<Inputs.KeyVaultKeyReferenceArgs>? KeyEncryptionKey { get; set; }
+
+        /// <summary>
+        /// Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
+        /// </summary>
+        [Input("rotationToLatestKeyVersionEnabled")]
+        public Input<bool>? RotationToLatestKeyVersionEnabled { get; set; }
 
         public CacheEncryptionSettingsArgs()
         {

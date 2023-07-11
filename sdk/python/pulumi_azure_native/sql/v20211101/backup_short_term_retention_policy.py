@@ -112,12 +112,7 @@ class BackupShortTermRetentionPolicyArgs:
         pulumi.set(self, "retention_days", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class BackupShortTermRetentionPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,7 +167,6 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  retention_days: Optional[pulumi.Input[int]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""BackupShortTermRetentionPolicy is deprecated: azure-native:sql/v20211101:BackupShortTermRetentionPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -195,7 +189,7 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupShortTermRetentionPolicy, __self__).__init__(
             'azure-native:sql/v20211101:BackupShortTermRetentionPolicy',

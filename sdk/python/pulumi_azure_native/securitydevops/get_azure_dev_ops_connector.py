@@ -115,7 +115,7 @@ def get_azure_dev_ops_connector(azure_dev_ops_connector_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureDevOpsConnectorResult:
     """
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str azure_dev_ops_connector_name: Name of the AzureDevOps Connector.
@@ -142,7 +142,7 @@ def get_azure_dev_ops_connector_output(azure_dev_ops_connector_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureDevOpsConnectorResult]:
     """
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2022-09-01-preview.
 
 
     :param str azure_dev_ops_connector_name: Name of the AzureDevOps Connector.

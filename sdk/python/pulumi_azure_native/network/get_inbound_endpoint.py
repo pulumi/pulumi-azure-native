@@ -72,7 +72,7 @@ class GetInboundEndpointResult:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[Sequence['outputs.InboundEndpointIPConfigurationResponse']]:
+    def ip_configurations(self) -> Sequence['outputs.InboundEndpointIPConfigurationResponse']:
         """
         IP configurations for the inbound endpoint.
         """
@@ -159,7 +159,7 @@ def get_inbound_endpoint(dns_resolver_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInboundEndpointResult:
     """
     Gets properties of an inbound endpoint for a DNS resolver.
-    API Version: 2020-04-01-preview.
+    Azure REST API version: 2022-07-01.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.
@@ -193,7 +193,7 @@ def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[str]] =
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInboundEndpointResult]:
     """
     Gets properties of an inbound endpoint for a DNS resolver.
-    API Version: 2020-04-01-preview.
+    Azure REST API version: 2022-07-01.
 
 
     :param str dns_resolver_name: The name of the DNS resolver.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ApiManagement
 {
     /// <summary>
     /// Issue Contract details.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiIssue")]
     public partial class ApiIssue : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -103,6 +103,8 @@ namespace Pulumi.AzureNative.ApiManagement
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiIssue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiIssue"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220801:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiIssue"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ApiIssue"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,7 +153,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string>? IssueId { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

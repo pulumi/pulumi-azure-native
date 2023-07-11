@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Get a specific application for the requested scope by applicationId
-        /// API Version: 2022-07-01-preview.
+        /// Azure REST API version: 2022-07-01-preview.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:security:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specific application for the requested scope by applicationId
-        /// API Version: 2022-07-01-preview.
+        /// Azure REST API version: 2022-07-01-preview.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:security:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

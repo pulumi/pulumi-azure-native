@@ -62,7 +62,7 @@ def get_package_download_url(package_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageDownloadURLResult:
     """
     Gets the download URL of a package.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
@@ -88,7 +88,7 @@ def get_package_download_url_output(package_name: Optional[pulumi.Input[str]] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageDownloadURLResult]:
     """
     Gets the download URL of a package.
-    API Version: 2022-04-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.

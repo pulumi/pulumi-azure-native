@@ -2,13 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170901preview from "./v20170901preview";
 import * as v20180601 from "./v20180601";
 
 export {
-    v20170901preview,
     v20180601,
 };
+
+export const ActivityOnInactiveMarkAs = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Skipped: "Skipped",
+} as const;
+
+/**
+ * Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+ */
+export type ActivityOnInactiveMarkAs = (typeof ActivityOnInactiveMarkAs)[keyof typeof ActivityOnInactiveMarkAs];
+
+export const ActivityState = {
+    Active: "Active",
+    Inactive: "Inactive",
+} as const;
+
+/**
+ * Activity state. This is an optional property and if not provided, the state will be Active by default.
+ */
+export type ActivityState = (typeof ActivityState)[keyof typeof ActivityState];
 
 export const AzureFunctionActivityMethod = {
     GET: "GET",
@@ -92,6 +111,15 @@ export const ConfigurationType = {
  * The type of the spark config.
  */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
+export const ConnectionType = {
+    Linkedservicetype: "linkedservicetype",
+} as const;
+
+/**
+ * Type of connection via linked service or dataset.
+ */
+export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType];
 
 export const CosmosDbConnectionMode = {
     Gateway: "Gateway",
@@ -196,6 +224,17 @@ export const FactoryIdentityType = {
  * The identity type.
  */
 export type FactoryIdentityType = (typeof FactoryIdentityType)[keyof typeof FactoryIdentityType];
+
+export const FrequencyType = {
+    Hour: "Hour",
+    Minute: "Minute",
+    Second: "Second",
+} as const;
+
+/**
+ * Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
+ */
+export type FrequencyType = (typeof FrequencyType)[keyof typeof FrequencyType];
 
 export const FtpAuthenticationType = {
     Basic: "Basic",
@@ -381,6 +420,17 @@ export const ManagedVirtualNetworkReferenceType = {
  */
 export type ManagedVirtualNetworkReferenceType = (typeof ManagedVirtualNetworkReferenceType)[keyof typeof ManagedVirtualNetworkReferenceType];
 
+export const MappingType = {
+    Direct: "Direct",
+    Derived: "Derived",
+    Aggregate: "Aggregate",
+} as const;
+
+/**
+ * Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.
+ */
+export type MappingType = (typeof MappingType)[keyof typeof MappingType];
+
 export const MongoDbAuthenticationType = {
     Basic: "Basic",
     Anonymous: "Anonymous",
@@ -528,16 +578,6 @@ export const SalesforceSinkWriteBehavior = {
  * The write behavior for the operation. Default is Insert.
  */
 export type SalesforceSinkWriteBehavior = (typeof SalesforceSinkWriteBehavior)[keyof typeof SalesforceSinkWriteBehavior];
-
-export const SalesforceSourceReadBehavior = {
-    Query: "Query",
-    QueryAll: "QueryAll",
-} as const;
-
-/**
- * The read behavior for the operation. Default is Query.
- */
-export type SalesforceSourceReadBehavior = (typeof SalesforceSourceReadBehavior)[keyof typeof SalesforceSourceReadBehavior];
 
 export const SapCloudForCustomerSinkWriteBehavior = {
     Insert: "Insert",

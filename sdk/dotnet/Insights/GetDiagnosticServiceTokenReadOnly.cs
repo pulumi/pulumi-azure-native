@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets an read-only access token for application insights diagnostic service data.
-        /// API Version: 2021-03-03-preview.
+        /// Azure REST API version: 2021-03-03-preview.
         /// </summary>
         public static Task<GetDiagnosticServiceTokenReadOnlyResult> InvokeAsync(GetDiagnosticServiceTokenReadOnlyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an read-only access token for application insights diagnostic service data.
-        /// API Version: 2021-03-03-preview.
+        /// Azure REST API version: 2021-03-03-preview.
         /// </summary>
         public static Output<GetDiagnosticServiceTokenReadOnlyResult> Invoke(GetDiagnosticServiceTokenReadOnlyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticServiceTokenReadOnlyResult>("azure-native:insights:getDiagnosticServiceTokenReadOnly", args ?? new GetDiagnosticServiceTokenReadOnlyInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A short term retention policy.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
     /**
@@ -35,6 +35,10 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === BackupShortTermRetentionPolicy.__pulumiType;
     }
 
+    /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    public readonly diffBackupIntervalInHours!: pulumi.Output<number | undefined>;
     /**
      * Resource name.
      */
@@ -69,6 +73,7 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serverName'");
             }
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["diffBackupIntervalInHours"] = args ? args.diffBackupIntervalInHours : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
@@ -76,12 +81,13 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["diffBackupIntervalInHours"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["retentionDays"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20211101:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20171001preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200202preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20200801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20201101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20210801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20211101:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20211101preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy" }, { type: "azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupShortTermRetentionPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -95,6 +101,10 @@ export interface BackupShortTermRetentionPolicyArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
+    /**
+     * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+     */
+    diffBackupIntervalInHours?: pulumi.Input<number>;
     /**
      * The policy name. Should always be "default".
      */

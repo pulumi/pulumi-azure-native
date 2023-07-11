@@ -96,12 +96,7 @@ class GatewayCertificateAuthorityArgs:
         pulumi.set(self, "is_trusted", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class GatewayCertificateAuthority(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,7 +148,6 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GatewayCertificateAuthority is deprecated: azure-native:apimanagement/v20220801:GatewayCertificateAuthority is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -175,7 +169,7 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayCertificateAuthority"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GatewayCertificateAuthority")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayCertificateAuthority, __self__).__init__(
             'azure-native:apimanagement/v20220801:GatewayCertificateAuthority',

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Gets the details of registered recovery services provider.
-        /// API Version: 2018-07-10.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetReplicationRecoveryServicesProviderResult> InvokeAsync(GetReplicationRecoveryServicesProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of registered recovery services provider.
-        /// API Version: 2018-07-10.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetReplicationRecoveryServicesProviderResult> Invoke(GetReplicationRecoveryServicesProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationRecoveryServicesProviderResult>("azure-native:recoveryservices:getReplicationRecoveryServicesProvider", args ?? new GetReplicationRecoveryServicesProviderInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public string FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Recovery services provider name
+        /// Recovery services provider name.
         /// </summary>
         [Input("providerName", required: true)]
         public string ProviderName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         public Input<string> FabricName { get; set; } = null!;
 
         /// <summary>
-        /// Recovery services provider name
+        /// Recovery services provider name.
         /// </summary>
         [Input("providerName", required: true)]
         public Input<string> ProviderName { get; set; } = null!;

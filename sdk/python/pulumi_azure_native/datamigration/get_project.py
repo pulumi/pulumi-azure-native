@@ -22,7 +22,7 @@ class GetProjectResult:
     """
     A project resource
     """
-    def __init__(__self__, creation_time=None, databases_info=None, id=None, location=None, name=None, provisioning_state=None, source_connection_info=None, source_platform=None, tags=None, target_connection_info=None, target_platform=None, type=None):
+    def __init__(__self__, creation_time=None, databases_info=None, id=None, location=None, name=None, provisioning_state=None, source_connection_info=None, source_platform=None, system_data=None, tags=None, target_connection_info=None, target_platform=None, type=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -47,6 +47,9 @@ class GetProjectResult:
         if source_platform and not isinstance(source_platform, str):
             raise TypeError("Expected argument 'source_platform' to be a str")
         pulumi.set(__self__, "source_platform", source_platform)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -125,6 +128,14 @@ class GetProjectResult:
         return pulumi.get(self, "source_platform")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -171,6 +182,7 @@ class AwaitableGetProjectResult(GetProjectResult):
             provisioning_state=self.provisioning_state,
             source_connection_info=self.source_connection_info,
             source_platform=self.source_platform,
+            system_data=self.system_data,
             tags=self.tags,
             target_connection_info=self.target_connection_info,
             target_platform=self.target_platform,
@@ -183,7 +195,7 @@ def get_project(group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-    API Version: 2018-04-19.
+    Azure REST API version: 2021-06-30.
 
 
     :param str group_name: Name of the resource group
@@ -206,6 +218,7 @@ def get_project(group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         source_connection_info=__ret__.source_connection_info,
         source_platform=__ret__.source_platform,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         target_connection_info=__ret__.target_connection_info,
         target_platform=__ret__.target_platform,
@@ -219,7 +232,7 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
     """
     The project resource is a nested resource representing a stored migration project. The GET method retrieves information about a project.
-    API Version: 2018-04-19.
+    Azure REST API version: 2021-06-30.
 
 
     :param str group_name: Name of the resource group

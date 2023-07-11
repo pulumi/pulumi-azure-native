@@ -65,7 +65,7 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEffectiveVirtualNetworkByNetworkManagerResult:
     """
     List effective virtual networks in a network manager.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str conditional_members: Conditional Members.
@@ -97,7 +97,7 @@ def list_effective_virtual_network_by_network_manager_output(conditional_members
                                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEffectiveVirtualNetworkByNetworkManagerResult]:
     """
     List effective virtual networks in a network manager.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-04-01-preview.
 
 
     :param str conditional_members: Conditional Members.

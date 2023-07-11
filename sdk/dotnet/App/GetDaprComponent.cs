@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.App
     {
         /// <summary>
         /// Dapr Component.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetDaprComponentResult> InvokeAsync(GetDaprComponentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDaprComponentResult>("azure-native:app:getDaprComponent", args ?? new GetDaprComponentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Dapr Component.
-        /// API Version: 2022-03-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetDaprComponentResult> Invoke(GetDaprComponentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDaprComponentResult>("azure-native:app:getDaprComponent", args ?? new GetDaprComponentInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         public readonly ImmutableArray<string> Scopes;
         /// <summary>
+        /// Name of a Dapr component to retrieve component secrets from
+        /// </summary>
+        public readonly string? SecretStoreComponent;
+        /// <summary>
         /// Collection of secrets used by a Dapr component
         /// </summary>
         public readonly ImmutableArray<Outputs.SecretResponse> Secrets;
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.App
 
             ImmutableArray<string> scopes,
 
+            string? secretStoreComponent,
+
             ImmutableArray<Outputs.SecretResponse> secrets,
 
             Outputs.SystemDataResponse systemData,
@@ -159,6 +165,7 @@ namespace Pulumi.AzureNative.App
             Metadata = metadata;
             Name = name;
             Scopes = scopes;
+            SecretStoreComponent = secretStoreComponent;
             Secrets = secrets;
             SystemData = systemData;
             Type = type;

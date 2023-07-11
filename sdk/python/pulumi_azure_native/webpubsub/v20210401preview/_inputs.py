@@ -17,8 +17,6 @@ __all__ = [
     'ManagedIdentityArgs',
     'NetworkACLArgs',
     'PrivateEndpointACLArgs',
-    'PrivateEndpointArgs',
-    'PrivateLinkServiceConnectionStateArgs',
     'ResourceSkuArgs',
     'UpstreamAuthSettingsArgs',
     'WebPubSubFeatureArgs',
@@ -167,11 +165,11 @@ class ManagedIdentitySettingsArgs:
 class ManagedIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A class represent managed identities used for request and response
         :param pulumi.Input[Union[str, 'ManagedIdentityType']] type: Represent the identity type: systemAssigned, userAssigned, None
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: Get or set the user assigned identities
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Get or set the user assigned identities
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -192,14 +190,14 @@ class ManagedIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Get or set the user assigned identities
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -296,86 +294,6 @@ class PrivateEndpointACLArgs:
     @deny.setter
     def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebPubSubRequestType']]]]]):
         pulumi.set(self, "deny", value)
-
-
-@pulumi.input_type
-class PrivateEndpointArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Private endpoint
-        :param pulumi.Input[str] id: Full qualified Id of the private endpoint
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Full qualified Id of the private endpoint
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class PrivateLinkServiceConnectionStateArgs:
-    def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 status: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]] = None):
-        """
-        Connection state of the private endpoint connection
-        :param pulumi.Input[str] actions_required: A message indicating if changes on the service provider require any updates on the consumer.
-        :param pulumi.Input[str] description: The reason for approval/rejection of the connection.
-        :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        if actions_required is not None:
-            pulumi.set(__self__, "actions_required", actions_required)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[str]]:
-        """
-        A message indicating if changes on the service provider require any updates on the consumer.
-        """
-        return pulumi.get(self, "actions_required")
-
-    @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "actions_required", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The reason for approval/rejection of the connection.
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]]:
-        """
-        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']]]):
-        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

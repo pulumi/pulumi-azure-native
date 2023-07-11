@@ -185,7 +185,7 @@ def get_adls_gen2_file_system_data_set_mapping(account_name: Optional[str] = Non
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADLSGen2FileSystemDataSetMappingResult:
     """
     Get a DataSetMapping in a shareSubscription
-    API Version: 2020-09-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.
@@ -224,7 +224,7 @@ def get_adls_gen2_file_system_data_set_mapping_output(account_name: Optional[pul
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADLSGen2FileSystemDataSetMappingResult]:
     """
     Get a DataSetMapping in a shareSubscription
-    API Version: 2020-09-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str account_name: The name of the share account.

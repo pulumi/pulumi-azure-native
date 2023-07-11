@@ -32,6 +32,7 @@ class PoolArgs:
                  pool_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input['ScaleSettingsArgs']] = None,
                  start_task: Optional[pulumi.Input['StartTaskArgs']] = None,
+                 target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
                  task_scheduling_policy: Optional[pulumi.Input['TaskSchedulingPolicyArgs']] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['UserAccountArgs']]]] = None,
@@ -43,6 +44,8 @@ class PoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationPackageReferenceArgs']]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+               
+               Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         :param pulumi.Input['DeploymentConfigurationArgs'] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input['BatchPoolIdentityArgs'] identity: The type of identity used for the Batch Pool.
@@ -53,6 +56,7 @@ class PoolArgs:
         :param pulumi.Input[str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input['StartTaskArgs'] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
+        :param pulumi.Input['NodeCommunicationMode'] target_node_communication_mode: If omitted, the default value is Default.
         :param pulumi.Input['TaskSchedulingPolicyArgs'] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
@@ -85,6 +89,8 @@ class PoolArgs:
             pulumi.set(__self__, "scale_settings", scale_settings)
         if start_task is not None:
             pulumi.set(__self__, "start_task", start_task)
+        if target_node_communication_mode is not None:
+            pulumi.set(__self__, "target_node_communication_mode", target_node_communication_mode)
         if task_scheduling_policy is not None:
             pulumi.set(__self__, "task_scheduling_policy", task_scheduling_policy)
         if task_slots_per_node is not None:
@@ -147,6 +153,8 @@ class PoolArgs:
     def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]]]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+
+        Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         """
         return pulumi.get(self, "certificates")
 
@@ -275,6 +283,18 @@ class PoolArgs:
         pulumi.set(self, "start_task", value)
 
     @property
+    @pulumi.getter(name="targetNodeCommunicationMode")
+    def target_node_communication_mode(self) -> Optional[pulumi.Input['NodeCommunicationMode']]:
+        """
+        If omitted, the default value is Default.
+        """
+        return pulumi.get(self, "target_node_communication_mode")
+
+    @target_node_communication_mode.setter
+    def target_node_communication_mode(self, value: Optional[pulumi.Input['NodeCommunicationMode']]):
+        pulumi.set(self, "target_node_communication_mode", value)
+
+    @property
     @pulumi.getter(name="taskSchedulingPolicy")
     def task_scheduling_policy(self) -> Optional[pulumi.Input['TaskSchedulingPolicyArgs']]:
         """
@@ -340,6 +360,7 @@ class Pool(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
                  start_task: Optional[pulumi.Input[pulumi.InputType['StartTaskArgs']]] = None,
+                 target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
                  task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
@@ -347,7 +368,7 @@ class Pool(pulumi.CustomResource):
                  __props__=None):
         """
         Contains information about a pool.
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -355,6 +376,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationPackageReferenceArgs']]]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateReferenceArgs']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+               
+               Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         :param pulumi.Input[pulumi.InputType['DeploymentConfigurationArgs']] deployment_configuration: Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
         :param pulumi.Input[str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input[pulumi.InputType['BatchPoolIdentityArgs']] identity: The type of identity used for the Batch Pool.
@@ -366,6 +389,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         :param pulumi.Input[pulumi.InputType['ScaleSettingsArgs']] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input[pulumi.InputType['StartTaskArgs']] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
+        :param pulumi.Input['NodeCommunicationMode'] target_node_communication_mode: If omitted, the default value is Default.
         :param pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[str] vm_size: For information about available sizes of virtual machines for Cloud Services pools (pools created with cloudServiceConfiguration), see Sizes for Cloud Services (https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch supports all Cloud Services VM sizes except ExtraSmall. For information about available VM sizes for pools using images from the Virtual Machines Marketplace (pools created with virtualMachineConfiguration) see Sizes for Virtual Machines (Linux) (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) or Sizes for Virtual Machines (Windows) (https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
@@ -378,7 +402,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about a pool.
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -410,6 +434,7 @@ class Pool(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scale_settings: Optional[pulumi.Input[pulumi.InputType['ScaleSettingsArgs']]] = None,
                  start_task: Optional[pulumi.Input[pulumi.InputType['StartTaskArgs']]] = None,
+                 target_node_communication_mode: Optional[pulumi.Input['NodeCommunicationMode']] = None,
                  task_scheduling_policy: Optional[pulumi.Input[pulumi.InputType['TaskSchedulingPolicyArgs']]] = None,
                  task_slots_per_node: Optional[pulumi.Input[int]] = None,
                  user_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserAccountArgs']]]]] = None,
@@ -442,6 +467,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scale_settings"] = scale_settings
             __props__.__dict__["start_task"] = start_task
+            __props__.__dict__["target_node_communication_mode"] = target_node_communication_mode
             __props__.__dict__["task_scheduling_policy"] = task_scheduling_policy
             __props__.__dict__["task_slots_per_node"] = task_slots_per_node
             __props__.__dict__["user_accounts"] = user_accounts
@@ -452,6 +478,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["current_dedicated_nodes"] = None
             __props__.__dict__["current_low_priority_nodes"] = None
+            __props__.__dict__["current_node_communication_mode"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified"] = None
             __props__.__dict__["name"] = None
@@ -459,7 +486,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state_transition_time"] = None
             __props__.__dict__["resize_operation_status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20170901:Pool"), pulumi.Alias(type_="azure-native:batch/v20181201:Pool"), pulumi.Alias(type_="azure-native:batch/v20190401:Pool"), pulumi.Alias(type_="azure-native:batch/v20190801:Pool"), pulumi.Alias(type_="azure-native:batch/v20200301:Pool"), pulumi.Alias(type_="azure-native:batch/v20200501:Pool"), pulumi.Alias(type_="azure-native:batch/v20200901:Pool"), pulumi.Alias(type_="azure-native:batch/v20210101:Pool"), pulumi.Alias(type_="azure-native:batch/v20210601:Pool"), pulumi.Alias(type_="azure-native:batch/v20220101:Pool"), pulumi.Alias(type_="azure-native:batch/v20220601:Pool"), pulumi.Alias(type_="azure-native:batch/v20221001:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20170901:Pool"), pulumi.Alias(type_="azure-native:batch/v20181201:Pool"), pulumi.Alias(type_="azure-native:batch/v20190401:Pool"), pulumi.Alias(type_="azure-native:batch/v20190801:Pool"), pulumi.Alias(type_="azure-native:batch/v20200301:Pool"), pulumi.Alias(type_="azure-native:batch/v20200501:Pool"), pulumi.Alias(type_="azure-native:batch/v20200901:Pool"), pulumi.Alias(type_="azure-native:batch/v20210101:Pool"), pulumi.Alias(type_="azure-native:batch/v20210601:Pool"), pulumi.Alias(type_="azure-native:batch/v20220101:Pool"), pulumi.Alias(type_="azure-native:batch/v20220601:Pool"), pulumi.Alias(type_="azure-native:batch/v20221001:Pool"), pulumi.Alias(type_="azure-native:batch/v20230501:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:batch:Pool',
@@ -492,6 +519,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["current_dedicated_nodes"] = None
         __props__.__dict__["current_low_priority_nodes"] = None
+        __props__.__dict__["current_node_communication_mode"] = None
         __props__.__dict__["deployment_configuration"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
@@ -507,6 +535,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["resize_operation_status"] = None
         __props__.__dict__["scale_settings"] = None
         __props__.__dict__["start_task"] = None
+        __props__.__dict__["target_node_communication_mode"] = None
         __props__.__dict__["task_scheduling_policy"] = None
         __props__.__dict__["task_slots_per_node"] = None
         __props__.__dict__["type"] = None
@@ -553,6 +582,8 @@ class Pool(pulumi.CustomResource):
     def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateReferenceResponse']]]:
         """
         For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+
+        Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
         """
         return pulumi.get(self, "certificates")
 
@@ -570,6 +601,11 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="currentLowPriorityNodes")
     def current_low_priority_nodes(self) -> pulumi.Output[int]:
         return pulumi.get(self, "current_low_priority_nodes")
+
+    @property
+    @pulumi.getter(name="currentNodeCommunicationMode")
+    def current_node_communication_mode(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "current_node_communication_mode")
 
     @property
     @pulumi.getter(name="deploymentConfiguration")
@@ -684,6 +720,14 @@ class Pool(pulumi.CustomResource):
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
         return pulumi.get(self, "start_task")
+
+    @property
+    @pulumi.getter(name="targetNodeCommunicationMode")
+    def target_node_communication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        If omitted, the default value is Default.
+        """
+        return pulumi.get(self, "target_node_communication_mode")
 
     @property
     @pulumi.getter(name="taskSchedulingPolicy")

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:machinelearningservices:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:machinelearningservices:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name and identifier for the Job.
+        /// The name and identifier for the Job. This is case-sensitive.
         /// </summary>
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name and identifier for the Job.
+        /// The name and identifier for the Job. This is case-sensitive.
         /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
@@ -88,15 +88,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly object JobBaseProperties;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Union<Outputs.CommandJobResponse, Outputs.SweepJobResponse> Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -108,17 +108,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetJobResult(
             string id,
 
-            string name,
+            object jobBaseProperties,
 
-            Union<Outputs.CommandJobResponse, Outputs.SweepJobResponse> properties,
+            string name,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            JobBaseProperties = jobBaseProperties;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

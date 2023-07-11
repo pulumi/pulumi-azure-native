@@ -9,8 +9,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/segmentio/encoding/json"
 	"github.com/stretchr/testify/assert"
@@ -70,7 +70,7 @@ func TestTemplateCoverage(t *testing.T) {
 				_, err := os.Stat(fmt.Sprintf("%s%s", match, extension))
 				if err != nil {
 					if !os.IsNotExist(err) {
-						t.Fatalf("Unpexpected error: %+v", err)
+						t.Fatalf("Unexpected error: %+v", err)
 					}
 					continue
 				}

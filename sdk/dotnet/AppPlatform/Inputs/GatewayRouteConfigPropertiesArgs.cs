@@ -16,10 +16,46 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class GatewayRouteConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource Id of the Azure Spring Cloud app, required unless route defines `uri`.
+        /// The resource Id of the Azure Spring Apps app, required unless route defines `uri`.
         /// </summary>
         [Input("appResourceId")]
         public Input<string>? AppResourceId { get; set; }
+
+        [Input("filters")]
+        private InputList<string>? _filters;
+
+        /// <summary>
+        /// To modify the request before sending it to the target endpoint, or the received response in app level.
+        /// </summary>
+        public InputList<string> Filters
+        {
+            get => _filters ?? (_filters = new InputList<string>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// OpenAPI properties of Spring Cloud Gateway route config.
+        /// </summary>
+        [Input("openApi")]
+        public Input<Inputs.GatewayRouteConfigOpenApiPropertiesArgs>? OpenApi { get; set; }
+
+        [Input("predicates")]
+        private InputList<string>? _predicates;
+
+        /// <summary>
+        /// A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+        /// </summary>
+        public InputList<string> Predicates
+        {
+            get => _predicates ?? (_predicates = new InputList<string>());
+            set => _predicates = value;
+        }
+
+        /// <summary>
+        /// Protocol of routed Azure Spring Apps applications.
+        /// </summary>
+        [Input("protocol")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.GatewayRouteConfigProtocol>? Protocol { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.GatewayApiRouteArgs>? _routes;
@@ -33,8 +69,15 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
             set => _routes = value;
         }
 
+        /// <summary>
+        /// Enable Single Sign-On in app level.
+        /// </summary>
+        [Input("ssoEnabled")]
+        public Input<bool>? SsoEnabled { get; set; }
+
         public GatewayRouteConfigPropertiesArgs()
         {
+            Protocol = "HTTP";
         }
         public static new GatewayRouteConfigPropertiesArgs Empty => new GatewayRouteConfigPropertiesArgs();
     }

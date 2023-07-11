@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// </summary>
         public readonly string? Category;
         /// <summary>
+        /// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        /// </summary>
+        public readonly string? CategoryGroup;
+        /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
         public readonly bool Enabled;
@@ -33,11 +37,14 @@ namespace Pulumi.AzureNative.Insights.Outputs
         private LogSettingsResponse(
             string? category,
 
+            string? categoryGroup,
+
             bool enabled,
 
             Outputs.RetentionPolicyResponse? retentionPolicy)
         {
             Category = category;
+            CategoryGroup = categoryGroup;
             Enabled = enabled;
             RetentionPolicy = retentionPolicy;
         }

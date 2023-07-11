@@ -22,13 +22,10 @@ class GetSqlPoolResult:
     """
     A SQL Analytics pool
     """
-    def __init__(__self__, collation=None, create_mode=None, creation_date=None, id=None, location=None, max_size_bytes=None, name=None, provisioning_state=None, recoverable_database_id=None, restore_point_in_time=None, sku=None, source_database_id=None, status=None, storage_account_type=None, tags=None, type=None):
+    def __init__(__self__, collation=None, creation_date=None, id=None, location=None, max_size_bytes=None, name=None, provisioning_state=None, recoverable_database_id=None, restore_point_in_time=None, sku=None, source_database_deletion_date=None, status=None, storage_account_type=None, tags=None, type=None):
         if collation and not isinstance(collation, str):
             raise TypeError("Expected argument 'collation' to be a str")
         pulumi.set(__self__, "collation", collation)
-        if create_mode and not isinstance(create_mode, str):
-            raise TypeError("Expected argument 'create_mode' to be a str")
-        pulumi.set(__self__, "create_mode", create_mode)
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
@@ -56,9 +53,9 @@ class GetSqlPoolResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if source_database_id and not isinstance(source_database_id, str):
-            raise TypeError("Expected argument 'source_database_id' to be a str")
-        pulumi.set(__self__, "source_database_id", source_database_id)
+        if source_database_deletion_date and not isinstance(source_database_deletion_date, str):
+            raise TypeError("Expected argument 'source_database_deletion_date' to be a str")
+        pulumi.set(__self__, "source_database_deletion_date", source_database_deletion_date)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -81,24 +78,8 @@ class GetSqlPoolResult:
         return pulumi.get(self, "collation")
 
     @property
-    @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[str]:
-        """
-        Specifies the mode of sql pool creation.
-
-        Default: regular sql pool creation.
-
-        PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
-
-        Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
-
-        Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
-        """
-        return pulumi.get(self, "create_mode")
-
-    @property
     @pulumi.getter(name="creationDate")
-    def creation_date(self) -> Optional[str]:
+    def creation_date(self) -> str:
         """
         Date the SQL pool was created
         """
@@ -169,16 +150,16 @@ class GetSqlPoolResult:
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="sourceDatabaseId")
-    def source_database_id(self) -> Optional[str]:
+    @pulumi.getter(name="sourceDatabaseDeletionDate")
+    def source_database_deletion_date(self) -> Optional[str]:
         """
-        Source database to create from
+        Specifies the time that the sql pool was deleted
         """
-        return pulumi.get(self, "source_database_id")
+        return pulumi.get(self, "source_database_deletion_date")
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[str]:
+    def status(self) -> str:
         """
         Resource status
         """
@@ -216,7 +197,6 @@ class AwaitableGetSqlPoolResult(GetSqlPoolResult):
             yield self
         return GetSqlPoolResult(
             collation=self.collation,
-            create_mode=self.create_mode,
             creation_date=self.creation_date,
             id=self.id,
             location=self.location,
@@ -226,7 +206,7 @@ class AwaitableGetSqlPoolResult(GetSqlPoolResult):
             recoverable_database_id=self.recoverable_database_id,
             restore_point_in_time=self.restore_point_in_time,
             sku=self.sku,
-            source_database_id=self.source_database_id,
+            source_database_deletion_date=self.source_database_deletion_date,
             status=self.status,
             storage_account_type=self.storage_account_type,
             tags=self.tags,
@@ -239,12 +219,12 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolResult:
     """
     Get SQL pool properties
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -255,7 +235,6 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
 
     return AwaitableGetSqlPoolResult(
         collation=__ret__.collation,
-        create_mode=__ret__.create_mode,
         creation_date=__ret__.creation_date,
         id=__ret__.id,
         location=__ret__.location,
@@ -265,7 +244,7 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
         recoverable_database_id=__ret__.recoverable_database_id,
         restore_point_in_time=__ret__.restore_point_in_time,
         sku=__ret__.sku,
-        source_database_id=__ret__.source_database_id,
+        source_database_deletion_date=__ret__.source_database_deletion_date,
         status=__ret__.status,
         storage_account_type=__ret__.storage_account_type,
         tags=__ret__.tags,
@@ -279,11 +258,11 @@ def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolResult]:
     """
     Get SQL pool properties
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str sql_pool_name: SQL pool name
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

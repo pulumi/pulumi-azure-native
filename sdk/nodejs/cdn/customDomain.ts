@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.CdnManagedHttpsParametersResponse | outputs.cdn.UserManagedHttpsParametersResponse | undefined>;
     /**
-     * Provisioning status of Custom Https of the custom domain.
+     * Provisioning status of the custom domain.
      */
     public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
     /**
@@ -59,7 +59,7 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning status of the custom domain.
+     * Provisioning status of Custom Https of the custom domain.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export class CustomDomain extends pulumi.CustomResource {
             resourceInputs["validationData"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:CustomDomain" }, { type: "azure-native:cdn/v20160402:CustomDomain" }, { type: "azure-native:cdn/v20161002:CustomDomain" }, { type: "azure-native:cdn/v20170402:CustomDomain" }, { type: "azure-native:cdn/v20171012:CustomDomain" }, { type: "azure-native:cdn/v20190415:CustomDomain" }, { type: "azure-native:cdn/v20190615:CustomDomain" }, { type: "azure-native:cdn/v20190615preview:CustomDomain" }, { type: "azure-native:cdn/v20191231:CustomDomain" }, { type: "azure-native:cdn/v20200331:CustomDomain" }, { type: "azure-native:cdn/v20200415:CustomDomain" }, { type: "azure-native:cdn/v20200901:CustomDomain" }, { type: "azure-native:cdn/v20210601:CustomDomain" }, { type: "azure-native:cdn/v20220501preview:CustomDomain" }, { type: "azure-native:cdn/v20221101preview:CustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:CustomDomain" }, { type: "azure-native:cdn/v20160402:CustomDomain" }, { type: "azure-native:cdn/v20161002:CustomDomain" }, { type: "azure-native:cdn/v20170402:CustomDomain" }, { type: "azure-native:cdn/v20171012:CustomDomain" }, { type: "azure-native:cdn/v20190415:CustomDomain" }, { type: "azure-native:cdn/v20190615:CustomDomain" }, { type: "azure-native:cdn/v20190615preview:CustomDomain" }, { type: "azure-native:cdn/v20191231:CustomDomain" }, { type: "azure-native:cdn/v20200331:CustomDomain" }, { type: "azure-native:cdn/v20200415:CustomDomain" }, { type: "azure-native:cdn/v20200901:CustomDomain" }, { type: "azure-native:cdn/v20210601:CustomDomain" }, { type: "azure-native:cdn/v20220501preview:CustomDomain" }, { type: "azure-native:cdn/v20221101preview:CustomDomain" }, { type: "azure-native:cdn/v20230501:CustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomDomain.__pulumiType, name, resourceInputs, opts);
     }

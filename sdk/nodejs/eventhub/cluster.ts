@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
- * API Version: 2018-01-01-preview.
+ * Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -63,6 +63,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
+     * A value that indicates whether Scaling is Supported.
+     */
+    public readonly supportsScaling!: pulumi.Output<boolean | undefined>;
+    /**
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -93,11 +101,13 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["supportsScaling"] = args ? args.supportsScaling : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
@@ -107,6 +117,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["supportsScaling"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
@@ -138,6 +150,10 @@ export interface ClusterArgs {
      * Properties of the cluster SKU.
      */
     sku?: pulumi.Input<inputs.eventhub.ClusterSkuArgs>;
+    /**
+     * A value that indicates whether Scaling is Supported.
+     */
+    supportsScaling?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */

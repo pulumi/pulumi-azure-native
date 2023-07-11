@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkCloud
     {
         /// <summary>
         /// Get properties of the provided virtual machine.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of the provided virtual machine.
-        /// API Version: 2022-12-12-preview.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:networkcloud:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -76,6 +76,10 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
+        /// The cluster availability zone containing this virtual machine.
+        /// </summary>
+        public readonly string AvailabilityZone;
+        /// <summary>
         /// The resource ID of the bare metal machine the virtual machine has landed to.
         /// </summary>
         public readonly string BareMetalMachineId;
@@ -108,7 +112,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         public readonly Outputs.ExtendedLocationResponse ExtendedLocation;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -196,6 +200,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         private GetVirtualMachineResult(
             string adminUsername,
 
+            string availabilityZone,
+
             string bareMetalMachineId,
 
             string? bootMethod,
@@ -255,6 +261,7 @@ namespace Pulumi.AzureNative.NetworkCloud
             ImmutableArray<string> volumes)
         {
             AdminUsername = adminUsername;
+            AvailabilityZone = availabilityZone;
             BareMetalMachineId = bareMetalMachineId;
             BootMethod = bootMethod;
             CloudServicesNetworkAttachment = cloudServicesNetworkAttachment;

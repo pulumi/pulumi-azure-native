@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * NamedValue details.
- *
- * @deprecated azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility.
  */
 export class NamedValue extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class NamedValue extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NamedValue {
-        pulumi.log.warn("NamedValue is deprecated: azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility.")
         return new NamedValue(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +73,7 @@ export class NamedValue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility. */
     constructor(name: string, args: NamedValueArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NamedValue is deprecated: azure-native:apimanagement/v20220801:NamedValue is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NamedValue to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -111,7 +106,7 @@ export class NamedValue extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NamedValue" }, { type: "azure-native:apimanagement/v20191201:NamedValue" }, { type: "azure-native:apimanagement/v20191201preview:NamedValue" }, { type: "azure-native:apimanagement/v20200601preview:NamedValue" }, { type: "azure-native:apimanagement/v20201201:NamedValue" }, { type: "azure-native:apimanagement/v20210101preview:NamedValue" }, { type: "azure-native:apimanagement/v20210401preview:NamedValue" }, { type: "azure-native:apimanagement/v20210801:NamedValue" }, { type: "azure-native:apimanagement/v20211201preview:NamedValue" }, { type: "azure-native:apimanagement/v20220401preview:NamedValue" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NamedValue" }, { type: "azure-native:apimanagement/v20191201:NamedValue" }, { type: "azure-native:apimanagement/v20191201preview:NamedValue" }, { type: "azure-native:apimanagement/v20200601preview:NamedValue" }, { type: "azure-native:apimanagement/v20201201:NamedValue" }, { type: "azure-native:apimanagement/v20210101preview:NamedValue" }, { type: "azure-native:apimanagement/v20210401preview:NamedValue" }, { type: "azure-native:apimanagement/v20210801:NamedValue" }, { type: "azure-native:apimanagement/v20211201preview:NamedValue" }, { type: "azure-native:apimanagement/v20220401preview:NamedValue" }, { type: "azure-native:apimanagement/v20220901preview:NamedValue" }, { type: "azure-native:apimanagement/v20230301preview:NamedValue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamedValue.__pulumiType, name, resourceInputs, opts);
     }

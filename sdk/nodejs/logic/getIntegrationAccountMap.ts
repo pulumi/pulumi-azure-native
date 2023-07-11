@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an integration account map.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountMap(args: GetIntegrationAccountMapArgs, opts?: pulumi.InvokeOptions): Promise<GetIntegrationAccountMapResult> {
 
@@ -95,7 +95,7 @@ export interface GetIntegrationAccountMapResult {
 }
 /**
  * Gets an integration account map.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2019-05-01.
  */
 export function getIntegrationAccountMapOutput(args: GetIntegrationAccountMapOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationAccountMapResult> {
     return pulumi.output(args).apply((a: any) => getIntegrationAccountMap(a, opts))

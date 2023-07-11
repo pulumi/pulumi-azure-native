@@ -11,13 +11,80 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AgentUpgradeArgs',
     'HybridComputePrivateLinkScopePropertiesArgs',
+    'IdentityArgs',
     'LocationDataArgs',
-    'MachineIdentityArgs',
+    'MachineExtensionInstanceViewStatusArgs',
+    'MachineExtensionInstanceViewArgs',
+    'MachineRunCommandScriptSourceArgs',
+    'OSProfileLinuxConfigurationArgs',
+    'OSProfileWindowsConfigurationArgs',
+    'OSProfileArgs',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointPropertyArgs',
     'PrivateLinkServiceConnectionStatePropertyArgs',
+    'RunCommandInputParameterArgs',
+    'RunCommandManagedIdentityArgs',
+    'ServiceStatusesArgs',
+    'ServiceStatusArgs',
 ]
+
+@pulumi.input_type
+class AgentUpgradeArgs:
+    def __init__(__self__, *,
+                 correlation_id: Optional[pulumi.Input[str]] = None,
+                 desired_version: Optional[pulumi.Input[str]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None):
+        """
+        The info w.r.t Agent Upgrade.
+        :param pulumi.Input[str] correlation_id: The correlation ID passed in from RSM per upgrade.
+        :param pulumi.Input[str] desired_version: Specifies the version info w.r.t AgentUpgrade for the machine.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Specifies if RSM should try to upgrade this machine
+        """
+        if correlation_id is not None:
+            pulumi.set(__self__, "correlation_id", correlation_id)
+        if desired_version is not None:
+            pulumi.set(__self__, "desired_version", desired_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The correlation ID passed in from RSM per upgrade.
+        """
+        return pulumi.get(self, "correlation_id")
+
+    @correlation_id.setter
+    def correlation_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "correlation_id", value)
+
+    @property
+    @pulumi.getter(name="desiredVersion")
+    def desired_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version info w.r.t AgentUpgrade for the machine.
+        """
+        return pulumi.get(self, "desired_version")
+
+    @desired_version.setter
+    def desired_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desired_version", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies if RSM should try to upgrade this machine
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
+
 
 @pulumi.input_type
 class HybridComputePrivateLinkScopePropertiesArgs:
@@ -41,6 +108,30 @@ class HybridComputePrivateLinkScopePropertiesArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
         pulumi.set(self, "public_network_access", value)
+
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -115,26 +206,355 @@ class LocationDataArgs:
 
 
 @pulumi.input_type
-class MachineIdentityArgs:
+class MachineExtensionInstanceViewStatusArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[str]] = None):
+                 code: Optional[pulumi.Input[str]] = None,
+                 display_status: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]] = None,
+                 message: Optional[pulumi.Input[str]] = None,
+                 time: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The identity type.
+        Instance view status.
+        :param pulumi.Input[str] code: The status code.
+        :param pulumi.Input[str] display_status: The short localizable label for the status.
+        :param pulumi.Input[Union[str, 'StatusLevelTypes']] level: The level code.
+        :param pulumi.Input[str] message: The detailed status message, including for alerts and error messages.
+        :param pulumi.Input[str] time: The time of the status.
         """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if display_status is not None:
+            pulumi.set(__self__, "display_status", display_status)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if time is not None:
+            pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status code.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The short localizable label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @display_status.setter
+    def display_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "display_status", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]]:
+        """
+        The level code.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[Union[str, 'StatusLevelTypes']]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[str]]:
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time of the status.
+        """
+        return pulumi.get(self, "time")
+
+    @time.setter
+    def time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time", value)
+
+
+@pulumi.input_type
+class MachineExtensionInstanceViewArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 type_handler_version: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the Machine Extension Instance View.
+        :param pulumi.Input[str] name: The machine extension name.
+        :param pulumi.Input['MachineExtensionInstanceViewStatusArgs'] status: Instance view status.
+        :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if type_handler_version is not None:
+            pulumi.set(__self__, "type_handler_version", type_handler_version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The machine extension name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]:
+        """
+        Instance view status.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['MachineExtensionInstanceViewStatusArgs']]):
+        pulumi.set(self, "status", value)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The identity type.
+        Specifies the type of the extension; an example is "CustomScriptExtension".
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @type_handler_version.setter
+    def type_handler_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type_handler_version", value)
+
+
+@pulumi.input_type
+class MachineRunCommandScriptSourceArgs:
+    def __init__(__self__, *,
+                 command_id: Optional[pulumi.Input[str]] = None,
+                 script: Optional[pulumi.Input[str]] = None,
+                 script_uri: Optional[pulumi.Input[str]] = None,
+                 script_uri_managed_identity: Optional[pulumi.Input['RunCommandManagedIdentityArgs']] = None):
+        """
+        Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+        :param pulumi.Input[str] command_id: Specifies the commandId of predefined built-in script.
+        :param pulumi.Input[str] script: Specifies the script content to be executed on the machine.
+        :param pulumi.Input[str] script_uri: Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        :param pulumi.Input['RunCommandManagedIdentityArgs'] script_uri_managed_identity: User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        if command_id is not None:
+            pulumi.set(__self__, "command_id", command_id)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+        if script_uri is not None:
+            pulumi.set(__self__, "script_uri", script_uri)
+        if script_uri_managed_identity is not None:
+            pulumi.set(__self__, "script_uri_managed_identity", script_uri_managed_identity)
+
+    @property
+    @pulumi.getter(name="commandId")
+    def command_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the commandId of predefined built-in script.
+        """
+        return pulumi.get(self, "command_id")
+
+    @command_id.setter
+    def command_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "command_id", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the script content to be executed on the machine.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter(name="scriptUri")
+    def script_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
+        """
+        return pulumi.get(self, "script_uri")
+
+    @script_uri.setter
+    def script_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "script_uri", value)
+
+    @property
+    @pulumi.getter(name="scriptUriManagedIdentity")
+    def script_uri_managed_identity(self) -> Optional[pulumi.Input['RunCommandManagedIdentityArgs']]:
+        """
+        User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        """
+        return pulumi.get(self, "script_uri_managed_identity")
+
+    @script_uri_managed_identity.setter
+    def script_uri_managed_identity(self, value: Optional[pulumi.Input['RunCommandManagedIdentityArgs']]):
+        pulumi.set(self, "script_uri_managed_identity", value)
+
+
+@pulumi.input_type
+class OSProfileLinuxConfigurationArgs:
+    def __init__(__self__, *,
+                 assessment_mode: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]] = None,
+                 patch_mode: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]] = None):
+        """
+        Specifies the linux configuration for update management.
+        :param pulumi.Input[Union[str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[Union[str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]]):
+        pulumi.set(self, "assessment_mode", value)
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[pulumi.Input[Union[str, 'PatchModeTypes']]]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]]):
+        pulumi.set(self, "patch_mode", value)
+
+
+@pulumi.input_type
+class OSProfileWindowsConfigurationArgs:
+    def __init__(__self__, *,
+                 assessment_mode: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]] = None,
+                 patch_mode: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]] = None):
+        """
+        Specifies the windows configuration for update management.
+        :param pulumi.Input[Union[str, 'AssessmentModeTypes']] assessment_mode: Specifies the assessment mode.
+        :param pulumi.Input[Union[str, 'PatchModeTypes']] patch_mode: Specifies the patch mode.
+        """
+        if assessment_mode is not None:
+            pulumi.set(__self__, "assessment_mode", assessment_mode)
+        if patch_mode is not None:
+            pulumi.set(__self__, "patch_mode", patch_mode)
+
+    @property
+    @pulumi.getter(name="assessmentMode")
+    def assessment_mode(self) -> Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]]:
+        """
+        Specifies the assessment mode.
+        """
+        return pulumi.get(self, "assessment_mode")
+
+    @assessment_mode.setter
+    def assessment_mode(self, value: Optional[pulumi.Input[Union[str, 'AssessmentModeTypes']]]):
+        pulumi.set(self, "assessment_mode", value)
+
+    @property
+    @pulumi.getter(name="patchMode")
+    def patch_mode(self) -> Optional[pulumi.Input[Union[str, 'PatchModeTypes']]]:
+        """
+        Specifies the patch mode.
+        """
+        return pulumi.get(self, "patch_mode")
+
+    @patch_mode.setter
+    def patch_mode(self, value: Optional[pulumi.Input[Union[str, 'PatchModeTypes']]]):
+        pulumi.set(self, "patch_mode", value)
+
+
+@pulumi.input_type
+class OSProfileArgs:
+    def __init__(__self__, *,
+                 linux_configuration: Optional[pulumi.Input['OSProfileLinuxConfigurationArgs']] = None,
+                 windows_configuration: Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']] = None):
+        """
+        Specifies the operating system settings for the hybrid machine.
+        :param pulumi.Input['OSProfileLinuxConfigurationArgs'] linux_configuration: Specifies the linux configuration for update management.
+        :param pulumi.Input['OSProfileWindowsConfigurationArgs'] windows_configuration: Specifies the windows configuration for update management.
+        """
+        if linux_configuration is not None:
+            pulumi.set(__self__, "linux_configuration", linux_configuration)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
+
+    @property
+    @pulumi.getter(name="linuxConfiguration")
+    def linux_configuration(self) -> Optional[pulumi.Input['OSProfileLinuxConfigurationArgs']]:
+        """
+        Specifies the linux configuration for update management.
+        """
+        return pulumi.get(self, "linux_configuration")
+
+    @linux_configuration.setter
+    def linux_configuration(self, value: Optional[pulumi.Input['OSProfileLinuxConfigurationArgs']]):
+        pulumi.set(self, "linux_configuration", value)
+
+    @property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']]:
+        """
+        Specifies the windows configuration for update management.
+        """
+        return pulumi.get(self, "windows_configuration")
+
+    @windows_configuration.setter
+    def windows_configuration(self, value: Optional[pulumi.Input['OSProfileWindowsConfigurationArgs']]):
+        pulumi.set(self, "windows_configuration", value)
 
 
 @pulumi.input_type
@@ -236,6 +656,164 @@ class PrivateLinkServiceConnectionStatePropertyArgs:
 
     @status.setter
     def status(self, value: pulumi.Input[str]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RunCommandInputParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Describes the properties of a run command parameter.
+        :param pulumi.Input[str] name: The run command parameter name.
+        :param pulumi.Input[str] value: The run command parameter value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The run command parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The run command parameter value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class RunCommandManagedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 object_id: Optional[pulumi.Input[str]] = None):
+        """
+         Contains clientId or objectId (use only one, not both) of a user-assigned managed identity that has access to storage blob used in Run Command. Use an empty RunCommandManagedIdentity object in case of system-assigned identity. Make sure the Azure storage blob exists in case of scriptUri, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment with scriptUri blob and 'Storage Blob Data Contributor' for Append blobs(outputBlobUri, errorBlobUri). In case of user assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
+        :param pulumi.Input[str] client_id: Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        :param pulumi.Input[str] object_id: Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Client Id (GUID value) of the user-assigned managed identity. ObjectId should not be used if this is provided.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Object Id (GUID value) of the user-assigned managed identity. ClientId should not be used if this is provided.
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "object_id", value)
+
+
+@pulumi.input_type
+class ServiceStatusesArgs:
+    def __init__(__self__, *,
+                 extension_service: Optional[pulumi.Input['ServiceStatusArgs']] = None,
+                 guest_configuration_service: Optional[pulumi.Input['ServiceStatusArgs']] = None):
+        """
+        Reports the state and behavior of dependent services.
+        :param pulumi.Input['ServiceStatusArgs'] extension_service: The state of the extension service on the Arc-enabled machine.
+        :param pulumi.Input['ServiceStatusArgs'] guest_configuration_service: The state of the guest configuration service on the Arc-enabled machine.
+        """
+        if extension_service is not None:
+            pulumi.set(__self__, "extension_service", extension_service)
+        if guest_configuration_service is not None:
+            pulumi.set(__self__, "guest_configuration_service", guest_configuration_service)
+
+    @property
+    @pulumi.getter(name="extensionService")
+    def extension_service(self) -> Optional[pulumi.Input['ServiceStatusArgs']]:
+        """
+        The state of the extension service on the Arc-enabled machine.
+        """
+        return pulumi.get(self, "extension_service")
+
+    @extension_service.setter
+    def extension_service(self, value: Optional[pulumi.Input['ServiceStatusArgs']]):
+        pulumi.set(self, "extension_service", value)
+
+    @property
+    @pulumi.getter(name="guestConfigurationService")
+    def guest_configuration_service(self) -> Optional[pulumi.Input['ServiceStatusArgs']]:
+        """
+        The state of the guest configuration service on the Arc-enabled machine.
+        """
+        return pulumi.get(self, "guest_configuration_service")
+
+    @guest_configuration_service.setter
+    def guest_configuration_service(self, value: Optional[pulumi.Input['ServiceStatusArgs']]):
+        pulumi.set(self, "guest_configuration_service", value)
+
+
+@pulumi.input_type
+class ServiceStatusArgs:
+    def __init__(__self__, *,
+                 startup_type: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the status and behavior of a service.
+        :param pulumi.Input[str] startup_type: The behavior of the service when the Arc-enabled machine starts up.
+        :param pulumi.Input[str] status: The current status of the service.
+        """
+        if startup_type is not None:
+            pulumi.set(__self__, "startup_type", startup_type)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="startupType")
+    def startup_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The behavior of the service when the Arc-enabled machine starts up.
+        """
+        return pulumi.get(self, "startup_type")
+
+    @startup_type.setter
+    def startup_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "startup_type", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The current status of the service.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
 
 

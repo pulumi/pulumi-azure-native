@@ -39,6 +39,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny
+    /// </summary>
+    [EnumType]
+    public readonly struct Action : IEquatable<Action>
+    {
+        private readonly string _value;
+
+        private Action(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Action Allow { get; } = new Action("Allow");
+        public static Action Deny { get; } = new Action("Deny");
+
+        public static bool operator ==(Action left, Action right) => left.Equals(right);
+        public static bool operator !=(Action left, Action right) => !left.Equals(right);
+
+        public static explicit operator string(Action value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Action other && Equals(other);
+        public bool Equals(Action other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ActiveRevisionsMode controls how active revisions are handled for the Container app:
     /// &lt;list&gt;&lt;item&gt;Multiple: multiple revisions can be active.&lt;/item&gt;&lt;item&gt;Single: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.&lt;/item&gt;&lt;/list&gt;
     /// </summary>
@@ -194,6 +225,36 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes CustomLocation { get; } = new ExtendedLocationTypes("CustomLocation");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The convention used to determine the url of the request made.
     /// </summary>
     [EnumType]
@@ -226,6 +287,38 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.
+    /// </summary>
+    [EnumType]
+    public readonly struct IngressClientCertificateMode : IEquatable<IngressClientCertificateMode>
+    {
+        private readonly string _value;
+
+        private IngressClientCertificateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IngressClientCertificateMode Ignore { get; } = new IngressClientCertificateMode("ignore");
+        public static IngressClientCertificateMode Accept { get; } = new IngressClientCertificateMode("accept");
+        public static IngressClientCertificateMode Require { get; } = new IngressClientCertificateMode("require");
+
+        public static bool operator ==(IngressClientCertificateMode left, IngressClientCertificateMode right) => left.Equals(right);
+        public static bool operator !=(IngressClientCertificateMode left, IngressClientCertificateMode right) => !left.Equals(right);
+
+        public static explicit operator string(IngressClientCertificateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IngressClientCertificateMode other && Equals(other);
+        public bool Equals(IngressClientCertificateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Ingress transport protocol
     /// </summary>
     [EnumType]
@@ -241,6 +334,7 @@ namespace Pulumi.AzureNative.App
         public static IngressTransportMethod Auto { get; } = new IngressTransportMethod("auto");
         public static IngressTransportMethod Http { get; } = new IngressTransportMethod("http");
         public static IngressTransportMethod Http2 { get; } = new IngressTransportMethod("http2");
+        public static IngressTransportMethod Tcp { get; } = new IngressTransportMethod("tcp");
 
         public static bool operator ==(IngressTransportMethod left, IngressTransportMethod right) => left.Equals(right);
         public static bool operator !=(IngressTransportMethod left, IngressTransportMethod right) => !left.Equals(right);
@@ -250,6 +344,102 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IngressTransportMethod other && Equals(other);
         public bool Equals(IngressTransportMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.
+    /// </summary>
+    [EnumType]
+    public readonly struct LogLevel : IEquatable<LogLevel>
+    {
+        private readonly string _value;
+
+        private LogLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LogLevel Info { get; } = new LogLevel("info");
+        public static LogLevel Debug { get; } = new LogLevel("debug");
+        public static LogLevel Warn { get; } = new LogLevel("warn");
+        public static LogLevel Error { get; } = new LogLevel("error");
+
+        public static bool operator ==(LogLevel left, LogLevel right) => left.Equals(right);
+        public static bool operator !=(LogLevel left, LogLevel right) => !left.Equals(right);
+
+        public static explicit operator string(LogLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LogLevel other && Equals(other);
+        public bool Equals(LogLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Selected type of domain control validation for managed certificates.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedCertificateDomainControlValidation : IEquatable<ManagedCertificateDomainControlValidation>
+    {
+        private readonly string _value;
+
+        private ManagedCertificateDomainControlValidation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedCertificateDomainControlValidation CNAME { get; } = new ManagedCertificateDomainControlValidation("CNAME");
+        public static ManagedCertificateDomainControlValidation HTTP { get; } = new ManagedCertificateDomainControlValidation("HTTP");
+        public static ManagedCertificateDomainControlValidation TXT { get; } = new ManagedCertificateDomainControlValidation("TXT");
+
+        public static bool operator ==(ManagedCertificateDomainControlValidation left, ManagedCertificateDomainControlValidation right) => left.Equals(right);
+        public static bool operator !=(ManagedCertificateDomainControlValidation left, ManagedCertificateDomainControlValidation right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedCertificateDomainControlValidation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedCertificateDomainControlValidation other && Equals(other);
+        public bool Equals(ManagedCertificateDomainControlValidation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Outbound type for the cluster
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedEnvironmentOutBoundType : IEquatable<ManagedEnvironmentOutBoundType>
+    {
+        private readonly string _value;
+
+        private ManagedEnvironmentOutBoundType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedEnvironmentOutBoundType LoadBalancer { get; } = new ManagedEnvironmentOutBoundType("LoadBalancer");
+        public static ManagedEnvironmentOutBoundType UserDefinedRouting { get; } = new ManagedEnvironmentOutBoundType("UserDefinedRouting");
+
+        public static bool operator ==(ManagedEnvironmentOutBoundType left, ManagedEnvironmentOutBoundType right) => left.Equals(right);
+        public static bool operator !=(ManagedEnvironmentOutBoundType left, ManagedEnvironmentOutBoundType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedEnvironmentOutBoundType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedEnvironmentOutBoundType other && Equals(other);
+        public bool Equals(ManagedEnvironmentOutBoundType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -322,6 +512,43 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Name of the Sku.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuName : IEquatable<SkuName>
+    {
+        private readonly string _value;
+
+        private SkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Consumption SKU of Managed Environment.
+        /// </summary>
+        public static SkuName Consumption { get; } = new SkuName("Consumption");
+        /// <summary>
+        /// Premium SKU of Managed Environment.
+        /// </summary>
+        public static SkuName Premium { get; } = new SkuName("Premium");
+
+        public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
+        public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
+
+        public static explicit operator string(SkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
+        public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Storage type for the volume. If not provided, use EmptyDir.
     /// </summary>
     [EnumType]
@@ -336,6 +563,7 @@ namespace Pulumi.AzureNative.App
 
         public static StorageType AzureFile { get; } = new StorageType("AzureFile");
         public static StorageType EmptyDir { get; } = new StorageType("EmptyDir");
+        public static StorageType Secret { get; } = new StorageType("Secret");
 
         public static bool operator ==(StorageType left, StorageType right) => left.Equals(right);
         public static bool operator !=(StorageType left, StorageType right) => !left.Equals(right);
@@ -345,6 +573,38 @@ namespace Pulumi.AzureNative.App
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageType other && Equals(other);
         public bool Equals(StorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Trigger type of the job
+    /// </summary>
+    [EnumType]
+    public readonly struct TriggerType : IEquatable<TriggerType>
+    {
+        private readonly string _value;
+
+        private TriggerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TriggerType Schedule { get; } = new TriggerType("Schedule");
+        public static TriggerType Event { get; } = new TriggerType("Event");
+        public static TriggerType Manual { get; } = new TriggerType("Manual");
+
+        public static bool operator ==(TriggerType left, TriggerType right) => left.Equals(right);
+        public static bool operator !=(TriggerType left, TriggerType right) => !left.Equals(right);
+
+        public static explicit operator string(TriggerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TriggerType other && Equals(other);
+        public bool Equals(TriggerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

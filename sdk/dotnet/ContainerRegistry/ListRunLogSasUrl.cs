@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets a link to download the run logs.
-        /// API Version: 2019-06-01-preview.
+        /// Azure REST API version: 2019-06-01-preview.
         /// </summary>
         public static Task<ListRunLogSasUrlResult> InvokeAsync(ListRunLogSasUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a link to download the run logs.
-        /// API Version: 2019-06-01-preview.
+        /// Azure REST API version: 2019-06-01-preview.
         /// </summary>
         public static Output<ListRunLogSasUrlResult> Invoke(ListRunLogSasUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListRunLogSasUrlResult>("azure-native:containerregistry:listRunLogSasUrl", args ?? new ListRunLogSasUrlInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,6 @@ from enum import Enum
 
 __all__ = [
     'ApplicationGroupType',
-    'CommandLineSetting',
     'DayOfWeek',
     'HostPoolType',
     'HostpoolPublicNetworkAccess',
@@ -14,17 +13,11 @@ __all__ = [
     'Operation',
     'PersonalDesktopAssignmentType',
     'PreferredAppGroupType',
-    'PrivateEndpointServiceConnectionStatus',
-    'PublicNetworkAccess',
     'RegistrationTokenOperation',
-    'RemoteApplicationType',
     'ResourceIdentityType',
     'SSOSecretType',
-    'ScalingHostPoolType',
     'SessionHostComponentUpdateType',
-    'SessionHostLoadBalancingAlgorithm',
     'SkuTier',
-    'StopHostsWhen',
 ]
 
 
@@ -36,16 +29,10 @@ class ApplicationGroupType(str, Enum):
     DESKTOP = "Desktop"
 
 
-class CommandLineSetting(str, Enum):
-    """
-    Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
-    """
-    DO_NOT_ALLOW = "DoNotAllow"
-    ALLOW = "Allow"
-    REQUIRE = "Require"
-
-
 class DayOfWeek(str, Enum):
+    """
+    Day of the week.
+    """
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
     WEDNESDAY = "Wednesday"
@@ -135,23 +122,6 @@ class PreferredAppGroupType(str, Enum):
     RAIL_APPLICATIONS = "RailApplications"
 
 
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-
-
-class PublicNetworkAccess(str, Enum):
-    """
-    Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class RegistrationTokenOperation(str, Enum):
     """
     The type of resetting the token.
@@ -159,14 +129,6 @@ class RegistrationTokenOperation(str, Enum):
     DELETE = "Delete"
     NONE = "None"
     UPDATE = "Update"
-
-
-class RemoteApplicationType(str, Enum):
-    """
-    Resource Type of Application.
-    """
-    IN_BUILT = "InBuilt"
-    MSIX_APPLICATION = "MsixApplication"
 
 
 class ResourceIdentityType(str, Enum):
@@ -186,16 +148,6 @@ class SSOSecretType(str, Enum):
     CERTIFICATE_IN_KEY_VAULT = "CertificateInKeyVault"
 
 
-class ScalingHostPoolType(str, Enum):
-    """
-    HostPool type for desktop.
-    """
-    POOLED = "Pooled"
-    """
-    Users get a new (random) SessionHost every time it connects to the HostPool.
-    """
-
-
 class SessionHostComponentUpdateType(str, Enum):
     """
     The type of maintenance for session host components.
@@ -210,14 +162,6 @@ class SessionHostComponentUpdateType(str, Enum):
     """
 
 
-class SessionHostLoadBalancingAlgorithm(str, Enum):
-    """
-    Load balancing algorithm for ramp up period.
-    """
-    BREADTH_FIRST = "BreadthFirst"
-    DEPTH_FIRST = "DepthFirst"
-
-
 class SkuTier(str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -226,11 +170,3 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
-
-
-class StopHostsWhen(str, Enum):
-    """
-    Specifies when to stop hosts during ramp down period.
-    """
-    ZERO_SESSIONS = "ZeroSessions"
-    ZERO_ACTIVE_SESSIONS = "ZeroActiveSessions"

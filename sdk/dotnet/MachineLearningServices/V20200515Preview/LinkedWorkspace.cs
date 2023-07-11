@@ -58,6 +58,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices:LinkedWorkspace"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20200501preview:LinkedWorkspace"},
                 },
             };

@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets the application settings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the application settings of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppApplicationSettings(args: ListWebAppApplicationSettingsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppApplicationSettingsResult> {
 
@@ -54,8 +54,8 @@ export interface ListWebAppApplicationSettingsResult {
     readonly type: string;
 }
 /**
- * Gets the application settings of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the application settings of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppApplicationSettingsOutput(args: ListWebAppApplicationSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppApplicationSettingsResult> {
     return pulumi.output(args).apply((a: any) => listWebAppApplicationSettings(a, opts))

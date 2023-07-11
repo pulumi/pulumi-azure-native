@@ -266,7 +266,7 @@ def get_export_configuration(export_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExportConfigurationResult:
     """
     Get the Continuous Export configuration for this export id.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
@@ -309,7 +309,7 @@ def get_export_configuration_output(export_id: Optional[pulumi.Input[str]] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExportConfigurationResult]:
     """
     Get the Continuous Export configuration for this export id.
-    API Version: 2015-05-01.
+    Azure REST API version: 2015-05-01.
 
 
     :param str export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.

@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DataPoolArgs', 'DataPool']
@@ -19,19 +20,23 @@ class DataPoolArgs:
                  account_name: pulumi.Input[str],
                  locations: pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]],
                  resource_group_name: pulumi.Input[str],
-                 data_pool_name: Optional[pulumi.Input[str]] = None):
+                 data_pool_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DataPool resource.
         :param pulumi.Input[str] account_name: The name of the ADP account
         :param pulumi.Input[Sequence[pulumi.Input['DataPoolLocationArgs']]] locations: Gets or sets the collection of locations where Data Pool resources should be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] data_pool_name: The name of the Data Pool
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "locations", locations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_pool_name is not None:
             pulumi.set(__self__, "data_pool_name", data_pool_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="accountName")
@@ -81,6 +86,18 @@ class DataPoolArgs:
     def data_pool_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_pool_name", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class DataPool(pulumi.CustomResource):
     @overload
@@ -91,10 +108,11 @@ class DataPool(pulumi.CustomResource):
                  data_pool_name: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         ADP Data Pool
-        API Version: 2021-02-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,6 +120,7 @@ class DataPool(pulumi.CustomResource):
         :param pulumi.Input[str] data_pool_name: The name of the Data Pool
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]] locations: Gets or sets the collection of locations where Data Pool resources should be created
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         """
         ...
     @overload
@@ -111,7 +130,7 @@ class DataPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ADP Data Pool
-        API Version: 2021-02-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param DataPoolArgs args: The arguments to use to populate this resource's properties.
@@ -132,6 +151,7 @@ class DataPool(pulumi.CustomResource):
                  data_pool_name: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -151,6 +171,7 @@ class DataPool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["data_pool_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -185,6 +206,7 @@ class DataPool(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return DataPool(resource_name, opts=opts, __props__=__props__)
 
@@ -227,6 +249,14 @@ class DataPool(pulumi.CustomResource):
         The system meta data relating to this resource
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Resource tags
+        """
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter

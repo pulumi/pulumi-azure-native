@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Collector policy resource.
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2022-05-01
  */
 export class CollectorPolicy extends pulumi.CustomResource {
     /**
@@ -51,7 +51,11 @@ export class CollectorPolicy extends pulumi.CustomResource {
      */
     public readonly ingestionPolicy!: pulumi.Output<outputs.networkfunction.IngestionPolicyPropertiesFormatResponse | undefined>;
     /**
-     * Azure resource name
+     * Resource location.
+     */
+    public readonly location!: pulumi.Output<string>;
+    /**
+     * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -61,9 +65,13 @@ export class CollectorPolicy extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkfunction.CollectorPolicyResponseSystemData>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkfunction.TrackedResourceResponseSystemData>;
     /**
-     * Azure resource type
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -88,7 +96,9 @@ export class CollectorPolicy extends pulumi.CustomResource {
             resourceInputs["collectorPolicyName"] = args ? args.collectorPolicyName : undefined;
             resourceInputs["emissionPolicies"] = args ? args.emissionPolicies : undefined;
             resourceInputs["ingestionPolicy"] = args ? args.ingestionPolicy : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -98,9 +108,11 @@ export class CollectorPolicy extends pulumi.CustomResource {
             resourceInputs["emissionPolicies"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ingestionPolicy"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -131,7 +143,15 @@ export interface CollectorPolicyArgs {
      */
     ingestionPolicy?: pulumi.Input<inputs.networkfunction.IngestionPolicyPropertiesFormatArgs>;
     /**
+     * Resource location.
+     */
+    location?: pulumi.Input<string>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

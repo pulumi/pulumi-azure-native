@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets a description for the specified consumer group.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetConsumerGroupResult> InvokeAsync(GetConsumerGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a description for the specified consumer group.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetConsumerGroupResult> Invoke(GetConsumerGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConsumerGroupResult>("azure-native:eventhub:getConsumerGroup", args ?? new GetConsumerGroupInvokeArgs(), options.WithDefaults());
@@ -104,11 +104,19 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -126,7 +134,11 @@ namespace Pulumi.AzureNative.EventHub
 
             string id,
 
+            string location,
+
             string name,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -136,7 +148,9 @@ namespace Pulumi.AzureNative.EventHub
         {
             CreatedAt = createdAt;
             Id = id;
+            Location = location;
             Name = name;
+            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
             UserMetadata = userMetadata;

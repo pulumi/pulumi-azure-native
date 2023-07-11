@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a resource.
- *
- * @deprecated azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.
  */
 export class WebPubSub extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class WebPubSub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebPubSub {
-        pulumi.log.warn("WebPubSub is deprecated: azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.")
         return new WebPubSub(name, undefined as any, { ...opts, id: id });
     }
 
@@ -146,9 +143,7 @@ export class WebPubSub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility. */
     constructor(name: string, args: WebPubSubArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebPubSub is deprecated: azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -206,7 +201,7 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSub" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSub" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSub" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSub" }, { type: "azure-native:webpubsub/v20211001:WebPubSub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSub" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSub" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSub" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSub" }, { type: "azure-native:webpubsub/v20211001:WebPubSub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSub" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSub" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSub.__pulumiType, name, resourceInputs, opts);
     }

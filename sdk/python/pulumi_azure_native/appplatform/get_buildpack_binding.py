@@ -101,7 +101,7 @@ def get_buildpack_binding(build_service_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildpackBindingResult:
     """
     Get a buildpack binding by name.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.
@@ -136,7 +136,7 @@ def get_buildpack_binding_output(build_service_name: Optional[pulumi.Input[str]]
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildpackBindingResult]:
     """
     Get a buildpack binding by name.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_service_name: The name of the build service resource.

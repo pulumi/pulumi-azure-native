@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Kusto
 {
     /// <summary>
     /// Class representing an attached database configuration.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource
@@ -33,6 +33,18 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// Overrides the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Output("databaseNameOverride")]
+        public Output<string?> DatabaseNameOverride { get; private set; } = null!;
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// </summary>
+        [Output("databaseNamePrefix")]
+        public Output<string?> DatabaseNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The default principals modification kind
@@ -106,6 +118,7 @@ namespace Pulumi.AzureNative.Kusto
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20220707:AttachedDatabaseConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221111:AttachedDatabaseConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:kusto/v20221229:AttachedDatabaseConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:kusto/v20230502:AttachedDatabaseConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -152,6 +165,18 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// Overrides the original database name. Relevant only when attaching to a specific database.
+        /// </summary>
+        [Input("databaseNameOverride")]
+        public Input<string>? DatabaseNameOverride { get; set; }
+
+        /// <summary>
+        /// Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
+        /// </summary>
+        [Input("databaseNamePrefix")]
+        public Input<string>? DatabaseNamePrefix { get; set; }
 
         /// <summary>
         /// The default principals modification kind

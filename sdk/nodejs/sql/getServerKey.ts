@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server key.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerKey(args: GetServerKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetServerKeyResult> {
 
@@ -76,7 +76,7 @@ export interface GetServerKeyResult {
 }
 /**
  * Gets a server key.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerKeyOutput(args: GetServerKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerKeyResult> {
     return pulumi.output(args).apply((a: any) => getServerKey(a, opts))

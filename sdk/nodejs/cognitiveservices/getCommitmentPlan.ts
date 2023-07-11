@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified commitmentPlans associated with the Cognitive Services account.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getCommitmentPlan(args: GetCommitmentPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetCommitmentPlanResult> {
 
@@ -49,6 +49,14 @@ export interface GetCommitmentPlanResult {
      */
     readonly id: string;
     /**
+     * The Kind of the resource.
+     */
+    readonly kind?: string;
+    /**
+     * The geo-location where the resource lives
+     */
+    readonly location?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -57,9 +65,17 @@ export interface GetCommitmentPlanResult {
      */
     readonly properties: outputs.cognitiveservices.CommitmentPlanPropertiesResponse;
     /**
+     * The resource model definition representing SKU
+     */
+    readonly sku?: outputs.cognitiveservices.SkuResponse;
+    /**
      * Metadata pertaining to creation and last modification of the resource.
      */
     readonly systemData: outputs.cognitiveservices.SystemDataResponse;
+    /**
+     * Resource tags.
+     */
+    readonly tags?: {[key: string]: string};
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -67,7 +83,7 @@ export interface GetCommitmentPlanResult {
 }
 /**
  * Gets the specified commitmentPlans associated with the Cognitive Services account.
- * API Version: 2021-10-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getCommitmentPlanOutput(args: GetCommitmentPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCommitmentPlanResult> {
     return pulumi.output(args).apply((a: any) => getCommitmentPlan(a, opts))

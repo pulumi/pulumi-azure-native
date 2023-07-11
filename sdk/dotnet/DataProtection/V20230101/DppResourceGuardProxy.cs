@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
     /// <summary>
     /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
     /// </summary>
-    [Obsolete(@"azure-native:dataprotection/v20230101:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dataprotection/v20230101:DppResourceGuardProxy")]
     public partial class DppResourceGuardProxy : global::Pulumi.CustomResource
     {
@@ -65,9 +64,12 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection:DppResourceGuardProxy"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20220901preview:DppResourceGuardProxy"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221001preview:DppResourceGuardProxy"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:DppResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:DppResourceGuardProxy"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:DppResourceGuardProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

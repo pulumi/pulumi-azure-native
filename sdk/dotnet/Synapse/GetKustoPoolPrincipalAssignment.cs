@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Gets a Kusto pool principalAssignment.
-        /// API Version: 2021-04-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetKustoPoolPrincipalAssignmentResult> InvokeAsync(GetKustoPoolPrincipalAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto pool principalAssignment.
-        /// API Version: 2021-04-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetKustoPoolPrincipalAssignmentResult> Invoke(GetKustoPoolPrincipalAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKustoPoolPrincipalAssignmentResult>("azure-native:synapse:getKustoPoolPrincipalAssignment", args ?? new GetKustoPoolPrincipalAssignmentInvokeArgs(), options.WithDefaults());
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Synapse
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Synapse
     [OutputType]
     public sealed class GetKustoPoolPrincipalAssignmentResult
     {
+        /// <summary>
+        /// The service principal object id in AAD (Azure active directory)
+        /// </summary>
+        public readonly string AadObjectId;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -142,6 +146,8 @@ namespace Pulumi.AzureNative.Synapse
 
         [OutputConstructor]
         private GetKustoPoolPrincipalAssignmentResult(
+            string aadObjectId,
+
             string id,
 
             string name,
@@ -164,6 +170,7 @@ namespace Pulumi.AzureNative.Synapse
 
             string type)
         {
+            AadObjectId = aadObjectId;
             Id = id;
             Name = name;
             PrincipalId = principalId;

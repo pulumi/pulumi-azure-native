@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a nat ruleGet.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetNatRuleResult> InvokeAsync(GetNatRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNatRuleResult>("azure-native:network:getNatRule", args ?? new GetNatRuleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a nat ruleGet.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetNatRuleResult> Invoke(GetNatRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNatRuleResult>("azure-native:network:getNatRule", args ?? new GetNatRuleInvokeArgs(), options.WithDefaults());

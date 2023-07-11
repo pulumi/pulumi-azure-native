@@ -17,8 +17,6 @@ __all__ = [
     'get_file_output',
 ]
 
-warnings.warn("""azure-native:datamigration/v20210630:File is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetFileResult:
     """
@@ -121,7 +119,6 @@ def get_file(file_name: Optional[str] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("""get_file is deprecated: azure-native:datamigration/v20210630:File is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['fileName'] = file_name
     __args__['groupName'] = group_name
@@ -154,5 +151,4 @@ def get_file_output(file_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("""get_file is deprecated: azure-native:datamigration/v20210630:File is being removed in the next major version of this provider. Upgrade to at least azure-native:datamigration/v20220330preview:File to guarantee forwards compatibility.""")
     ...

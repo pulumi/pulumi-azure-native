@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Network Manager Connection resource
-    /// API Version: 2022-02-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SubscriptionNetworkManagerConnection")]
     public partial class SubscriptionNetworkManagerConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A description of the scope connection.
+        /// A description of the network manager connection.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -84,6 +84,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:SubscriptionNetworkManagerConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:SubscriptionNetworkManagerConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:SubscriptionNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:SubscriptionNetworkManagerConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:SubscriptionNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -108,7 +110,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class SubscriptionNetworkManagerConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the scope connection.
+        /// A description of the network manager connection.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

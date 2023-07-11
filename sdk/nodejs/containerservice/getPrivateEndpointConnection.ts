@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the details of the private endpoint connection by managed cluster and resource group.
- * API Version: 2021-03-01.
+ * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
+ * Azure REST API version: 2023-04-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -27,7 +27,7 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     privateEndpointConnectionName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -66,8 +66,8 @@ export interface GetPrivateEndpointConnectionResult {
     readonly type: string;
 }
 /**
- * Gets the details of the private endpoint connection by managed cluster and resource group.
- * API Version: 2021-03-01.
+ * To learn more about private clusters, see: https://docs.microsoft.com/azure/aks/private-clusters
+ * Azure REST API version: 2023-04-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
@@ -79,7 +79,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

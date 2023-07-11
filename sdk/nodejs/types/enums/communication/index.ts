@@ -2,14 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20211001preview from "./v20211001preview";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230331 from "./v20230331";
+import * as v20230401preview from "./v20230401preview";
 
 export {
-    v20211001preview,
     v20220701preview,
     v20230331,
+    v20230401preview,
 };
 
 export const DomainManagement = {

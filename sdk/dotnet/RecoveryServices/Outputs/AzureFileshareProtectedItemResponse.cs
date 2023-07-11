@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Type of backup management for the backed up item.
         /// </summary>
-        public readonly string? BackupManagementType;
+        public readonly string BackupManagementType;
         /// <summary>
         /// Name of the backup set the backup item belongs to
         /// </summary>
@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Friendly name of the fileshare represented by this backup item.
         /// </summary>
         public readonly string? FriendlyName;
+        /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        public readonly bool? IsArchiveEnabled;
         /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
@@ -81,6 +85,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? PolicyId;
         /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        public readonly string? PolicyName;
+        /// <summary>
         /// backup item type.
         /// Expected value is 'AzureFileShareProtectedItem'.
         /// </summary>
@@ -94,17 +102,25 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? ProtectionStatus;
         /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
+        /// Soft delete retention period in days
+        /// </summary>
+        public readonly int? SoftDeleteRetentionPeriodInDays;
+        /// <summary>
         /// ARM ID of the resource to be backed up.
         /// </summary>
         public readonly string? SourceResourceId;
         /// <summary>
         /// Type of workload this item represents.
         /// </summary>
-        public readonly string? WorkloadType;
+        public readonly string WorkloadType;
 
         [OutputConstructor]
         private AzureFileshareProtectedItemResponse(
-            string? backupManagementType,
+            string backupManagementType,
 
             string? backupSetName,
 
@@ -119,6 +135,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             Outputs.AzureFileshareProtectedItemExtendedInfoResponse? extendedInfo,
 
             string? friendlyName,
+
+            bool? isArchiveEnabled,
 
             bool? isDeferredDeleteScheduleUpcoming,
 
@@ -136,15 +154,21 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? policyId,
 
+            string? policyName,
+
             string protectedItemType,
 
             string? protectionState,
 
             string? protectionStatus,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
+            int? softDeleteRetentionPeriodInDays,
+
             string? sourceResourceId,
 
-            string? workloadType)
+            string workloadType)
         {
             BackupManagementType = backupManagementType;
             BackupSetName = backupSetName;
@@ -154,6 +178,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             DeferredDeleteTimeRemaining = deferredDeleteTimeRemaining;
             ExtendedInfo = extendedInfo;
             FriendlyName = friendlyName;
+            IsArchiveEnabled = isArchiveEnabled;
             IsDeferredDeleteScheduleUpcoming = isDeferredDeleteScheduleUpcoming;
             IsRehydrate = isRehydrate;
             IsScheduledForDeferredDelete = isScheduledForDeferredDelete;
@@ -162,9 +187,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             LastBackupTime = lastBackupTime;
             LastRecoveryPoint = lastRecoveryPoint;
             PolicyId = policyId;
+            PolicyName = policyName;
             ProtectedItemType = protectedItemType;
             ProtectionState = protectionState;
             ProtectionStatus = protectionStatus;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
+            SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SourceResourceId = sourceResourceId;
             WorkloadType = workloadType;
         }

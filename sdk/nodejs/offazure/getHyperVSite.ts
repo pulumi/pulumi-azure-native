@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Site REST Resource.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2020-07-07.
  */
 export function getHyperVSite(args: GetHyperVSiteArgs, opts?: pulumi.InvokeOptions): Promise<GetHyperVSiteResult> {
 
@@ -55,6 +55,10 @@ export interface GetHyperVSiteResult {
      * Nested properties of Hyper-V site.
      */
     readonly properties: outputs.offazure.SitePropertiesResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.offazure.SystemDataResponse;
     readonly tags?: {[key: string]: string};
     /**
      * Type of resource. Type = Microsoft.OffAzure/HyperVSites.
@@ -63,7 +67,7 @@ export interface GetHyperVSiteResult {
 }
 /**
  * Site REST Resource.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2020-07-07.
  */
 export function getHyperVSiteOutput(args: GetHyperVSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHyperVSiteResult> {
     return pulumi.output(args).apply((a: any) => getHyperVSite(a, opts))

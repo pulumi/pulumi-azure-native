@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public Input<Inputs.ConfigServerSettingsArgs>? ConfigServer { get; set; }
 
         /// <summary>
+        /// Enabled state of the config server. This is only used in Consumption tier.
+        /// </summary>
+        [Input("enabledState")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.ConfigServerEnabledState>? EnabledState { get; set; }
+
+        /// <summary>
         /// Error when apply config server settings.
         /// </summary>
         [Input("error")]

@@ -25,7 +25,7 @@ class ReplicationPolicyArgs:
         The set of arguments for constructing a ReplicationPolicy resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
-        :param pulumi.Input[str] policy_name: Replication policy name
+        :param pulumi.Input[str] policy_name: Replication policy name.
         :param pulumi.Input['CreatePolicyInputPropertiesArgs'] properties: Policy creation properties.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -63,7 +63,7 @@ class ReplicationPolicyArgs:
     @pulumi.getter(name="policyName")
     def policy_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Replication policy name
+        Replication policy name.
         """
         return pulumi.get(self, "policy_name")
 
@@ -96,11 +96,11 @@ class ReplicationPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Protection profile details.
-        API Version: 2018-07-10.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] policy_name: Replication policy name
+        :param pulumi.Input[str] policy_name: Replication policy name.
         :param pulumi.Input[pulumi.InputType['CreatePolicyInputPropertiesArgs']] properties: Policy creation properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
@@ -113,7 +113,7 @@ class ReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Protection profile details.
-        API Version: 2018-07-10.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param ReplicationPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -154,7 +154,7 @@ class ReplicationPolicy(pulumi.CustomResource):
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160810:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ReplicationPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160810:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ReplicationPolicy"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ReplicationPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationPolicy, __self__).__init__(
             'azure-native:recoveryservices:ReplicationPolicy',

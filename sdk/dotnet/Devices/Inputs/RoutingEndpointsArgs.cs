@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.Devices.Inputs
     /// </summary>
     public sealed class RoutingEndpointsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("cosmosDBSqlCollections")]
+        private InputList<Inputs.RoutingCosmosDBSqlApiPropertiesArgs>? _cosmosDBSqlCollections;
+
+        /// <summary>
+        /// The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
+        /// </summary>
+        public InputList<Inputs.RoutingCosmosDBSqlApiPropertiesArgs> CosmosDBSqlCollections
+        {
+            get => _cosmosDBSqlCollections ?? (_cosmosDBSqlCollections = new InputList<Inputs.RoutingCosmosDBSqlApiPropertiesArgs>());
+            set => _cosmosDBSqlCollections = value;
+        }
+
         [Input("eventHubs")]
         private InputList<Inputs.RoutingEventHubPropertiesArgs>? _eventHubs;
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2020-07-01
  */
 export class TagRule extends pulumi.CustomResource {
     /**
@@ -86,7 +86,7 @@ export class TagRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20200701:TagRule" }, { type: "azure-native:elastic/v20200701preview:TagRule" }, { type: "azure-native:elastic/v20210901preview:TagRule" }, { type: "azure-native:elastic/v20211001preview:TagRule" }, { type: "azure-native:elastic/v20220505preview:TagRule" }, { type: "azure-native:elastic/v20220701preview:TagRule" }, { type: "azure-native:elastic/v20220901preview:TagRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:elastic/v20200701:TagRule" }, { type: "azure-native:elastic/v20200701preview:TagRule" }, { type: "azure-native:elastic/v20210901preview:TagRule" }, { type: "azure-native:elastic/v20211001preview:TagRule" }, { type: "azure-native:elastic/v20220505preview:TagRule" }, { type: "azure-native:elastic/v20220701preview:TagRule" }, { type: "azure-native:elastic/v20220901preview:TagRule" }, { type: "azure-native:elastic/v20230201preview:TagRule" }, { type: "azure-native:elastic/v20230501preview:TagRule" }, { type: "azure-native:elastic/v20230601:TagRule" }, { type: "azure-native:elastic/v20230615preview:TagRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagRule.__pulumiType, name, resourceInputs, opts);
     }

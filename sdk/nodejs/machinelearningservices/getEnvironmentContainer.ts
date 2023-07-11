@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getEnvironmentContainer(args: GetEnvironmentContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetEnvironmentContainerResult> {
 
@@ -23,7 +23,7 @@ export function getEnvironmentContainer(args: GetEnvironmentContainerArgs, opts?
 
 export interface GetEnvironmentContainerArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: string;
     /**
@@ -41,6 +41,10 @@ export interface GetEnvironmentContainerArgs {
  */
 export interface GetEnvironmentContainerResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly environmentContainerProperties: outputs.machinelearningservices.EnvironmentContainerResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -49,11 +53,7 @@ export interface GetEnvironmentContainerResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.EnvironmentContainerResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -63,7 +63,7 @@ export interface GetEnvironmentContainerResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentContainerResult> {
     return pulumi.output(args).apply((a: any) => getEnvironmentContainer(a, opts))
@@ -71,7 +71,7 @@ export function getEnvironmentContainerOutput(args: GetEnvironmentContainerOutpu
 
 export interface GetEnvironmentContainerOutputArgs {
     /**
-     * Container name.
+     * Container name. This is case-sensitive.
      */
     name: pulumi.Input<string>;
     /**

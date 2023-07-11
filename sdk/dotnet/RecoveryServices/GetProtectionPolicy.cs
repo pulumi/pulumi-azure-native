@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
         /// operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetProtectionPolicyResult> InvokeAsync(GetProtectionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProtectionPolicyResult>("azure-native:recoveryservices:getProtectionPolicy", args ?? new GetProtectionPolicyArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Provides the details of the backup policies associated to Recovery Services Vault. This is an asynchronous
         /// operation. Status of the operation can be fetched using GetPolicyOperationResult API.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetProtectionPolicyResult> Invoke(GetProtectionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionPolicyResult>("azure-native:recoveryservices:getProtectionPolicy", args ?? new GetProtectionPolicyInvokeArgs(), options.WithDefaults());

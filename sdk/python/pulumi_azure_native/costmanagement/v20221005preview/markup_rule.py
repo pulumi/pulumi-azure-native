@@ -252,6 +252,8 @@ class MarkupRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'start_date'")
             __props__.__dict__["start_date"] = start_date
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement:MarkupRule")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MarkupRule, __self__).__init__(
             'azure-native:costmanagement/v20221005preview:MarkupRule',
             resource_name,

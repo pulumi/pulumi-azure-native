@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Purview
     {
         /// <summary>
         /// Get an account
-        /// API Version: 2020-12-01-preview.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Task<GetAccountResult> InvokeAsync(GetAccountArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an account
-        /// API Version: 2020-12-01-preview.
+        /// Azure REST API version: 2021-12-01.
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("azure-native:purview:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Purview
     public sealed class GetAccountResult
     {
         /// <summary>
+        /// Gets or sets the status of the account.
+        /// </summary>
+        public readonly Outputs.AccountPropertiesResponseAccountStatus AccountStatus;
+        /// <summary>
         /// Cloud connectors.
         /// External cloud identifier used as part of scanning configuration.
         /// </summary>
@@ -109,6 +113,10 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        /// </summary>
+        public readonly string? ManagedEventHubState;
+        /// <summary>
         /// Gets or sets the managed resource group name
         /// </summary>
         public readonly string? ManagedResourceGroupName;
@@ -116,6 +124,10 @@ namespace Pulumi.AzureNative.Purview
         /// Gets the resource identifiers of the managed resources.
         /// </summary>
         public readonly Outputs.AccountPropertiesResponseManagedResources ManagedResources;
+        /// <summary>
+        /// Gets or sets the public network access for managed resources.
+        /// </summary>
+        public readonly string? ManagedResourcesPublicNetworkAccess;
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -139,7 +151,7 @@ namespace Pulumi.AzureNative.Purview
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
-        public readonly Outputs.AccountPropertiesResponseSystemData SystemData;
+        public readonly Outputs.TrackedResourceResponseSystemData SystemData;
         /// <summary>
         /// Tags on the azure resource.
         /// </summary>
@@ -151,6 +163,8 @@ namespace Pulumi.AzureNative.Purview
 
         [OutputConstructor]
         private GetAccountResult(
+            Outputs.AccountPropertiesResponseAccountStatus accountStatus,
+
             Outputs.CloudConnectorsResponse? cloudConnectors,
 
             string createdAt,
@@ -169,9 +183,13 @@ namespace Pulumi.AzureNative.Purview
 
             string? location,
 
+            string? managedEventHubState,
+
             string? managedResourceGroupName,
 
             Outputs.AccountPropertiesResponseManagedResources managedResources,
+
+            string? managedResourcesPublicNetworkAccess,
 
             string name,
 
@@ -183,12 +201,13 @@ namespace Pulumi.AzureNative.Purview
 
             Outputs.AccountResponseSku sku,
 
-            Outputs.AccountPropertiesResponseSystemData systemData,
+            Outputs.TrackedResourceResponseSystemData systemData,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AccountStatus = accountStatus;
             CloudConnectors = cloudConnectors;
             CreatedAt = createdAt;
             CreatedBy = createdBy;
@@ -198,8 +217,10 @@ namespace Pulumi.AzureNative.Purview
             Id = id;
             Identity = identity;
             Location = location;
+            ManagedEventHubState = managedEventHubState;
             ManagedResourceGroupName = managedResourceGroupName;
             ManagedResources = managedResources;
+            ManagedResourcesPublicNetworkAccess = managedResourcesPublicNetworkAccess;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;

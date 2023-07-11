@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class ConfigurationServicePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The generation of the Application Configuration Service.
+        /// </summary>
+        [Input("generation")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.ConfigurationServiceGeneration>? Generation { get; set; }
+
+        /// <summary>
         /// The settings of Application Configuration Service.
         /// </summary>
         [Input("settings")]
@@ -23,6 +29,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 
         public ConfigurationServicePropertiesArgs()
         {
+            Generation = "Gen1";
         }
         public static new ConfigurationServicePropertiesArgs Empty => new ConfigurationServicePropertiesArgs();
     }

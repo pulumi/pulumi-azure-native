@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
- *
- * @deprecated azure-native:sql/v20211101:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.
  */
 export class ServerTrustCertificate extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ServerTrustCertificate {
-        pulumi.log.warn("ServerTrustCertificate is deprecated: azure-native:sql/v20211101:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.")
         return new ServerTrustCertificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility. */
     constructor(name: string, args: ServerTrustCertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ServerTrustCertificate is deprecated: azure-native:sql/v20211101:ServerTrustCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustCertificate to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -92,7 +87,7 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerTrustCertificate" }, { type: "azure-native:sql/v20210501preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20210801preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20211101preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20220201preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20220501preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20220801preview:ServerTrustCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ServerTrustCertificate" }, { type: "azure-native:sql/v20210501preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20210801preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20211101preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20220201preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20220501preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20220801preview:ServerTrustCertificate" }, { type: "azure-native:sql/v20221101preview:ServerTrustCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerTrustCertificate.__pulumiType, name, resourceInputs, opts);
     }

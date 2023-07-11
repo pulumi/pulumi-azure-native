@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Storage resource for connectedEnvironment.
     /// </summary>
-    [Obsolete(@"azure-native:app/v20221001:ConnectedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsStorage to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:ConnectedEnvironmentsStorage")]
     public partial class ConnectedEnvironmentsStorage : global::Pulumi.CustomResource
     {
@@ -65,7 +64,10 @@ namespace Pulumi.AzureNative.App.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsStorage"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsStorage"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsStorage"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsStorage"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

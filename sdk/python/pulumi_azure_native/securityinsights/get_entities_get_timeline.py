@@ -62,22 +62,20 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
                               entity_id: Optional[str] = None,
                               kinds: Optional[Sequence[Union[str, 'EntityTimelineKind']]] = None,
                               number_of_bucket: Optional[int] = None,
-                              operational_insights_resource_provider: Optional[str] = None,
                               resource_group_name: Optional[str] = None,
                               start_time: Optional[str] = None,
                               workspace_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntitiesGetTimelineResult:
     """
     Timeline for an entity.
-    API Version: 2019-01-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str end_time: The end timeline date, so the results returned are before this date.
     :param str entity_id: entity ID
     :param Sequence[Union[str, 'EntityTimelineKind']] kinds: Array of timeline Item kinds.
     :param int number_of_bucket: The number of bucket for timeline queries aggregation.
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str start_time: The start timeline date, so the results returned are after this date.
     :param str workspace_name: The name of the workspace.
     """
@@ -86,7 +84,6 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
     __args__['entityId'] = entity_id
     __args__['kinds'] = kinds
     __args__['numberOfBucket'] = number_of_bucket
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTime'] = start_time
     __args__['workspaceName'] = workspace_name
@@ -103,22 +100,20 @@ def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[str]] = Non
                                      entity_id: Optional[pulumi.Input[str]] = None,
                                      kinds: Optional[pulumi.Input[Optional[Sequence[Union[str, 'EntityTimelineKind']]]]] = None,
                                      number_of_bucket: Optional[pulumi.Input[Optional[int]]] = None,
-                                     operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                      resource_group_name: Optional[pulumi.Input[str]] = None,
                                      start_time: Optional[pulumi.Input[str]] = None,
                                      workspace_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntitiesGetTimelineResult]:
     """
     Timeline for an entity.
-    API Version: 2019-01-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str end_time: The end timeline date, so the results returned are before this date.
     :param str entity_id: entity ID
     :param Sequence[Union[str, 'EntityTimelineKind']] kinds: Array of timeline Item kinds.
     :param int number_of_bucket: The number of bucket for timeline queries aggregation.
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str start_time: The start timeline date, so the results returned are after this date.
     :param str workspace_name: The name of the workspace.
     """

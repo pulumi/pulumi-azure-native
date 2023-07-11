@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Dataset by name.
- * API Version: 2020-05-01-preview.
+ * Azure REST API version: 2020-05-01-preview.
  */
 export function getMachineLearningDataset(args: GetMachineLearningDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineLearningDatasetResult> {
 
@@ -75,7 +75,7 @@ export interface GetMachineLearningDatasetResult {
 }
 /**
  * Get a Dataset by name.
- * API Version: 2020-05-01-preview.
+ * Azure REST API version: 2020-05-01-preview.
  */
 export function getMachineLearningDatasetOutput(args: GetMachineLearningDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineLearningDatasetResult> {
     return pulumi.output(args).apply((a: any) => getMachineLearningDataset(a, opts))

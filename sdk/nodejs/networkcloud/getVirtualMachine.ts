@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided virtual machine.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getVirtualMachine(args: GetVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResult> {
 
@@ -36,6 +36,10 @@ export interface GetVirtualMachineResult {
      * The name of the administrator to which the ssh public keys will be added into the authorized keys.
      */
     readonly adminUsername: string;
+    /**
+     * The cluster availability zone containing this virtual machine.
+     */
+    readonly availabilityZone: string;
     /**
      * The resource ID of the bare metal machine the virtual machine has landed to.
      */
@@ -69,7 +73,7 @@ export interface GetVirtualMachineResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -155,7 +159,7 @@ export interface GetVirtualMachineResult {
 }
 /**
  * Get properties of the provided virtual machine.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getVirtualMachineOutput(args: GetVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachine(a, opts))

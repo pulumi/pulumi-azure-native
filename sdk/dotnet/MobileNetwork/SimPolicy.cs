@@ -11,52 +11,16 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// SIM policy resource.
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:SimPolicy")]
     public partial class SimPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
-
-        /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         /// </summary>
         [Output("defaultSlice")]
         public Output<Outputs.SliceResourceIdResponse> DefaultSlice { get; private set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -77,7 +41,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
+        /// UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         /// </summary>
         [Output("registrationTimer")]
         public Output<int?> RegistrationTimer { get; private set; } = null!;
@@ -87,6 +51,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("rfspIndex")]
         public Output<int?> RfspIndex { get; private set; } = null!;
+
+        /// <summary>
+        /// A dictionary of sites to the provisioning state of this SIM policy on that site.
+        /// </summary>
+        [Output("siteProvisioningState")]
+        public Output<ImmutableDictionary<string, string>> SiteProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
@@ -146,6 +116,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:SimPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:SimPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:SimPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:SimPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -170,46 +141,10 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class SimPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         /// </summary>
         [Input("defaultSlice", required: true)]
         public Input<Inputs.SliceResourceIdArgs> DefaultSlice { get; set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -224,7 +159,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string> MobileNetworkName { get; set; } = null!;
 
         /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
+        /// UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         /// </summary>
         [Input("registrationTimer")]
         public Input<int>? RegistrationTimer { get; set; }
